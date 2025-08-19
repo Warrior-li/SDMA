@@ -1,0 +1,1 @@
+/usr/bin/c++  -O2 -march=native -g CMakeFiles/spmm_demo.dir/src/main.cpp.o CMakeFiles/spmm_demo.dir/src/preprocess.cpp.o CMakeFiles/spmm_demo.dir/src/spmm.cpp.o -o spmm_demo 
