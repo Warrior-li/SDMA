@@ -1,5 +1,7 @@
 #include <iostream>
+#include "spmm_device.hpp"
 #include "common.hpp"
+#include "preprocess.hpp"
 #include <iomanip>
 using namespace std;
 
@@ -14,21 +16,30 @@ void print_matrix_rowmajor(const value_t* A, index_t N, index_t M, const string&
 }
 
 int main(){
-    const index_t N = 5, M = 6;
-    // 行主存储
-    // row0: [1,0,2,0,0,0]
-    // row1: [0,3,0,4,0,0]
-    // row2: [5,0,0,0,6,0]
-    // row3: [0,7,0,4,0,8]
-    // row4: [1,0,2,0,0,9]
-    value_t A[N*M] = {
-        1,0,2,0,0,0,
-        0,3,0,4,0,0,
-        5,0,0,0,6,0,
-        0,7,0,4,0,8,
-        1,0,2,0,0,9
+    float A_dense[9] = {
+        1, 0, 2,
+        0, 3, 0,
+        4, 0, 5
     };
-    print_matrix_rowmajor(A, N, M, "Ocmake .. -DCMAKE_BUILD_TYPE=Debugriginal Matrix");
+
+    float B[12] = {
+        1, 2, 3, 4,
+        5, 6, 7, 8,
+        9, 10, 11, 12
+    };
+
+    CSR A = build_CSR(A_dense, 3, 3);
+
+    // 调用 SpMM
+    vector<float> C = spmm_via_device(A, B, 4);
+
+    cout << "C = " << endl;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 4; j++) {
+            cout << C[i*4 + j] << " ";
+        }
+        cout << endl;
+    }
 
     return 0;
 }

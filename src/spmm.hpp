@@ -1,7 +1,5 @@
 #include "common.hpp"
 
 
-
-
-
-std::vector<value_t> SpMM(const value_t * s_matrix, const value_t d_matrix, const index_t N, const index_t M, const index_t K);
+// A : CSR(N * M) B: row-majar (M * K) - > return row - majar (N * K)
+std::vector<value_t> spmm_csr_dense(const CSR &A, const value_t * B, index_t K);

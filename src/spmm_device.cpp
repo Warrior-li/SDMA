@@ -1,4 +1,5 @@
 #include "spmm.hpp"
+#include <algorithm>
 
 struct Sp_value
 {
@@ -7,13 +8,63 @@ struct Sp_value
     index_t y;
 };
 
-std::vector<value_t> pu_kernel(value_t * Dmatrix, index_t row, index_t col, Sp_value* Spbuf){
+std::vector<value_t> spmm_via_device(const CSR & A, const value_t * B, index_t K){
+    std::vector<value_t> C(static_cast<size_t>(A.N) * K, 0);
+
+    std::vector<Sp_value> tile;
+    // normally four
+    tile.reserve(TILE_NNZ);
+
+    for(index_t i = 0; i < A.N; ++i){
+        const index_t rs = A.row_ptr[i];
+        const index_t re = A.row_ptr[i + 1];
+        for(index_t p = rs; p < re; ++p){
+            tile.push_back(Sp_value{A.val[p], i , A.col_idx[p]});
+            if(static_cast<int>(tile.size()) == TILE_NNZ){
+                std::vector<value_t> buf = pu_kernel(B, K, tile.data());
+                index_t write_point = 0;
+                for(int j = 0; j < tile.size() - 1; ++j){
+                    if(tile[j].x != tile[j + 1].x){
+                        for(int k = 0; k < K; ++k){
+                            C[tile[j].x * K + k] += buf[write_point];
+                            ++write_point; 
+                        }
+                    }
+                }
+                for(int k = 0; k < K; ++k){
+                    C[tile[tile.size()].x * K + k] += buf[write_point];
+                    ++write_point; 
+                }
+            }
+            tile.clear();
+        }
+    }
+    if (!tile.empty()) {
+        std::vector<value_t> buf = pu_kernel(B, K, tile.data());
+        index_t write_point = 0;
+        for(int j = 0; j < tile.size() - 1; ++j){
+            if(tile[j].x != tile[j + 1].x){
+                for(int k = 0; k < K; ++k){
+                    C[tile[j].x * K + k] += buf[write_point];
+                    ++write_point; 
+                }
+            }
+        }
+        for(int k = 0; k < K; ++k){
+            C[tile.back().x * K + k] += buf[write_point];
+            ++write_point; 
+        }
+    }
+    return C;
+}
+
+std::vector<value_t> pu_kernel(const value_t * Dmatrix, index_t col, Sp_value* Spbuf){
     std::vector<value_t> Dbuf;
     std::vector<index_t> tile_ref;
     std::vector<value_t> Obuf;
     std::vector<value_t> tem_buf(col, 0);
     int cur_row = -1;
-    dfm(tile_ref,Spbuf, Dmatrix, row, col, Dbuf);
+    dfm(tile_ref,Spbuf, Dmatrix, col, Dbuf);
     // because there are two PEs
     int times = 0;
     while(times < TILE_NNZ){
@@ -52,7 +103,7 @@ void AU(std::vector<value_t> res,std::vector<value_t> & Obuf, int &cur_row, inde
 }
 
 
-void dfm(std::vector<index_t> & tile_ref, Sp_value * SpBuf, value_t * Dmatrix, index_t row, index_t col, std::vector<value_t>& Dbuf){
+void dfm(std::vector<index_t> & tile_ref, Sp_value * SpBuf,const value_t * Dmatrix, index_t col, std::vector<value_t>& Dbuf){
     for(int i = 0; i < TILE_NNZ; ++i){
         bool same = false;
         index_t same_ref = -1;
