@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/shuxuan/SDMA/src/main.cpp" "CMakeFiles/spmm_demo.dir/src/main.cpp.o" "gcc" "CMakeFiles/spmm_demo.dir/src/main.cpp.o.d"
   "/home/shuxuan/SDMA/src/preprocess.cpp" "CMakeFiles/spmm_demo.dir/src/preprocess.cpp.o" "gcc" "CMakeFiles/spmm_demo.dir/src/preprocess.cpp.o.d"
   "/home/shuxuan/SDMA/src/spmm.cpp" "CMakeFiles/spmm_demo.dir/src/spmm.cpp.o" "gcc" "CMakeFiles/spmm_demo.dir/src/spmm.cpp.o.d"
+  "/home/shuxuan/SDMA/src/spmm_device.cpp" "CMakeFiles/spmm_demo.dir/src/spmm_device.cpp.o" "gcc" "CMakeFiles/spmm_demo.dir/src/spmm_device.cpp.o.d"
   )
 
 # Targets to which this target links.

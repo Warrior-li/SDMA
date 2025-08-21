@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/spmm_demo.dir/src/preprocess.cpp.o.d"
   "CMakeFiles/spmm_demo.dir/src/spmm.cpp.o"
   "CMakeFiles/spmm_demo.dir/src/spmm.cpp.o.d"
+  "CMakeFiles/spmm_demo.dir/src/spmm_device.cpp.o"
+  "CMakeFiles/spmm_demo.dir/src/spmm_device.cpp.o.d"
   "spmm_demo"
   "spmm_demo.pdb"
 )

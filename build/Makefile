@@ -201,6 +201,30 @@ src/spmm.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/spmm_demo.dir/build.make CMakeFiles/spmm_demo.dir/src/spmm.cpp.s
 .PHONY : src/spmm.cpp.s
 
+src/spmm_device.o: src/spmm_device.cpp.o
+.PHONY : src/spmm_device.o
+
+# target to build an object file
+src/spmm_device.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spmm_demo.dir/build.make CMakeFiles/spmm_demo.dir/src/spmm_device.cpp.o
+.PHONY : src/spmm_device.cpp.o
+
+src/spmm_device.i: src/spmm_device.cpp.i
+.PHONY : src/spmm_device.i
+
+# target to preprocess a source file
+src/spmm_device.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spmm_demo.dir/build.make CMakeFiles/spmm_demo.dir/src/spmm_device.cpp.i
+.PHONY : src/spmm_device.cpp.i
+
+src/spmm_device.s: src/spmm_device.cpp.s
+.PHONY : src/spmm_device.s
+
+# target to generate assembly for a file
+src/spmm_device.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/spmm_demo.dir/build.make CMakeFiles/spmm_demo.dir/src/spmm_device.cpp.s
+.PHONY : src/spmm_device.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -219,6 +243,9 @@ help:
 	@echo "... src/spmm.o"
 	@echo "... src/spmm.i"
 	@echo "... src/spmm.s"
+	@echo "... src/spmm_device.o"
+	@echo "... src/spmm_device.i"
+	@echo "... src/spmm_device.s"
 .PHONY : help
 
 
