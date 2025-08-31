@@ -1,6 +1,5 @@
 #include <iostream>
 #include "spmm_device.hpp"
-#include "common.hpp"
 #include "preprocess.hpp"
 #include <iomanip>
 using namespace std;
@@ -30,6 +29,7 @@ int main(){
 
     CSR A = build_CSR(A_dense, 3, 3);
 
+
     // 调用 SpMM
     vector<float> C = spmm_via_device(A, B, 4);
 
@@ -40,6 +40,11 @@ int main(){
         }
         cout << endl;
     }
+
+    // 期望结果:
+    // 19 22 25 28
+    // 15 18 21 24
+    // 49 56 63 70
 
     return 0;
 }

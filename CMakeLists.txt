@@ -6,6 +6,7 @@ add_executable(spmm_demo
     src/main.cpp
     src/preprocess.cpp
     src/spmm.cpp
+    src/spmm_device.cpp
 )
 
 target_include_directories(spmm_demo PRIVATE src)
