@@ -1,4 +1,5 @@
 #include "spmm_device_fpga.hpp"
+#include <ap_int.h>
 
 constexpr int MAX_K = 61278;
 
