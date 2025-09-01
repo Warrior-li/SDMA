@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'spmm_hls'" level="0">
-<item name = "Date">Mon Sep  1 16:04:20 2025
+<item name = "Date">Mon Sep  1 19:27:04 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -51,14 +51,14 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 63, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">64, 12, 15085, 16552, 0</column>
+<column name="Instance">256, 44, 21597, 22296, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 143, -</column>
 <column name="Register">-, -, 519, -, -</column>
 <specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
-<specialColumn name="Utilization SLR (%)">4, ~0, 1, 3, 0</specialColumn>
+<specialColumn name="Utilization SLR (%)">19, 1, 2, 5, 0</specialColumn>
 <specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
-<specialColumn name="Utilization (%)">1, ~0, ~0, 1, 0</specialColumn>
+<specialColumn name="Utilization (%)">6, ~0, ~0, 1, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -66,7 +66,7 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="control_s_axi_U">control_s_axi, 0, 0, 748, 1320, 0</column>
-<column name="grp_dataflow_in_loop_row_loop_fu_178">dataflow_in_loop_row_loop, 64, 12, 9753, 8524, 0</column>
+<column name="grp_dataflow_in_loop_row_loop_fu_178">dataflow_in_loop_row_loop, 256, 44, 16265, 14268, 0</column>
 <column name="gmem1_m_axi_U">gmem1_m_axi, 0, 0, 764, 1118, 0</column>
 <column name="gmem2_m_axi_U">gmem2_m_axi, 0, 0, 764, 1118, 0</column>
 <column name="gmem3_m_axi_U">gmem3_m_axi, 0, 0, 764, 1118, 0</column>
@@ -90,7 +90,7 @@
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="i_3_fu_216_p2">+, 0, 0, 39, 32, 3</column>
-<column name="icmp_ln220_fu_211_p2">icmp, 0, 0, 20, 32, 32</column>
+<column name="icmp_ln248_fu_211_p2">icmp, 0, 0, 20, 32, 32</column>
 <column name="ap_sync_grp_dataflow_in_loop_row_loop_fu_178_ap_done">or, 0, 0, 2, 1, 1</column>
 <column name="ap_sync_grp_dataflow_in_loop_row_loop_fu_178_ap_ready">or, 0, 0, 2, 1, 1</column>
 </table>

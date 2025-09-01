@@ -32,7 +32,7 @@
 <Interval-max>undef</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<move_B_to_BRAM>
+<VITIS_LOOP_110_1>
 <Slack>2.92</Slack>
 <TripCount>4</TripCount>
 <Latency>undef</Latency>
@@ -40,7 +40,7 @@
 <IterationLatency>undef</IterationLatency>
 <InstanceList>
 </InstanceList>
-</move_B_to_BRAM>
+</VITIS_LOOP_110_1>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 

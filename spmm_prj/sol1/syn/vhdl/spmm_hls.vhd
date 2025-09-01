@@ -482,7 +482,7 @@ end;
 architecture behav of spmm_hls is 
     attribute CORE_GENERATION_INFO : STRING;
     attribute CORE_GENERATION_INFO of behav : architecture is
-    "spmm_hls_spmm_hls,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcu280-fsvh2892-2L-e,HLS_INPUT_CLOCK=4.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.920000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=64,HLS_SYN_DSP=0,HLS_SYN_FF=15604,HLS_SYN_LUT=16758,HLS_VERSION=2022_2}";
+    "spmm_hls_spmm_hls,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcu280-fsvh2892-2L-e,HLS_INPUT_CLOCK=4.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.920000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=256,HLS_SYN_DSP=0,HLS_SYN_FF=22116,HLS_SYN_LUT=22502,HLS_VERSION=2022_2}";
     constant ap_const_logic_1 : STD_LOGIC := '1';
     constant ap_const_logic_0 : STD_LOGIC := '0';
     constant ap_ST_fsm_state1 : STD_LOGIC_VECTOR (3 downto 0) := "0001";
@@ -807,7 +807,7 @@ architecture behav of spmm_hls is
     signal ap_sync_reg_grp_dataflow_in_loop_row_loop_fu_178_ap_done : STD_LOGIC := '0';
     signal i_fu_126 : STD_LOGIC_VECTOR (31 downto 0);
     signal i_3_fu_216_p2 : STD_LOGIC_VECTOR (31 downto 0);
-    signal icmp_ln220_fu_211_p2 : STD_LOGIC_VECTOR (0 downto 0);
+    signal icmp_ln248_fu_211_p2 : STD_LOGIC_VECTOR (0 downto 0);
     signal ap_NS_fsm : STD_LOGIC_VECTOR (3 downto 0);
     signal ap_ST_fsm_state1_blk : STD_LOGIC;
     signal ap_ST_fsm_state2_blk : STD_LOGIC;
@@ -2705,7 +2705,7 @@ begin
         end if;
     end process;
 
-    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state2, ap_CS_fsm_state4, ap_block_state4_on_subcall_done, icmp_ln220_fu_211_p2)
+    ap_NS_fsm_assign_proc : process (ap_start, ap_CS_fsm, ap_CS_fsm_state1, ap_CS_fsm_state2, ap_CS_fsm_state4, ap_block_state4_on_subcall_done, icmp_ln248_fu_211_p2)
     begin
         case ap_CS_fsm is
             when ap_ST_fsm_state1 => 
@@ -2715,7 +2715,7 @@ begin
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 end if;
             when ap_ST_fsm_state2 => 
-                if (((ap_const_logic_1 = ap_CS_fsm_state2) and (icmp_ln220_fu_211_p2 = ap_const_lv1_0))) then
+                if (((ap_const_logic_1 = ap_CS_fsm_state2) and (icmp_ln248_fu_211_p2 = ap_const_lv1_0))) then
                     ap_NS_fsm <= ap_ST_fsm_state1;
                 else
                     ap_NS_fsm <= ap_ST_fsm_state3;
@@ -2765,9 +2765,9 @@ begin
     end process;
 
 
-    ap_done_assign_proc : process(ap_CS_fsm_state2, icmp_ln220_fu_211_p2)
+    ap_done_assign_proc : process(ap_CS_fsm_state2, icmp_ln248_fu_211_p2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (icmp_ln220_fu_211_p2 = ap_const_lv1_0))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (icmp_ln248_fu_211_p2 = ap_const_lv1_0))) then 
             ap_done <= ap_const_logic_1;
         else 
             ap_done <= ap_const_logic_0;
@@ -2785,9 +2785,9 @@ begin
     end process;
 
 
-    ap_ready_assign_proc : process(ap_CS_fsm_state2, icmp_ln220_fu_211_p2)
+    ap_ready_assign_proc : process(ap_CS_fsm_state2, icmp_ln248_fu_211_p2)
     begin
-        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (icmp_ln220_fu_211_p2 = ap_const_lv1_0))) then 
+        if (((ap_const_logic_1 = ap_CS_fsm_state2) and (icmp_ln248_fu_211_p2 = ap_const_lv1_0))) then 
             ap_ready <= ap_const_logic_1;
         else 
             ap_ready <= ap_const_logic_0;
@@ -2934,7 +2934,7 @@ begin
 
     grp_dataflow_in_loop_row_loop_fu_178_ap_start <= grp_dataflow_in_loop_row_loop_fu_178_ap_start_reg;
     i_3_fu_216_p2 <= std_logic_vector(unsigned(i_fu_126) + unsigned(ap_const_lv32_4));
-    icmp_ln220_fu_211_p2 <= "1" when (unsigned(i_fu_126) < unsigned(nnz_read_reg_263)) else "0";
+    icmp_ln248_fu_211_p2 <= "1" when (unsigned(i_fu_126) < unsigned(nnz_read_reg_263)) else "0";
     m_axi_gmem0_ARADDR <= ap_const_lv64_0;
     m_axi_gmem0_ARBURST <= ap_const_lv2_0;
     m_axi_gmem0_ARCACHE <= ap_const_lv4_0;

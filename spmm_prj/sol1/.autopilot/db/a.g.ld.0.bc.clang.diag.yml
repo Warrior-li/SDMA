@@ -1,11 +1,11 @@
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 113, Column: 31 }
 Function:        _Z3dfmP8Sp_valuePbPfRjPKfj
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_114_1
+  - LoopName:        VITIS_LOOP_113_2
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
@@ -89,7 +89,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 214, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 242, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -107,7 +107,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 214, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 242, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Aggregating '
@@ -123,7 +123,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 214, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 242, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Aggregating '
@@ -139,7 +139,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 214, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 242, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Aggregating '
@@ -155,7 +155,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 214, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 242, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Aggregating '
@@ -171,7 +171,7 @@ Args:
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 113, Column: 31 }
 Function:        _Z3dfmP8Sp_valuePbPfRjPKfj
 Args:            
   - String:          'Sequential '
@@ -190,9 +190,9 @@ Args:
   - String:          ' '
   - BundleName:      gmem3,gmem4,gmem5,gmem6
   - String:          ' '
-  - LoopName:        VITIS_LOOP_114_1
+  - LoopName:        VITIS_LOOP_113_2
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:114:31'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:113:31'
   - String:          ' '
   - Function:        'dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int)'
     DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 107, Column: 0 }
@@ -201,12 +201,12 @@ Args:
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            AccessInCondBranch
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 113, Column: 31 }
 Function:        _Z3dfmP8Sp_valuePbPfRjPKfj
 Args:            
   - String:          'Access '
   - Access:          call
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 113, Column: 31 }
   - String:          ' is in the conditional branch'
   - String:          ' _XLX_SEP_ '
   - AccessID:        scevgepseq
@@ -215,9 +215,9 @@ Args:
   - String:          ' '
   - BundleName:      gmem3,gmem4,gmem5,gmem6
   - String:          ' '
-  - LoopName:        move_B_to_BRAM
+  - LoopName:        VITIS_LOOP_110_1
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:111:5'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:110:20'
   - String:          ' '
   - Function:        'dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int)'
     DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 107, Column: 0 }
@@ -276,7 +276,7 @@ Args:
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 113, Column: 31 }
 Function:        _Z3dfmP8Sp_valuePbPfRjPKfj
 Args:            
   - String:          'Could not widen since type '
@@ -290,9 +290,9 @@ Args:
   - String:          ' '
   - BundleName:      gmem3,gmem4,gmem5,gmem6
   - String:          ' '
-  - LoopName:        VITIS_LOOP_114_1
+  - LoopName:        VITIS_LOOP_113_2
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:114:31'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:113:31'
   - String:          ' '
   - Function:        'dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int)'
     DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 107, Column: 0 }
@@ -301,17 +301,17 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 113, Column: 31 }
 Function:        _Z3dfmP8Sp_valuePbPfRjPKfj
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_114_1
+  - LoopName:        VITIS_LOOP_113_2
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 113, Column: 31 }
 Function:        _Z3dfmP8Sp_valuePbPfRjPKfj.1
 Args:            
   - String:          'Multiple burst '
@@ -329,9 +329,9 @@ Args:
   - String:          ' '
   - BundleName:      gmem6
   - String:          ' '
-  - LoopName:        VITIS_LOOP_114_1
+  - LoopName:        VITIS_LOOP_113_2
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:114:31'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:113:31'
   - String:          ' '
   - Function:        'dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int) (.1)'
     DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 107, Column: 0 }
@@ -340,7 +340,7 @@ Args:
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 113, Column: 31 }
 Function:        _Z3dfmP8Sp_valuePbPfRjPKfj.1
 Args:            
   - String:          'Multiple burst '
@@ -350,9 +350,9 @@ Args:
   - String:          ' length and bit width '
   - Width:           '32'
   - String:          ' in loop '''
-  - LoopName:        VITIS_LOOP_114_1
+  - LoopName:        VITIS_LOOP_113_2
   - String:          '''('
-  - LoopLoc:         'src/spmm_device_fpga.cpp:114:31'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:113:31'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
   - BundleName:      gmem6
@@ -362,10 +362,10 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 113, Column: 31 }
 Function:        _Z3dfmP8Sp_valuePbPfRjPKfj.1
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_114_1
+  - LoopName:        VITIS_LOOP_113_2
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...

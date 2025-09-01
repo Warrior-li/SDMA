@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dfm'" level="0">
-<item name = "Date">Mon Sep  1 16:04:17 2025
+<item name = "Date">Mon Sep  1 19:26:56 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -31,12 +31,12 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126">dfm_Pipeline_VITIS_LOOP_114_1, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_dfm_Pipeline_VITIS_LOOP_113_2_fu_126">dfm_Pipeline_VITIS_LOOP_113_2, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- move_B_to_BRAM">?, ?, ?, -, -, 4, no</column>
+<column name="- VITIS_LOOP_110_1">?, ?, ?, -, -, 4, no</column>
 </table>
 </item>
 </section>
@@ -65,8 +65,8 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126">dfm_Pipeline_VITIS_LOOP_114_1, 0, 0, 100, 130, 0</column>
-<column name="mul_32s_30ns_32_2_1_U39">mul_32s_30ns_32_2_1, 0, 3, 165, 49, 0</column>
+<column name="grp_dfm_Pipeline_VITIS_LOOP_113_2_fu_126">dfm_Pipeline_VITIS_LOOP_113_2, 0, 0, 100, 130, 0</column>
+<column name="mul_32s_30ns_32_2_1_U41">mul_32s_30ns_32_2_1, 0, 3, 165, 49, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -83,11 +83,11 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln111_fu_160_p2">+, 0, 0, 10, 3, 1</column>
-<column name="add_ln114_fu_186_p2">+, 0, 0, 71, 64, 64</column>
-<column name="add_ln118_fu_218_p2">+, 0, 0, 39, 32, 32</column>
+<column name="add_ln110_fu_160_p2">+, 0, 0, 10, 3, 1</column>
+<column name="add_ln113_fu_203_p2">+, 0, 0, 71, 64, 64</column>
+<column name="add_ln117_fu_178_p2">+, 0, 0, 39, 32, 32</column>
 <column name="ap_block_state16_on_subcall_done">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_ln111_fu_154_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="icmp_ln110_fu_154_p2">icmp, 0, 0, 9, 3, 4</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
@@ -115,16 +115,16 @@
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="Dlen_0_fu_78">32, 0, 32, 0</column>
 <column name="K_cast1_reg_256">30, 0, 32, 2</column>
-<column name="add_ln111_reg_266">3, 0, 3, 0</column>
+<column name="add_ln110_reg_266">3, 0, 3, 0</column>
 <column name="ap_CS_fsm">16, 0, 16, 0</column>
-<column name="empty_44_reg_306">16, 0, 16, 0</column>
-<column name="grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_dfm_Pipeline_VITIS_LOOP_113_2_fu_126_ap_start_reg">1, 0, 1, 0</column>
 <column name="i_fu_74">3, 0, 3, 0</column>
-<column name="mul_reg_295">32, 0, 32, 0</column>
-<column name="tile_ref_load_reg_281">1, 0, 1, 0</column>
-<column name="tile_y_load_reg_290">32, 0, 32, 0</column>
-<column name="trunc_ln_reg_300">62, 0, 62, 0</column>
-<column name="zext_ln111_reg_271">3, 0, 64, 61</column>
+<column name="mul_reg_300">32, 0, 32, 0</column>
+<column name="tile_ref_load_reg_286">1, 0, 1, 0</column>
+<column name="tile_y_load_reg_295">32, 0, 32, 0</column>
+<column name="trunc_ln110_reg_281">16, 0, 16, 0</column>
+<column name="trunc_ln5_reg_305">62, 0, 62, 0</column>
+<column name="zext_ln110_reg_271">3, 0, 64, 61</column>
 </table>
 </item>
 </section>

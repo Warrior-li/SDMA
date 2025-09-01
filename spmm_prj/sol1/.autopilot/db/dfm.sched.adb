@@ -106,7 +106,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173260080</coreId>
+						<coreId>2147483647</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -142,7 +142,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173206736</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -178,7 +178,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173209664</coreId>
+						<coreId>4193784000</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -214,7 +214,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4263350736</coreId>
+						<coreId>1330007625</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>30</bitwidth>
@@ -254,7 +254,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>105017481</coreId>
+						<coreId>4193796256</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -296,7 +296,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172969328</coreId>
+						<coreId>4193392832</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -338,7 +338,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172665104</coreId>
+						<coreId>4193392536</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>30</bitwidth>
@@ -381,7 +381,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173072896</coreId>
+						<coreId>4193969280</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -424,7 +424,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4263350736</coreId>
+						<coreId>4193924552</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -448,10 +448,10 @@
 					<Obj>
 						<type>0</type>
 						<id>14</id>
-						<name>Dlen_0_write_ln111</name>
+						<name>Dlen_0_write_ln110</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -467,7 +467,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -480,7 +480,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4171159856</coreId>
+						<coreId>4193787504</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -505,10 +505,10 @@
 					<Obj>
 						<type>0</type>
 						<id>15</id>
-						<name>i_write_ln111</name>
+						<name>i_write_ln110</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -524,7 +524,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -537,7 +537,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4171777456</coreId>
+						<coreId>304</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -562,10 +562,10 @@
 					<Obj>
 						<type>0</type>
 						<id>16</id>
-						<name>br_ln111</name>
+						<name>br_ln110</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -581,7 +581,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -594,7 +594,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>10473957</coreId>
+						<coreId>4193404784</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -618,10 +618,10 @@
 					<Obj>
 						<type>0</type>
 						<id>18</id>
-						<name>i_5</name>
+						<name>i_10</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -637,7 +637,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -650,7 +650,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173356512</coreId>
+						<coreId>4193403888</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -659,7 +659,7 @@
 					<count>2</count>
 					<item_version>0</item_version>
 					<item>70</item>
-					<item>195</item>
+					<item>194</item>
 				</oprand_edges>
 				<opcode>load</opcode>
 				<m_Display>0</m_Display>
@@ -675,10 +675,10 @@
 					<Obj>
 						<type>0</type>
 						<id>19</id>
-						<name>icmp_ln111</name>
+						<name>icmp_ln110</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -694,7 +694,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -707,7 +707,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172665104</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -732,10 +732,10 @@
 					<Obj>
 						<type>0</type>
 						<id>21</id>
-						<name>add_ln111</name>
+						<name>add_ln110</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -751,7 +751,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -764,7 +764,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>15307665</coreId>
+						<coreId>4193329808</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -789,10 +789,10 @@
 					<Obj>
 						<type>0</type>
 						<id>22</id>
-						<name>br_ln111</name>
+						<name>br_ln110</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -808,7 +808,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -821,7 +821,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>15145993</coreId>
+						<coreId>4193396224</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -847,10 +847,10 @@
 					<Obj>
 						<type>0</type>
 						<id>24</id>
-						<name>zext_ln111</name>
+						<name>Dlen_0_load</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -866,7 +866,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -879,7 +879,64 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172847408</coreId>
+						<coreId>176</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>80</item>
+					<item>195</item>
+				</oprand_edges>
+				<opcode>load</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>17</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_20">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>25</id>
+						<name>zext_ln110</name>
+						<fileName>src/spmm_device_fpga.cpp</fileName>
+						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
+						<lineNumber>110</lineNumber>
+						<contextFuncName>dfm</contextFuncName>
+						<contextNormFuncName>dfm</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/shuxuan/SDMA</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/spmm_device_fpga.cpp</first>
+											<second>dfm</second>
+										</first>
+										<second>110</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -887,7 +944,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>80</item>
+					<item>81</item>
 				</oprand_edges>
 				<opcode>zext</opcode>
 				<m_Display>0</m_Display>
@@ -898,15 +955,15 @@
 				<m_topoIndex>13</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_20">
+			<item class_id_reference="9" object_id="_21">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>27</id>
-						<name>tile_ref_addr</name>
+						<id>26</id>
+						<name>trunc_ln110</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>113</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -922,7 +979,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>113</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -935,7 +992,63 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172665104</coreId>
+						<coreId>0</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>16</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>82</item>
+				</oprand_edges>
+				<opcode>trunc</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.00</m_delay>
+				<m_topoIndex>18</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_22">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>29</id>
+						<name>tile_ref_addr</name>
+						<fileName>src/spmm_device_fpga.cpp</fileName>
+						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
+						<lineNumber>112</lineNumber>
+						<contextFuncName>dfm</contextFuncName>
+						<contextNormFuncName>dfm</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/shuxuan/SDMA</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/spmm_device_fpga.cpp</first>
+											<second>dfm</second>
+										</first>
+										<second>112</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4194135936</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -943,9 +1056,9 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
-					<item>81</item>
 					<item>83</item>
-					<item>84</item>
+					<item>85</item>
+					<item>86</item>
 				</oprand_edges>
 				<opcode>getelementptr</opcode>
 				<m_Display>0</m_Display>
@@ -956,15 +1069,15 @@
 				<m_topoIndex>14</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_21">
+			<item class_id_reference="9" object_id="_23">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>28</id>
+						<id>30</id>
 						<name>tile_ref_load</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>113</lineNumber>
+						<lineNumber>112</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -980,7 +1093,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>113</second>
+										<second>112</second>
 									</item>
 								</second>
 							</item>
@@ -993,7 +1106,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173307176</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1001,7 +1114,7 @@
 				<oprand_edges>
 					<count>1</count>
 					<item_version>0</item_version>
-					<item>85</item>
+					<item>87</item>
 				</oprand_edges>
 				<opcode>load</opcode>
 				<m_Display>0</m_Display>
@@ -1012,15 +1125,15 @@
 				<m_topoIndex>15</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_22">
+			<item class_id_reference="9" object_id="_24">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>29</id>
-						<name>br_ln113</name>
+						<id>31</id>
+						<name>br_ln112</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>113</lineNumber>
+						<lineNumber>112</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1036,7 +1149,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>113</second>
+										<second>112</second>
 									</item>
 								</second>
 							</item>
@@ -1049,7 +1162,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172806352</coreId>
+						<coreId>4194101104</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1057,9 +1170,9 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
-					<item>86</item>
-					<item>87</item>
 					<item>88</item>
+					<item>89</item>
+					<item>90</item>
 				</oprand_edges>
 				<opcode>br</opcode>
 				<m_Display>0</m_Display>
@@ -1067,61 +1180,18 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>17</m_topoIndex>
+				<m_topoIndex>19</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
-			<item class_id_reference="9" object_id="_23">
+			<item class_id_reference="9" object_id="_25">
 				<Value>
 					<Obj>
 						<type>0</type>
-						<id>31</id>
-						<name>Dlen_0_load</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<contextNormFuncName></contextNormFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4172587168</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>32</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>89</item>
-					<item>197</item>
-				</oprand_edges>
-				<opcode>load</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>25</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_24">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>32</id>
+						<id>33</id>
 						<name>tile_y_addr</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1137,7 +1207,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -1150,7 +1220,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>304</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -1158,9 +1228,9 @@
 				<oprand_edges>
 					<count>3</count>
 					<item_version>0</item_version>
-					<item>90</item>
 					<item>91</item>
 					<item>92</item>
+					<item>93</item>
 				</oprand_edges>
 				<opcode>getelementptr</opcode>
 				<m_Display>0</m_Display>
@@ -1168,49 +1238,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>18</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_25">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>33</id>
-						<name>empty_44</name>
-						<fileName></fileName>
-						<fileDirectory></fileDirectory>
-						<lineNumber>0</lineNumber>
-						<contextFuncName></contextFuncName>
-						<contextNormFuncName></contextNormFuncName>
-						<inlineStackInfo>
-							<count>0</count>
-							<item_version>0</item_version>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4172863456</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>16</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>93</item>
-				</oprand_edges>
-				<opcode>trunc</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.00</m_delay>
-				<m_topoIndex>26</m_topoIndex>
+				<m_topoIndex>20</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_26">
@@ -1221,7 +1249,7 @@
 						<name>tile_y_load</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1237,7 +1265,63 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>4193796256</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>1</count>
+					<item_version>0</item_version>
+					<item>94</item>
+				</oprand_edges>
+				<opcode>load</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.69</m_delay>
+				<m_topoIndex>21</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_27">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>35</id>
+						<name>mul</name>
+						<fileName>src/spmm_device_fpga.cpp</fileName>
+						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
+						<lineNumber>110</lineNumber>
+						<contextFuncName>dfm</contextFuncName>
+						<contextNormFuncName>dfm</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/shuxuan/SDMA</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/spmm_device_fpga.cpp</first>
+											<second>dfm</second>
+										</first>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -1256,62 +1340,6 @@
 					<bitwidth>32</bitwidth>
 				</Value>
 				<oprand_edges>
-					<count>1</count>
-					<item_version>0</item_version>
-					<item>94</item>
-				</oprand_edges>
-				<opcode>load</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.69</m_delay>
-				<m_topoIndex>19</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_27">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>35</id>
-						<name>mul</name>
-						<fileName>src/spmm_device_fpga.cpp</fileName>
-						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
-						<contextFuncName>dfm</contextFuncName>
-						<contextNormFuncName>dfm</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/home/shuxuan/SDMA</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/spmm_device_fpga.cpp</first>
-											<second>dfm</second>
-										</first>
-										<second>111</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4172714240</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>32</bitwidth>
-				</Value>
-				<oprand_edges>
 					<count>2</count>
 					<item_version>0</item_version>
 					<item>95</item>
@@ -1323,7 +1351,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>2.29</m_delay>
-				<m_topoIndex>20</m_topoIndex>
+				<m_topoIndex>24</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_28">
@@ -1334,7 +1362,7 @@
 						<name>shl_ln</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>114</lineNumber>
+						<lineNumber>113</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1350,7 +1378,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>114</second>
+										<second>113</second>
 									</item>
 								</second>
 							</item>
@@ -1363,7 +1391,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173264480</coreId>
+						<coreId>4193796256</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>34</bitwidth>
@@ -1381,7 +1409,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>21</m_topoIndex>
+				<m_topoIndex>25</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_29">
@@ -1389,10 +1417,10 @@
 					<Obj>
 						<type>0</type>
 						<id>37</id>
-						<name>zext_ln114</name>
+						<name>zext_ln113</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>114</lineNumber>
+						<lineNumber>113</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1408,7 +1436,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>114</second>
+										<second>113</second>
 									</item>
 								</second>
 							</item>
@@ -1421,7 +1449,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173307216</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -1437,7 +1465,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>22</m_topoIndex>
+				<m_topoIndex>26</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_30">
@@ -1445,10 +1473,10 @@
 					<Obj>
 						<type>0</type>
 						<id>38</id>
-						<name>add_ln114</name>
+						<name>add_ln113</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>114</lineNumber>
+						<lineNumber>113</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1464,7 +1492,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>114</second>
+										<second>113</second>
 									</item>
 								</second>
 							</item>
@@ -1477,7 +1505,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172996656</coreId>
+						<coreId>4193941568</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -1494,7 +1522,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>1.14</m_delay>
-				<m_topoIndex>23</m_topoIndex>
+				<m_topoIndex>27</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_31">
@@ -1502,10 +1530,10 @@
 					<Obj>
 						<type>0</type>
 						<id>39</id>
-						<name>trunc_ln</name>
+						<name>trunc_ln5</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>114</lineNumber>
+						<lineNumber>113</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1521,7 +1549,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>114</second>
+										<second>113</second>
 									</item>
 								</second>
 							</item>
@@ -1534,7 +1562,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172715280</coreId>
+						<coreId>608</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>62</bitwidth>
@@ -1553,7 +1581,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>24</m_topoIndex>
+				<m_topoIndex>28</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_32">
@@ -1561,10 +1589,10 @@
 					<Obj>
 						<type>0</type>
 						<id>40</id>
-						<name>sext_ln114</name>
+						<name>sext_ln113</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>114</lineNumber>
+						<lineNumber>113</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1580,7 +1608,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>114</second>
+										<second>113</second>
 									</item>
 								</second>
 							</item>
@@ -1593,7 +1621,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172865856</coreId>
+						<coreId>178645095</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -1609,7 +1637,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>27</m_topoIndex>
+				<m_topoIndex>29</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_33">
@@ -1620,7 +1648,7 @@
 						<name>gmem6_addr</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>114</lineNumber>
+						<lineNumber>113</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1636,7 +1664,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>114</second>
+										<second>113</second>
 									</item>
 								</second>
 							</item>
@@ -1649,7 +1677,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172287088</coreId>
+						<coreId>4193942160</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1666,7 +1694,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.00</m_delay>
-				<m_topoIndex>28</m_topoIndex>
+				<m_topoIndex>30</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_34">
@@ -1674,10 +1702,10 @@
 					<Obj>
 						<type>0</type>
 						<id>42</id>
-						<name>empty_45</name>
+						<name>empty_57</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>114</lineNumber>
+						<lineNumber>113</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1693,7 +1721,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>114</second>
+										<second>113</second>
 									</item>
 								</second>
 							</item>
@@ -1706,7 +1734,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173125552</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1724,7 +1752,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>2.92</m_delay>
-				<m_topoIndex>29</m_topoIndex>
+				<m_topoIndex>31</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_35">
@@ -1732,10 +1760,10 @@
 					<Obj>
 						<type>0</type>
 						<id>43</id>
-						<name>_ln114</name>
+						<name>_ln113</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>114</lineNumber>
+						<lineNumber>113</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1751,7 +1779,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>114</second>
+										<second>113</second>
 									</item>
 								</second>
 							</item>
@@ -1764,7 +1792,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4171775296</coreId>
+						<coreId>4193940832</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1794,7 +1822,64 @@
 					<Obj>
 						<type>0</type>
 						<id>44</id>
-						<name>add_ln118</name>
+						<name>add_ln117</name>
+						<fileName>src/spmm_device_fpga.cpp</fileName>
+						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
+						<lineNumber>117</lineNumber>
+						<contextFuncName>dfm</contextFuncName>
+						<contextNormFuncName>dfm</contextNormFuncName>
+						<inlineStackInfo>
+							<count>1</count>
+							<item_version>0</item_version>
+							<item>
+								<first>/home/shuxuan/SDMA</first>
+								<second>
+									<count>1</count>
+									<item_version>0</item_version>
+									<item>
+										<first>
+											<first>src/spmm_device_fpga.cpp</first>
+											<second>dfm</second>
+										</first>
+										<second>117</second>
+									</item>
+								</second>
+							</item>
+						</inlineStackInfo>
+						<originalName></originalName>
+						<rtlName></rtlName>
+						<control></control>
+						<opType></opType>
+						<implIndex></implIndex>
+						<coreName></coreName>
+						<isStorage>0</isStorage>
+						<storageDepth>0</storageDepth>
+						<coreId>0</coreId>
+						<rtlModuleName></rtlModuleName>
+					</Obj>
+					<bitwidth>32</bitwidth>
+				</Value>
+				<oprand_edges>
+					<count>2</count>
+					<item_version>0</item_version>
+					<item>126</item>
+					<item>127</item>
+				</oprand_edges>
+				<opcode>add</opcode>
+				<m_Display>0</m_Display>
+				<m_isOnCriticalPath>0</m_isOnCriticalPath>
+				<m_isLCDNode>0</m_isLCDNode>
+				<m_isStartOfPath>0</m_isStartOfPath>
+				<m_delay>0.88</m_delay>
+				<m_topoIndex>22</m_topoIndex>
+				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
+			</item>
+			<item class_id_reference="9" object_id="_37">
+				<Value>
+					<Obj>
+						<type>0</type>
+						<id>45</id>
+						<name>Dlen_0_write_ln118</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
 						<lineNumber>118</lineNumber>
@@ -1826,64 +1911,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172715280</coreId>
-						<rtlModuleName></rtlModuleName>
-					</Obj>
-					<bitwidth>32</bitwidth>
-				</Value>
-				<oprand_edges>
-					<count>2</count>
-					<item_version>0</item_version>
-					<item>126</item>
-					<item>127</item>
-				</oprand_edges>
-				<opcode>add</opcode>
-				<m_Display>0</m_Display>
-				<m_isOnCriticalPath>0</m_isOnCriticalPath>
-				<m_isLCDNode>0</m_isLCDNode>
-				<m_isStartOfPath>0</m_isStartOfPath>
-				<m_delay>0.88</m_delay>
-				<m_topoIndex>30</m_topoIndex>
-				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
-			</item>
-			<item class_id_reference="9" object_id="_37">
-				<Value>
-					<Obj>
-						<type>0</type>
-						<id>45</id>
-						<name>Dlen_0_write_ln119</name>
-						<fileName>src/spmm_device_fpga.cpp</fileName>
-						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>119</lineNumber>
-						<contextFuncName>dfm</contextFuncName>
-						<contextNormFuncName>dfm</contextNormFuncName>
-						<inlineStackInfo>
-							<count>1</count>
-							<item_version>0</item_version>
-							<item>
-								<first>/home/shuxuan/SDMA</first>
-								<second>
-									<count>1</count>
-									<item_version>0</item_version>
-									<item>
-										<first>
-											<first>src/spmm_device_fpga.cpp</first>
-											<second>dfm</second>
-										</first>
-										<second>119</second>
-									</item>
-								</second>
-							</item>
-						</inlineStackInfo>
-						<originalName></originalName>
-						<rtlName></rtlName>
-						<control></control>
-						<opType></opType>
-						<implIndex></implIndex>
-						<coreName></coreName>
-						<isStorage>0</isStorage>
-						<storageDepth>0</storageDepth>
-						<coreId>4173323952</coreId>
+						<coreId>3</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1893,8 +1921,8 @@
 					<item_version>0</item_version>
 					<item>128</item>
 					<item>129</item>
-					<item>194</item>
-					<item>198</item>
+					<item>197</item>
+					<item>199</item>
 				</oprand_edges>
 				<opcode>store</opcode>
 				<m_Display>0</m_Display>
@@ -1902,7 +1930,7 @@
 				<m_isLCDNode>0</m_isLCDNode>
 				<m_isStartOfPath>0</m_isStartOfPath>
 				<m_delay>0.38</m_delay>
-				<m_topoIndex>31</m_topoIndex>
+				<m_topoIndex>23</m_topoIndex>
 				<m_clusterGroupNumber>-1</m_clusterGroupNumber>
 			</item>
 			<item class_id_reference="9" object_id="_38">
@@ -1910,10 +1938,10 @@
 					<Obj>
 						<type>0</type>
 						<id>46</id>
-						<name>br_ln119</name>
+						<name>br_ln118</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>119</lineNumber>
+						<lineNumber>118</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1929,7 +1957,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>119</second>
+										<second>118</second>
 									</item>
 								</second>
 							</item>
@@ -1942,7 +1970,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173314496</coreId>
+						<coreId>179403182</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1966,10 +1994,10 @@
 					<Obj>
 						<type>0</type>
 						<id>48</id>
-						<name>i_write_ln111</name>
+						<name>i_write_ln110</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -1985,7 +2013,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -1998,7 +2026,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>15157836</coreId>
+						<coreId>4193184448</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2009,7 +2037,7 @@
 					<item>131</item>
 					<item>132</item>
 					<item>196</item>
-					<item>199</item>
+					<item>198</item>
 				</oprand_edges>
 				<opcode>store</opcode>
 				<m_Display>0</m_Display>
@@ -2025,10 +2053,10 @@
 					<Obj>
 						<type>0</type>
 						<id>49</id>
-						<name>br_ln111</name>
+						<name>br_ln110</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>111</lineNumber>
+						<lineNumber>110</lineNumber>
 						<contextFuncName>dfm</contextFuncName>
 						<contextNormFuncName>dfm</contextNormFuncName>
 						<inlineStackInfo>
@@ -2044,7 +2072,7 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>dfm</second>
 										</first>
-										<second>111</second>
+										<second>110</second>
 									</item>
 								</second>
 							</item>
@@ -2057,7 +2085,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172825888</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2099,7 +2127,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4170394144</coreId>
+						<coreId>4193624720</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -2144,7 +2172,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1330007625</coreId>
+						<coreId>178935132</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2175,7 +2203,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>10259696</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2206,7 +2234,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>224</coreId>
+						<coreId>6775156</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -2237,7 +2265,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173062640</coreId>
+						<coreId>179397807</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -2268,7 +2296,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>84</coreId>
+						<coreId>4193188912</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -2280,7 +2308,7 @@
 				<Value>
 					<Obj>
 						<type>2</type>
-						<id>82</id>
+						<id>84</id>
 						<name>empty</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
@@ -2299,7 +2327,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>15397735</coreId>
+						<coreId>4193189696</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -2330,7 +2358,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4172710600</coreId>
+						<coreId>0</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -2361,7 +2389,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4170394576</coreId>
+						<coreId>4193940208</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2392,7 +2420,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4173521696</coreId>
+						<coreId>178613311</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -2405,7 +2433,7 @@
 					<Obj>
 						<type>2</type>
 						<id>119</id>
-						<name>dfm_Pipeline_VITIS_LOOP_114_1</name>
+						<name>dfm_Pipeline_VITIS_LOOP_113_2</name>
 						<fileName></fileName>
 						<fileDirectory></fileDirectory>
 						<lineNumber>0</lineNumber>
@@ -2423,13 +2451,13 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1480217529</coreId>
+						<coreId>1819113532</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
 				</Value>
 				<const_type>6</const_type>
-				<content>&lt;constant:dfm_Pipeline_VITIS_LOOP_114_1&gt;</content>
+				<content>&lt;constant:dfm_Pipeline_VITIS_LOOP_113_2&gt;</content>
 			</item>
 		</consts>
 		<blocks class_id="17" tracking_level="0" version="0">
@@ -2457,7 +2485,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>0</coreId>
+					<coreId>4294967295</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -2510,7 +2538,7 @@
 			<item class_id_reference="18" object_id="_54">
 				<Obj>
 					<type>3</type>
-					<id>30</id>
+					<id>32</id>
 					<name>for.body.split</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
@@ -2533,19 +2561,21 @@
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
-					<count>4</count>
+					<count>6</count>
 					<item_version>0</item_version>
 					<item>24</item>
-					<item>27</item>
-					<item>28</item>
+					<item>25</item>
+					<item>26</item>
 					<item>29</item>
+					<item>30</item>
+					<item>31</item>
 				</node_objs>
 			</item>
 			<item class_id_reference="18" object_id="_55">
 				<Obj>
 					<type>3</type>
 					<id>47</id>
-					<name>VITIS_LOOP_114_1</name>
+					<name>VITIS_LOOP_113_2</name>
 					<fileName></fileName>
 					<fileDirectory></fileDirectory>
 					<lineNumber>0</lineNumber>
@@ -2567,10 +2597,8 @@
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
-					<count>16</count>
+					<count>14</count>
 					<item_version>0</item_version>
-					<item>31</item>
-					<item>32</item>
 					<item>33</item>
 					<item>34</item>
 					<item>35</item>
@@ -2769,7 +2797,7 @@
 			<item class_id_reference="20" object_id="_74">
 				<id>78</id>
 				<edge_type>2</edge_type>
-				<source_obj>30</source_obj>
+				<source_obj>32</source_obj>
 				<sink_obj>22</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
@@ -2783,98 +2811,98 @@
 			<item class_id_reference="20" object_id="_76">
 				<id>80</id>
 				<edge_type>1</edge_type>
-				<source_obj>18</source_obj>
+				<source_obj>8</source_obj>
 				<sink_obj>24</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_77">
 				<id>81</id>
 				<edge_type>1</edge_type>
-				<source_obj>2</source_obj>
-				<sink_obj>27</sink_obj>
+				<source_obj>18</source_obj>
+				<sink_obj>25</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_78">
-				<id>83</id>
+				<id>82</id>
 				<edge_type>1</edge_type>
-				<source_obj>82</source_obj>
-				<sink_obj>27</sink_obj>
+				<source_obj>24</source_obj>
+				<sink_obj>26</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_79">
-				<id>84</id>
+				<id>83</id>
 				<edge_type>1</edge_type>
-				<source_obj>24</source_obj>
-				<sink_obj>27</sink_obj>
+				<source_obj>2</source_obj>
+				<sink_obj>29</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_80">
 				<id>85</id>
 				<edge_type>1</edge_type>
-				<source_obj>27</source_obj>
-				<sink_obj>28</sink_obj>
+				<source_obj>84</source_obj>
+				<sink_obj>29</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_81">
 				<id>86</id>
 				<edge_type>1</edge_type>
-				<source_obj>28</source_obj>
+				<source_obj>25</source_obj>
 				<sink_obj>29</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_82">
 				<id>87</id>
-				<edge_type>2</edge_type>
-				<source_obj>47</source_obj>
-				<sink_obj>29</sink_obj>
+				<edge_type>1</edge_type>
+				<source_obj>29</source_obj>
+				<sink_obj>30</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_83">
 				<id>88</id>
-				<edge_type>2</edge_type>
-				<source_obj>50</source_obj>
-				<sink_obj>29</sink_obj>
+				<edge_type>1</edge_type>
+				<source_obj>30</source_obj>
+				<sink_obj>31</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_84">
 				<id>89</id>
-				<edge_type>1</edge_type>
-				<source_obj>8</source_obj>
+				<edge_type>2</edge_type>
+				<source_obj>47</source_obj>
 				<sink_obj>31</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_85">
 				<id>90</id>
-				<edge_type>1</edge_type>
-				<source_obj>1</source_obj>
-				<sink_obj>32</sink_obj>
+				<edge_type>2</edge_type>
+				<source_obj>50</source_obj>
+				<sink_obj>31</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_86">
 				<id>91</id>
 				<edge_type>1</edge_type>
-				<source_obj>82</source_obj>
-				<sink_obj>32</sink_obj>
+				<source_obj>1</source_obj>
+				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_87">
 				<id>92</id>
 				<edge_type>1</edge_type>
-				<source_obj>24</source_obj>
-				<sink_obj>32</sink_obj>
+				<source_obj>84</source_obj>
+				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_88">
 				<id>93</id>
 				<edge_type>1</edge_type>
-				<source_obj>31</source_obj>
+				<source_obj>25</source_obj>
 				<sink_obj>33</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_89">
 				<id>94</id>
 				<edge_type>1</edge_type>
-				<source_obj>32</source_obj>
+				<source_obj>33</source_obj>
 				<sink_obj>34</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
@@ -3014,7 +3042,7 @@
 			<item class_id_reference="20" object_id="_109">
 				<id>124</id>
 				<edge_type>1</edge_type>
-				<source_obj>33</source_obj>
+				<source_obj>26</source_obj>
 				<sink_obj>43</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
@@ -3028,7 +3056,7 @@
 			<item class_id_reference="20" object_id="_111">
 				<id>126</id>
 				<edge_type>1</edge_type>
-				<source_obj>31</source_obj>
+				<source_obj>24</source_obj>
 				<sink_obj>44</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
@@ -3099,20 +3127,20 @@
 				<id>188</id>
 				<edge_type>2</edge_type>
 				<source_obj>23</source_obj>
-				<sink_obj>30</sink_obj>
+				<sink_obj>32</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_122">
 				<id>189</id>
 				<edge_type>2</edge_type>
-				<source_obj>30</source_obj>
+				<source_obj>32</source_obj>
 				<sink_obj>50</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_123">
 				<id>190</id>
 				<edge_type>2</edge_type>
-				<source_obj>30</source_obj>
+				<source_obj>32</source_obj>
 				<sink_obj>47</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
@@ -3140,15 +3168,15 @@
 			<item class_id_reference="20" object_id="_127">
 				<id>194</id>
 				<edge_type>4</edge_type>
-				<source_obj>31</source_obj>
-				<sink_obj>45</sink_obj>
+				<source_obj>15</source_obj>
+				<sink_obj>18</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_128">
 				<id>195</id>
 				<edge_type>4</edge_type>
-				<source_obj>15</source_obj>
-				<sink_obj>18</sink_obj>
+				<source_obj>14</source_obj>
+				<sink_obj>24</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_129">
@@ -3162,21 +3190,21 @@
 				<id>197</id>
 				<edge_type>4</edge_type>
 				<source_obj>14</source_obj>
-				<sink_obj>31</sink_obj>
+				<sink_obj>45</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_131">
 				<id>198</id>
 				<edge_type>4</edge_type>
-				<source_obj>14</source_obj>
-				<sink_obj>45</sink_obj>
+				<source_obj>18</source_obj>
+				<sink_obj>48</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 			<item class_id_reference="20" object_id="_132">
 				<id>199</id>
 				<edge_type>4</edge_type>
-				<source_obj>18</source_obj>
-				<sink_obj>48</sink_obj>
+				<source_obj>24</source_obj>
+				<sink_obj>45</sink_obj>
 				<is_back_edge>0</is_back_edge>
 			</item>
 		</edges>
@@ -3234,8 +3262,8 @@
 		</item>
 		<item class_id_reference="22" object_id="_135">
 			<mId>3</mId>
-			<mTag>move_B_to_BRAM</mTag>
-			<mNormTag>move_B_to_BRAM</mNormTag>
+			<mTag>VITIS_LOOP_110_1</mTag>
+			<mNormTag>VITIS_LOOP_110_1</mNormTag>
 			<mType>1</mType>
 			<sub_regions>
 				<count>0</count>
@@ -3245,7 +3273,7 @@
 				<count>4</count>
 				<item_version>0</item_version>
 				<item>23</item>
-				<item>30</item>
+				<item>32</item>
 				<item>47</item>
 				<item>50</item>
 			</basic_blocks>
@@ -3374,40 +3402,40 @@
 		<item>
 			<first>24</first>
 			<second>
-				<first>1</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
-			<first>27</first>
+			<first>25</first>
 			<second>
 				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
-			<first>28</first>
-			<second>
-				<first>1</first>
-				<second>1</second>
-			</second>
-		</item>
-		<item>
-			<first>29</first>
+			<first>26</first>
 			<second>
 				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
-			<first>31</first>
+			<first>29</first>
 			<second>
-				<first>7</first>
+				<first>1</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
-			<first>32</first>
+			<first>30</first>
+			<second>
+				<first>1</first>
+				<second>1</second>
+			</second>
+		</item>
+		<item>
+			<first>31</first>
 			<second>
 				<first>2</first>
 				<second>0</second>
@@ -3416,7 +3444,7 @@
 		<item>
 			<first>33</first>
 			<second>
-				<first>7</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -3493,14 +3521,14 @@
 		<item>
 			<first>44</first>
 			<second>
-				<first>7</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
 		<item>
 			<first>45</first>
 			<second>
-				<first>7</first>
+				<first>2</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -3551,7 +3579,7 @@
 			</second>
 		</item>
 		<item>
-			<first>30</first>
+			<first>32</first>
 			<second>
 				<first>1</first>
 				<second>2</second>

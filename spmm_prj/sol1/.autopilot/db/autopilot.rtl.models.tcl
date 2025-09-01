@@ -12,40 +12,71 @@ set SynModuleInfo {
     }
   }
   {SRCNAME pu_kernel_Pipeline_pu_save_stream_into_pu MODELNAME pu_kernel_Pipeline_pu_save_stream_into_pu RTLNAME spmm_hls_pu_kernel_Pipeline_pu_save_stream_into_pu}
-  {SRCNAME dfm_Pipeline_VITIS_LOOP_114_1 MODELNAME dfm_Pipeline_VITIS_LOOP_114_1 RTLNAME spmm_hls_dfm_Pipeline_VITIS_LOOP_114_1}
+  {SRCNAME dfm_Pipeline_VITIS_LOOP_113_2 MODELNAME dfm_Pipeline_VITIS_LOOP_113_2 RTLNAME spmm_hls_dfm_Pipeline_VITIS_LOOP_113_2}
   {SRCNAME dfm MODELNAME dfm RTLNAME spmm_hls_dfm
     SUBMODULES {
       {MODELNAME spmm_hls_mul_32s_30ns_32_2_1 RTLNAME spmm_hls_mul_32s_30ns_32_2_1 BINDTYPE op TYPE mul IMPL auto LATENCY 1 ALLOW_PRAGMA 1}
     }
   }
+  {SRCNAME pu_kernel_Pipeline_init_au MODELNAME pu_kernel_Pipeline_init_au RTLNAME spmm_hls_pu_kernel_Pipeline_init_au}
+  {SRCNAME pu_comp_Pipeline_VITIS_LOOP_129_1 MODELNAME pu_comp_Pipeline_VITIS_LOOP_129_1 RTLNAME spmm_hls_pu_comp_Pipeline_VITIS_LOOP_129_1
+    SUBMODULES {
+      {MODELNAME spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1 RTLNAME spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1 BINDTYPE op TYPE fmul IMPL maxdsp LATENCY 3 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME pu_comp MODELNAME pu_comp RTLNAME spmm_hls_pu_comp
+    SUBMODULES {
+      {MODELNAME spmm_hls_mul_mul_16s_16s_16_4_1 RTLNAME spmm_hls_mul_mul_16s_16s_16_4_1 BINDTYPE op TYPE all IMPL dsp48 LATENCY 3 ALLOW_PRAGMA 1}
+    }
+  }
+  {SRCNAME pu_kernel_Pipeline_VITIS_LOOP_190_3 MODELNAME pu_kernel_Pipeline_VITIS_LOOP_190_3 RTLNAME spmm_hls_pu_kernel_Pipeline_VITIS_LOOP_190_3}
+  {SRCNAME pu_kernel_Pipeline_VITIS_LOOP_185_2 MODELNAME pu_kernel_Pipeline_VITIS_LOOP_185_2 RTLNAME spmm_hls_pu_kernel_Pipeline_VITIS_LOOP_185_2
+    SUBMODULES {
+      {MODELNAME spmm_hls_fadd_32ns_32ns_32_7_full_dsp_1 RTLNAME spmm_hls_fadd_32ns_32ns_32_7_full_dsp_1 BINDTYPE op TYPE fadd IMPL fulldsp LATENCY 6 ALLOW_PRAGMA 1}
+    }
+  }
   {SRCNAME pu_kernel MODELNAME pu_kernel RTLNAME spmm_hls_pu_kernel
     SUBMODULES {
-      {MODELNAME spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_0R0W RTLNAME spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_0R0W BINDTYPE storage TYPE ram_2p IMPL bram LATENCY 2 ALLOW_PRAGMA 1}
-      {MODELNAME spmm_hls_pu_kernel_tile_y_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_tile_y_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W RTLNAME spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W BINDTYPE storage TYPE ram_2p IMPL bram LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_tile_value_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_tile_value_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
       {MODELNAME spmm_hls_pu_kernel_tile_ref_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_tile_ref_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
-      {MODELNAME spmm_hls_pu_kernel_p_v_y_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_p_v_y_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_p_v_value_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_p_v_value_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
       {MODELNAME spmm_hls_pu_kernel_p_ref_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_p_ref_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_resA_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_resA_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
     }
   }
-  {SRCNAME pu_kernel.8_Pipeline_pu_save_stream_into_pu MODELNAME pu_kernel_8_Pipeline_pu_save_stream_into_pu RTLNAME spmm_hls_pu_kernel_8_Pipeline_pu_save_stream_into_pu}
-  {SRCNAME pu_kernel.8 MODELNAME pu_kernel_8 RTLNAME spmm_hls_pu_kernel_8
+  {SRCNAME pu_kernel.1_Pipeline_pu_save_stream_into_pu MODELNAME pu_kernel_1_Pipeline_pu_save_stream_into_pu RTLNAME spmm_hls_pu_kernel_1_Pipeline_pu_save_stream_into_pu}
+  {SRCNAME pu_kernel.1_Pipeline_init_au MODELNAME pu_kernel_1_Pipeline_init_au RTLNAME spmm_hls_pu_kernel_1_Pipeline_init_au}
+  {SRCNAME pu_kernel.1_Pipeline_VITIS_LOOP_190_3 MODELNAME pu_kernel_1_Pipeline_VITIS_LOOP_190_3 RTLNAME spmm_hls_pu_kernel_1_Pipeline_VITIS_LOOP_190_3}
+  {SRCNAME pu_kernel.1_Pipeline_VITIS_LOOP_185_2 MODELNAME pu_kernel_1_Pipeline_VITIS_LOOP_185_2 RTLNAME spmm_hls_pu_kernel_1_Pipeline_VITIS_LOOP_185_2}
+  {SRCNAME pu_kernel.1 MODELNAME pu_kernel_1 RTLNAME spmm_hls_pu_kernel_1
     SUBMODULES {
-      {MODELNAME spmm_hls_pu_kernel_8_tile_y_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_8_tile_y_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
-      {MODELNAME spmm_hls_pu_kernel_8_tile_ref_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_8_tile_ref_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_1_tile_ref_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_1_tile_ref_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_1_resA_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_1_resA_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_1_AU0_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_1_AU0_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
     }
   }
-  {SRCNAME pu_kernel.9_Pipeline_pu_save_stream_into_pu MODELNAME pu_kernel_9_Pipeline_pu_save_stream_into_pu RTLNAME spmm_hls_pu_kernel_9_Pipeline_pu_save_stream_into_pu}
-  {SRCNAME pu_kernel.9 MODELNAME pu_kernel_9 RTLNAME spmm_hls_pu_kernel_9
+  {SRCNAME pu_kernel.2_Pipeline_pu_save_stream_into_pu MODELNAME pu_kernel_2_Pipeline_pu_save_stream_into_pu RTLNAME spmm_hls_pu_kernel_2_Pipeline_pu_save_stream_into_pu}
+  {SRCNAME pu_kernel.2_Pipeline_init_au MODELNAME pu_kernel_2_Pipeline_init_au RTLNAME spmm_hls_pu_kernel_2_Pipeline_init_au}
+  {SRCNAME pu_kernel.2_Pipeline_VITIS_LOOP_190_3 MODELNAME pu_kernel_2_Pipeline_VITIS_LOOP_190_3 RTLNAME spmm_hls_pu_kernel_2_Pipeline_VITIS_LOOP_190_3}
+  {SRCNAME pu_kernel.2_Pipeline_VITIS_LOOP_185_2 MODELNAME pu_kernel_2_Pipeline_VITIS_LOOP_185_2 RTLNAME spmm_hls_pu_kernel_2_Pipeline_VITIS_LOOP_185_2}
+  {SRCNAME pu_kernel.2 MODELNAME pu_kernel_2 RTLNAME spmm_hls_pu_kernel_2
     SUBMODULES {
-      {MODELNAME spmm_hls_pu_kernel_9_tile_y_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_9_tile_y_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
-      {MODELNAME spmm_hls_pu_kernel_9_tile_ref_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_9_tile_ref_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_2_tile_ref_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_2_tile_ref_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_2_resA_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_2_resA_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_2_AU0_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_2_AU0_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
     }
   }
-  {SRCNAME pu_kernel.10_Pipeline_pu_save_stream_into_pu MODELNAME pu_kernel_10_Pipeline_pu_save_stream_into_pu RTLNAME spmm_hls_pu_kernel_10_Pipeline_pu_save_stream_into_pu}
-  {SRCNAME pu_kernel.10 MODELNAME pu_kernel_10 RTLNAME spmm_hls_pu_kernel_10
+  {SRCNAME pu_kernel.3_Pipeline_pu_save_stream_into_pu MODELNAME pu_kernel_3_Pipeline_pu_save_stream_into_pu RTLNAME spmm_hls_pu_kernel_3_Pipeline_pu_save_stream_into_pu}
+  {SRCNAME pu_kernel.3_Pipeline_init_au MODELNAME pu_kernel_3_Pipeline_init_au RTLNAME spmm_hls_pu_kernel_3_Pipeline_init_au}
+  {SRCNAME pu_kernel.3_Pipeline_VITIS_LOOP_190_3 MODELNAME pu_kernel_3_Pipeline_VITIS_LOOP_190_3 RTLNAME spmm_hls_pu_kernel_3_Pipeline_VITIS_LOOP_190_3}
+  {SRCNAME pu_kernel.3_Pipeline_VITIS_LOOP_185_2 MODELNAME pu_kernel_3_Pipeline_VITIS_LOOP_185_2 RTLNAME spmm_hls_pu_kernel_3_Pipeline_VITIS_LOOP_185_2}
+  {SRCNAME pu_kernel.3 MODELNAME pu_kernel_3 RTLNAME spmm_hls_pu_kernel_3
     SUBMODULES {
-      {MODELNAME spmm_hls_pu_kernel_10_tile_y_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_10_tile_y_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
-      {MODELNAME spmm_hls_pu_kernel_10_tile_ref_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_10_tile_ref_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_3_tile_ref_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_3_tile_ref_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_3_resA_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_3_resA_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
+      {MODELNAME spmm_hls_pu_kernel_3_AU0_RAM_AUTO_1R1W RTLNAME spmm_hls_pu_kernel_3_AU0_RAM_AUTO_1R1W BINDTYPE storage TYPE ram IMPL auto LATENCY 2 ALLOW_PRAGMA 1}
     }
   }
   {SRCNAME dataflow_in_loop_row_loop MODELNAME dataflow_in_loop_row_loop RTLNAME spmm_hls_dataflow_in_loop_row_loop

@@ -14,9 +14,16 @@ module spmm_hls_pu_kernel_Pipeline_pu_save_stream_into_pu (
         ap_done,
         ap_idle,
         ap_ready,
+        p_v_value_address0,
+        p_v_value_ce0,
+        p_v_value_q0,
         p_v_y_address0,
         p_v_y_ce0,
         p_v_y_q0,
+        tile_value_address0,
+        tile_value_ce0,
+        tile_value_we0,
+        tile_value_d0,
         tile_y_address0,
         tile_y_ce0,
         tile_y_we0,
@@ -38,9 +45,16 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
+output  [1:0] p_v_value_address0;
+output   p_v_value_ce0;
+input  [31:0] p_v_value_q0;
 output  [1:0] p_v_y_address0;
 output   p_v_y_ce0;
 input  [31:0] p_v_y_q0;
+output  [1:0] tile_value_address0;
+output   tile_value_ce0;
+output   tile_value_we0;
+output  [31:0] tile_value_d0;
 output  [1:0] tile_y_address0;
 output   tile_y_ce0;
 output   tile_y_we0;
@@ -54,7 +68,10 @@ output   tile_ref_we0;
 output  [0:0] tile_ref_d0;
 
 reg ap_idle;
+reg p_v_value_ce0;
 reg p_v_y_ce0;
+reg tile_value_ce0;
+reg tile_value_we0;
 reg tile_y_ce0;
 reg tile_y_we0;
 reg p_ref_ce0;
@@ -69,16 +86,16 @@ reg    ap_idle_pp0;
 wire    ap_block_state1_pp0_stage0_iter0;
 wire    ap_block_state2_pp0_stage0_iter1;
 wire    ap_block_pp0_stage0_subdone;
-wire   [0:0] icmp_ln154_fu_98_p2;
+wire   [0:0] icmp_ln154_fu_129_p2;
 reg    ap_condition_exit_pp0_iter0_stage0;
 wire    ap_loop_exit_ready;
 reg    ap_ready_int;
-wire   [63:0] zext_ln154_fu_110_p1;
-reg   [63:0] zext_ln154_reg_131;
+wire   [63:0] zext_ln154_fu_141_p1;
+reg   [63:0] zext_ln154_reg_163;
 wire    ap_block_pp0_stage0_11001;
 wire    ap_block_pp0_stage0;
-reg   [2:0] u_fu_32;
-wire   [2:0] add_ln154_fu_104_p2;
+reg   [2:0] u_fu_36;
+wire   [2:0] add_ln154_fu_135_p2;
 wire    ap_loop_init;
 reg   [2:0] ap_sig_allocacmp_u_1;
 reg    ap_done_reg;
@@ -145,22 +162,22 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        if (((icmp_ln154_fu_98_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
-            u_fu_32 <= add_ln154_fu_104_p2;
+        if (((icmp_ln154_fu_129_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
+            u_fu_36 <= add_ln154_fu_135_p2;
         end else if ((ap_loop_init == 1'b1)) begin
-            u_fu_32 <= 3'd0;
+            u_fu_36 <= 3'd0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln154_fu_98_p2 == 1'd0) & (1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        zext_ln154_reg_131[2 : 0] <= zext_ln154_fu_110_p1[2 : 0];
+    if (((icmp_ln154_fu_129_p2 == 1'd0) & (1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        zext_ln154_reg_163[2 : 0] <= zext_ln154_fu_141_p1[2 : 0];
     end
 end
 
 always @ (*) begin
-    if (((icmp_ln154_fu_98_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((icmp_ln154_fu_129_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b0;
@@ -200,10 +217,10 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_loop_init == 1'b1) & (1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_loop_init == 1'b1))) begin
         ap_sig_allocacmp_u_1 = 3'd0;
     end else begin
-        ap_sig_allocacmp_u_1 = u_fu_32;
+        ap_sig_allocacmp_u_1 = u_fu_36;
     end
 end
 
@@ -212,6 +229,14 @@ always @ (*) begin
         p_ref_ce0 = 1'b1;
     end else begin
         p_ref_ce0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        p_v_value_ce0 = 1'b1;
+    end else begin
+        p_v_value_ce0 = 1'b0;
     end
 end
 
@@ -236,6 +261,22 @@ always @ (*) begin
         tile_ref_we0 = 1'b1;
     end else begin
         tile_ref_we0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        tile_value_ce0 = 1'b1;
+    end else begin
+        tile_value_ce0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        tile_value_we0 = 1'b1;
+    end else begin
+        tile_value_we0 = 1'b0;
     end
 end
 
@@ -266,7 +307,7 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln154_fu_104_p2 = (ap_sig_allocacmp_u_1 + 3'd1);
+assign add_ln154_fu_135_p2 = (ap_sig_allocacmp_u_1 + 3'd1);
 
 assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
@@ -286,24 +327,30 @@ assign ap_enable_reg_pp0_iter0 = ap_start_int;
 
 assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
-assign icmp_ln154_fu_98_p2 = ((ap_sig_allocacmp_u_1 == 3'd4) ? 1'b1 : 1'b0);
+assign icmp_ln154_fu_129_p2 = ((ap_sig_allocacmp_u_1 == 3'd4) ? 1'b1 : 1'b0);
 
-assign p_ref_address0 = zext_ln154_fu_110_p1;
+assign p_ref_address0 = zext_ln154_fu_141_p1;
 
-assign p_v_y_address0 = zext_ln154_fu_110_p1;
+assign p_v_value_address0 = zext_ln154_fu_141_p1;
 
-assign tile_ref_address0 = zext_ln154_reg_131;
+assign p_v_y_address0 = zext_ln154_fu_141_p1;
+
+assign tile_ref_address0 = zext_ln154_reg_163;
 
 assign tile_ref_d0 = p_ref_q0;
 
-assign tile_y_address0 = zext_ln154_reg_131;
+assign tile_value_address0 = zext_ln154_reg_163;
+
+assign tile_value_d0 = p_v_value_q0;
+
+assign tile_y_address0 = zext_ln154_reg_163;
 
 assign tile_y_d0 = p_v_y_q0;
 
-assign zext_ln154_fu_110_p1 = ap_sig_allocacmp_u_1;
+assign zext_ln154_fu_141_p1 = ap_sig_allocacmp_u_1;
 
 always @ (posedge ap_clk) begin
-    zext_ln154_reg_131[63:3] <= 61'b0000000000000000000000000000000000000000000000000000000000000;
+    zext_ln154_reg_163[63:3] <= 61'b0000000000000000000000000000000000000000000000000000000000000;
 end
 
 endmodule //spmm_hls_pu_kernel_Pipeline_pu_save_stream_into_pu

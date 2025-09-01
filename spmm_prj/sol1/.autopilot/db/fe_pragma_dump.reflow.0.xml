@@ -1,41 +1,43 @@
 <pragmas>
-<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<TilePkt, 0>::operator<<(TilePkt const&)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
 <pragma file="src/spmm_device_fpga.cpp" line="108" pragmaType="inline" parentfunction="dfm" off="1" region="0" recursive="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="112" pragmaType="pipeline" parentfunction="dfm" off="0" ii="1" rewind="0" style=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="115" pragmaType="pipeline" parentfunction="dfm" off="0" ii="1" rewind="0" style=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="129" pragmaType="inline" parentfunction="pu_comp" off="1" region="0" recursive="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="131" pragmaType="pipeline" parentfunction="pu_comp" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="111" pragmaType="pipeline" parentfunction="dfm" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="114" pragmaType="pipeline" parentfunction="dfm" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="128" pragmaType="inline" parentfunction="pu_comp" off="1" region="0" recursive="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="130" pragmaType="pipeline" parentfunction="pu_comp" off="0" ii="1" rewind="0" style=""/>
 <pragma file="src/spmm_device_fpga.cpp" line="142" pragmaType="inline" parentfunction="pu_kernel" off="1" region="0" recursive="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="165" pragmaType="dataflow" parentfunction="pu_kernel" disable_start_propagation="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="191" pragmaType="pipeline" parentfunction="pu_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="186" pragmaType="pipeline" parentfunction="pu_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="169" pragmaType="pipeline" parentfunction="pu_kernel" off="0" ii="1" rewind="0" style=""/>
 <pragma file="src/spmm_device_fpga.cpp" line="155" pragmaType="pipeline" parentfunction="pu_kernel" off="0" ii="1" rewind="0" style=""/>
 <pragma file="src/spmm_device_fpga.cpp" line="145" pragmaType="bind_storage" parentfunction="pu_kernel" op="666" impl="22" latency="-1" variable="Dbuf"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="221" pragmaType="dataflow" parentfunction="spmm_hls" disable_start_propagation="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="191" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="row_ptr" bundle="gmem0" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="192" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="col_idx" bundle="gmem1" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="193" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="a_val" bundle="gmem2" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="194" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B1" bundle="gmem3" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="195" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B2" bundle="gmem4" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="196" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B3" bundle="gmem5" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="197" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B4" bundle="gmem6" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="198" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="C" bundle="gmem7" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="200" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="N" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="201" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="M" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="202" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="K" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="203" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="nnz" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="204" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="row_ptr" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="205" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="col_idx" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="206" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="a_val" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="207" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="B1" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="208" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="B2" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="209" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="B3" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="210" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="B4" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="211" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="C" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="212" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="215" pragmaType="stream" parentfunction="spmm_hls" depth="16" type="fifo" variable="s"/>
+<pragma file="src/spmm_device_fpga.cpp" line="249" pragmaType="dataflow" parentfunction="spmm_hls" disable_start_propagation="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="219" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="row_ptr" bundle="gmem0" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="220" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="col_idx" bundle="gmem1" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="221" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="a_val" bundle="gmem2" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="222" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B1" bundle="gmem3" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="223" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B2" bundle="gmem4" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="224" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B3" bundle="gmem5" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="225" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B4" bundle="gmem6" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="226" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="C" bundle="gmem7" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="228" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="N" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="229" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="M" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="230" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="K" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="231" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="nnz" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="232" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="row_ptr" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="233" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="col_idx" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="234" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="a_val" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="235" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="B1" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="236" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="B2" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="237" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="B3" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="238" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="B4" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="239" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="C" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="240" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="243" pragmaType="stream" parentfunction="spmm_hls" depth="16" type="fifo" variable="s"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<TilePkt, 0>::stream()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<TilePkt, 0>::operator<<(TilePkt const&)" off="0" region="0" recursive="0"/>
 <pragma file="src/spmm_device_fpga.cpp" line="0" pragmaType="inline" parentfunction="set_tile_broadcast" off="1" region="0" recursive="0"/>
 <pragma file="src/spmm_device_fpga.cpp" line="95" pragmaType="unroll" parentfunction="set_tile_broadcast" factor="-1" skip_exit_check="0"/>
 <pragma file="src/spmm_device_fpga.cpp" line="58" pragmaType="pipeline" parentfunction="set_tile_broadcast" off="0" ii="1" rewind="0" style=""/>

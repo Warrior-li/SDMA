@@ -730,120 +730,120 @@ wire   [0:0] pu_kernel_U0_m_axi_gmem3_ARUSER;
 wire    pu_kernel_U0_m_axi_gmem3_RREADY;
 wire    pu_kernel_U0_m_axi_gmem3_BREADY;
 wire    ap_sync_continue;
-wire    pu_kernel_8_U0_ap_start;
-wire    pu_kernel_8_U0_ap_done;
-wire    pu_kernel_8_U0_ap_continue;
-wire    pu_kernel_8_U0_ap_idle;
-wire    pu_kernel_8_U0_ap_ready;
-wire    pu_kernel_8_U0_s_12_read;
-wire    pu_kernel_8_U0_m_axi_gmem4_AWVALID;
-wire   [63:0] pu_kernel_8_U0_m_axi_gmem4_AWADDR;
-wire   [0:0] pu_kernel_8_U0_m_axi_gmem4_AWID;
-wire   [31:0] pu_kernel_8_U0_m_axi_gmem4_AWLEN;
-wire   [2:0] pu_kernel_8_U0_m_axi_gmem4_AWSIZE;
-wire   [1:0] pu_kernel_8_U0_m_axi_gmem4_AWBURST;
-wire   [1:0] pu_kernel_8_U0_m_axi_gmem4_AWLOCK;
-wire   [3:0] pu_kernel_8_U0_m_axi_gmem4_AWCACHE;
-wire   [2:0] pu_kernel_8_U0_m_axi_gmem4_AWPROT;
-wire   [3:0] pu_kernel_8_U0_m_axi_gmem4_AWQOS;
-wire   [3:0] pu_kernel_8_U0_m_axi_gmem4_AWREGION;
-wire   [0:0] pu_kernel_8_U0_m_axi_gmem4_AWUSER;
-wire    pu_kernel_8_U0_m_axi_gmem4_WVALID;
-wire   [31:0] pu_kernel_8_U0_m_axi_gmem4_WDATA;
-wire   [3:0] pu_kernel_8_U0_m_axi_gmem4_WSTRB;
-wire    pu_kernel_8_U0_m_axi_gmem4_WLAST;
-wire   [0:0] pu_kernel_8_U0_m_axi_gmem4_WID;
-wire   [0:0] pu_kernel_8_U0_m_axi_gmem4_WUSER;
-wire    pu_kernel_8_U0_m_axi_gmem4_ARVALID;
-wire   [63:0] pu_kernel_8_U0_m_axi_gmem4_ARADDR;
-wire   [0:0] pu_kernel_8_U0_m_axi_gmem4_ARID;
-wire   [31:0] pu_kernel_8_U0_m_axi_gmem4_ARLEN;
-wire   [2:0] pu_kernel_8_U0_m_axi_gmem4_ARSIZE;
-wire   [1:0] pu_kernel_8_U0_m_axi_gmem4_ARBURST;
-wire   [1:0] pu_kernel_8_U0_m_axi_gmem4_ARLOCK;
-wire   [3:0] pu_kernel_8_U0_m_axi_gmem4_ARCACHE;
-wire   [2:0] pu_kernel_8_U0_m_axi_gmem4_ARPROT;
-wire   [3:0] pu_kernel_8_U0_m_axi_gmem4_ARQOS;
-wire   [3:0] pu_kernel_8_U0_m_axi_gmem4_ARREGION;
-wire   [0:0] pu_kernel_8_U0_m_axi_gmem4_ARUSER;
-wire    pu_kernel_8_U0_m_axi_gmem4_RREADY;
-wire    pu_kernel_8_U0_m_axi_gmem4_BREADY;
-wire    pu_kernel_9_U0_ap_start;
-wire    pu_kernel_9_U0_ap_done;
-wire    pu_kernel_9_U0_ap_continue;
-wire    pu_kernel_9_U0_ap_idle;
-wire    pu_kernel_9_U0_ap_ready;
-wire    pu_kernel_9_U0_s_23_read;
-wire    pu_kernel_9_U0_m_axi_gmem5_AWVALID;
-wire   [63:0] pu_kernel_9_U0_m_axi_gmem5_AWADDR;
-wire   [0:0] pu_kernel_9_U0_m_axi_gmem5_AWID;
-wire   [31:0] pu_kernel_9_U0_m_axi_gmem5_AWLEN;
-wire   [2:0] pu_kernel_9_U0_m_axi_gmem5_AWSIZE;
-wire   [1:0] pu_kernel_9_U0_m_axi_gmem5_AWBURST;
-wire   [1:0] pu_kernel_9_U0_m_axi_gmem5_AWLOCK;
-wire   [3:0] pu_kernel_9_U0_m_axi_gmem5_AWCACHE;
-wire   [2:0] pu_kernel_9_U0_m_axi_gmem5_AWPROT;
-wire   [3:0] pu_kernel_9_U0_m_axi_gmem5_AWQOS;
-wire   [3:0] pu_kernel_9_U0_m_axi_gmem5_AWREGION;
-wire   [0:0] pu_kernel_9_U0_m_axi_gmem5_AWUSER;
-wire    pu_kernel_9_U0_m_axi_gmem5_WVALID;
-wire   [31:0] pu_kernel_9_U0_m_axi_gmem5_WDATA;
-wire   [3:0] pu_kernel_9_U0_m_axi_gmem5_WSTRB;
-wire    pu_kernel_9_U0_m_axi_gmem5_WLAST;
-wire   [0:0] pu_kernel_9_U0_m_axi_gmem5_WID;
-wire   [0:0] pu_kernel_9_U0_m_axi_gmem5_WUSER;
-wire    pu_kernel_9_U0_m_axi_gmem5_ARVALID;
-wire   [63:0] pu_kernel_9_U0_m_axi_gmem5_ARADDR;
-wire   [0:0] pu_kernel_9_U0_m_axi_gmem5_ARID;
-wire   [31:0] pu_kernel_9_U0_m_axi_gmem5_ARLEN;
-wire   [2:0] pu_kernel_9_U0_m_axi_gmem5_ARSIZE;
-wire   [1:0] pu_kernel_9_U0_m_axi_gmem5_ARBURST;
-wire   [1:0] pu_kernel_9_U0_m_axi_gmem5_ARLOCK;
-wire   [3:0] pu_kernel_9_U0_m_axi_gmem5_ARCACHE;
-wire   [2:0] pu_kernel_9_U0_m_axi_gmem5_ARPROT;
-wire   [3:0] pu_kernel_9_U0_m_axi_gmem5_ARQOS;
-wire   [3:0] pu_kernel_9_U0_m_axi_gmem5_ARREGION;
-wire   [0:0] pu_kernel_9_U0_m_axi_gmem5_ARUSER;
-wire    pu_kernel_9_U0_m_axi_gmem5_RREADY;
-wire    pu_kernel_9_U0_m_axi_gmem5_BREADY;
-wire    pu_kernel_10_U0_ap_start;
-wire    pu_kernel_10_U0_ap_done;
-wire    pu_kernel_10_U0_ap_continue;
-wire    pu_kernel_10_U0_ap_idle;
-wire    pu_kernel_10_U0_ap_ready;
-wire    pu_kernel_10_U0_s_34_read;
-wire    pu_kernel_10_U0_m_axi_gmem6_AWVALID;
-wire   [63:0] pu_kernel_10_U0_m_axi_gmem6_AWADDR;
-wire   [0:0] pu_kernel_10_U0_m_axi_gmem6_AWID;
-wire   [31:0] pu_kernel_10_U0_m_axi_gmem6_AWLEN;
-wire   [2:0] pu_kernel_10_U0_m_axi_gmem6_AWSIZE;
-wire   [1:0] pu_kernel_10_U0_m_axi_gmem6_AWBURST;
-wire   [1:0] pu_kernel_10_U0_m_axi_gmem6_AWLOCK;
-wire   [3:0] pu_kernel_10_U0_m_axi_gmem6_AWCACHE;
-wire   [2:0] pu_kernel_10_U0_m_axi_gmem6_AWPROT;
-wire   [3:0] pu_kernel_10_U0_m_axi_gmem6_AWQOS;
-wire   [3:0] pu_kernel_10_U0_m_axi_gmem6_AWREGION;
-wire   [0:0] pu_kernel_10_U0_m_axi_gmem6_AWUSER;
-wire    pu_kernel_10_U0_m_axi_gmem6_WVALID;
-wire   [31:0] pu_kernel_10_U0_m_axi_gmem6_WDATA;
-wire   [3:0] pu_kernel_10_U0_m_axi_gmem6_WSTRB;
-wire    pu_kernel_10_U0_m_axi_gmem6_WLAST;
-wire   [0:0] pu_kernel_10_U0_m_axi_gmem6_WID;
-wire   [0:0] pu_kernel_10_U0_m_axi_gmem6_WUSER;
-wire    pu_kernel_10_U0_m_axi_gmem6_ARVALID;
-wire   [63:0] pu_kernel_10_U0_m_axi_gmem6_ARADDR;
-wire   [0:0] pu_kernel_10_U0_m_axi_gmem6_ARID;
-wire   [31:0] pu_kernel_10_U0_m_axi_gmem6_ARLEN;
-wire   [2:0] pu_kernel_10_U0_m_axi_gmem6_ARSIZE;
-wire   [1:0] pu_kernel_10_U0_m_axi_gmem6_ARBURST;
-wire   [1:0] pu_kernel_10_U0_m_axi_gmem6_ARLOCK;
-wire   [3:0] pu_kernel_10_U0_m_axi_gmem6_ARCACHE;
-wire   [2:0] pu_kernel_10_U0_m_axi_gmem6_ARPROT;
-wire   [3:0] pu_kernel_10_U0_m_axi_gmem6_ARQOS;
-wire   [3:0] pu_kernel_10_U0_m_axi_gmem6_ARREGION;
-wire   [0:0] pu_kernel_10_U0_m_axi_gmem6_ARUSER;
-wire    pu_kernel_10_U0_m_axi_gmem6_RREADY;
-wire    pu_kernel_10_U0_m_axi_gmem6_BREADY;
+wire    pu_kernel_1_U0_ap_start;
+wire    pu_kernel_1_U0_ap_done;
+wire    pu_kernel_1_U0_ap_continue;
+wire    pu_kernel_1_U0_ap_idle;
+wire    pu_kernel_1_U0_ap_ready;
+wire    pu_kernel_1_U0_s_12_read;
+wire    pu_kernel_1_U0_m_axi_gmem4_AWVALID;
+wire   [63:0] pu_kernel_1_U0_m_axi_gmem4_AWADDR;
+wire   [0:0] pu_kernel_1_U0_m_axi_gmem4_AWID;
+wire   [31:0] pu_kernel_1_U0_m_axi_gmem4_AWLEN;
+wire   [2:0] pu_kernel_1_U0_m_axi_gmem4_AWSIZE;
+wire   [1:0] pu_kernel_1_U0_m_axi_gmem4_AWBURST;
+wire   [1:0] pu_kernel_1_U0_m_axi_gmem4_AWLOCK;
+wire   [3:0] pu_kernel_1_U0_m_axi_gmem4_AWCACHE;
+wire   [2:0] pu_kernel_1_U0_m_axi_gmem4_AWPROT;
+wire   [3:0] pu_kernel_1_U0_m_axi_gmem4_AWQOS;
+wire   [3:0] pu_kernel_1_U0_m_axi_gmem4_AWREGION;
+wire   [0:0] pu_kernel_1_U0_m_axi_gmem4_AWUSER;
+wire    pu_kernel_1_U0_m_axi_gmem4_WVALID;
+wire   [31:0] pu_kernel_1_U0_m_axi_gmem4_WDATA;
+wire   [3:0] pu_kernel_1_U0_m_axi_gmem4_WSTRB;
+wire    pu_kernel_1_U0_m_axi_gmem4_WLAST;
+wire   [0:0] pu_kernel_1_U0_m_axi_gmem4_WID;
+wire   [0:0] pu_kernel_1_U0_m_axi_gmem4_WUSER;
+wire    pu_kernel_1_U0_m_axi_gmem4_ARVALID;
+wire   [63:0] pu_kernel_1_U0_m_axi_gmem4_ARADDR;
+wire   [0:0] pu_kernel_1_U0_m_axi_gmem4_ARID;
+wire   [31:0] pu_kernel_1_U0_m_axi_gmem4_ARLEN;
+wire   [2:0] pu_kernel_1_U0_m_axi_gmem4_ARSIZE;
+wire   [1:0] pu_kernel_1_U0_m_axi_gmem4_ARBURST;
+wire   [1:0] pu_kernel_1_U0_m_axi_gmem4_ARLOCK;
+wire   [3:0] pu_kernel_1_U0_m_axi_gmem4_ARCACHE;
+wire   [2:0] pu_kernel_1_U0_m_axi_gmem4_ARPROT;
+wire   [3:0] pu_kernel_1_U0_m_axi_gmem4_ARQOS;
+wire   [3:0] pu_kernel_1_U0_m_axi_gmem4_ARREGION;
+wire   [0:0] pu_kernel_1_U0_m_axi_gmem4_ARUSER;
+wire    pu_kernel_1_U0_m_axi_gmem4_RREADY;
+wire    pu_kernel_1_U0_m_axi_gmem4_BREADY;
+wire    pu_kernel_2_U0_ap_start;
+wire    pu_kernel_2_U0_ap_done;
+wire    pu_kernel_2_U0_ap_continue;
+wire    pu_kernel_2_U0_ap_idle;
+wire    pu_kernel_2_U0_ap_ready;
+wire    pu_kernel_2_U0_s_23_read;
+wire    pu_kernel_2_U0_m_axi_gmem5_AWVALID;
+wire   [63:0] pu_kernel_2_U0_m_axi_gmem5_AWADDR;
+wire   [0:0] pu_kernel_2_U0_m_axi_gmem5_AWID;
+wire   [31:0] pu_kernel_2_U0_m_axi_gmem5_AWLEN;
+wire   [2:0] pu_kernel_2_U0_m_axi_gmem5_AWSIZE;
+wire   [1:0] pu_kernel_2_U0_m_axi_gmem5_AWBURST;
+wire   [1:0] pu_kernel_2_U0_m_axi_gmem5_AWLOCK;
+wire   [3:0] pu_kernel_2_U0_m_axi_gmem5_AWCACHE;
+wire   [2:0] pu_kernel_2_U0_m_axi_gmem5_AWPROT;
+wire   [3:0] pu_kernel_2_U0_m_axi_gmem5_AWQOS;
+wire   [3:0] pu_kernel_2_U0_m_axi_gmem5_AWREGION;
+wire   [0:0] pu_kernel_2_U0_m_axi_gmem5_AWUSER;
+wire    pu_kernel_2_U0_m_axi_gmem5_WVALID;
+wire   [31:0] pu_kernel_2_U0_m_axi_gmem5_WDATA;
+wire   [3:0] pu_kernel_2_U0_m_axi_gmem5_WSTRB;
+wire    pu_kernel_2_U0_m_axi_gmem5_WLAST;
+wire   [0:0] pu_kernel_2_U0_m_axi_gmem5_WID;
+wire   [0:0] pu_kernel_2_U0_m_axi_gmem5_WUSER;
+wire    pu_kernel_2_U0_m_axi_gmem5_ARVALID;
+wire   [63:0] pu_kernel_2_U0_m_axi_gmem5_ARADDR;
+wire   [0:0] pu_kernel_2_U0_m_axi_gmem5_ARID;
+wire   [31:0] pu_kernel_2_U0_m_axi_gmem5_ARLEN;
+wire   [2:0] pu_kernel_2_U0_m_axi_gmem5_ARSIZE;
+wire   [1:0] pu_kernel_2_U0_m_axi_gmem5_ARBURST;
+wire   [1:0] pu_kernel_2_U0_m_axi_gmem5_ARLOCK;
+wire   [3:0] pu_kernel_2_U0_m_axi_gmem5_ARCACHE;
+wire   [2:0] pu_kernel_2_U0_m_axi_gmem5_ARPROT;
+wire   [3:0] pu_kernel_2_U0_m_axi_gmem5_ARQOS;
+wire   [3:0] pu_kernel_2_U0_m_axi_gmem5_ARREGION;
+wire   [0:0] pu_kernel_2_U0_m_axi_gmem5_ARUSER;
+wire    pu_kernel_2_U0_m_axi_gmem5_RREADY;
+wire    pu_kernel_2_U0_m_axi_gmem5_BREADY;
+wire    pu_kernel_3_U0_ap_start;
+wire    pu_kernel_3_U0_ap_done;
+wire    pu_kernel_3_U0_ap_continue;
+wire    pu_kernel_3_U0_ap_idle;
+wire    pu_kernel_3_U0_ap_ready;
+wire    pu_kernel_3_U0_s_34_read;
+wire    pu_kernel_3_U0_m_axi_gmem6_AWVALID;
+wire   [63:0] pu_kernel_3_U0_m_axi_gmem6_AWADDR;
+wire   [0:0] pu_kernel_3_U0_m_axi_gmem6_AWID;
+wire   [31:0] pu_kernel_3_U0_m_axi_gmem6_AWLEN;
+wire   [2:0] pu_kernel_3_U0_m_axi_gmem6_AWSIZE;
+wire   [1:0] pu_kernel_3_U0_m_axi_gmem6_AWBURST;
+wire   [1:0] pu_kernel_3_U0_m_axi_gmem6_AWLOCK;
+wire   [3:0] pu_kernel_3_U0_m_axi_gmem6_AWCACHE;
+wire   [2:0] pu_kernel_3_U0_m_axi_gmem6_AWPROT;
+wire   [3:0] pu_kernel_3_U0_m_axi_gmem6_AWQOS;
+wire   [3:0] pu_kernel_3_U0_m_axi_gmem6_AWREGION;
+wire   [0:0] pu_kernel_3_U0_m_axi_gmem6_AWUSER;
+wire    pu_kernel_3_U0_m_axi_gmem6_WVALID;
+wire   [31:0] pu_kernel_3_U0_m_axi_gmem6_WDATA;
+wire   [3:0] pu_kernel_3_U0_m_axi_gmem6_WSTRB;
+wire    pu_kernel_3_U0_m_axi_gmem6_WLAST;
+wire   [0:0] pu_kernel_3_U0_m_axi_gmem6_WID;
+wire   [0:0] pu_kernel_3_U0_m_axi_gmem6_WUSER;
+wire    pu_kernel_3_U0_m_axi_gmem6_ARVALID;
+wire   [63:0] pu_kernel_3_U0_m_axi_gmem6_ARADDR;
+wire   [0:0] pu_kernel_3_U0_m_axi_gmem6_ARID;
+wire   [31:0] pu_kernel_3_U0_m_axi_gmem6_ARLEN;
+wire   [2:0] pu_kernel_3_U0_m_axi_gmem6_ARSIZE;
+wire   [1:0] pu_kernel_3_U0_m_axi_gmem6_ARBURST;
+wire   [1:0] pu_kernel_3_U0_m_axi_gmem6_ARLOCK;
+wire   [3:0] pu_kernel_3_U0_m_axi_gmem6_ARCACHE;
+wire   [2:0] pu_kernel_3_U0_m_axi_gmem6_ARPROT;
+wire   [3:0] pu_kernel_3_U0_m_axi_gmem6_ARQOS;
+wire   [3:0] pu_kernel_3_U0_m_axi_gmem6_ARREGION;
+wire   [0:0] pu_kernel_3_U0_m_axi_gmem6_ARUSER;
+wire    pu_kernel_3_U0_m_axi_gmem6_RREADY;
+wire    pu_kernel_3_U0_m_axi_gmem6_BREADY;
 wire    s_01_full_n;
 wire   [387:0] s_01_dout;
 wire   [4:0] s_01_num_data_valid;
@@ -870,21 +870,21 @@ reg    ap_sync_reg_set_tile_broadcast_U0_ap_ready;
 wire    ap_sync_set_tile_broadcast_U0_ap_ready;
 reg    ap_sync_reg_pu_kernel_U0_ap_ready;
 wire    ap_sync_pu_kernel_U0_ap_ready;
-reg    ap_sync_reg_pu_kernel_8_U0_ap_ready;
-wire    ap_sync_pu_kernel_8_U0_ap_ready;
-reg    ap_sync_reg_pu_kernel_9_U0_ap_ready;
-wire    ap_sync_pu_kernel_9_U0_ap_ready;
-reg    ap_sync_reg_pu_kernel_10_U0_ap_ready;
-wire    ap_sync_pu_kernel_10_U0_ap_ready;
+reg    ap_sync_reg_pu_kernel_1_U0_ap_ready;
+wire    ap_sync_pu_kernel_1_U0_ap_ready;
+reg    ap_sync_reg_pu_kernel_2_U0_ap_ready;
+wire    ap_sync_pu_kernel_2_U0_ap_ready;
+reg    ap_sync_reg_pu_kernel_3_U0_ap_ready;
+wire    ap_sync_pu_kernel_3_U0_ap_ready;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
 #0 ap_sync_reg_set_tile_broadcast_U0_ap_ready = 1'b0;
 #0 ap_sync_reg_pu_kernel_U0_ap_ready = 1'b0;
-#0 ap_sync_reg_pu_kernel_8_U0_ap_ready = 1'b0;
-#0 ap_sync_reg_pu_kernel_9_U0_ap_ready = 1'b0;
-#0 ap_sync_reg_pu_kernel_10_U0_ap_ready = 1'b0;
+#0 ap_sync_reg_pu_kernel_1_U0_ap_ready = 1'b0;
+#0 ap_sync_reg_pu_kernel_2_U0_ap_ready = 1'b0;
+#0 ap_sync_reg_pu_kernel_3_U0_ap_ready = 1'b0;
 end
 
 spmm_hls_set_tile_broadcast set_tile_broadcast_U0(
@@ -1076,54 +1076,54 @@ spmm_hls_pu_kernel pu_kernel_U0(
     .K(K)
 );
 
-spmm_hls_pu_kernel_8 pu_kernel_8_U0(
+spmm_hls_pu_kernel_1 pu_kernel_1_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(pu_kernel_8_U0_ap_start),
-    .ap_done(pu_kernel_8_U0_ap_done),
-    .ap_continue(pu_kernel_8_U0_ap_continue),
-    .ap_idle(pu_kernel_8_U0_ap_idle),
-    .ap_ready(pu_kernel_8_U0_ap_ready),
+    .ap_start(pu_kernel_1_U0_ap_start),
+    .ap_done(pu_kernel_1_U0_ap_done),
+    .ap_continue(pu_kernel_1_U0_ap_continue),
+    .ap_idle(pu_kernel_1_U0_ap_idle),
+    .ap_ready(pu_kernel_1_U0_ap_ready),
     .s_12_dout(s_12_dout),
     .s_12_num_data_valid(s_12_num_data_valid),
     .s_12_fifo_cap(s_12_fifo_cap),
     .s_12_empty_n(s_12_empty_n),
-    .s_12_read(pu_kernel_8_U0_s_12_read),
-    .m_axi_gmem4_AWVALID(pu_kernel_8_U0_m_axi_gmem4_AWVALID),
+    .s_12_read(pu_kernel_1_U0_s_12_read),
+    .m_axi_gmem4_AWVALID(pu_kernel_1_U0_m_axi_gmem4_AWVALID),
     .m_axi_gmem4_AWREADY(1'b0),
-    .m_axi_gmem4_AWADDR(pu_kernel_8_U0_m_axi_gmem4_AWADDR),
-    .m_axi_gmem4_AWID(pu_kernel_8_U0_m_axi_gmem4_AWID),
-    .m_axi_gmem4_AWLEN(pu_kernel_8_U0_m_axi_gmem4_AWLEN),
-    .m_axi_gmem4_AWSIZE(pu_kernel_8_U0_m_axi_gmem4_AWSIZE),
-    .m_axi_gmem4_AWBURST(pu_kernel_8_U0_m_axi_gmem4_AWBURST),
-    .m_axi_gmem4_AWLOCK(pu_kernel_8_U0_m_axi_gmem4_AWLOCK),
-    .m_axi_gmem4_AWCACHE(pu_kernel_8_U0_m_axi_gmem4_AWCACHE),
-    .m_axi_gmem4_AWPROT(pu_kernel_8_U0_m_axi_gmem4_AWPROT),
-    .m_axi_gmem4_AWQOS(pu_kernel_8_U0_m_axi_gmem4_AWQOS),
-    .m_axi_gmem4_AWREGION(pu_kernel_8_U0_m_axi_gmem4_AWREGION),
-    .m_axi_gmem4_AWUSER(pu_kernel_8_U0_m_axi_gmem4_AWUSER),
-    .m_axi_gmem4_WVALID(pu_kernel_8_U0_m_axi_gmem4_WVALID),
+    .m_axi_gmem4_AWADDR(pu_kernel_1_U0_m_axi_gmem4_AWADDR),
+    .m_axi_gmem4_AWID(pu_kernel_1_U0_m_axi_gmem4_AWID),
+    .m_axi_gmem4_AWLEN(pu_kernel_1_U0_m_axi_gmem4_AWLEN),
+    .m_axi_gmem4_AWSIZE(pu_kernel_1_U0_m_axi_gmem4_AWSIZE),
+    .m_axi_gmem4_AWBURST(pu_kernel_1_U0_m_axi_gmem4_AWBURST),
+    .m_axi_gmem4_AWLOCK(pu_kernel_1_U0_m_axi_gmem4_AWLOCK),
+    .m_axi_gmem4_AWCACHE(pu_kernel_1_U0_m_axi_gmem4_AWCACHE),
+    .m_axi_gmem4_AWPROT(pu_kernel_1_U0_m_axi_gmem4_AWPROT),
+    .m_axi_gmem4_AWQOS(pu_kernel_1_U0_m_axi_gmem4_AWQOS),
+    .m_axi_gmem4_AWREGION(pu_kernel_1_U0_m_axi_gmem4_AWREGION),
+    .m_axi_gmem4_AWUSER(pu_kernel_1_U0_m_axi_gmem4_AWUSER),
+    .m_axi_gmem4_WVALID(pu_kernel_1_U0_m_axi_gmem4_WVALID),
     .m_axi_gmem4_WREADY(1'b0),
-    .m_axi_gmem4_WDATA(pu_kernel_8_U0_m_axi_gmem4_WDATA),
-    .m_axi_gmem4_WSTRB(pu_kernel_8_U0_m_axi_gmem4_WSTRB),
-    .m_axi_gmem4_WLAST(pu_kernel_8_U0_m_axi_gmem4_WLAST),
-    .m_axi_gmem4_WID(pu_kernel_8_U0_m_axi_gmem4_WID),
-    .m_axi_gmem4_WUSER(pu_kernel_8_U0_m_axi_gmem4_WUSER),
-    .m_axi_gmem4_ARVALID(pu_kernel_8_U0_m_axi_gmem4_ARVALID),
+    .m_axi_gmem4_WDATA(pu_kernel_1_U0_m_axi_gmem4_WDATA),
+    .m_axi_gmem4_WSTRB(pu_kernel_1_U0_m_axi_gmem4_WSTRB),
+    .m_axi_gmem4_WLAST(pu_kernel_1_U0_m_axi_gmem4_WLAST),
+    .m_axi_gmem4_WID(pu_kernel_1_U0_m_axi_gmem4_WID),
+    .m_axi_gmem4_WUSER(pu_kernel_1_U0_m_axi_gmem4_WUSER),
+    .m_axi_gmem4_ARVALID(pu_kernel_1_U0_m_axi_gmem4_ARVALID),
     .m_axi_gmem4_ARREADY(m_axi_gmem4_ARREADY),
-    .m_axi_gmem4_ARADDR(pu_kernel_8_U0_m_axi_gmem4_ARADDR),
-    .m_axi_gmem4_ARID(pu_kernel_8_U0_m_axi_gmem4_ARID),
-    .m_axi_gmem4_ARLEN(pu_kernel_8_U0_m_axi_gmem4_ARLEN),
-    .m_axi_gmem4_ARSIZE(pu_kernel_8_U0_m_axi_gmem4_ARSIZE),
-    .m_axi_gmem4_ARBURST(pu_kernel_8_U0_m_axi_gmem4_ARBURST),
-    .m_axi_gmem4_ARLOCK(pu_kernel_8_U0_m_axi_gmem4_ARLOCK),
-    .m_axi_gmem4_ARCACHE(pu_kernel_8_U0_m_axi_gmem4_ARCACHE),
-    .m_axi_gmem4_ARPROT(pu_kernel_8_U0_m_axi_gmem4_ARPROT),
-    .m_axi_gmem4_ARQOS(pu_kernel_8_U0_m_axi_gmem4_ARQOS),
-    .m_axi_gmem4_ARREGION(pu_kernel_8_U0_m_axi_gmem4_ARREGION),
-    .m_axi_gmem4_ARUSER(pu_kernel_8_U0_m_axi_gmem4_ARUSER),
+    .m_axi_gmem4_ARADDR(pu_kernel_1_U0_m_axi_gmem4_ARADDR),
+    .m_axi_gmem4_ARID(pu_kernel_1_U0_m_axi_gmem4_ARID),
+    .m_axi_gmem4_ARLEN(pu_kernel_1_U0_m_axi_gmem4_ARLEN),
+    .m_axi_gmem4_ARSIZE(pu_kernel_1_U0_m_axi_gmem4_ARSIZE),
+    .m_axi_gmem4_ARBURST(pu_kernel_1_U0_m_axi_gmem4_ARBURST),
+    .m_axi_gmem4_ARLOCK(pu_kernel_1_U0_m_axi_gmem4_ARLOCK),
+    .m_axi_gmem4_ARCACHE(pu_kernel_1_U0_m_axi_gmem4_ARCACHE),
+    .m_axi_gmem4_ARPROT(pu_kernel_1_U0_m_axi_gmem4_ARPROT),
+    .m_axi_gmem4_ARQOS(pu_kernel_1_U0_m_axi_gmem4_ARQOS),
+    .m_axi_gmem4_ARREGION(pu_kernel_1_U0_m_axi_gmem4_ARREGION),
+    .m_axi_gmem4_ARUSER(pu_kernel_1_U0_m_axi_gmem4_ARUSER),
     .m_axi_gmem4_RVALID(m_axi_gmem4_RVALID),
-    .m_axi_gmem4_RREADY(pu_kernel_8_U0_m_axi_gmem4_RREADY),
+    .m_axi_gmem4_RREADY(pu_kernel_1_U0_m_axi_gmem4_RREADY),
     .m_axi_gmem4_RDATA(m_axi_gmem4_RDATA),
     .m_axi_gmem4_RLAST(m_axi_gmem4_RLAST),
     .m_axi_gmem4_RID(m_axi_gmem4_RID),
@@ -1131,7 +1131,7 @@ spmm_hls_pu_kernel_8 pu_kernel_8_U0(
     .m_axi_gmem4_RUSER(m_axi_gmem4_RUSER),
     .m_axi_gmem4_RRESP(m_axi_gmem4_RRESP),
     .m_axi_gmem4_BVALID(1'b0),
-    .m_axi_gmem4_BREADY(pu_kernel_8_U0_m_axi_gmem4_BREADY),
+    .m_axi_gmem4_BREADY(pu_kernel_1_U0_m_axi_gmem4_BREADY),
     .m_axi_gmem4_BRESP(2'd0),
     .m_axi_gmem4_BID(1'd0),
     .m_axi_gmem4_BUSER(1'd0),
@@ -1139,54 +1139,54 @@ spmm_hls_pu_kernel_8 pu_kernel_8_U0(
     .K(K)
 );
 
-spmm_hls_pu_kernel_9 pu_kernel_9_U0(
+spmm_hls_pu_kernel_2 pu_kernel_2_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(pu_kernel_9_U0_ap_start),
-    .ap_done(pu_kernel_9_U0_ap_done),
-    .ap_continue(pu_kernel_9_U0_ap_continue),
-    .ap_idle(pu_kernel_9_U0_ap_idle),
-    .ap_ready(pu_kernel_9_U0_ap_ready),
+    .ap_start(pu_kernel_2_U0_ap_start),
+    .ap_done(pu_kernel_2_U0_ap_done),
+    .ap_continue(pu_kernel_2_U0_ap_continue),
+    .ap_idle(pu_kernel_2_U0_ap_idle),
+    .ap_ready(pu_kernel_2_U0_ap_ready),
     .s_23_dout(s_23_dout),
     .s_23_num_data_valid(s_23_num_data_valid),
     .s_23_fifo_cap(s_23_fifo_cap),
     .s_23_empty_n(s_23_empty_n),
-    .s_23_read(pu_kernel_9_U0_s_23_read),
-    .m_axi_gmem5_AWVALID(pu_kernel_9_U0_m_axi_gmem5_AWVALID),
+    .s_23_read(pu_kernel_2_U0_s_23_read),
+    .m_axi_gmem5_AWVALID(pu_kernel_2_U0_m_axi_gmem5_AWVALID),
     .m_axi_gmem5_AWREADY(1'b0),
-    .m_axi_gmem5_AWADDR(pu_kernel_9_U0_m_axi_gmem5_AWADDR),
-    .m_axi_gmem5_AWID(pu_kernel_9_U0_m_axi_gmem5_AWID),
-    .m_axi_gmem5_AWLEN(pu_kernel_9_U0_m_axi_gmem5_AWLEN),
-    .m_axi_gmem5_AWSIZE(pu_kernel_9_U0_m_axi_gmem5_AWSIZE),
-    .m_axi_gmem5_AWBURST(pu_kernel_9_U0_m_axi_gmem5_AWBURST),
-    .m_axi_gmem5_AWLOCK(pu_kernel_9_U0_m_axi_gmem5_AWLOCK),
-    .m_axi_gmem5_AWCACHE(pu_kernel_9_U0_m_axi_gmem5_AWCACHE),
-    .m_axi_gmem5_AWPROT(pu_kernel_9_U0_m_axi_gmem5_AWPROT),
-    .m_axi_gmem5_AWQOS(pu_kernel_9_U0_m_axi_gmem5_AWQOS),
-    .m_axi_gmem5_AWREGION(pu_kernel_9_U0_m_axi_gmem5_AWREGION),
-    .m_axi_gmem5_AWUSER(pu_kernel_9_U0_m_axi_gmem5_AWUSER),
-    .m_axi_gmem5_WVALID(pu_kernel_9_U0_m_axi_gmem5_WVALID),
+    .m_axi_gmem5_AWADDR(pu_kernel_2_U0_m_axi_gmem5_AWADDR),
+    .m_axi_gmem5_AWID(pu_kernel_2_U0_m_axi_gmem5_AWID),
+    .m_axi_gmem5_AWLEN(pu_kernel_2_U0_m_axi_gmem5_AWLEN),
+    .m_axi_gmem5_AWSIZE(pu_kernel_2_U0_m_axi_gmem5_AWSIZE),
+    .m_axi_gmem5_AWBURST(pu_kernel_2_U0_m_axi_gmem5_AWBURST),
+    .m_axi_gmem5_AWLOCK(pu_kernel_2_U0_m_axi_gmem5_AWLOCK),
+    .m_axi_gmem5_AWCACHE(pu_kernel_2_U0_m_axi_gmem5_AWCACHE),
+    .m_axi_gmem5_AWPROT(pu_kernel_2_U0_m_axi_gmem5_AWPROT),
+    .m_axi_gmem5_AWQOS(pu_kernel_2_U0_m_axi_gmem5_AWQOS),
+    .m_axi_gmem5_AWREGION(pu_kernel_2_U0_m_axi_gmem5_AWREGION),
+    .m_axi_gmem5_AWUSER(pu_kernel_2_U0_m_axi_gmem5_AWUSER),
+    .m_axi_gmem5_WVALID(pu_kernel_2_U0_m_axi_gmem5_WVALID),
     .m_axi_gmem5_WREADY(1'b0),
-    .m_axi_gmem5_WDATA(pu_kernel_9_U0_m_axi_gmem5_WDATA),
-    .m_axi_gmem5_WSTRB(pu_kernel_9_U0_m_axi_gmem5_WSTRB),
-    .m_axi_gmem5_WLAST(pu_kernel_9_U0_m_axi_gmem5_WLAST),
-    .m_axi_gmem5_WID(pu_kernel_9_U0_m_axi_gmem5_WID),
-    .m_axi_gmem5_WUSER(pu_kernel_9_U0_m_axi_gmem5_WUSER),
-    .m_axi_gmem5_ARVALID(pu_kernel_9_U0_m_axi_gmem5_ARVALID),
+    .m_axi_gmem5_WDATA(pu_kernel_2_U0_m_axi_gmem5_WDATA),
+    .m_axi_gmem5_WSTRB(pu_kernel_2_U0_m_axi_gmem5_WSTRB),
+    .m_axi_gmem5_WLAST(pu_kernel_2_U0_m_axi_gmem5_WLAST),
+    .m_axi_gmem5_WID(pu_kernel_2_U0_m_axi_gmem5_WID),
+    .m_axi_gmem5_WUSER(pu_kernel_2_U0_m_axi_gmem5_WUSER),
+    .m_axi_gmem5_ARVALID(pu_kernel_2_U0_m_axi_gmem5_ARVALID),
     .m_axi_gmem5_ARREADY(m_axi_gmem5_ARREADY),
-    .m_axi_gmem5_ARADDR(pu_kernel_9_U0_m_axi_gmem5_ARADDR),
-    .m_axi_gmem5_ARID(pu_kernel_9_U0_m_axi_gmem5_ARID),
-    .m_axi_gmem5_ARLEN(pu_kernel_9_U0_m_axi_gmem5_ARLEN),
-    .m_axi_gmem5_ARSIZE(pu_kernel_9_U0_m_axi_gmem5_ARSIZE),
-    .m_axi_gmem5_ARBURST(pu_kernel_9_U0_m_axi_gmem5_ARBURST),
-    .m_axi_gmem5_ARLOCK(pu_kernel_9_U0_m_axi_gmem5_ARLOCK),
-    .m_axi_gmem5_ARCACHE(pu_kernel_9_U0_m_axi_gmem5_ARCACHE),
-    .m_axi_gmem5_ARPROT(pu_kernel_9_U0_m_axi_gmem5_ARPROT),
-    .m_axi_gmem5_ARQOS(pu_kernel_9_U0_m_axi_gmem5_ARQOS),
-    .m_axi_gmem5_ARREGION(pu_kernel_9_U0_m_axi_gmem5_ARREGION),
-    .m_axi_gmem5_ARUSER(pu_kernel_9_U0_m_axi_gmem5_ARUSER),
+    .m_axi_gmem5_ARADDR(pu_kernel_2_U0_m_axi_gmem5_ARADDR),
+    .m_axi_gmem5_ARID(pu_kernel_2_U0_m_axi_gmem5_ARID),
+    .m_axi_gmem5_ARLEN(pu_kernel_2_U0_m_axi_gmem5_ARLEN),
+    .m_axi_gmem5_ARSIZE(pu_kernel_2_U0_m_axi_gmem5_ARSIZE),
+    .m_axi_gmem5_ARBURST(pu_kernel_2_U0_m_axi_gmem5_ARBURST),
+    .m_axi_gmem5_ARLOCK(pu_kernel_2_U0_m_axi_gmem5_ARLOCK),
+    .m_axi_gmem5_ARCACHE(pu_kernel_2_U0_m_axi_gmem5_ARCACHE),
+    .m_axi_gmem5_ARPROT(pu_kernel_2_U0_m_axi_gmem5_ARPROT),
+    .m_axi_gmem5_ARQOS(pu_kernel_2_U0_m_axi_gmem5_ARQOS),
+    .m_axi_gmem5_ARREGION(pu_kernel_2_U0_m_axi_gmem5_ARREGION),
+    .m_axi_gmem5_ARUSER(pu_kernel_2_U0_m_axi_gmem5_ARUSER),
     .m_axi_gmem5_RVALID(m_axi_gmem5_RVALID),
-    .m_axi_gmem5_RREADY(pu_kernel_9_U0_m_axi_gmem5_RREADY),
+    .m_axi_gmem5_RREADY(pu_kernel_2_U0_m_axi_gmem5_RREADY),
     .m_axi_gmem5_RDATA(m_axi_gmem5_RDATA),
     .m_axi_gmem5_RLAST(m_axi_gmem5_RLAST),
     .m_axi_gmem5_RID(m_axi_gmem5_RID),
@@ -1194,7 +1194,7 @@ spmm_hls_pu_kernel_9 pu_kernel_9_U0(
     .m_axi_gmem5_RUSER(m_axi_gmem5_RUSER),
     .m_axi_gmem5_RRESP(m_axi_gmem5_RRESP),
     .m_axi_gmem5_BVALID(1'b0),
-    .m_axi_gmem5_BREADY(pu_kernel_9_U0_m_axi_gmem5_BREADY),
+    .m_axi_gmem5_BREADY(pu_kernel_2_U0_m_axi_gmem5_BREADY),
     .m_axi_gmem5_BRESP(2'd0),
     .m_axi_gmem5_BID(1'd0),
     .m_axi_gmem5_BUSER(1'd0),
@@ -1202,54 +1202,54 @@ spmm_hls_pu_kernel_9 pu_kernel_9_U0(
     .K(K)
 );
 
-spmm_hls_pu_kernel_10 pu_kernel_10_U0(
+spmm_hls_pu_kernel_3 pu_kernel_3_U0(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(pu_kernel_10_U0_ap_start),
-    .ap_done(pu_kernel_10_U0_ap_done),
-    .ap_continue(pu_kernel_10_U0_ap_continue),
-    .ap_idle(pu_kernel_10_U0_ap_idle),
-    .ap_ready(pu_kernel_10_U0_ap_ready),
+    .ap_start(pu_kernel_3_U0_ap_start),
+    .ap_done(pu_kernel_3_U0_ap_done),
+    .ap_continue(pu_kernel_3_U0_ap_continue),
+    .ap_idle(pu_kernel_3_U0_ap_idle),
+    .ap_ready(pu_kernel_3_U0_ap_ready),
     .s_34_dout(s_34_dout),
     .s_34_num_data_valid(s_34_num_data_valid),
     .s_34_fifo_cap(s_34_fifo_cap),
     .s_34_empty_n(s_34_empty_n),
-    .s_34_read(pu_kernel_10_U0_s_34_read),
-    .m_axi_gmem6_AWVALID(pu_kernel_10_U0_m_axi_gmem6_AWVALID),
+    .s_34_read(pu_kernel_3_U0_s_34_read),
+    .m_axi_gmem6_AWVALID(pu_kernel_3_U0_m_axi_gmem6_AWVALID),
     .m_axi_gmem6_AWREADY(1'b0),
-    .m_axi_gmem6_AWADDR(pu_kernel_10_U0_m_axi_gmem6_AWADDR),
-    .m_axi_gmem6_AWID(pu_kernel_10_U0_m_axi_gmem6_AWID),
-    .m_axi_gmem6_AWLEN(pu_kernel_10_U0_m_axi_gmem6_AWLEN),
-    .m_axi_gmem6_AWSIZE(pu_kernel_10_U0_m_axi_gmem6_AWSIZE),
-    .m_axi_gmem6_AWBURST(pu_kernel_10_U0_m_axi_gmem6_AWBURST),
-    .m_axi_gmem6_AWLOCK(pu_kernel_10_U0_m_axi_gmem6_AWLOCK),
-    .m_axi_gmem6_AWCACHE(pu_kernel_10_U0_m_axi_gmem6_AWCACHE),
-    .m_axi_gmem6_AWPROT(pu_kernel_10_U0_m_axi_gmem6_AWPROT),
-    .m_axi_gmem6_AWQOS(pu_kernel_10_U0_m_axi_gmem6_AWQOS),
-    .m_axi_gmem6_AWREGION(pu_kernel_10_U0_m_axi_gmem6_AWREGION),
-    .m_axi_gmem6_AWUSER(pu_kernel_10_U0_m_axi_gmem6_AWUSER),
-    .m_axi_gmem6_WVALID(pu_kernel_10_U0_m_axi_gmem6_WVALID),
+    .m_axi_gmem6_AWADDR(pu_kernel_3_U0_m_axi_gmem6_AWADDR),
+    .m_axi_gmem6_AWID(pu_kernel_3_U0_m_axi_gmem6_AWID),
+    .m_axi_gmem6_AWLEN(pu_kernel_3_U0_m_axi_gmem6_AWLEN),
+    .m_axi_gmem6_AWSIZE(pu_kernel_3_U0_m_axi_gmem6_AWSIZE),
+    .m_axi_gmem6_AWBURST(pu_kernel_3_U0_m_axi_gmem6_AWBURST),
+    .m_axi_gmem6_AWLOCK(pu_kernel_3_U0_m_axi_gmem6_AWLOCK),
+    .m_axi_gmem6_AWCACHE(pu_kernel_3_U0_m_axi_gmem6_AWCACHE),
+    .m_axi_gmem6_AWPROT(pu_kernel_3_U0_m_axi_gmem6_AWPROT),
+    .m_axi_gmem6_AWQOS(pu_kernel_3_U0_m_axi_gmem6_AWQOS),
+    .m_axi_gmem6_AWREGION(pu_kernel_3_U0_m_axi_gmem6_AWREGION),
+    .m_axi_gmem6_AWUSER(pu_kernel_3_U0_m_axi_gmem6_AWUSER),
+    .m_axi_gmem6_WVALID(pu_kernel_3_U0_m_axi_gmem6_WVALID),
     .m_axi_gmem6_WREADY(1'b0),
-    .m_axi_gmem6_WDATA(pu_kernel_10_U0_m_axi_gmem6_WDATA),
-    .m_axi_gmem6_WSTRB(pu_kernel_10_U0_m_axi_gmem6_WSTRB),
-    .m_axi_gmem6_WLAST(pu_kernel_10_U0_m_axi_gmem6_WLAST),
-    .m_axi_gmem6_WID(pu_kernel_10_U0_m_axi_gmem6_WID),
-    .m_axi_gmem6_WUSER(pu_kernel_10_U0_m_axi_gmem6_WUSER),
-    .m_axi_gmem6_ARVALID(pu_kernel_10_U0_m_axi_gmem6_ARVALID),
+    .m_axi_gmem6_WDATA(pu_kernel_3_U0_m_axi_gmem6_WDATA),
+    .m_axi_gmem6_WSTRB(pu_kernel_3_U0_m_axi_gmem6_WSTRB),
+    .m_axi_gmem6_WLAST(pu_kernel_3_U0_m_axi_gmem6_WLAST),
+    .m_axi_gmem6_WID(pu_kernel_3_U0_m_axi_gmem6_WID),
+    .m_axi_gmem6_WUSER(pu_kernel_3_U0_m_axi_gmem6_WUSER),
+    .m_axi_gmem6_ARVALID(pu_kernel_3_U0_m_axi_gmem6_ARVALID),
     .m_axi_gmem6_ARREADY(m_axi_gmem6_ARREADY),
-    .m_axi_gmem6_ARADDR(pu_kernel_10_U0_m_axi_gmem6_ARADDR),
-    .m_axi_gmem6_ARID(pu_kernel_10_U0_m_axi_gmem6_ARID),
-    .m_axi_gmem6_ARLEN(pu_kernel_10_U0_m_axi_gmem6_ARLEN),
-    .m_axi_gmem6_ARSIZE(pu_kernel_10_U0_m_axi_gmem6_ARSIZE),
-    .m_axi_gmem6_ARBURST(pu_kernel_10_U0_m_axi_gmem6_ARBURST),
-    .m_axi_gmem6_ARLOCK(pu_kernel_10_U0_m_axi_gmem6_ARLOCK),
-    .m_axi_gmem6_ARCACHE(pu_kernel_10_U0_m_axi_gmem6_ARCACHE),
-    .m_axi_gmem6_ARPROT(pu_kernel_10_U0_m_axi_gmem6_ARPROT),
-    .m_axi_gmem6_ARQOS(pu_kernel_10_U0_m_axi_gmem6_ARQOS),
-    .m_axi_gmem6_ARREGION(pu_kernel_10_U0_m_axi_gmem6_ARREGION),
-    .m_axi_gmem6_ARUSER(pu_kernel_10_U0_m_axi_gmem6_ARUSER),
+    .m_axi_gmem6_ARADDR(pu_kernel_3_U0_m_axi_gmem6_ARADDR),
+    .m_axi_gmem6_ARID(pu_kernel_3_U0_m_axi_gmem6_ARID),
+    .m_axi_gmem6_ARLEN(pu_kernel_3_U0_m_axi_gmem6_ARLEN),
+    .m_axi_gmem6_ARSIZE(pu_kernel_3_U0_m_axi_gmem6_ARSIZE),
+    .m_axi_gmem6_ARBURST(pu_kernel_3_U0_m_axi_gmem6_ARBURST),
+    .m_axi_gmem6_ARLOCK(pu_kernel_3_U0_m_axi_gmem6_ARLOCK),
+    .m_axi_gmem6_ARCACHE(pu_kernel_3_U0_m_axi_gmem6_ARCACHE),
+    .m_axi_gmem6_ARPROT(pu_kernel_3_U0_m_axi_gmem6_ARPROT),
+    .m_axi_gmem6_ARQOS(pu_kernel_3_U0_m_axi_gmem6_ARQOS),
+    .m_axi_gmem6_ARREGION(pu_kernel_3_U0_m_axi_gmem6_ARREGION),
+    .m_axi_gmem6_ARUSER(pu_kernel_3_U0_m_axi_gmem6_ARUSER),
     .m_axi_gmem6_RVALID(m_axi_gmem6_RVALID),
-    .m_axi_gmem6_RREADY(pu_kernel_10_U0_m_axi_gmem6_RREADY),
+    .m_axi_gmem6_RREADY(pu_kernel_3_U0_m_axi_gmem6_RREADY),
     .m_axi_gmem6_RDATA(m_axi_gmem6_RDATA),
     .m_axi_gmem6_RLAST(m_axi_gmem6_RLAST),
     .m_axi_gmem6_RID(m_axi_gmem6_RID),
@@ -1257,7 +1257,7 @@ spmm_hls_pu_kernel_10 pu_kernel_10_U0(
     .m_axi_gmem6_RUSER(m_axi_gmem6_RUSER),
     .m_axi_gmem6_RRESP(m_axi_gmem6_RRESP),
     .m_axi_gmem6_BVALID(1'b0),
-    .m_axi_gmem6_BREADY(pu_kernel_10_U0_m_axi_gmem6_BREADY),
+    .m_axi_gmem6_BREADY(pu_kernel_3_U0_m_axi_gmem6_BREADY),
     .m_axi_gmem6_BRESP(2'd0),
     .m_axi_gmem6_BID(1'd0),
     .m_axi_gmem6_BUSER(1'd0),
@@ -1292,7 +1292,7 @@ spmm_hls_fifo_w388_d16_A s_12_U(
     .if_num_data_valid(s_12_num_data_valid),
     .if_fifo_cap(s_12_fifo_cap),
     .if_empty_n(s_12_empty_n),
-    .if_read(pu_kernel_8_U0_s_12_read)
+    .if_read(pu_kernel_1_U0_s_12_read)
 );
 
 spmm_hls_fifo_w388_d16_A s_23_U(
@@ -1307,7 +1307,7 @@ spmm_hls_fifo_w388_d16_A s_23_U(
     .if_num_data_valid(s_23_num_data_valid),
     .if_fifo_cap(s_23_fifo_cap),
     .if_empty_n(s_23_empty_n),
-    .if_read(pu_kernel_9_U0_s_23_read)
+    .if_read(pu_kernel_2_U0_s_23_read)
 );
 
 spmm_hls_fifo_w388_d16_A s_34_U(
@@ -1322,41 +1322,41 @@ spmm_hls_fifo_w388_d16_A s_34_U(
     .if_num_data_valid(s_34_num_data_valid),
     .if_fifo_cap(s_34_fifo_cap),
     .if_empty_n(s_34_empty_n),
-    .if_read(pu_kernel_10_U0_s_34_read)
+    .if_read(pu_kernel_3_U0_s_34_read)
 );
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        ap_sync_reg_pu_kernel_10_U0_ap_ready <= 1'b0;
+        ap_sync_reg_pu_kernel_1_U0_ap_ready <= 1'b0;
     end else begin
         if (((ap_sync_ready & ap_start) == 1'b1)) begin
-            ap_sync_reg_pu_kernel_10_U0_ap_ready <= 1'b0;
+            ap_sync_reg_pu_kernel_1_U0_ap_ready <= 1'b0;
         end else begin
-            ap_sync_reg_pu_kernel_10_U0_ap_ready <= ap_sync_pu_kernel_10_U0_ap_ready;
+            ap_sync_reg_pu_kernel_1_U0_ap_ready <= ap_sync_pu_kernel_1_U0_ap_ready;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        ap_sync_reg_pu_kernel_8_U0_ap_ready <= 1'b0;
+        ap_sync_reg_pu_kernel_2_U0_ap_ready <= 1'b0;
     end else begin
         if (((ap_sync_ready & ap_start) == 1'b1)) begin
-            ap_sync_reg_pu_kernel_8_U0_ap_ready <= 1'b0;
+            ap_sync_reg_pu_kernel_2_U0_ap_ready <= 1'b0;
         end else begin
-            ap_sync_reg_pu_kernel_8_U0_ap_ready <= ap_sync_pu_kernel_8_U0_ap_ready;
+            ap_sync_reg_pu_kernel_2_U0_ap_ready <= ap_sync_pu_kernel_2_U0_ap_ready;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        ap_sync_reg_pu_kernel_9_U0_ap_ready <= 1'b0;
+        ap_sync_reg_pu_kernel_3_U0_ap_ready <= 1'b0;
     end else begin
         if (((ap_sync_ready & ap_start) == 1'b1)) begin
-            ap_sync_reg_pu_kernel_9_U0_ap_ready <= 1'b0;
+            ap_sync_reg_pu_kernel_3_U0_ap_ready <= 1'b0;
         end else begin
-            ap_sync_reg_pu_kernel_9_U0_ap_ready <= ap_sync_pu_kernel_9_U0_ap_ready;
+            ap_sync_reg_pu_kernel_3_U0_ap_ready <= ap_sync_pu_kernel_3_U0_ap_ready;
         end
     end
 end
@@ -1387,23 +1387,23 @@ end
 
 assign ap_done = ap_sync_done;
 
-assign ap_idle = (set_tile_broadcast_U0_ap_idle & pu_kernel_U0_ap_idle & pu_kernel_9_U0_ap_idle & pu_kernel_8_U0_ap_idle & pu_kernel_10_U0_ap_idle);
+assign ap_idle = (set_tile_broadcast_U0_ap_idle & pu_kernel_U0_ap_idle & pu_kernel_3_U0_ap_idle & pu_kernel_2_U0_ap_idle & pu_kernel_1_U0_ap_idle);
 
 assign ap_ready = ap_sync_ready;
 
 assign ap_sync_continue = (ap_sync_done & ap_continue);
 
-assign ap_sync_done = (pu_kernel_U0_ap_done & pu_kernel_9_U0_ap_done & pu_kernel_8_U0_ap_done & pu_kernel_10_U0_ap_done);
+assign ap_sync_done = (pu_kernel_U0_ap_done & pu_kernel_3_U0_ap_done & pu_kernel_2_U0_ap_done & pu_kernel_1_U0_ap_done);
 
-assign ap_sync_pu_kernel_10_U0_ap_ready = (pu_kernel_10_U0_ap_ready | ap_sync_reg_pu_kernel_10_U0_ap_ready);
+assign ap_sync_pu_kernel_1_U0_ap_ready = (pu_kernel_1_U0_ap_ready | ap_sync_reg_pu_kernel_1_U0_ap_ready);
 
-assign ap_sync_pu_kernel_8_U0_ap_ready = (pu_kernel_8_U0_ap_ready | ap_sync_reg_pu_kernel_8_U0_ap_ready);
+assign ap_sync_pu_kernel_2_U0_ap_ready = (pu_kernel_2_U0_ap_ready | ap_sync_reg_pu_kernel_2_U0_ap_ready);
 
-assign ap_sync_pu_kernel_9_U0_ap_ready = (pu_kernel_9_U0_ap_ready | ap_sync_reg_pu_kernel_9_U0_ap_ready);
+assign ap_sync_pu_kernel_3_U0_ap_ready = (pu_kernel_3_U0_ap_ready | ap_sync_reg_pu_kernel_3_U0_ap_ready);
 
 assign ap_sync_pu_kernel_U0_ap_ready = (pu_kernel_U0_ap_ready | ap_sync_reg_pu_kernel_U0_ap_ready);
 
-assign ap_sync_ready = (ap_sync_set_tile_broadcast_U0_ap_ready & ap_sync_pu_kernel_U0_ap_ready & ap_sync_pu_kernel_9_U0_ap_ready & ap_sync_pu_kernel_8_U0_ap_ready & ap_sync_pu_kernel_10_U0_ap_ready);
+assign ap_sync_ready = (ap_sync_set_tile_broadcast_U0_ap_ready & ap_sync_pu_kernel_U0_ap_ready & ap_sync_pu_kernel_3_U0_ap_ready & ap_sync_pu_kernel_2_U0_ap_ready & ap_sync_pu_kernel_1_U0_ap_ready);
 
 assign ap_sync_set_tile_broadcast_U0_ap_ready = (set_tile_broadcast_U0_ap_ready | ap_sync_reg_set_tile_broadcast_U0_ap_ready);
 
@@ -1599,29 +1599,29 @@ assign m_axi_gmem3_WUSER = 1'd0;
 
 assign m_axi_gmem3_WVALID = 1'b0;
 
-assign m_axi_gmem4_ARADDR = pu_kernel_8_U0_m_axi_gmem4_ARADDR;
+assign m_axi_gmem4_ARADDR = pu_kernel_1_U0_m_axi_gmem4_ARADDR;
 
-assign m_axi_gmem4_ARBURST = pu_kernel_8_U0_m_axi_gmem4_ARBURST;
+assign m_axi_gmem4_ARBURST = pu_kernel_1_U0_m_axi_gmem4_ARBURST;
 
-assign m_axi_gmem4_ARCACHE = pu_kernel_8_U0_m_axi_gmem4_ARCACHE;
+assign m_axi_gmem4_ARCACHE = pu_kernel_1_U0_m_axi_gmem4_ARCACHE;
 
-assign m_axi_gmem4_ARID = pu_kernel_8_U0_m_axi_gmem4_ARID;
+assign m_axi_gmem4_ARID = pu_kernel_1_U0_m_axi_gmem4_ARID;
 
-assign m_axi_gmem4_ARLEN = pu_kernel_8_U0_m_axi_gmem4_ARLEN;
+assign m_axi_gmem4_ARLEN = pu_kernel_1_U0_m_axi_gmem4_ARLEN;
 
-assign m_axi_gmem4_ARLOCK = pu_kernel_8_U0_m_axi_gmem4_ARLOCK;
+assign m_axi_gmem4_ARLOCK = pu_kernel_1_U0_m_axi_gmem4_ARLOCK;
 
-assign m_axi_gmem4_ARPROT = pu_kernel_8_U0_m_axi_gmem4_ARPROT;
+assign m_axi_gmem4_ARPROT = pu_kernel_1_U0_m_axi_gmem4_ARPROT;
 
-assign m_axi_gmem4_ARQOS = pu_kernel_8_U0_m_axi_gmem4_ARQOS;
+assign m_axi_gmem4_ARQOS = pu_kernel_1_U0_m_axi_gmem4_ARQOS;
 
-assign m_axi_gmem4_ARREGION = pu_kernel_8_U0_m_axi_gmem4_ARREGION;
+assign m_axi_gmem4_ARREGION = pu_kernel_1_U0_m_axi_gmem4_ARREGION;
 
-assign m_axi_gmem4_ARSIZE = pu_kernel_8_U0_m_axi_gmem4_ARSIZE;
+assign m_axi_gmem4_ARSIZE = pu_kernel_1_U0_m_axi_gmem4_ARSIZE;
 
-assign m_axi_gmem4_ARUSER = pu_kernel_8_U0_m_axi_gmem4_ARUSER;
+assign m_axi_gmem4_ARUSER = pu_kernel_1_U0_m_axi_gmem4_ARUSER;
 
-assign m_axi_gmem4_ARVALID = pu_kernel_8_U0_m_axi_gmem4_ARVALID;
+assign m_axi_gmem4_ARVALID = pu_kernel_1_U0_m_axi_gmem4_ARVALID;
 
 assign m_axi_gmem4_AWADDR = 64'd0;
 
@@ -1649,7 +1649,7 @@ assign m_axi_gmem4_AWVALID = 1'b0;
 
 assign m_axi_gmem4_BREADY = 1'b0;
 
-assign m_axi_gmem4_RREADY = pu_kernel_8_U0_m_axi_gmem4_RREADY;
+assign m_axi_gmem4_RREADY = pu_kernel_1_U0_m_axi_gmem4_RREADY;
 
 assign m_axi_gmem4_WDATA = 32'd0;
 
@@ -1663,29 +1663,29 @@ assign m_axi_gmem4_WUSER = 1'd0;
 
 assign m_axi_gmem4_WVALID = 1'b0;
 
-assign m_axi_gmem5_ARADDR = pu_kernel_9_U0_m_axi_gmem5_ARADDR;
+assign m_axi_gmem5_ARADDR = pu_kernel_2_U0_m_axi_gmem5_ARADDR;
 
-assign m_axi_gmem5_ARBURST = pu_kernel_9_U0_m_axi_gmem5_ARBURST;
+assign m_axi_gmem5_ARBURST = pu_kernel_2_U0_m_axi_gmem5_ARBURST;
 
-assign m_axi_gmem5_ARCACHE = pu_kernel_9_U0_m_axi_gmem5_ARCACHE;
+assign m_axi_gmem5_ARCACHE = pu_kernel_2_U0_m_axi_gmem5_ARCACHE;
 
-assign m_axi_gmem5_ARID = pu_kernel_9_U0_m_axi_gmem5_ARID;
+assign m_axi_gmem5_ARID = pu_kernel_2_U0_m_axi_gmem5_ARID;
 
-assign m_axi_gmem5_ARLEN = pu_kernel_9_U0_m_axi_gmem5_ARLEN;
+assign m_axi_gmem5_ARLEN = pu_kernel_2_U0_m_axi_gmem5_ARLEN;
 
-assign m_axi_gmem5_ARLOCK = pu_kernel_9_U0_m_axi_gmem5_ARLOCK;
+assign m_axi_gmem5_ARLOCK = pu_kernel_2_U0_m_axi_gmem5_ARLOCK;
 
-assign m_axi_gmem5_ARPROT = pu_kernel_9_U0_m_axi_gmem5_ARPROT;
+assign m_axi_gmem5_ARPROT = pu_kernel_2_U0_m_axi_gmem5_ARPROT;
 
-assign m_axi_gmem5_ARQOS = pu_kernel_9_U0_m_axi_gmem5_ARQOS;
+assign m_axi_gmem5_ARQOS = pu_kernel_2_U0_m_axi_gmem5_ARQOS;
 
-assign m_axi_gmem5_ARREGION = pu_kernel_9_U0_m_axi_gmem5_ARREGION;
+assign m_axi_gmem5_ARREGION = pu_kernel_2_U0_m_axi_gmem5_ARREGION;
 
-assign m_axi_gmem5_ARSIZE = pu_kernel_9_U0_m_axi_gmem5_ARSIZE;
+assign m_axi_gmem5_ARSIZE = pu_kernel_2_U0_m_axi_gmem5_ARSIZE;
 
-assign m_axi_gmem5_ARUSER = pu_kernel_9_U0_m_axi_gmem5_ARUSER;
+assign m_axi_gmem5_ARUSER = pu_kernel_2_U0_m_axi_gmem5_ARUSER;
 
-assign m_axi_gmem5_ARVALID = pu_kernel_9_U0_m_axi_gmem5_ARVALID;
+assign m_axi_gmem5_ARVALID = pu_kernel_2_U0_m_axi_gmem5_ARVALID;
 
 assign m_axi_gmem5_AWADDR = 64'd0;
 
@@ -1713,7 +1713,7 @@ assign m_axi_gmem5_AWVALID = 1'b0;
 
 assign m_axi_gmem5_BREADY = 1'b0;
 
-assign m_axi_gmem5_RREADY = pu_kernel_9_U0_m_axi_gmem5_RREADY;
+assign m_axi_gmem5_RREADY = pu_kernel_2_U0_m_axi_gmem5_RREADY;
 
 assign m_axi_gmem5_WDATA = 32'd0;
 
@@ -1727,29 +1727,29 @@ assign m_axi_gmem5_WUSER = 1'd0;
 
 assign m_axi_gmem5_WVALID = 1'b0;
 
-assign m_axi_gmem6_ARADDR = pu_kernel_10_U0_m_axi_gmem6_ARADDR;
+assign m_axi_gmem6_ARADDR = pu_kernel_3_U0_m_axi_gmem6_ARADDR;
 
-assign m_axi_gmem6_ARBURST = pu_kernel_10_U0_m_axi_gmem6_ARBURST;
+assign m_axi_gmem6_ARBURST = pu_kernel_3_U0_m_axi_gmem6_ARBURST;
 
-assign m_axi_gmem6_ARCACHE = pu_kernel_10_U0_m_axi_gmem6_ARCACHE;
+assign m_axi_gmem6_ARCACHE = pu_kernel_3_U0_m_axi_gmem6_ARCACHE;
 
-assign m_axi_gmem6_ARID = pu_kernel_10_U0_m_axi_gmem6_ARID;
+assign m_axi_gmem6_ARID = pu_kernel_3_U0_m_axi_gmem6_ARID;
 
-assign m_axi_gmem6_ARLEN = pu_kernel_10_U0_m_axi_gmem6_ARLEN;
+assign m_axi_gmem6_ARLEN = pu_kernel_3_U0_m_axi_gmem6_ARLEN;
 
-assign m_axi_gmem6_ARLOCK = pu_kernel_10_U0_m_axi_gmem6_ARLOCK;
+assign m_axi_gmem6_ARLOCK = pu_kernel_3_U0_m_axi_gmem6_ARLOCK;
 
-assign m_axi_gmem6_ARPROT = pu_kernel_10_U0_m_axi_gmem6_ARPROT;
+assign m_axi_gmem6_ARPROT = pu_kernel_3_U0_m_axi_gmem6_ARPROT;
 
-assign m_axi_gmem6_ARQOS = pu_kernel_10_U0_m_axi_gmem6_ARQOS;
+assign m_axi_gmem6_ARQOS = pu_kernel_3_U0_m_axi_gmem6_ARQOS;
 
-assign m_axi_gmem6_ARREGION = pu_kernel_10_U0_m_axi_gmem6_ARREGION;
+assign m_axi_gmem6_ARREGION = pu_kernel_3_U0_m_axi_gmem6_ARREGION;
 
-assign m_axi_gmem6_ARSIZE = pu_kernel_10_U0_m_axi_gmem6_ARSIZE;
+assign m_axi_gmem6_ARSIZE = pu_kernel_3_U0_m_axi_gmem6_ARSIZE;
 
-assign m_axi_gmem6_ARUSER = pu_kernel_10_U0_m_axi_gmem6_ARUSER;
+assign m_axi_gmem6_ARUSER = pu_kernel_3_U0_m_axi_gmem6_ARUSER;
 
-assign m_axi_gmem6_ARVALID = pu_kernel_10_U0_m_axi_gmem6_ARVALID;
+assign m_axi_gmem6_ARVALID = pu_kernel_3_U0_m_axi_gmem6_ARVALID;
 
 assign m_axi_gmem6_AWADDR = 64'd0;
 
@@ -1777,7 +1777,7 @@ assign m_axi_gmem6_AWVALID = 1'b0;
 
 assign m_axi_gmem6_BREADY = 1'b0;
 
-assign m_axi_gmem6_RREADY = pu_kernel_10_U0_m_axi_gmem6_RREADY;
+assign m_axi_gmem6_RREADY = pu_kernel_3_U0_m_axi_gmem6_RREADY;
 
 assign m_axi_gmem6_WDATA = 32'd0;
 
@@ -1791,17 +1791,17 @@ assign m_axi_gmem6_WUSER = 1'd0;
 
 assign m_axi_gmem6_WVALID = 1'b0;
 
-assign pu_kernel_10_U0_ap_continue = ap_sync_continue;
+assign pu_kernel_1_U0_ap_continue = ap_sync_continue;
 
-assign pu_kernel_10_U0_ap_start = ((ap_sync_reg_pu_kernel_10_U0_ap_ready ^ 1'b1) & ap_start);
+assign pu_kernel_1_U0_ap_start = ((ap_sync_reg_pu_kernel_1_U0_ap_ready ^ 1'b1) & ap_start);
 
-assign pu_kernel_8_U0_ap_continue = ap_sync_continue;
+assign pu_kernel_2_U0_ap_continue = ap_sync_continue;
 
-assign pu_kernel_8_U0_ap_start = ((ap_sync_reg_pu_kernel_8_U0_ap_ready ^ 1'b1) & ap_start);
+assign pu_kernel_2_U0_ap_start = ((ap_sync_reg_pu_kernel_2_U0_ap_ready ^ 1'b1) & ap_start);
 
-assign pu_kernel_9_U0_ap_continue = ap_sync_continue;
+assign pu_kernel_3_U0_ap_continue = ap_sync_continue;
 
-assign pu_kernel_9_U0_ap_start = ((ap_sync_reg_pu_kernel_9_U0_ap_ready ^ 1'b1) & ap_start);
+assign pu_kernel_3_U0_ap_start = ((ap_sync_reg_pu_kernel_3_U0_ap_ready ^ 1'b1) & ap_start);
 
 assign pu_kernel_U0_ap_continue = ap_sync_continue;
 

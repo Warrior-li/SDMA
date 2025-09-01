@@ -107,7 +107,6 @@ void dfm(
 ){
     #pragma hls inline off
 
-    move_B_to_BRAM:
     for(int i = 0; i < TILE_NNZ; ++i){
         #pragma hls pipeline II=1
         if(tile_ref[i] == false){
@@ -137,6 +136,7 @@ void pu_comp(
 void pu_kernel(
     hls::stream<TilePkt> & in,
     const value_t* B,
+    
     index_t K
 ){
     #pragma hls inline off
@@ -160,11 +160,47 @@ void pu_kernel(
     dfm(tile, tile_ref, Dbuf, Dlen, B, K);
 
     value_t resA[MAX_K],resB[MAX_K];
+    value_t AU0[MAX_K], AU1[MAX_K];
+    index_t au0_p = 0, au1_p = 0;
+    int au0_r = -1, au1_r = -1;
 
-    for(int i = 1; i <= 2; ++i){
-        #pragma hls dataflow
-        pu_comp(resA, tile[i], Dbuf, K);
-        pu_comp(resB, tile[i], Dbuf, K);
+    init_au:
+    for(int i = 0; i < MAX_K; ++i){
+        #pragma hls pipeline II = 1
+        AU0[i] = 0;
+        AU1[i] = 0;
+    }
+
+    // Round 1 and Round 2
+    for(int i = 0; i < 2; ++i){
+        {
+            #pragma hls dataflow
+            pu_comp(resA, tile[i * 2], Dbuf, K);
+            pu_comp(resB, tile[i * 2 + 1], Dbuf, K);
+        }
+
+        // Round 2
+        if(i == 1){
+            
+        }
+
+
+        AU_step:
+        if(tile[i*2].y == tile[i*2+1].y){
+            au0_r = tile[i*2].y;
+            for(int j = 0; j < K; ++j){
+                #pragma hls pipeline II = 1
+                AU0[j] += resA[j] + resB[j];
+            }
+        }else{
+            au0_r = tile[i*2].y;
+            au1_r = tile[i*2+1].y;
+            for(int j = 0; j < K; ++j){
+                #pragma hls pipeline II = 1
+                AU0[j] = resA[j];
+                AU1[j] = resA[j];
+            }
+        }
     }
 
 }

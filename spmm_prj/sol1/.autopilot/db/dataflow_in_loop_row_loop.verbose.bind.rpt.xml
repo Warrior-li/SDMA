@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'dataflow_in_loop_row_loop'" level="0">
-<item name = "Date">Mon Sep  1 16:04:14 2025
+<item name = "Date">Mon Sep  1 19:26:53 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -33,9 +33,9 @@
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
 <column name="grp_set_tile_broadcast_fu_160">set_tile_broadcast, 27, 27, 0.108 us, 0.108 us, 27, 27, no</column>
 <column name="grp_pu_kernel_fu_180">pu_kernel, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_pu_kernel_8_fu_191">pu_kernel_8, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_pu_kernel_9_fu_202">pu_kernel_9, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_pu_kernel_10_fu_213">pu_kernel_10, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_1_fu_191">pu_kernel_1, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_2_fu_202">pu_kernel_2, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_3_fu_213">pu_kernel_3, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">

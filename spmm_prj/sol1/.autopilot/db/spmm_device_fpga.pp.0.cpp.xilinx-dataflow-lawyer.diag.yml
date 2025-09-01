@@ -2,71 +2,47 @@
 MainSourceFile:  /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp
 Diagnostics:     
   - DiagnosticName:  clang-diagnostic-warning
-    Message:         '[xlx-df-check-4] Since the loop counter is not declared in loop header and/or initialized to ''0'', the compiler may not successfully process the dataflow loop'
-    FileOffset:      '164:27'
-    FilePath:        src/spmm_device_fpga.cpp
-  - DiagnosticName:  clang-diagnostic-warning
-    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '166:10'
-    FilePath:        src/spmm_device_fpga.cpp
-  - DiagnosticName:  clang-diagnostic-warning
-    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '166:16'
-    FilePath:        src/spmm_device_fpga.cpp
-  - DiagnosticName:  clang-diagnostic-warning
-    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '166:25'
-    FilePath:        src/spmm_device_fpga.cpp
-  - DiagnosticName:  clang-diagnostic-warning
-    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '167:17'
-    FilePath:        src/spmm_device_fpga.cpp
-  - DiagnosticName:  clang-diagnostic-warning
-    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '167:23'
-    FilePath:        src/spmm_device_fpga.cpp
-  - DiagnosticName:  clang-diagnostic-warning
-    Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '167:32'
+    Message:         '[xlx-df-check-1] Only for-loops and functions support the dataflow'
+    FileOffset:      '177:9'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-6] As the loop counter is not increased by 1, the compiler may not successfully process the dataflow loop'
-    FileOffset:      '220:29'
+    FileOffset:      '248:29'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '222:46'
+    FileOffset:      '250:46'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '223:19'
+    FileOffset:      '251:19'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '223:29'
+    FileOffset:      '251:29'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '224:19'
+    FileOffset:      '252:19'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '224:29'
+    FileOffset:      '252:29'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '225:19'
+    FileOffset:      '253:19'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '225:29'
+    FileOffset:      '253:29'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '226:19'
+    FileOffset:      '254:19'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-10] Either use an argument of the function or declare the variable inside the dataflow loop body'
-    FileOffset:      '226:29'
+    FileOffset:      '254:29'
     FilePath:        src/spmm_device_fpga.cpp
 ...

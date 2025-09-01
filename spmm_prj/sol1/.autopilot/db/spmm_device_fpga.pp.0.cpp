@@ -6284,11 +6284,10 @@ void dfm(
 ){
 #pragma hls inline off
 
- move_B_to_BRAM:
-    for(int i = 0; i < TILE_NNZ; ++i){
+ VITIS_LOOP_110_1: for(int i = 0; i < TILE_NNZ; ++i){
 #pragma hls pipeline II=1
  if(tile_ref[i] == false){
-            VITIS_LOOP_114_1: for(int j = 0; j < K; ++j){
+            VITIS_LOOP_113_2: for(int j = 0; j < K; ++j){
 #pragma hls pipeline II = 1
  Dbuf[Dlen + j] = B[tile[i].y * K + j];
             }
@@ -6304,7 +6303,7 @@ void pu_comp(
     const index_t K
 ){
 #pragma hls inline off
- VITIS_LOOP_130_1: for(int i = 0; i < K; ++i){
+ VITIS_LOOP_129_1: for(int i = 0; i < K; ++i){
 #pragma hls pipeline II=1
  res[i] = a.value * Dbuf[a.y * K + i];
     }
@@ -6314,6 +6313,7 @@ void pu_comp(
 void pu_kernel(
     hls::stream<TilePkt> & in,
     const value_t* B,
+
     index_t K
 ){
 #pragma hls inline off
@@ -6337,11 +6337,39 @@ void pu_kernel(
     dfm(tile, tile_ref, Dbuf, Dlen, B, K);
 
     value_t resA[MAX_K],resB[MAX_K];
+    value_t AU0[MAX_K], AU1[MAX_K];
+    index_t au0_p = 0, au1_p = 0;
+    int au0_r = 0, au1_r = 0;
 
-    VITIS_LOOP_164_1: for(int i = 1; i <= 2; ++i){
+    init_au:
+    for(int i = 0; i < MAX_K; ++i){
+#pragma hls pipeline II = 1
+ AU0[i] = 0;
+        AU1[i] = 0;
+    }
+
+
+    VITIS_LOOP_175_1: for(int i = 0; i < 2; ++i){
+        {
 #pragma hls dataflow
- pu_comp(resA, tile[i], Dbuf, K);
-        pu_comp(resB, tile[i], Dbuf, K);
+ pu_comp(resA, tile[i * 2], Dbuf, K);
+            pu_comp(resB, tile[i * 2 + 1], Dbuf, K);
+        }
+
+
+        AU_step:
+        if(tile[i*2].y == tile[i*2+1].y){
+            VITIS_LOOP_185_2: for(int j = 0; j < K; ++j){
+#pragma hls pipeline II = 1
+ AU0[j] += resA[j] + resB[j];
+            }
+        }else{
+            VITIS_LOOP_190_3: for(int j = 0; j < K; ++j){
+#pragma hls pipeline II = 1
+ AU0[j] = resA[j];
+                AU1[j] = resA[j];
+            }
+        }
     }
 
 }
@@ -6367,7 +6395,7 @@ __attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
 {
 #line 13 "/home/shuxuan/SDMA/hls.tcl"
 #pragma HLSDIRECTIVE TOP name=spmm_hls
-# 190 "src/spmm_device_fpga.cpp"
+# 218 "src/spmm_device_fpga.cpp"
 
 #pragma HLS interface m_axi port = row_ptr offset = slave bundle = gmem0
 #pragma HLS interface m_axi port = col_idx offset = slave bundle = gmem1
