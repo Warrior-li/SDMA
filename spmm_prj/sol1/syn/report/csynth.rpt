@@ -1,0 +1,363 @@
+
+
+================================================================
+== Synthesis Summary Report of 'spmm_hls'
+================================================================
++ General Information: 
+    * Date:           Mon Sep  1 16:04:22 2025
+    * Version:        2022.2 (Build 3670227 on Oct 13 2022)
+    * Project:        spmm_prj
+    * Solution:       sol1 (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcu280-fsvh2892-2L-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +----------------------------------------------------+------+------+---------+---------+----------+---------+------+----------+----------+----------+-------------+------------+-----+
+    |                       Modules                      | Issue|      | Latency | Latency | Iteration|         | Trip |          |          |          |             |            |     |
+    |                       & Loops                      | Type | Slack| (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined|   BRAM   |    DSP   |      FF     |     LUT    | URAM|
+    +----------------------------------------------------+------+------+---------+---------+----------+---------+------+----------+----------+----------+-------------+------------+-----+
+    |+ spmm_hls                                          |     -|  0.00|        -|        -|         -|        -|     -|        no|   64 (1%)|  12 (~0%)|  15604 (~0%)|  16758 (1%)|    -|
+    | o row_loop                                         |     -|  2.92|        -|        -|         -|        -|     -|        no|         -|         -|            -|           -|    -|
+    |  + dataflow_in_loop_row_loop*                      |     -|  0.00|        -|        -|         -|        -|     -|  dataflow|   64 (1%)|  12 (~0%)|   9753 (~0%)|  8524 (~0%)|    -|
+    |   + set_tile_broadcast                             |     -|  0.00|       27|  108.000|         -|       27|     -|        no|         -|         -|    828 (~0%)|  1203 (~0%)|    -|
+    |    + set_tile_broadcast_Pipeline_init_seen         |     -|  1.96|        6|   24.000|         -|        6|     -|        no|         -|         -|      5 (~0%)|    46 (~0%)|    -|
+    |     o init_seen                                    |     -|  2.92|        4|   16.000|         1|        1|     4|       yes|         -|         -|            -|           -|    -|
+    |    + set_tile_broadcast_Pipeline_copy_tile_loop    |     -|  0.00|       15|   60.000|         -|       15|     -|        no|         -|         -|    617 (~0%)|   789 (~0%)|    -|
+    |     o copy_tile_loop                               |     -|  2.92|       13|   52.000|        10|        1|     4|       yes|         -|         -|            -|           -|    -|
+    |   + pu_kernel                                      |     -|  0.00|        -|        -|         -|        -|     -|        no|  16 (~0%)|   3 (~0%)|    678 (~0%)|   980 (~0%)|    -|
+    |    + pu_kernel_Pipeline_pu_save_stream_into_pu     |     -|  1.52|        6|   24.000|         -|        6|     -|        no|         -|         -|      9 (~0%)|    57 (~0%)|    -|
+    |     o pu_save_stream_into_pu                       |     -|  2.92|        4|   16.000|         2|        1|     4|       yes|         -|         -|            -|           -|    -|
+    |    + dfm                                           |     -|  0.00|        -|        -|         -|        -|     -|        no|         -|   3 (~0%)|    496 (~0%)|   550 (~0%)|    -|
+    |     o move_B_to_BRAM                               |     -|  2.92|        -|        -|         -|        -|     -|        no|         -|         -|            -|           -|    -|
+    |      + dfm_Pipeline_VITIS_LOOP_114_1               |     -|  0.00|        -|        -|         -|        -|     -|        no|         -|         -|    100 (~0%)|   130 (~0%)|    -|
+    |       o VITIS_LOOP_114_1                           |     -|  2.92|        -|        -|         3|        1|     -|       yes|         -|         -|            -|           -|    -|
+    |   + pu_kernel_8                                    |     -|  0.00|        -|        -|         -|        -|     -|        no|  16 (~0%)|   3 (~0%)|    678 (~0%)|   980 (~0%)|    -|
+    |    + pu_kernel_8_Pipeline_pu_save_stream_into_pu   |     -|  1.52|        6|   24.000|         -|        6|     -|        no|         -|         -|      9 (~0%)|    57 (~0%)|    -|
+    |     o pu_save_stream_into_pu                       |     -|  2.92|        4|   16.000|         2|        1|     4|       yes|         -|         -|            -|           -|    -|
+    |    + dfm                                           |     -|  0.00|        -|        -|         -|        -|     -|        no|         -|   3 (~0%)|    496 (~0%)|   550 (~0%)|    -|
+    |     o move_B_to_BRAM                               |     -|  2.92|        -|        -|         -|        -|     -|        no|         -|         -|            -|           -|    -|
+    |      + dfm_Pipeline_VITIS_LOOP_114_1               |     -|  0.00|        -|        -|         -|        -|     -|        no|         -|         -|    100 (~0%)|   130 (~0%)|    -|
+    |       o VITIS_LOOP_114_1                           |     -|  2.92|        -|        -|         3|        1|     -|       yes|         -|         -|            -|           -|    -|
+    |   + pu_kernel_9                                    |     -|  0.00|        -|        -|         -|        -|     -|        no|  16 (~0%)|   3 (~0%)|    678 (~0%)|   980 (~0%)|    -|
+    |    + pu_kernel_9_Pipeline_pu_save_stream_into_pu   |     -|  1.52|        6|   24.000|         -|        6|     -|        no|         -|         -|      9 (~0%)|    57 (~0%)|    -|
+    |     o pu_save_stream_into_pu                       |     -|  2.92|        4|   16.000|         2|        1|     4|       yes|         -|         -|            -|           -|    -|
+    |    + dfm                                           |     -|  0.00|        -|        -|         -|        -|     -|        no|         -|   3 (~0%)|    496 (~0%)|   550 (~0%)|    -|
+    |     o move_B_to_BRAM                               |     -|  2.92|        -|        -|         -|        -|     -|        no|         -|         -|            -|           -|    -|
+    |      + dfm_Pipeline_VITIS_LOOP_114_1               |     -|  0.00|        -|        -|         -|        -|     -|        no|         -|         -|    100 (~0%)|   130 (~0%)|    -|
+    |       o VITIS_LOOP_114_1                           |     -|  2.92|        -|        -|         3|        1|     -|       yes|         -|         -|            -|           -|    -|
+    |   + pu_kernel_10                                   |     -|  0.00|        -|        -|         -|        -|     -|        no|  16 (~0%)|   3 (~0%)|    678 (~0%)|   980 (~0%)|    -|
+    |    + pu_kernel_10_Pipeline_pu_save_stream_into_pu  |     -|  1.52|        6|   24.000|         -|        6|     -|        no|         -|         -|      9 (~0%)|    57 (~0%)|    -|
+    |     o pu_save_stream_into_pu                       |     -|  2.92|        4|   16.000|         2|        1|     4|       yes|         -|         -|            -|           -|    -|
+    |    + dfm                                           |     -|  0.00|        -|        -|         -|        -|     -|        no|         -|   3 (~0%)|    496 (~0%)|   550 (~0%)|    -|
+    |     o move_B_to_BRAM                               |     -|  2.92|        -|        -|         -|        -|     -|        no|         -|         -|            -|           -|    -|
+    |      + dfm_Pipeline_VITIS_LOOP_114_1               |     -|  0.00|        -|        -|         -|        -|     -|        no|         -|         -|    100 (~0%)|   130 (~0%)|    -|
+    |       o VITIS_LOOP_114_1                           |     -|  2.92|        -|        -|         3|        1|     -|       yes|         -|         -|            -|           -|    -|
+    +----------------------------------------------------+------+------+---------+---------+----------+---------+------+----------+----------+----------+-------------+------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* M_AXI
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| Interface   | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   |
+|             | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+| m_axi_gmem0 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem1 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem2 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem3 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem4 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem5 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem6 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem7 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
++-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 8             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register  | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL      | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER      | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER    | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR    | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | N         | 0x10   | 32    | W      | Data signal of N                 |                                                                      |
+| s_axi_control | M         | 0x18   | 32    | W      | Data signal of M                 |                                                                      |
+| s_axi_control | K         | 0x20   | 32    | W      | Data signal of K                 |                                                                      |
+| s_axi_control | nnz       | 0x28   | 32    | W      | Data signal of nnz               |                                                                      |
+| s_axi_control | row_ptr_1 | 0x30   | 32    | W      | Data signal of row_ptr           |                                                                      |
+| s_axi_control | row_ptr_2 | 0x34   | 32    | W      | Data signal of row_ptr           |                                                                      |
+| s_axi_control | col_idx_1 | 0x3c   | 32    | W      | Data signal of col_idx           |                                                                      |
+| s_axi_control | col_idx_2 | 0x40   | 32    | W      | Data signal of col_idx           |                                                                      |
+| s_axi_control | a_val_1   | 0x48   | 32    | W      | Data signal of a_val             |                                                                      |
+| s_axi_control | a_val_2   | 0x4c   | 32    | W      | Data signal of a_val             |                                                                      |
+| s_axi_control | B1_1      | 0x54   | 32    | W      | Data signal of B1                |                                                                      |
+| s_axi_control | B1_2      | 0x58   | 32    | W      | Data signal of B1                |                                                                      |
+| s_axi_control | B2_1      | 0x60   | 32    | W      | Data signal of B2                |                                                                      |
+| s_axi_control | B2_2      | 0x64   | 32    | W      | Data signal of B2                |                                                                      |
+| s_axi_control | B3_1      | 0x6c   | 32    | W      | Data signal of B3                |                                                                      |
+| s_axi_control | B3_2      | 0x70   | 32    | W      | Data signal of B3                |                                                                      |
+| s_axi_control | B4_1      | 0x78   | 32    | W      | Data signal of B4                |                                                                      |
+| s_axi_control | B4_2      | 0x7c   | 32    | W      | Data signal of B4                |                                                                      |
+| s_axi_control | C_1       | 0x84   | 32    | W      | Data signal of C                 |                                                                      |
+| s_axi_control | C_2       | 0x88   | 32    | W      | Data signal of C                 |                                                                      |
++---------------+-----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
+* TOP LEVEL CONTROL
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+----------------------+
+| Argument | Direction | Datatype             |
++----------+-----------+----------------------+
+| N        | in        | unsigned int         |
+| M        | in        | unsigned int         |
+| K        | in        | unsigned int         |
+| nnz      | in        | unsigned int         |
+| row_ptr  | unused    | unsigned int const * |
+| col_idx  | in        | unsigned int const * |
+| a_val    | in        | float const *        |
+| B1       | in        | float const *        |
+| B2       | in        | float const *        |
+| B3       | in        | float const *        |
+| B4       | in        | float const *        |
+| C        | unused    | float*               |
++----------+-----------+----------------------+
+
+* SW-to-HW Mapping
++----------+---------------+-----------+----------+-------------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                             |
++----------+---------------+-----------+----------+-------------------------------------+
+| N        | s_axi_control | register  |          | name=N offset=0x10 range=32         |
+| M        | s_axi_control | register  |          | name=M offset=0x18 range=32         |
+| K        | s_axi_control | register  |          | name=K offset=0x20 range=32         |
+| nnz      | s_axi_control | register  |          | name=nnz offset=0x28 range=32       |
+| row_ptr  | m_axi_gmem0   | interface |          |                                     |
+| row_ptr  | s_axi_control | register  | offset   | name=row_ptr_1 offset=0x30 range=32 |
+| row_ptr  | s_axi_control | register  | offset   | name=row_ptr_2 offset=0x34 range=32 |
+| col_idx  | m_axi_gmem1   | interface |          |                                     |
+| col_idx  | s_axi_control | register  | offset   | name=col_idx_1 offset=0x3c range=32 |
+| col_idx  | s_axi_control | register  | offset   | name=col_idx_2 offset=0x40 range=32 |
+| a_val    | m_axi_gmem2   | interface |          |                                     |
+| a_val    | s_axi_control | register  | offset   | name=a_val_1 offset=0x48 range=32   |
+| a_val    | s_axi_control | register  | offset   | name=a_val_2 offset=0x4c range=32   |
+| B1       | m_axi_gmem3   | interface |          |                                     |
+| B1       | s_axi_control | register  | offset   | name=B1_1 offset=0x54 range=32      |
+| B1       | s_axi_control | register  | offset   | name=B1_2 offset=0x58 range=32      |
+| B2       | m_axi_gmem4   | interface |          |                                     |
+| B2       | s_axi_control | register  | offset   | name=B2_1 offset=0x60 range=32      |
+| B2       | s_axi_control | register  | offset   | name=B2_2 offset=0x64 range=32      |
+| B3       | m_axi_gmem5   | interface |          |                                     |
+| B3       | s_axi_control | register  | offset   | name=B3_1 offset=0x6c range=32      |
+| B3       | s_axi_control | register  | offset   | name=B3_2 offset=0x70 range=32      |
+| B4       | m_axi_gmem6   | interface |          |                                     |
+| B4       | s_axi_control | register  | offset   | name=B4_1 offset=0x78 range=32      |
+| B4       | s_axi_control | register  | offset   | name=B4_2 offset=0x7c range=32      |
+| C        | m_axi_gmem7   | interface |          |                                     |
+| C        | s_axi_control | register  | offset   | name=C_1 offset=0x84 range=32       |
+| C        | s_axi_control | register  | offset   | name=C_2 offset=0x88 range=32       |
++----------+---------------+-----------+----------+-------------------------------------+
+
+
+================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+* Inferred Burst Summary
++--------------+------------------+-----------+----------+-------+---------------------------------+
+| HW Interface | Loop             | Direction | Length   | Width | Location                        |
++--------------+------------------+-----------+----------+-------+---------------------------------+
+| m_axi_gmem6  | VITIS_LOOP_114_1 | read      | variable | 32    | src/spmm_device_fpga.cpp:114:31 |
++--------------+------------------+-----------+----------+-------+---------------------------------+
+
+* Inferred Bursts and Widening Missed
++-------------------------------+----------+------------------+---------------------------------------------------------------------------------------------------------+------------+---------------------------------+
+| HW Interface                  | Variable | Loop             | Problem                                                                                                 | Resolution | Location                        |
++-------------------------------+----------+------------------+---------------------------------------------------------------------------------------------------------+------------+---------------------------------+
+| m_axi_gmem3,gmem4,gmem5,gmem6 | B        | move_B_to_BRAM   | Access call is in the conditional branch                                                                | 214-232    | src/spmm_device_fpga.cpp:111:5  |
+| m_axi_gmem2                   | a_val    | copy_tile_loop   | Access tile.value is in the conditional branch                                                          | 214-232    | src/spmm_device_fpga.cpp:57:5   |
+| m_axi_gmem1                   | col_idx  | copy_tile_loop   | Access seen_y is in the conditional branch                                                              | 214-232    | src/spmm_device_fpga.cpp:57:5   |
+| m_axi_gmem3,gmem4,gmem5,gmem6 | B        | VITIS_LOOP_114_1 | Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/spmm_device_fpga.cpp:114:31 |
++-------------------------------+----------+------------------+---------------------------------------------------------------------------------------------------------+------------+---------------------------------+
+
+    * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
+
+================================================================
+== Bind Op Report
+================================================================
++--------------------------------------------------------------------------------+-----+--------+-----------+-----+--------+---------+
+| Name                                                                           | DSP | Pragma | Variable  | Op  | Impl   | Latency |
++--------------------------------------------------------------------------------+-----+--------+-----------+-----+--------+---------+
+| + spmm_hls                                                                     | 12  |        |           |     |        |         |
+|   i_3_fu_216_p2                                                                | -   |        | i_3       | add | fabric | 0       |
+|  + dataflow_in_loop_row_loop                                                   | 12  |        |           |     |        |         |
+|   + set_tile_broadcast                                                         | 0   |        |           |     |        |         |
+|    + set_tile_broadcast_Pipeline_init_seen                                     | 0   |        |           |     |        |         |
+|      add_ln49_fu_102_p2                                                        | -   |        | add_ln49  | add | fabric | 0       |
+|    + set_tile_broadcast_Pipeline_copy_tile_loop                                | 0   |        |           |     |        |         |
+|      add_ln57_fu_308_p2                                                        | -   |        | add_ln57  | add | fabric | 0       |
+|      idx_fu_322_p2                                                             | -   |        | idx       | add | fabric | 0       |
+|      add_ln62_fu_346_p2                                                        | -   |        | add_ln62  | add | fabric | 0       |
+|      add_ln63_fu_372_p2                                                        | -   |        | add_ln63  | add | fabric | 0       |
+|      used_3_fu_634_p2                                                          | -   |        | used_3    | add | fabric | 0       |
+|   + pu_kernel                                                                  | 3   |        |           |     |        |         |
+|    + pu_kernel_Pipeline_pu_save_stream_into_pu                                 | 0   |        |           |     |        |         |
+|      add_ln154_fu_104_p2                                                       | -   |        | add_ln154 | add | fabric | 0       |
+|    + dfm (grp_dfm_fu_218)                                                      | 3   |        |           |     |        |         |
+|      add_ln111_fu_160_p2                                                       | -   |        | add_ln111 | add | fabric | 0       |
+|      mul_32s_30ns_32_2_1_U39                                                   | 3   |        | mul       | mul | auto   | 1       |
+|      add_ln114_fu_186_p2                                                       | -   |        | add_ln114 | add | fabric | 0       |
+|      add_ln118_fu_218_p2                                                       | -   |        | add_ln118 | add | fabric | 0       |
+|     + dfm_Pipeline_VITIS_LOOP_114_1 (grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126) | 0   |        |           |     |        |         |
+|       add_ln114_fu_118_p2                                                      | -   |        | add_ln114 | add | fabric | 0       |
+|       add_ln116_fu_128_p2                                                      | -   |        | add_ln116 | add | fabric | 0       |
+|   + pu_kernel_8                                                                | 3   |        |           |     |        |         |
+|    + pu_kernel_8_Pipeline_pu_save_stream_into_pu                               | 0   |        |           |     |        |         |
+|      add_ln154_fu_104_p2                                                       | -   |        | add_ln154 | add | fabric | 0       |
+|    + dfm (grp_dfm_fu_218)                                                      | 3   |        |           |     |        |         |
+|      add_ln111_fu_160_p2                                                       | -   |        | add_ln111 | add | fabric | 0       |
+|      mul_32s_30ns_32_2_1_U39                                                   | 3   |        | mul       | mul | auto   | 1       |
+|      add_ln114_fu_186_p2                                                       | -   |        | add_ln114 | add | fabric | 0       |
+|      add_ln118_fu_218_p2                                                       | -   |        | add_ln118 | add | fabric | 0       |
+|     + dfm_Pipeline_VITIS_LOOP_114_1 (grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126) | 0   |        |           |     |        |         |
+|       add_ln114_fu_118_p2                                                      | -   |        | add_ln114 | add | fabric | 0       |
+|       add_ln116_fu_128_p2                                                      | -   |        | add_ln116 | add | fabric | 0       |
+|   + pu_kernel_9                                                                | 3   |        |           |     |        |         |
+|    + pu_kernel_9_Pipeline_pu_save_stream_into_pu                               | 0   |        |           |     |        |         |
+|      add_ln154_fu_104_p2                                                       | -   |        | add_ln154 | add | fabric | 0       |
+|    + dfm (grp_dfm_fu_218)                                                      | 3   |        |           |     |        |         |
+|      add_ln111_fu_160_p2                                                       | -   |        | add_ln111 | add | fabric | 0       |
+|      mul_32s_30ns_32_2_1_U39                                                   | 3   |        | mul       | mul | auto   | 1       |
+|      add_ln114_fu_186_p2                                                       | -   |        | add_ln114 | add | fabric | 0       |
+|      add_ln118_fu_218_p2                                                       | -   |        | add_ln118 | add | fabric | 0       |
+|     + dfm_Pipeline_VITIS_LOOP_114_1 (grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126) | 0   |        |           |     |        |         |
+|       add_ln114_fu_118_p2                                                      | -   |        | add_ln114 | add | fabric | 0       |
+|       add_ln116_fu_128_p2                                                      | -   |        | add_ln116 | add | fabric | 0       |
+|   + pu_kernel_10                                                               | 3   |        |           |     |        |         |
+|    + pu_kernel_10_Pipeline_pu_save_stream_into_pu                              | 0   |        |           |     |        |         |
+|      add_ln154_fu_104_p2                                                       | -   |        | add_ln154 | add | fabric | 0       |
+|    + dfm (grp_dfm_fu_218)                                                      | 3   |        |           |     |        |         |
+|      add_ln111_fu_160_p2                                                       | -   |        | add_ln111 | add | fabric | 0       |
+|      mul_32s_30ns_32_2_1_U39                                                   | 3   |        | mul       | mul | auto   | 1       |
+|      add_ln114_fu_186_p2                                                       | -   |        | add_ln114 | add | fabric | 0       |
+|      add_ln118_fu_218_p2                                                       | -   |        | add_ln118 | add | fabric | 0       |
+|     + dfm_Pipeline_VITIS_LOOP_114_1 (grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126) | 0   |        |           |     |        |         |
+|       add_ln114_fu_118_p2                                                      | -   |        | add_ln114 | add | fabric | 0       |
+|       add_ln116_fu_128_p2                                                      | -   |        | add_ln116 | add | fabric | 0       |
++--------------------------------------------------------------------------------+-----+--------+-----------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
++------------------------------+------+------+--------+-------------+---------+--------+---------+
+| Name                         | BRAM | URAM | Pragma | Variable    | Storage | Impl   | Latency |
++------------------------------+------+------+--------+-------------+---------+--------+---------+
+| + spmm_hls                   | 64   | 0    |        |             |         |        |         |
+|  + dataflow_in_loop_row_loop | 64   | 0    |        |             |         |        |         |
+|    s_01_U                    | -    | -    |        | s_01        | fifo    | memory | 0       |
+|    s_12_U                    | -    | -    |        | s_12        | fifo    | memory | 0       |
+|    s_23_U                    | -    | -    |        | s_23        | fifo    | memory | 0       |
+|    s_34_U                    | -    | -    |        | s_34        | fifo    | memory | 0       |
+|   + set_tile_broadcast       | 0    | 0    |        |             |         |        |         |
+|     pkt_v_value_U            | -    | -    |        | pkt_v_value | ram_s2p | auto   | 1       |
+|     pkt_v_y_U                | -    | -    |        | pkt_v_y     | ram_s2p | auto   | 1       |
+|     pkt_ref_U                | -    | -    |        | pkt_ref     | ram_s2p | auto   | 1       |
+|   + pu_kernel                | 16   | 0    |        |             |         |        |         |
+|     Dbuf_U                   | 16   | -    | yes    | Dbuf        | ram_2p  | bram   | 1       |
+|     tile_y_U                 | -    | -    |        | tile_y      | ram_1p  | auto   | 1       |
+|     tile_ref_U               | -    | -    |        | tile_ref    | ram_1p  | auto   | 1       |
+|     p_v_y_U                  | -    | -    |        | p_v_y       | ram_t2p | auto   | 1       |
+|     p_ref_U                  | -    | -    |        | p_ref       | ram_t2p | auto   | 1       |
+|   + pu_kernel_8              | 16   | 0    |        |             |         |        |         |
+|     Dbuf_U                   | 16   | -    | yes    | Dbuf        | ram_2p  | bram   | 1       |
+|     tile_y_U                 | -    | -    |        | tile_y      | ram_1p  | auto   | 1       |
+|     tile_ref_U               | -    | -    |        | tile_ref    | ram_1p  | auto   | 1       |
+|     p_v_y_U                  | -    | -    |        | p_v_y       | ram_t2p | auto   | 1       |
+|     p_ref_U                  | -    | -    |        | p_ref       | ram_t2p | auto   | 1       |
+|   + pu_kernel_9              | 16   | 0    |        |             |         |        |         |
+|     Dbuf_U                   | 16   | -    | yes    | Dbuf        | ram_2p  | bram   | 1       |
+|     tile_y_U                 | -    | -    |        | tile_y      | ram_1p  | auto   | 1       |
+|     tile_ref_U               | -    | -    |        | tile_ref    | ram_1p  | auto   | 1       |
+|     p_v_y_U                  | -    | -    |        | p_v_y       | ram_t2p | auto   | 1       |
+|     p_ref_U                  | -    | -    |        | p_ref       | ram_t2p | auto   | 1       |
+|   + pu_kernel_10             | 16   | 0    |        |             |         |        |         |
+|     Dbuf_U                   | 16   | -    | yes    | Dbuf        | ram_2p  | bram   | 1       |
+|     tile_y_U                 | -    | -    |        | tile_y      | ram_1p  | auto   | 1       |
+|     tile_ref_U               | -    | -    |        | tile_ref    | ram_1p  | auto   | 1       |
+|     p_v_y_U                  | -    | -    |        | p_v_y       | ram_t2p | auto   | 1       |
+|     p_ref_U                  | -    | -    |        | p_ref       | ram_t2p | auto   | 1       |
++------------------------------+------+------+--------+-------------+---------+--------+---------+
+
+
+================================================================
+== Pragma Report
+================================================================
+* Valid Pragma Syntax
++-----------------+----------------------------------------------------+-----------------------------------------------------------+
+| Type            | Options                                            | Location                                                  |
++-----------------+----------------------------------------------------+-----------------------------------------------------------+
+| inline          | off                                                | src/spmm_device_fpga.cpp:34 in set_tile_broadcast         |
+| array_partition | variable=seen_y complete dim=1                     | src/spmm_device_fpga.cpp:40 in set_tile_broadcast, seen_y |
+| array_partition | variable=seen_v complete dim=1                     | src/spmm_device_fpga.cpp:41 in set_tile_broadcast, seen_v |
+| pipeline        | II=1                                               | src/spmm_device_fpga.cpp:50 in set_tile_broadcast         |
+| pipeline        | II=1                                               | src/spmm_device_fpga.cpp:58 in set_tile_broadcast         |
+| unroll          |                                                    | src/spmm_device_fpga.cpp:70 in set_tile_broadcast         |
+| unroll          |                                                    | src/spmm_device_fpga.cpp:95 in set_tile_broadcast         |
+| inline          | off                                                | src/spmm_device_fpga.cpp:108 in dfm                       |
+| pipeline        | II=1                                               | src/spmm_device_fpga.cpp:112 in dfm                       |
+| pipeline        | II = 1                                             | src/spmm_device_fpga.cpp:115 in dfm                       |
+| inline          | off                                                | src/spmm_device_fpga.cpp:129 in pu_comp                   |
+| pipeline        | II=1                                               | src/spmm_device_fpga.cpp:131 in pu_comp                   |
+| inline          | off                                                | src/spmm_device_fpga.cpp:142 in pu_kernel                 |
+| bind_storage    | variable=Dbuf type=ram_2p impl=bram                | src/spmm_device_fpga.cpp:145 in pu_kernel, Dbuf           |
+| pipeline        | II = 1                                             | src/spmm_device_fpga.cpp:155 in pu_kernel                 |
+| dataflow        |                                                    | src/spmm_device_fpga.cpp:165 in pu_kernel                 |
+| interface       | m_axi port = row_ptr offset = slave bundle = gmem0 | src/spmm_device_fpga.cpp:191 in spmm_hls                  |
+| interface       | m_axi port = col_idx offset = slave bundle = gmem1 | src/spmm_device_fpga.cpp:192 in spmm_hls                  |
+| interface       | m_axi port = a_val offset = slave bundle = gmem2   | src/spmm_device_fpga.cpp:193 in spmm_hls                  |
+| interface       | m_axi port=B1 offset = slave bundle = gmem3        | src/spmm_device_fpga.cpp:194 in spmm_hls, B1              |
+| interface       | m_axi port=B2 offset = slave bundle = gmem4        | src/spmm_device_fpga.cpp:195 in spmm_hls, B2              |
+| interface       | m_axi port=B3 offset = slave bundle = gmem5        | src/spmm_device_fpga.cpp:196 in spmm_hls, B3              |
+| interface       | m_axi port=B4 offset = slave bundle = gmem6        | src/spmm_device_fpga.cpp:197 in spmm_hls, B4              |
+| interface       | m_axi port=C offset = slave bundle = gmem7         | src/spmm_device_fpga.cpp:198 in spmm_hls, C               |
+| interface       | s_axilite port=N bundle=control                    | src/spmm_device_fpga.cpp:200 in spmm_hls, N               |
+| interface       | s_axilite port=M bundle=control                    | src/spmm_device_fpga.cpp:201 in spmm_hls, M               |
+| interface       | s_axilite port=K bundle=control                    | src/spmm_device_fpga.cpp:202 in spmm_hls, K               |
+| interface       | s_axilite port=nnz bundle=control                  | src/spmm_device_fpga.cpp:203 in spmm_hls, nnz             |
+| interface       | s_axilite port=row_ptr bundle=control              | src/spmm_device_fpga.cpp:204 in spmm_hls, row_ptr         |
+| interface       | s_axilite port=col_idx bundle=control              | src/spmm_device_fpga.cpp:205 in spmm_hls, col_idx         |
+| interface       | s_axilite port=a_val bundle=control                | src/spmm_device_fpga.cpp:206 in spmm_hls, a_val           |
+| interface       | s_axilite port=B1 bundle=control                   | src/spmm_device_fpga.cpp:207 in spmm_hls, B1              |
+| interface       | s_axilite port=B2 bundle=control                   | src/spmm_device_fpga.cpp:208 in spmm_hls, B2              |
+| interface       | s_axilite port=B3 bundle=control                   | src/spmm_device_fpga.cpp:209 in spmm_hls, B3              |
+| interface       | s_axilite port=B4 bundle=control                   | src/spmm_device_fpga.cpp:210 in spmm_hls, B4              |
+| interface       | s_axilite port=C bundle=control                    | src/spmm_device_fpga.cpp:211 in spmm_hls, C               |
+| interface       | s_axilite port=return bundle=control               | src/spmm_device_fpga.cpp:212 in spmm_hls, return          |
+| stream          | variable = s depth = 16                            | src/spmm_device_fpga.cpp:215 in spmm_hls                  |
+| dataflow        |                                                    | src/spmm_device_fpga.cpp:221 in spmm_hls                  |
++-----------------+----------------------------------------------------+-----------------------------------------------------------+
+
+

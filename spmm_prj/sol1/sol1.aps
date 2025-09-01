@@ -1,0 +1,26 @@
+<AutoPilot:solution xmlns:AutoPilot="com.autoesl.autopilot.solution">
+    <config>
+        <config_interface m_axi_latency="0"/>
+        <config_export format="xo" output="build_fpga/spmm_hls.xo"/>
+    </config>
+    <ExportDesign askAgain="true" evaluate="false" rtl="verilog" formatName="xo">
+        <Format formatName="xo"/>
+    </ExportDesign>
+    <name>
+        <value string="sol1"/>
+    </name>
+    <project>
+        <value string="spmm_prj"/>
+    </project>
+    <flowTarget value="vivado"/>
+    <targetInfo>
+        <TargetInfo value="xcu280:-fsvh2892:-2L-e"/>
+    </targetInfo>
+    <libraryList>
+        <library value="xilinx/virtexuplus/virtexuplus" name="DefaultPlatform"/>
+    </libraryList>
+    <clockList>
+        <clock name="default" default="false" period="4.0"/>
+    </clockList>
+</AutoPilot:solution>
+

@@ -1,0 +1,5080 @@
+set moduleName dataflow_in_loop_row_loop
+set isTopModule 0
+set isCombinational 0
+set isDatapathOnly 0
+set isPipelined 1
+set pipeline_type dataflow
+set FunctionProtocol ap_ctrl_hs
+set isOneStateSeq 0
+set ProfileFlag 0
+set StallSigGenFlag 0
+set isEnableWaveformDebug 1
+set hasInterrupt 0
+set C_modelName {dataflow_in_loop_row_loop}
+set C_modelType { void 0 }
+set C_modelArgList {
+	{ gmem1 int 32 regular {axi_master 0}  }
+	{ col_idx int 64 regular  }
+	{ gmem2 int 32 regular {axi_master 0}  }
+	{ a_val int 64 regular  }
+	{ i int 32 regular  }
+	{ nnz int 32 regular  }
+}
+set C_modelArgMapList {[ 
+	{ "Name" : "gmem1", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "col_idx","offset": { "type": "dynamic","port_name": "col_idx","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "col_idx", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem2", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "a_val","offset": { "type": "dynamic","port_name": "a_val","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "a_val", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "i", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "nnz", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} ]}
+# RTL Port declarations: 
+set portNum 107
+set portList { 
+	{ m_axi_gmem1_AWVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_AWID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_AWLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_AWSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WDATA sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_WSTRB sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_WLAST sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_ARID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_ARSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RDATA sc_in sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_RLAST sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RFIFONUM sc_in sc_lv 9 signal 0 } 
+	{ m_axi_gmem1_RUSER sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_BUSER sc_in sc_lv 1 signal 0 } 
+	{ col_idx sc_in sc_lv 64 signal 1 } 
+	{ m_axi_gmem2_AWVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_AWID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_AWLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_AWSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WDATA sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_WSTRB sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_WLAST sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_ARID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_ARSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RDATA sc_in sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_RLAST sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RFIFONUM sc_in sc_lv 9 signal 2 } 
+	{ m_axi_gmem2_RUSER sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_BUSER sc_in sc_lv 1 signal 2 } 
+	{ a_val sc_in sc_lv 64 signal 3 } 
+	{ i sc_in sc_lv 32 signal 4 } 
+	{ nnz sc_in sc_lv 32 signal 5 } 
+	{ ap_clk sc_in sc_logic 1 clock -1 } 
+	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
+	{ col_idx_ap_vld sc_in sc_logic 1 invld 1 } 
+	{ a_val_ap_vld sc_in sc_logic 1 invld 3 } 
+	{ i_ap_vld sc_in sc_logic 1 invld 4 } 
+	{ nnz_ap_vld sc_in sc_logic 1 invld 5 } 
+	{ ap_start sc_in sc_logic 1 start -1 } 
+	{ ap_done sc_out sc_logic 1 predone -1 } 
+	{ ap_ready sc_out sc_logic 1 ready -1 } 
+	{ ap_idle sc_out sc_logic 1 done -1 } 
+	{ ap_continue sc_in sc_logic 1 continue -1 } 
+}
+set NewPortList {[ 
+	{ "name": "m_axi_gmem1_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem1_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem1_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem1_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem1_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem1_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem1_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem1_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem1_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem1_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem1_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem1_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem1_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem1_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem1_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem1_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem1_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem1_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem1_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem1_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem1_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem1_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem1_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem1_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem1_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem1_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem1_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem1_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem1_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem1_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem1_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem1_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem1", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem1_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem1_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem1_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem1_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BUSER" }} , 
+ 	{ "name": "col_idx", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "col_idx", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem2_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem2_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem2_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem2_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem2_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem2_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem2_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem2_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem2_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem2_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem2_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem2_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem2_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem2_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem2_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem2_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem2_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem2_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem2_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem2_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem2_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem2_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem2_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem2_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem2_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem2_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem2_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem2_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem2_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem2_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem2_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem2_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem2", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem2_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem2_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem2_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem2_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BUSER" }} , 
+ 	{ "name": "a_val", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "a_val", "role": "default" }} , 
+ 	{ "name": "i", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "i", "role": "default" }} , 
+ 	{ "name": "nnz", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "nnz", "role": "default" }} , 
+ 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
+ 	{ "name": "ap_rst", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst", "role": "default" }} , 
+ 	{ "name": "col_idx_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "col_idx", "role": "ap_vld" }} , 
+ 	{ "name": "a_val_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "a_val", "role": "ap_vld" }} , 
+ 	{ "name": "i_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "i", "role": "ap_vld" }} , 
+ 	{ "name": "nnz_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "nnz", "role": "ap_vld" }} , 
+ 	{ "name": "ap_start", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "start", "bundle":{"name": "ap_start", "role": "default" }} , 
+ 	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
+ 	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
+ 	{ "name": "ap_continue", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "continue", "bundle":{"name": "ap_continue", "role": "default" }}  ]}
+
+set RtlHierarchyInfo {[
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
+		"CDFG" : "dataflow_in_loop_row_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "1",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"InputProcess" : [
+			{"ID" : "1", "Name" : "set_tile_broadcast_U0"}],
+		"OutputProcess" : [
+			{"ID" : "9", "Name" : "pu_kernel_U0"},
+			{"ID" : "10", "Name" : "pu_kernel_1_U0"},
+			{"ID" : "11", "Name" : "pu_kernel_2_U0"},
+			{"ID" : "12", "Name" : "pu_kernel_3_U0"}],
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem1"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem2"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "i", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0", "Parent" : "0", "Child" : ["2", "3", "4", "5", "7"],
+		"CDFG" : "set_tile_broadcast",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem1", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem2", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "s_0", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["9"], "DependentChan" : "13", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_0_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_1", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["10"], "DependentChan" : "14", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_1_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_2", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "15", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_2_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_3", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["12"], "DependentChan" : "16", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_3_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_value_U", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_y_U", "Parent" : "1"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_ref_U", "Parent" : "1"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263", "Parent" : "1", "Child" : ["6"],
+		"CDFG" : "set_tile_broadcast_Pipeline_init_seen",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_2_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_1_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_out", "Type" : "Vld", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "init_seen", "PipelineType" : "NotSupport"}]},
+	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263.flow_control_loop_pipe_sequential_init_U", "Parent" : "5"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Parent" : "1", "Child" : ["8"],
+		"CDFG" : "set_tile_broadcast_Pipeline_copy_tile_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "15", "EstimateLatencyMax" : "15",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_2_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_1_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "pkt_v_value", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_v_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_ref", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem2_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem2_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem1_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem1_blk_n_R", "Type" : "RtlSignal"}]}],
+		"Loop" : [
+			{"Name" : "copy_tile_loop", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter9", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter9", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "8", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271.flow_control_loop_pipe_sequential_init_U", "Parent" : "7"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0", "Parent" : "0",
+		"CDFG" : "pu_kernel",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"StartSource" : "1",
+		"StartFifo" : "start_for_pu_kernel_U0_U",
+		"Port" : [
+			{"Name" : "s_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "13", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_0_blk_n", "Type" : "RtlSignal"}]}]},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0", "Parent" : "0",
+		"CDFG" : "pu_kernel_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"StartSource" : "1",
+		"StartFifo" : "start_for_pu_kernel_1_U0_U",
+		"Port" : [
+			{"Name" : "s_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "14", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_1_blk_n", "Type" : "RtlSignal"}]}]},
+	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0", "Parent" : "0",
+		"CDFG" : "pu_kernel_2",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"StartSource" : "1",
+		"StartFifo" : "start_for_pu_kernel_2_U0_U",
+		"Port" : [
+			{"Name" : "s_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "15", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_2_blk_n", "Type" : "RtlSignal"}]}]},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0", "Parent" : "0",
+		"CDFG" : "pu_kernel_3",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"StartSource" : "1",
+		"StartFifo" : "start_for_pu_kernel_3_U0_U",
+		"Port" : [
+			{"Name" : "s_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "16", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_3_blk_n", "Type" : "RtlSignal"}]}]},
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_01_U", "Parent" : "0"},
+	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_12_U", "Parent" : "0"},
+	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_23_U", "Parent" : "0"},
+	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_34_U", "Parent" : "0"},
+	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_pu_kernel_U0_U", "Parent" : "0"},
+	{"ID" : "18", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_pu_kernel_1_U0_U", "Parent" : "0"},
+	{"ID" : "19", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_pu_kernel_2_U0_U", "Parent" : "0"},
+	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_pu_kernel_3_U0_U", "Parent" : "0"}]}
+
+
+set ArgLastReadFirstWriteLatency {
+	dataflow_in_loop_row_loop {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		i {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}}
+	set_tile_broadcast {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 2 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 2 FirstWrite -1}
+		s_0 {Type O LastRead -1 FirstWrite 6}
+		s_1 {Type O LastRead -1 FirstWrite 6}
+		s_2 {Type O LastRead -1 FirstWrite 6}
+		s_3 {Type O LastRead -1 FirstWrite 6}
+		pointer {Type I LastRead 2 FirstWrite -1}
+		nnz {Type I LastRead 2 FirstWrite -1}}
+	set_tile_broadcast_Pipeline_init_seen {
+		seen_v_3_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_2_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_1_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_out {Type O LastRead -1 FirstWrite 0}}
+	set_tile_broadcast_Pipeline_copy_tile_loop {
+		seen_v_3_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_2_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_1_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_reload {Type I LastRead 0 FirstWrite -1}
+		pkt_v_value {Type O LastRead -1 FirstWrite 9}
+		pkt_v_y {Type O LastRead -1 FirstWrite 9}
+		pkt_ref {Type O LastRead -1 FirstWrite 9}
+		pointer {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem1 {Type I LastRead 8 FirstWrite -1}}
+	pu_kernel {
+		s_0 {Type I LastRead 0 FirstWrite -1}}
+	pu_kernel_1 {
+		s_1 {Type I LastRead 0 FirstWrite -1}}
+	pu_kernel_2 {
+		s_2 {Type I LastRead 0 FirstWrite -1}}
+	pu_kernel_3 {
+		s_3 {Type I LastRead 0 FirstWrite -1}}}
+
+set hasDtUnsupportedChannel 0
+
+set PerformanceInfo {[
+	{"Name" : "Latency", "Min" : "27", "Max" : "27"}
+	, {"Name" : "Interval", "Min" : "28", "Max" : "28"}
+]}
+
+set PipelineEnableSignalInfo {[
+]}
+
+set Spec2ImplPortList { 
+	 { m_axi {  { m_axi_gmem1_AWVALID VALID 1 1 }  { m_axi_gmem1_AWREADY READY 0 1 }  { m_axi_gmem1_AWADDR ADDR 1 64 }  { m_axi_gmem1_AWID ID 1 1 }  { m_axi_gmem1_AWLEN SIZE 1 32 }  { m_axi_gmem1_AWSIZE BURST 1 3 }  { m_axi_gmem1_AWBURST LOCK 1 2 }  { m_axi_gmem1_AWLOCK CACHE 1 2 }  { m_axi_gmem1_AWCACHE PROT 1 4 }  { m_axi_gmem1_AWPROT QOS 1 3 }  { m_axi_gmem1_AWQOS REGION 1 4 }  { m_axi_gmem1_AWREGION USER 1 4 }  { m_axi_gmem1_AWUSER DATA 1 1 }  { m_axi_gmem1_WVALID VALID 1 1 }  { m_axi_gmem1_WREADY READY 0 1 }  { m_axi_gmem1_WDATA FIFONUM 1 32 }  { m_axi_gmem1_WSTRB STRB 1 4 }  { m_axi_gmem1_WLAST LAST 1 1 }  { m_axi_gmem1_WID ID 1 1 }  { m_axi_gmem1_WUSER DATA 1 1 }  { m_axi_gmem1_ARVALID VALID 1 1 }  { m_axi_gmem1_ARREADY READY 0 1 }  { m_axi_gmem1_ARADDR ADDR 1 64 }  { m_axi_gmem1_ARID ID 1 1 }  { m_axi_gmem1_ARLEN SIZE 1 32 }  { m_axi_gmem1_ARSIZE BURST 1 3 }  { m_axi_gmem1_ARBURST LOCK 1 2 }  { m_axi_gmem1_ARLOCK CACHE 1 2 }  { m_axi_gmem1_ARCACHE PROT 1 4 }  { m_axi_gmem1_ARPROT QOS 1 3 }  { m_axi_gmem1_ARQOS REGION 1 4 }  { m_axi_gmem1_ARREGION USER 1 4 }  { m_axi_gmem1_ARUSER DATA 1 1 }  { m_axi_gmem1_RVALID VALID 0 1 }  { m_axi_gmem1_RREADY READY 1 1 }  { m_axi_gmem1_RDATA FIFONUM 0 32 }  { m_axi_gmem1_RLAST LAST 0 1 }  { m_axi_gmem1_RID ID 0 1 }  { m_axi_gmem1_RFIFONUM LEN 0 9 }  { m_axi_gmem1_RUSER DATA 0 1 }  { m_axi_gmem1_RRESP RESP 0 2 }  { m_axi_gmem1_BVALID VALID 0 1 }  { m_axi_gmem1_BREADY READY 1 1 }  { m_axi_gmem1_BRESP RESP 0 2 }  { m_axi_gmem1_BID ID 0 1 }  { m_axi_gmem1_BUSER DATA 0 1 } } }
+	col_idx { ap_none {  { col_idx in_data 0 64 }  { col_idx_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem2_AWVALID VALID 1 1 }  { m_axi_gmem2_AWREADY READY 0 1 }  { m_axi_gmem2_AWADDR ADDR 1 64 }  { m_axi_gmem2_AWID ID 1 1 }  { m_axi_gmem2_AWLEN SIZE 1 32 }  { m_axi_gmem2_AWSIZE BURST 1 3 }  { m_axi_gmem2_AWBURST LOCK 1 2 }  { m_axi_gmem2_AWLOCK CACHE 1 2 }  { m_axi_gmem2_AWCACHE PROT 1 4 }  { m_axi_gmem2_AWPROT QOS 1 3 }  { m_axi_gmem2_AWQOS REGION 1 4 }  { m_axi_gmem2_AWREGION USER 1 4 }  { m_axi_gmem2_AWUSER DATA 1 1 }  { m_axi_gmem2_WVALID VALID 1 1 }  { m_axi_gmem2_WREADY READY 0 1 }  { m_axi_gmem2_WDATA FIFONUM 1 32 }  { m_axi_gmem2_WSTRB STRB 1 4 }  { m_axi_gmem2_WLAST LAST 1 1 }  { m_axi_gmem2_WID ID 1 1 }  { m_axi_gmem2_WUSER DATA 1 1 }  { m_axi_gmem2_ARVALID VALID 1 1 }  { m_axi_gmem2_ARREADY READY 0 1 }  { m_axi_gmem2_ARADDR ADDR 1 64 }  { m_axi_gmem2_ARID ID 1 1 }  { m_axi_gmem2_ARLEN SIZE 1 32 }  { m_axi_gmem2_ARSIZE BURST 1 3 }  { m_axi_gmem2_ARBURST LOCK 1 2 }  { m_axi_gmem2_ARLOCK CACHE 1 2 }  { m_axi_gmem2_ARCACHE PROT 1 4 }  { m_axi_gmem2_ARPROT QOS 1 3 }  { m_axi_gmem2_ARQOS REGION 1 4 }  { m_axi_gmem2_ARREGION USER 1 4 }  { m_axi_gmem2_ARUSER DATA 1 1 }  { m_axi_gmem2_RVALID VALID 0 1 }  { m_axi_gmem2_RREADY READY 1 1 }  { m_axi_gmem2_RDATA FIFONUM 0 32 }  { m_axi_gmem2_RLAST LAST 0 1 }  { m_axi_gmem2_RID ID 0 1 }  { m_axi_gmem2_RFIFONUM LEN 0 9 }  { m_axi_gmem2_RUSER DATA 0 1 }  { m_axi_gmem2_RRESP RESP 0 2 }  { m_axi_gmem2_BVALID VALID 0 1 }  { m_axi_gmem2_BREADY READY 1 1 }  { m_axi_gmem2_BRESP RESP 0 2 }  { m_axi_gmem2_BID ID 0 1 }  { m_axi_gmem2_BUSER DATA 0 1 } } }
+	a_val { ap_none {  { a_val in_data 0 64 }  { a_val_ap_vld in_vld 0 1 } } }
+	i { ap_none {  { i in_data 0 32 }  { i_ap_vld in_vld 0 1 } } }
+	nnz { ap_none {  { nnz in_data 0 32 }  { nnz_ap_vld in_vld 0 1 } } }
+}
+set moduleName dataflow_in_loop_row_loop
+set isTopModule 0
+set isCombinational 0
+set isDatapathOnly 0
+set isPipelined 1
+set pipeline_type dataflow
+set FunctionProtocol ap_ctrl_hs
+set isOneStateSeq 0
+set ProfileFlag 0
+set StallSigGenFlag 0
+set isEnableWaveformDebug 1
+set hasInterrupt 0
+set C_modelName {dataflow_in_loop_row_loop}
+set C_modelType { void 0 }
+set C_modelArgList {
+	{ gmem1 int 32 regular {axi_master 0}  }
+	{ col_idx int 64 regular  }
+	{ gmem2 int 32 regular {axi_master 0}  }
+	{ a_val int 64 regular  }
+	{ i int 32 regular  }
+	{ nnz int 32 regular  }
+}
+set C_modelArgMapList {[ 
+	{ "Name" : "gmem1", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "col_idx","offset": { "type": "dynamic","port_name": "col_idx","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "col_idx", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem2", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "a_val","offset": { "type": "dynamic","port_name": "a_val","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "a_val", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "i", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "nnz", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} ]}
+# RTL Port declarations: 
+set portNum 107
+set portList { 
+	{ m_axi_gmem1_AWVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_AWID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_AWLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_AWSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WDATA sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_WSTRB sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_WLAST sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_ARID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_ARSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RDATA sc_in sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_RLAST sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RFIFONUM sc_in sc_lv 9 signal 0 } 
+	{ m_axi_gmem1_RUSER sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_BUSER sc_in sc_lv 1 signal 0 } 
+	{ col_idx sc_in sc_lv 64 signal 1 } 
+	{ m_axi_gmem2_AWVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_AWID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_AWLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_AWSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WDATA sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_WSTRB sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_WLAST sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_ARID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_ARSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RDATA sc_in sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_RLAST sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RFIFONUM sc_in sc_lv 9 signal 2 } 
+	{ m_axi_gmem2_RUSER sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_BUSER sc_in sc_lv 1 signal 2 } 
+	{ a_val sc_in sc_lv 64 signal 3 } 
+	{ i sc_in sc_lv 32 signal 4 } 
+	{ nnz sc_in sc_lv 32 signal 5 } 
+	{ ap_clk sc_in sc_logic 1 clock -1 } 
+	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
+	{ col_idx_ap_vld sc_in sc_logic 1 invld 1 } 
+	{ a_val_ap_vld sc_in sc_logic 1 invld 3 } 
+	{ i_ap_vld sc_in sc_logic 1 invld 4 } 
+	{ nnz_ap_vld sc_in sc_logic 1 invld 5 } 
+	{ ap_start sc_in sc_logic 1 start -1 } 
+	{ ap_done sc_out sc_logic 1 predone -1 } 
+	{ ap_ready sc_out sc_logic 1 ready -1 } 
+	{ ap_idle sc_out sc_logic 1 done -1 } 
+	{ ap_continue sc_in sc_logic 1 continue -1 } 
+}
+set NewPortList {[ 
+	{ "name": "m_axi_gmem1_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem1_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem1_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem1_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem1_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem1_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem1_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem1_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem1_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem1_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem1_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem1_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem1_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem1_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem1_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem1_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem1_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem1_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem1_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem1_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem1_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem1_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem1_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem1_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem1_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem1_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem1_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem1_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem1_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem1_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem1_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem1_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem1", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem1_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem1_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem1_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem1_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BUSER" }} , 
+ 	{ "name": "col_idx", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "col_idx", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem2_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem2_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem2_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem2_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem2_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem2_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem2_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem2_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem2_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem2_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem2_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem2_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem2_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem2_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem2_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem2_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem2_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem2_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem2_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem2_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem2_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem2_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem2_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem2_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem2_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem2_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem2_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem2_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem2_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem2_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem2_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem2_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem2", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem2_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem2_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem2_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem2_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BUSER" }} , 
+ 	{ "name": "a_val", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "a_val", "role": "default" }} , 
+ 	{ "name": "i", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "i", "role": "default" }} , 
+ 	{ "name": "nnz", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "nnz", "role": "default" }} , 
+ 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
+ 	{ "name": "ap_rst", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst", "role": "default" }} , 
+ 	{ "name": "col_idx_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "col_idx", "role": "ap_vld" }} , 
+ 	{ "name": "a_val_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "a_val", "role": "ap_vld" }} , 
+ 	{ "name": "i_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "i", "role": "ap_vld" }} , 
+ 	{ "name": "nnz_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "nnz", "role": "ap_vld" }} , 
+ 	{ "name": "ap_start", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "start", "bundle":{"name": "ap_start", "role": "default" }} , 
+ 	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
+ 	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
+ 	{ "name": "ap_continue", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "continue", "bundle":{"name": "ap_continue", "role": "default" }}  ]}
+
+set RtlHierarchyInfo {[
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"],
+		"CDFG" : "dataflow_in_loop_row_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "1",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"InputProcess" : [
+			{"ID" : "1", "Name" : "set_tile_broadcast_U0"}],
+		"OutputProcess" : [
+			{"ID" : "9", "Name" : "pu_kernel_U0"},
+			{"ID" : "10", "Name" : "pu_kernel_1_U0"},
+			{"ID" : "11", "Name" : "pu_kernel_2_U0"},
+			{"ID" : "12", "Name" : "pu_kernel_3_U0"}],
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem1"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem2"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "i", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0", "Parent" : "0", "Child" : ["2", "3", "4", "5", "7"],
+		"CDFG" : "set_tile_broadcast",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "1",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem1", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem2", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "s_0", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["9"], "DependentChan" : "13", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_0_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_1", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["10"], "DependentChan" : "14", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_1_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_2", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["11"], "DependentChan" : "15", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_2_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_3", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["12"], "DependentChan" : "16", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_3_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_value_U", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_y_U", "Parent" : "1"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_ref_U", "Parent" : "1"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263", "Parent" : "1", "Child" : ["6"],
+		"CDFG" : "set_tile_broadcast_Pipeline_init_seen",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_2_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_1_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_out", "Type" : "Vld", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "init_seen", "PipelineType" : "NotSupport"}]},
+	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263.flow_control_loop_pipe_sequential_init_U", "Parent" : "5"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Parent" : "1", "Child" : ["8"],
+		"CDFG" : "set_tile_broadcast_Pipeline_copy_tile_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "15", "EstimateLatencyMax" : "15",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_2_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_1_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "pkt_v_value", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_v_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_ref", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem2_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem2_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem1_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem1_blk_n_R", "Type" : "RtlSignal"}]}],
+		"Loop" : [
+			{"Name" : "copy_tile_loop", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter9", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter9", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "8", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271.flow_control_loop_pipe_sequential_init_U", "Parent" : "7"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0", "Parent" : "0",
+		"CDFG" : "pu_kernel",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"StartSource" : "1",
+		"StartFifo" : "start_for_pu_kernel_U0_U",
+		"Port" : [
+			{"Name" : "s_0", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "13", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_0_blk_n", "Type" : "RtlSignal"}]}]},
+	{"ID" : "10", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0", "Parent" : "0",
+		"CDFG" : "pu_kernel_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"StartSource" : "1",
+		"StartFifo" : "start_for_pu_kernel_1_U0_U",
+		"Port" : [
+			{"Name" : "s_1", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "14", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_1_blk_n", "Type" : "RtlSignal"}]}]},
+	{"ID" : "11", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0", "Parent" : "0",
+		"CDFG" : "pu_kernel_2",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"StartSource" : "1",
+		"StartFifo" : "start_for_pu_kernel_2_U0_U",
+		"Port" : [
+			{"Name" : "s_2", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "15", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_2_blk_n", "Type" : "RtlSignal"}]}]},
+	{"ID" : "12", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0", "Parent" : "0",
+		"CDFG" : "pu_kernel_3",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "1",
+		"VariableLatency" : "0", "ExactLatency" : "0", "EstimateLatencyMin" : "0", "EstimateLatencyMax" : "0",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"StartSource" : "1",
+		"StartFifo" : "start_for_pu_kernel_3_U0_U",
+		"Port" : [
+			{"Name" : "s_3", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "16", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_3_blk_n", "Type" : "RtlSignal"}]}]},
+	{"ID" : "13", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_01_U", "Parent" : "0"},
+	{"ID" : "14", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_12_U", "Parent" : "0"},
+	{"ID" : "15", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_23_U", "Parent" : "0"},
+	{"ID" : "16", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_34_U", "Parent" : "0"},
+	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_pu_kernel_U0_U", "Parent" : "0"},
+	{"ID" : "18", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_pu_kernel_1_U0_U", "Parent" : "0"},
+	{"ID" : "19", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_pu_kernel_2_U0_U", "Parent" : "0"},
+	{"ID" : "20", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.start_for_pu_kernel_3_U0_U", "Parent" : "0"}]}
+
+
+set ArgLastReadFirstWriteLatency {
+	dataflow_in_loop_row_loop {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		i {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}}
+	set_tile_broadcast {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 2 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 2 FirstWrite -1}
+		s_0 {Type O LastRead -1 FirstWrite 6}
+		s_1 {Type O LastRead -1 FirstWrite 6}
+		s_2 {Type O LastRead -1 FirstWrite 6}
+		s_3 {Type O LastRead -1 FirstWrite 6}
+		pointer {Type I LastRead 2 FirstWrite -1}
+		nnz {Type I LastRead 2 FirstWrite -1}}
+	set_tile_broadcast_Pipeline_init_seen {
+		seen_v_3_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_2_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_1_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_out {Type O LastRead -1 FirstWrite 0}}
+	set_tile_broadcast_Pipeline_copy_tile_loop {
+		seen_v_3_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_2_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_1_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_reload {Type I LastRead 0 FirstWrite -1}
+		pkt_v_value {Type O LastRead -1 FirstWrite 9}
+		pkt_v_y {Type O LastRead -1 FirstWrite 9}
+		pkt_ref {Type O LastRead -1 FirstWrite 9}
+		pointer {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem1 {Type I LastRead 8 FirstWrite -1}}
+	pu_kernel {
+		s_0 {Type I LastRead 0 FirstWrite -1}}
+	pu_kernel_1 {
+		s_1 {Type I LastRead 0 FirstWrite -1}}
+	pu_kernel_2 {
+		s_2 {Type I LastRead 0 FirstWrite -1}}
+	pu_kernel_3 {
+		s_3 {Type I LastRead 0 FirstWrite -1}}}
+
+set hasDtUnsupportedChannel 0
+
+set PerformanceInfo {[
+	{"Name" : "Latency", "Min" : "27", "Max" : "27"}
+	, {"Name" : "Interval", "Min" : "28", "Max" : "28"}
+]}
+
+set PipelineEnableSignalInfo {[
+]}
+
+set Spec2ImplPortList { 
+	 { m_axi {  { m_axi_gmem1_AWVALID VALID 1 1 }  { m_axi_gmem1_AWREADY READY 0 1 }  { m_axi_gmem1_AWADDR ADDR 1 64 }  { m_axi_gmem1_AWID ID 1 1 }  { m_axi_gmem1_AWLEN SIZE 1 32 }  { m_axi_gmem1_AWSIZE BURST 1 3 }  { m_axi_gmem1_AWBURST LOCK 1 2 }  { m_axi_gmem1_AWLOCK CACHE 1 2 }  { m_axi_gmem1_AWCACHE PROT 1 4 }  { m_axi_gmem1_AWPROT QOS 1 3 }  { m_axi_gmem1_AWQOS REGION 1 4 }  { m_axi_gmem1_AWREGION USER 1 4 }  { m_axi_gmem1_AWUSER DATA 1 1 }  { m_axi_gmem1_WVALID VALID 1 1 }  { m_axi_gmem1_WREADY READY 0 1 }  { m_axi_gmem1_WDATA FIFONUM 1 32 }  { m_axi_gmem1_WSTRB STRB 1 4 }  { m_axi_gmem1_WLAST LAST 1 1 }  { m_axi_gmem1_WID ID 1 1 }  { m_axi_gmem1_WUSER DATA 1 1 }  { m_axi_gmem1_ARVALID VALID 1 1 }  { m_axi_gmem1_ARREADY READY 0 1 }  { m_axi_gmem1_ARADDR ADDR 1 64 }  { m_axi_gmem1_ARID ID 1 1 }  { m_axi_gmem1_ARLEN SIZE 1 32 }  { m_axi_gmem1_ARSIZE BURST 1 3 }  { m_axi_gmem1_ARBURST LOCK 1 2 }  { m_axi_gmem1_ARLOCK CACHE 1 2 }  { m_axi_gmem1_ARCACHE PROT 1 4 }  { m_axi_gmem1_ARPROT QOS 1 3 }  { m_axi_gmem1_ARQOS REGION 1 4 }  { m_axi_gmem1_ARREGION USER 1 4 }  { m_axi_gmem1_ARUSER DATA 1 1 }  { m_axi_gmem1_RVALID VALID 0 1 }  { m_axi_gmem1_RREADY READY 1 1 }  { m_axi_gmem1_RDATA FIFONUM 0 32 }  { m_axi_gmem1_RLAST LAST 0 1 }  { m_axi_gmem1_RID ID 0 1 }  { m_axi_gmem1_RFIFONUM LEN 0 9 }  { m_axi_gmem1_RUSER DATA 0 1 }  { m_axi_gmem1_RRESP RESP 0 2 }  { m_axi_gmem1_BVALID VALID 0 1 }  { m_axi_gmem1_BREADY READY 1 1 }  { m_axi_gmem1_BRESP RESP 0 2 }  { m_axi_gmem1_BID ID 0 1 }  { m_axi_gmem1_BUSER DATA 0 1 } } }
+	col_idx { ap_none {  { col_idx in_data 0 64 }  { col_idx_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem2_AWVALID VALID 1 1 }  { m_axi_gmem2_AWREADY READY 0 1 }  { m_axi_gmem2_AWADDR ADDR 1 64 }  { m_axi_gmem2_AWID ID 1 1 }  { m_axi_gmem2_AWLEN SIZE 1 32 }  { m_axi_gmem2_AWSIZE BURST 1 3 }  { m_axi_gmem2_AWBURST LOCK 1 2 }  { m_axi_gmem2_AWLOCK CACHE 1 2 }  { m_axi_gmem2_AWCACHE PROT 1 4 }  { m_axi_gmem2_AWPROT QOS 1 3 }  { m_axi_gmem2_AWQOS REGION 1 4 }  { m_axi_gmem2_AWREGION USER 1 4 }  { m_axi_gmem2_AWUSER DATA 1 1 }  { m_axi_gmem2_WVALID VALID 1 1 }  { m_axi_gmem2_WREADY READY 0 1 }  { m_axi_gmem2_WDATA FIFONUM 1 32 }  { m_axi_gmem2_WSTRB STRB 1 4 }  { m_axi_gmem2_WLAST LAST 1 1 }  { m_axi_gmem2_WID ID 1 1 }  { m_axi_gmem2_WUSER DATA 1 1 }  { m_axi_gmem2_ARVALID VALID 1 1 }  { m_axi_gmem2_ARREADY READY 0 1 }  { m_axi_gmem2_ARADDR ADDR 1 64 }  { m_axi_gmem2_ARID ID 1 1 }  { m_axi_gmem2_ARLEN SIZE 1 32 }  { m_axi_gmem2_ARSIZE BURST 1 3 }  { m_axi_gmem2_ARBURST LOCK 1 2 }  { m_axi_gmem2_ARLOCK CACHE 1 2 }  { m_axi_gmem2_ARCACHE PROT 1 4 }  { m_axi_gmem2_ARPROT QOS 1 3 }  { m_axi_gmem2_ARQOS REGION 1 4 }  { m_axi_gmem2_ARREGION USER 1 4 }  { m_axi_gmem2_ARUSER DATA 1 1 }  { m_axi_gmem2_RVALID VALID 0 1 }  { m_axi_gmem2_RREADY READY 1 1 }  { m_axi_gmem2_RDATA FIFONUM 0 32 }  { m_axi_gmem2_RLAST LAST 0 1 }  { m_axi_gmem2_RID ID 0 1 }  { m_axi_gmem2_RFIFONUM LEN 0 9 }  { m_axi_gmem2_RUSER DATA 0 1 }  { m_axi_gmem2_RRESP RESP 0 2 }  { m_axi_gmem2_BVALID VALID 0 1 }  { m_axi_gmem2_BREADY READY 1 1 }  { m_axi_gmem2_BRESP RESP 0 2 }  { m_axi_gmem2_BID ID 0 1 }  { m_axi_gmem2_BUSER DATA 0 1 } } }
+	a_val { ap_none {  { a_val in_data 0 64 }  { a_val_ap_vld in_vld 0 1 } } }
+	i { ap_none {  { i in_data 0 32 }  { i_ap_vld in_vld 0 1 } } }
+	nnz { ap_none {  { nnz in_data 0 32 }  { nnz_ap_vld in_vld 0 1 } } }
+}
+set moduleName dataflow_in_loop_row_loop
+set isTopModule 0
+set isCombinational 0
+set isDatapathOnly 0
+set isPipelined 1
+set pipeline_type dataflow
+set FunctionProtocol ap_ctrl_hs
+set isOneStateSeq 0
+set ProfileFlag 0
+set StallSigGenFlag 0
+set isEnableWaveformDebug 1
+set hasInterrupt 0
+set C_modelName {dataflow_in_loop_row_loop}
+set C_modelType { void 0 }
+set C_modelArgList {
+	{ gmem1 int 32 regular {axi_master 0}  }
+	{ col_idx int 64 regular  }
+	{ gmem2 int 32 regular {axi_master 0}  }
+	{ a_val int 64 regular  }
+	{ i int 32 regular  }
+	{ nnz int 32 regular  }
+	{ gmem3 int 32 regular {axi_master 0}  }
+	{ B1 int 64 regular  }
+	{ K int 32 regular  }
+	{ gmem4 int 32 regular {axi_master 0}  }
+	{ B2 int 64 regular  }
+	{ gmem5 int 32 regular {axi_master 0}  }
+	{ B3 int 64 regular  }
+	{ gmem6 int 32 regular {axi_master 0}  }
+	{ B4 int 64 regular  }
+}
+set C_modelArgMapList {[ 
+	{ "Name" : "gmem1", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "col_idx","offset": { "type": "dynamic","port_name": "col_idx","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "col_idx", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem2", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "a_val","offset": { "type": "dynamic","port_name": "a_val","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "a_val", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "i", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "nnz", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem3", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B1","offset": { "type": "dynamic","port_name": "B1","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B1", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "K", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem4", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B2","offset": { "type": "dynamic","port_name": "B2","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B2", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem5", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B3","offset": { "type": "dynamic","port_name": "B3","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B3", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem6", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B4","offset": { "type": "dynamic","port_name": "B4","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B4", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} ]}
+# RTL Port declarations: 
+set portNum 301
+set portList { 
+	{ m_axi_gmem1_AWVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_AWID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_AWLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_AWSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WDATA sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_WSTRB sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_WLAST sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_ARID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_ARSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RDATA sc_in sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_RLAST sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RFIFONUM sc_in sc_lv 9 signal 0 } 
+	{ m_axi_gmem1_RUSER sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_BUSER sc_in sc_lv 1 signal 0 } 
+	{ col_idx sc_in sc_lv 64 signal 1 } 
+	{ m_axi_gmem2_AWVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_AWID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_AWLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_AWSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WDATA sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_WSTRB sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_WLAST sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_ARID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_ARSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RDATA sc_in sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_RLAST sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RFIFONUM sc_in sc_lv 9 signal 2 } 
+	{ m_axi_gmem2_RUSER sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_BUSER sc_in sc_lv 1 signal 2 } 
+	{ a_val sc_in sc_lv 64 signal 3 } 
+	{ i sc_in sc_lv 32 signal 4 } 
+	{ nnz sc_in sc_lv 32 signal 5 } 
+	{ m_axi_gmem3_AWVALID sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_AWREADY sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_AWADDR sc_out sc_lv 64 signal 6 } 
+	{ m_axi_gmem3_AWID sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_AWLEN sc_out sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_AWSIZE sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_AWBURST sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_AWLOCK sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_AWCACHE sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_AWPROT sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_AWQOS sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_AWREGION sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_AWUSER sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_WVALID sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_WREADY sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_WDATA sc_out sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_WSTRB sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_WLAST sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_WID sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_WUSER sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_ARVALID sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_ARREADY sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_ARADDR sc_out sc_lv 64 signal 6 } 
+	{ m_axi_gmem3_ARID sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_ARLEN sc_out sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_ARSIZE sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_ARBURST sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_ARLOCK sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_ARCACHE sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_ARPROT sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_ARQOS sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_ARREGION sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_ARUSER sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_RVALID sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_RREADY sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_RDATA sc_in sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_RLAST sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_RID sc_in sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_RFIFONUM sc_in sc_lv 9 signal 6 } 
+	{ m_axi_gmem3_RUSER sc_in sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_RRESP sc_in sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_BVALID sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_BREADY sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_BRESP sc_in sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_BID sc_in sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_BUSER sc_in sc_lv 1 signal 6 } 
+	{ B1 sc_in sc_lv 64 signal 7 } 
+	{ K sc_in sc_lv 32 signal 8 } 
+	{ m_axi_gmem4_AWVALID sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_AWREADY sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_AWADDR sc_out sc_lv 64 signal 9 } 
+	{ m_axi_gmem4_AWID sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_AWLEN sc_out sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_AWSIZE sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_AWBURST sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_AWLOCK sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_AWCACHE sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_AWPROT sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_AWQOS sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_AWREGION sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_AWUSER sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_WVALID sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_WREADY sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_WDATA sc_out sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_WSTRB sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_WLAST sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_WID sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_WUSER sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_ARVALID sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_ARREADY sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_ARADDR sc_out sc_lv 64 signal 9 } 
+	{ m_axi_gmem4_ARID sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_ARLEN sc_out sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_ARSIZE sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_ARBURST sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_ARLOCK sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_ARCACHE sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_ARPROT sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_ARQOS sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_ARREGION sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_ARUSER sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_RVALID sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_RREADY sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_RDATA sc_in sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_RLAST sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_RID sc_in sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_RFIFONUM sc_in sc_lv 9 signal 9 } 
+	{ m_axi_gmem4_RUSER sc_in sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_RRESP sc_in sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_BVALID sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_BREADY sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_BRESP sc_in sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_BID sc_in sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_BUSER sc_in sc_lv 1 signal 9 } 
+	{ B2 sc_in sc_lv 64 signal 10 } 
+	{ m_axi_gmem5_AWVALID sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_AWREADY sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_AWADDR sc_out sc_lv 64 signal 11 } 
+	{ m_axi_gmem5_AWID sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_AWLEN sc_out sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_AWSIZE sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_AWBURST sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_AWLOCK sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_AWCACHE sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_AWPROT sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_AWQOS sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_AWREGION sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_AWUSER sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_WVALID sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_WREADY sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_WDATA sc_out sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_WSTRB sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_WLAST sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_WID sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_WUSER sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_ARVALID sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_ARREADY sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_ARADDR sc_out sc_lv 64 signal 11 } 
+	{ m_axi_gmem5_ARID sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_ARLEN sc_out sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_ARSIZE sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_ARBURST sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_ARLOCK sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_ARCACHE sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_ARPROT sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_ARQOS sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_ARREGION sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_ARUSER sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_RVALID sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_RREADY sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_RDATA sc_in sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_RLAST sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_RID sc_in sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_RFIFONUM sc_in sc_lv 9 signal 11 } 
+	{ m_axi_gmem5_RUSER sc_in sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_RRESP sc_in sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_BVALID sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_BREADY sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_BRESP sc_in sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_BID sc_in sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_BUSER sc_in sc_lv 1 signal 11 } 
+	{ B3 sc_in sc_lv 64 signal 12 } 
+	{ m_axi_gmem6_AWVALID sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_AWREADY sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_AWADDR sc_out sc_lv 64 signal 13 } 
+	{ m_axi_gmem6_AWID sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_AWLEN sc_out sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_AWSIZE sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_AWBURST sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_AWLOCK sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_AWCACHE sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_AWPROT sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_AWQOS sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_AWREGION sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_AWUSER sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_WVALID sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_WREADY sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_WDATA sc_out sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_WSTRB sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_WLAST sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_WID sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_WUSER sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_ARVALID sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_ARREADY sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_ARADDR sc_out sc_lv 64 signal 13 } 
+	{ m_axi_gmem6_ARID sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_ARLEN sc_out sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_ARSIZE sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_ARBURST sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_ARLOCK sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_ARCACHE sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_ARPROT sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_ARQOS sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_ARREGION sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_ARUSER sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_RVALID sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_RREADY sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_RDATA sc_in sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_RLAST sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_RID sc_in sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_RFIFONUM sc_in sc_lv 9 signal 13 } 
+	{ m_axi_gmem6_RUSER sc_in sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_RRESP sc_in sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_BVALID sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_BREADY sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_BRESP sc_in sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_BID sc_in sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_BUSER sc_in sc_lv 1 signal 13 } 
+	{ B4 sc_in sc_lv 64 signal 14 } 
+	{ ap_clk sc_in sc_logic 1 clock -1 } 
+	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
+	{ col_idx_ap_vld sc_in sc_logic 1 invld 1 } 
+	{ a_val_ap_vld sc_in sc_logic 1 invld 3 } 
+	{ i_ap_vld sc_in sc_logic 1 invld 4 } 
+	{ nnz_ap_vld sc_in sc_logic 1 invld 5 } 
+	{ ap_start sc_in sc_logic 1 start -1 } 
+	{ B1_ap_vld sc_in sc_logic 1 invld 7 } 
+	{ K_ap_vld sc_in sc_logic 1 invld 8 } 
+	{ ap_done sc_out sc_logic 1 predone -1 } 
+	{ B2_ap_vld sc_in sc_logic 1 invld 10 } 
+	{ B3_ap_vld sc_in sc_logic 1 invld 12 } 
+	{ B4_ap_vld sc_in sc_logic 1 invld 14 } 
+	{ ap_ready sc_out sc_logic 1 ready -1 } 
+	{ ap_idle sc_out sc_logic 1 done -1 } 
+	{ ap_continue sc_in sc_logic 1 continue -1 } 
+}
+set NewPortList {[ 
+	{ "name": "m_axi_gmem1_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem1_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem1_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem1_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem1_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem1_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem1_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem1_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem1_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem1_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem1_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem1_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem1_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem1_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem1_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem1_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem1_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem1_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem1_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem1_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem1_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem1_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem1_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem1_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem1_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem1_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem1_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem1_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem1_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem1_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem1_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem1_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem1", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem1_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem1_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem1_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem1_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BUSER" }} , 
+ 	{ "name": "col_idx", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "col_idx", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem2_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem2_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem2_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem2_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem2_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem2_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem2_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem2_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem2_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem2_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem2_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem2_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem2_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem2_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem2_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem2_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem2_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem2_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem2_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem2_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem2_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem2_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem2_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem2_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem2_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem2_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem2_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem2_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem2_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem2_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem2_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem2_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem2", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem2_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem2_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem2_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem2_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BUSER" }} , 
+ 	{ "name": "a_val", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "a_val", "role": "default" }} , 
+ 	{ "name": "i", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "i", "role": "default" }} , 
+ 	{ "name": "nnz", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "nnz", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem3_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem3_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem3_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem3", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem3_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem3_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem3_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem3_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem3_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem3_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem3_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem3_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem3_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem3_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem3_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem3_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem3_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem3_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem3_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem3_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem3_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem3_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem3_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem3_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem3", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem3_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem3_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem3_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem3_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem3_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem3_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem3_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem3_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem3_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem3_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem3_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem3_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem3_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem3_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem3_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem3_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem3", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem3_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem3_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem3_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem3_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem3_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem3_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem3_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BUSER" }} , 
+ 	{ "name": "B1", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B1", "role": "default" }} , 
+ 	{ "name": "K", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "K", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem4_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem4_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem4_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem4", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem4_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem4_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem4_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem4_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem4_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem4_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem4_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem4_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem4_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem4_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem4_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem4_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem4_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem4_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem4_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem4_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem4_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem4_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem4_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem4_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem4", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem4_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem4_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem4_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem4_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem4_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem4_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem4_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem4_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem4_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem4_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem4_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem4_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem4_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem4_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem4_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem4_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem4", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem4_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem4_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem4_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem4_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem4_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem4_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem4_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BUSER" }} , 
+ 	{ "name": "B2", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B2", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem5_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem5_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem5_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem5", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem5_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem5_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem5_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem5_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem5_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem5_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem5_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem5_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem5_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem5_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem5_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem5_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem5_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem5_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem5_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem5_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem5_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem5_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem5_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem5_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem5", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem5_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem5_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem5_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem5_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem5_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem5_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem5_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem5_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem5_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem5_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem5_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem5_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem5_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem5_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem5_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem5_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem5", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem5_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem5_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem5_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem5_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem5_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem5_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem5_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BUSER" }} , 
+ 	{ "name": "B3", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B3", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem6_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem6_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem6_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem6", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem6_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem6_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem6_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem6_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem6_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem6_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem6_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem6_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem6_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem6_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem6_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem6_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem6_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem6_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem6_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem6_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem6_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem6_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem6_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem6_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem6", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem6_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem6_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem6_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem6_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem6_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem6_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem6_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem6_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem6_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem6_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem6_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem6_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem6_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem6_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem6_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem6_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem6", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem6_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem6_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem6_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem6_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem6_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem6_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem6_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BUSER" }} , 
+ 	{ "name": "B4", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B4", "role": "default" }} , 
+ 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
+ 	{ "name": "ap_rst", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst", "role": "default" }} , 
+ 	{ "name": "col_idx_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "col_idx", "role": "ap_vld" }} , 
+ 	{ "name": "a_val_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "a_val", "role": "ap_vld" }} , 
+ 	{ "name": "i_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "i", "role": "ap_vld" }} , 
+ 	{ "name": "nnz_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "nnz", "role": "ap_vld" }} , 
+ 	{ "name": "ap_start", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "start", "bundle":{"name": "ap_start", "role": "default" }} , 
+ 	{ "name": "B1_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B1", "role": "ap_vld" }} , 
+ 	{ "name": "K_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "K", "role": "ap_vld" }} , 
+ 	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
+ 	{ "name": "B2_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B2", "role": "ap_vld" }} , 
+ 	{ "name": "B3_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B3", "role": "ap_vld" }} , 
+ 	{ "name": "B4_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B4", "role": "ap_vld" }} , 
+ 	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
+ 	{ "name": "ap_continue", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "continue", "bundle":{"name": "ap_continue", "role": "default" }}  ]}
+
+set RtlHierarchyInfo {[
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "9", "26", "43", "60", "77", "78", "79", "80"],
+		"CDFG" : "dataflow_in_loop_row_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "1",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"InputProcess" : [
+			{"ID" : "1", "Name" : "set_tile_broadcast_U0"},
+			{"ID" : "9", "Name" : "pu_kernel_U0"},
+			{"ID" : "26", "Name" : "pu_kernel_1_U0"},
+			{"ID" : "43", "Name" : "pu_kernel_2_U0"},
+			{"ID" : "60", "Name" : "pu_kernel_3_U0"}],
+		"OutputProcess" : [
+			{"ID" : "9", "Name" : "pu_kernel_U0"},
+			{"ID" : "26", "Name" : "pu_kernel_1_U0"},
+			{"ID" : "43", "Name" : "pu_kernel_2_U0"},
+			{"ID" : "60", "Name" : "pu_kernel_3_U0"}],
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem1"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem2"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "i", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem3", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "9", "SubInstance" : "pu_kernel_U0", "Port" : "gmem3"}]},
+			{"Name" : "B1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem4", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "26", "SubInstance" : "pu_kernel_1_U0", "Port" : "gmem4"}]},
+			{"Name" : "B2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem5", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "43", "SubInstance" : "pu_kernel_2_U0", "Port" : "gmem5"}]},
+			{"Name" : "B3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "60", "SubInstance" : "pu_kernel_3_U0", "Port" : "gmem6"}]},
+			{"Name" : "B4", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0", "Parent" : "0", "Child" : ["2", "3", "4", "5", "7"],
+		"CDFG" : "set_tile_broadcast",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem1", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem2", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "s_0", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["9"], "DependentChan" : "77", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_0_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_1", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["26"], "DependentChan" : "78", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_1_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_2", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["43"], "DependentChan" : "79", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_2_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_3", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["60"], "DependentChan" : "80", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_3_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_value_U", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_y_U", "Parent" : "1"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_ref_U", "Parent" : "1"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263", "Parent" : "1", "Child" : ["6"],
+		"CDFG" : "set_tile_broadcast_Pipeline_init_seen",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_2_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_1_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_out", "Type" : "Vld", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "init_seen", "PipelineType" : "NotSupport"}]},
+	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263.flow_control_loop_pipe_sequential_init_U", "Parent" : "5"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Parent" : "1", "Child" : ["8"],
+		"CDFG" : "set_tile_broadcast_Pipeline_copy_tile_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "15", "EstimateLatencyMax" : "15",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_2_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_1_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "pkt_v_value", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_v_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_ref", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem2_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem2_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem1_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem1_blk_n_R", "Type" : "RtlSignal"}]}],
+		"Loop" : [
+			{"Name" : "copy_tile_loop", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter9", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter9", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "8", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271.flow_control_loop_pipe_sequential_init_U", "Parent" : "7"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0", "Parent" : "0", "Child" : ["10", "11", "12", "13", "14", "15", "16", "17", "19", "25"],
+		"CDFG" : "pu_kernel",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_01", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "77", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_01_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem3", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem3_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem3_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "B1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "21", "FirstState" : "ap_ST_fsm_state18", "LastState" : ["ap_ST_fsm_state20"], "QuitState" : ["ap_ST_fsm_state18"], "PreState" : ["ap_ST_fsm_state6", "ap_ST_fsm_state17"], "PostState" : ["ap_ST_fsm_state5"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "21", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state18"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state21"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.Dbuf_U", "Parent" : "9"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.tile_value_U", "Parent" : "9"},
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.tile_y_U", "Parent" : "9"},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.tile_ref_U", "Parent" : "9"},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.p_v_value_U", "Parent" : "9"},
+	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.p_v_y_U", "Parent" : "9"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.p_ref_U", "Parent" : "9"},
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_379", "Parent" : "9", "Child" : ["18"],
+		"CDFG" : "pu_kernel_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_value", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_value", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "18", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_379.flow_control_loop_pipe_sequential_init_U", "Parent" : "17"},
+	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_VITIS_LOOP_164_1_fu_389", "Parent" : "9", "Child" : ["20", "21", "22"],
+		"CDFG" : "pu_kernel_Pipeline_VITIS_LOOP_164_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "tile_value", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "22", "SubInstance" : "grp_pu_comp_fu_90", "Port" : "Dbuf", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
+			{"Name" : "trunc_ln", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_164_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "6", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state6"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "20", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_VITIS_LOOP_164_1_fu_389.resA_U", "Parent" : "19"},
+	{"ID" : "21", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_VITIS_LOOP_164_1_fu_389.resB_U", "Parent" : "19"},
+	{"ID" : "22", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90", "Parent" : "19", "Child" : ["23", "24"],
+		"CDFG" : "pu_comp",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "res", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "a_value", "Type" : "None", "Direction" : "I"},
+			{"Name" : "a_y", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_130_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "11", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state11"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "23", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90.fmul_32ns_32ns_32_4_max_dsp_1_U36", "Parent" : "22"},
+	{"ID" : "24", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90.mul_mul_16s_16s_16_4_1_U37", "Parent" : "22"},
+	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.mul_32s_30ns_32_2_1_U50", "Parent" : "9"},
+	{"ID" : "26", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0", "Parent" : "0", "Child" : ["27", "28", "29", "30", "31", "32", "33", "34", "36", "42"],
+		"CDFG" : "pu_kernel_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "78", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_12_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem4", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem4_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem4_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "B2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "21", "FirstState" : "ap_ST_fsm_state18", "LastState" : ["ap_ST_fsm_state20"], "QuitState" : ["ap_ST_fsm_state18"], "PreState" : ["ap_ST_fsm_state6", "ap_ST_fsm_state17"], "PostState" : ["ap_ST_fsm_state5"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "21", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state18"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state21"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.Dbuf_U", "Parent" : "26"},
+	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.tile_value_U", "Parent" : "26"},
+	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.tile_y_U", "Parent" : "26"},
+	{"ID" : "30", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.tile_ref_U", "Parent" : "26"},
+	{"ID" : "31", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.p_v_value_U", "Parent" : "26"},
+	{"ID" : "32", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.p_v_y_U", "Parent" : "26"},
+	{"ID" : "33", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.p_ref_U", "Parent" : "26"},
+	{"ID" : "34", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.grp_pu_kernel_1_Pipeline_pu_save_stream_into_pu_fu_379", "Parent" : "26", "Child" : ["35"],
+		"CDFG" : "pu_kernel_1_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_value", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_value", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "35", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.grp_pu_kernel_1_Pipeline_pu_save_stream_into_pu_fu_379.flow_control_loop_pipe_sequential_init_U", "Parent" : "34"},
+	{"ID" : "36", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.grp_pu_kernel_1_Pipeline_VITIS_LOOP_164_1_fu_389", "Parent" : "26", "Child" : ["37", "38", "39"],
+		"CDFG" : "pu_kernel_1_Pipeline_VITIS_LOOP_164_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "tile_value", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "39", "SubInstance" : "grp_pu_comp_fu_90", "Port" : "Dbuf", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
+			{"Name" : "trunc_ln", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_164_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "6", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state6"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "37", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.grp_pu_kernel_1_Pipeline_VITIS_LOOP_164_1_fu_389.resA_U", "Parent" : "36"},
+	{"ID" : "38", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.grp_pu_kernel_1_Pipeline_VITIS_LOOP_164_1_fu_389.resB_U", "Parent" : "36"},
+	{"ID" : "39", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.grp_pu_kernel_1_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90", "Parent" : "36", "Child" : ["40", "41"],
+		"CDFG" : "pu_comp",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "res", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "a_value", "Type" : "None", "Direction" : "I"},
+			{"Name" : "a_y", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_130_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "11", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state11"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "40", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.grp_pu_kernel_1_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90.fmul_32ns_32ns_32_4_max_dsp_1_U36", "Parent" : "39"},
+	{"ID" : "41", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.grp_pu_kernel_1_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90.mul_mul_16s_16s_16_4_1_U37", "Parent" : "39"},
+	{"ID" : "42", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_1_U0.mul_32s_30ns_32_2_1_U72", "Parent" : "26"},
+	{"ID" : "43", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0", "Parent" : "0", "Child" : ["44", "45", "46", "47", "48", "49", "50", "51", "53", "59"],
+		"CDFG" : "pu_kernel_2",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_23", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "79", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_23_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem5", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem5_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem5_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "B3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "21", "FirstState" : "ap_ST_fsm_state18", "LastState" : ["ap_ST_fsm_state20"], "QuitState" : ["ap_ST_fsm_state18"], "PreState" : ["ap_ST_fsm_state6", "ap_ST_fsm_state17"], "PostState" : ["ap_ST_fsm_state5"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "21", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state18"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state21"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "44", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.Dbuf_U", "Parent" : "43"},
+	{"ID" : "45", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.tile_value_U", "Parent" : "43"},
+	{"ID" : "46", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.tile_y_U", "Parent" : "43"},
+	{"ID" : "47", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.tile_ref_U", "Parent" : "43"},
+	{"ID" : "48", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.p_v_value_U", "Parent" : "43"},
+	{"ID" : "49", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.p_v_y_U", "Parent" : "43"},
+	{"ID" : "50", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.p_ref_U", "Parent" : "43"},
+	{"ID" : "51", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.grp_pu_kernel_2_Pipeline_pu_save_stream_into_pu_fu_379", "Parent" : "43", "Child" : ["52"],
+		"CDFG" : "pu_kernel_2_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_value", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_value", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "52", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.grp_pu_kernel_2_Pipeline_pu_save_stream_into_pu_fu_379.flow_control_loop_pipe_sequential_init_U", "Parent" : "51"},
+	{"ID" : "53", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.grp_pu_kernel_2_Pipeline_VITIS_LOOP_164_1_fu_389", "Parent" : "43", "Child" : ["54", "55", "56"],
+		"CDFG" : "pu_kernel_2_Pipeline_VITIS_LOOP_164_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "tile_value", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "56", "SubInstance" : "grp_pu_comp_fu_90", "Port" : "Dbuf", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
+			{"Name" : "trunc_ln", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_164_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "6", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state6"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "54", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.grp_pu_kernel_2_Pipeline_VITIS_LOOP_164_1_fu_389.resA_U", "Parent" : "53"},
+	{"ID" : "55", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.grp_pu_kernel_2_Pipeline_VITIS_LOOP_164_1_fu_389.resB_U", "Parent" : "53"},
+	{"ID" : "56", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.grp_pu_kernel_2_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90", "Parent" : "53", "Child" : ["57", "58"],
+		"CDFG" : "pu_comp",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "res", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "a_value", "Type" : "None", "Direction" : "I"},
+			{"Name" : "a_y", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_130_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "11", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state11"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "57", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.grp_pu_kernel_2_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90.fmul_32ns_32ns_32_4_max_dsp_1_U36", "Parent" : "56"},
+	{"ID" : "58", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.grp_pu_kernel_2_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90.mul_mul_16s_16s_16_4_1_U37", "Parent" : "56"},
+	{"ID" : "59", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_2_U0.mul_32s_30ns_32_2_1_U89", "Parent" : "43"},
+	{"ID" : "60", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0", "Parent" : "0", "Child" : ["61", "62", "63", "64", "65", "66", "67", "68", "70", "76"],
+		"CDFG" : "pu_kernel_3",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_34", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "80", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_34_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem6_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "B4", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "21", "FirstState" : "ap_ST_fsm_state18", "LastState" : ["ap_ST_fsm_state20"], "QuitState" : ["ap_ST_fsm_state18"], "PreState" : ["ap_ST_fsm_state6", "ap_ST_fsm_state17"], "PostState" : ["ap_ST_fsm_state5"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "21", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state18"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state21"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "61", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.Dbuf_U", "Parent" : "60"},
+	{"ID" : "62", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.tile_value_U", "Parent" : "60"},
+	{"ID" : "63", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.tile_y_U", "Parent" : "60"},
+	{"ID" : "64", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.tile_ref_U", "Parent" : "60"},
+	{"ID" : "65", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.p_v_value_U", "Parent" : "60"},
+	{"ID" : "66", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.p_v_y_U", "Parent" : "60"},
+	{"ID" : "67", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.p_ref_U", "Parent" : "60"},
+	{"ID" : "68", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.grp_pu_kernel_3_Pipeline_pu_save_stream_into_pu_fu_379", "Parent" : "60", "Child" : ["69"],
+		"CDFG" : "pu_kernel_3_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_value", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_value", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "69", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.grp_pu_kernel_3_Pipeline_pu_save_stream_into_pu_fu_379.flow_control_loop_pipe_sequential_init_U", "Parent" : "68"},
+	{"ID" : "70", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.grp_pu_kernel_3_Pipeline_VITIS_LOOP_164_1_fu_389", "Parent" : "60", "Child" : ["71", "72", "73"],
+		"CDFG" : "pu_kernel_3_Pipeline_VITIS_LOOP_164_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "tile_value", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "73", "SubInstance" : "grp_pu_comp_fu_90", "Port" : "Dbuf", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
+			{"Name" : "trunc_ln", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_164_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "6", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state6"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "71", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.grp_pu_kernel_3_Pipeline_VITIS_LOOP_164_1_fu_389.resA_U", "Parent" : "70"},
+	{"ID" : "72", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.grp_pu_kernel_3_Pipeline_VITIS_LOOP_164_1_fu_389.resB_U", "Parent" : "70"},
+	{"ID" : "73", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.grp_pu_kernel_3_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90", "Parent" : "70", "Child" : ["74", "75"],
+		"CDFG" : "pu_comp",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "res", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "a_value", "Type" : "None", "Direction" : "I"},
+			{"Name" : "a_y", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_130_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "11", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state11"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "74", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.grp_pu_kernel_3_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90.fmul_32ns_32ns_32_4_max_dsp_1_U36", "Parent" : "73"},
+	{"ID" : "75", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.grp_pu_kernel_3_Pipeline_VITIS_LOOP_164_1_fu_389.grp_pu_comp_fu_90.mul_mul_16s_16s_16_4_1_U37", "Parent" : "73"},
+	{"ID" : "76", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_3_U0.mul_32s_30ns_32_2_1_U106", "Parent" : "60"},
+	{"ID" : "77", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_01_U", "Parent" : "0"},
+	{"ID" : "78", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_12_U", "Parent" : "0"},
+	{"ID" : "79", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_23_U", "Parent" : "0"},
+	{"ID" : "80", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_34_U", "Parent" : "0"}]}
+
+
+set ArgLastReadFirstWriteLatency {
+	dataflow_in_loop_row_loop {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		i {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}
+		gmem3 {Type I LastRead 18 FirstWrite -1}
+		B1 {Type I LastRead 2 FirstWrite -1}
+		K {Type I LastRead 2 FirstWrite -1}
+		gmem4 {Type I LastRead 18 FirstWrite -1}
+		B2 {Type I LastRead 2 FirstWrite -1}
+		gmem5 {Type I LastRead 18 FirstWrite -1}
+		B3 {Type I LastRead 2 FirstWrite -1}
+		gmem6 {Type I LastRead 18 FirstWrite -1}
+		B4 {Type I LastRead 2 FirstWrite -1}}
+	set_tile_broadcast {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 2 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 2 FirstWrite -1}
+		s_0 {Type O LastRead -1 FirstWrite 6}
+		s_1 {Type O LastRead -1 FirstWrite 6}
+		s_2 {Type O LastRead -1 FirstWrite 6}
+		s_3 {Type O LastRead -1 FirstWrite 6}
+		pointer {Type I LastRead 2 FirstWrite -1}
+		nnz {Type I LastRead 2 FirstWrite -1}}
+	set_tile_broadcast_Pipeline_init_seen {
+		seen_v_3_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_2_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_1_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_out {Type O LastRead -1 FirstWrite 0}}
+	set_tile_broadcast_Pipeline_copy_tile_loop {
+		seen_v_3_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_2_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_1_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_reload {Type I LastRead 0 FirstWrite -1}
+		pkt_v_value {Type O LastRead -1 FirstWrite 9}
+		pkt_v_y {Type O LastRead -1 FirstWrite 9}
+		pkt_ref {Type O LastRead -1 FirstWrite 9}
+		pointer {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem1 {Type I LastRead 8 FirstWrite -1}}
+	pu_kernel {
+		s_01 {Type I LastRead 0 FirstWrite -1}
+		gmem3 {Type I LastRead 18 FirstWrite -1}
+		B1 {Type I LastRead 3 FirstWrite -1}
+		K {Type I LastRead 3 FirstWrite -1}}
+	pu_kernel_Pipeline_pu_save_stream_into_pu {
+		p_v_value {Type I LastRead 0 FirstWrite -1}
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_value {Type O LastRead -1 FirstWrite 1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	pu_kernel_Pipeline_VITIS_LOOP_164_1 {
+		tile_value {Type I LastRead 1 FirstWrite -1}
+		tile_y {Type I LastRead 1 FirstWrite -1}
+		Dbuf {Type I LastRead 4 FirstWrite -1}
+		trunc_ln {Type I LastRead 0 FirstWrite -1}}
+	pu_comp {
+		res {Type O LastRead -1 FirstWrite 10}
+		a_value {Type I LastRead 3 FirstWrite -1}
+		a_y {Type I LastRead 0 FirstWrite -1}
+		Dbuf {Type I LastRead 4 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}}
+	pu_kernel_1 {
+		s_12 {Type I LastRead 0 FirstWrite -1}
+		gmem4 {Type I LastRead 18 FirstWrite -1}
+		B2 {Type I LastRead 3 FirstWrite -1}
+		K {Type I LastRead 3 FirstWrite -1}}
+	pu_kernel_1_Pipeline_pu_save_stream_into_pu {
+		p_v_value {Type I LastRead 0 FirstWrite -1}
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_value {Type O LastRead -1 FirstWrite 1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	pu_kernel_1_Pipeline_VITIS_LOOP_164_1 {
+		tile_value {Type I LastRead 1 FirstWrite -1}
+		tile_y {Type I LastRead 1 FirstWrite -1}
+		Dbuf {Type I LastRead 4 FirstWrite -1}
+		trunc_ln {Type I LastRead 0 FirstWrite -1}}
+	pu_comp {
+		res {Type O LastRead -1 FirstWrite 10}
+		a_value {Type I LastRead 3 FirstWrite -1}
+		a_y {Type I LastRead 0 FirstWrite -1}
+		Dbuf {Type I LastRead 4 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}}
+	pu_kernel_2 {
+		s_23 {Type I LastRead 0 FirstWrite -1}
+		gmem5 {Type I LastRead 18 FirstWrite -1}
+		B3 {Type I LastRead 3 FirstWrite -1}
+		K {Type I LastRead 3 FirstWrite -1}}
+	pu_kernel_2_Pipeline_pu_save_stream_into_pu {
+		p_v_value {Type I LastRead 0 FirstWrite -1}
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_value {Type O LastRead -1 FirstWrite 1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	pu_kernel_2_Pipeline_VITIS_LOOP_164_1 {
+		tile_value {Type I LastRead 1 FirstWrite -1}
+		tile_y {Type I LastRead 1 FirstWrite -1}
+		Dbuf {Type I LastRead 4 FirstWrite -1}
+		trunc_ln {Type I LastRead 0 FirstWrite -1}}
+	pu_comp {
+		res {Type O LastRead -1 FirstWrite 10}
+		a_value {Type I LastRead 3 FirstWrite -1}
+		a_y {Type I LastRead 0 FirstWrite -1}
+		Dbuf {Type I LastRead 4 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}}
+	pu_kernel_3 {
+		s_34 {Type I LastRead 0 FirstWrite -1}
+		gmem6 {Type I LastRead 18 FirstWrite -1}
+		B4 {Type I LastRead 3 FirstWrite -1}
+		K {Type I LastRead 3 FirstWrite -1}}
+	pu_kernel_3_Pipeline_pu_save_stream_into_pu {
+		p_v_value {Type I LastRead 0 FirstWrite -1}
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_value {Type O LastRead -1 FirstWrite 1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	pu_kernel_3_Pipeline_VITIS_LOOP_164_1 {
+		tile_value {Type I LastRead 1 FirstWrite -1}
+		tile_y {Type I LastRead 1 FirstWrite -1}
+		Dbuf {Type I LastRead 4 FirstWrite -1}
+		trunc_ln {Type I LastRead 0 FirstWrite -1}}
+	pu_comp {
+		res {Type O LastRead -1 FirstWrite 10}
+		a_value {Type I LastRead 3 FirstWrite -1}
+		a_y {Type I LastRead 0 FirstWrite -1}
+		Dbuf {Type I LastRead 4 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}}}
+
+set hasDtUnsupportedChannel 0
+
+set PerformanceInfo {[
+	{"Name" : "Latency", "Min" : "-1", "Max" : "-1"}
+	, {"Name" : "Interval", "Min" : "-1", "Max" : "-1"}
+]}
+
+set PipelineEnableSignalInfo {[
+]}
+
+set Spec2ImplPortList { 
+	 { m_axi {  { m_axi_gmem1_AWVALID VALID 1 1 }  { m_axi_gmem1_AWREADY READY 0 1 }  { m_axi_gmem1_AWADDR ADDR 1 64 }  { m_axi_gmem1_AWID ID 1 1 }  { m_axi_gmem1_AWLEN SIZE 1 32 }  { m_axi_gmem1_AWSIZE BURST 1 3 }  { m_axi_gmem1_AWBURST LOCK 1 2 }  { m_axi_gmem1_AWLOCK CACHE 1 2 }  { m_axi_gmem1_AWCACHE PROT 1 4 }  { m_axi_gmem1_AWPROT QOS 1 3 }  { m_axi_gmem1_AWQOS REGION 1 4 }  { m_axi_gmem1_AWREGION USER 1 4 }  { m_axi_gmem1_AWUSER DATA 1 1 }  { m_axi_gmem1_WVALID VALID 1 1 }  { m_axi_gmem1_WREADY READY 0 1 }  { m_axi_gmem1_WDATA FIFONUM 1 32 }  { m_axi_gmem1_WSTRB STRB 1 4 }  { m_axi_gmem1_WLAST LAST 1 1 }  { m_axi_gmem1_WID ID 1 1 }  { m_axi_gmem1_WUSER DATA 1 1 }  { m_axi_gmem1_ARVALID VALID 1 1 }  { m_axi_gmem1_ARREADY READY 0 1 }  { m_axi_gmem1_ARADDR ADDR 1 64 }  { m_axi_gmem1_ARID ID 1 1 }  { m_axi_gmem1_ARLEN SIZE 1 32 }  { m_axi_gmem1_ARSIZE BURST 1 3 }  { m_axi_gmem1_ARBURST LOCK 1 2 }  { m_axi_gmem1_ARLOCK CACHE 1 2 }  { m_axi_gmem1_ARCACHE PROT 1 4 }  { m_axi_gmem1_ARPROT QOS 1 3 }  { m_axi_gmem1_ARQOS REGION 1 4 }  { m_axi_gmem1_ARREGION USER 1 4 }  { m_axi_gmem1_ARUSER DATA 1 1 }  { m_axi_gmem1_RVALID VALID 0 1 }  { m_axi_gmem1_RREADY READY 1 1 }  { m_axi_gmem1_RDATA FIFONUM 0 32 }  { m_axi_gmem1_RLAST LAST 0 1 }  { m_axi_gmem1_RID ID 0 1 }  { m_axi_gmem1_RFIFONUM LEN 0 9 }  { m_axi_gmem1_RUSER DATA 0 1 }  { m_axi_gmem1_RRESP RESP 0 2 }  { m_axi_gmem1_BVALID VALID 0 1 }  { m_axi_gmem1_BREADY READY 1 1 }  { m_axi_gmem1_BRESP RESP 0 2 }  { m_axi_gmem1_BID ID 0 1 }  { m_axi_gmem1_BUSER DATA 0 1 } } }
+	col_idx { ap_none {  { col_idx in_data 0 64 }  { col_idx_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem2_AWVALID VALID 1 1 }  { m_axi_gmem2_AWREADY READY 0 1 }  { m_axi_gmem2_AWADDR ADDR 1 64 }  { m_axi_gmem2_AWID ID 1 1 }  { m_axi_gmem2_AWLEN SIZE 1 32 }  { m_axi_gmem2_AWSIZE BURST 1 3 }  { m_axi_gmem2_AWBURST LOCK 1 2 }  { m_axi_gmem2_AWLOCK CACHE 1 2 }  { m_axi_gmem2_AWCACHE PROT 1 4 }  { m_axi_gmem2_AWPROT QOS 1 3 }  { m_axi_gmem2_AWQOS REGION 1 4 }  { m_axi_gmem2_AWREGION USER 1 4 }  { m_axi_gmem2_AWUSER DATA 1 1 }  { m_axi_gmem2_WVALID VALID 1 1 }  { m_axi_gmem2_WREADY READY 0 1 }  { m_axi_gmem2_WDATA FIFONUM 1 32 }  { m_axi_gmem2_WSTRB STRB 1 4 }  { m_axi_gmem2_WLAST LAST 1 1 }  { m_axi_gmem2_WID ID 1 1 }  { m_axi_gmem2_WUSER DATA 1 1 }  { m_axi_gmem2_ARVALID VALID 1 1 }  { m_axi_gmem2_ARREADY READY 0 1 }  { m_axi_gmem2_ARADDR ADDR 1 64 }  { m_axi_gmem2_ARID ID 1 1 }  { m_axi_gmem2_ARLEN SIZE 1 32 }  { m_axi_gmem2_ARSIZE BURST 1 3 }  { m_axi_gmem2_ARBURST LOCK 1 2 }  { m_axi_gmem2_ARLOCK CACHE 1 2 }  { m_axi_gmem2_ARCACHE PROT 1 4 }  { m_axi_gmem2_ARPROT QOS 1 3 }  { m_axi_gmem2_ARQOS REGION 1 4 }  { m_axi_gmem2_ARREGION USER 1 4 }  { m_axi_gmem2_ARUSER DATA 1 1 }  { m_axi_gmem2_RVALID VALID 0 1 }  { m_axi_gmem2_RREADY READY 1 1 }  { m_axi_gmem2_RDATA FIFONUM 0 32 }  { m_axi_gmem2_RLAST LAST 0 1 }  { m_axi_gmem2_RID ID 0 1 }  { m_axi_gmem2_RFIFONUM LEN 0 9 }  { m_axi_gmem2_RUSER DATA 0 1 }  { m_axi_gmem2_RRESP RESP 0 2 }  { m_axi_gmem2_BVALID VALID 0 1 }  { m_axi_gmem2_BREADY READY 1 1 }  { m_axi_gmem2_BRESP RESP 0 2 }  { m_axi_gmem2_BID ID 0 1 }  { m_axi_gmem2_BUSER DATA 0 1 } } }
+	a_val { ap_none {  { a_val in_data 0 64 }  { a_val_ap_vld in_vld 0 1 } } }
+	i { ap_none {  { i in_data 0 32 }  { i_ap_vld in_vld 0 1 } } }
+	nnz { ap_none {  { nnz in_data 0 32 }  { nnz_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem3_AWVALID VALID 1 1 }  { m_axi_gmem3_AWREADY READY 0 1 }  { m_axi_gmem3_AWADDR ADDR 1 64 }  { m_axi_gmem3_AWID ID 1 1 }  { m_axi_gmem3_AWLEN SIZE 1 32 }  { m_axi_gmem3_AWSIZE BURST 1 3 }  { m_axi_gmem3_AWBURST LOCK 1 2 }  { m_axi_gmem3_AWLOCK CACHE 1 2 }  { m_axi_gmem3_AWCACHE PROT 1 4 }  { m_axi_gmem3_AWPROT QOS 1 3 }  { m_axi_gmem3_AWQOS REGION 1 4 }  { m_axi_gmem3_AWREGION USER 1 4 }  { m_axi_gmem3_AWUSER DATA 1 1 }  { m_axi_gmem3_WVALID VALID 1 1 }  { m_axi_gmem3_WREADY READY 0 1 }  { m_axi_gmem3_WDATA FIFONUM 1 32 }  { m_axi_gmem3_WSTRB STRB 1 4 }  { m_axi_gmem3_WLAST LAST 1 1 }  { m_axi_gmem3_WID ID 1 1 }  { m_axi_gmem3_WUSER DATA 1 1 }  { m_axi_gmem3_ARVALID VALID 1 1 }  { m_axi_gmem3_ARREADY READY 0 1 }  { m_axi_gmem3_ARADDR ADDR 1 64 }  { m_axi_gmem3_ARID ID 1 1 }  { m_axi_gmem3_ARLEN SIZE 1 32 }  { m_axi_gmem3_ARSIZE BURST 1 3 }  { m_axi_gmem3_ARBURST LOCK 1 2 }  { m_axi_gmem3_ARLOCK CACHE 1 2 }  { m_axi_gmem3_ARCACHE PROT 1 4 }  { m_axi_gmem3_ARPROT QOS 1 3 }  { m_axi_gmem3_ARQOS REGION 1 4 }  { m_axi_gmem3_ARREGION USER 1 4 }  { m_axi_gmem3_ARUSER DATA 1 1 }  { m_axi_gmem3_RVALID VALID 0 1 }  { m_axi_gmem3_RREADY READY 1 1 }  { m_axi_gmem3_RDATA FIFONUM 0 32 }  { m_axi_gmem3_RLAST LAST 0 1 }  { m_axi_gmem3_RID ID 0 1 }  { m_axi_gmem3_RFIFONUM LEN 0 9 }  { m_axi_gmem3_RUSER DATA 0 1 }  { m_axi_gmem3_RRESP RESP 0 2 }  { m_axi_gmem3_BVALID VALID 0 1 }  { m_axi_gmem3_BREADY READY 1 1 }  { m_axi_gmem3_BRESP RESP 0 2 }  { m_axi_gmem3_BID ID 0 1 }  { m_axi_gmem3_BUSER DATA 0 1 } } }
+	B1 { ap_none {  { B1 in_data 0 64 }  { B1_ap_vld in_vld 0 1 } } }
+	K { ap_none {  { K in_data 0 32 }  { K_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem4_AWVALID VALID 1 1 }  { m_axi_gmem4_AWREADY READY 0 1 }  { m_axi_gmem4_AWADDR ADDR 1 64 }  { m_axi_gmem4_AWID ID 1 1 }  { m_axi_gmem4_AWLEN SIZE 1 32 }  { m_axi_gmem4_AWSIZE BURST 1 3 }  { m_axi_gmem4_AWBURST LOCK 1 2 }  { m_axi_gmem4_AWLOCK CACHE 1 2 }  { m_axi_gmem4_AWCACHE PROT 1 4 }  { m_axi_gmem4_AWPROT QOS 1 3 }  { m_axi_gmem4_AWQOS REGION 1 4 }  { m_axi_gmem4_AWREGION USER 1 4 }  { m_axi_gmem4_AWUSER DATA 1 1 }  { m_axi_gmem4_WVALID VALID 1 1 }  { m_axi_gmem4_WREADY READY 0 1 }  { m_axi_gmem4_WDATA FIFONUM 1 32 }  { m_axi_gmem4_WSTRB STRB 1 4 }  { m_axi_gmem4_WLAST LAST 1 1 }  { m_axi_gmem4_WID ID 1 1 }  { m_axi_gmem4_WUSER DATA 1 1 }  { m_axi_gmem4_ARVALID VALID 1 1 }  { m_axi_gmem4_ARREADY READY 0 1 }  { m_axi_gmem4_ARADDR ADDR 1 64 }  { m_axi_gmem4_ARID ID 1 1 }  { m_axi_gmem4_ARLEN SIZE 1 32 }  { m_axi_gmem4_ARSIZE BURST 1 3 }  { m_axi_gmem4_ARBURST LOCK 1 2 }  { m_axi_gmem4_ARLOCK CACHE 1 2 }  { m_axi_gmem4_ARCACHE PROT 1 4 }  { m_axi_gmem4_ARPROT QOS 1 3 }  { m_axi_gmem4_ARQOS REGION 1 4 }  { m_axi_gmem4_ARREGION USER 1 4 }  { m_axi_gmem4_ARUSER DATA 1 1 }  { m_axi_gmem4_RVALID VALID 0 1 }  { m_axi_gmem4_RREADY READY 1 1 }  { m_axi_gmem4_RDATA FIFONUM 0 32 }  { m_axi_gmem4_RLAST LAST 0 1 }  { m_axi_gmem4_RID ID 0 1 }  { m_axi_gmem4_RFIFONUM LEN 0 9 }  { m_axi_gmem4_RUSER DATA 0 1 }  { m_axi_gmem4_RRESP RESP 0 2 }  { m_axi_gmem4_BVALID VALID 0 1 }  { m_axi_gmem4_BREADY READY 1 1 }  { m_axi_gmem4_BRESP RESP 0 2 }  { m_axi_gmem4_BID ID 0 1 }  { m_axi_gmem4_BUSER DATA 0 1 } } }
+	B2 { ap_none {  { B2 in_data 0 64 }  { B2_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem5_AWVALID VALID 1 1 }  { m_axi_gmem5_AWREADY READY 0 1 }  { m_axi_gmem5_AWADDR ADDR 1 64 }  { m_axi_gmem5_AWID ID 1 1 }  { m_axi_gmem5_AWLEN SIZE 1 32 }  { m_axi_gmem5_AWSIZE BURST 1 3 }  { m_axi_gmem5_AWBURST LOCK 1 2 }  { m_axi_gmem5_AWLOCK CACHE 1 2 }  { m_axi_gmem5_AWCACHE PROT 1 4 }  { m_axi_gmem5_AWPROT QOS 1 3 }  { m_axi_gmem5_AWQOS REGION 1 4 }  { m_axi_gmem5_AWREGION USER 1 4 }  { m_axi_gmem5_AWUSER DATA 1 1 }  { m_axi_gmem5_WVALID VALID 1 1 }  { m_axi_gmem5_WREADY READY 0 1 }  { m_axi_gmem5_WDATA FIFONUM 1 32 }  { m_axi_gmem5_WSTRB STRB 1 4 }  { m_axi_gmem5_WLAST LAST 1 1 }  { m_axi_gmem5_WID ID 1 1 }  { m_axi_gmem5_WUSER DATA 1 1 }  { m_axi_gmem5_ARVALID VALID 1 1 }  { m_axi_gmem5_ARREADY READY 0 1 }  { m_axi_gmem5_ARADDR ADDR 1 64 }  { m_axi_gmem5_ARID ID 1 1 }  { m_axi_gmem5_ARLEN SIZE 1 32 }  { m_axi_gmem5_ARSIZE BURST 1 3 }  { m_axi_gmem5_ARBURST LOCK 1 2 }  { m_axi_gmem5_ARLOCK CACHE 1 2 }  { m_axi_gmem5_ARCACHE PROT 1 4 }  { m_axi_gmem5_ARPROT QOS 1 3 }  { m_axi_gmem5_ARQOS REGION 1 4 }  { m_axi_gmem5_ARREGION USER 1 4 }  { m_axi_gmem5_ARUSER DATA 1 1 }  { m_axi_gmem5_RVALID VALID 0 1 }  { m_axi_gmem5_RREADY READY 1 1 }  { m_axi_gmem5_RDATA FIFONUM 0 32 }  { m_axi_gmem5_RLAST LAST 0 1 }  { m_axi_gmem5_RID ID 0 1 }  { m_axi_gmem5_RFIFONUM LEN 0 9 }  { m_axi_gmem5_RUSER DATA 0 1 }  { m_axi_gmem5_RRESP RESP 0 2 }  { m_axi_gmem5_BVALID VALID 0 1 }  { m_axi_gmem5_BREADY READY 1 1 }  { m_axi_gmem5_BRESP RESP 0 2 }  { m_axi_gmem5_BID ID 0 1 }  { m_axi_gmem5_BUSER DATA 0 1 } } }
+	B3 { ap_none {  { B3 in_data 0 64 }  { B3_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem6_AWVALID VALID 1 1 }  { m_axi_gmem6_AWREADY READY 0 1 }  { m_axi_gmem6_AWADDR ADDR 1 64 }  { m_axi_gmem6_AWID ID 1 1 }  { m_axi_gmem6_AWLEN SIZE 1 32 }  { m_axi_gmem6_AWSIZE BURST 1 3 }  { m_axi_gmem6_AWBURST LOCK 1 2 }  { m_axi_gmem6_AWLOCK CACHE 1 2 }  { m_axi_gmem6_AWCACHE PROT 1 4 }  { m_axi_gmem6_AWPROT QOS 1 3 }  { m_axi_gmem6_AWQOS REGION 1 4 }  { m_axi_gmem6_AWREGION USER 1 4 }  { m_axi_gmem6_AWUSER DATA 1 1 }  { m_axi_gmem6_WVALID VALID 1 1 }  { m_axi_gmem6_WREADY READY 0 1 }  { m_axi_gmem6_WDATA FIFONUM 1 32 }  { m_axi_gmem6_WSTRB STRB 1 4 }  { m_axi_gmem6_WLAST LAST 1 1 }  { m_axi_gmem6_WID ID 1 1 }  { m_axi_gmem6_WUSER DATA 1 1 }  { m_axi_gmem6_ARVALID VALID 1 1 }  { m_axi_gmem6_ARREADY READY 0 1 }  { m_axi_gmem6_ARADDR ADDR 1 64 }  { m_axi_gmem6_ARID ID 1 1 }  { m_axi_gmem6_ARLEN SIZE 1 32 }  { m_axi_gmem6_ARSIZE BURST 1 3 }  { m_axi_gmem6_ARBURST LOCK 1 2 }  { m_axi_gmem6_ARLOCK CACHE 1 2 }  { m_axi_gmem6_ARCACHE PROT 1 4 }  { m_axi_gmem6_ARPROT QOS 1 3 }  { m_axi_gmem6_ARQOS REGION 1 4 }  { m_axi_gmem6_ARREGION USER 1 4 }  { m_axi_gmem6_ARUSER DATA 1 1 }  { m_axi_gmem6_RVALID VALID 0 1 }  { m_axi_gmem6_RREADY READY 1 1 }  { m_axi_gmem6_RDATA FIFONUM 0 32 }  { m_axi_gmem6_RLAST LAST 0 1 }  { m_axi_gmem6_RID ID 0 1 }  { m_axi_gmem6_RFIFONUM LEN 0 9 }  { m_axi_gmem6_RUSER DATA 0 1 }  { m_axi_gmem6_RRESP RESP 0 2 }  { m_axi_gmem6_BVALID VALID 0 1 }  { m_axi_gmem6_BREADY READY 1 1 }  { m_axi_gmem6_BRESP RESP 0 2 }  { m_axi_gmem6_BID ID 0 1 }  { m_axi_gmem6_BUSER DATA 0 1 } } }
+	B4 { ap_none {  { B4 in_data 0 64 }  { B4_ap_vld in_vld 0 1 } } }
+}
+set moduleName dataflow_in_loop_row_loop
+set isTopModule 0
+set isCombinational 0
+set isDatapathOnly 0
+set isPipelined 1
+set pipeline_type dataflow
+set FunctionProtocol ap_ctrl_hs
+set isOneStateSeq 0
+set ProfileFlag 0
+set StallSigGenFlag 0
+set isEnableWaveformDebug 1
+set hasInterrupt 0
+set C_modelName {dataflow_in_loop_row_loop}
+set C_modelType { void 0 }
+set C_modelArgList {
+	{ gmem1 int 32 regular {axi_master 0}  }
+	{ col_idx int 64 regular  }
+	{ gmem2 int 32 regular {axi_master 0}  }
+	{ a_val int 64 regular  }
+	{ i int 32 regular  }
+	{ nnz int 32 regular  }
+	{ gmem3 int 32 regular {axi_master 0}  }
+	{ B1 int 64 regular  }
+	{ K int 32 regular  }
+	{ gmem4 int 32 regular {axi_master 0}  }
+	{ B2 int 64 regular  }
+	{ gmem5 int 32 regular {axi_master 0}  }
+	{ B3 int 64 regular  }
+	{ gmem6 int 32 regular {axi_master 0}  }
+	{ B4 int 64 regular  }
+}
+set C_modelArgMapList {[ 
+	{ "Name" : "gmem1", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "col_idx","offset": { "type": "dynamic","port_name": "col_idx","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "col_idx", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem2", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "a_val","offset": { "type": "dynamic","port_name": "a_val","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "a_val", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "i", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "nnz", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem3", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B1","offset": { "type": "dynamic","port_name": "B1","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B1", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "K", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem4", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B2","offset": { "type": "dynamic","port_name": "B2","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B2", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem5", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B3","offset": { "type": "dynamic","port_name": "B3","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B3", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem6", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B4","offset": { "type": "dynamic","port_name": "B4","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B4", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} ]}
+# RTL Port declarations: 
+set portNum 301
+set portList { 
+	{ m_axi_gmem1_AWVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_AWID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_AWLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_AWSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WDATA sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_WSTRB sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_WLAST sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_ARID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_ARSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RDATA sc_in sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_RLAST sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RFIFONUM sc_in sc_lv 9 signal 0 } 
+	{ m_axi_gmem1_RUSER sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_BUSER sc_in sc_lv 1 signal 0 } 
+	{ col_idx sc_in sc_lv 64 signal 1 } 
+	{ m_axi_gmem2_AWVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_AWID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_AWLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_AWSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WDATA sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_WSTRB sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_WLAST sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_ARID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_ARSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RDATA sc_in sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_RLAST sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RFIFONUM sc_in sc_lv 9 signal 2 } 
+	{ m_axi_gmem2_RUSER sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_BUSER sc_in sc_lv 1 signal 2 } 
+	{ a_val sc_in sc_lv 64 signal 3 } 
+	{ i sc_in sc_lv 32 signal 4 } 
+	{ nnz sc_in sc_lv 32 signal 5 } 
+	{ m_axi_gmem3_AWVALID sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_AWREADY sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_AWADDR sc_out sc_lv 64 signal 6 } 
+	{ m_axi_gmem3_AWID sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_AWLEN sc_out sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_AWSIZE sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_AWBURST sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_AWLOCK sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_AWCACHE sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_AWPROT sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_AWQOS sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_AWREGION sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_AWUSER sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_WVALID sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_WREADY sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_WDATA sc_out sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_WSTRB sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_WLAST sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_WID sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_WUSER sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_ARVALID sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_ARREADY sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_ARADDR sc_out sc_lv 64 signal 6 } 
+	{ m_axi_gmem3_ARID sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_ARLEN sc_out sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_ARSIZE sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_ARBURST sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_ARLOCK sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_ARCACHE sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_ARPROT sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_ARQOS sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_ARREGION sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_ARUSER sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_RVALID sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_RREADY sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_RDATA sc_in sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_RLAST sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_RID sc_in sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_RFIFONUM sc_in sc_lv 9 signal 6 } 
+	{ m_axi_gmem3_RUSER sc_in sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_RRESP sc_in sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_BVALID sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_BREADY sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_BRESP sc_in sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_BID sc_in sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_BUSER sc_in sc_lv 1 signal 6 } 
+	{ B1 sc_in sc_lv 64 signal 7 } 
+	{ K sc_in sc_lv 32 signal 8 } 
+	{ m_axi_gmem4_AWVALID sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_AWREADY sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_AWADDR sc_out sc_lv 64 signal 9 } 
+	{ m_axi_gmem4_AWID sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_AWLEN sc_out sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_AWSIZE sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_AWBURST sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_AWLOCK sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_AWCACHE sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_AWPROT sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_AWQOS sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_AWREGION sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_AWUSER sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_WVALID sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_WREADY sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_WDATA sc_out sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_WSTRB sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_WLAST sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_WID sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_WUSER sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_ARVALID sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_ARREADY sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_ARADDR sc_out sc_lv 64 signal 9 } 
+	{ m_axi_gmem4_ARID sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_ARLEN sc_out sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_ARSIZE sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_ARBURST sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_ARLOCK sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_ARCACHE sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_ARPROT sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_ARQOS sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_ARREGION sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_ARUSER sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_RVALID sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_RREADY sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_RDATA sc_in sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_RLAST sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_RID sc_in sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_RFIFONUM sc_in sc_lv 9 signal 9 } 
+	{ m_axi_gmem4_RUSER sc_in sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_RRESP sc_in sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_BVALID sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_BREADY sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_BRESP sc_in sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_BID sc_in sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_BUSER sc_in sc_lv 1 signal 9 } 
+	{ B2 sc_in sc_lv 64 signal 10 } 
+	{ m_axi_gmem5_AWVALID sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_AWREADY sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_AWADDR sc_out sc_lv 64 signal 11 } 
+	{ m_axi_gmem5_AWID sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_AWLEN sc_out sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_AWSIZE sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_AWBURST sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_AWLOCK sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_AWCACHE sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_AWPROT sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_AWQOS sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_AWREGION sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_AWUSER sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_WVALID sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_WREADY sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_WDATA sc_out sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_WSTRB sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_WLAST sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_WID sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_WUSER sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_ARVALID sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_ARREADY sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_ARADDR sc_out sc_lv 64 signal 11 } 
+	{ m_axi_gmem5_ARID sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_ARLEN sc_out sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_ARSIZE sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_ARBURST sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_ARLOCK sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_ARCACHE sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_ARPROT sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_ARQOS sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_ARREGION sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_ARUSER sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_RVALID sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_RREADY sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_RDATA sc_in sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_RLAST sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_RID sc_in sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_RFIFONUM sc_in sc_lv 9 signal 11 } 
+	{ m_axi_gmem5_RUSER sc_in sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_RRESP sc_in sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_BVALID sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_BREADY sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_BRESP sc_in sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_BID sc_in sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_BUSER sc_in sc_lv 1 signal 11 } 
+	{ B3 sc_in sc_lv 64 signal 12 } 
+	{ m_axi_gmem6_AWVALID sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_AWREADY sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_AWADDR sc_out sc_lv 64 signal 13 } 
+	{ m_axi_gmem6_AWID sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_AWLEN sc_out sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_AWSIZE sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_AWBURST sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_AWLOCK sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_AWCACHE sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_AWPROT sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_AWQOS sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_AWREGION sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_AWUSER sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_WVALID sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_WREADY sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_WDATA sc_out sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_WSTRB sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_WLAST sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_WID sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_WUSER sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_ARVALID sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_ARREADY sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_ARADDR sc_out sc_lv 64 signal 13 } 
+	{ m_axi_gmem6_ARID sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_ARLEN sc_out sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_ARSIZE sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_ARBURST sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_ARLOCK sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_ARCACHE sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_ARPROT sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_ARQOS sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_ARREGION sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_ARUSER sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_RVALID sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_RREADY sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_RDATA sc_in sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_RLAST sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_RID sc_in sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_RFIFONUM sc_in sc_lv 9 signal 13 } 
+	{ m_axi_gmem6_RUSER sc_in sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_RRESP sc_in sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_BVALID sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_BREADY sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_BRESP sc_in sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_BID sc_in sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_BUSER sc_in sc_lv 1 signal 13 } 
+	{ B4 sc_in sc_lv 64 signal 14 } 
+	{ ap_clk sc_in sc_logic 1 clock -1 } 
+	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
+	{ col_idx_ap_vld sc_in sc_logic 1 invld 1 } 
+	{ a_val_ap_vld sc_in sc_logic 1 invld 3 } 
+	{ i_ap_vld sc_in sc_logic 1 invld 4 } 
+	{ nnz_ap_vld sc_in sc_logic 1 invld 5 } 
+	{ ap_start sc_in sc_logic 1 start -1 } 
+	{ B1_ap_vld sc_in sc_logic 1 invld 7 } 
+	{ K_ap_vld sc_in sc_logic 1 invld 8 } 
+	{ ap_done sc_out sc_logic 1 predone -1 } 
+	{ B2_ap_vld sc_in sc_logic 1 invld 10 } 
+	{ B3_ap_vld sc_in sc_logic 1 invld 12 } 
+	{ B4_ap_vld sc_in sc_logic 1 invld 14 } 
+	{ ap_ready sc_out sc_logic 1 ready -1 } 
+	{ ap_idle sc_out sc_logic 1 done -1 } 
+	{ ap_continue sc_in sc_logic 1 continue -1 } 
+}
+set NewPortList {[ 
+	{ "name": "m_axi_gmem1_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem1_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem1_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem1_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem1_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem1_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem1_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem1_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem1_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem1_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem1_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem1_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem1_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem1_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem1_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem1_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem1_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem1_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem1_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem1_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem1_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem1_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem1_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem1_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem1_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem1_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem1_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem1_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem1_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem1_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem1_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem1_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem1", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem1_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem1_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem1_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem1_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BUSER" }} , 
+ 	{ "name": "col_idx", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "col_idx", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem2_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem2_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem2_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem2_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem2_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem2_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem2_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem2_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem2_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem2_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem2_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem2_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem2_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem2_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem2_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem2_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem2_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem2_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem2_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem2_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem2_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem2_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem2_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem2_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem2_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem2_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem2_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem2_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem2_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem2_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem2_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem2_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem2", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem2_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem2_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem2_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem2_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BUSER" }} , 
+ 	{ "name": "a_val", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "a_val", "role": "default" }} , 
+ 	{ "name": "i", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "i", "role": "default" }} , 
+ 	{ "name": "nnz", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "nnz", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem3_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem3_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem3_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem3", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem3_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem3_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem3_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem3_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem3_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem3_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem3_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem3_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem3_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem3_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem3_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem3_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem3_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem3_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem3_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem3_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem3_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem3_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem3_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem3_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem3", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem3_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem3_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem3_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem3_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem3_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem3_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem3_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem3_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem3_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem3_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem3_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem3_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem3_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem3_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem3_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem3_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem3", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem3_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem3_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem3_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem3_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem3_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem3_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem3_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BUSER" }} , 
+ 	{ "name": "B1", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B1", "role": "default" }} , 
+ 	{ "name": "K", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "K", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem4_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem4_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem4_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem4", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem4_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem4_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem4_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem4_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem4_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem4_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem4_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem4_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem4_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem4_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem4_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem4_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem4_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem4_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem4_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem4_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem4_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem4_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem4_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem4_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem4", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem4_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem4_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem4_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem4_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem4_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem4_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem4_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem4_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem4_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem4_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem4_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem4_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem4_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem4_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem4_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem4_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem4", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem4_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem4_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem4_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem4_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem4_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem4_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem4_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BUSER" }} , 
+ 	{ "name": "B2", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B2", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem5_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem5_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem5_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem5", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem5_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem5_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem5_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem5_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem5_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem5_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem5_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem5_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem5_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem5_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem5_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem5_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem5_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem5_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem5_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem5_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem5_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem5_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem5_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem5_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem5", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem5_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem5_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem5_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem5_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem5_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem5_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem5_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem5_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem5_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem5_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem5_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem5_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem5_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem5_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem5_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem5_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem5", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem5_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem5_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem5_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem5_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem5_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem5_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem5_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BUSER" }} , 
+ 	{ "name": "B3", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B3", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem6_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem6_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem6_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem6", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem6_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem6_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem6_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem6_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem6_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem6_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem6_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem6_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem6_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem6_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem6_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem6_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem6_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem6_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem6_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem6_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem6_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem6_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem6_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem6_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem6", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem6_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem6_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem6_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem6_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem6_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem6_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem6_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem6_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem6_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem6_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem6_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem6_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem6_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem6_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem6_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem6_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem6", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem6_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem6_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem6_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem6_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem6_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem6_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem6_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BUSER" }} , 
+ 	{ "name": "B4", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B4", "role": "default" }} , 
+ 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
+ 	{ "name": "ap_rst", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst", "role": "default" }} , 
+ 	{ "name": "col_idx_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "col_idx", "role": "ap_vld" }} , 
+ 	{ "name": "a_val_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "a_val", "role": "ap_vld" }} , 
+ 	{ "name": "i_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "i", "role": "ap_vld" }} , 
+ 	{ "name": "nnz_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "nnz", "role": "ap_vld" }} , 
+ 	{ "name": "ap_start", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "start", "bundle":{"name": "ap_start", "role": "default" }} , 
+ 	{ "name": "B1_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B1", "role": "ap_vld" }} , 
+ 	{ "name": "K_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "K", "role": "ap_vld" }} , 
+ 	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
+ 	{ "name": "B2_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B2", "role": "ap_vld" }} , 
+ 	{ "name": "B3_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B3", "role": "ap_vld" }} , 
+ 	{ "name": "B4_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B4", "role": "ap_vld" }} , 
+ 	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
+ 	{ "name": "ap_continue", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "continue", "bundle":{"name": "ap_continue", "role": "default" }}  ]}
+
+set RtlHierarchyInfo {[
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "9", "17", "25", "33", "41", "42", "43", "44"],
+		"CDFG" : "dataflow_in_loop_row_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "1",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"InputProcess" : [
+			{"ID" : "1", "Name" : "set_tile_broadcast_U0"},
+			{"ID" : "9", "Name" : "pu_kernel_U0"},
+			{"ID" : "17", "Name" : "pu_kernel_8_U0"},
+			{"ID" : "25", "Name" : "pu_kernel_9_U0"},
+			{"ID" : "33", "Name" : "pu_kernel_10_U0"}],
+		"OutputProcess" : [
+			{"ID" : "9", "Name" : "pu_kernel_U0"},
+			{"ID" : "17", "Name" : "pu_kernel_8_U0"},
+			{"ID" : "25", "Name" : "pu_kernel_9_U0"},
+			{"ID" : "33", "Name" : "pu_kernel_10_U0"}],
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem1"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem2"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "i", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem3", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "9", "SubInstance" : "pu_kernel_U0", "Port" : "gmem3"}]},
+			{"Name" : "B1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem4", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "17", "SubInstance" : "pu_kernel_8_U0", "Port" : "gmem4"}]},
+			{"Name" : "B2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem5", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "25", "SubInstance" : "pu_kernel_9_U0", "Port" : "gmem5"}]},
+			{"Name" : "B3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "33", "SubInstance" : "pu_kernel_10_U0", "Port" : "gmem6"}]},
+			{"Name" : "B4", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0", "Parent" : "0", "Child" : ["2", "3", "4", "5", "7"],
+		"CDFG" : "set_tile_broadcast",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem1", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem2", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "s_0", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["9"], "DependentChan" : "41", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_0_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_1", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["17"], "DependentChan" : "42", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_1_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_2", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["25"], "DependentChan" : "43", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_2_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_3", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["33"], "DependentChan" : "44", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_3_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_value_U", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_y_U", "Parent" : "1"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_ref_U", "Parent" : "1"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263", "Parent" : "1", "Child" : ["6"],
+		"CDFG" : "set_tile_broadcast_Pipeline_init_seen",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_2_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_1_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_out", "Type" : "Vld", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "init_seen", "PipelineType" : "NotSupport"}]},
+	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263.flow_control_loop_pipe_sequential_init_U", "Parent" : "5"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Parent" : "1", "Child" : ["8"],
+		"CDFG" : "set_tile_broadcast_Pipeline_copy_tile_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "15", "EstimateLatencyMax" : "15",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_2_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_1_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "pkt_v_value", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_v_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_ref", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem2_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem2_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem1_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem1_blk_n_R", "Type" : "RtlSignal"}]}],
+		"Loop" : [
+			{"Name" : "copy_tile_loop", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter9", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter9", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "8", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271.flow_control_loop_pipe_sequential_init_U", "Parent" : "7"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0", "Parent" : "0", "Child" : ["10", "11", "12", "13", "14", "16"],
+		"CDFG" : "pu_kernel",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_01", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "41", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_01_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem3", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem3_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem3_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "B1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "19", "FirstState" : "ap_ST_fsm_state18", "LastState" : ["ap_ST_fsm_state19"], "QuitState" : ["ap_ST_fsm_state18"], "PreState" : ["ap_ST_fsm_state6", "ap_ST_fsm_state17"], "PostState" : ["ap_ST_fsm_state5"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "19", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state18"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.tile_y_U", "Parent" : "9"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.tile_ref_U", "Parent" : "9"},
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.p_v_y_U", "Parent" : "9"},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.p_ref_U", "Parent" : "9"},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_282", "Parent" : "9", "Child" : ["15"],
+		"CDFG" : "pu_kernel_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "15", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_282.flow_control_loop_pipe_sequential_init_U", "Parent" : "14"},
+	{"ID" : "16", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.mul_32s_30ns_32_2_1_U34", "Parent" : "9"},
+	{"ID" : "17", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0", "Parent" : "0", "Child" : ["18", "19", "20", "21", "22", "24"],
+		"CDFG" : "pu_kernel_8",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "42", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_12_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem4", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem4_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem4_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "B2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "19", "FirstState" : "ap_ST_fsm_state18", "LastState" : ["ap_ST_fsm_state19"], "QuitState" : ["ap_ST_fsm_state18"], "PreState" : ["ap_ST_fsm_state6", "ap_ST_fsm_state17"], "PostState" : ["ap_ST_fsm_state5"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "19", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state18"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "18", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.tile_y_U", "Parent" : "17"},
+	{"ID" : "19", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.tile_ref_U", "Parent" : "17"},
+	{"ID" : "20", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.p_v_y_U", "Parent" : "17"},
+	{"ID" : "21", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.p_ref_U", "Parent" : "17"},
+	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.grp_pu_kernel_8_Pipeline_pu_save_stream_into_pu_fu_282", "Parent" : "17", "Child" : ["23"],
+		"CDFG" : "pu_kernel_8_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "23", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.grp_pu_kernel_8_Pipeline_pu_save_stream_into_pu_fu_282.flow_control_loop_pipe_sequential_init_U", "Parent" : "22"},
+	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.mul_32s_30ns_32_2_1_U48", "Parent" : "17"},
+	{"ID" : "25", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0", "Parent" : "0", "Child" : ["26", "27", "28", "29", "30", "32"],
+		"CDFG" : "pu_kernel_9",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_23", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "43", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_23_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem5", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem5_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem5_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "B3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "19", "FirstState" : "ap_ST_fsm_state18", "LastState" : ["ap_ST_fsm_state19"], "QuitState" : ["ap_ST_fsm_state18"], "PreState" : ["ap_ST_fsm_state6", "ap_ST_fsm_state17"], "PostState" : ["ap_ST_fsm_state5"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "19", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state18"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.tile_y_U", "Parent" : "25"},
+	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.tile_ref_U", "Parent" : "25"},
+	{"ID" : "28", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.p_v_y_U", "Parent" : "25"},
+	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.p_ref_U", "Parent" : "25"},
+	{"ID" : "30", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.grp_pu_kernel_9_Pipeline_pu_save_stream_into_pu_fu_282", "Parent" : "25", "Child" : ["31"],
+		"CDFG" : "pu_kernel_9_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "31", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.grp_pu_kernel_9_Pipeline_pu_save_stream_into_pu_fu_282.flow_control_loop_pipe_sequential_init_U", "Parent" : "30"},
+	{"ID" : "32", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.mul_32s_30ns_32_2_1_U57", "Parent" : "25"},
+	{"ID" : "33", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0", "Parent" : "0", "Child" : ["34", "35", "36", "37", "38", "40"],
+		"CDFG" : "pu_kernel_10",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_34", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "44", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_34_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem6_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "B4", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "19", "FirstState" : "ap_ST_fsm_state18", "LastState" : ["ap_ST_fsm_state19"], "QuitState" : ["ap_ST_fsm_state18"], "PreState" : ["ap_ST_fsm_state6", "ap_ST_fsm_state17"], "PostState" : ["ap_ST_fsm_state5"], "OneDepthLoop" : "0", "OneStateBlock": ""}},
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "19", "FirstState" : "ap_ST_fsm_state5", "LastState" : ["ap_ST_fsm_state18"], "QuitState" : ["ap_ST_fsm_state5"], "PreState" : ["ap_ST_fsm_state4"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "34", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.tile_y_U", "Parent" : "33"},
+	{"ID" : "35", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.tile_ref_U", "Parent" : "33"},
+	{"ID" : "36", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.p_v_y_U", "Parent" : "33"},
+	{"ID" : "37", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.p_ref_U", "Parent" : "33"},
+	{"ID" : "38", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.grp_pu_kernel_10_Pipeline_pu_save_stream_into_pu_fu_282", "Parent" : "33", "Child" : ["39"],
+		"CDFG" : "pu_kernel_10_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "39", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.grp_pu_kernel_10_Pipeline_pu_save_stream_into_pu_fu_282.flow_control_loop_pipe_sequential_init_U", "Parent" : "38"},
+	{"ID" : "40", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.mul_32s_30ns_32_2_1_U66", "Parent" : "33"},
+	{"ID" : "41", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_01_U", "Parent" : "0"},
+	{"ID" : "42", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_12_U", "Parent" : "0"},
+	{"ID" : "43", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_23_U", "Parent" : "0"},
+	{"ID" : "44", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_34_U", "Parent" : "0"}]}
+
+
+set ArgLastReadFirstWriteLatency {
+	dataflow_in_loop_row_loop {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		i {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}
+		gmem3 {Type I LastRead 18 FirstWrite -1}
+		B1 {Type I LastRead 2 FirstWrite -1}
+		K {Type I LastRead 2 FirstWrite -1}
+		gmem4 {Type I LastRead 18 FirstWrite -1}
+		B2 {Type I LastRead 2 FirstWrite -1}
+		gmem5 {Type I LastRead 18 FirstWrite -1}
+		B3 {Type I LastRead 2 FirstWrite -1}
+		gmem6 {Type I LastRead 18 FirstWrite -1}
+		B4 {Type I LastRead 2 FirstWrite -1}}
+	set_tile_broadcast {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 2 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 2 FirstWrite -1}
+		s_0 {Type O LastRead -1 FirstWrite 6}
+		s_1 {Type O LastRead -1 FirstWrite 6}
+		s_2 {Type O LastRead -1 FirstWrite 6}
+		s_3 {Type O LastRead -1 FirstWrite 6}
+		pointer {Type I LastRead 2 FirstWrite -1}
+		nnz {Type I LastRead 2 FirstWrite -1}}
+	set_tile_broadcast_Pipeline_init_seen {
+		seen_v_3_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_2_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_1_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_out {Type O LastRead -1 FirstWrite 0}}
+	set_tile_broadcast_Pipeline_copy_tile_loop {
+		seen_v_3_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_2_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_1_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_reload {Type I LastRead 0 FirstWrite -1}
+		pkt_v_value {Type O LastRead -1 FirstWrite 9}
+		pkt_v_y {Type O LastRead -1 FirstWrite 9}
+		pkt_ref {Type O LastRead -1 FirstWrite 9}
+		pointer {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem1 {Type I LastRead 8 FirstWrite -1}}
+	pu_kernel {
+		s_01 {Type I LastRead 0 FirstWrite -1}
+		gmem3 {Type I LastRead 18 FirstWrite -1}
+		B1 {Type I LastRead 3 FirstWrite -1}
+		K {Type I LastRead 3 FirstWrite -1}}
+	pu_kernel_Pipeline_pu_save_stream_into_pu {
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	pu_kernel_8 {
+		s_12 {Type I LastRead 0 FirstWrite -1}
+		gmem4 {Type I LastRead 18 FirstWrite -1}
+		B2 {Type I LastRead 3 FirstWrite -1}
+		K {Type I LastRead 3 FirstWrite -1}}
+	pu_kernel_8_Pipeline_pu_save_stream_into_pu {
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	pu_kernel_9 {
+		s_23 {Type I LastRead 0 FirstWrite -1}
+		gmem5 {Type I LastRead 18 FirstWrite -1}
+		B3 {Type I LastRead 3 FirstWrite -1}
+		K {Type I LastRead 3 FirstWrite -1}}
+	pu_kernel_9_Pipeline_pu_save_stream_into_pu {
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	pu_kernel_10 {
+		s_34 {Type I LastRead 0 FirstWrite -1}
+		gmem6 {Type I LastRead 18 FirstWrite -1}
+		B4 {Type I LastRead 3 FirstWrite -1}
+		K {Type I LastRead 3 FirstWrite -1}}
+	pu_kernel_10_Pipeline_pu_save_stream_into_pu {
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}}
+
+set hasDtUnsupportedChannel 0
+
+set PerformanceInfo {[
+	{"Name" : "Latency", "Min" : "-1", "Max" : "-1"}
+	, {"Name" : "Interval", "Min" : "-1", "Max" : "-1"}
+]}
+
+set PipelineEnableSignalInfo {[
+]}
+
+set Spec2ImplPortList { 
+	 { m_axi {  { m_axi_gmem1_AWVALID VALID 1 1 }  { m_axi_gmem1_AWREADY READY 0 1 }  { m_axi_gmem1_AWADDR ADDR 1 64 }  { m_axi_gmem1_AWID ID 1 1 }  { m_axi_gmem1_AWLEN SIZE 1 32 }  { m_axi_gmem1_AWSIZE BURST 1 3 }  { m_axi_gmem1_AWBURST LOCK 1 2 }  { m_axi_gmem1_AWLOCK CACHE 1 2 }  { m_axi_gmem1_AWCACHE PROT 1 4 }  { m_axi_gmem1_AWPROT QOS 1 3 }  { m_axi_gmem1_AWQOS REGION 1 4 }  { m_axi_gmem1_AWREGION USER 1 4 }  { m_axi_gmem1_AWUSER DATA 1 1 }  { m_axi_gmem1_WVALID VALID 1 1 }  { m_axi_gmem1_WREADY READY 0 1 }  { m_axi_gmem1_WDATA FIFONUM 1 32 }  { m_axi_gmem1_WSTRB STRB 1 4 }  { m_axi_gmem1_WLAST LAST 1 1 }  { m_axi_gmem1_WID ID 1 1 }  { m_axi_gmem1_WUSER DATA 1 1 }  { m_axi_gmem1_ARVALID VALID 1 1 }  { m_axi_gmem1_ARREADY READY 0 1 }  { m_axi_gmem1_ARADDR ADDR 1 64 }  { m_axi_gmem1_ARID ID 1 1 }  { m_axi_gmem1_ARLEN SIZE 1 32 }  { m_axi_gmem1_ARSIZE BURST 1 3 }  { m_axi_gmem1_ARBURST LOCK 1 2 }  { m_axi_gmem1_ARLOCK CACHE 1 2 }  { m_axi_gmem1_ARCACHE PROT 1 4 }  { m_axi_gmem1_ARPROT QOS 1 3 }  { m_axi_gmem1_ARQOS REGION 1 4 }  { m_axi_gmem1_ARREGION USER 1 4 }  { m_axi_gmem1_ARUSER DATA 1 1 }  { m_axi_gmem1_RVALID VALID 0 1 }  { m_axi_gmem1_RREADY READY 1 1 }  { m_axi_gmem1_RDATA FIFONUM 0 32 }  { m_axi_gmem1_RLAST LAST 0 1 }  { m_axi_gmem1_RID ID 0 1 }  { m_axi_gmem1_RFIFONUM LEN 0 9 }  { m_axi_gmem1_RUSER DATA 0 1 }  { m_axi_gmem1_RRESP RESP 0 2 }  { m_axi_gmem1_BVALID VALID 0 1 }  { m_axi_gmem1_BREADY READY 1 1 }  { m_axi_gmem1_BRESP RESP 0 2 }  { m_axi_gmem1_BID ID 0 1 }  { m_axi_gmem1_BUSER DATA 0 1 } } }
+	col_idx { ap_none {  { col_idx in_data 0 64 }  { col_idx_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem2_AWVALID VALID 1 1 }  { m_axi_gmem2_AWREADY READY 0 1 }  { m_axi_gmem2_AWADDR ADDR 1 64 }  { m_axi_gmem2_AWID ID 1 1 }  { m_axi_gmem2_AWLEN SIZE 1 32 }  { m_axi_gmem2_AWSIZE BURST 1 3 }  { m_axi_gmem2_AWBURST LOCK 1 2 }  { m_axi_gmem2_AWLOCK CACHE 1 2 }  { m_axi_gmem2_AWCACHE PROT 1 4 }  { m_axi_gmem2_AWPROT QOS 1 3 }  { m_axi_gmem2_AWQOS REGION 1 4 }  { m_axi_gmem2_AWREGION USER 1 4 }  { m_axi_gmem2_AWUSER DATA 1 1 }  { m_axi_gmem2_WVALID VALID 1 1 }  { m_axi_gmem2_WREADY READY 0 1 }  { m_axi_gmem2_WDATA FIFONUM 1 32 }  { m_axi_gmem2_WSTRB STRB 1 4 }  { m_axi_gmem2_WLAST LAST 1 1 }  { m_axi_gmem2_WID ID 1 1 }  { m_axi_gmem2_WUSER DATA 1 1 }  { m_axi_gmem2_ARVALID VALID 1 1 }  { m_axi_gmem2_ARREADY READY 0 1 }  { m_axi_gmem2_ARADDR ADDR 1 64 }  { m_axi_gmem2_ARID ID 1 1 }  { m_axi_gmem2_ARLEN SIZE 1 32 }  { m_axi_gmem2_ARSIZE BURST 1 3 }  { m_axi_gmem2_ARBURST LOCK 1 2 }  { m_axi_gmem2_ARLOCK CACHE 1 2 }  { m_axi_gmem2_ARCACHE PROT 1 4 }  { m_axi_gmem2_ARPROT QOS 1 3 }  { m_axi_gmem2_ARQOS REGION 1 4 }  { m_axi_gmem2_ARREGION USER 1 4 }  { m_axi_gmem2_ARUSER DATA 1 1 }  { m_axi_gmem2_RVALID VALID 0 1 }  { m_axi_gmem2_RREADY READY 1 1 }  { m_axi_gmem2_RDATA FIFONUM 0 32 }  { m_axi_gmem2_RLAST LAST 0 1 }  { m_axi_gmem2_RID ID 0 1 }  { m_axi_gmem2_RFIFONUM LEN 0 9 }  { m_axi_gmem2_RUSER DATA 0 1 }  { m_axi_gmem2_RRESP RESP 0 2 }  { m_axi_gmem2_BVALID VALID 0 1 }  { m_axi_gmem2_BREADY READY 1 1 }  { m_axi_gmem2_BRESP RESP 0 2 }  { m_axi_gmem2_BID ID 0 1 }  { m_axi_gmem2_BUSER DATA 0 1 } } }
+	a_val { ap_none {  { a_val in_data 0 64 }  { a_val_ap_vld in_vld 0 1 } } }
+	i { ap_none {  { i in_data 0 32 }  { i_ap_vld in_vld 0 1 } } }
+	nnz { ap_none {  { nnz in_data 0 32 }  { nnz_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem3_AWVALID VALID 1 1 }  { m_axi_gmem3_AWREADY READY 0 1 }  { m_axi_gmem3_AWADDR ADDR 1 64 }  { m_axi_gmem3_AWID ID 1 1 }  { m_axi_gmem3_AWLEN SIZE 1 32 }  { m_axi_gmem3_AWSIZE BURST 1 3 }  { m_axi_gmem3_AWBURST LOCK 1 2 }  { m_axi_gmem3_AWLOCK CACHE 1 2 }  { m_axi_gmem3_AWCACHE PROT 1 4 }  { m_axi_gmem3_AWPROT QOS 1 3 }  { m_axi_gmem3_AWQOS REGION 1 4 }  { m_axi_gmem3_AWREGION USER 1 4 }  { m_axi_gmem3_AWUSER DATA 1 1 }  { m_axi_gmem3_WVALID VALID 1 1 }  { m_axi_gmem3_WREADY READY 0 1 }  { m_axi_gmem3_WDATA FIFONUM 1 32 }  { m_axi_gmem3_WSTRB STRB 1 4 }  { m_axi_gmem3_WLAST LAST 1 1 }  { m_axi_gmem3_WID ID 1 1 }  { m_axi_gmem3_WUSER DATA 1 1 }  { m_axi_gmem3_ARVALID VALID 1 1 }  { m_axi_gmem3_ARREADY READY 0 1 }  { m_axi_gmem3_ARADDR ADDR 1 64 }  { m_axi_gmem3_ARID ID 1 1 }  { m_axi_gmem3_ARLEN SIZE 1 32 }  { m_axi_gmem3_ARSIZE BURST 1 3 }  { m_axi_gmem3_ARBURST LOCK 1 2 }  { m_axi_gmem3_ARLOCK CACHE 1 2 }  { m_axi_gmem3_ARCACHE PROT 1 4 }  { m_axi_gmem3_ARPROT QOS 1 3 }  { m_axi_gmem3_ARQOS REGION 1 4 }  { m_axi_gmem3_ARREGION USER 1 4 }  { m_axi_gmem3_ARUSER DATA 1 1 }  { m_axi_gmem3_RVALID VALID 0 1 }  { m_axi_gmem3_RREADY READY 1 1 }  { m_axi_gmem3_RDATA FIFONUM 0 32 }  { m_axi_gmem3_RLAST LAST 0 1 }  { m_axi_gmem3_RID ID 0 1 }  { m_axi_gmem3_RFIFONUM LEN 0 9 }  { m_axi_gmem3_RUSER DATA 0 1 }  { m_axi_gmem3_RRESP RESP 0 2 }  { m_axi_gmem3_BVALID VALID 0 1 }  { m_axi_gmem3_BREADY READY 1 1 }  { m_axi_gmem3_BRESP RESP 0 2 }  { m_axi_gmem3_BID ID 0 1 }  { m_axi_gmem3_BUSER DATA 0 1 } } }
+	B1 { ap_none {  { B1 in_data 0 64 }  { B1_ap_vld in_vld 0 1 } } }
+	K { ap_none {  { K in_data 0 32 }  { K_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem4_AWVALID VALID 1 1 }  { m_axi_gmem4_AWREADY READY 0 1 }  { m_axi_gmem4_AWADDR ADDR 1 64 }  { m_axi_gmem4_AWID ID 1 1 }  { m_axi_gmem4_AWLEN SIZE 1 32 }  { m_axi_gmem4_AWSIZE BURST 1 3 }  { m_axi_gmem4_AWBURST LOCK 1 2 }  { m_axi_gmem4_AWLOCK CACHE 1 2 }  { m_axi_gmem4_AWCACHE PROT 1 4 }  { m_axi_gmem4_AWPROT QOS 1 3 }  { m_axi_gmem4_AWQOS REGION 1 4 }  { m_axi_gmem4_AWREGION USER 1 4 }  { m_axi_gmem4_AWUSER DATA 1 1 }  { m_axi_gmem4_WVALID VALID 1 1 }  { m_axi_gmem4_WREADY READY 0 1 }  { m_axi_gmem4_WDATA FIFONUM 1 32 }  { m_axi_gmem4_WSTRB STRB 1 4 }  { m_axi_gmem4_WLAST LAST 1 1 }  { m_axi_gmem4_WID ID 1 1 }  { m_axi_gmem4_WUSER DATA 1 1 }  { m_axi_gmem4_ARVALID VALID 1 1 }  { m_axi_gmem4_ARREADY READY 0 1 }  { m_axi_gmem4_ARADDR ADDR 1 64 }  { m_axi_gmem4_ARID ID 1 1 }  { m_axi_gmem4_ARLEN SIZE 1 32 }  { m_axi_gmem4_ARSIZE BURST 1 3 }  { m_axi_gmem4_ARBURST LOCK 1 2 }  { m_axi_gmem4_ARLOCK CACHE 1 2 }  { m_axi_gmem4_ARCACHE PROT 1 4 }  { m_axi_gmem4_ARPROT QOS 1 3 }  { m_axi_gmem4_ARQOS REGION 1 4 }  { m_axi_gmem4_ARREGION USER 1 4 }  { m_axi_gmem4_ARUSER DATA 1 1 }  { m_axi_gmem4_RVALID VALID 0 1 }  { m_axi_gmem4_RREADY READY 1 1 }  { m_axi_gmem4_RDATA FIFONUM 0 32 }  { m_axi_gmem4_RLAST LAST 0 1 }  { m_axi_gmem4_RID ID 0 1 }  { m_axi_gmem4_RFIFONUM LEN 0 9 }  { m_axi_gmem4_RUSER DATA 0 1 }  { m_axi_gmem4_RRESP RESP 0 2 }  { m_axi_gmem4_BVALID VALID 0 1 }  { m_axi_gmem4_BREADY READY 1 1 }  { m_axi_gmem4_BRESP RESP 0 2 }  { m_axi_gmem4_BID ID 0 1 }  { m_axi_gmem4_BUSER DATA 0 1 } } }
+	B2 { ap_none {  { B2 in_data 0 64 }  { B2_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem5_AWVALID VALID 1 1 }  { m_axi_gmem5_AWREADY READY 0 1 }  { m_axi_gmem5_AWADDR ADDR 1 64 }  { m_axi_gmem5_AWID ID 1 1 }  { m_axi_gmem5_AWLEN SIZE 1 32 }  { m_axi_gmem5_AWSIZE BURST 1 3 }  { m_axi_gmem5_AWBURST LOCK 1 2 }  { m_axi_gmem5_AWLOCK CACHE 1 2 }  { m_axi_gmem5_AWCACHE PROT 1 4 }  { m_axi_gmem5_AWPROT QOS 1 3 }  { m_axi_gmem5_AWQOS REGION 1 4 }  { m_axi_gmem5_AWREGION USER 1 4 }  { m_axi_gmem5_AWUSER DATA 1 1 }  { m_axi_gmem5_WVALID VALID 1 1 }  { m_axi_gmem5_WREADY READY 0 1 }  { m_axi_gmem5_WDATA FIFONUM 1 32 }  { m_axi_gmem5_WSTRB STRB 1 4 }  { m_axi_gmem5_WLAST LAST 1 1 }  { m_axi_gmem5_WID ID 1 1 }  { m_axi_gmem5_WUSER DATA 1 1 }  { m_axi_gmem5_ARVALID VALID 1 1 }  { m_axi_gmem5_ARREADY READY 0 1 }  { m_axi_gmem5_ARADDR ADDR 1 64 }  { m_axi_gmem5_ARID ID 1 1 }  { m_axi_gmem5_ARLEN SIZE 1 32 }  { m_axi_gmem5_ARSIZE BURST 1 3 }  { m_axi_gmem5_ARBURST LOCK 1 2 }  { m_axi_gmem5_ARLOCK CACHE 1 2 }  { m_axi_gmem5_ARCACHE PROT 1 4 }  { m_axi_gmem5_ARPROT QOS 1 3 }  { m_axi_gmem5_ARQOS REGION 1 4 }  { m_axi_gmem5_ARREGION USER 1 4 }  { m_axi_gmem5_ARUSER DATA 1 1 }  { m_axi_gmem5_RVALID VALID 0 1 }  { m_axi_gmem5_RREADY READY 1 1 }  { m_axi_gmem5_RDATA FIFONUM 0 32 }  { m_axi_gmem5_RLAST LAST 0 1 }  { m_axi_gmem5_RID ID 0 1 }  { m_axi_gmem5_RFIFONUM LEN 0 9 }  { m_axi_gmem5_RUSER DATA 0 1 }  { m_axi_gmem5_RRESP RESP 0 2 }  { m_axi_gmem5_BVALID VALID 0 1 }  { m_axi_gmem5_BREADY READY 1 1 }  { m_axi_gmem5_BRESP RESP 0 2 }  { m_axi_gmem5_BID ID 0 1 }  { m_axi_gmem5_BUSER DATA 0 1 } } }
+	B3 { ap_none {  { B3 in_data 0 64 }  { B3_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem6_AWVALID VALID 1 1 }  { m_axi_gmem6_AWREADY READY 0 1 }  { m_axi_gmem6_AWADDR ADDR 1 64 }  { m_axi_gmem6_AWID ID 1 1 }  { m_axi_gmem6_AWLEN SIZE 1 32 }  { m_axi_gmem6_AWSIZE BURST 1 3 }  { m_axi_gmem6_AWBURST LOCK 1 2 }  { m_axi_gmem6_AWLOCK CACHE 1 2 }  { m_axi_gmem6_AWCACHE PROT 1 4 }  { m_axi_gmem6_AWPROT QOS 1 3 }  { m_axi_gmem6_AWQOS REGION 1 4 }  { m_axi_gmem6_AWREGION USER 1 4 }  { m_axi_gmem6_AWUSER DATA 1 1 }  { m_axi_gmem6_WVALID VALID 1 1 }  { m_axi_gmem6_WREADY READY 0 1 }  { m_axi_gmem6_WDATA FIFONUM 1 32 }  { m_axi_gmem6_WSTRB STRB 1 4 }  { m_axi_gmem6_WLAST LAST 1 1 }  { m_axi_gmem6_WID ID 1 1 }  { m_axi_gmem6_WUSER DATA 1 1 }  { m_axi_gmem6_ARVALID VALID 1 1 }  { m_axi_gmem6_ARREADY READY 0 1 }  { m_axi_gmem6_ARADDR ADDR 1 64 }  { m_axi_gmem6_ARID ID 1 1 }  { m_axi_gmem6_ARLEN SIZE 1 32 }  { m_axi_gmem6_ARSIZE BURST 1 3 }  { m_axi_gmem6_ARBURST LOCK 1 2 }  { m_axi_gmem6_ARLOCK CACHE 1 2 }  { m_axi_gmem6_ARCACHE PROT 1 4 }  { m_axi_gmem6_ARPROT QOS 1 3 }  { m_axi_gmem6_ARQOS REGION 1 4 }  { m_axi_gmem6_ARREGION USER 1 4 }  { m_axi_gmem6_ARUSER DATA 1 1 }  { m_axi_gmem6_RVALID VALID 0 1 }  { m_axi_gmem6_RREADY READY 1 1 }  { m_axi_gmem6_RDATA FIFONUM 0 32 }  { m_axi_gmem6_RLAST LAST 0 1 }  { m_axi_gmem6_RID ID 0 1 }  { m_axi_gmem6_RFIFONUM LEN 0 9 }  { m_axi_gmem6_RUSER DATA 0 1 }  { m_axi_gmem6_RRESP RESP 0 2 }  { m_axi_gmem6_BVALID VALID 0 1 }  { m_axi_gmem6_BREADY READY 1 1 }  { m_axi_gmem6_BRESP RESP 0 2 }  { m_axi_gmem6_BID ID 0 1 }  { m_axi_gmem6_BUSER DATA 0 1 } } }
+	B4 { ap_none {  { B4 in_data 0 64 }  { B4_ap_vld in_vld 0 1 } } }
+}
+set moduleName dataflow_in_loop_row_loop
+set isTopModule 0
+set isCombinational 0
+set isDatapathOnly 0
+set isPipelined 1
+set pipeline_type dataflow
+set FunctionProtocol ap_ctrl_hs
+set isOneStateSeq 0
+set ProfileFlag 0
+set StallSigGenFlag 0
+set isEnableWaveformDebug 1
+set hasInterrupt 0
+set C_modelName {dataflow_in_loop_row_loop}
+set C_modelType { void 0 }
+set C_modelArgList {
+	{ gmem1 int 32 regular {axi_master 0}  }
+	{ col_idx int 64 regular  }
+	{ gmem2 int 32 regular {axi_master 0}  }
+	{ a_val int 64 regular  }
+	{ i int 32 regular  }
+	{ nnz int 32 regular  }
+	{ gmem3 int 32 regular {axi_master 0}  }
+	{ B1 int 64 regular  }
+	{ K int 32 regular  }
+	{ gmem4 int 32 regular {axi_master 0}  }
+	{ B2 int 64 regular  }
+	{ gmem5 int 32 regular {axi_master 0}  }
+	{ B3 int 64 regular  }
+	{ gmem6 int 32 regular {axi_master 0}  }
+	{ B4 int 64 regular  }
+}
+set C_modelArgMapList {[ 
+	{ "Name" : "gmem1", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "col_idx","offset": { "type": "dynamic","port_name": "col_idx","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "col_idx", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem2", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "a_val","offset": { "type": "dynamic","port_name": "a_val","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "a_val", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "i", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "nnz", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem3", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B1","offset": { "type": "dynamic","port_name": "B1","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B1", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "K", "interface" : "wire", "bitwidth" : 32, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem4", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B2","offset": { "type": "dynamic","port_name": "B2","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B2", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem5", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B3","offset": { "type": "dynamic","port_name": "B3","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B3", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} , 
+ 	{ "Name" : "gmem6", "interface" : "axi_master", "bitwidth" : 32, "direction" : "READONLY", "bitSlice":[ {"cElement": [{"cName": "B4","offset": { "type": "dynamic","port_name": "B4","bundle": "control"},"direction": "READONLY"}]}]} , 
+ 	{ "Name" : "B4", "interface" : "wire", "bitwidth" : 64, "direction" : "READONLY"} ]}
+# RTL Port declarations: 
+set portNum 301
+set portList { 
+	{ m_axi_gmem1_AWVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_AWADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_AWID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_AWLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_AWSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_AWCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_AWQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_AWUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WDATA sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_WSTRB sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_WLAST sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_WID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_WUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARVALID sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARREADY sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_ARADDR sc_out sc_lv 64 signal 0 } 
+	{ m_axi_gmem1_ARID sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_ARLEN sc_out sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_ARSIZE sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARBURST sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARLOCK sc_out sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_ARCACHE sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARPROT sc_out sc_lv 3 signal 0 } 
+	{ m_axi_gmem1_ARQOS sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARREGION sc_out sc_lv 4 signal 0 } 
+	{ m_axi_gmem1_ARUSER sc_out sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RDATA sc_in sc_lv 32 signal 0 } 
+	{ m_axi_gmem1_RLAST sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_RID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RFIFONUM sc_in sc_lv 9 signal 0 } 
+	{ m_axi_gmem1_RUSER sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_RRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BVALID sc_in sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BREADY sc_out sc_logic 1 signal 0 } 
+	{ m_axi_gmem1_BRESP sc_in sc_lv 2 signal 0 } 
+	{ m_axi_gmem1_BID sc_in sc_lv 1 signal 0 } 
+	{ m_axi_gmem1_BUSER sc_in sc_lv 1 signal 0 } 
+	{ col_idx sc_in sc_lv 64 signal 1 } 
+	{ m_axi_gmem2_AWVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_AWADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_AWID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_AWLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_AWSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_AWCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_AWQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_AWUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WDATA sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_WSTRB sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_WLAST sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_WID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_WUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARVALID sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARREADY sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_ARADDR sc_out sc_lv 64 signal 2 } 
+	{ m_axi_gmem2_ARID sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_ARLEN sc_out sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_ARSIZE sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARBURST sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARLOCK sc_out sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_ARCACHE sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARPROT sc_out sc_lv 3 signal 2 } 
+	{ m_axi_gmem2_ARQOS sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARREGION sc_out sc_lv 4 signal 2 } 
+	{ m_axi_gmem2_ARUSER sc_out sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RDATA sc_in sc_lv 32 signal 2 } 
+	{ m_axi_gmem2_RLAST sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_RID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RFIFONUM sc_in sc_lv 9 signal 2 } 
+	{ m_axi_gmem2_RUSER sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_RRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BVALID sc_in sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BREADY sc_out sc_logic 1 signal 2 } 
+	{ m_axi_gmem2_BRESP sc_in sc_lv 2 signal 2 } 
+	{ m_axi_gmem2_BID sc_in sc_lv 1 signal 2 } 
+	{ m_axi_gmem2_BUSER sc_in sc_lv 1 signal 2 } 
+	{ a_val sc_in sc_lv 64 signal 3 } 
+	{ i sc_in sc_lv 32 signal 4 } 
+	{ nnz sc_in sc_lv 32 signal 5 } 
+	{ m_axi_gmem3_AWVALID sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_AWREADY sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_AWADDR sc_out sc_lv 64 signal 6 } 
+	{ m_axi_gmem3_AWID sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_AWLEN sc_out sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_AWSIZE sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_AWBURST sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_AWLOCK sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_AWCACHE sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_AWPROT sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_AWQOS sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_AWREGION sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_AWUSER sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_WVALID sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_WREADY sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_WDATA sc_out sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_WSTRB sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_WLAST sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_WID sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_WUSER sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_ARVALID sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_ARREADY sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_ARADDR sc_out sc_lv 64 signal 6 } 
+	{ m_axi_gmem3_ARID sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_ARLEN sc_out sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_ARSIZE sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_ARBURST sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_ARLOCK sc_out sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_ARCACHE sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_ARPROT sc_out sc_lv 3 signal 6 } 
+	{ m_axi_gmem3_ARQOS sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_ARREGION sc_out sc_lv 4 signal 6 } 
+	{ m_axi_gmem3_ARUSER sc_out sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_RVALID sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_RREADY sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_RDATA sc_in sc_lv 32 signal 6 } 
+	{ m_axi_gmem3_RLAST sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_RID sc_in sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_RFIFONUM sc_in sc_lv 9 signal 6 } 
+	{ m_axi_gmem3_RUSER sc_in sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_RRESP sc_in sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_BVALID sc_in sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_BREADY sc_out sc_logic 1 signal 6 } 
+	{ m_axi_gmem3_BRESP sc_in sc_lv 2 signal 6 } 
+	{ m_axi_gmem3_BID sc_in sc_lv 1 signal 6 } 
+	{ m_axi_gmem3_BUSER sc_in sc_lv 1 signal 6 } 
+	{ B1 sc_in sc_lv 64 signal 7 } 
+	{ K sc_in sc_lv 32 signal 8 } 
+	{ m_axi_gmem4_AWVALID sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_AWREADY sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_AWADDR sc_out sc_lv 64 signal 9 } 
+	{ m_axi_gmem4_AWID sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_AWLEN sc_out sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_AWSIZE sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_AWBURST sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_AWLOCK sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_AWCACHE sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_AWPROT sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_AWQOS sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_AWREGION sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_AWUSER sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_WVALID sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_WREADY sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_WDATA sc_out sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_WSTRB sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_WLAST sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_WID sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_WUSER sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_ARVALID sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_ARREADY sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_ARADDR sc_out sc_lv 64 signal 9 } 
+	{ m_axi_gmem4_ARID sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_ARLEN sc_out sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_ARSIZE sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_ARBURST sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_ARLOCK sc_out sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_ARCACHE sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_ARPROT sc_out sc_lv 3 signal 9 } 
+	{ m_axi_gmem4_ARQOS sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_ARREGION sc_out sc_lv 4 signal 9 } 
+	{ m_axi_gmem4_ARUSER sc_out sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_RVALID sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_RREADY sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_RDATA sc_in sc_lv 32 signal 9 } 
+	{ m_axi_gmem4_RLAST sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_RID sc_in sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_RFIFONUM sc_in sc_lv 9 signal 9 } 
+	{ m_axi_gmem4_RUSER sc_in sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_RRESP sc_in sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_BVALID sc_in sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_BREADY sc_out sc_logic 1 signal 9 } 
+	{ m_axi_gmem4_BRESP sc_in sc_lv 2 signal 9 } 
+	{ m_axi_gmem4_BID sc_in sc_lv 1 signal 9 } 
+	{ m_axi_gmem4_BUSER sc_in sc_lv 1 signal 9 } 
+	{ B2 sc_in sc_lv 64 signal 10 } 
+	{ m_axi_gmem5_AWVALID sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_AWREADY sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_AWADDR sc_out sc_lv 64 signal 11 } 
+	{ m_axi_gmem5_AWID sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_AWLEN sc_out sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_AWSIZE sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_AWBURST sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_AWLOCK sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_AWCACHE sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_AWPROT sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_AWQOS sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_AWREGION sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_AWUSER sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_WVALID sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_WREADY sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_WDATA sc_out sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_WSTRB sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_WLAST sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_WID sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_WUSER sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_ARVALID sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_ARREADY sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_ARADDR sc_out sc_lv 64 signal 11 } 
+	{ m_axi_gmem5_ARID sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_ARLEN sc_out sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_ARSIZE sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_ARBURST sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_ARLOCK sc_out sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_ARCACHE sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_ARPROT sc_out sc_lv 3 signal 11 } 
+	{ m_axi_gmem5_ARQOS sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_ARREGION sc_out sc_lv 4 signal 11 } 
+	{ m_axi_gmem5_ARUSER sc_out sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_RVALID sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_RREADY sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_RDATA sc_in sc_lv 32 signal 11 } 
+	{ m_axi_gmem5_RLAST sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_RID sc_in sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_RFIFONUM sc_in sc_lv 9 signal 11 } 
+	{ m_axi_gmem5_RUSER sc_in sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_RRESP sc_in sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_BVALID sc_in sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_BREADY sc_out sc_logic 1 signal 11 } 
+	{ m_axi_gmem5_BRESP sc_in sc_lv 2 signal 11 } 
+	{ m_axi_gmem5_BID sc_in sc_lv 1 signal 11 } 
+	{ m_axi_gmem5_BUSER sc_in sc_lv 1 signal 11 } 
+	{ B3 sc_in sc_lv 64 signal 12 } 
+	{ m_axi_gmem6_AWVALID sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_AWREADY sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_AWADDR sc_out sc_lv 64 signal 13 } 
+	{ m_axi_gmem6_AWID sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_AWLEN sc_out sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_AWSIZE sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_AWBURST sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_AWLOCK sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_AWCACHE sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_AWPROT sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_AWQOS sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_AWREGION sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_AWUSER sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_WVALID sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_WREADY sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_WDATA sc_out sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_WSTRB sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_WLAST sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_WID sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_WUSER sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_ARVALID sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_ARREADY sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_ARADDR sc_out sc_lv 64 signal 13 } 
+	{ m_axi_gmem6_ARID sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_ARLEN sc_out sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_ARSIZE sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_ARBURST sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_ARLOCK sc_out sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_ARCACHE sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_ARPROT sc_out sc_lv 3 signal 13 } 
+	{ m_axi_gmem6_ARQOS sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_ARREGION sc_out sc_lv 4 signal 13 } 
+	{ m_axi_gmem6_ARUSER sc_out sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_RVALID sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_RREADY sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_RDATA sc_in sc_lv 32 signal 13 } 
+	{ m_axi_gmem6_RLAST sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_RID sc_in sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_RFIFONUM sc_in sc_lv 9 signal 13 } 
+	{ m_axi_gmem6_RUSER sc_in sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_RRESP sc_in sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_BVALID sc_in sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_BREADY sc_out sc_logic 1 signal 13 } 
+	{ m_axi_gmem6_BRESP sc_in sc_lv 2 signal 13 } 
+	{ m_axi_gmem6_BID sc_in sc_lv 1 signal 13 } 
+	{ m_axi_gmem6_BUSER sc_in sc_lv 1 signal 13 } 
+	{ B4 sc_in sc_lv 64 signal 14 } 
+	{ ap_clk sc_in sc_logic 1 clock -1 } 
+	{ ap_rst sc_in sc_logic 1 reset -1 active_high_sync } 
+	{ col_idx_ap_vld sc_in sc_logic 1 invld 1 } 
+	{ a_val_ap_vld sc_in sc_logic 1 invld 3 } 
+	{ i_ap_vld sc_in sc_logic 1 invld 4 } 
+	{ nnz_ap_vld sc_in sc_logic 1 invld 5 } 
+	{ ap_start sc_in sc_logic 1 start -1 } 
+	{ B1_ap_vld sc_in sc_logic 1 invld 7 } 
+	{ K_ap_vld sc_in sc_logic 1 invld 8 } 
+	{ ap_done sc_out sc_logic 1 predone -1 } 
+	{ B2_ap_vld sc_in sc_logic 1 invld 10 } 
+	{ B3_ap_vld sc_in sc_logic 1 invld 12 } 
+	{ B4_ap_vld sc_in sc_logic 1 invld 14 } 
+	{ ap_ready sc_out sc_logic 1 ready -1 } 
+	{ ap_idle sc_out sc_logic 1 done -1 } 
+	{ ap_continue sc_in sc_logic 1 continue -1 } 
+}
+set NewPortList {[ 
+	{ "name": "m_axi_gmem1_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem1_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem1_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem1_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem1_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem1_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem1_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem1_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem1_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem1_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem1_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem1_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem1_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem1_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem1_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem1_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem1_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem1_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem1_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem1_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem1", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem1_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem1_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem1_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem1_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem1_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem1_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem1_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem1", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem1_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem1_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem1", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem1_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem1_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem1_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem1", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem1_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem1_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem1_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem1", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem1_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem1_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem1_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem1_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem1", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem1_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem1_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem1", "role": "BUSER" }} , 
+ 	{ "name": "col_idx", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "col_idx", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem2_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem2_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem2_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem2_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem2_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem2_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem2_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem2_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem2_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem2_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem2_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem2_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem2_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem2_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem2_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem2_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem2_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem2_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem2_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem2_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem2", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem2_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem2_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem2_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem2_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem2_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem2_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem2_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem2", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem2_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem2_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem2", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem2_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem2_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem2_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem2", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem2_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem2_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem2_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem2", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem2_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem2_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem2_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem2_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem2", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem2_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem2_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem2", "role": "BUSER" }} , 
+ 	{ "name": "a_val", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "a_val", "role": "default" }} , 
+ 	{ "name": "i", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "i", "role": "default" }} , 
+ 	{ "name": "nnz", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "nnz", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem3_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem3_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem3_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem3", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem3_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem3_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem3_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem3_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem3_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem3_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem3_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem3_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem3_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem3_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem3_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem3_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem3_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem3_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem3_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem3_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem3_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem3_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem3_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem3_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem3", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem3_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem3_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem3_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem3_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem3_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem3_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem3_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem3", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem3_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem3_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem3", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem3_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem3_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem3_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem3_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem3", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem3_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem3_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem3_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem3", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem3_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem3_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem3_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem3_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem3_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem3", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem3_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem3_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem3", "role": "BUSER" }} , 
+ 	{ "name": "B1", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B1", "role": "default" }} , 
+ 	{ "name": "K", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "K", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem4_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem4_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem4_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem4", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem4_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem4_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem4_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem4_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem4_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem4_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem4_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem4_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem4_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem4_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem4_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem4_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem4_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem4_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem4_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem4_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem4_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem4_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem4_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem4_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem4", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem4_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem4_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem4_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem4_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem4_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem4_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem4_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem4", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem4_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem4_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem4", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem4_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem4_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem4_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem4_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem4", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem4_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem4_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem4_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem4", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem4_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem4_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem4_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem4_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem4_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem4", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem4_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem4_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem4", "role": "BUSER" }} , 
+ 	{ "name": "B2", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B2", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem5_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem5_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem5_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem5", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem5_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem5_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem5_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem5_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem5_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem5_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem5_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem5_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem5_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem5_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem5_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem5_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem5_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem5_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem5_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem5_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem5_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem5_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem5_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem5_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem5", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem5_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem5_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem5_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem5_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem5_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem5_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem5_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem5", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem5_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem5_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem5", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem5_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem5_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem5_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem5_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem5", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem5_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem5_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem5_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem5", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem5_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem5_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem5_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem5_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem5_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem5", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem5_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem5_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem5", "role": "BUSER" }} , 
+ 	{ "name": "B3", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B3", "role": "default" }} , 
+ 	{ "name": "m_axi_gmem6_AWVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWVALID" }} , 
+ 	{ "name": "m_axi_gmem6_AWREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWREADY" }} , 
+ 	{ "name": "m_axi_gmem6_AWADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem6", "role": "AWADDR" }} , 
+ 	{ "name": "m_axi_gmem6_AWID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWID" }} , 
+ 	{ "name": "m_axi_gmem6_AWLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "AWLEN" }} , 
+ 	{ "name": "m_axi_gmem6_AWSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "AWSIZE" }} , 
+ 	{ "name": "m_axi_gmem6_AWBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "AWBURST" }} , 
+ 	{ "name": "m_axi_gmem6_AWLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "AWLOCK" }} , 
+ 	{ "name": "m_axi_gmem6_AWCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "AWCACHE" }} , 
+ 	{ "name": "m_axi_gmem6_AWPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "AWPROT" }} , 
+ 	{ "name": "m_axi_gmem6_AWQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "AWQOS" }} , 
+ 	{ "name": "m_axi_gmem6_AWREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "AWREGION" }} , 
+ 	{ "name": "m_axi_gmem6_AWUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "AWUSER" }} , 
+ 	{ "name": "m_axi_gmem6_WVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WVALID" }} , 
+ 	{ "name": "m_axi_gmem6_WREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WREADY" }} , 
+ 	{ "name": "m_axi_gmem6_WDATA", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "WDATA" }} , 
+ 	{ "name": "m_axi_gmem6_WSTRB", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "WSTRB" }} , 
+ 	{ "name": "m_axi_gmem6_WLAST", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WLAST" }} , 
+ 	{ "name": "m_axi_gmem6_WID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WID" }} , 
+ 	{ "name": "m_axi_gmem6_WUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "WUSER" }} , 
+ 	{ "name": "m_axi_gmem6_ARVALID", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARVALID" }} , 
+ 	{ "name": "m_axi_gmem6_ARREADY", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARREADY" }} , 
+ 	{ "name": "m_axi_gmem6_ARADDR", "direction": "out", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "gmem6", "role": "ARADDR" }} , 
+ 	{ "name": "m_axi_gmem6_ARID", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARID" }} , 
+ 	{ "name": "m_axi_gmem6_ARLEN", "direction": "out", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "ARLEN" }} , 
+ 	{ "name": "m_axi_gmem6_ARSIZE", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "ARSIZE" }} , 
+ 	{ "name": "m_axi_gmem6_ARBURST", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "ARBURST" }} , 
+ 	{ "name": "m_axi_gmem6_ARLOCK", "direction": "out", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "ARLOCK" }} , 
+ 	{ "name": "m_axi_gmem6_ARCACHE", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "ARCACHE" }} , 
+ 	{ "name": "m_axi_gmem6_ARPROT", "direction": "out", "datatype": "sc_lv", "bitwidth":3, "type": "signal", "bundle":{"name": "gmem6", "role": "ARPROT" }} , 
+ 	{ "name": "m_axi_gmem6_ARQOS", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "ARQOS" }} , 
+ 	{ "name": "m_axi_gmem6_ARREGION", "direction": "out", "datatype": "sc_lv", "bitwidth":4, "type": "signal", "bundle":{"name": "gmem6", "role": "ARREGION" }} , 
+ 	{ "name": "m_axi_gmem6_ARUSER", "direction": "out", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "ARUSER" }} , 
+ 	{ "name": "m_axi_gmem6_RVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RVALID" }} , 
+ 	{ "name": "m_axi_gmem6_RREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RREADY" }} , 
+ 	{ "name": "m_axi_gmem6_RDATA", "direction": "in", "datatype": "sc_lv", "bitwidth":32, "type": "signal", "bundle":{"name": "gmem6", "role": "RDATA" }} , 
+ 	{ "name": "m_axi_gmem6_RLAST", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RLAST" }} , 
+ 	{ "name": "m_axi_gmem6_RID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RID" }} , 
+ 	{ "name": "m_axi_gmem6_RFIFONUM", "direction": "in", "datatype": "sc_lv", "bitwidth":9, "type": "signal", "bundle":{"name": "gmem6", "role": "RFIFONUM" }} , 
+ 	{ "name": "m_axi_gmem6_RUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "RUSER" }} , 
+ 	{ "name": "m_axi_gmem6_RRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "RRESP" }} , 
+ 	{ "name": "m_axi_gmem6_BVALID", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BVALID" }} , 
+ 	{ "name": "m_axi_gmem6_BREADY", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BREADY" }} , 
+ 	{ "name": "m_axi_gmem6_BRESP", "direction": "in", "datatype": "sc_lv", "bitwidth":2, "type": "signal", "bundle":{"name": "gmem6", "role": "BRESP" }} , 
+ 	{ "name": "m_axi_gmem6_BID", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BID" }} , 
+ 	{ "name": "m_axi_gmem6_BUSER", "direction": "in", "datatype": "sc_lv", "bitwidth":1, "type": "signal", "bundle":{"name": "gmem6", "role": "BUSER" }} , 
+ 	{ "name": "B4", "direction": "in", "datatype": "sc_lv", "bitwidth":64, "type": "signal", "bundle":{"name": "B4", "role": "default" }} , 
+ 	{ "name": "ap_clk", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "clock", "bundle":{"name": "ap_clk", "role": "default" }} , 
+ 	{ "name": "ap_rst", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "reset", "bundle":{"name": "ap_rst", "role": "default" }} , 
+ 	{ "name": "col_idx_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "col_idx", "role": "ap_vld" }} , 
+ 	{ "name": "a_val_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "a_val", "role": "ap_vld" }} , 
+ 	{ "name": "i_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "i", "role": "ap_vld" }} , 
+ 	{ "name": "nnz_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "nnz", "role": "ap_vld" }} , 
+ 	{ "name": "ap_start", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "start", "bundle":{"name": "ap_start", "role": "default" }} , 
+ 	{ "name": "B1_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B1", "role": "ap_vld" }} , 
+ 	{ "name": "K_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "K", "role": "ap_vld" }} , 
+ 	{ "name": "ap_done", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "predone", "bundle":{"name": "ap_done", "role": "default" }} , 
+ 	{ "name": "B2_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B2", "role": "ap_vld" }} , 
+ 	{ "name": "B3_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B3", "role": "ap_vld" }} , 
+ 	{ "name": "B4_ap_vld", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "invld", "bundle":{"name": "B4", "role": "ap_vld" }} , 
+ 	{ "name": "ap_ready", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "ready", "bundle":{"name": "ap_ready", "role": "default" }} , 
+ 	{ "name": "ap_idle", "direction": "out", "datatype": "sc_logic", "bitwidth":1, "type": "done", "bundle":{"name": "ap_idle", "role": "default" }} , 
+ 	{ "name": "ap_continue", "direction": "in", "datatype": "sc_logic", "bitwidth":1, "type": "continue", "bundle":{"name": "ap_continue", "role": "default" }}  ]}
+
+set RtlHierarchyInfo {[
+	{"ID" : "0", "Level" : "0", "Path" : "`AUTOTB_DUT_INST", "Parent" : "", "Child" : ["1", "9", "21", "33", "45", "57", "58", "59", "60"],
+		"CDFG" : "dataflow_in_loop_row_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "Dataflow", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "1",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "1",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"InputProcess" : [
+			{"ID" : "1", "Name" : "set_tile_broadcast_U0"},
+			{"ID" : "9", "Name" : "pu_kernel_U0"},
+			{"ID" : "21", "Name" : "pu_kernel_8_U0"},
+			{"ID" : "33", "Name" : "pu_kernel_9_U0"},
+			{"ID" : "45", "Name" : "pu_kernel_10_U0"}],
+		"OutputProcess" : [
+			{"ID" : "9", "Name" : "pu_kernel_U0"},
+			{"ID" : "21", "Name" : "pu_kernel_8_U0"},
+			{"ID" : "33", "Name" : "pu_kernel_9_U0"},
+			{"ID" : "45", "Name" : "pu_kernel_10_U0"}],
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem1"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "1", "SubInstance" : "set_tile_broadcast_U0", "Port" : "gmem2"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "i", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem3", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "9", "SubInstance" : "pu_kernel_U0", "Port" : "gmem3"}]},
+			{"Name" : "B1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem4", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "21", "SubInstance" : "pu_kernel_8_U0", "Port" : "gmem4"}]},
+			{"Name" : "B2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem5", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "33", "SubInstance" : "pu_kernel_9_U0", "Port" : "gmem5"}]},
+			{"Name" : "B3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "45", "SubInstance" : "pu_kernel_10_U0", "Port" : "gmem6"}]},
+			{"Name" : "B4", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "1", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0", "Parent" : "0", "Child" : ["2", "3", "4", "5", "7"],
+		"CDFG" : "set_tile_broadcast",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "27", "EstimateLatencyMax" : "27",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem1", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "7", "SubInstance" : "grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Port" : "gmem2", "Inst_start_state" : "3", "Inst_end_state" : "4"}]},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "s_0", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["9"], "DependentChan" : "57", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_0_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_1", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["21"], "DependentChan" : "58", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_1_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_2", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["33"], "DependentChan" : "59", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_2_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "s_3", "Type" : "Fifo", "Direction" : "O", "DependentProc" : ["45"], "DependentChan" : "60", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_3_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "2", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_value_U", "Parent" : "1"},
+	{"ID" : "3", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_v_y_U", "Parent" : "1"},
+	{"ID" : "4", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.pkt_ref_U", "Parent" : "1"},
+	{"ID" : "5", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263", "Parent" : "1", "Child" : ["6"],
+		"CDFG" : "set_tile_broadcast_Pipeline_init_seen",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_2_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_1_out", "Type" : "Vld", "Direction" : "O"},
+			{"Name" : "seen_v_out", "Type" : "Vld", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "init_seen", "PipelineType" : "NotSupport"}]},
+	{"ID" : "6", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_init_seen_fu_263.flow_control_loop_pipe_sequential_init_U", "Parent" : "5"},
+	{"ID" : "7", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271", "Parent" : "1", "Child" : ["8"],
+		"CDFG" : "set_tile_broadcast_Pipeline_copy_tile_loop",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "15", "EstimateLatencyMax" : "15",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "seen_v_3_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_2_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_1_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "seen_v_reload", "Type" : "None", "Direction" : "I"},
+			{"Name" : "pkt_v_value", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_v_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pkt_ref", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "pointer", "Type" : "None", "Direction" : "I"},
+			{"Name" : "nnz", "Type" : "None", "Direction" : "I"},
+			{"Name" : "a_val", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem2", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem2_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem2_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "col_idx", "Type" : "None", "Direction" : "I"},
+			{"Name" : "gmem1", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem1_blk_n_AR", "Type" : "RtlSignal"},
+					{"Name" : "gmem1_blk_n_R", "Type" : "RtlSignal"}]}],
+		"Loop" : [
+			{"Name" : "copy_tile_loop", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter9", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter9", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "8", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.set_tile_broadcast_U0.grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271.flow_control_loop_pipe_sequential_init_U", "Parent" : "7"},
+	{"ID" : "9", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0", "Parent" : "0", "Child" : ["10", "11", "12", "13", "14", "15", "17"],
+		"CDFG" : "pu_kernel",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_01", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "57", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_01_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem3", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "17", "SubInstance" : "grp_dfm_fu_218", "Port" : "gmem6", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
+			{"Name" : "B1", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "10", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.Dbuf_U", "Parent" : "9"},
+	{"ID" : "11", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.tile_y_U", "Parent" : "9"},
+	{"ID" : "12", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.tile_ref_U", "Parent" : "9"},
+	{"ID" : "13", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.p_v_y_U", "Parent" : "9"},
+	{"ID" : "14", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.p_ref_U", "Parent" : "9"},
+	{"ID" : "15", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_210", "Parent" : "9", "Child" : ["16"],
+		"CDFG" : "pu_kernel_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "16", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_210.flow_control_loop_pipe_sequential_init_U", "Parent" : "15"},
+	{"ID" : "17", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_dfm_fu_218", "Parent" : "9", "Child" : ["18", "20"],
+		"CDFG" : "dfm",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "18", "SubInstance" : "grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "Dbuf", "Inst_start_state" : "15", "Inst_end_state" : "16"}]},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_AR", "Type" : "RtlSignal"}],
+				"SubConnect" : [
+					{"ID" : "18", "SubInstance" : "grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "gmem6", "Inst_start_state" : "15", "Inst_end_state" : "16"}]},
+			{"Name" : "B", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "16", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state16"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "18", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_dfm_fu_218.grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Parent" : "17", "Child" : ["19"],
+		"CDFG" : "dfm_Pipeline_VITIS_LOOP_114_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "sext_ln114", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dlen_load_cast", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "19", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_dfm_fu_218.grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126.flow_control_loop_pipe_sequential_init_U", "Parent" : "18"},
+	{"ID" : "20", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_U0.grp_dfm_fu_218.mul_32s_30ns_32_2_1_U39", "Parent" : "17"},
+	{"ID" : "21", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0", "Parent" : "0", "Child" : ["22", "23", "24", "25", "26", "27", "29"],
+		"CDFG" : "pu_kernel_8",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_12", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "58", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_12_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem4", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "29", "SubInstance" : "grp_dfm_fu_218", "Port" : "gmem6", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
+			{"Name" : "B2", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "22", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.Dbuf_U", "Parent" : "21"},
+	{"ID" : "23", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.tile_y_U", "Parent" : "21"},
+	{"ID" : "24", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.tile_ref_U", "Parent" : "21"},
+	{"ID" : "25", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.p_v_y_U", "Parent" : "21"},
+	{"ID" : "26", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.p_ref_U", "Parent" : "21"},
+	{"ID" : "27", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.grp_pu_kernel_8_Pipeline_pu_save_stream_into_pu_fu_210", "Parent" : "21", "Child" : ["28"],
+		"CDFG" : "pu_kernel_8_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "28", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.grp_pu_kernel_8_Pipeline_pu_save_stream_into_pu_fu_210.flow_control_loop_pipe_sequential_init_U", "Parent" : "27"},
+	{"ID" : "29", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.grp_dfm_fu_218", "Parent" : "21", "Child" : ["30", "32"],
+		"CDFG" : "dfm",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "30", "SubInstance" : "grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "Dbuf", "Inst_start_state" : "15", "Inst_end_state" : "16"}]},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_AR", "Type" : "RtlSignal"}],
+				"SubConnect" : [
+					{"ID" : "30", "SubInstance" : "grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "gmem6", "Inst_start_state" : "15", "Inst_end_state" : "16"}]},
+			{"Name" : "B", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "16", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state16"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "30", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.grp_dfm_fu_218.grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Parent" : "29", "Child" : ["31"],
+		"CDFG" : "dfm_Pipeline_VITIS_LOOP_114_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "sext_ln114", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dlen_load_cast", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "31", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.grp_dfm_fu_218.grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126.flow_control_loop_pipe_sequential_init_U", "Parent" : "30"},
+	{"ID" : "32", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_8_U0.grp_dfm_fu_218.mul_32s_30ns_32_2_1_U39", "Parent" : "29"},
+	{"ID" : "33", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0", "Parent" : "0", "Child" : ["34", "35", "36", "37", "38", "39", "41"],
+		"CDFG" : "pu_kernel_9",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_23", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "59", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_23_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem5", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "41", "SubInstance" : "grp_dfm_fu_218", "Port" : "gmem6", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
+			{"Name" : "B3", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "34", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.Dbuf_U", "Parent" : "33"},
+	{"ID" : "35", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.tile_y_U", "Parent" : "33"},
+	{"ID" : "36", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.tile_ref_U", "Parent" : "33"},
+	{"ID" : "37", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.p_v_y_U", "Parent" : "33"},
+	{"ID" : "38", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.p_ref_U", "Parent" : "33"},
+	{"ID" : "39", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.grp_pu_kernel_9_Pipeline_pu_save_stream_into_pu_fu_210", "Parent" : "33", "Child" : ["40"],
+		"CDFG" : "pu_kernel_9_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "40", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.grp_pu_kernel_9_Pipeline_pu_save_stream_into_pu_fu_210.flow_control_loop_pipe_sequential_init_U", "Parent" : "39"},
+	{"ID" : "41", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.grp_dfm_fu_218", "Parent" : "33", "Child" : ["42", "44"],
+		"CDFG" : "dfm",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "42", "SubInstance" : "grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "Dbuf", "Inst_start_state" : "15", "Inst_end_state" : "16"}]},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_AR", "Type" : "RtlSignal"}],
+				"SubConnect" : [
+					{"ID" : "42", "SubInstance" : "grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "gmem6", "Inst_start_state" : "15", "Inst_end_state" : "16"}]},
+			{"Name" : "B", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "16", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state16"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "42", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.grp_dfm_fu_218.grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Parent" : "41", "Child" : ["43"],
+		"CDFG" : "dfm_Pipeline_VITIS_LOOP_114_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "sext_ln114", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dlen_load_cast", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "43", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.grp_dfm_fu_218.grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126.flow_control_loop_pipe_sequential_init_U", "Parent" : "42"},
+	{"ID" : "44", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_9_U0.grp_dfm_fu_218.mul_32s_30ns_32_2_1_U39", "Parent" : "41"},
+	{"ID" : "45", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0", "Parent" : "0", "Child" : ["46", "47", "48", "49", "50", "51", "53"],
+		"CDFG" : "pu_kernel_10",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "1", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "1",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "s_34", "Type" : "Fifo", "Direction" : "I", "DependentProc" : ["1"], "DependentChan" : "60", "DependentChanDepth" : "16", "DependentChanType" : "0",
+				"BlockSignal" : [
+					{"Name" : "s_34_blk_n", "Type" : "RtlSignal"}]},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"SubConnect" : [
+					{"ID" : "53", "SubInstance" : "grp_dfm_fu_218", "Port" : "gmem6", "Inst_start_state" : "5", "Inst_end_state" : "6"}]},
+			{"Name" : "B4", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}]},
+	{"ID" : "46", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.Dbuf_U", "Parent" : "45"},
+	{"ID" : "47", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.tile_y_U", "Parent" : "45"},
+	{"ID" : "48", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.tile_ref_U", "Parent" : "45"},
+	{"ID" : "49", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.p_v_y_U", "Parent" : "45"},
+	{"ID" : "50", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.p_ref_U", "Parent" : "45"},
+	{"ID" : "51", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.grp_pu_kernel_10_Pipeline_pu_save_stream_into_pu_fu_210", "Parent" : "45", "Child" : ["52"],
+		"CDFG" : "pu_kernel_10_Pipeline_pu_save_stream_into_pu",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "6", "EstimateLatencyMax" : "6",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "p_v_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "O"},
+			{"Name" : "p_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "pu_save_stream_into_pu", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter1", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter0", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "52", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.grp_pu_kernel_10_Pipeline_pu_save_stream_into_pu_fu_210.flow_control_loop_pipe_sequential_init_U", "Parent" : "51"},
+	{"ID" : "53", "Level" : "2", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.grp_dfm_fu_218", "Parent" : "45", "Child" : ["54", "56"],
+		"CDFG" : "dfm",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "tile_y", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "tile_ref", "Type" : "Memory", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "O",
+				"SubConnect" : [
+					{"ID" : "54", "SubInstance" : "grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "Dbuf", "Inst_start_state" : "15", "Inst_end_state" : "16"}]},
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_AR", "Type" : "RtlSignal"}],
+				"SubConnect" : [
+					{"ID" : "54", "SubInstance" : "grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Port" : "gmem6", "Inst_start_state" : "15", "Inst_end_state" : "16"}]},
+			{"Name" : "B", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"}],
+		"Loop" : [
+			{"Name" : "move_B_to_BRAM", "PipelineType" : "no",
+				"LoopDec" : {"FSMBitwidth" : "16", "FirstState" : "ap_ST_fsm_state2", "LastState" : ["ap_ST_fsm_state16"], "QuitState" : ["ap_ST_fsm_state2"], "PreState" : ["ap_ST_fsm_state1"], "PostState" : ["ap_ST_fsm_state1"], "OneDepthLoop" : "0", "OneStateBlock": ""}}]},
+	{"ID" : "54", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.grp_dfm_fu_218.grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126", "Parent" : "53", "Child" : ["55"],
+		"CDFG" : "dfm_Pipeline_VITIS_LOOP_114_1",
+		"Protocol" : "ap_ctrl_hs",
+		"ControlExist" : "1", "ap_start" : "1", "ap_ready" : "1", "ap_done" : "1", "ap_continue" : "0", "ap_idle" : "1", "real_start" : "0",
+		"Pipeline" : "None", "UnalignedPipeline" : "0", "RewindPipeline" : "0", "ProcessNetwork" : "0",
+		"II" : "0",
+		"VariableLatency" : "1", "ExactLatency" : "-1", "EstimateLatencyMin" : "-1", "EstimateLatencyMax" : "-1",
+		"Combinational" : "0",
+		"Datapath" : "0",
+		"ClockEnable" : "0",
+		"HasSubDataflow" : "0",
+		"InDataflowNetwork" : "0",
+		"HasNonBlockingOperation" : "0",
+		"IsBlackBox" : "0",
+		"Port" : [
+			{"Name" : "gmem6", "Type" : "MAXI", "Direction" : "I",
+				"BlockSignal" : [
+					{"Name" : "gmem6_blk_n_R", "Type" : "RtlSignal"}]},
+			{"Name" : "sext_ln114", "Type" : "None", "Direction" : "I"},
+			{"Name" : "K", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dlen_load_cast", "Type" : "None", "Direction" : "I"},
+			{"Name" : "Dbuf", "Type" : "Memory", "Direction" : "O"}],
+		"Loop" : [
+			{"Name" : "VITIS_LOOP_114_1", "PipelineType" : "UPC",
+				"LoopDec" : {"FSMBitwidth" : "1", "FirstState" : "ap_ST_fsm_pp0_stage0", "FirstStateIter" : "ap_enable_reg_pp0_iter0", "FirstStateBlock" : "ap_block_pp0_stage0_subdone", "LastState" : "ap_ST_fsm_pp0_stage0", "LastStateIter" : "ap_enable_reg_pp0_iter2", "LastStateBlock" : "ap_block_pp0_stage0_subdone", "QuitState" : "ap_ST_fsm_pp0_stage0", "QuitStateIter" : "ap_enable_reg_pp0_iter1", "QuitStateBlock" : "ap_block_pp0_stage0_subdone", "OneDepthLoop" : "0", "has_ap_ctrl" : "1", "has_continue" : "0"}}]},
+	{"ID" : "55", "Level" : "4", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.grp_dfm_fu_218.grp_dfm_Pipeline_VITIS_LOOP_114_1_fu_126.flow_control_loop_pipe_sequential_init_U", "Parent" : "54"},
+	{"ID" : "56", "Level" : "3", "Path" : "`AUTOTB_DUT_INST.pu_kernel_10_U0.grp_dfm_fu_218.mul_32s_30ns_32_2_1_U39", "Parent" : "53"},
+	{"ID" : "57", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_01_U", "Parent" : "0"},
+	{"ID" : "58", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_12_U", "Parent" : "0"},
+	{"ID" : "59", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_23_U", "Parent" : "0"},
+	{"ID" : "60", "Level" : "1", "Path" : "`AUTOTB_DUT_INST.s_34_U", "Parent" : "0"}]}
+
+
+set ArgLastReadFirstWriteLatency {
+	dataflow_in_loop_row_loop {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		i {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}
+		gmem3 {Type I LastRead 7 FirstWrite -1}
+		B1 {Type I LastRead 2 FirstWrite -1}
+		K {Type I LastRead 2 FirstWrite -1}
+		gmem4 {Type I LastRead 7 FirstWrite -1}
+		B2 {Type I LastRead 2 FirstWrite -1}
+		gmem5 {Type I LastRead 7 FirstWrite -1}
+		B3 {Type I LastRead 2 FirstWrite -1}
+		gmem6 {Type I LastRead 7 FirstWrite -1}
+		B4 {Type I LastRead 2 FirstWrite -1}}
+	set_tile_broadcast {
+		gmem1 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 2 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		a_val {Type I LastRead 2 FirstWrite -1}
+		s_0 {Type O LastRead -1 FirstWrite 6}
+		s_1 {Type O LastRead -1 FirstWrite 6}
+		s_2 {Type O LastRead -1 FirstWrite 6}
+		s_3 {Type O LastRead -1 FirstWrite 6}
+		pointer {Type I LastRead 2 FirstWrite -1}
+		nnz {Type I LastRead 2 FirstWrite -1}}
+	set_tile_broadcast_Pipeline_init_seen {
+		seen_v_3_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_2_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_1_out {Type O LastRead -1 FirstWrite 0}
+		seen_v_out {Type O LastRead -1 FirstWrite 0}}
+	set_tile_broadcast_Pipeline_copy_tile_loop {
+		seen_v_3_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_2_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_1_reload {Type I LastRead 0 FirstWrite -1}
+		seen_v_reload {Type I LastRead 0 FirstWrite -1}
+		pkt_v_value {Type O LastRead -1 FirstWrite 9}
+		pkt_v_y {Type O LastRead -1 FirstWrite 9}
+		pkt_ref {Type O LastRead -1 FirstWrite 9}
+		pointer {Type I LastRead 0 FirstWrite -1}
+		nnz {Type I LastRead 0 FirstWrite -1}
+		a_val {Type I LastRead 0 FirstWrite -1}
+		gmem2 {Type I LastRead 8 FirstWrite -1}
+		col_idx {Type I LastRead 0 FirstWrite -1}
+		gmem1 {Type I LastRead 8 FirstWrite -1}}
+	pu_kernel {
+		s_01 {Type I LastRead 0 FirstWrite -1}
+		gmem3 {Type I LastRead 7 FirstWrite -1}
+		B1 {Type I LastRead 4 FirstWrite -1}
+		K {Type I LastRead 4 FirstWrite -1}}
+	pu_kernel_Pipeline_pu_save_stream_into_pu {
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	dfm {
+		tile_y {Type I LastRead 2 FirstWrite -1}
+		tile_ref {Type I LastRead 1 FirstWrite -1}
+		Dbuf {Type O LastRead -1 FirstWrite 2}
+		gmem6 {Type I LastRead 7 FirstWrite -1}
+		B {Type I LastRead 0 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}}
+	dfm_Pipeline_VITIS_LOOP_114_1 {
+		gmem6 {Type I LastRead 1 FirstWrite -1}
+		sext_ln114 {Type I LastRead 0 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}
+		Dlen_load_cast {Type I LastRead 0 FirstWrite -1}
+		Dbuf {Type O LastRead -1 FirstWrite 2}}
+	pu_kernel_8 {
+		s_12 {Type I LastRead 0 FirstWrite -1}
+		gmem4 {Type I LastRead 7 FirstWrite -1}
+		B2 {Type I LastRead 4 FirstWrite -1}
+		K {Type I LastRead 4 FirstWrite -1}}
+	pu_kernel_8_Pipeline_pu_save_stream_into_pu {
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	dfm {
+		tile_y {Type I LastRead 2 FirstWrite -1}
+		tile_ref {Type I LastRead 1 FirstWrite -1}
+		Dbuf {Type O LastRead -1 FirstWrite 2}
+		gmem6 {Type I LastRead 7 FirstWrite -1}
+		B {Type I LastRead 0 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}}
+	dfm_Pipeline_VITIS_LOOP_114_1 {
+		gmem6 {Type I LastRead 1 FirstWrite -1}
+		sext_ln114 {Type I LastRead 0 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}
+		Dlen_load_cast {Type I LastRead 0 FirstWrite -1}
+		Dbuf {Type O LastRead -1 FirstWrite 2}}
+	pu_kernel_9 {
+		s_23 {Type I LastRead 0 FirstWrite -1}
+		gmem5 {Type I LastRead 7 FirstWrite -1}
+		B3 {Type I LastRead 4 FirstWrite -1}
+		K {Type I LastRead 4 FirstWrite -1}}
+	pu_kernel_9_Pipeline_pu_save_stream_into_pu {
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	dfm {
+		tile_y {Type I LastRead 2 FirstWrite -1}
+		tile_ref {Type I LastRead 1 FirstWrite -1}
+		Dbuf {Type O LastRead -1 FirstWrite 2}
+		gmem6 {Type I LastRead 7 FirstWrite -1}
+		B {Type I LastRead 0 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}}
+	dfm_Pipeline_VITIS_LOOP_114_1 {
+		gmem6 {Type I LastRead 1 FirstWrite -1}
+		sext_ln114 {Type I LastRead 0 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}
+		Dlen_load_cast {Type I LastRead 0 FirstWrite -1}
+		Dbuf {Type O LastRead -1 FirstWrite 2}}
+	pu_kernel_10 {
+		s_34 {Type I LastRead 0 FirstWrite -1}
+		gmem6 {Type I LastRead 7 FirstWrite -1}
+		B4 {Type I LastRead 4 FirstWrite -1}
+		K {Type I LastRead 4 FirstWrite -1}}
+	pu_kernel_10_Pipeline_pu_save_stream_into_pu {
+		p_v_y {Type I LastRead 0 FirstWrite -1}
+		tile_y {Type O LastRead -1 FirstWrite 1}
+		p_ref {Type I LastRead 0 FirstWrite -1}
+		tile_ref {Type O LastRead -1 FirstWrite 1}}
+	dfm {
+		tile_y {Type I LastRead 2 FirstWrite -1}
+		tile_ref {Type I LastRead 1 FirstWrite -1}
+		Dbuf {Type O LastRead -1 FirstWrite 2}
+		gmem6 {Type I LastRead 7 FirstWrite -1}
+		B {Type I LastRead 0 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}}
+	dfm_Pipeline_VITIS_LOOP_114_1 {
+		gmem6 {Type I LastRead 1 FirstWrite -1}
+		sext_ln114 {Type I LastRead 0 FirstWrite -1}
+		K {Type I LastRead 0 FirstWrite -1}
+		Dlen_load_cast {Type I LastRead 0 FirstWrite -1}
+		Dbuf {Type O LastRead -1 FirstWrite 2}}}
+
+set hasDtUnsupportedChannel 0
+
+set PerformanceInfo {[
+	{"Name" : "Latency", "Min" : "-1", "Max" : "-1"}
+	, {"Name" : "Interval", "Min" : "-1", "Max" : "-1"}
+]}
+
+set PipelineEnableSignalInfo {[
+]}
+
+set Spec2ImplPortList { 
+	 { m_axi {  { m_axi_gmem1_AWVALID VALID 1 1 }  { m_axi_gmem1_AWREADY READY 0 1 }  { m_axi_gmem1_AWADDR ADDR 1 64 }  { m_axi_gmem1_AWID ID 1 1 }  { m_axi_gmem1_AWLEN SIZE 1 32 }  { m_axi_gmem1_AWSIZE BURST 1 3 }  { m_axi_gmem1_AWBURST LOCK 1 2 }  { m_axi_gmem1_AWLOCK CACHE 1 2 }  { m_axi_gmem1_AWCACHE PROT 1 4 }  { m_axi_gmem1_AWPROT QOS 1 3 }  { m_axi_gmem1_AWQOS REGION 1 4 }  { m_axi_gmem1_AWREGION USER 1 4 }  { m_axi_gmem1_AWUSER DATA 1 1 }  { m_axi_gmem1_WVALID VALID 1 1 }  { m_axi_gmem1_WREADY READY 0 1 }  { m_axi_gmem1_WDATA FIFONUM 1 32 }  { m_axi_gmem1_WSTRB STRB 1 4 }  { m_axi_gmem1_WLAST LAST 1 1 }  { m_axi_gmem1_WID ID 1 1 }  { m_axi_gmem1_WUSER DATA 1 1 }  { m_axi_gmem1_ARVALID VALID 1 1 }  { m_axi_gmem1_ARREADY READY 0 1 }  { m_axi_gmem1_ARADDR ADDR 1 64 }  { m_axi_gmem1_ARID ID 1 1 }  { m_axi_gmem1_ARLEN SIZE 1 32 }  { m_axi_gmem1_ARSIZE BURST 1 3 }  { m_axi_gmem1_ARBURST LOCK 1 2 }  { m_axi_gmem1_ARLOCK CACHE 1 2 }  { m_axi_gmem1_ARCACHE PROT 1 4 }  { m_axi_gmem1_ARPROT QOS 1 3 }  { m_axi_gmem1_ARQOS REGION 1 4 }  { m_axi_gmem1_ARREGION USER 1 4 }  { m_axi_gmem1_ARUSER DATA 1 1 }  { m_axi_gmem1_RVALID VALID 0 1 }  { m_axi_gmem1_RREADY READY 1 1 }  { m_axi_gmem1_RDATA FIFONUM 0 32 }  { m_axi_gmem1_RLAST LAST 0 1 }  { m_axi_gmem1_RID ID 0 1 }  { m_axi_gmem1_RFIFONUM LEN 0 9 }  { m_axi_gmem1_RUSER DATA 0 1 }  { m_axi_gmem1_RRESP RESP 0 2 }  { m_axi_gmem1_BVALID VALID 0 1 }  { m_axi_gmem1_BREADY READY 1 1 }  { m_axi_gmem1_BRESP RESP 0 2 }  { m_axi_gmem1_BID ID 0 1 }  { m_axi_gmem1_BUSER DATA 0 1 } } }
+	col_idx { ap_none {  { col_idx in_data 0 64 }  { col_idx_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem2_AWVALID VALID 1 1 }  { m_axi_gmem2_AWREADY READY 0 1 }  { m_axi_gmem2_AWADDR ADDR 1 64 }  { m_axi_gmem2_AWID ID 1 1 }  { m_axi_gmem2_AWLEN SIZE 1 32 }  { m_axi_gmem2_AWSIZE BURST 1 3 }  { m_axi_gmem2_AWBURST LOCK 1 2 }  { m_axi_gmem2_AWLOCK CACHE 1 2 }  { m_axi_gmem2_AWCACHE PROT 1 4 }  { m_axi_gmem2_AWPROT QOS 1 3 }  { m_axi_gmem2_AWQOS REGION 1 4 }  { m_axi_gmem2_AWREGION USER 1 4 }  { m_axi_gmem2_AWUSER DATA 1 1 }  { m_axi_gmem2_WVALID VALID 1 1 }  { m_axi_gmem2_WREADY READY 0 1 }  { m_axi_gmem2_WDATA FIFONUM 1 32 }  { m_axi_gmem2_WSTRB STRB 1 4 }  { m_axi_gmem2_WLAST LAST 1 1 }  { m_axi_gmem2_WID ID 1 1 }  { m_axi_gmem2_WUSER DATA 1 1 }  { m_axi_gmem2_ARVALID VALID 1 1 }  { m_axi_gmem2_ARREADY READY 0 1 }  { m_axi_gmem2_ARADDR ADDR 1 64 }  { m_axi_gmem2_ARID ID 1 1 }  { m_axi_gmem2_ARLEN SIZE 1 32 }  { m_axi_gmem2_ARSIZE BURST 1 3 }  { m_axi_gmem2_ARBURST LOCK 1 2 }  { m_axi_gmem2_ARLOCK CACHE 1 2 }  { m_axi_gmem2_ARCACHE PROT 1 4 }  { m_axi_gmem2_ARPROT QOS 1 3 }  { m_axi_gmem2_ARQOS REGION 1 4 }  { m_axi_gmem2_ARREGION USER 1 4 }  { m_axi_gmem2_ARUSER DATA 1 1 }  { m_axi_gmem2_RVALID VALID 0 1 }  { m_axi_gmem2_RREADY READY 1 1 }  { m_axi_gmem2_RDATA FIFONUM 0 32 }  { m_axi_gmem2_RLAST LAST 0 1 }  { m_axi_gmem2_RID ID 0 1 }  { m_axi_gmem2_RFIFONUM LEN 0 9 }  { m_axi_gmem2_RUSER DATA 0 1 }  { m_axi_gmem2_RRESP RESP 0 2 }  { m_axi_gmem2_BVALID VALID 0 1 }  { m_axi_gmem2_BREADY READY 1 1 }  { m_axi_gmem2_BRESP RESP 0 2 }  { m_axi_gmem2_BID ID 0 1 }  { m_axi_gmem2_BUSER DATA 0 1 } } }
+	a_val { ap_none {  { a_val in_data 0 64 }  { a_val_ap_vld in_vld 0 1 } } }
+	i { ap_none {  { i in_data 0 32 }  { i_ap_vld in_vld 0 1 } } }
+	nnz { ap_none {  { nnz in_data 0 32 }  { nnz_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem3_AWVALID VALID 1 1 }  { m_axi_gmem3_AWREADY READY 0 1 }  { m_axi_gmem3_AWADDR ADDR 1 64 }  { m_axi_gmem3_AWID ID 1 1 }  { m_axi_gmem3_AWLEN SIZE 1 32 }  { m_axi_gmem3_AWSIZE BURST 1 3 }  { m_axi_gmem3_AWBURST LOCK 1 2 }  { m_axi_gmem3_AWLOCK CACHE 1 2 }  { m_axi_gmem3_AWCACHE PROT 1 4 }  { m_axi_gmem3_AWPROT QOS 1 3 }  { m_axi_gmem3_AWQOS REGION 1 4 }  { m_axi_gmem3_AWREGION USER 1 4 }  { m_axi_gmem3_AWUSER DATA 1 1 }  { m_axi_gmem3_WVALID VALID 1 1 }  { m_axi_gmem3_WREADY READY 0 1 }  { m_axi_gmem3_WDATA FIFONUM 1 32 }  { m_axi_gmem3_WSTRB STRB 1 4 }  { m_axi_gmem3_WLAST LAST 1 1 }  { m_axi_gmem3_WID ID 1 1 }  { m_axi_gmem3_WUSER DATA 1 1 }  { m_axi_gmem3_ARVALID VALID 1 1 }  { m_axi_gmem3_ARREADY READY 0 1 }  { m_axi_gmem3_ARADDR ADDR 1 64 }  { m_axi_gmem3_ARID ID 1 1 }  { m_axi_gmem3_ARLEN SIZE 1 32 }  { m_axi_gmem3_ARSIZE BURST 1 3 }  { m_axi_gmem3_ARBURST LOCK 1 2 }  { m_axi_gmem3_ARLOCK CACHE 1 2 }  { m_axi_gmem3_ARCACHE PROT 1 4 }  { m_axi_gmem3_ARPROT QOS 1 3 }  { m_axi_gmem3_ARQOS REGION 1 4 }  { m_axi_gmem3_ARREGION USER 1 4 }  { m_axi_gmem3_ARUSER DATA 1 1 }  { m_axi_gmem3_RVALID VALID 0 1 }  { m_axi_gmem3_RREADY READY 1 1 }  { m_axi_gmem3_RDATA FIFONUM 0 32 }  { m_axi_gmem3_RLAST LAST 0 1 }  { m_axi_gmem3_RID ID 0 1 }  { m_axi_gmem3_RFIFONUM LEN 0 9 }  { m_axi_gmem3_RUSER DATA 0 1 }  { m_axi_gmem3_RRESP RESP 0 2 }  { m_axi_gmem3_BVALID VALID 0 1 }  { m_axi_gmem3_BREADY READY 1 1 }  { m_axi_gmem3_BRESP RESP 0 2 }  { m_axi_gmem3_BID ID 0 1 }  { m_axi_gmem3_BUSER DATA 0 1 } } }
+	B1 { ap_none {  { B1 in_data 0 64 }  { B1_ap_vld in_vld 0 1 } } }
+	K { ap_none {  { K in_data 0 32 }  { K_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem4_AWVALID VALID 1 1 }  { m_axi_gmem4_AWREADY READY 0 1 }  { m_axi_gmem4_AWADDR ADDR 1 64 }  { m_axi_gmem4_AWID ID 1 1 }  { m_axi_gmem4_AWLEN SIZE 1 32 }  { m_axi_gmem4_AWSIZE BURST 1 3 }  { m_axi_gmem4_AWBURST LOCK 1 2 }  { m_axi_gmem4_AWLOCK CACHE 1 2 }  { m_axi_gmem4_AWCACHE PROT 1 4 }  { m_axi_gmem4_AWPROT QOS 1 3 }  { m_axi_gmem4_AWQOS REGION 1 4 }  { m_axi_gmem4_AWREGION USER 1 4 }  { m_axi_gmem4_AWUSER DATA 1 1 }  { m_axi_gmem4_WVALID VALID 1 1 }  { m_axi_gmem4_WREADY READY 0 1 }  { m_axi_gmem4_WDATA FIFONUM 1 32 }  { m_axi_gmem4_WSTRB STRB 1 4 }  { m_axi_gmem4_WLAST LAST 1 1 }  { m_axi_gmem4_WID ID 1 1 }  { m_axi_gmem4_WUSER DATA 1 1 }  { m_axi_gmem4_ARVALID VALID 1 1 }  { m_axi_gmem4_ARREADY READY 0 1 }  { m_axi_gmem4_ARADDR ADDR 1 64 }  { m_axi_gmem4_ARID ID 1 1 }  { m_axi_gmem4_ARLEN SIZE 1 32 }  { m_axi_gmem4_ARSIZE BURST 1 3 }  { m_axi_gmem4_ARBURST LOCK 1 2 }  { m_axi_gmem4_ARLOCK CACHE 1 2 }  { m_axi_gmem4_ARCACHE PROT 1 4 }  { m_axi_gmem4_ARPROT QOS 1 3 }  { m_axi_gmem4_ARQOS REGION 1 4 }  { m_axi_gmem4_ARREGION USER 1 4 }  { m_axi_gmem4_ARUSER DATA 1 1 }  { m_axi_gmem4_RVALID VALID 0 1 }  { m_axi_gmem4_RREADY READY 1 1 }  { m_axi_gmem4_RDATA FIFONUM 0 32 }  { m_axi_gmem4_RLAST LAST 0 1 }  { m_axi_gmem4_RID ID 0 1 }  { m_axi_gmem4_RFIFONUM LEN 0 9 }  { m_axi_gmem4_RUSER DATA 0 1 }  { m_axi_gmem4_RRESP RESP 0 2 }  { m_axi_gmem4_BVALID VALID 0 1 }  { m_axi_gmem4_BREADY READY 1 1 }  { m_axi_gmem4_BRESP RESP 0 2 }  { m_axi_gmem4_BID ID 0 1 }  { m_axi_gmem4_BUSER DATA 0 1 } } }
+	B2 { ap_none {  { B2 in_data 0 64 }  { B2_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem5_AWVALID VALID 1 1 }  { m_axi_gmem5_AWREADY READY 0 1 }  { m_axi_gmem5_AWADDR ADDR 1 64 }  { m_axi_gmem5_AWID ID 1 1 }  { m_axi_gmem5_AWLEN SIZE 1 32 }  { m_axi_gmem5_AWSIZE BURST 1 3 }  { m_axi_gmem5_AWBURST LOCK 1 2 }  { m_axi_gmem5_AWLOCK CACHE 1 2 }  { m_axi_gmem5_AWCACHE PROT 1 4 }  { m_axi_gmem5_AWPROT QOS 1 3 }  { m_axi_gmem5_AWQOS REGION 1 4 }  { m_axi_gmem5_AWREGION USER 1 4 }  { m_axi_gmem5_AWUSER DATA 1 1 }  { m_axi_gmem5_WVALID VALID 1 1 }  { m_axi_gmem5_WREADY READY 0 1 }  { m_axi_gmem5_WDATA FIFONUM 1 32 }  { m_axi_gmem5_WSTRB STRB 1 4 }  { m_axi_gmem5_WLAST LAST 1 1 }  { m_axi_gmem5_WID ID 1 1 }  { m_axi_gmem5_WUSER DATA 1 1 }  { m_axi_gmem5_ARVALID VALID 1 1 }  { m_axi_gmem5_ARREADY READY 0 1 }  { m_axi_gmem5_ARADDR ADDR 1 64 }  { m_axi_gmem5_ARID ID 1 1 }  { m_axi_gmem5_ARLEN SIZE 1 32 }  { m_axi_gmem5_ARSIZE BURST 1 3 }  { m_axi_gmem5_ARBURST LOCK 1 2 }  { m_axi_gmem5_ARLOCK CACHE 1 2 }  { m_axi_gmem5_ARCACHE PROT 1 4 }  { m_axi_gmem5_ARPROT QOS 1 3 }  { m_axi_gmem5_ARQOS REGION 1 4 }  { m_axi_gmem5_ARREGION USER 1 4 }  { m_axi_gmem5_ARUSER DATA 1 1 }  { m_axi_gmem5_RVALID VALID 0 1 }  { m_axi_gmem5_RREADY READY 1 1 }  { m_axi_gmem5_RDATA FIFONUM 0 32 }  { m_axi_gmem5_RLAST LAST 0 1 }  { m_axi_gmem5_RID ID 0 1 }  { m_axi_gmem5_RFIFONUM LEN 0 9 }  { m_axi_gmem5_RUSER DATA 0 1 }  { m_axi_gmem5_RRESP RESP 0 2 }  { m_axi_gmem5_BVALID VALID 0 1 }  { m_axi_gmem5_BREADY READY 1 1 }  { m_axi_gmem5_BRESP RESP 0 2 }  { m_axi_gmem5_BID ID 0 1 }  { m_axi_gmem5_BUSER DATA 0 1 } } }
+	B3 { ap_none {  { B3 in_data 0 64 }  { B3_ap_vld in_vld 0 1 } } }
+	 { m_axi {  { m_axi_gmem6_AWVALID VALID 1 1 }  { m_axi_gmem6_AWREADY READY 0 1 }  { m_axi_gmem6_AWADDR ADDR 1 64 }  { m_axi_gmem6_AWID ID 1 1 }  { m_axi_gmem6_AWLEN SIZE 1 32 }  { m_axi_gmem6_AWSIZE BURST 1 3 }  { m_axi_gmem6_AWBURST LOCK 1 2 }  { m_axi_gmem6_AWLOCK CACHE 1 2 }  { m_axi_gmem6_AWCACHE PROT 1 4 }  { m_axi_gmem6_AWPROT QOS 1 3 }  { m_axi_gmem6_AWQOS REGION 1 4 }  { m_axi_gmem6_AWREGION USER 1 4 }  { m_axi_gmem6_AWUSER DATA 1 1 }  { m_axi_gmem6_WVALID VALID 1 1 }  { m_axi_gmem6_WREADY READY 0 1 }  { m_axi_gmem6_WDATA FIFONUM 1 32 }  { m_axi_gmem6_WSTRB STRB 1 4 }  { m_axi_gmem6_WLAST LAST 1 1 }  { m_axi_gmem6_WID ID 1 1 }  { m_axi_gmem6_WUSER DATA 1 1 }  { m_axi_gmem6_ARVALID VALID 1 1 }  { m_axi_gmem6_ARREADY READY 0 1 }  { m_axi_gmem6_ARADDR ADDR 1 64 }  { m_axi_gmem6_ARID ID 1 1 }  { m_axi_gmem6_ARLEN SIZE 1 32 }  { m_axi_gmem6_ARSIZE BURST 1 3 }  { m_axi_gmem6_ARBURST LOCK 1 2 }  { m_axi_gmem6_ARLOCK CACHE 1 2 }  { m_axi_gmem6_ARCACHE PROT 1 4 }  { m_axi_gmem6_ARPROT QOS 1 3 }  { m_axi_gmem6_ARQOS REGION 1 4 }  { m_axi_gmem6_ARREGION USER 1 4 }  { m_axi_gmem6_ARUSER DATA 1 1 }  { m_axi_gmem6_RVALID VALID 0 1 }  { m_axi_gmem6_RREADY READY 1 1 }  { m_axi_gmem6_RDATA FIFONUM 0 32 }  { m_axi_gmem6_RLAST LAST 0 1 }  { m_axi_gmem6_RID ID 0 1 }  { m_axi_gmem6_RFIFONUM LEN 0 9 }  { m_axi_gmem6_RUSER DATA 0 1 }  { m_axi_gmem6_RRESP RESP 0 2 }  { m_axi_gmem6_BVALID VALID 0 1 }  { m_axi_gmem6_BREADY READY 1 1 }  { m_axi_gmem6_BRESP RESP 0 2 }  { m_axi_gmem6_BID ID 0 1 }  { m_axi_gmem6_BUSER DATA 0 1 } } }
+	B4 { ap_none {  { B4 in_data 0 64 }  { B4_ap_vld in_vld 0 1 } } }
+}

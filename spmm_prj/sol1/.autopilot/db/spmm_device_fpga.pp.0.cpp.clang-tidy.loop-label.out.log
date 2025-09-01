@@ -1,0 +1,48 @@
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:1661:7: warning: Added loop label VITIS_LOOP_1211_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1211_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:1661:7: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:2635:5: warning: Added loop label VITIS_LOOP_676_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_676_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:2635:5: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:2649:5: warning: Added loop label VITIS_LOOP_690_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_690_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:2649:5: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:2663:5: warning: Added loop label VITIS_LOOP_704_1:   [xilinx-label-all-loops]
+    for (unsigned i = low; i != high; ++i) {
+    ^~~
+    VITIS_LOOP_704_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:2663:5: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:4274:7: warning: Added loop label VITIS_LOOP_1245_1:   [xilinx-label-all-loops]
+      for (i = 0; i < __N - 1; ++i) {
+      ^~~
+      VITIS_LOOP_1245_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:4274:7: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6271:5: warning: Added loop label VITIS_LOOP_94_1:   [xilinx-label-all-loops]
+    for(int u = 0; u < NUM_PU; ++u){
+    ^~~
+    VITIS_LOOP_94_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6271:5: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6291:13: warning: Added loop label VITIS_LOOP_114_1:   [xilinx-label-all-loops]
+            for(int j = 0; j < K; ++j){
+            ^~~
+            VITIS_LOOP_114_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6291:13: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6307:2: warning: Added loop label VITIS_LOOP_130_1:   [xilinx-label-all-loops]
+ for(int i = 0; i < K; ++i){
+ ^~~
+ VITIS_LOOP_130_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6307:2: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6322:45: error: Invalid Directive: for current device, ram_2p + bram is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=Dbuf type=ram_2p impl=bram
+                                            ^
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6341:5: warning: Added loop label VITIS_LOOP_164_1:   [xilinx-label-all-loops]
+    for(int i = 1; i <= 2; ++i){
+    ^~~
+    VITIS_LOOP_164_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6341:5: note: FIX-IT applied suggested code changes
