@@ -56,62 +56,85 @@ Diagnostics:
         Length:          0
         ReplacementText: 'VITIS_LOOP_94_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_110_1:  '
-    FileOffset:      110
+    Message:         'Added loop label VITIS_LOOP_111_1:  '
+    FileOffset:      111
     FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
     Replacements:    
       - FilePath:        /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp
-        Offset:          881948
+        Offset:          881981
         Length:          0
-        ReplacementText: 'VITIS_LOOP_110_1: '
+        ReplacementText: 'VITIS_LOOP_111_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_113_2:  '
-    FileOffset:      113
+    Message:         'Added loop label VITIS_LOOP_114_2:  '
+    FileOffset:      114
     FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
     Replacements:    
       - FilePath:        /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp
-        Offset:          882048
+        Offset:          882081
         Length:          0
-        ReplacementText: 'VITIS_LOOP_113_2: '
+        ReplacementText: 'VITIS_LOOP_114_2: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_129_1:  '
-    FileOffset:      129
+    Message:         'Added loop label VITIS_LOOP_121_3:  '
+    FileOffset:      121
     FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
     Replacements:    
       - FilePath:        /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp
-        Offset:          882322
+        Offset:          882289
         Length:          0
-        ReplacementText: 'VITIS_LOOP_129_1: '
+        ReplacementText: 'VITIS_LOOP_121_3: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_136_1:  '
+    FileOffset:      136
+    FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
+    Replacements:    
+      - FilePath:        /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp
+        Offset:          882584
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_136_1: '
+  - DiagnosticName:  xilinx-label-all-loops
+    Message:         'Added loop label VITIS_LOOP_148_1:  '
+    FileOffset:      148
+    FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
+    Replacements:    
+      - FilePath:        /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp
+        Offset:          882784
+        Length:          0
+        ReplacementText: 'VITIS_LOOP_148_1: '
   - DiagnosticName:  clang-diagnostic-error
     Message:         'Invalid Directive: for current device, ram_2p + bram is invalid combination for BIND_STORAGE''s option ''type + impl'''
-    FileOffset:      145
+    FileOffset:      165
+    FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
+    Replacements:    
+  - DiagnosticName:  clang-diagnostic-error
+    Message:         'Invalid Directive: for current device, ram_2p + bram is invalid combination for BIND_STORAGE''s option ''type + impl'''
+    FileOffset:      169
     FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
     Replacements:    
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_175_1:  '
-    FileOffset:      175
+    Message:         'Added loop label VITIS_LOOP_202_1:  '
+    FileOffset:      202
     FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
     Replacements:    
       - FilePath:        /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp
-        Offset:          883183
+        Offset:          883860
         Length:          0
-        ReplacementText: 'VITIS_LOOP_175_1: '
+        ReplacementText: 'VITIS_LOOP_202_1: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_185_2:  '
-    FileOffset:      185
+    Message:         'Added loop label VITIS_LOOP_235_2:  '
+    FileOffset:      235
     FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
     Replacements:    
       - FilePath:        /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp
-        Offset:          883416
+        Offset:          884833
         Length:          0
-        ReplacementText: 'VITIS_LOOP_185_2: '
+        ReplacementText: 'VITIS_LOOP_235_2: '
   - DiagnosticName:  xilinx-label-all-loops
-    Message:         'Added loop label VITIS_LOOP_190_3:  '
-    FileOffset:      190
+    Message:         'Added loop label VITIS_LOOP_241_3:  '
+    FileOffset:      241
     FilePath:        /home/shuxuan/SDMA/src/spmm_device_fpga.cpp
     Replacements:    
       - FilePath:        /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp
-        Offset:          883543
+        Offset:          884995
         Length:          0
-        ReplacementText: 'VITIS_LOOP_190_3: '
+        ReplacementText: 'VITIS_LOOP_241_3: '
 ...

@@ -19,18 +19,14 @@ module spmm_hls_pu_comp (
         res_we0,
         res_d0,
         a_value,
-        a_y,
         Dbuf_address0,
         Dbuf_ce0,
         Dbuf_q0,
-        K
+        K,
+        begin_r
 );
 
-parameter    ap_ST_fsm_state1 = 5'd1;
-parameter    ap_ST_fsm_state2 = 5'd2;
-parameter    ap_ST_fsm_state3 = 5'd4;
-parameter    ap_ST_fsm_state4 = 5'd8;
-parameter    ap_ST_fsm_state5 = 5'd16;
+parameter    ap_ST_fsm_pp0_stage0 = 1'd1;
 
 input   ap_clk;
 input   ap_rst;
@@ -43,85 +39,116 @@ output   res_ce0;
 output   res_we0;
 output  [31:0] res_d0;
 input  [31:0] a_value;
-input  [15:0] a_y;
 output  [15:0] Dbuf_address0;
 output   Dbuf_ce0;
 input  [31:0] Dbuf_q0;
 input  [29:0] K;
+input  [15:0] begin_r;
 
-reg ap_done;
 reg ap_idle;
-reg ap_ready;
+reg res_ce0;
+reg res_we0;
+reg Dbuf_ce0;
 
-(* fsm_encoding = "none" *) reg   [4:0] ap_CS_fsm;
-wire    ap_CS_fsm_state1;
-wire    ap_CS_fsm_state4;
-wire  signed [15:0] grp_fu_60_p2;
-reg   [15:0] mul_reg_87;
-wire    grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start;
-wire    grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_done;
-wire    grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_idle;
-wire    grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_ready;
-wire   [15:0] grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_Dbuf_address0;
-wire    grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_Dbuf_ce0;
-wire   [15:0] grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_address0;
-wire    grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_ce0;
-wire    grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_we0;
-wire   [31:0] grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_d0;
-reg    grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start_reg;
-wire    ap_CS_fsm_state5;
-wire  signed [15:0] grp_fu_60_p0;
-reg   [4:0] ap_NS_fsm;
-reg    ap_ST_fsm_state1_blk;
-wire    ap_ST_fsm_state2_blk;
-wire    ap_ST_fsm_state3_blk;
-wire    ap_ST_fsm_state4_blk;
-reg    ap_ST_fsm_state5_blk;
+(* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
+wire    ap_CS_fsm_pp0_stage0;
+wire    ap_enable_reg_pp0_iter0;
+reg    ap_enable_reg_pp0_iter1;
+reg    ap_enable_reg_pp0_iter2;
+reg    ap_enable_reg_pp0_iter3;
+reg    ap_enable_reg_pp0_iter4;
+reg    ap_enable_reg_pp0_iter5;
+reg    ap_enable_reg_pp0_iter6;
+reg    ap_idle_pp0;
+wire    ap_block_state1_pp0_stage0_iter0;
+wire    ap_block_state2_pp0_stage0_iter1;
+wire    ap_block_state3_pp0_stage0_iter2;
+wire    ap_block_state4_pp0_stage0_iter3;
+wire    ap_block_state5_pp0_stage0_iter4;
+wire    ap_block_state6_pp0_stage0_iter5;
+wire    ap_block_state7_pp0_stage0_iter6;
+wire    ap_block_pp0_stage0_subdone;
+wire   [0:0] icmp_ln136_fu_102_p2;
+reg    ap_condition_exit_pp0_iter0_stage0;
+wire    ap_loop_exit_ready;
+reg    ap_ready_int;
+wire    ap_block_pp0_stage0_11001;
+reg   [29:0] i_14_reg_150;
+reg   [29:0] i_14_reg_150_pp0_iter1_reg;
+reg   [29:0] i_14_reg_150_pp0_iter2_reg;
+reg   [29:0] i_14_reg_150_pp0_iter3_reg;
+reg   [29:0] i_14_reg_150_pp0_iter4_reg;
+reg   [29:0] i_14_reg_150_pp0_iter5_reg;
+reg   [31:0] Dbuf_load_reg_164;
+wire   [31:0] grp_fu_90_p2;
+reg   [31:0] mul_reg_169;
+wire   [63:0] zext_ln138_fu_124_p1;
+wire    ap_block_pp0_stage0;
+wire   [63:0] zext_ln136_fu_134_p1;
+reg   [29:0] i_fu_42;
+wire   [29:0] add_ln136_fu_108_p2;
+wire    ap_loop_init;
+reg   [29:0] ap_sig_allocacmp_i_14;
+wire   [15:0] trunc_ln138_fu_114_p1;
+wire   [15:0] add_ln138_fu_118_p2;
+reg    ap_done_reg;
+wire    ap_continue_int;
+reg    ap_done_int;
+reg    ap_loop_exit_ready_pp0_iter1_reg;
+reg    ap_loop_exit_ready_pp0_iter2_reg;
+reg    ap_loop_exit_ready_pp0_iter3_reg;
+reg    ap_loop_exit_ready_pp0_iter4_reg;
+reg    ap_loop_exit_ready_pp0_iter5_reg;
+reg   [0:0] ap_NS_fsm;
+wire    ap_enable_pp0;
+wire    ap_start_int;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_CS_fsm = 5'd1;
-#0 grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start_reg = 1'b0;
+#0 ap_CS_fsm = 1'd1;
+#0 ap_enable_reg_pp0_iter1 = 1'b0;
+#0 ap_enable_reg_pp0_iter2 = 1'b0;
+#0 ap_enable_reg_pp0_iter3 = 1'b0;
+#0 ap_enable_reg_pp0_iter4 = 1'b0;
+#0 ap_enable_reg_pp0_iter5 = 1'b0;
+#0 ap_enable_reg_pp0_iter6 = 1'b0;
+#0 ap_done_reg = 1'b0;
 end
 
-spmm_hls_pu_comp_Pipeline_VITIS_LOOP_129_1 grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44(
-    .ap_clk(ap_clk),
-    .ap_rst(ap_rst),
-    .ap_start(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start),
-    .ap_done(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_done),
-    .ap_idle(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_idle),
-    .ap_ready(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_ready),
-    .K(K),
-    .mul(mul_reg_87),
-    .Dbuf_address0(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_Dbuf_address0),
-    .Dbuf_ce0(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_Dbuf_ce0),
-    .Dbuf_q0(Dbuf_q0),
-    .a_value(a_value),
-    .res_address0(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_address0),
-    .res_ce0(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_ce0),
-    .res_we0(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_we0),
-    .res_d0(grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_d0)
-);
-
-spmm_hls_mul_mul_16s_16s_16_4_1 #(
+spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1 #(
     .ID( 1 ),
     .NUM_STAGE( 4 ),
-    .din0_WIDTH( 16 ),
-    .din1_WIDTH( 16 ),
-    .dout_WIDTH( 16 ))
-mul_mul_16s_16s_16_4_1_U57(
+    .din0_WIDTH( 32 ),
+    .din1_WIDTH( 32 ),
+    .dout_WIDTH( 32 ))
+fmul_32ns_32ns_32_4_max_dsp_1_U52(
     .clk(ap_clk),
     .reset(ap_rst),
-    .din0(grp_fu_60_p0),
-    .din1(a_y),
+    .din0(Dbuf_load_reg_164),
+    .din1(a_value),
     .ce(1'b1),
-    .dout(grp_fu_60_p2)
+    .dout(grp_fu_90_p2)
+);
+
+spmm_hls_flow_control_loop_pipe_sequential_init flow_control_loop_pipe_sequential_init_U(
+    .ap_clk(ap_clk),
+    .ap_rst(ap_rst),
+    .ap_start(ap_start),
+    .ap_ready(ap_ready),
+    .ap_done(ap_done),
+    .ap_start_int(ap_start_int),
+    .ap_loop_init(ap_loop_init),
+    .ap_ready_int(ap_ready_int),
+    .ap_loop_exit_ready(ap_condition_exit_pp0_iter0_stage0),
+    .ap_loop_exit_done(ap_done_int),
+    .ap_continue_int(ap_continue_int),
+    .ap_done_int(ap_done_int)
 );
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        ap_CS_fsm <= ap_ST_fsm_state1;
+        ap_CS_fsm <= ap_ST_fsm_pp0_stage0;
     end else begin
         ap_CS_fsm <= ap_NS_fsm;
     end
@@ -129,54 +156,137 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start_reg <= 1'b0;
+        ap_done_reg <= 1'b0;
     end else begin
-        if ((1'b1 == ap_CS_fsm_state4)) begin
-            grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start_reg <= 1'b1;
-        end else if ((grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_ready == 1'b1)) begin
-            grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start_reg <= 1'b0;
+        if ((ap_continue_int == 1'b1)) begin
+            ap_done_reg <= 1'b0;
+        end else if (((1'b0 == ap_block_pp0_stage0_subdone) & (ap_loop_exit_ready_pp0_iter5_reg == 1'b1))) begin
+            ap_done_reg <= 1'b1;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        mul_reg_87 <= grp_fu_60_p2;
-    end
-end
-
-always @ (*) begin
-    if ((ap_start == 1'b0)) begin
-        ap_ST_fsm_state1_blk = 1'b1;
+    if (ap_rst == 1'b1) begin
+        ap_enable_reg_pp0_iter1 <= 1'b0;
     end else begin
-        ap_ST_fsm_state1_blk = 1'b0;
+        if ((1'b1 == ap_condition_exit_pp0_iter0_stage0)) begin
+            ap_enable_reg_pp0_iter1 <= 1'b0;
+        end else if (((1'b0 == ap_block_pp0_stage0_subdone) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+            ap_enable_reg_pp0_iter1 <= ap_start_int;
+        end
     end
 end
 
-assign ap_ST_fsm_state2_blk = 1'b0;
-
-assign ap_ST_fsm_state3_blk = 1'b0;
-
-assign ap_ST_fsm_state4_blk = 1'b0;
-
-always @ (*) begin
-    if ((grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_done == 1'b0)) begin
-        ap_ST_fsm_state5_blk = 1'b1;
+always @ (posedge ap_clk) begin
+    if (ap_rst == 1'b1) begin
+        ap_enable_reg_pp0_iter2 <= 1'b0;
     end else begin
-        ap_ST_fsm_state5_blk = 1'b0;
+        if ((1'b0 == ap_block_pp0_stage0_subdone)) begin
+            ap_enable_reg_pp0_iter2 <= ap_enable_reg_pp0_iter1;
+        end
     end
 end
 
-always @ (*) begin
-    if ((((grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state5)) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0)))) begin
-        ap_done = 1'b1;
+always @ (posedge ap_clk) begin
+    if (ap_rst == 1'b1) begin
+        ap_enable_reg_pp0_iter3 <= 1'b0;
     end else begin
-        ap_done = 1'b0;
+        if ((1'b0 == ap_block_pp0_stage0_subdone)) begin
+            ap_enable_reg_pp0_iter3 <= ap_enable_reg_pp0_iter2;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst == 1'b1) begin
+        ap_enable_reg_pp0_iter4 <= 1'b0;
+    end else begin
+        if ((1'b0 == ap_block_pp0_stage0_subdone)) begin
+            ap_enable_reg_pp0_iter4 <= ap_enable_reg_pp0_iter3;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst == 1'b1) begin
+        ap_enable_reg_pp0_iter5 <= 1'b0;
+    end else begin
+        if ((1'b0 == ap_block_pp0_stage0_subdone)) begin
+            ap_enable_reg_pp0_iter5 <= ap_enable_reg_pp0_iter4;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (ap_rst == 1'b1) begin
+        ap_enable_reg_pp0_iter6 <= 1'b0;
+    end else begin
+        if ((1'b0 == ap_block_pp0_stage0_subdone)) begin
+            ap_enable_reg_pp0_iter6 <= ap_enable_reg_pp0_iter5;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        if (((icmp_ln136_fu_102_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
+            i_fu_42 <= add_ln136_fu_108_p2;
+        end else if ((ap_loop_init == 1'b1)) begin
+            i_fu_42 <= 30'd0;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        Dbuf_load_reg_164 <= Dbuf_q0;
+        ap_loop_exit_ready_pp0_iter1_reg <= ap_loop_exit_ready;
+        ap_loop_exit_ready_pp0_iter2_reg <= ap_loop_exit_ready_pp0_iter1_reg;
+        i_14_reg_150 <= ap_sig_allocacmp_i_14;
+        i_14_reg_150_pp0_iter1_reg <= i_14_reg_150;
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if ((1'b0 == ap_block_pp0_stage0_11001)) begin
+        ap_loop_exit_ready_pp0_iter3_reg <= ap_loop_exit_ready_pp0_iter2_reg;
+        ap_loop_exit_ready_pp0_iter4_reg <= ap_loop_exit_ready_pp0_iter3_reg;
+        ap_loop_exit_ready_pp0_iter5_reg <= ap_loop_exit_ready_pp0_iter4_reg;
+        i_14_reg_150_pp0_iter2_reg <= i_14_reg_150_pp0_iter1_reg;
+        i_14_reg_150_pp0_iter3_reg <= i_14_reg_150_pp0_iter2_reg;
+        i_14_reg_150_pp0_iter4_reg <= i_14_reg_150_pp0_iter3_reg;
+        i_14_reg_150_pp0_iter5_reg <= i_14_reg_150_pp0_iter4_reg;
+        mul_reg_169 <= grp_fu_90_p2;
     end
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        Dbuf_ce0 = 1'b1;
+    end else begin
+        Dbuf_ce0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((icmp_ln136_fu_102_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_condition_exit_pp0_iter0_stage0 = 1'b1;
+    end else begin
+        ap_condition_exit_pp0_iter0_stage0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_subdone) & (ap_loop_exit_ready_pp0_iter5_reg == 1'b1))) begin
+        ap_done_int = 1'b1;
+    end else begin
+        ap_done_int = ap_done_reg;
+    end
+end
+
+always @ (*) begin
+    if (((ap_idle_pp0 == 1'b1) & (ap_start_int == 1'b0) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -184,37 +294,49 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
-        ap_ready = 1'b1;
+    if (((ap_enable_reg_pp0_iter6 == 1'b0) & (ap_enable_reg_pp0_iter5 == 1'b0) & (ap_enable_reg_pp0_iter4 == 1'b0) & (ap_enable_reg_pp0_iter3 == 1'b0) & (ap_enable_reg_pp0_iter2 == 1'b0) & (ap_enable_reg_pp0_iter1 == 1'b0) & (ap_enable_reg_pp0_iter0 == 1'b0))) begin
+        ap_idle_pp0 = 1'b1;
     end else begin
-        ap_ready = 1'b0;
+        ap_idle_pp0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        ap_ready_int = 1'b1;
+    end else begin
+        ap_ready_int = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_loop_init == 1'b1))) begin
+        ap_sig_allocacmp_i_14 = 30'd0;
+    end else begin
+        ap_sig_allocacmp_i_14 = i_fu_42;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter6 == 1'b1))) begin
+        res_ce0 = 1'b1;
+    end else begin
+        res_ce0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter6 == 1'b1))) begin
+        res_we0 = 1'b1;
+    end else begin
+        res_we0 = 1'b0;
     end
 end
 
 always @ (*) begin
     case (ap_CS_fsm)
-        ap_ST_fsm_state1 : begin
-            if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
-                ap_NS_fsm = ap_ST_fsm_state2;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end
-        end
-        ap_ST_fsm_state2 : begin
-            ap_NS_fsm = ap_ST_fsm_state3;
-        end
-        ap_ST_fsm_state3 : begin
-            ap_NS_fsm = ap_ST_fsm_state4;
-        end
-        ap_ST_fsm_state4 : begin
-            ap_NS_fsm = ap_ST_fsm_state5;
-        end
-        ap_ST_fsm_state5 : begin
-            if (((grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state5))) begin
-                ap_NS_fsm = ap_ST_fsm_state1;
-            end else begin
-                ap_NS_fsm = ap_ST_fsm_state5;
-            end
+        ap_ST_fsm_pp0_stage0 : begin
+            ap_NS_fsm = ap_ST_fsm_pp0_stage0;
         end
         default : begin
             ap_NS_fsm = 'bx;
@@ -222,26 +344,50 @@ always @ (*) begin
     endcase
 end
 
-assign Dbuf_address0 = grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_Dbuf_address0;
+assign Dbuf_address0 = zext_ln138_fu_124_p1;
 
-assign Dbuf_ce0 = grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_Dbuf_ce0;
+assign add_ln136_fu_108_p2 = (ap_sig_allocacmp_i_14 + 30'd1);
 
-assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
+assign add_ln138_fu_118_p2 = (trunc_ln138_fu_114_p1 + begin_r);
 
-assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
+assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
-assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
+assign ap_block_pp0_stage0 = ~(1'b1 == 1'b1);
 
-assign grp_fu_60_p0 = K[15:0];
+assign ap_block_pp0_stage0_11001 = ~(1'b1 == 1'b1);
 
-assign grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start = grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start_reg;
+assign ap_block_pp0_stage0_subdone = ~(1'b1 == 1'b1);
 
-assign res_address0 = grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_address0;
+assign ap_block_state1_pp0_stage0_iter0 = ~(1'b1 == 1'b1);
 
-assign res_ce0 = grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_ce0;
+assign ap_block_state2_pp0_stage0_iter1 = ~(1'b1 == 1'b1);
 
-assign res_d0 = grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_d0;
+assign ap_block_state3_pp0_stage0_iter2 = ~(1'b1 == 1'b1);
 
-assign res_we0 = grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_res_we0;
+assign ap_block_state4_pp0_stage0_iter3 = ~(1'b1 == 1'b1);
+
+assign ap_block_state5_pp0_stage0_iter4 = ~(1'b1 == 1'b1);
+
+assign ap_block_state6_pp0_stage0_iter5 = ~(1'b1 == 1'b1);
+
+assign ap_block_state7_pp0_stage0_iter6 = ~(1'b1 == 1'b1);
+
+assign ap_enable_pp0 = (ap_idle_pp0 ^ 1'b1);
+
+assign ap_enable_reg_pp0_iter0 = ap_start_int;
+
+assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
+
+assign icmp_ln136_fu_102_p2 = ((ap_sig_allocacmp_i_14 == K) ? 1'b1 : 1'b0);
+
+assign res_address0 = zext_ln136_fu_134_p1;
+
+assign res_d0 = mul_reg_169;
+
+assign trunc_ln138_fu_114_p1 = ap_sig_allocacmp_i_14[15:0];
+
+assign zext_ln136_fu_134_p1 = i_14_reg_150_pp0_iter5_reg;
+
+assign zext_ln138_fu_124_p1 = add_ln138_fu_118_p2;
 
 endmodule //spmm_hls_pu_comp

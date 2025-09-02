@@ -7,7 +7,7 @@
 
 `timescale 1 ns / 1 ps 
 
-(* CORE_GENERATION_INFO="spmm_hls_spmm_hls,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcu280-fsvh2892-2L-e,HLS_INPUT_CLOCK=4.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.920000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=256,HLS_SYN_DSP=0,HLS_SYN_FF=22116,HLS_SYN_LUT=22502,HLS_VERSION=2022_2}" *)
+(* CORE_GENERATION_INFO="spmm_hls_spmm_hls,hls_ip_2022_2,{HLS_INPUT_TYPE=cxx,HLS_INPUT_FLOAT=0,HLS_INPUT_FIXED=0,HLS_INPUT_PART=xcu280-fsvh2892-2L-e,HLS_INPUT_CLOCK=4.000000,HLS_INPUT_ARCH=others,HLS_SYN_CLOCK=2.920000,HLS_SYN_LAT=-1,HLS_SYN_TPT=none,HLS_SYN_MEM=256,HLS_SYN_DSP=0,HLS_SYN_FF=23352,HLS_SYN_LUT=25054,HLS_VERSION=2022_2}" *)
 
 module spmm_hls (
         ap_clk,
@@ -1172,7 +1172,7 @@ reg    ap_sync_reg_grp_dataflow_in_loop_row_loop_fu_178_ap_ready;
 reg    ap_sync_reg_grp_dataflow_in_loop_row_loop_fu_178_ap_done;
 reg   [31:0] i_fu_126;
 wire   [31:0] i_3_fu_216_p2;
-wire   [0:0] icmp_ln248_fu_211_p2;
+wire   [0:0] icmp_ln311_fu_211_p2;
 reg   [3:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 wire    ap_ST_fsm_state2_blk;
@@ -2167,7 +2167,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln248_fu_211_p2 == 1'd0))) begin
+    if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln311_fu_211_p2 == 1'd0))) begin
         ap_done = 1'b1;
     end else begin
         ap_done = 1'b0;
@@ -2183,7 +2183,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln248_fu_211_p2 == 1'd0))) begin
+    if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln311_fu_211_p2 == 1'd0))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -2304,7 +2304,7 @@ always @ (*) begin
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln248_fu_211_p2 == 1'd0))) begin
+            if (((1'b1 == ap_CS_fsm_state2) & (icmp_ln311_fu_211_p2 == 1'd0))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state3;
@@ -2350,7 +2350,7 @@ assign grp_dataflow_in_loop_row_loop_fu_178_ap_start = grp_dataflow_in_loop_row_
 
 assign i_3_fu_216_p2 = (i_fu_126 + 32'd4);
 
-assign icmp_ln248_fu_211_p2 = ((i_fu_126 < nnz_read_reg_263) ? 1'b1 : 1'b0);
+assign icmp_ln311_fu_211_p2 = ((i_fu_126 < nnz_read_reg_263) ? 1'b1 : 1'b0);
 
 assign m_axi_gmem0_ARADDR = 64'd0;
 

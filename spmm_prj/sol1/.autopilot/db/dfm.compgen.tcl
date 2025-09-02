@@ -70,6 +70,25 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 
 
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 49 \
+    name tile_to_dbuf_begin \
+    reset_level 1 \
+    sync_rst true \
+    dir IO \
+    corename tile_to_dbuf_begin \
+    op interface \
+    ports { tile_to_dbuf_begin_address0 { O 2 vector } tile_to_dbuf_begin_ce0 { O 1 bit } tile_to_dbuf_begin_we0 { O 1 bit } tile_to_dbuf_begin_d0 { O 16 vector } tile_to_dbuf_begin_q0 { I 16 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'tile_to_dbuf_begin'"
+}
+}
+
+
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \

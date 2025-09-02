@@ -1,20 +1,24 @@
-remark: src/spmm_device_fpga.cpp:113:31: Loop 'VITIS_LOOP_113_2' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:121:31: Loop 'VITIS_LOOP_121_3' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:114:31: Loop 'VITIS_LOOP_114_2' is marked as complete unroll implied by the pipeline pragma
 remark: src/spmm_device_fpga.cpp:69:13: Loop 'compare_all' is marked as complete unroll implied by the pipeline pragma
 remark: src/spmm_device_fpga.cpp:33:0: Unrolling loop 'VITIS_LOOP_94_1' (src/spmm_device_fpga.cpp:94:22) in function 'set_tile_broadcast' completely with a factor of 4
 remark: src/spmm_device_fpga.cpp:33:0: Unrolling loop 'compare_all' (src/spmm_device_fpga.cpp:69:13) in function 'set_tile_broadcast' completely with a factor of 4
+remark: src/spmm_device_fpga.cpp:161:0: Inlining function 'write_to_Obuf(float*, float*, unsigned int, unsigned int)' into 'pu_kernel(hls::stream<TilePkt, 0>&, float const*, unsigned int)'
 remark: src/spmm_device_fpga.cpp:38:10: Applying array_partition to 'seen_y': Complete partitioning on dimension 1.
 remark: src/spmm_device_fpga.cpp:39:10: Applying array_partition to 'seen_v': Complete partitioning on dimension 1.
-remark: src/spmm_device_fpga.cpp:242:23: Applying array_partition to 's': Complete partitioning on dimension 1.
-remark: src/spmm_device_fpga.cpp:242:23: Aggregating fifo (hls::stream) variable 's_0' with compact=bit mode in 388-bits
-remark: src/spmm_device_fpga.cpp:242:23: Aggregating fifo (hls::stream) variable 's_1' with compact=bit mode in 388-bits
-remark: src/spmm_device_fpga.cpp:242:23: Aggregating fifo (hls::stream) variable 's_2' with compact=bit mode in 388-bits
-remark: src/spmm_device_fpga.cpp:242:23: Aggregating fifo (hls::stream) variable 's_3' with compact=bit mode in 388-bits
-remark: src/spmm_device_fpga.cpp:113:31: Sequential read of variable length has been inferred _XLX_SEP_ OldID=for.inc.load.7,  _XLX_SEP_ scevgepseq B gmem3,gmem4,gmem5,gmem6 VITIS_LOOP_113_2 src/spmm_device_fpga.cpp:113:31 dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int) 
-remark: src/spmm_device_fpga.cpp:113:31: Access call is in the conditional branch _XLX_SEP_ scevgepseq B gmem3,gmem4,gmem5,gmem6 VITIS_LOOP_110_1 src/spmm_device_fpga.cpp:110:20 dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int) 
+remark: src/spmm_device_fpga.cpp:305:23: Applying array_partition to 's': Complete partitioning on dimension 1.
+remark: src/spmm_device_fpga.cpp:305:23: Aggregating fifo (hls::stream) variable 's_0' with compact=bit mode in 388-bits
+remark: src/spmm_device_fpga.cpp:305:23: Aggregating fifo (hls::stream) variable 's_1' with compact=bit mode in 388-bits
+remark: src/spmm_device_fpga.cpp:305:23: Aggregating fifo (hls::stream) variable 's_2' with compact=bit mode in 388-bits
+remark: src/spmm_device_fpga.cpp:305:23: Aggregating fifo (hls::stream) variable 's_3' with compact=bit mode in 388-bits
+remark: src/spmm_device_fpga.cpp:114:31: Sequential read of variable length has been inferred _XLX_SEP_ OldID=for.inc.load.7,  _XLX_SEP_ scevgepseq B gmem3,gmem4,gmem5,gmem6 VITIS_LOOP_114_2 src/spmm_device_fpga.cpp:114:31 dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int, unsigned int*) 
+remark: src/spmm_device_fpga.cpp:114:31: Access call is in the conditional branch _XLX_SEP_ scevgepseq B gmem3,gmem4,gmem5,gmem6 VITIS_LOOP_111_1 src/spmm_device_fpga.cpp:111:20 dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int, unsigned int*) 
 remark: src/spmm_device_fpga.cpp:62:25: Access tile.value is in the conditional branch _XLX_SEP_ for.body14.load.2 a_val gmem2 copy_tile_loop src/spmm_device_fpga.cpp:57:5 set_tile_broadcast(unsigned int const*, unsigned int const*, float const*, hls::stream<TilePkt, 0>*, unsigned int, unsigned int) 
 remark: src/spmm_device_fpga.cpp:63:25: Access seen_y is in the conditional branch _XLX_SEP_ for.body14.load.5 col_idx gmem1 copy_tile_loop src/spmm_device_fpga.cpp:57:5 set_tile_broadcast(unsigned int const*, unsigned int const*, float const*, hls::stream<TilePkt, 0>*, unsigned int, unsigned int) 
-remark: src/spmm_device_fpga.cpp:113:31: Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 _XLX_SEP_ scevgepseq B gmem3,gmem4,gmem5,gmem6 VITIS_LOOP_113_2 src/spmm_device_fpga.cpp:113:31 dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int) 
-remark: src/spmm_device_fpga.cpp:113:31: Loop 'VITIS_LOOP_113_2' is marked as complete unroll implied by the pipeline pragma
-remark: src/spmm_device_fpga.cpp:113:31: Multiple burst reads of variable length and bit width 32 has been inferred. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. _XLX_SEP_ seq  gmem6 VITIS_LOOP_113_2 src/spmm_device_fpga.cpp:113:31 dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int) (.1) 
-remark: src/spmm_device_fpga.cpp:113:31: Multiple burst reads of variable length and bit width 32 in loop 'VITIS_LOOP_113_2'(src/spmm_device_fpga.cpp:113:31) has been inferred on bundle 'gmem6'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
-remark: src/spmm_device_fpga.cpp:113:31: Loop 'VITIS_LOOP_113_2' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:114:31: Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0 _XLX_SEP_ scevgepseq B gmem3,gmem4,gmem5,gmem6 VITIS_LOOP_114_2 src/spmm_device_fpga.cpp:114:31 dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int, unsigned int*) 
+remark: src/spmm_device_fpga.cpp:121:31: Loop 'VITIS_LOOP_121_3' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:114:31: Loop 'VITIS_LOOP_114_2' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:114:31: Multiple burst reads of variable length and bit width 32 has been inferred. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. _XLX_SEP_ seq  gmem6 VITIS_LOOP_114_2 src/spmm_device_fpga.cpp:114:31 dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int, unsigned int*) (.1) 
+remark: src/spmm_device_fpga.cpp:114:31: Multiple burst reads of variable length and bit width 32 in loop 'VITIS_LOOP_114_2'(src/spmm_device_fpga.cpp:114:31) has been inferred on bundle 'gmem6'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+remark: src/spmm_device_fpga.cpp:121:31: Loop 'VITIS_LOOP_121_3' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:114:31: Loop 'VITIS_LOOP_114_2' is marked as complete unroll implied by the pipeline pragma

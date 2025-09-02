@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'pu_kernel_3_Pipeline_init_au'" level="0">
-<item name = "Date">Mon Sep  1 19:26:51 2025
+<item name = "Date">Tue Sep  2 16:52:33 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">4.00 ns, 1.924 ns, 1.08 ns</column>
+<column name="ap_clk">4.00 ns, 2.084 ns, 1.08 ns</column>
 </table>
 </item>
 </section>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="8">, min, max, min, max, min, max, Type</keys>
-<column name="">61280, 61280, 0.245 ms, 0.245 ms, 61280, 61280, no</column>
+<column name="">?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Detail">
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- init_au">61278, 61278, 1, 1, 1, 61278, yes</column>
+<column name="- init_au">?, ?, 1, 1, 1, ?, yes</column>
 </table>
 </item>
 </section>

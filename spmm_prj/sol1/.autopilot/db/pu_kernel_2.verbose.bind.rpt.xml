@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'pu_kernel_2'" level="0">
-<item name = "Date">Mon Sep  1 19:26:51 2025
+<item name = "Date">Tue Sep  2 16:52:33 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -31,17 +31,20 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_pu_kernel_2_Pipeline_pu_save_stream_into_pu_fu_349">pu_kernel_2_Pipeline_pu_save_stream_into_pu, 6, 6, 24.000 ns, 24.000 ns, 6, 6, no</column>
-<column name="grp_pu_kernel_2_Pipeline_init_au_fu_359">pu_kernel_2_Pipeline_init_au, 61280, 61280, 0.245 ms, 0.245 ms, 61280, 61280, no</column>
-<column name="grp_dfm_fu_364">dfm, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_pu_comp_fu_376">pu_comp, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_pu_kernel_2_Pipeline_VITIS_LOOP_190_3_fu_386">pu_kernel_2_Pipeline_VITIS_LOOP_190_3, ?, ?, ?, ?, ?, ?, no</column>
-<column name="grp_pu_kernel_2_Pipeline_VITIS_LOOP_185_2_fu_393">pu_kernel_2_Pipeline_VITIS_LOOP_185_2, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_2_Pipeline_pu_save_stream_into_pu_fu_405">pu_kernel_2_Pipeline_pu_save_stream_into_pu, 6, 6, 24.000 ns, 24.000 ns, 6, 6, no</column>
+<column name="grp_pu_kernel_2_Pipeline_init_au_fu_415">pu_kernel_2_Pipeline_init_au, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_dfm_fu_421">dfm, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_comp_fu_434">pu_comp, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_2_Pipeline_VITIS_LOOP_148_136_fu_445">pu_kernel_2_Pipeline_VITIS_LOOP_148_136, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_2_Pipeline_VITIS_LOOP_148_1_fu_451">pu_kernel_2_Pipeline_VITIS_LOOP_148_1, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_2_Pipeline_VITIS_LOOP_241_3_fu_457">pu_kernel_2_Pipeline_VITIS_LOOP_241_3, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_2_Pipeline_VITIS_LOOP_235_2_fu_464">pu_kernel_2_Pipeline_VITIS_LOOP_235_2, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_2_Pipeline_VITIS_LOOP_148_137_fu_472">pu_kernel_2_Pipeline_VITIS_LOOP_148_137, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- VITIS_LOOP_175_1">?, ?, ?, -, -, 2, no</column>
+<column name="- VITIS_LOOP_202_1">?, ?, ?, -, -, 2, no</column>
 </table>
 </item>
 </section>

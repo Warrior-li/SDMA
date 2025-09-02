@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'pu_comp'" level="0">
-<item name = "Date">Mon Sep  1 19:26:57 2025
+<item name = "Date">Tue Sep  2 16:52:40 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -31,11 +31,11 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44">pu_comp_Pipeline_VITIS_LOOP_129_1, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- VITIS_LOOP_136_1">?, ?, 7, 1, 1, ?, yes</column>
 </table>
 </item>
 </section>
@@ -47,13 +47,13 @@
 <section name = "Utilization Estimates" level="0">
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="DSP">-, 1, -, -, -</column>
-<column name="Expression">-, -, -, -, -</column>
+<column name="DSP">-, -, -, -, -</column>
+<column name="Expression">-, -, 0, 81, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, 3, 344, 227, -</column>
+<column name="Instance">-, 3, 143, 78, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 31, -</column>
-<column name="Register">-, -, 22, -, -</column>
+<column name="Multiplexer">-, -, -, 36, -</column>
+<column name="Register">-, -, 201, 32, -</column>
 <specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
 <specialColumn name="Utilization SLR (%)">0, ~0, ~0, ~0, 0</specialColumn>
 <specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
@@ -64,12 +64,11 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44">pu_comp_Pipeline_VITIS_LOOP_129_1, 0, 3, 344, 227, 0</column>
+<column name="fmul_32ns_32ns_32_4_max_dsp_1_U52">fmul_32ns_32ns_32_4_max_dsp_1, 0, 3, 143, 78, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
 <keys size="3">Instance, Module, Expression</keys>
-<column name="mul_mul_16s_16s_16_4_1_U57">mul_mul_16s_16s_16_4_1, i0 * i1</column>
 </table>
 </item>
 <item name = "Memory"><table name="" hasTotal="1">
@@ -82,18 +81,40 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="add_ln136_fu_108_p2">+, 0, 0, 37, 30, 1</column>
+<column name="add_ln138_fu_118_p2">+, 0, 0, 23, 16, 16</column>
+<column name="icmp_ln136_fu_102_p2">icmp, 0, 0, 19, 30, 30</column>
+<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">31, 6, 1, 6</column>
+<column name="ap_done_int">9, 2, 1, 2</column>
+<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
+<column name="ap_sig_allocacmp_i_14">9, 2, 30, 60</column>
+<column name="i_fu_42">9, 2, 30, 60</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="ap_CS_fsm">5, 0, 5, 0</column>
-<column name="grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44_ap_start_reg">1, 0, 1, 0</column>
-<column name="mul_reg_87">16, 0, 16, 0</column>
+<column name="Dbuf_load_reg_164">32, 0, 32, 0</column>
+<column name="ap_CS_fsm">1, 0, 1, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter3">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter4">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter5">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter6">1, 0, 1, 0</column>
+<column name="ap_loop_exit_ready_pp0_iter1_reg">1, 0, 1, 0</column>
+<column name="ap_loop_exit_ready_pp0_iter2_reg">1, 0, 1, 0</column>
+<column name="ap_loop_exit_ready_pp0_iter3_reg">1, 0, 1, 0</column>
+<column name="ap_loop_exit_ready_pp0_iter4_reg">1, 0, 1, 0</column>
+<column name="ap_loop_exit_ready_pp0_iter5_reg">1, 0, 1, 0</column>
+<column name="i_14_reg_150">30, 0, 30, 0</column>
+<column name="i_fu_42">30, 0, 30, 0</column>
+<column name="mul_reg_169">32, 0, 32, 0</column>
+<column name="i_14_reg_150">64, 32, 30, 0</column>
 </table>
 </item>
 </section>
@@ -114,11 +135,11 @@
 <column name="res_we0">out, 1, ap_memory, res, array</column>
 <column name="res_d0">out, 32, ap_memory, res, array</column>
 <column name="a_value">in, 32, ap_none, a_value, scalar</column>
-<column name="a_y">in, 16, ap_none, a_y, scalar</column>
 <column name="Dbuf_address0">out, 16, ap_memory, Dbuf, array</column>
 <column name="Dbuf_ce0">out, 1, ap_memory, Dbuf, array</column>
 <column name="Dbuf_q0">in, 32, ap_memory, Dbuf, array</column>
 <column name="K">in, 30, ap_none, K, scalar</column>
+<column name="begin_r">in, 16, ap_none, begin_r, scalar</column>
 </table>
 </item>
 </section>

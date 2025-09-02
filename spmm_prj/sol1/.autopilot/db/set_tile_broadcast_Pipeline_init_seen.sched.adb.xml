@@ -200,7 +200,7 @@ for.inc:4 %br_ln49 = br i1 %icmp_ln49, void %for.inc.split, void %for.body4.preh
 
 <Node id="19" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-for.inc.split:0 %specpipeline_ln50 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_25
+for.inc.split:0 %specpipeline_ln50 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_28
 
 ]]></Node>
 <StgValue><ssdm name="specpipeline_ln50"/></StgValue>
@@ -216,7 +216,7 @@ for.inc.split:0 %specpipeline_ln50 = specpipeline void @_ssdm_op_SpecPipeline, i
 
 <Node id="20" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.inc.split:1 %specloopname_ln39 = specloopname void @_ssdm_op_SpecLoopName, void @empty_27
+for.inc.split:1 %specloopname_ln39 = specloopname void @_ssdm_op_SpecLoopName, void @empty_6
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln39"/></StgValue>

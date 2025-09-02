@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'pu_kernel_2_Pipeline_pu_save_stream_into_pu'" level="0">
-<item name = "Date">Mon Sep  1 19:26:59 2025
+<item name = "Date">Tue Sep  2 16:52:43 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -80,8 +80,8 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln154_fu_135_p2">+, 0, 0, 10, 3, 1</column>
-<column name="icmp_ln154_fu_129_p2">icmp, 0, 0, 9, 3, 4</column>
+<column name="add_ln181_fu_135_p2">+, 0, 0, 10, 3, 1</column>
+<column name="icmp_ln181_fu_129_p2">icmp, 0, 0, 9, 3, 4</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -99,7 +99,7 @@
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
 <column name="u_fu_36">3, 0, 3, 0</column>
-<column name="zext_ln154_reg_163">3, 0, 64, 61</column>
+<column name="zext_ln181_reg_163">3, 0, 64, 61</column>
 </table>
 </item>
 </section>

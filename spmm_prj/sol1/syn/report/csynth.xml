@@ -42,9 +42,9 @@
     <AreaEstimates>
         <Resources>
             <BRAM_18K>256</BRAM_18K>
-            <DSP>44</DSP>
-            <FF>22116</FF>
-            <LUT>22502</LUT>
+            <DSP>40</DSP>
+            <FF>23352</FF>
+            <LUT>25054</LUT>
             <URAM>0</URAM>
         </Resources>
         <AvailableResources>
@@ -4637,67 +4637,79 @@
                             <ID>180</ID>
                             <InstancesList>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_349</InstName>
+                                    <InstName>grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_405</InstName>
                                     <ModuleName>pu_kernel_Pipeline_pu_save_stream_into_pu</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>349</ID>
-                                    <BindInstances>add_ln154_fu_135_p2</BindInstances>
+                                    <ID>405</ID>
+                                    <BindInstances>add_ln181_fu_135_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_Pipeline_init_au_fu_359</InstName>
+                                    <InstName>grp_pu_kernel_Pipeline_init_au_fu_415</InstName>
                                     <ModuleName>pu_kernel_Pipeline_init_au</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>359</ID>
-                                    <BindInstances>add_ln168_fu_60_p2</BindInstances>
+                                    <ID>415</ID>
+                                    <BindInstances>add_ln195_fu_64_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_dfm_fu_364</InstName>
+                                    <InstName>grp_dfm_fu_421</InstName>
                                     <ModuleName>dfm</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>364</ID>
+                                    <ID>421</ID>
                                     <InstancesList>
                                         <Instance>
-                                            <InstName>grp_dfm_Pipeline_VITIS_LOOP_113_2_fu_126</InstName>
-                                            <ModuleName>dfm_Pipeline_VITIS_LOOP_113_2</ModuleName>
+                                            <InstName>grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_181</InstName>
+                                            <ModuleName>dfm_Pipeline_VITIS_LOOP_114_2</ModuleName>
                                             <IsCompInst>true</IsCompInst>
-                                            <ID>126</ID>
-                                            <BindInstances>add_ln113_fu_118_p2 add_ln115_fu_128_p2</BindInstances>
+                                            <ID>181</ID>
+                                            <BindInstances>add_ln114_fu_118_p2 add_ln116_fu_128_p2</BindInstances>
                                         </Instance>
                                     </InstancesList>
-                                    <BindInstances>add_ln110_fu_160_p2 mul_32s_30ns_32_2_1_U41 add_ln113_fu_203_p2 add_ln117_fu_178_p2</BindInstances>
+                                    <BindInstances>add_ln111_fu_215_p2 mul_32s_30ns_32_2_1_U41 add_ln114_fu_264_p2 add_ln119_fu_234_p2 add_ln121_fu_307_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_comp_fu_376</InstName>
+                                    <InstName>grp_pu_comp_fu_434</InstName>
                                     <ModuleName>pu_comp</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>376</ID>
-                                    <InstancesList>
-                                        <Instance>
-                                            <InstName>grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44</InstName>
-                                            <ModuleName>pu_comp_Pipeline_VITIS_LOOP_129_1</ModuleName>
-                                            <IsCompInst>true</IsCompInst>
-                                            <ID>44</ID>
-                                            <BindInstances>add_ln129_fu_108_p2 add_ln131_fu_118_p2 fmul_32ns_32ns_32_4_max_dsp_1_U50</BindInstances>
-                                        </Instance>
-                                    </InstancesList>
-                                    <BindInstances>mul_mul_16s_16s_16_4_1_U57</BindInstances>
+                                    <ID>434</ID>
+                                    <BindInstances>add_ln136_fu_108_p2 add_ln138_fu_118_p2 fmul_32ns_32ns_32_4_max_dsp_1_U52</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_Pipeline_VITIS_LOOP_190_3_fu_386</InstName>
-                                    <ModuleName>pu_kernel_Pipeline_VITIS_LOOP_190_3</ModuleName>
+                                    <InstName>grp_pu_kernel_Pipeline_VITIS_LOOP_148_140_fu_445</InstName>
+                                    <ModuleName>pu_kernel_Pipeline_VITIS_LOOP_148_140</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>386</ID>
-                                    <BindInstances>add_ln190_fu_77_p2</BindInstances>
+                                    <ID>445</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_Pipeline_VITIS_LOOP_185_2_fu_393</InstName>
-                                    <ModuleName>pu_kernel_Pipeline_VITIS_LOOP_185_2</ModuleName>
+                                    <InstName>grp_pu_kernel_Pipeline_VITIS_LOOP_148_1_fu_451</InstName>
+                                    <ModuleName>pu_kernel_Pipeline_VITIS_LOOP_148_1</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>393</ID>
-                                    <BindInstances>add_ln185_fu_102_p2 fadd_32ns_32ns_32_7_full_dsp_1_U67 fadd_32ns_32ns_32_7_full_dsp_1_U68</BindInstances>
+                                    <ID>451</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_Pipeline_VITIS_LOOP_241_3_fu_457</InstName>
+                                    <ModuleName>pu_kernel_Pipeline_VITIS_LOOP_241_3</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>457</ID>
+                                    <BindInstances>add_ln241_fu_77_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_Pipeline_VITIS_LOOP_235_2_fu_464</InstName>
+                                    <ModuleName>pu_kernel_Pipeline_VITIS_LOOP_235_2</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>464</ID>
+                                    <BindInstances>add_ln235_fu_102_p2 fadd_32ns_32ns_32_7_full_dsp_1_U66 fadd_32ns_32ns_32_7_full_dsp_1_U67</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_Pipeline_VITIS_LOOP_148_141_fu_472</InstName>
+                                    <ModuleName>pu_kernel_Pipeline_VITIS_LOOP_148_141</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>472</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
                                 </Instance>
                             </InstancesList>
-                            <BindInstances>Dbuf_U tile_value_U tile_y_U tile_ref_U p_v_value_U p_v_y_U p_ref_U resA_U resB_U AU0_U add_ln175_fu_559_p2</BindInstances>
+                            <BindInstances>Dbuf_U tile_value_U tile_y_U tile_ref_U tile_to_dbuf_begin_U p_v_value_U p_v_y_U p_ref_U resA_U resB_U AU0_U add_ln202_fu_654_p2</BindInstances>
                         </Instance>
                         <Instance>
                             <InstName>pu_kernel_1_U0</InstName>
@@ -4706,67 +4718,79 @@
                             <ID>191</ID>
                             <InstancesList>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_1_Pipeline_pu_save_stream_into_pu_fu_349</InstName>
+                                    <InstName>grp_pu_kernel_1_Pipeline_pu_save_stream_into_pu_fu_405</InstName>
                                     <ModuleName>pu_kernel_1_Pipeline_pu_save_stream_into_pu</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>349</ID>
-                                    <BindInstances>add_ln154_fu_135_p2</BindInstances>
+                                    <ID>405</ID>
+                                    <BindInstances>add_ln181_fu_135_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_1_Pipeline_init_au_fu_359</InstName>
+                                    <InstName>grp_pu_kernel_1_Pipeline_init_au_fu_415</InstName>
                                     <ModuleName>pu_kernel_1_Pipeline_init_au</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>359</ID>
-                                    <BindInstances>add_ln168_fu_60_p2</BindInstances>
+                                    <ID>415</ID>
+                                    <BindInstances>add_ln195_fu_64_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_dfm_fu_364</InstName>
+                                    <InstName>grp_dfm_fu_421</InstName>
                                     <ModuleName>dfm</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>364</ID>
+                                    <ID>421</ID>
                                     <InstancesList>
                                         <Instance>
-                                            <InstName>grp_dfm_Pipeline_VITIS_LOOP_113_2_fu_126</InstName>
-                                            <ModuleName>dfm_Pipeline_VITIS_LOOP_113_2</ModuleName>
+                                            <InstName>grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_181</InstName>
+                                            <ModuleName>dfm_Pipeline_VITIS_LOOP_114_2</ModuleName>
                                             <IsCompInst>true</IsCompInst>
-                                            <ID>126</ID>
-                                            <BindInstances>add_ln113_fu_118_p2 add_ln115_fu_128_p2</BindInstances>
+                                            <ID>181</ID>
+                                            <BindInstances>add_ln114_fu_118_p2 add_ln116_fu_128_p2</BindInstances>
                                         </Instance>
                                     </InstancesList>
-                                    <BindInstances>add_ln110_fu_160_p2 mul_32s_30ns_32_2_1_U41 add_ln113_fu_203_p2 add_ln117_fu_178_p2</BindInstances>
+                                    <BindInstances>add_ln111_fu_215_p2 mul_32s_30ns_32_2_1_U41 add_ln114_fu_264_p2 add_ln119_fu_234_p2 add_ln121_fu_307_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_comp_fu_376</InstName>
+                                    <InstName>grp_pu_comp_fu_434</InstName>
                                     <ModuleName>pu_comp</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>376</ID>
-                                    <InstancesList>
-                                        <Instance>
-                                            <InstName>grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44</InstName>
-                                            <ModuleName>pu_comp_Pipeline_VITIS_LOOP_129_1</ModuleName>
-                                            <IsCompInst>true</IsCompInst>
-                                            <ID>44</ID>
-                                            <BindInstances>add_ln129_fu_108_p2 add_ln131_fu_118_p2 fmul_32ns_32ns_32_4_max_dsp_1_U50</BindInstances>
-                                        </Instance>
-                                    </InstancesList>
-                                    <BindInstances>mul_mul_16s_16s_16_4_1_U57</BindInstances>
+                                    <ID>434</ID>
+                                    <BindInstances>add_ln136_fu_108_p2 add_ln138_fu_118_p2 fmul_32ns_32ns_32_4_max_dsp_1_U52</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_1_Pipeline_VITIS_LOOP_190_3_fu_386</InstName>
-                                    <ModuleName>pu_kernel_1_Pipeline_VITIS_LOOP_190_3</ModuleName>
+                                    <InstName>grp_pu_kernel_1_Pipeline_VITIS_LOOP_148_138_fu_445</InstName>
+                                    <ModuleName>pu_kernel_1_Pipeline_VITIS_LOOP_148_138</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>386</ID>
-                                    <BindInstances>add_ln190_fu_77_p2</BindInstances>
+                                    <ID>445</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_1_Pipeline_VITIS_LOOP_185_2_fu_393</InstName>
-                                    <ModuleName>pu_kernel_1_Pipeline_VITIS_LOOP_185_2</ModuleName>
+                                    <InstName>grp_pu_kernel_1_Pipeline_VITIS_LOOP_148_1_fu_451</InstName>
+                                    <ModuleName>pu_kernel_1_Pipeline_VITIS_LOOP_148_1</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>393</ID>
-                                    <BindInstances>add_ln185_fu_102_p2 fadd_32ns_32ns_32_7_full_dsp_1_U95 fadd_32ns_32ns_32_7_full_dsp_1_U96</BindInstances>
+                                    <ID>451</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_1_Pipeline_VITIS_LOOP_241_3_fu_457</InstName>
+                                    <ModuleName>pu_kernel_1_Pipeline_VITIS_LOOP_241_3</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>457</ID>
+                                    <BindInstances>add_ln241_fu_77_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_1_Pipeline_VITIS_LOOP_235_2_fu_464</InstName>
+                                    <ModuleName>pu_kernel_1_Pipeline_VITIS_LOOP_235_2</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>464</ID>
+                                    <BindInstances>add_ln235_fu_102_p2 fadd_32ns_32ns_32_7_full_dsp_1_U103 fadd_32ns_32ns_32_7_full_dsp_1_U104</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_1_Pipeline_VITIS_LOOP_148_139_fu_472</InstName>
+                                    <ModuleName>pu_kernel_1_Pipeline_VITIS_LOOP_148_139</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>472</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
                                 </Instance>
                             </InstancesList>
-                            <BindInstances>Dbuf_U tile_value_U tile_y_U tile_ref_U p_v_value_U p_v_y_U p_ref_U resA_U resB_U AU0_U add_ln175_fu_559_p2</BindInstances>
+                            <BindInstances>Dbuf_U tile_value_U tile_y_U tile_ref_U tile_to_dbuf_begin_U p_v_value_U p_v_y_U p_ref_U resA_U resB_U AU0_U add_ln202_fu_654_p2</BindInstances>
                         </Instance>
                         <Instance>
                             <InstName>pu_kernel_2_U0</InstName>
@@ -4775,67 +4799,79 @@
                             <ID>202</ID>
                             <InstancesList>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_2_Pipeline_pu_save_stream_into_pu_fu_349</InstName>
+                                    <InstName>grp_pu_kernel_2_Pipeline_pu_save_stream_into_pu_fu_405</InstName>
                                     <ModuleName>pu_kernel_2_Pipeline_pu_save_stream_into_pu</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>349</ID>
-                                    <BindInstances>add_ln154_fu_135_p2</BindInstances>
+                                    <ID>405</ID>
+                                    <BindInstances>add_ln181_fu_135_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_2_Pipeline_init_au_fu_359</InstName>
+                                    <InstName>grp_pu_kernel_2_Pipeline_init_au_fu_415</InstName>
                                     <ModuleName>pu_kernel_2_Pipeline_init_au</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>359</ID>
-                                    <BindInstances>add_ln168_fu_60_p2</BindInstances>
+                                    <ID>415</ID>
+                                    <BindInstances>add_ln195_fu_64_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_dfm_fu_364</InstName>
+                                    <InstName>grp_dfm_fu_421</InstName>
                                     <ModuleName>dfm</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>364</ID>
+                                    <ID>421</ID>
                                     <InstancesList>
                                         <Instance>
-                                            <InstName>grp_dfm_Pipeline_VITIS_LOOP_113_2_fu_126</InstName>
-                                            <ModuleName>dfm_Pipeline_VITIS_LOOP_113_2</ModuleName>
+                                            <InstName>grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_181</InstName>
+                                            <ModuleName>dfm_Pipeline_VITIS_LOOP_114_2</ModuleName>
                                             <IsCompInst>true</IsCompInst>
-                                            <ID>126</ID>
-                                            <BindInstances>add_ln113_fu_118_p2 add_ln115_fu_128_p2</BindInstances>
+                                            <ID>181</ID>
+                                            <BindInstances>add_ln114_fu_118_p2 add_ln116_fu_128_p2</BindInstances>
                                         </Instance>
                                     </InstancesList>
-                                    <BindInstances>add_ln110_fu_160_p2 mul_32s_30ns_32_2_1_U41 add_ln113_fu_203_p2 add_ln117_fu_178_p2</BindInstances>
+                                    <BindInstances>add_ln111_fu_215_p2 mul_32s_30ns_32_2_1_U41 add_ln114_fu_264_p2 add_ln119_fu_234_p2 add_ln121_fu_307_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_comp_fu_376</InstName>
+                                    <InstName>grp_pu_comp_fu_434</InstName>
                                     <ModuleName>pu_comp</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>376</ID>
-                                    <InstancesList>
-                                        <Instance>
-                                            <InstName>grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44</InstName>
-                                            <ModuleName>pu_comp_Pipeline_VITIS_LOOP_129_1</ModuleName>
-                                            <IsCompInst>true</IsCompInst>
-                                            <ID>44</ID>
-                                            <BindInstances>add_ln129_fu_108_p2 add_ln131_fu_118_p2 fmul_32ns_32ns_32_4_max_dsp_1_U50</BindInstances>
-                                        </Instance>
-                                    </InstancesList>
-                                    <BindInstances>mul_mul_16s_16s_16_4_1_U57</BindInstances>
+                                    <ID>434</ID>
+                                    <BindInstances>add_ln136_fu_108_p2 add_ln138_fu_118_p2 fmul_32ns_32ns_32_4_max_dsp_1_U52</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_2_Pipeline_VITIS_LOOP_190_3_fu_386</InstName>
-                                    <ModuleName>pu_kernel_2_Pipeline_VITIS_LOOP_190_3</ModuleName>
+                                    <InstName>grp_pu_kernel_2_Pipeline_VITIS_LOOP_148_136_fu_445</InstName>
+                                    <ModuleName>pu_kernel_2_Pipeline_VITIS_LOOP_148_136</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>386</ID>
-                                    <BindInstances>add_ln190_fu_77_p2</BindInstances>
+                                    <ID>445</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_2_Pipeline_VITIS_LOOP_185_2_fu_393</InstName>
-                                    <ModuleName>pu_kernel_2_Pipeline_VITIS_LOOP_185_2</ModuleName>
+                                    <InstName>grp_pu_kernel_2_Pipeline_VITIS_LOOP_148_1_fu_451</InstName>
+                                    <ModuleName>pu_kernel_2_Pipeline_VITIS_LOOP_148_1</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>393</ID>
-                                    <BindInstances>add_ln185_fu_102_p2 fadd_32ns_32ns_32_7_full_dsp_1_U118 fadd_32ns_32ns_32_7_full_dsp_1_U119</BindInstances>
+                                    <ID>451</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_2_Pipeline_VITIS_LOOP_241_3_fu_457</InstName>
+                                    <ModuleName>pu_kernel_2_Pipeline_VITIS_LOOP_241_3</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>457</ID>
+                                    <BindInstances>add_ln241_fu_77_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_2_Pipeline_VITIS_LOOP_235_2_fu_464</InstName>
+                                    <ModuleName>pu_kernel_2_Pipeline_VITIS_LOOP_235_2</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>464</ID>
+                                    <BindInstances>add_ln235_fu_102_p2 fadd_32ns_32ns_32_7_full_dsp_1_U133 fadd_32ns_32ns_32_7_full_dsp_1_U134</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_2_Pipeline_VITIS_LOOP_148_137_fu_472</InstName>
+                                    <ModuleName>pu_kernel_2_Pipeline_VITIS_LOOP_148_137</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>472</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
                                 </Instance>
                             </InstancesList>
-                            <BindInstances>Dbuf_U tile_value_U tile_y_U tile_ref_U p_v_value_U p_v_y_U p_ref_U resA_U resB_U AU0_U add_ln175_fu_559_p2</BindInstances>
+                            <BindInstances>Dbuf_U tile_value_U tile_y_U tile_ref_U tile_to_dbuf_begin_U p_v_value_U p_v_y_U p_ref_U resA_U resB_U AU0_U add_ln202_fu_654_p2</BindInstances>
                         </Instance>
                         <Instance>
                             <InstName>pu_kernel_3_U0</InstName>
@@ -4844,67 +4880,79 @@
                             <ID>213</ID>
                             <InstancesList>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_3_Pipeline_pu_save_stream_into_pu_fu_349</InstName>
+                                    <InstName>grp_pu_kernel_3_Pipeline_pu_save_stream_into_pu_fu_405</InstName>
                                     <ModuleName>pu_kernel_3_Pipeline_pu_save_stream_into_pu</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>349</ID>
-                                    <BindInstances>add_ln154_fu_135_p2</BindInstances>
+                                    <ID>405</ID>
+                                    <BindInstances>add_ln181_fu_135_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_3_Pipeline_init_au_fu_359</InstName>
+                                    <InstName>grp_pu_kernel_3_Pipeline_init_au_fu_415</InstName>
                                     <ModuleName>pu_kernel_3_Pipeline_init_au</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>359</ID>
-                                    <BindInstances>add_ln168_fu_60_p2</BindInstances>
+                                    <ID>415</ID>
+                                    <BindInstances>add_ln195_fu_64_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_dfm_fu_364</InstName>
+                                    <InstName>grp_dfm_fu_421</InstName>
                                     <ModuleName>dfm</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>364</ID>
+                                    <ID>421</ID>
                                     <InstancesList>
                                         <Instance>
-                                            <InstName>grp_dfm_Pipeline_VITIS_LOOP_113_2_fu_126</InstName>
-                                            <ModuleName>dfm_Pipeline_VITIS_LOOP_113_2</ModuleName>
+                                            <InstName>grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_181</InstName>
+                                            <ModuleName>dfm_Pipeline_VITIS_LOOP_114_2</ModuleName>
                                             <IsCompInst>true</IsCompInst>
-                                            <ID>126</ID>
-                                            <BindInstances>add_ln113_fu_118_p2 add_ln115_fu_128_p2</BindInstances>
+                                            <ID>181</ID>
+                                            <BindInstances>add_ln114_fu_118_p2 add_ln116_fu_128_p2</BindInstances>
                                         </Instance>
                                     </InstancesList>
-                                    <BindInstances>add_ln110_fu_160_p2 mul_32s_30ns_32_2_1_U41 add_ln113_fu_203_p2 add_ln117_fu_178_p2</BindInstances>
+                                    <BindInstances>add_ln111_fu_215_p2 mul_32s_30ns_32_2_1_U41 add_ln114_fu_264_p2 add_ln119_fu_234_p2 add_ln121_fu_307_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_comp_fu_376</InstName>
+                                    <InstName>grp_pu_comp_fu_434</InstName>
                                     <ModuleName>pu_comp</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>376</ID>
-                                    <InstancesList>
-                                        <Instance>
-                                            <InstName>grp_pu_comp_Pipeline_VITIS_LOOP_129_1_fu_44</InstName>
-                                            <ModuleName>pu_comp_Pipeline_VITIS_LOOP_129_1</ModuleName>
-                                            <IsCompInst>true</IsCompInst>
-                                            <ID>44</ID>
-                                            <BindInstances>add_ln129_fu_108_p2 add_ln131_fu_118_p2 fmul_32ns_32ns_32_4_max_dsp_1_U50</BindInstances>
-                                        </Instance>
-                                    </InstancesList>
-                                    <BindInstances>mul_mul_16s_16s_16_4_1_U57</BindInstances>
+                                    <ID>434</ID>
+                                    <BindInstances>add_ln136_fu_108_p2 add_ln138_fu_118_p2 fmul_32ns_32ns_32_4_max_dsp_1_U52</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_3_Pipeline_VITIS_LOOP_190_3_fu_386</InstName>
-                                    <ModuleName>pu_kernel_3_Pipeline_VITIS_LOOP_190_3</ModuleName>
+                                    <InstName>grp_pu_kernel_3_Pipeline_VITIS_LOOP_148_134_fu_445</InstName>
+                                    <ModuleName>pu_kernel_3_Pipeline_VITIS_LOOP_148_134</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>386</ID>
-                                    <BindInstances>add_ln190_fu_77_p2</BindInstances>
+                                    <ID>445</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
                                 </Instance>
                                 <Instance>
-                                    <InstName>grp_pu_kernel_3_Pipeline_VITIS_LOOP_185_2_fu_393</InstName>
-                                    <ModuleName>pu_kernel_3_Pipeline_VITIS_LOOP_185_2</ModuleName>
+                                    <InstName>grp_pu_kernel_3_Pipeline_VITIS_LOOP_148_1_fu_451</InstName>
+                                    <ModuleName>pu_kernel_3_Pipeline_VITIS_LOOP_148_1</ModuleName>
                                     <IsCompInst>true</IsCompInst>
-                                    <ID>393</ID>
-                                    <BindInstances>add_ln185_fu_102_p2 fadd_32ns_32ns_32_7_full_dsp_1_U141 fadd_32ns_32ns_32_7_full_dsp_1_U142</BindInstances>
+                                    <ID>451</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_3_Pipeline_VITIS_LOOP_241_3_fu_457</InstName>
+                                    <ModuleName>pu_kernel_3_Pipeline_VITIS_LOOP_241_3</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>457</ID>
+                                    <BindInstances>add_ln241_fu_77_p2</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_3_Pipeline_VITIS_LOOP_235_2_fu_464</InstName>
+                                    <ModuleName>pu_kernel_3_Pipeline_VITIS_LOOP_235_2</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>464</ID>
+                                    <BindInstances>add_ln235_fu_102_p2 fadd_32ns_32ns_32_7_full_dsp_1_U163 fadd_32ns_32ns_32_7_full_dsp_1_U164</BindInstances>
+                                </Instance>
+                                <Instance>
+                                    <InstName>grp_pu_kernel_3_Pipeline_VITIS_LOOP_148_135_fu_472</InstName>
+                                    <ModuleName>pu_kernel_3_Pipeline_VITIS_LOOP_148_135</ModuleName>
+                                    <IsCompInst>true</IsCompInst>
+                                    <ID>472</ID>
+                                    <BindInstances>add_ln148_fu_64_p2</BindInstances>
                                 </Instance>
                             </InstancesList>
-                            <BindInstances>Dbuf_U tile_value_U tile_y_U tile_ref_U p_v_value_U p_v_y_U p_ref_U resA_U resB_U AU0_U add_ln175_fu_559_p2</BindInstances>
+                            <BindInstances>Dbuf_U tile_value_U tile_y_U tile_ref_U tile_to_dbuf_begin_U p_v_value_U p_v_y_U p_ref_U resA_U resB_U AU0_U add_ln202_fu_654_p2</BindInstances>
                         </Instance>
                     </InstancesList>
                     <BindInstances>s_01_U s_12_U s_23_U s_34_U</BindInstances>
@@ -5133,13 +5181,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="pu_save_stream_into_pu" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_fu_135_p2" SOURCE="src/spmm_device_fpga.cpp:154" URAM="0" VARIABLE="add_ln154"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="pu_save_stream_into_pu" OPTYPE="add" PRAGMA="" RTLNAME="add_ln181_fu_135_p2" SOURCE="src/spmm_device_fpga.cpp:181" URAM="0" VARIABLE="add_ln181"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>dfm_Pipeline_VITIS_LOOP_113_2</Name>
+            <Name>dfm_Pipeline_VITIS_LOOP_114_2</Name>
             <Loops>
-                <VITIS_LOOP_113_2/>
+                <VITIS_LOOP_114_2/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -5159,8 +5207,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_113_2>
-                        <Name>VITIS_LOOP_113_2</Name>
+                    <VITIS_LOOP_114_2>
+                        <Name>VITIS_LOOP_114_2</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -5169,7 +5217,7 @@
                         <PipelineDepth>3</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_113_2>
+                    </VITIS_LOOP_114_2>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -5192,14 +5240,16 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_113_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln113_fu_118_p2" SOURCE="src/spmm_device_fpga.cpp:113" URAM="0" VARIABLE="add_ln113"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_113_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln115_fu_128_p2" SOURCE="src/spmm_device_fpga.cpp:115" URAM="0" VARIABLE="add_ln115"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_114_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln114_fu_118_p2" SOURCE="src/spmm_device_fpga.cpp:114" URAM="0" VARIABLE="add_ln114"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_114_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln116_fu_128_p2" SOURCE="src/spmm_device_fpga.cpp:116" URAM="0" VARIABLE="add_ln116"/>
             </BindNodes>
         </Module>
         <Module>
             <Name>dfm</Name>
             <Loops>
-                <VITIS_LOOP_110_1/>
+                <VITIS_LOOP_111_1>
+                    <VITIS_LOOP_121_3/>
+                </VITIS_LOOP_111_1>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -5218,8 +5268,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_110_1>
-                        <Name>VITIS_LOOP_110_1</Name>
+                    <VITIS_LOOP_111_1>
+                        <Name>VITIS_LOOP_111_1</Name>
                         <Slack>2.92</Slack>
                         <TripCount>4</TripCount>
                         <Latency>undef</Latency>
@@ -5228,9 +5278,20 @@
                         <PipelineDepth>undef</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_dfm_Pipeline_VITIS_LOOP_113_2_fu_126</Instance>
+                            <Instance>grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_181</Instance>
                         </InstanceList>
-                    </VITIS_LOOP_110_1>
+                        <VITIS_LOOP_121_3>
+                            <Name>VITIS_LOOP_121_3</Name>
+                            <Slack>2.92</Slack>
+                            <TripCount>undef</TripCount>
+                            <Latency>undef</Latency>
+                            <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                            <IterationLatency>2</IterationLatency>
+                            <PipelineDepth>2</PipelineDepth>
+                            <PipelineType>no</PipelineType>
+                            <InstanceList/>
+                        </VITIS_LOOP_121_3>
+                    </VITIS_LOOP_111_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -5238,10 +5299,10 @@
                     <DSP>3</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>496</FF>
+                    <FF>543</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>550</LUT>
+                    <LUT>673</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -5253,10 +5314,11 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_110_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln110_fu_160_p2" SOURCE="src/spmm_device_fpga.cpp:110" URAM="0" VARIABLE="add_ln110"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="1" LOOP="VITIS_LOOP_110_1" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_30ns_32_2_1_U41" SOURCE="src/spmm_device_fpga.cpp:110" URAM="0" VARIABLE="mul"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_110_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln113_fu_203_p2" SOURCE="src/spmm_device_fpga.cpp:113" URAM="0" VARIABLE="add_ln113"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_110_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln117_fu_178_p2" SOURCE="src/spmm_device_fpga.cpp:117" URAM="0" VARIABLE="add_ln117"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_111_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln111_fu_215_p2" SOURCE="src/spmm_device_fpga.cpp:111" URAM="0" VARIABLE="add_ln111"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="3" ID="" IMPL="auto" LATENCY="1" LOOP="VITIS_LOOP_111_1" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32s_30ns_32_2_1_U41" SOURCE="src/spmm_device_fpga.cpp:111" URAM="0" VARIABLE="mul"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_111_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln114_fu_264_p2" SOURCE="src/spmm_device_fpga.cpp:114" URAM="0" VARIABLE="add_ln114"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_111_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln119_fu_234_p2" SOURCE="src/spmm_device_fpga.cpp:119" URAM="0" VARIABLE="add_ln119"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_121_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln121_fu_307_p2" SOURCE="src/spmm_device_fpga.cpp:121" URAM="0" VARIABLE="add_ln121"/>
             </BindNodes>
         </Module>
         <Module>
@@ -5268,25 +5330,25 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>4.00</TargetClockPeriod>
                     <ClockUncertainty>1.08</ClockUncertainty>
-                    <EstimatedClockPeriod>1.924</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>61280</Best-caseLatency>
-                    <Average-caseLatency>61280</Average-caseLatency>
-                    <Worst-caseLatency>61280</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.245 ms</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.245 ms</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.245 ms</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>61280</PipelineInitiationInterval>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
                     <init_au>
                         <Name>init_au</Name>
                         <Slack>2.92</Slack>
-                        <TripCount>61278</TripCount>
-                        <Latency>61278</Latency>
-                        <AbsoluteTimeLatency>0.245 ms</AbsoluteTimeLatency>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
                         <PipelineDepth>1</PipelineDepth>
                         <PipelineType>yes</PipelineType>
@@ -5296,10 +5358,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>18</FF>
+                    <FF>32</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>63</LUT>
+                    <LUT>83</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -5314,13 +5376,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_au" OPTYPE="add" PRAGMA="" RTLNAME="add_ln168_fu_60_p2" SOURCE="src/spmm_device_fpga.cpp:168" URAM="0" VARIABLE="add_ln168"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_au" OPTYPE="add" PRAGMA="" RTLNAME="add_ln195_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:195" URAM="0" VARIABLE="add_ln195"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_comp_Pipeline_VITIS_LOOP_129_1</Name>
+            <Name>pu_comp</Name>
             <Loops>
-                <VITIS_LOOP_129_1/>
+                <VITIS_LOOP_136_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -5339,8 +5401,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_129_1>
-                        <Name>VITIS_LOOP_129_1</Name>
+                    <VITIS_LOOP_136_1>
+                        <Name>VITIS_LOOP_136_1</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -5349,7 +5411,7 @@
                         <PipelineDepth>7</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_129_1>
+                    </VITIS_LOOP_136_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -5372,18 +5434,21 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_129_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln129_fu_108_p2" SOURCE="src/spmm_device_fpga.cpp:129" URAM="0" VARIABLE="add_ln129"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_129_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln131_fu_118_p2" SOURCE="src/spmm_device_fpga.cpp:131" URAM="0" VARIABLE="add_ln131"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="3" LOOP="VITIS_LOOP_129_1" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_4_max_dsp_1_U50" SOURCE="src/spmm_device_fpga.cpp:131" URAM="0" VARIABLE="mul1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_136_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln136_fu_108_p2" SOURCE="src/spmm_device_fpga.cpp:136" URAM="0" VARIABLE="add_ln136"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_136_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln138_fu_118_p2" SOURCE="src/spmm_device_fpga.cpp:138" URAM="0" VARIABLE="add_ln138"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fmul" DSP="3" ID="" IMPL="maxdsp" LATENCY="3" LOOP="VITIS_LOOP_136_1" OPTYPE="fmul" PRAGMA="" RTLNAME="fmul_32ns_32ns_32_4_max_dsp_1_U52" SOURCE="src/spmm_device_fpga.cpp:138" URAM="0" VARIABLE="mul"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_comp</Name>
+            <Name>pu_kernel_Pipeline_VITIS_LOOP_148_140</Name>
+            <Loops>
+                <VITIS_LOOP_148_1/>
+            </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>4.00</TargetClockPeriod>
                     <ClockUncertainty>1.08</ClockUncertainty>
-                    <EstimatedClockPeriod>2.322</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
@@ -5395,34 +5460,105 @@
                     <PipelineInitiationInterval>undef</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <DSP>4</DSP>
-                    <AVAIL_DSP>9024</AVAIL_DSP>
-                    <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>366</FF>
+                    <FF>32</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>258</LUT>
+                    <LUT>83</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
                     <URAM>0</URAM>
                     <AVAIL_URAM>960</AVAIL_URAM>
                     <UTIL_URAM>0</UTIL_URAM>
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="dsp48" LATENCY="3" LOOP="" OPTYPE="mul" PRAGMA="" RTLNAME="mul_mul_16s_16s_16_4_1_U57" SOURCE="" URAM="0" VARIABLE="mul"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_kernel_Pipeline_VITIS_LOOP_190_3</Name>
+            <Name>pu_kernel_Pipeline_VITIS_LOOP_148_1</Name>
             <Loops>
-                <VITIS_LOOP_190_3/>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_Pipeline_VITIS_LOOP_241_3</Name>
+            <Loops>
+                <VITIS_LOOP_241_3/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -5441,8 +5577,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_190_3>
-                        <Name>VITIS_LOOP_190_3</Name>
+                    <VITIS_LOOP_241_3>
+                        <Name>VITIS_LOOP_241_3</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -5451,7 +5587,7 @@
                         <PipelineDepth>2</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_190_3>
+                    </VITIS_LOOP_241_3>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -5474,13 +5610,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_190_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln190_fu_77_p2" SOURCE="src/spmm_device_fpga.cpp:190" URAM="0" VARIABLE="add_ln190"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_241_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln241_fu_77_p2" SOURCE="src/spmm_device_fpga.cpp:241" URAM="0" VARIABLE="add_ln241"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_kernel_Pipeline_VITIS_LOOP_185_2</Name>
+            <Name>pu_kernel_Pipeline_VITIS_LOOP_235_2</Name>
             <Loops>
-                <VITIS_LOOP_185_2/>
+                <VITIS_LOOP_235_2/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -5499,8 +5635,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_185_2>
-                        <Name>VITIS_LOOP_185_2</Name>
+                    <VITIS_LOOP_235_2>
+                        <Name>VITIS_LOOP_235_2</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -5509,7 +5645,7 @@
                         <PipelineDepth>17</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_185_2>
+                    </VITIS_LOOP_235_2>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -5532,15 +5668,73 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_185_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln185_fu_102_p2" SOURCE="src/spmm_device_fpga.cpp:185" URAM="0" VARIABLE="add_ln185"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_185_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U67" SOURCE="src/spmm_device_fpga.cpp:187" URAM="0" VARIABLE="add_i"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_185_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U68" SOURCE="src/spmm_device_fpga.cpp:187" URAM="0" VARIABLE="add4_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_235_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln235_fu_102_p2" SOURCE="src/spmm_device_fpga.cpp:235" URAM="0" VARIABLE="add_ln235"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_235_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U66" SOURCE="src/spmm_device_fpga.cpp:237" URAM="0" VARIABLE="add_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_235_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U67" SOURCE="src/spmm_device_fpga.cpp:237" URAM="0" VARIABLE="add4_i"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_Pipeline_VITIS_LOOP_148_141</Name>
+            <Loops>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
             </BindNodes>
         </Module>
         <Module>
             <Name>pu_kernel</Name>
             <Loops>
-                <VITIS_LOOP_175_1/>
+                <VITIS_LOOP_202_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -5559,8 +5753,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_175_1>
-                        <Name>VITIS_LOOP_175_1</Name>
+                    <VITIS_LOOP_202_1>
+                        <Name>VITIS_LOOP_202_1</Name>
                         <Slack>2.92</Slack>
                         <TripCount>2</TripCount>
                         <Latency>undef</Latency>
@@ -5569,11 +5763,13 @@
                         <PipelineDepth>undef</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_pu_comp_fu_376</Instance>
-                            <Instance>grp_pu_kernel_Pipeline_VITIS_LOOP_190_3_fu_386</Instance>
-                            <Instance>grp_pu_kernel_Pipeline_VITIS_LOOP_185_2_fu_393</Instance>
+                            <Instance>grp_pu_comp_fu_434</Instance>
+                            <Instance>grp_pu_kernel_Pipeline_VITIS_LOOP_148_140_fu_445</Instance>
+                            <Instance>grp_pu_kernel_Pipeline_VITIS_LOOP_148_1_fu_451</Instance>
+                            <Instance>grp_pu_kernel_Pipeline_VITIS_LOOP_241_3_fu_457</Instance>
+                            <Instance>grp_pu_kernel_Pipeline_VITIS_LOOP_235_2_fu_464</Instance>
                         </InstanceList>
-                    </VITIS_LOOP_175_1>
+                    </VITIS_LOOP_202_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -5581,13 +5777,13 @@
                     <BRAM_18K>64</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>1</UTIL_BRAM>
-                    <DSP>11</DSP>
+                    <DSP>10</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>2306</FF>
+                    <FF>2615</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2416</LUT>
+                    <LUT>3054</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <URAM>0</URAM>
@@ -5596,17 +5792,18 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="yes" RTLNAME="Dbuf_U" SOURCE="src/spmm_device_fpga.cpp:143" URAM="0" VARIABLE="Dbuf"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_value_U" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="tile_value"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_y_U" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="tile_y"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_ref_U" SOURCE="src/spmm_device_fpga.cpp:149" URAM="0" VARIABLE="tile_ref"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_value_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_v_value"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_y_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_v_y"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_ref_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_ref"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resA_U" SOURCE="src/spmm_device_fpga.cpp:162" URAM="0" VARIABLE="resA"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resB_U" SOURCE="src/spmm_device_fpga.cpp:162" URAM="0" VARIABLE="resB"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="AU0_U" SOURCE="src/spmm_device_fpga.cpp:163" URAM="0" VARIABLE="AU0"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_175_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln175_fu_559_p2" SOURCE="src/spmm_device_fpga.cpp:175" URAM="0" VARIABLE="add_ln175"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="yes" RTLNAME="Dbuf_U" SOURCE="src/spmm_device_fpga.cpp:163" URAM="0" VARIABLE="Dbuf"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_value_U" SOURCE="src/spmm_device_fpga.cpp:174" URAM="0" VARIABLE="tile_value"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_np" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_np" PRAGMA="" RTLNAME="tile_y_U" SOURCE="src/spmm_device_fpga.cpp:174" URAM="0" VARIABLE="tile_y"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_ref_U" SOURCE="src/spmm_device_fpga.cpp:175" URAM="0" VARIABLE="tile_ref"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_to_dbuf_begin_U" SOURCE="" URAM="0" VARIABLE="tile_to_dbuf_begin"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_value_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_v_value"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_y_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_v_y"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_ref_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_ref"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resA_U" SOURCE="src/spmm_device_fpga.cpp:189" URAM="0" VARIABLE="resA"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resB_U" SOURCE="src/spmm_device_fpga.cpp:189" URAM="0" VARIABLE="resB"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="AU0_U" SOURCE="src/spmm_device_fpga.cpp:190" URAM="0" VARIABLE="AU0"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_202_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln202_fu_654_p2" SOURCE="src/spmm_device_fpga.cpp:202" URAM="0" VARIABLE="add_ln202"/>
             </BindNodes>
         </Module>
         <Module>
@@ -5664,7 +5861,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="pu_save_stream_into_pu" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_fu_135_p2" SOURCE="src/spmm_device_fpga.cpp:154" URAM="0" VARIABLE="add_ln154"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="pu_save_stream_into_pu" OPTYPE="add" PRAGMA="" RTLNAME="add_ln181_fu_135_p2" SOURCE="src/spmm_device_fpga.cpp:181" URAM="0" VARIABLE="add_ln181"/>
             </BindNodes>
         </Module>
         <Module>
@@ -5676,25 +5873,25 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>4.00</TargetClockPeriod>
                     <ClockUncertainty>1.08</ClockUncertainty>
-                    <EstimatedClockPeriod>1.924</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>61280</Best-caseLatency>
-                    <Average-caseLatency>61280</Average-caseLatency>
-                    <Worst-caseLatency>61280</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.245 ms</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.245 ms</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.245 ms</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>61280</PipelineInitiationInterval>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
                     <init_au>
                         <Name>init_au</Name>
                         <Slack>2.92</Slack>
-                        <TripCount>61278</TripCount>
-                        <Latency>61278</Latency>
-                        <AbsoluteTimeLatency>0.245 ms</AbsoluteTimeLatency>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
                         <PipelineDepth>1</PipelineDepth>
                         <PipelineType>yes</PipelineType>
@@ -5704,10 +5901,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>18</FF>
+                    <FF>32</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>63</LUT>
+                    <LUT>83</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -5722,13 +5919,129 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_au" OPTYPE="add" PRAGMA="" RTLNAME="add_ln168_fu_60_p2" SOURCE="src/spmm_device_fpga.cpp:168" URAM="0" VARIABLE="add_ln168"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_au" OPTYPE="add" PRAGMA="" RTLNAME="add_ln195_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:195" URAM="0" VARIABLE="add_ln195"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_kernel_1_Pipeline_VITIS_LOOP_190_3</Name>
+            <Name>pu_kernel_1_Pipeline_VITIS_LOOP_148_138</Name>
             <Loops>
-                <VITIS_LOOP_190_3/>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_1_Pipeline_VITIS_LOOP_148_1</Name>
+            <Loops>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_1_Pipeline_VITIS_LOOP_241_3</Name>
+            <Loops>
+                <VITIS_LOOP_241_3/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -5747,8 +6060,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_190_3>
-                        <Name>VITIS_LOOP_190_3</Name>
+                    <VITIS_LOOP_241_3>
+                        <Name>VITIS_LOOP_241_3</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -5757,7 +6070,7 @@
                         <PipelineDepth>2</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_190_3>
+                    </VITIS_LOOP_241_3>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -5780,13 +6093,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_190_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln190_fu_77_p2" SOURCE="src/spmm_device_fpga.cpp:190" URAM="0" VARIABLE="add_ln190"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_241_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln241_fu_77_p2" SOURCE="src/spmm_device_fpga.cpp:241" URAM="0" VARIABLE="add_ln241"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_kernel_1_Pipeline_VITIS_LOOP_185_2</Name>
+            <Name>pu_kernel_1_Pipeline_VITIS_LOOP_235_2</Name>
             <Loops>
-                <VITIS_LOOP_185_2/>
+                <VITIS_LOOP_235_2/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -5805,8 +6118,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_185_2>
-                        <Name>VITIS_LOOP_185_2</Name>
+                    <VITIS_LOOP_235_2>
+                        <Name>VITIS_LOOP_235_2</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -5815,7 +6128,7 @@
                         <PipelineDepth>17</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_185_2>
+                    </VITIS_LOOP_235_2>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -5838,15 +6151,73 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_185_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln185_fu_102_p2" SOURCE="src/spmm_device_fpga.cpp:185" URAM="0" VARIABLE="add_ln185"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_185_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U95" SOURCE="src/spmm_device_fpga.cpp:187" URAM="0" VARIABLE="add_i"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_185_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U96" SOURCE="src/spmm_device_fpga.cpp:187" URAM="0" VARIABLE="add3_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_235_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln235_fu_102_p2" SOURCE="src/spmm_device_fpga.cpp:235" URAM="0" VARIABLE="add_ln235"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_235_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U103" SOURCE="src/spmm_device_fpga.cpp:237" URAM="0" VARIABLE="add_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_235_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U104" SOURCE="src/spmm_device_fpga.cpp:237" URAM="0" VARIABLE="add3_i"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_1_Pipeline_VITIS_LOOP_148_139</Name>
+            <Loops>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
             </BindNodes>
         </Module>
         <Module>
             <Name>pu_kernel_1</Name>
             <Loops>
-                <VITIS_LOOP_175_1/>
+                <VITIS_LOOP_202_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -5865,8 +6236,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_175_1>
-                        <Name>VITIS_LOOP_175_1</Name>
+                    <VITIS_LOOP_202_1>
+                        <Name>VITIS_LOOP_202_1</Name>
                         <Slack>2.92</Slack>
                         <TripCount>2</TripCount>
                         <Latency>undef</Latency>
@@ -5875,11 +6246,13 @@
                         <PipelineDepth>undef</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_pu_comp_fu_376</Instance>
-                            <Instance>grp_pu_kernel_1_Pipeline_VITIS_LOOP_190_3_fu_386</Instance>
-                            <Instance>grp_pu_kernel_1_Pipeline_VITIS_LOOP_185_2_fu_393</Instance>
+                            <Instance>grp_pu_comp_fu_434</Instance>
+                            <Instance>grp_pu_kernel_1_Pipeline_VITIS_LOOP_148_138_fu_445</Instance>
+                            <Instance>grp_pu_kernel_1_Pipeline_VITIS_LOOP_148_1_fu_451</Instance>
+                            <Instance>grp_pu_kernel_1_Pipeline_VITIS_LOOP_241_3_fu_457</Instance>
+                            <Instance>grp_pu_kernel_1_Pipeline_VITIS_LOOP_235_2_fu_464</Instance>
                         </InstanceList>
-                    </VITIS_LOOP_175_1>
+                    </VITIS_LOOP_202_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -5887,13 +6260,13 @@
                     <BRAM_18K>64</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>1</UTIL_BRAM>
-                    <DSP>11</DSP>
+                    <DSP>10</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>2306</FF>
+                    <FF>2615</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2416</LUT>
+                    <LUT>3054</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <URAM>0</URAM>
@@ -5902,17 +6275,18 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="yes" RTLNAME="Dbuf_U" SOURCE="src/spmm_device_fpga.cpp:143" URAM="0" VARIABLE="Dbuf"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_value_U" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="tile_value"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_y_U" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="tile_y"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_ref_U" SOURCE="src/spmm_device_fpga.cpp:149" URAM="0" VARIABLE="tile_ref"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_value_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_v_value"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_y_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_v_y"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_ref_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_ref"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resA_U" SOURCE="src/spmm_device_fpga.cpp:162" URAM="0" VARIABLE="resA"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resB_U" SOURCE="src/spmm_device_fpga.cpp:162" URAM="0" VARIABLE="resB"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="AU0_U" SOURCE="src/spmm_device_fpga.cpp:163" URAM="0" VARIABLE="AU0"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_175_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln175_fu_559_p2" SOURCE="src/spmm_device_fpga.cpp:175" URAM="0" VARIABLE="add_ln175"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="yes" RTLNAME="Dbuf_U" SOURCE="src/spmm_device_fpga.cpp:163" URAM="0" VARIABLE="Dbuf"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_value_U" SOURCE="src/spmm_device_fpga.cpp:174" URAM="0" VARIABLE="tile_value"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_np" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_np" PRAGMA="" RTLNAME="tile_y_U" SOURCE="src/spmm_device_fpga.cpp:174" URAM="0" VARIABLE="tile_y"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_ref_U" SOURCE="src/spmm_device_fpga.cpp:175" URAM="0" VARIABLE="tile_ref"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_to_dbuf_begin_U" SOURCE="" URAM="0" VARIABLE="tile_to_dbuf_begin"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_value_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_v_value"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_y_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_v_y"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_ref_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_ref"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resA_U" SOURCE="src/spmm_device_fpga.cpp:189" URAM="0" VARIABLE="resA"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resB_U" SOURCE="src/spmm_device_fpga.cpp:189" URAM="0" VARIABLE="resB"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="AU0_U" SOURCE="src/spmm_device_fpga.cpp:190" URAM="0" VARIABLE="AU0"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_202_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln202_fu_654_p2" SOURCE="src/spmm_device_fpga.cpp:202" URAM="0" VARIABLE="add_ln202"/>
             </BindNodes>
         </Module>
         <Module>
@@ -5970,7 +6344,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="pu_save_stream_into_pu" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_fu_135_p2" SOURCE="src/spmm_device_fpga.cpp:154" URAM="0" VARIABLE="add_ln154"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="pu_save_stream_into_pu" OPTYPE="add" PRAGMA="" RTLNAME="add_ln181_fu_135_p2" SOURCE="src/spmm_device_fpga.cpp:181" URAM="0" VARIABLE="add_ln181"/>
             </BindNodes>
         </Module>
         <Module>
@@ -5982,25 +6356,25 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>4.00</TargetClockPeriod>
                     <ClockUncertainty>1.08</ClockUncertainty>
-                    <EstimatedClockPeriod>1.924</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>61280</Best-caseLatency>
-                    <Average-caseLatency>61280</Average-caseLatency>
-                    <Worst-caseLatency>61280</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.245 ms</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.245 ms</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.245 ms</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>61280</PipelineInitiationInterval>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
                     <init_au>
                         <Name>init_au</Name>
                         <Slack>2.92</Slack>
-                        <TripCount>61278</TripCount>
-                        <Latency>61278</Latency>
-                        <AbsoluteTimeLatency>0.245 ms</AbsoluteTimeLatency>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
                         <PipelineDepth>1</PipelineDepth>
                         <PipelineType>yes</PipelineType>
@@ -6010,10 +6384,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>18</FF>
+                    <FF>32</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>63</LUT>
+                    <LUT>83</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -6028,13 +6402,129 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_au" OPTYPE="add" PRAGMA="" RTLNAME="add_ln168_fu_60_p2" SOURCE="src/spmm_device_fpga.cpp:168" URAM="0" VARIABLE="add_ln168"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_au" OPTYPE="add" PRAGMA="" RTLNAME="add_ln195_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:195" URAM="0" VARIABLE="add_ln195"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_kernel_2_Pipeline_VITIS_LOOP_190_3</Name>
+            <Name>pu_kernel_2_Pipeline_VITIS_LOOP_148_136</Name>
             <Loops>
-                <VITIS_LOOP_190_3/>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_2_Pipeline_VITIS_LOOP_148_1</Name>
+            <Loops>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_2_Pipeline_VITIS_LOOP_241_3</Name>
+            <Loops>
+                <VITIS_LOOP_241_3/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -6053,8 +6543,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_190_3>
-                        <Name>VITIS_LOOP_190_3</Name>
+                    <VITIS_LOOP_241_3>
+                        <Name>VITIS_LOOP_241_3</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -6063,7 +6553,7 @@
                         <PipelineDepth>2</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_190_3>
+                    </VITIS_LOOP_241_3>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -6086,13 +6576,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_190_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln190_fu_77_p2" SOURCE="src/spmm_device_fpga.cpp:190" URAM="0" VARIABLE="add_ln190"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_241_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln241_fu_77_p2" SOURCE="src/spmm_device_fpga.cpp:241" URAM="0" VARIABLE="add_ln241"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_kernel_2_Pipeline_VITIS_LOOP_185_2</Name>
+            <Name>pu_kernel_2_Pipeline_VITIS_LOOP_235_2</Name>
             <Loops>
-                <VITIS_LOOP_185_2/>
+                <VITIS_LOOP_235_2/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -6111,8 +6601,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_185_2>
-                        <Name>VITIS_LOOP_185_2</Name>
+                    <VITIS_LOOP_235_2>
+                        <Name>VITIS_LOOP_235_2</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -6121,7 +6611,7 @@
                         <PipelineDepth>17</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_185_2>
+                    </VITIS_LOOP_235_2>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -6144,15 +6634,73 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_185_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln185_fu_102_p2" SOURCE="src/spmm_device_fpga.cpp:185" URAM="0" VARIABLE="add_ln185"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_185_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U118" SOURCE="src/spmm_device_fpga.cpp:187" URAM="0" VARIABLE="add_i"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_185_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U119" SOURCE="src/spmm_device_fpga.cpp:187" URAM="0" VARIABLE="add2_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_235_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln235_fu_102_p2" SOURCE="src/spmm_device_fpga.cpp:235" URAM="0" VARIABLE="add_ln235"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_235_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U133" SOURCE="src/spmm_device_fpga.cpp:237" URAM="0" VARIABLE="add_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_235_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U134" SOURCE="src/spmm_device_fpga.cpp:237" URAM="0" VARIABLE="add2_i"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_2_Pipeline_VITIS_LOOP_148_137</Name>
+            <Loops>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
             </BindNodes>
         </Module>
         <Module>
             <Name>pu_kernel_2</Name>
             <Loops>
-                <VITIS_LOOP_175_1/>
+                <VITIS_LOOP_202_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -6171,8 +6719,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_175_1>
-                        <Name>VITIS_LOOP_175_1</Name>
+                    <VITIS_LOOP_202_1>
+                        <Name>VITIS_LOOP_202_1</Name>
                         <Slack>2.92</Slack>
                         <TripCount>2</TripCount>
                         <Latency>undef</Latency>
@@ -6181,11 +6729,13 @@
                         <PipelineDepth>undef</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_pu_comp_fu_376</Instance>
-                            <Instance>grp_pu_kernel_2_Pipeline_VITIS_LOOP_190_3_fu_386</Instance>
-                            <Instance>grp_pu_kernel_2_Pipeline_VITIS_LOOP_185_2_fu_393</Instance>
+                            <Instance>grp_pu_comp_fu_434</Instance>
+                            <Instance>grp_pu_kernel_2_Pipeline_VITIS_LOOP_148_136_fu_445</Instance>
+                            <Instance>grp_pu_kernel_2_Pipeline_VITIS_LOOP_148_1_fu_451</Instance>
+                            <Instance>grp_pu_kernel_2_Pipeline_VITIS_LOOP_241_3_fu_457</Instance>
+                            <Instance>grp_pu_kernel_2_Pipeline_VITIS_LOOP_235_2_fu_464</Instance>
                         </InstanceList>
-                    </VITIS_LOOP_175_1>
+                    </VITIS_LOOP_202_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -6193,13 +6743,13 @@
                     <BRAM_18K>64</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>1</UTIL_BRAM>
-                    <DSP>11</DSP>
+                    <DSP>10</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>2306</FF>
+                    <FF>2615</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2416</LUT>
+                    <LUT>3054</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <URAM>0</URAM>
@@ -6208,17 +6758,18 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="yes" RTLNAME="Dbuf_U" SOURCE="src/spmm_device_fpga.cpp:143" URAM="0" VARIABLE="Dbuf"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_value_U" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="tile_value"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_y_U" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="tile_y"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_ref_U" SOURCE="src/spmm_device_fpga.cpp:149" URAM="0" VARIABLE="tile_ref"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_value_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_v_value"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_y_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_v_y"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_ref_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_ref"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resA_U" SOURCE="src/spmm_device_fpga.cpp:162" URAM="0" VARIABLE="resA"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resB_U" SOURCE="src/spmm_device_fpga.cpp:162" URAM="0" VARIABLE="resB"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="AU0_U" SOURCE="src/spmm_device_fpga.cpp:163" URAM="0" VARIABLE="AU0"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_175_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln175_fu_559_p2" SOURCE="src/spmm_device_fpga.cpp:175" URAM="0" VARIABLE="add_ln175"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="yes" RTLNAME="Dbuf_U" SOURCE="src/spmm_device_fpga.cpp:163" URAM="0" VARIABLE="Dbuf"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_value_U" SOURCE="src/spmm_device_fpga.cpp:174" URAM="0" VARIABLE="tile_value"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_np" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_np" PRAGMA="" RTLNAME="tile_y_U" SOURCE="src/spmm_device_fpga.cpp:174" URAM="0" VARIABLE="tile_y"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_ref_U" SOURCE="src/spmm_device_fpga.cpp:175" URAM="0" VARIABLE="tile_ref"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_to_dbuf_begin_U" SOURCE="" URAM="0" VARIABLE="tile_to_dbuf_begin"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_value_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_v_value"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_y_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_v_y"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_ref_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_ref"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resA_U" SOURCE="src/spmm_device_fpga.cpp:189" URAM="0" VARIABLE="resA"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resB_U" SOURCE="src/spmm_device_fpga.cpp:189" URAM="0" VARIABLE="resB"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="AU0_U" SOURCE="src/spmm_device_fpga.cpp:190" URAM="0" VARIABLE="AU0"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_202_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln202_fu_654_p2" SOURCE="src/spmm_device_fpga.cpp:202" URAM="0" VARIABLE="add_ln202"/>
             </BindNodes>
         </Module>
         <Module>
@@ -6276,7 +6827,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="pu_save_stream_into_pu" OPTYPE="add" PRAGMA="" RTLNAME="add_ln154_fu_135_p2" SOURCE="src/spmm_device_fpga.cpp:154" URAM="0" VARIABLE="add_ln154"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="pu_save_stream_into_pu" OPTYPE="add" PRAGMA="" RTLNAME="add_ln181_fu_135_p2" SOURCE="src/spmm_device_fpga.cpp:181" URAM="0" VARIABLE="add_ln181"/>
             </BindNodes>
         </Module>
         <Module>
@@ -6288,25 +6839,25 @@
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>4.00</TargetClockPeriod>
                     <ClockUncertainty>1.08</ClockUncertainty>
-                    <EstimatedClockPeriod>1.924</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>61280</Best-caseLatency>
-                    <Average-caseLatency>61280</Average-caseLatency>
-                    <Worst-caseLatency>61280</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.245 ms</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.245 ms</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.245 ms</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>61280</PipelineInitiationInterval>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
                     <init_au>
                         <Name>init_au</Name>
                         <Slack>2.92</Slack>
-                        <TripCount>61278</TripCount>
-                        <Latency>61278</Latency>
-                        <AbsoluteTimeLatency>0.245 ms</AbsoluteTimeLatency>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                         <PipelineII>1</PipelineII>
                         <PipelineDepth>1</PipelineDepth>
                         <PipelineType>yes</PipelineType>
@@ -6316,10 +6867,10 @@
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <FF>18</FF>
+                    <FF>32</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>63</LUT>
+                    <LUT>83</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -6334,13 +6885,129 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_au" OPTYPE="add" PRAGMA="" RTLNAME="add_ln168_fu_60_p2" SOURCE="src/spmm_device_fpga.cpp:168" URAM="0" VARIABLE="add_ln168"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="init_au" OPTYPE="add" PRAGMA="" RTLNAME="add_ln195_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:195" URAM="0" VARIABLE="add_ln195"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_kernel_3_Pipeline_VITIS_LOOP_190_3</Name>
+            <Name>pu_kernel_3_Pipeline_VITIS_LOOP_148_134</Name>
             <Loops>
-                <VITIS_LOOP_190_3/>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_3_Pipeline_VITIS_LOOP_148_1</Name>
+            <Loops>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_3_Pipeline_VITIS_LOOP_241_3</Name>
+            <Loops>
+                <VITIS_LOOP_241_3/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -6359,8 +7026,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_190_3>
-                        <Name>VITIS_LOOP_190_3</Name>
+                    <VITIS_LOOP_241_3>
+                        <Name>VITIS_LOOP_241_3</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -6369,7 +7036,7 @@
                         <PipelineDepth>2</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_190_3>
+                    </VITIS_LOOP_241_3>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -6392,13 +7059,13 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_190_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln190_fu_77_p2" SOURCE="src/spmm_device_fpga.cpp:190" URAM="0" VARIABLE="add_ln190"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_241_3" OPTYPE="add" PRAGMA="" RTLNAME="add_ln241_fu_77_p2" SOURCE="src/spmm_device_fpga.cpp:241" URAM="0" VARIABLE="add_ln241"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>pu_kernel_3_Pipeline_VITIS_LOOP_185_2</Name>
+            <Name>pu_kernel_3_Pipeline_VITIS_LOOP_235_2</Name>
             <Loops>
-                <VITIS_LOOP_185_2/>
+                <VITIS_LOOP_235_2/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -6417,8 +7084,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_185_2>
-                        <Name>VITIS_LOOP_185_2</Name>
+                    <VITIS_LOOP_235_2>
+                        <Name>VITIS_LOOP_235_2</Name>
                         <Slack>2.92</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -6427,7 +7094,7 @@
                         <PipelineDepth>17</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_185_2>
+                    </VITIS_LOOP_235_2>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -6450,15 +7117,73 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_185_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln185_fu_102_p2" SOURCE="src/spmm_device_fpga.cpp:185" URAM="0" VARIABLE="add_ln185"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_185_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U141" SOURCE="src/spmm_device_fpga.cpp:187" URAM="0" VARIABLE="add_i"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_185_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U142" SOURCE="src/spmm_device_fpga.cpp:187" URAM="0" VARIABLE="add1_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_235_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln235_fu_102_p2" SOURCE="src/spmm_device_fpga.cpp:235" URAM="0" VARIABLE="add_ln235"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_235_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U163" SOURCE="src/spmm_device_fpga.cpp:237" URAM="0" VARIABLE="add_i"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op fadd" DSP="2" ID="" IMPL="fulldsp" LATENCY="6" LOOP="VITIS_LOOP_235_2" OPTYPE="fadd" PRAGMA="" RTLNAME="fadd_32ns_32ns_32_7_full_dsp_1_U164" SOURCE="src/spmm_device_fpga.cpp:237" URAM="0" VARIABLE="add1_i"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>pu_kernel_3_Pipeline_VITIS_LOOP_148_135</Name>
+            <Loops>
+                <VITIS_LOOP_148_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>4.00</TargetClockPeriod>
+                    <ClockUncertainty>1.08</ClockUncertainty>
+                    <EstimatedClockPeriod>2.084</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_148_1>
+                        <Name>VITIS_LOOP_148_1</Name>
+                        <Slack>2.92</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>1</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_148_1>
+                </SummaryOfLoopLatency>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>32</FF>
+                    <AVAIL_FF>2607360</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>83</LUT>
+                    <AVAIL_LUT>1303680</AVAIL_LUT>
+                    <UTIL_LUT>~0</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>4032</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>9024</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>960</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_148_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln148_fu_64_p2" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="add_ln148"/>
             </BindNodes>
         </Module>
         <Module>
             <Name>pu_kernel_3</Name>
             <Loops>
-                <VITIS_LOOP_175_1/>
+                <VITIS_LOOP_202_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -6477,8 +7202,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_175_1>
-                        <Name>VITIS_LOOP_175_1</Name>
+                    <VITIS_LOOP_202_1>
+                        <Name>VITIS_LOOP_202_1</Name>
                         <Slack>2.92</Slack>
                         <TripCount>2</TripCount>
                         <Latency>undef</Latency>
@@ -6487,11 +7212,13 @@
                         <PipelineDepth>undef</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_pu_comp_fu_376</Instance>
-                            <Instance>grp_pu_kernel_3_Pipeline_VITIS_LOOP_190_3_fu_386</Instance>
-                            <Instance>grp_pu_kernel_3_Pipeline_VITIS_LOOP_185_2_fu_393</Instance>
+                            <Instance>grp_pu_comp_fu_434</Instance>
+                            <Instance>grp_pu_kernel_3_Pipeline_VITIS_LOOP_148_134_fu_445</Instance>
+                            <Instance>grp_pu_kernel_3_Pipeline_VITIS_LOOP_148_1_fu_451</Instance>
+                            <Instance>grp_pu_kernel_3_Pipeline_VITIS_LOOP_241_3_fu_457</Instance>
+                            <Instance>grp_pu_kernel_3_Pipeline_VITIS_LOOP_235_2_fu_464</Instance>
                         </InstanceList>
-                    </VITIS_LOOP_175_1>
+                    </VITIS_LOOP_202_1>
                 </SummaryOfLoopLatency>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -6499,13 +7226,13 @@
                     <BRAM_18K>64</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>1</UTIL_BRAM>
-                    <DSP>11</DSP>
+                    <DSP>10</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>2306</FF>
+                    <FF>2615</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>2416</LUT>
+                    <LUT>3054</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>~0</UTIL_LUT>
                     <URAM>0</URAM>
@@ -6514,17 +7241,18 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="yes" RTLNAME="Dbuf_U" SOURCE="src/spmm_device_fpga.cpp:143" URAM="0" VARIABLE="Dbuf"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_value_U" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="tile_value"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_y_U" SOURCE="src/spmm_device_fpga.cpp:148" URAM="0" VARIABLE="tile_y"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_ref_U" SOURCE="src/spmm_device_fpga.cpp:149" URAM="0" VARIABLE="tile_ref"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_value_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_v_value"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_y_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_v_y"/>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_ref_U" SOURCE="src/spmm_device_fpga.cpp:151" URAM="0" VARIABLE="p_ref"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resA_U" SOURCE="src/spmm_device_fpga.cpp:162" URAM="0" VARIABLE="resA"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resB_U" SOURCE="src/spmm_device_fpga.cpp:162" URAM="0" VARIABLE="resB"/>
-                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="AU0_U" SOURCE="src/spmm_device_fpga.cpp:163" URAM="0" VARIABLE="AU0"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_175_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln175_fu_559_p2" SOURCE="src/spmm_device_fpga.cpp:175" URAM="0" VARIABLE="add_ln175"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_2p" PRAGMA="yes" RTLNAME="Dbuf_U" SOURCE="src/spmm_device_fpga.cpp:163" URAM="0" VARIABLE="Dbuf"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_value_U" SOURCE="src/spmm_device_fpga.cpp:174" URAM="0" VARIABLE="tile_value"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage rom_np" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="rom_np" PRAGMA="" RTLNAME="tile_y_U" SOURCE="src/spmm_device_fpga.cpp:174" URAM="0" VARIABLE="tile_y"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_ref_U" SOURCE="src/spmm_device_fpga.cpp:175" URAM="0" VARIABLE="tile_ref"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="tile_to_dbuf_begin_U" SOURCE="" URAM="0" VARIABLE="tile_to_dbuf_begin"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_value_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_v_value"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_v_y_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_v_y"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage ram_t2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_t2p" PRAGMA="" RTLNAME="p_ref_U" SOURCE="src/spmm_device_fpga.cpp:178" URAM="0" VARIABLE="p_ref"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resA_U" SOURCE="src/spmm_device_fpga.cpp:189" URAM="0" VARIABLE="resA"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="resB_U" SOURCE="src/spmm_device_fpga.cpp:189" URAM="0" VARIABLE="resB"/>
+                <BindNode BINDTYPE="storage" BRAM="16" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="AU0_U" SOURCE="src/spmm_device_fpga.cpp:190" URAM="0" VARIABLE="AU0"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_202_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln202_fu_654_p2" SOURCE="src/spmm_device_fpga.cpp:202" URAM="0" VARIABLE="add_ln202"/>
             </BindNodes>
         </Module>
         <Module>
@@ -6552,13 +7280,13 @@
                     <BRAM_18K>256</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>6</UTIL_BRAM>
-                    <DSP>44</DSP>
+                    <DSP>40</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>16265</FF>
+                    <FF>17501</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>14268</LUT>
+                    <LUT>16820</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>1</UTIL_LUT>
                     <URAM>0</URAM>
@@ -6615,13 +7343,13 @@
                     <BRAM_18K>256</BRAM_18K>
                     <AVAIL_BRAM>4032</AVAIL_BRAM>
                     <UTIL_BRAM>6</UTIL_BRAM>
-                    <DSP>44</DSP>
+                    <DSP>40</DSP>
                     <AVAIL_DSP>9024</AVAIL_DSP>
                     <UTIL_DSP>~0</UTIL_DSP>
-                    <FF>22116</FF>
+                    <FF>23352</FF>
                     <AVAIL_FF>2607360</AVAIL_FF>
                     <UTIL_FF>~0</UTIL_FF>
-                    <LUT>22502</LUT>
+                    <LUT>25054</LUT>
                     <AVAIL_LUT>1303680</AVAIL_LUT>
                     <UTIL_LUT>1</UTIL_LUT>
                     <URAM>0</URAM>
@@ -6630,7 +7358,7 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="row_loop" OPTYPE="add" PRAGMA="" RTLNAME="i_3_fu_216_p2" SOURCE="src/spmm_device_fpga.cpp:248" URAM="0" VARIABLE="i_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="row_loop" OPTYPE="add" PRAGMA="" RTLNAME="i_3_fu_216_p2" SOURCE="src/spmm_device_fpga.cpp:311" URAM="0" VARIABLE="i_3"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
@@ -7615,16 +8343,16 @@
             <item name="Inferred Burst Summary">
                 <table>
                     <keys size="6">HW Interface, Loop, Direction, Length, Width, Location</keys>
-                    <column name="m_axi_gmem6">VITIS_LOOP_113_2, read, variable, 32, src/spmm_device_fpga.cpp:113:31</column>
+                    <column name="m_axi_gmem6">VITIS_LOOP_114_2, read, variable, 32, src/spmm_device_fpga.cpp:114:31</column>
                 </table>
             </item>
             <item name="Inferred Bursts and Widening Missed">
                 <table>
                     <keys size="6">HW Interface, Variable, Loop, Problem, Resolution, Location</keys>
-                    <column name="m_axi_gmem3gmem4gmem5gmem6">B, VITIS_LOOP_110_1, Access call is in the conditional branch, 214-232, src/spmm_device_fpga.cpp:110:20</column>
+                    <column name="m_axi_gmem3gmem4gmem5gmem6">B, VITIS_LOOP_111_1, Access call is in the conditional branch, 214-232, src/spmm_device_fpga.cpp:111:20</column>
                     <column name="m_axi_gmem2">a_val, copy_tile_loop, Access tile.value is in the conditional branch, 214-232, src/spmm_device_fpga.cpp:57:5</column>
                     <column name="m_axi_gmem1">col_idx, copy_tile_loop, Access seen_y is in the conditional branch, 214-232, src/spmm_device_fpga.cpp:57:5</column>
-                    <column name="m_axi_gmem3gmem4gmem5gmem6">B, VITIS_LOOP_113_2, Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0, 214-353, src/spmm_device_fpga.cpp:113:31</column>
+                    <column name="m_axi_gmem3gmem4gmem5gmem6">B, VITIS_LOOP_114_2, Could not widen since type float size is greater than or equal to the max_widen_bitwidth threshold of 0, 214-353, src/spmm_device_fpga.cpp:114:31</column>
                 </table>
             </item>
         </section>
@@ -7637,44 +8365,54 @@
         <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:58" status="valid" parentFunction="set_tile_broadcast" variable="" isDirective="0" options="II=1"/>
         <Pragma type="unroll" location="src/spmm_device_fpga.cpp:70" status="valid" parentFunction="set_tile_broadcast" variable="" isDirective="0" options=""/>
         <Pragma type="unroll" location="src/spmm_device_fpga.cpp:95" status="valid" parentFunction="set_tile_broadcast" variable="" isDirective="0" options=""/>
-        <Pragma type="inline" location="src/spmm_device_fpga.cpp:108" status="valid" parentFunction="dfm" variable="" isDirective="0" options="off"/>
-        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:111" status="valid" parentFunction="dfm" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:114" status="valid" parentFunction="dfm" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="inline" location="src/spmm_device_fpga.cpp:128" status="valid" parentFunction="pu_comp" variable="" isDirective="0" options="off"/>
-        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:130" status="valid" parentFunction="pu_comp" variable="" isDirective="0" options="II=1"/>
-        <Pragma type="inline" location="src/spmm_device_fpga.cpp:142" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="off"/>
-        <Pragma type="bind_storage" location="src/spmm_device_fpga.cpp:145" status="valid" parentFunction="pu_kernel" variable="Dbuf" isDirective="0" options="variable=Dbuf type=ram_2p impl=bram"/>
-        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:155" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:169" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="dataflow" location="src/spmm_device_fpga.cpp:177" status="warning" parentFunction="pu_kernel" variable="" isDirective="0" options="">
+        <Pragma type="inline" location="src/spmm_device_fpga.cpp:109" status="valid" parentFunction="dfm" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:112" status="valid" parentFunction="dfm" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:115" status="valid" parentFunction="dfm" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="src/spmm_device_fpga.cpp:135" status="valid" parentFunction="pu_comp" variable="" isDirective="0" options="off"/>
+        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:137" status="valid" parentFunction="pu_comp" variable="" isDirective="0" options="II=1"/>
+        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:149" status="valid" parentFunction="write_to_obuf" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="inline" location="src/spmm_device_fpga.cpp:162" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="off"/>
+        <Pragma type="bind_storage" location="src/spmm_device_fpga.cpp:165" status="valid" parentFunction="pu_kernel" variable="Dbuf" isDirective="0" options="variable=Dbuf type=ram_2p impl=bram"/>
+        <Pragma type="bind_storage" location="src/spmm_device_fpga.cpp:169" status="valid" parentFunction="pu_kernel" variable="Dbuf" isDirective="0" options="variable=Dbuf type=ram_2p impl=bram"/>
+        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:182" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:196" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="dataflow" location="src/spmm_device_fpga.cpp:204" status="warning" parentFunction="pu_kernel" variable="" isDirective="0" options="">
             <Msg msg_id="207-5558" msg_severity="WARNING" msg_body="Only for-loops and functions support the dataflow"/>
             <Msg msg_id="214-104" msg_severity="WARNING" msg_body="Only for-loops and functions support the dataflow"/>
         </Pragma>
-        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:186" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:191" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="II = 1"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:219" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options="m_axi port = row_ptr offset = slave bundle = gmem0"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:220" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options="m_axi port = col_idx offset = slave bundle = gmem1"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:221" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options="m_axi port = a_val offset = slave bundle = gmem2"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:222" status="valid" parentFunction="spmm_hls" variable="B1" isDirective="0" options="m_axi port=B1 offset = slave bundle = gmem3"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:223" status="valid" parentFunction="spmm_hls" variable="B2" isDirective="0" options="m_axi port=B2 offset = slave bundle = gmem4"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:224" status="valid" parentFunction="spmm_hls" variable="B3" isDirective="0" options="m_axi port=B3 offset = slave bundle = gmem5"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:225" status="valid" parentFunction="spmm_hls" variable="B4" isDirective="0" options="m_axi port=B4 offset = slave bundle = gmem6"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:226" status="valid" parentFunction="spmm_hls" variable="C" isDirective="0" options="m_axi port=C offset = slave bundle = gmem7"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:228" status="valid" parentFunction="spmm_hls" variable="N" isDirective="0" options="s_axilite port=N bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:229" status="valid" parentFunction="spmm_hls" variable="M" isDirective="0" options="s_axilite port=M bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:230" status="valid" parentFunction="spmm_hls" variable="K" isDirective="0" options="s_axilite port=K bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:231" status="valid" parentFunction="spmm_hls" variable="nnz" isDirective="0" options="s_axilite port=nnz bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:232" status="valid" parentFunction="spmm_hls" variable="row_ptr" isDirective="0" options="s_axilite port=row_ptr bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:233" status="valid" parentFunction="spmm_hls" variable="col_idx" isDirective="0" options="s_axilite port=col_idx bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:234" status="valid" parentFunction="spmm_hls" variable="a_val" isDirective="0" options="s_axilite port=a_val bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:235" status="valid" parentFunction="spmm_hls" variable="B1" isDirective="0" options="s_axilite port=B1 bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:236" status="valid" parentFunction="spmm_hls" variable="B2" isDirective="0" options="s_axilite port=B2 bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:237" status="valid" parentFunction="spmm_hls" variable="B3" isDirective="0" options="s_axilite port=B3 bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:238" status="valid" parentFunction="spmm_hls" variable="B4" isDirective="0" options="s_axilite port=B4 bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:239" status="valid" parentFunction="spmm_hls" variable="C" isDirective="0" options="s_axilite port=C bundle=control"/>
-        <Pragma type="interface" location="src/spmm_device_fpga.cpp:240" status="valid" parentFunction="spmm_hls" variable="return" isDirective="0" options="s_axilite port=return bundle=control"/>
-        <Pragma type="stream" location="src/spmm_device_fpga.cpp:243" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options="variable = s depth = 16"/>
-        <Pragma type="dataflow" location="src/spmm_device_fpga.cpp:249" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options=""/>
+        <Pragma type="dataflow" location="src/spmm_device_fpga.cpp:220" status="warning" parentFunction="pu_kernel" variable="" isDirective="0" options="">
+            <Msg msg_id="207-5558" msg_severity="WARNING" msg_body="Only for-loops and functions support the dataflow"/>
+            <Msg msg_id="214-104" msg_severity="WARNING" msg_body="Only for-loops and functions support the dataflow"/>
+        </Pragma>
+        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:236" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="pipeline" location="src/spmm_device_fpga.cpp:242" status="valid" parentFunction="pu_kernel" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="dataflow" location="src/spmm_device_fpga.cpp:250" status="warning" parentFunction="pu_kernel" variable="" isDirective="0" options="">
+            <Msg msg_id="207-5558" msg_severity="WARNING" msg_body="Only for-loops and functions support the dataflow"/>
+            <Msg msg_id="214-104" msg_severity="WARNING" msg_body="Only for-loops and functions support the dataflow"/>
+        </Pragma>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:282" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options="m_axi port = row_ptr offset = slave bundle = gmem0"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:283" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options="m_axi port = col_idx offset = slave bundle = gmem1"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:284" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options="m_axi port = a_val offset = slave bundle = gmem2"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:285" status="valid" parentFunction="spmm_hls" variable="B1" isDirective="0" options="m_axi port=B1 offset = slave bundle = gmem3"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:286" status="valid" parentFunction="spmm_hls" variable="B2" isDirective="0" options="m_axi port=B2 offset = slave bundle = gmem4"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:287" status="valid" parentFunction="spmm_hls" variable="B3" isDirective="0" options="m_axi port=B3 offset = slave bundle = gmem5"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:288" status="valid" parentFunction="spmm_hls" variable="B4" isDirective="0" options="m_axi port=B4 offset = slave bundle = gmem6"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:289" status="valid" parentFunction="spmm_hls" variable="C" isDirective="0" options="m_axi port=C offset = slave bundle = gmem7"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:291" status="valid" parentFunction="spmm_hls" variable="N" isDirective="0" options="s_axilite port=N bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:292" status="valid" parentFunction="spmm_hls" variable="M" isDirective="0" options="s_axilite port=M bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:293" status="valid" parentFunction="spmm_hls" variable="K" isDirective="0" options="s_axilite port=K bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:294" status="valid" parentFunction="spmm_hls" variable="nnz" isDirective="0" options="s_axilite port=nnz bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:295" status="valid" parentFunction="spmm_hls" variable="row_ptr" isDirective="0" options="s_axilite port=row_ptr bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:296" status="valid" parentFunction="spmm_hls" variable="col_idx" isDirective="0" options="s_axilite port=col_idx bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:297" status="valid" parentFunction="spmm_hls" variable="a_val" isDirective="0" options="s_axilite port=a_val bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:298" status="valid" parentFunction="spmm_hls" variable="B1" isDirective="0" options="s_axilite port=B1 bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:299" status="valid" parentFunction="spmm_hls" variable="B2" isDirective="0" options="s_axilite port=B2 bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:300" status="valid" parentFunction="spmm_hls" variable="B3" isDirective="0" options="s_axilite port=B3 bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:301" status="valid" parentFunction="spmm_hls" variable="B4" isDirective="0" options="s_axilite port=B4 bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:302" status="valid" parentFunction="spmm_hls" variable="C" isDirective="0" options="s_axilite port=C bundle=control"/>
+        <Pragma type="interface" location="src/spmm_device_fpga.cpp:303" status="valid" parentFunction="spmm_hls" variable="return" isDirective="0" options="s_axilite port=return bundle=control"/>
+        <Pragma type="stream" location="src/spmm_device_fpga.cpp:306" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options="variable = s depth = 16"/>
+        <Pragma type="dataflow" location="src/spmm_device_fpga.cpp:312" status="valid" parentFunction="spmm_hls" variable="" isDirective="0" options=""/>
     </PragmaReport>
 </profile>
 

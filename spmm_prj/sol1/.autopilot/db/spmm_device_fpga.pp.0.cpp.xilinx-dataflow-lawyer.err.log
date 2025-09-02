@@ -1,4 +1,6 @@
 Only for-loops and functions support the dataflow
+Only for-loops and functions support the dataflow
+Only for-loops and functions support the dataflow
 As the loop counter is not increased by 1, the compiler may not successfully process the dataflow loop
 Either use an argument of the function or declare the variable inside the dataflow loop body
 Either use an argument of the function or declare the variable inside the dataflow loop body
@@ -9,4 +11,4 @@ Either use an argument of the function or declare the variable inside the datafl
 Either use an argument of the function or declare the variable inside the dataflow loop body
 Either use an argument of the function or declare the variable inside the dataflow loop body
 Either use an argument of the function or declare the variable inside the dataflow loop body
-11 warnings generated.
+13 warnings generated.

@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'pu_kernel_1'
 ================================================================
-* Date:           Mon Sep  1 19:26:49 2025
+* Date:           Tue Sep  2 16:52:31 2025
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        spmm_prj
@@ -41,7 +41,7 @@
         |                    |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |      Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +--------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_175_1  |        ?|        ?|         ?|          -|          -|     2|        no|
+        |- VITIS_LOOP_202_1  |        ?|        ?|         ?|          -|          -|     2|        no|
         +--------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 ============================================================
@@ -70,7 +70,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 14
+* Number of FSM states : 21
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
@@ -83,147 +83,205 @@ IsGatedGlobalClock: 0
 6 --> 7 
 7 --> 8 
 8 --> 9 
-9 --> 10 
+9 --> 10 20 21 
 10 --> 11 
-11 --> 12 13 
-12 --> 14 
-13 --> 14 
-14 --> 7 
+11 --> 12 
+12 --> 13 
+13 --> 15 18 14 16 
+14 --> 15 
+15 --> 17 19 
+16 --> 15 
+17 --> 18 
+18 --> 9 
+19 --> 18 
+20 --> 21 
+21 --> 
 
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 1.93>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%i_4 = alloca i32 1"   --->   Operation 15 'alloca' 'i_4' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%Dbuf = alloca i64 1" [src/spmm_device_fpga.cpp:143->src/spmm_device_fpga.cpp:252]   --->   Operation 16 'alloca' 'Dbuf' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_2P_BRAM">   --->   Core 94 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 1.24> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 61278> <RAM>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%tile_value = alloca i64 1" [src/spmm_device_fpga.cpp:148->src/spmm_device_fpga.cpp:252]   --->   Operation 17 'alloca' 'tile_value' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%tile_y = alloca i64 1" [src/spmm_device_fpga.cpp:148->src/spmm_device_fpga.cpp:252]   --->   Operation 18 'alloca' 'tile_y' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%tile_ref = alloca i64 1" [src/spmm_device_fpga.cpp:149->src/spmm_device_fpga.cpp:252]   --->   Operation 19 'alloca' 'tile_ref' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%p_v_value = alloca i64 1" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 20 'alloca' 'p_v_value' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%p_v_y = alloca i64 1" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 21 'alloca' 'p_v_y' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%p_ref = alloca i64 1" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 22 'alloca' 'p_ref' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%resA = alloca i64 1" [src/spmm_device_fpga.cpp:162->src/spmm_device_fpga.cpp:252]   --->   Operation 23 'alloca' 'resA' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%resB = alloca i64 1" [src/spmm_device_fpga.cpp:162->src/spmm_device_fpga.cpp:252]   --->   Operation 24 'alloca' 'resB' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%AU0 = alloca i64 1" [src/spmm_device_fpga.cpp:163->src/spmm_device_fpga.cpp:252]   --->   Operation 25 'alloca' 'AU0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (1.23ns)   --->   "%s_12_read = read i388 @_ssdm_op_Read.ap_fifo.volatile.i388P0A, i388 %s_12" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 26 'read' 's_12_read' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%trunc_ln151 = trunc i388 %s_12_read" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 27 'trunc' 'trunc_ln151' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%trunc_ln151_s = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 64, i32 95" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 28 'partselect' 'trunc_ln151_s' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%trunc_ln151_6 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 160, i32 191" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 29 'partselect' 'trunc_ln151_6' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%trunc_ln151_7 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 192, i32 223" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 30 'partselect' 'trunc_ln151_7' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%trunc_ln151_8 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 256, i32 287" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 31 'partselect' 'trunc_ln151_8' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%trunc_ln151_9 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 288, i32 319" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 32 'partselect' 'trunc_ln151_9' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%trunc_ln151_10 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 352, i32 383" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 33 'partselect' 'trunc_ln151_10' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i388.i32, i388 %s_12_read, i32 384" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 34 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%tmp_7 = bitselect i1 @_ssdm_op_BitSelect.i1.i388.i32, i388 %s_12_read, i32 385" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 35 'bitselect' 'tmp_7' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%tmp_8 = bitselect i1 @_ssdm_op_BitSelect.i1.i388.i32, i388 %s_12_read, i32 386" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 36 'bitselect' 'tmp_8' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%tmp_9 = bitselect i1 @_ssdm_op_BitSelect.i1.i388.i32, i388 %s_12_read, i32 387" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 37 'bitselect' 'tmp_9' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%bitcast_ln151 = bitcast i32 %trunc_ln151" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 38 'bitcast' 'bitcast_ln151' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%p_v_value_addr = getelementptr i32 %p_v_value, i64 0, i64 0" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 39 'getelementptr' 'p_v_value_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 40 [1/1] (0.69ns)   --->   "%store_ln151 = store i32 %bitcast_ln151, i2 %p_v_value_addr" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 40 'store' 'store_ln151' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%p_v_y_addr = getelementptr i32 %p_v_y, i64 0, i64 0" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 41 'getelementptr' 'p_v_y_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 42 [1/1] (0.69ns)   --->   "%store_ln151 = store i32 %trunc_ln151_s, i2 %p_v_y_addr" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 42 'store' 'store_ln151' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%tmp_13_i = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 96, i32 127" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 43 'partselect' 'tmp_13_i' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%bitcast_ln151_7 = bitcast i32 %tmp_13_i" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 44 'bitcast' 'bitcast_ln151_7' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%p_v_value_addr_7 = getelementptr i32 %p_v_value, i64 0, i64 1" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 45 'getelementptr' 'p_v_value_addr_7' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 46 [1/1] (0.69ns)   --->   "%store_ln151 = store i32 %bitcast_ln151_7, i2 %p_v_value_addr_7" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 46 'store' 'store_ln151' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%p_v_y_addr_7 = getelementptr i32 %p_v_y, i64 0, i64 1" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 47 'getelementptr' 'p_v_y_addr_7' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 48 [1/1] (0.69ns)   --->   "%store_ln151 = store i32 %trunc_ln151_6, i2 %p_v_y_addr_7" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 48 'store' 'store_ln151' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%p_ref_addr = getelementptr i1 %p_ref, i64 0, i64 0" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 49 'getelementptr' 'p_ref_addr' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 50 [1/1] (0.63ns)   --->   "%store_ln151 = store i1 %tmp, i2 %p_ref_addr" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 50 'store' 'store_ln151' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%p_ref_addr_7 = getelementptr i1 %p_ref, i64 0, i64 1" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 51 'getelementptr' 'p_ref_addr_7' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 52 [1/1] (0.63ns)   --->   "%store_ln151 = store i1 %tmp_7, i2 %p_ref_addr_7" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 52 'store' 'store_ln151' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_1 : Operation 53 [1/1] (0.38ns)   --->   "%store_ln175 = store i2 0, i2 %i_4" [src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252]   --->   Operation 53 'store' 'store_ln175' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%au0_r = alloca i32 1"   --->   Operation 22 'alloca' 'au0_r' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%i_10 = alloca i32 1"   --->   Operation 23 'alloca' 'i_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%au1_r = alloca i32 1"   --->   Operation 24 'alloca' 'au1_r' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%Dbuf = alloca i64 1" [src/spmm_device_fpga.cpp:163->src/spmm_device_fpga.cpp:315]   --->   Operation 25 'alloca' 'Dbuf' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_2P_BRAM">   --->   Core 94 'RAM_2P_BRAM' <Latency = 1> <II = 1> <Delay = 1.24> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 61278> <RAM>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%tile_value = alloca i64 1" [src/spmm_device_fpga.cpp:174->src/spmm_device_fpga.cpp:315]   --->   Operation 26 'alloca' 'tile_value' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%tile_y = alloca i64 1" [src/spmm_device_fpga.cpp:174->src/spmm_device_fpga.cpp:315]   --->   Operation 27 'alloca' 'tile_y' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 4> <RAM>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%tile_ref = alloca i64 1" [src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:315]   --->   Operation 28 'alloca' 'tile_ref' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%tile_to_dbuf_begin = alloca i64 1"   --->   Operation 29 'alloca' 'tile_to_dbuf_begin' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%p_v_value = alloca i64 1" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 30 'alloca' 'p_v_value' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%p_v_y = alloca i64 1" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 31 'alloca' 'p_v_y' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%p_ref = alloca i64 1" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 32 'alloca' 'p_ref' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%resA = alloca i64 1" [src/spmm_device_fpga.cpp:189->src/spmm_device_fpga.cpp:315]   --->   Operation 33 'alloca' 'resA' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%resB = alloca i64 1" [src/spmm_device_fpga.cpp:189->src/spmm_device_fpga.cpp:315]   --->   Operation 34 'alloca' 'resB' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%AU0 = alloca i64 1" [src/spmm_device_fpga.cpp:190->src/spmm_device_fpga.cpp:315]   --->   Operation 35 'alloca' 'AU0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (1.23ns)   --->   "%s_12_read = read i388 @_ssdm_op_Read.ap_fifo.volatile.i388P0A, i388 %s_12" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 36 'read' 's_12_read' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%trunc_ln178 = trunc i388 %s_12_read" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 37 'trunc' 'trunc_ln178' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%trunc_ln178_s = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 64, i32 95" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 38 'partselect' 'trunc_ln178_s' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%trunc_ln178_6 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 160, i32 191" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 39 'partselect' 'trunc_ln178_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%trunc_ln178_7 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 192, i32 223" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 40 'partselect' 'trunc_ln178_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%trunc_ln178_8 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 256, i32 287" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 41 'partselect' 'trunc_ln178_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%trunc_ln178_9 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 288, i32 319" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 42 'partselect' 'trunc_ln178_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%trunc_ln178_10 = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 352, i32 383" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 43 'partselect' 'trunc_ln178_10' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i388.i32, i388 %s_12_read, i32 384" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 44 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%tmp_7 = bitselect i1 @_ssdm_op_BitSelect.i1.i388.i32, i388 %s_12_read, i32 385" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 45 'bitselect' 'tmp_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%tmp_8 = bitselect i1 @_ssdm_op_BitSelect.i1.i388.i32, i388 %s_12_read, i32 386" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 46 'bitselect' 'tmp_8' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%tmp_9 = bitselect i1 @_ssdm_op_BitSelect.i1.i388.i32, i388 %s_12_read, i32 387" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 47 'bitselect' 'tmp_9' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%bitcast_ln178 = bitcast i32 %trunc_ln178" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 48 'bitcast' 'bitcast_ln178' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%p_v_value_addr = getelementptr i32 %p_v_value, i64 0, i64 0" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 49 'getelementptr' 'p_v_value_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.69ns)   --->   "%store_ln178 = store i32 %bitcast_ln178, i2 %p_v_value_addr" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 50 'store' 'store_ln178' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%p_v_y_addr = getelementptr i32 %p_v_y, i64 0, i64 0" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 51 'getelementptr' 'p_v_y_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 52 [1/1] (0.69ns)   --->   "%store_ln178 = store i32 %trunc_ln178_s, i2 %p_v_y_addr" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 52 'store' 'store_ln178' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%tmp_13_i = partselect i32 @_ssdm_op_PartSelect.i32.i388.i32.i32, i388 %s_12_read, i32 96, i32 127" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 53 'partselect' 'tmp_13_i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%bitcast_ln178_7 = bitcast i32 %tmp_13_i" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 54 'bitcast' 'bitcast_ln178_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%p_v_value_addr_7 = getelementptr i32 %p_v_value, i64 0, i64 1" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 55 'getelementptr' 'p_v_value_addr_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.69ns)   --->   "%store_ln178 = store i32 %bitcast_ln178_7, i2 %p_v_value_addr_7" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 56 'store' 'store_ln178' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%p_v_y_addr_7 = getelementptr i32 %p_v_y, i64 0, i64 1" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 57 'getelementptr' 'p_v_y_addr_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.69ns)   --->   "%store_ln178 = store i32 %trunc_ln178_6, i2 %p_v_y_addr_7" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 58 'store' 'store_ln178' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%p_ref_addr = getelementptr i1 %p_ref, i64 0, i64 0" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 59 'getelementptr' 'p_ref_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.63ns)   --->   "%store_ln178 = store i1 %tmp, i2 %p_ref_addr" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 60 'store' 'store_ln178' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%p_ref_addr_7 = getelementptr i1 %p_ref, i64 0, i64 1" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 61 'getelementptr' 'p_ref_addr_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.63ns)   --->   "%store_ln178 = store i1 %tmp_7, i2 %p_ref_addr_7" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 62 'store' 'store_ln178' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
+ST_1 : Operation 63 [1/1] (0.38ns)   --->   "%store_ln202 = store i32 4294967295, i32 %au1_r" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 63 'store' 'store_ln202' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 64 [1/1] (0.38ns)   --->   "%store_ln202 = store i2 0, i2 %i_10" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 64 'store' 'store_ln202' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 65 [1/1] (0.38ns)   --->   "%store_ln202 = store i32 4294967295, i32 %au0_r" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 65 'store' 'store_ln202' <Predicate = true> <Delay = 0.38>
 
 State 2 <SV = 1> <Delay = 0.69>
-ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%bitcast_ln151_8 = bitcast i32 %trunc_ln151_7" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 54 'bitcast' 'bitcast_ln151_8' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%p_v_value_addr_8 = getelementptr i32 %p_v_value, i64 0, i64 2" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 55 'getelementptr' 'p_v_value_addr_8' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 56 [1/1] (0.69ns)   --->   "%store_ln151 = store i32 %bitcast_ln151_8, i2 %p_v_value_addr_8" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 56 'store' 'store_ln151' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_2 : Operation 57 [1/1] (0.00ns)   --->   "%p_v_y_addr_8 = getelementptr i32 %p_v_y, i64 0, i64 2" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 57 'getelementptr' 'p_v_y_addr_8' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 58 [1/1] (0.69ns)   --->   "%store_ln151 = store i32 %trunc_ln151_8, i2 %p_v_y_addr_8" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 58 'store' 'store_ln151' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_2 : Operation 59 [1/1] (0.00ns)   --->   "%bitcast_ln151_9 = bitcast i32 %trunc_ln151_9" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 59 'bitcast' 'bitcast_ln151_9' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 60 [1/1] (0.00ns)   --->   "%p_v_value_addr_9 = getelementptr i32 %p_v_value, i64 0, i64 3" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 60 'getelementptr' 'p_v_value_addr_9' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 61 [1/1] (0.69ns)   --->   "%store_ln151 = store i32 %bitcast_ln151_9, i2 %p_v_value_addr_9" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 61 'store' 'store_ln151' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_2 : Operation 62 [1/1] (0.00ns)   --->   "%p_v_y_addr_9 = getelementptr i32 %p_v_y, i64 0, i64 3" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 62 'getelementptr' 'p_v_y_addr_9' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 63 [1/1] (0.69ns)   --->   "%store_ln151 = store i32 %trunc_ln151_10, i2 %p_v_y_addr_9" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 63 'store' 'store_ln151' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_2 : Operation 64 [1/1] (0.00ns)   --->   "%p_ref_addr_8 = getelementptr i1 %p_ref, i64 0, i64 2" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 64 'getelementptr' 'p_ref_addr_8' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 65 [1/1] (0.63ns)   --->   "%store_ln151 = store i1 %tmp_8, i2 %p_ref_addr_8" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 65 'store' 'store_ln151' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_2 : Operation 66 [1/1] (0.00ns)   --->   "%p_ref_addr_9 = getelementptr i1 %p_ref, i64 0, i64 3" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 66 'getelementptr' 'p_ref_addr_9' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 67 [1/1] (0.63ns)   --->   "%store_ln151 = store i1 %tmp_9, i2 %p_ref_addr_9" [src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252]   --->   Operation 67 'store' 'store_ln151' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
+ST_2 : Operation 66 [1/1] (0.00ns)   --->   "%bitcast_ln178_8 = bitcast i32 %trunc_ln178_7" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 66 'bitcast' 'bitcast_ln178_8' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 67 [1/1] (0.00ns)   --->   "%p_v_value_addr_8 = getelementptr i32 %p_v_value, i64 0, i64 2" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 67 'getelementptr' 'p_v_value_addr_8' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 68 [1/1] (0.69ns)   --->   "%store_ln178 = store i32 %bitcast_ln178_8, i2 %p_v_value_addr_8" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 68 'store' 'store_ln178' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_2 : Operation 69 [1/1] (0.00ns)   --->   "%p_v_y_addr_8 = getelementptr i32 %p_v_y, i64 0, i64 2" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 69 'getelementptr' 'p_v_y_addr_8' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 70 [1/1] (0.69ns)   --->   "%store_ln178 = store i32 %trunc_ln178_8, i2 %p_v_y_addr_8" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 70 'store' 'store_ln178' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_2 : Operation 71 [1/1] (0.00ns)   --->   "%bitcast_ln178_9 = bitcast i32 %trunc_ln178_9" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 71 'bitcast' 'bitcast_ln178_9' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 72 [1/1] (0.00ns)   --->   "%p_v_value_addr_9 = getelementptr i32 %p_v_value, i64 0, i64 3" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 72 'getelementptr' 'p_v_value_addr_9' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 73 [1/1] (0.69ns)   --->   "%store_ln178 = store i32 %bitcast_ln178_9, i2 %p_v_value_addr_9" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 73 'store' 'store_ln178' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_2 : Operation 74 [1/1] (0.00ns)   --->   "%p_v_y_addr_9 = getelementptr i32 %p_v_y, i64 0, i64 3" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 74 'getelementptr' 'p_v_y_addr_9' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 75 [1/1] (0.69ns)   --->   "%store_ln178 = store i32 %trunc_ln178_10, i2 %p_v_y_addr_9" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 75 'store' 'store_ln178' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_2 : Operation 76 [1/1] (0.00ns)   --->   "%p_ref_addr_8 = getelementptr i1 %p_ref, i64 0, i64 2" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 76 'getelementptr' 'p_ref_addr_8' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 77 [1/1] (0.63ns)   --->   "%store_ln178 = store i1 %tmp_8, i2 %p_ref_addr_8" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 77 'store' 'store_ln178' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
+ST_2 : Operation 78 [1/1] (0.00ns)   --->   "%p_ref_addr_9 = getelementptr i1 %p_ref, i64 0, i64 3" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 78 'getelementptr' 'p_ref_addr_9' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 79 [1/1] (0.63ns)   --->   "%store_ln178 = store i1 %tmp_9, i2 %p_ref_addr_9" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315]   --->   Operation 79 'store' 'store_ln178' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
 
-State 3 <SV = 2> <Delay = 0.00>
-ST_3 : Operation 68 [2/2] (0.00ns)   --->   "%call_ln0 = call void @pu_kernel.1_Pipeline_pu_save_stream_into_pu, i32 %p_v_value, i32 %p_v_y, i32 %tile_value, i32 %tile_y, i1 %p_ref, i1 %tile_ref"   --->   Operation 68 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_3 : Operation 69 [2/2] (0.00ns)   --->   "%call_ln0 = call void @pu_kernel.1_Pipeline_init_au, i32 %AU0"   --->   Operation 69 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 3 <SV = 2> <Delay = 2.08>
+ST_3 : Operation 80 [1/1] (0.00ns)   --->   "%K_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %K"   --->   Operation 80 'read' 'K_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 81 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %K_read, i32 2, i32 31" [src/spmm_device_fpga.cpp:311]   --->   Operation 81 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 82 [2/2] (0.00ns)   --->   "%call_ln0 = call void @pu_kernel.1_Pipeline_pu_save_stream_into_pu, i32 %p_v_value, i32 %p_v_y, i32 %tile_value, i32 %tile_y, i1 %p_ref, i1 %tile_ref"   --->   Operation 82 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 83 [2/2] (2.08ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_init_au, i30 %trunc_ln, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 83 'call' 'call_ln311' <Predicate = true> <Delay = 2.08> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 4 <SV = 3> <Delay = 0.00>
-ST_4 : Operation 70 [1/2] (0.00ns)   --->   "%call_ln0 = call void @pu_kernel.1_Pipeline_pu_save_stream_into_pu, i32 %p_v_value, i32 %p_v_y, i32 %tile_value, i32 %tile_y, i1 %p_ref, i1 %tile_ref"   --->   Operation 70 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_4 : Operation 71 [1/2] (0.00ns)   --->   "%call_ln0 = call void @pu_kernel.1_Pipeline_init_au, i32 %AU0"   --->   Operation 71 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 84 [1/2] (0.00ns)   --->   "%call_ln0 = call void @pu_kernel.1_Pipeline_pu_save_stream_into_pu, i32 %p_v_value, i32 %p_v_y, i32 %tile_value, i32 %tile_y, i1 %p_ref, i1 %tile_ref"   --->   Operation 84 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 85 [1/2] (0.00ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_init_au, i30 %trunc_ln, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 85 'call' 'call_ln311' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 5 <SV = 4> <Delay = 0.00>
-ST_5 : Operation 72 [1/1] (0.00ns)   --->   "%K_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %K"   --->   Operation 72 'read' 'K_read' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 73 [1/1] (0.00ns)   --->   "%B2_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %B2"   --->   Operation 73 'read' 'B2_read' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 74 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i30 @_ssdm_op_PartSelect.i30.i32.i32.i32, i32 %K_read, i32 2, i32 31" [src/spmm_device_fpga.cpp:248]   --->   Operation 74 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 75 [2/2] (0.00ns)   --->   "%call_ln160 = call void @dfm, i32 %tile_y, i1 %tile_ref, i32 %Dbuf, i32 %gmem4, i64 %B2_read, i30 %trunc_ln" [src/spmm_device_fpga.cpp:160->src/spmm_device_fpga.cpp:252]   --->   Operation 75 'call' 'call_ln160' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 86 [1/1] (0.00ns)   --->   "%B2_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %B2"   --->   Operation 86 'read' 'B2_read' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 87 [2/2] (0.00ns)   --->   "%call_ln187 = call void @dfm, i32 %tile_y, i1 %tile_ref, i32 %Dbuf, i32 %gmem4, i64 %B2_read, i30 %trunc_ln, i16 %tile_to_dbuf_begin" [src/spmm_device_fpga.cpp:187->src/spmm_device_fpga.cpp:315]   --->   Operation 87 'call' 'call_ln187' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 6 <SV = 5> <Delay = 0.00>
-ST_6 : Operation 76 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_12, void @empty_22, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 76 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 77 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem4, void @empty_13, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_1, void @empty_38, void @empty_25, i32 16, i32 16, i32 16, i32 16, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 77 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 78 [1/1] (0.00ns)   --->   "%specmemcore_ln145 = specmemcore void @_ssdm_op_SpecMemCore, i32 %Dbuf, i64 666, i64 22, i64 18446744073709551615" [src/spmm_device_fpga.cpp:145->src/spmm_device_fpga.cpp:252]   --->   Operation 78 'specmemcore' 'specmemcore_ln145' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 79 [1/2] (0.00ns)   --->   "%call_ln160 = call void @dfm, i32 %tile_y, i1 %tile_ref, i32 %Dbuf, i32 %gmem4, i64 %B2_read, i30 %trunc_ln" [src/spmm_device_fpga.cpp:160->src/spmm_device_fpga.cpp:252]   --->   Operation 79 'call' 'call_ln160' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_6 : Operation 80 [1/1] (0.00ns)   --->   "%br_ln175 = br void %AU_step.i" [src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252]   --->   Operation 80 'br' 'br_ln175' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 88 [1/2] (0.00ns)   --->   "%call_ln187 = call void @dfm, i32 %tile_y, i1 %tile_ref, i32 %Dbuf, i32 %gmem4, i64 %B2_read, i30 %trunc_ln, i16 %tile_to_dbuf_begin" [src/spmm_device_fpga.cpp:187->src/spmm_device_fpga.cpp:315]   --->   Operation 88 'call' 'call_ln187' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 7 <SV = 6> <Delay = 0.69>
-ST_7 : Operation 81 [1/1] (0.00ns)   --->   "%i = load i2 %i_4" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 81 'load' 'i' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 82 [1/1] (0.34ns)   --->   "%icmp_ln175 = icmp_eq  i2 %i, i2 2" [src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252]   --->   Operation 82 'icmp' 'icmp_ln175' <Predicate = true> <Delay = 0.34> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.34> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 83 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 2, i64 2, i64 2"   --->   Operation 83 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 84 [1/1] (0.43ns)   --->   "%add_ln175 = add i2 %i, i2 1" [src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252]   --->   Operation 84 'add' 'add_ln175' <Predicate = true> <Delay = 0.43> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.43> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 85 [1/1] (0.00ns)   --->   "%br_ln175 = br i1 %icmp_ln175, void %AU_step.split.i, void %pu_kernel.1.exit" [src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252]   --->   Operation 85 'br' 'br_ln175' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 86 [1/1] (0.00ns)   --->   "%shl_ln178 = shl i2 %i, i2 1" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 86 'shl' 'shl_ln178' <Predicate = (!icmp_ln175)> <Delay = 0.00>
-ST_7 : Operation 87 [1/1] (0.00ns)   --->   "%zext_ln178 = zext i2 %shl_ln178" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 87 'zext' 'zext_ln178' <Predicate = (!icmp_ln175)> <Delay = 0.00>
-ST_7 : Operation 88 [1/1] (0.00ns)   --->   "%tile_value_addr = getelementptr i32 %tile_value, i64 0, i64 %zext_ln178" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 88 'getelementptr' 'tile_value_addr' <Predicate = (!icmp_ln175)> <Delay = 0.00>
-ST_7 : Operation 89 [1/1] (0.00ns)   --->   "%tile_y_addr = getelementptr i32 %tile_y, i64 0, i64 %zext_ln178" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 89 'getelementptr' 'tile_y_addr' <Predicate = (!icmp_ln175)> <Delay = 0.00>
-ST_7 : Operation 90 [2/2] (0.69ns)   --->   "%tile_value_load = load i2 %tile_value_addr" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 90 'load' 'tile_value_load' <Predicate = (!icmp_ln175)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_7 : Operation 91 [2/2] (0.69ns)   --->   "%tile_y_load = load i2 %tile_y_addr" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 91 'load' 'tile_y_load' <Predicate = (!icmp_ln175)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_7 : Operation 92 [1/1] (0.00ns)   --->   "%ret_ln252 = ret" [src/spmm_device_fpga.cpp:252]   --->   Operation 92 'ret' 'ret_ln252' <Predicate = (icmp_ln175)> <Delay = 0.00>
+ST_7 : Operation 89 [1/1] (0.00ns)   --->   "%tile_y_addr = getelementptr i32 %tile_y, i64 0, i64 2"   --->   Operation 89 'getelementptr' 'tile_y_addr' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 90 [2/2] (0.69ns)   --->   "%tile_y_load = load i2 %tile_y_addr"   --->   Operation 90 'load' 'tile_y_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 4> <RAM>
 
-State 8 <SV = 7> <Delay = 2.73>
-ST_8 : Operation 93 [1/2] (0.69ns)   --->   "%tile_value_load = load i2 %tile_value_addr" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 93 'load' 'tile_value_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_8 : Operation 94 [1/2] (0.69ns)   --->   "%tile_y_load = load i2 %tile_y_addr" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 94 'load' 'tile_y_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_8 : Operation 95 [1/1] (0.00ns)   --->   "%empty_53 = trunc i32 %tile_y_load" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 95 'trunc' 'empty_53' <Predicate = true> <Delay = 0.00>
-ST_8 : Operation 96 [2/2] (2.03ns)   --->   "%call_ln178 = call void @pu_comp, i32 %resA, i32 %tile_value_load, i16 %empty_53, i32 %Dbuf, i30 %trunc_ln" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 96 'call' 'call_ln178' <Predicate = true> <Delay = 2.03> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 8 <SV = 7> <Delay = 0.69>
+ST_8 : Operation 91 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_12, void @empty_22, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_28, void @empty_28, void @empty_28, i32 0, i32 0, i32 0, i32 0, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 91 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 92 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem4, void @empty_14, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_1, void @empty_27, void @empty_28, i32 16, i32 16, i32 16, i32 16, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 92 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 93 [1/1] (0.00ns)   --->   "%specmemcore_ln165 = specmemcore void @_ssdm_op_SpecMemCore, i32 %Dbuf, i64 666, i64 22, i64 18446744073709551615" [src/spmm_device_fpga.cpp:165->src/spmm_device_fpga.cpp:315]   --->   Operation 93 'specmemcore' 'specmemcore_ln165' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 94 [1/1] (0.00ns)   --->   "%specmemcore_ln169 = specmemcore void @_ssdm_op_SpecMemCore, i32 %Dbuf, i64 666, i64 22, i64 18446744073709551615" [src/spmm_device_fpga.cpp:169->src/spmm_device_fpga.cpp:315]   --->   Operation 94 'specmemcore' 'specmemcore_ln169' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 95 [1/2] (0.69ns)   --->   "%tile_y_load = load i2 %tile_y_addr"   --->   Operation 95 'load' 'tile_y_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 4> <RAM>
+ST_8 : Operation 96 [1/1] (0.00ns)   --->   "%br_ln202 = br void %for.body25.i" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 96 'br' 'br_ln202' <Predicate = true> <Delay = 0.00>
 
-State 9 <SV = 8> <Delay = 0.69>
-ST_9 : Operation 97 [1/2] (0.00ns)   --->   "%call_ln178 = call void @pu_comp, i32 %resA, i32 %tile_value_load, i16 %empty_53, i32 %Dbuf, i30 %trunc_ln" [src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252]   --->   Operation 97 'call' 'call_ln178' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_9 : Operation 98 [1/1] (0.00ns)   --->   "%or_ln179 = or i2 %shl_ln178, i2 1" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 98 'or' 'or_ln179' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 99 [1/1] (0.00ns)   --->   "%zext_ln179 = zext i2 %or_ln179" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 99 'zext' 'zext_ln179' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 100 [1/1] (0.00ns)   --->   "%tile_value_addr_3 = getelementptr i32 %tile_value, i64 0, i64 %zext_ln179" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 100 'getelementptr' 'tile_value_addr_3' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 101 [1/1] (0.00ns)   --->   "%tile_y_addr_3 = getelementptr i32 %tile_y, i64 0, i64 %zext_ln179" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 101 'getelementptr' 'tile_y_addr_3' <Predicate = true> <Delay = 0.00>
-ST_9 : Operation 102 [2/2] (0.69ns)   --->   "%tile_value_load_3 = load i2 %tile_value_addr_3" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 102 'load' 'tile_value_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_9 : Operation 103 [2/2] (0.69ns)   --->   "%tile_y_load_3 = load i2 %tile_y_addr_3" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 103 'load' 'tile_y_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+State 9 <SV = 8> <Delay = 0.85>
+ST_9 : Operation 97 [1/1] (0.00ns)   --->   "%i = load i2 %i_10" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 97 'load' 'i' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 98 [1/1] (0.34ns)   --->   "%icmp_ln202 = icmp_eq  i2 %i, i2 2" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 98 'icmp' 'icmp_ln202' <Predicate = true> <Delay = 0.34> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.34> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 99 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 2, i64 2, i64 2"   --->   Operation 99 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 100 [1/1] (0.43ns)   --->   "%add_ln202 = add i2 %i, i2 1" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 100 'add' 'add_ln202' <Predicate = true> <Delay = 0.43> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.43> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 101 [1/1] (0.00ns)   --->   "%br_ln202 = br i1 %icmp_ln202, void %for.body25.split.i, void %for.end129.i" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 101 'br' 'br_ln202' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 102 [1/1] (0.00ns)   --->   "%shl_ln205 = shl i2 %i, i2 1" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 102 'shl' 'shl_ln205' <Predicate = (!icmp_ln202)> <Delay = 0.00>
+ST_9 : Operation 103 [1/1] (0.00ns)   --->   "%zext_ln205 = zext i2 %shl_ln205" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 103 'zext' 'zext_ln205' <Predicate = (!icmp_ln202)> <Delay = 0.00>
+ST_9 : Operation 104 [1/1] (0.00ns)   --->   "%tile_value_addr = getelementptr i32 %tile_value, i64 0, i64 %zext_ln205" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 104 'getelementptr' 'tile_value_addr' <Predicate = (!icmp_ln202)> <Delay = 0.00>
+ST_9 : Operation 105 [1/1] (0.00ns)   --->   "%tile_y_addr_5 = getelementptr i32 %tile_y, i64 0, i64 %zext_ln205" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 105 'getelementptr' 'tile_y_addr_5' <Predicate = (!icmp_ln202)> <Delay = 0.00>
+ST_9 : Operation 106 [2/2] (0.69ns)   --->   "%tile_value_load = load i2 %tile_value_addr" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 106 'load' 'tile_value_load' <Predicate = (!icmp_ln202)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_9 : Operation 107 [2/2] (0.69ns)   --->   "%au0_r_5 = load i2 %tile_y_addr_5" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 107 'load' 'au0_r_5' <Predicate = (!icmp_ln202)> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 4> <RAM>
+ST_9 : Operation 108 [1/1] (0.00ns)   --->   "%tile_to_dbuf_begin_addr = getelementptr i16 %tile_to_dbuf_begin, i64 0, i64 %zext_ln205" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 108 'getelementptr' 'tile_to_dbuf_begin_addr' <Predicate = (!icmp_ln202)> <Delay = 0.00>
+ST_9 : Operation 109 [2/2] (0.68ns)   --->   "%tile_to_dbuf_begin_load = load i2 %tile_to_dbuf_begin_addr" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 109 'load' 'tile_to_dbuf_begin_load' <Predicate = (!icmp_ln202)> <Delay = 0.68> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_9 : Operation 110 [1/1] (0.34ns)   --->   "%icmp_ln210 = icmp_eq  i2 %i, i2 1" [src/spmm_device_fpga.cpp:210->src/spmm_device_fpga.cpp:315]   --->   Operation 110 'icmp' 'icmp_ln210' <Predicate = (!icmp_ln202)> <Delay = 0.34> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.34> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 111 [1/1] (0.00ns)   --->   "%au0_r_load = load i32 %au0_r" [src/spmm_device_fpga.cpp:251->src/spmm_device_fpga.cpp:315]   --->   Operation 111 'load' 'au0_r_load' <Predicate = (icmp_ln202)> <Delay = 0.00>
+ST_9 : Operation 112 [1/1] (0.85ns)   --->   "%icmp_ln251 = icmp_eq  i32 %au0_r_load, i32 4294967295" [src/spmm_device_fpga.cpp:251->src/spmm_device_fpga.cpp:315]   --->   Operation 112 'icmp' 'icmp_ln251' <Predicate = (icmp_ln202)> <Delay = 0.85> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_9 : Operation 113 [1/1] (0.00ns)   --->   "%br_ln251 = br i1 %icmp_ln251, void %for.inc.i84.i.preheader, void %pu_kernel.1.exit" [src/spmm_device_fpga.cpp:251->src/spmm_device_fpga.cpp:315]   --->   Operation 113 'br' 'br_ln251' <Predicate = (icmp_ln202)> <Delay = 0.00>
 
 State 10 <SV = 9> <Delay = 2.73>
-ST_10 : Operation 104 [1/2] (0.69ns)   --->   "%tile_value_load_3 = load i2 %tile_value_addr_3" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 104 'load' 'tile_value_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_10 : Operation 105 [1/2] (0.69ns)   --->   "%tile_y_load_3 = load i2 %tile_y_addr_3" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 105 'load' 'tile_y_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_10 : Operation 106 [1/1] (0.00ns)   --->   "%empty_54 = trunc i32 %tile_y_load_3" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 106 'trunc' 'empty_54' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 107 [2/2] (2.03ns)   --->   "%call_ln179 = call void @pu_comp, i32 %resB, i32 %tile_value_load_3, i16 %empty_54, i32 %Dbuf, i30 %trunc_ln" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 107 'call' 'call_ln179' <Predicate = true> <Delay = 2.03> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_10 : Operation 108 [1/1] (0.85ns)   --->   "%icmp_ln184 = icmp_eq  i32 %tile_y_load, i32 %tile_y_load_3" [src/spmm_device_fpga.cpp:184->src/spmm_device_fpga.cpp:252]   --->   Operation 108 'icmp' 'icmp_ln184' <Predicate = true> <Delay = 0.85> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_10 : Operation 114 [1/2] (0.69ns)   --->   "%tile_value_load = load i2 %tile_value_addr" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 114 'load' 'tile_value_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_10 : Operation 115 [1/2] (0.69ns)   --->   "%au0_r_5 = load i2 %tile_y_addr_5" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 115 'load' 'au0_r_5' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 4> <RAM>
+ST_10 : Operation 116 [1/2] (0.68ns)   --->   "%tile_to_dbuf_begin_load = load i2 %tile_to_dbuf_begin_addr" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 116 'load' 'tile_to_dbuf_begin_load' <Predicate = true> <Delay = 0.68> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_10 : Operation 117 [2/2] (2.03ns)   --->   "%call_ln205 = call void @pu_comp, i32 %resA, i32 %tile_value_load, i32 %Dbuf, i30 %trunc_ln, i16 %tile_to_dbuf_begin_load" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 117 'call' 'call_ln205' <Predicate = true> <Delay = 2.03> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 11 <SV = 10> <Delay = 1.22>
-ST_11 : Operation 109 [1/1] (0.00ns)   --->   "%specloopname_ln175 = specloopname void @_ssdm_op_SpecLoopName, void @empty_30" [src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252]   --->   Operation 109 'specloopname' 'specloopname_ln175' <Predicate = true> <Delay = 0.00>
-ST_11 : Operation 110 [1/2] (0.00ns)   --->   "%call_ln179 = call void @pu_comp, i32 %resB, i32 %tile_value_load_3, i16 %empty_54, i32 %Dbuf, i30 %trunc_ln" [src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252]   --->   Operation 110 'call' 'call_ln179' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_11 : Operation 111 [1/1] (0.00ns)   --->   "%br_ln184 = br i1 %icmp_ln184, void %for.inc72.i.preheader, void %for.inc56.i.preheader" [src/spmm_device_fpga.cpp:184->src/spmm_device_fpga.cpp:252]   --->   Operation 111 'br' 'br_ln184' <Predicate = true> <Delay = 0.00>
-ST_11 : Operation 112 [2/2] (1.22ns)   --->   "%call_ln248 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_190_3, i30 %trunc_ln, i32 %resA, i32 %AU0" [src/spmm_device_fpga.cpp:248]   --->   Operation 112 'call' 'call_ln248' <Predicate = (!icmp_ln184)> <Delay = 1.22> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 11 <SV = 10> <Delay = 0.69>
+ST_11 : Operation 118 [1/2] (0.00ns)   --->   "%call_ln205 = call void @pu_comp, i32 %resA, i32 %tile_value_load, i32 %Dbuf, i30 %trunc_ln, i16 %tile_to_dbuf_begin_load" [src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315]   --->   Operation 118 'call' 'call_ln205' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_11 : Operation 119 [1/1] (0.00ns)   --->   "%or_ln206 = or i2 %shl_ln205, i2 1" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 119 'or' 'or_ln206' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 120 [1/1] (0.00ns)   --->   "%zext_ln206 = zext i2 %or_ln206" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 120 'zext' 'zext_ln206' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 121 [1/1] (0.00ns)   --->   "%tile_value_addr_3 = getelementptr i32 %tile_value, i64 0, i64 %zext_ln206" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 121 'getelementptr' 'tile_value_addr_3' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 122 [1/1] (0.00ns)   --->   "%tile_y_addr_6 = getelementptr i32 %tile_y, i64 0, i64 %zext_ln206" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 122 'getelementptr' 'tile_y_addr_6' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 123 [2/2] (0.69ns)   --->   "%tile_value_load_3 = load i2 %tile_value_addr_3" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 123 'load' 'tile_value_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_11 : Operation 124 [2/2] (0.69ns)   --->   "%au1_r_3 = load i2 %tile_y_addr_6" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 124 'load' 'au1_r_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 4> <RAM>
+ST_11 : Operation 125 [1/1] (0.00ns)   --->   "%tile_to_dbuf_begin_addr_3 = getelementptr i16 %tile_to_dbuf_begin, i64 0, i64 %zext_ln206" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 125 'getelementptr' 'tile_to_dbuf_begin_addr_3' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 126 [2/2] (0.68ns)   --->   "%tile_to_dbuf_begin_load_3 = load i2 %tile_to_dbuf_begin_addr_3" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 126 'load' 'tile_to_dbuf_begin_load_3' <Predicate = true> <Delay = 0.68> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
 
-State 12 <SV = 11> <Delay = 0.00>
-ST_12 : Operation 113 [1/2] (0.00ns)   --->   "%call_ln248 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_190_3, i30 %trunc_ln, i32 %resA, i32 %AU0" [src/spmm_device_fpga.cpp:248]   --->   Operation 113 'call' 'call_ln248' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_12 : Operation 114 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc75.i"   --->   Operation 114 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+State 12 <SV = 11> <Delay = 2.73>
+ST_12 : Operation 127 [1/2] (0.69ns)   --->   "%tile_value_load_3 = load i2 %tile_value_addr_3" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 127 'load' 'tile_value_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
+ST_12 : Operation 128 [1/2] (0.69ns)   --->   "%au1_r_3 = load i2 %tile_y_addr_6" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 128 'load' 'au1_r_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 4> <RAM>
+ST_12 : Operation 129 [1/2] (0.68ns)   --->   "%tile_to_dbuf_begin_load_3 = load i2 %tile_to_dbuf_begin_addr_3" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 129 'load' 'tile_to_dbuf_begin_load_3' <Predicate = true> <Delay = 0.68> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.68> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 16> <Depth = 4> <RAM>
+ST_12 : Operation 130 [2/2] (2.03ns)   --->   "%call_ln206 = call void @pu_comp, i32 %resB, i32 %tile_value_load_3, i32 %Dbuf, i30 %trunc_ln, i16 %tile_to_dbuf_begin_load_3" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 130 'call' 'call_ln206' <Predicate = true> <Delay = 2.03> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 13 <SV = 11> <Delay = 1.22>
-ST_13 : Operation 115 [2/2] (1.22ns)   --->   "%call_ln248 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_185_2, i30 %trunc_ln, i32 %resA, i32 %resB, i32 %AU0" [src/spmm_device_fpga.cpp:248]   --->   Operation 115 'call' 'call_ln248' <Predicate = true> <Delay = 1.22> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 13 <SV = 12> <Delay = 1.24>
+ST_13 : Operation 131 [1/1] (0.00ns)   --->   "%specloopname_ln192 = specloopname void @_ssdm_op_SpecLoopName, void @empty_31" [src/spmm_device_fpga.cpp:192->src/spmm_device_fpga.cpp:315]   --->   Operation 131 'specloopname' 'specloopname_ln192' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 132 [1/2] (0.00ns)   --->   "%call_ln206 = call void @pu_comp, i32 %resB, i32 %tile_value_load_3, i32 %Dbuf, i30 %trunc_ln, i16 %tile_to_dbuf_begin_load_3" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 132 'call' 'call_ln206' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_13 : Operation 133 [1/1] (0.00ns)   --->   "%br_ln210 = br i1 %icmp_ln210, void %AU_step.i, void %if.then.i" [src/spmm_device_fpga.cpp:210->src/spmm_device_fpga.cpp:315]   --->   Operation 133 'br' 'br_ln210' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 134 [1/1] (0.00ns)   --->   "%au0_r_load_3 = load i32 %au0_r" [src/spmm_device_fpga.cpp:211->src/spmm_device_fpga.cpp:315]   --->   Operation 134 'load' 'au0_r_load_3' <Predicate = (icmp_ln210)> <Delay = 0.00>
+ST_13 : Operation 135 [1/1] (0.85ns)   --->   "%icmp_ln211 = icmp_eq  i32 %au0_r_load_3, i32 %tile_y_load" [src/spmm_device_fpga.cpp:211->src/spmm_device_fpga.cpp:315]   --->   Operation 135 'icmp' 'icmp_ln211' <Predicate = (icmp_ln210)> <Delay = 0.85> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 136 [1/1] (0.38ns)   --->   "%br_ln211 = br i1 %icmp_ln211, void %if.else.i, void %for.inc127.i" [src/spmm_device_fpga.cpp:211->src/spmm_device_fpga.cpp:315]   --->   Operation 136 'br' 'br_ln211' <Predicate = (icmp_ln210)> <Delay = 0.38>
+ST_13 : Operation 137 [1/1] (0.00ns)   --->   "%au1_r_load = load i32 %au1_r" [src/spmm_device_fpga.cpp:212->src/spmm_device_fpga.cpp:315]   --->   Operation 137 'load' 'au1_r_load' <Predicate = (icmp_ln210 & !icmp_ln211)> <Delay = 0.00>
+ST_13 : Operation 138 [1/1] (0.85ns)   --->   "%icmp_ln212 = icmp_eq  i32 %au1_r_load, i32 %tile_y_load" [src/spmm_device_fpga.cpp:212->src/spmm_device_fpga.cpp:315]   --->   Operation 138 'icmp' 'icmp_ln212' <Predicate = (icmp_ln210 & !icmp_ln211)> <Delay = 0.85> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 139 [1/1] (0.38ns)   --->   "%store_ln212 = store i32 4294967295, i32 %au1_r" [src/spmm_device_fpga.cpp:212->src/spmm_device_fpga.cpp:315]   --->   Operation 139 'store' 'store_ln212' <Predicate = (icmp_ln210 & !icmp_ln211)> <Delay = 0.38>
+ST_13 : Operation 140 [1/1] (0.00ns)   --->   "%br_ln212 = br i1 %icmp_ln212, void %for.inc.i56.i.preheader, void %for.inc.i.i.preheader" [src/spmm_device_fpga.cpp:212->src/spmm_device_fpga.cpp:315]   --->   Operation 140 'br' 'br_ln212' <Predicate = (icmp_ln210 & !icmp_ln211)> <Delay = 0.00>
 
-State 14 <SV = 12> <Delay = 0.38>
-ST_14 : Operation 116 [1/2] (0.00ns)   --->   "%call_ln248 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_185_2, i30 %trunc_ln, i32 %resA, i32 %resB, i32 %AU0" [src/spmm_device_fpga.cpp:248]   --->   Operation 116 'call' 'call_ln248' <Predicate = (icmp_ln184)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_14 : Operation 117 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc75.i"   --->   Operation 117 'br' 'br_ln0' <Predicate = (icmp_ln184)> <Delay = 0.00>
-ST_14 : Operation 118 [1/1] (0.38ns)   --->   "%store_ln175 = store i2 %add_ln175, i2 %i_4" [src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252]   --->   Operation 118 'store' 'store_ln175' <Predicate = true> <Delay = 0.38>
-ST_14 : Operation 119 [1/1] (0.00ns)   --->   "%br_ln175 = br void %AU_step.i" [src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252]   --->   Operation 119 'br' 'br_ln175' <Predicate = true> <Delay = 0.00>
+State 14 <SV = 13> <Delay = 2.08>
+ST_14 : Operation 141 [2/2] (2.08ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_148_138, i30 %trunc_ln, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 141 'call' 'call_ln311' <Predicate = true> <Delay = 2.08> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 15 <SV = 14> <Delay = 1.24>
+ST_15 : Operation 142 [1/2] (0.00ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_148_138, i30 %trunc_ln, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 142 'call' 'call_ln311' <Predicate = (icmp_ln210 & !icmp_ln212)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_15 : Operation 143 [1/1] (0.00ns)   --->   "%br_ln0 = br void %AU_step.i"   --->   Operation 143 'br' 'br_ln0' <Predicate = (icmp_ln210 & !icmp_ln212)> <Delay = 0.00>
+ST_15 : Operation 144 [1/2] (0.00ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_148_1, i30 %trunc_ln, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 144 'call' 'call_ln311' <Predicate = (icmp_ln210 & icmp_ln212)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_15 : Operation 145 [1/1] (0.00ns)   --->   "%br_ln0 = br void %AU_step.i"   --->   Operation 145 'br' 'br_ln0' <Predicate = (icmp_ln210 & icmp_ln212)> <Delay = 0.00>
+ST_15 : Operation 146 [1/1] (0.85ns)   --->   "%icmp_ln234 = icmp_eq  i32 %au0_r_5, i32 %au1_r_3" [src/spmm_device_fpga.cpp:234->src/spmm_device_fpga.cpp:315]   --->   Operation 146 'icmp' 'icmp_ln234' <Predicate = true> <Delay = 0.85> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 147 [1/1] (0.00ns)   --->   "%br_ln234 = br i1 %icmp_ln234, void %for.inc123.i.preheader, void %for.inc101.i.preheader" [src/spmm_device_fpga.cpp:234->src/spmm_device_fpga.cpp:315]   --->   Operation 147 'br' 'br_ln234' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 148 [1/1] (0.38ns)   --->   "%store_ln206 = store i32 %au1_r_3, i32 %au1_r" [src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315]   --->   Operation 148 'store' 'store_ln206' <Predicate = (!icmp_ln234)> <Delay = 0.38>
+
+State 16 <SV = 13> <Delay = 2.08>
+ST_16 : Operation 149 [2/2] (2.08ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_148_1, i30 %trunc_ln, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 149 'call' 'call_ln311' <Predicate = true> <Delay = 2.08> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 17 <SV = 15> <Delay = 1.22>
+ST_17 : Operation 150 [2/2] (1.22ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_241_3, i30 %trunc_ln, i32 %resA, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 150 'call' 'call_ln311' <Predicate = true> <Delay = 1.22> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 18 <SV = 16> <Delay = 0.77>
+ST_18 : Operation 151 [1/2] (0.00ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_241_3, i30 %trunc_ln, i32 %resA, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 151 'call' 'call_ln311' <Predicate = (!icmp_ln211 & !icmp_ln234) | (!icmp_ln210 & !icmp_ln234)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_18 : Operation 152 [1/1] (0.38ns)   --->   "%br_ln0 = br void %for.inc127.i"   --->   Operation 152 'br' 'br_ln0' <Predicate = (!icmp_ln211 & !icmp_ln234) | (!icmp_ln210 & !icmp_ln234)> <Delay = 0.38>
+ST_18 : Operation 153 [1/2] (0.00ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_235_2, i30 %trunc_ln, i32 %resA, i32 %resB, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 153 'call' 'call_ln311' <Predicate = (!icmp_ln211 & icmp_ln234) | (!icmp_ln210 & icmp_ln234)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_18 : Operation 154 [1/1] (0.38ns)   --->   "%br_ln0 = br void %for.inc127.i"   --->   Operation 154 'br' 'br_ln0' <Predicate = (!icmp_ln211 & icmp_ln234) | (!icmp_ln210 & icmp_ln234)> <Delay = 0.38>
+ST_18 : Operation 155 [1/1] (0.00ns)   --->   "%au0_r_6 = phi i32 %au0_r_5, void %for.inc123.i.preheader, i32 %au0_r_5, void %for.inc101.i.preheader, i32 %tile_y_load, void %if.then.i"   --->   Operation 155 'phi' 'au0_r_6' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 156 [1/1] (0.38ns)   --->   "%store_ln202 = store i2 %add_ln202, i2 %i_10" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 156 'store' 'store_ln202' <Predicate = true> <Delay = 0.38>
+ST_18 : Operation 157 [1/1] (0.38ns)   --->   "%store_ln202 = store i32 %au0_r_6, i32 %au0_r" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 157 'store' 'store_ln202' <Predicate = true> <Delay = 0.38>
+ST_18 : Operation 158 [1/1] (0.00ns)   --->   "%br_ln202 = br void %for.body25.i" [src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315]   --->   Operation 158 'br' 'br_ln202' <Predicate = true> <Delay = 0.00>
+
+State 19 <SV = 15> <Delay = 1.22>
+ST_19 : Operation 159 [2/2] (1.22ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_235_2, i30 %trunc_ln, i32 %resA, i32 %resB, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 159 'call' 'call_ln311' <Predicate = true> <Delay = 1.22> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 20 <SV = 9> <Delay = 2.08>
+ST_20 : Operation 160 [2/2] (2.08ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_148_139, i30 %trunc_ln, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 160 'call' 'call_ln311' <Predicate = true> <Delay = 2.08> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 21 <SV = 10> <Delay = 0.00>
+ST_21 : Operation 161 [1/2] (0.00ns)   --->   "%call_ln311 = call void @pu_kernel.1_Pipeline_VITIS_LOOP_148_139, i30 %trunc_ln, i32 %AU0" [src/spmm_device_fpga.cpp:311]   --->   Operation 161 'call' 'call_ln311' <Predicate = (!icmp_ln251)> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_21 : Operation 162 [1/1] (0.00ns)   --->   "%br_ln0 = br void %pu_kernel.1.exit"   --->   Operation 162 'br' 'br_ln0' <Predicate = (!icmp_ln251)> <Delay = 0.00>
+ST_21 : Operation 163 [1/1] (0.00ns)   --->   "%ret_ln315 = ret" [src/spmm_device_fpga.cpp:315]   --->   Operation 163 'ret' 'ret_ln315' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -233,15 +291,17 @@ Target clock period: 4ns, clock uncertainty: 1.08ns.
 
  <State 1>: 1.93ns
 The critical path consists of the following:
-	fifo read operation ('s_12_read', src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252) on port 's_12' (src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252) [22]  (1.23 ns)
-	'store' operation ('store_ln151', src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252) of variable 'bitcast_ln151', src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252 on array 'p.v.value', src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252 [36]  (0.699 ns)
+	fifo read operation ('s_12_read', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315) on port 's_12' (src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315) [26]  (1.23 ns)
+	'store' operation ('store_ln178', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315) of variable 'bitcast_ln178', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315 on array 'p.v.value', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315 [40]  (0.699 ns)
 
  <State 2>: 0.699ns
 The critical path consists of the following:
-	'store' operation ('store_ln151', src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252) of variable 'bitcast_ln151_8', src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252 on array 'p.v.value', src/spmm_device_fpga.cpp:151->src/spmm_device_fpga.cpp:252 [47]  (0.699 ns)
+	'store' operation ('store_ln178', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315) of variable 'bitcast_ln178_8', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315 on array 'p.v.value', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:315 [51]  (0.699 ns)
 
- <State 3>: 0ns
+ <State 3>: 2.08ns
 The critical path consists of the following:
+	wire read operation ('K_read') on port 'K' [8]  (0 ns)
+	'call' operation ('call_ln311', src/spmm_device_fpga.cpp:311) to 'pu_kernel.1_Pipeline_init_au' [69]  (2.08 ns)
 
  <State 4>: 0ns
 The critical path consists of the following:
@@ -254,41 +314,73 @@ The critical path consists of the following:
 
  <State 7>: 0.699ns
 The critical path consists of the following:
-	'load' operation ('i', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252) on local variable 'i' [69]  (0 ns)
-	'shl' operation ('shl_ln178', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252) [76]  (0 ns)
-	'getelementptr' operation ('tile_value_addr', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252) [78]  (0 ns)
-	'load' operation ('tile_value_load', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252) on array 'tile.value', src/spmm_device_fpga.cpp:148->src/spmm_device_fpga.cpp:252 [80]  (0.699 ns)
+	'getelementptr' operation ('tile_y_addr') [70]  (0 ns)
+	'load' operation ('tile_y_load') on array 'tile.y', src/spmm_device_fpga.cpp:174->src/spmm_device_fpga.cpp:315 [71]  (0.699 ns)
 
- <State 8>: 2.73ns
+ <State 8>: 0.699ns
 The critical path consists of the following:
-	'load' operation ('tile_value_load', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252) on array 'tile.value', src/spmm_device_fpga.cpp:148->src/spmm_device_fpga.cpp:252 [80]  (0.699 ns)
-	'call' operation ('call_ln178', src/spmm_device_fpga.cpp:178->src/spmm_device_fpga.cpp:252) to 'pu_comp' [83]  (2.03 ns)
+	'load' operation ('tile_y_load') on array 'tile.y', src/spmm_device_fpga.cpp:174->src/spmm_device_fpga.cpp:315 [71]  (0.699 ns)
 
- <State 9>: 0.699ns
+ <State 9>: 0.859ns
 The critical path consists of the following:
-	'or' operation ('or_ln179', src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252) [84]  (0 ns)
-	'getelementptr' operation ('tile_value_addr_3', src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252) [86]  (0 ns)
-	'load' operation ('tile_value_load_3', src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252) on array 'tile.value', src/spmm_device_fpga.cpp:148->src/spmm_device_fpga.cpp:252 [88]  (0.699 ns)
+	'load' operation ('au0_r_load', src/spmm_device_fpga.cpp:251->src/spmm_device_fpga.cpp:315) on local variable 'au0_r' [135]  (0 ns)
+	'icmp' operation ('icmp_ln251', src/spmm_device_fpga.cpp:251->src/spmm_device_fpga.cpp:315) [136]  (0.859 ns)
 
  <State 10>: 2.73ns
 The critical path consists of the following:
-	'load' operation ('tile_value_load_3', src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252) on array 'tile.value', src/spmm_device_fpga.cpp:148->src/spmm_device_fpga.cpp:252 [88]  (0.699 ns)
-	'call' operation ('call_ln179', src/spmm_device_fpga.cpp:179->src/spmm_device_fpga.cpp:252) to 'pu_comp' [91]  (2.03 ns)
+	'load' operation ('tile_value_load', src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315) on array 'tile.value', src/spmm_device_fpga.cpp:174->src/spmm_device_fpga.cpp:315 [88]  (0.699 ns)
+	'call' operation ('call_ln205', src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315) to 'pu_comp' [92]  (2.03 ns)
 
- <State 11>: 1.22ns
+ <State 11>: 0.699ns
 The critical path consists of the following:
-	'call' operation ('call_ln248', src/spmm_device_fpga.cpp:248) to 'pu_kernel.1_Pipeline_VITIS_LOOP_190_3' [95]  (1.22 ns)
+	'or' operation ('or_ln206', src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315) [93]  (0 ns)
+	'getelementptr' operation ('tile_value_addr_3', src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315) [95]  (0 ns)
+	'load' operation ('tile_value_load_3', src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315) on array 'tile.value', src/spmm_device_fpga.cpp:174->src/spmm_device_fpga.cpp:315 [97]  (0.699 ns)
 
- <State 12>: 0ns
+ <State 12>: 2.73ns
 The critical path consists of the following:
+	'load' operation ('tile_value_load_3', src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315) on array 'tile.value', src/spmm_device_fpga.cpp:174->src/spmm_device_fpga.cpp:315 [97]  (0.699 ns)
+	'call' operation ('call_ln206', src/spmm_device_fpga.cpp:206->src/spmm_device_fpga.cpp:315) to 'pu_comp' [101]  (2.03 ns)
 
- <State 13>: 1.22ns
+ <State 13>: 1.25ns
 The critical path consists of the following:
-	'call' operation ('call_ln248', src/spmm_device_fpga.cpp:248) to 'pu_kernel.1_Pipeline_VITIS_LOOP_185_2' [98]  (1.22 ns)
+	'load' operation ('au0_r_load_3', src/spmm_device_fpga.cpp:211->src/spmm_device_fpga.cpp:315) on local variable 'au0_r' [105]  (0 ns)
+	'icmp' operation ('icmp_ln211', src/spmm_device_fpga.cpp:211->src/spmm_device_fpga.cpp:315) [106]  (0.859 ns)
+	multiplexor before 'phi' operation ('au0_r') with incoming values : ('tile_y_load') ('au0_r', src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315) [130]  (0.387 ns)
 
- <State 14>: 0.387ns
+ <State 14>: 2.08ns
 The critical path consists of the following:
-	'store' operation ('store_ln175', src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252) of variable 'add_ln175', src/spmm_device_fpga.cpp:175->src/spmm_device_fpga.cpp:252 on local variable 'i' [101]  (0.387 ns)
+	'call' operation ('call_ln311', src/spmm_device_fpga.cpp:311) to 'pu_kernel.1_Pipeline_VITIS_LOOP_148_138' [114]  (2.08 ns)
+
+ <State 15>: 1.25ns
+The critical path consists of the following:
+	'icmp' operation ('icmp_ln234', src/spmm_device_fpga.cpp:234->src/spmm_device_fpga.cpp:315) [120]  (0.859 ns)
+	blocking operation 0.387 ns on control path)
+
+ <State 16>: 2.08ns
+The critical path consists of the following:
+	'call' operation ('call_ln311', src/spmm_device_fpga.cpp:311) to 'pu_kernel.1_Pipeline_VITIS_LOOP_148_1' [117]  (2.08 ns)
+
+ <State 17>: 1.22ns
+The critical path consists of the following:
+	'call' operation ('call_ln311', src/spmm_device_fpga.cpp:311) to 'pu_kernel.1_Pipeline_VITIS_LOOP_241_3' [123]  (1.22 ns)
+
+ <State 18>: 0.774ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('au0_r') with incoming values : ('tile_y_load') ('au0_r', src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315) [130]  (0.387 ns)
+	'phi' operation ('au0_r') with incoming values : ('tile_y_load') ('au0_r', src/spmm_device_fpga.cpp:205->src/spmm_device_fpga.cpp:315) [130]  (0 ns)
+	'store' operation ('store_ln202', src/spmm_device_fpga.cpp:202->src/spmm_device_fpga.cpp:315) of variable 'au0_r' on local variable 'au0_r' [132]  (0.387 ns)
+
+ <State 19>: 1.22ns
+The critical path consists of the following:
+	'call' operation ('call_ln311', src/spmm_device_fpga.cpp:311) to 'pu_kernel.1_Pipeline_VITIS_LOOP_235_2' [127]  (1.22 ns)
+
+ <State 20>: 2.08ns
+The critical path consists of the following:
+	'call' operation ('call_ln311', src/spmm_device_fpga.cpp:311) to 'pu_kernel.1_Pipeline_VITIS_LOOP_148_139' [139]  (2.08 ns)
+
+ <State 21>: 0ns
+The critical path consists of the following:
 
 
 ============================================================
@@ -313,6 +405,13 @@ N/A
 	State 12
 	State 13
 	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
 
 
 ============================================================

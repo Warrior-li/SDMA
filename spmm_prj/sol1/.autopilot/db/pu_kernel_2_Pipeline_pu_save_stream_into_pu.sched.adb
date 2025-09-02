@@ -254,7 +254,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4196484560</coreId>
+						<coreId>4294967295</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -296,7 +296,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4196755040</coreId>
+						<coreId>29</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -339,7 +339,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>0</coreId>
+						<coreId>101468433</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -366,7 +366,7 @@
 						<name>u_3</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>154</lineNumber>
+						<lineNumber>181</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -382,14 +382,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>154</second>
+										<second>181</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -402,7 +402,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4196755040</coreId>
+						<coreId>17</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -427,10 +427,10 @@
 					<Obj>
 						<type>0</type>
 						<id>12</id>
-						<name>icmp_ln154</name>
+						<name>icmp_ln181</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>154</lineNumber>
+						<lineNumber>181</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -446,14 +446,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>154</second>
+										<second>181</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -466,7 +466,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4197556256</coreId>
+						<coreId>4120097664</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -491,10 +491,10 @@
 					<Obj>
 						<type>0</type>
 						<id>14</id>
-						<name>add_ln154</name>
+						<name>add_ln181</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>154</lineNumber>
+						<lineNumber>181</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -510,14 +510,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>154</second>
+										<second>181</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -530,7 +530,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4197573856</coreId>
+						<coreId>4121021904</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -555,10 +555,10 @@
 					<Obj>
 						<type>0</type>
 						<id>15</id>
-						<name>br_ln154</name>
+						<name>br_ln181</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>154</lineNumber>
+						<lineNumber>181</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -574,14 +574,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>154</second>
+										<second>181</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -594,7 +594,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4194964160</coreId>
+						<coreId>128</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -620,10 +620,10 @@
 					<Obj>
 						<type>0</type>
 						<id>17</id>
-						<name>zext_ln154</name>
+						<name>zext_ln181</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>154</lineNumber>
+						<lineNumber>181</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -639,14 +639,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>154</second>
+										<second>181</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -659,7 +659,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>159161187</coreId>
+						<coreId>4121165520</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -686,7 +686,7 @@
 						<name>p_v_value_addr</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>156</lineNumber>
+						<lineNumber>183</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -702,14 +702,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>156</second>
+										<second>183</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -722,7 +722,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4196484560</coreId>
+						<coreId>116485139</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -751,7 +751,7 @@
 						<name>p_v_y_addr</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>156</lineNumber>
+						<lineNumber>183</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -767,14 +767,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>156</second>
+										<second>183</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -787,7 +787,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4196755040</coreId>
+						<coreId>4119736976</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -816,7 +816,7 @@
 						<name>tile_value_addr</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>156</lineNumber>
+						<lineNumber>183</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -832,14 +832,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>156</second>
+										<second>183</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -852,7 +852,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4196753056</coreId>
+						<coreId>4120899008</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -881,7 +881,7 @@
 						<name>tile_y_addr</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>156</lineNumber>
+						<lineNumber>183</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -897,14 +897,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>156</second>
+										<second>183</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -917,7 +917,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4197111360</coreId>
+						<coreId>4122458896</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -946,7 +946,7 @@
 						<name>p_v_value_load</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>156</lineNumber>
+						<lineNumber>183</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -962,14 +962,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>156</second>
+										<second>183</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -982,7 +982,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4196384960</coreId>
+						<coreId>4121627312</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1009,7 +1009,7 @@
 						<name>p_v_y_load</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>156</lineNumber>
+						<lineNumber>183</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -1025,14 +1025,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>156</second>
+										<second>183</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -1045,7 +1045,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4197507072</coreId>
+						<coreId>117108267</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1069,10 +1069,10 @@
 					<Obj>
 						<type>0</type>
 						<id>26</id>
-						<name>tile_value_addr_write_ln156</name>
+						<name>tile_value_addr_write_ln183</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>156</lineNumber>
+						<lineNumber>183</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -1088,14 +1088,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>156</second>
+										<second>183</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -1108,7 +1108,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4196384272</coreId>
+						<coreId>4122263064</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1133,10 +1133,10 @@
 					<Obj>
 						<type>0</type>
 						<id>27</id>
-						<name>tile_y_addr_write_ln156</name>
+						<name>tile_y_addr_write_ln183</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>156</lineNumber>
+						<lineNumber>183</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -1152,14 +1152,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>156</second>
+										<second>183</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -1172,7 +1172,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4196384960</coreId>
+						<coreId>4122262624</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1200,7 +1200,7 @@
 						<name>p_ref_addr</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>157</lineNumber>
+						<lineNumber>184</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -1216,14 +1216,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>157</second>
+										<second>184</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -1236,7 +1236,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1330007625</coreId>
+						<coreId>114348504</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -1265,7 +1265,7 @@
 						<name>p_ref_load</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>157</lineNumber>
+						<lineNumber>184</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -1281,14 +1281,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>157</second>
+										<second>184</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -1301,7 +1301,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>158694067</coreId>
+						<coreId>4121921728</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>1</bitwidth>
@@ -1328,7 +1328,7 @@
 						<name>tile_ref_addr</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>157</lineNumber>
+						<lineNumber>184</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -1344,14 +1344,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>157</second>
+										<second>184</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -1364,7 +1364,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4194902496</coreId>
+						<coreId>4120579120</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>2</bitwidth>
@@ -1390,10 +1390,10 @@
 					<Obj>
 						<type>0</type>
 						<id>31</id>
-						<name>tile_ref_addr_write_ln157</name>
+						<name>tile_ref_addr_write_ln184</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>157</lineNumber>
+						<lineNumber>184</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -1409,14 +1409,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>157</second>
+										<second>184</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -1429,7 +1429,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4197118112</coreId>
+						<coreId>4119540560</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1454,10 +1454,10 @@
 					<Obj>
 						<type>0</type>
 						<id>32</id>
-						<name>u_write_ln154</name>
+						<name>u_write_ln181</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>154</lineNumber>
+						<lineNumber>181</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -1473,14 +1473,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>154</second>
+										<second>181</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -1493,7 +1493,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4194319568</coreId>
+						<coreId>4122216048</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1520,10 +1520,10 @@
 					<Obj>
 						<type>0</type>
 						<id>33</id>
-						<name>br_ln154</name>
+						<name>br_ln181</name>
 						<fileName>src/spmm_device_fpga.cpp</fileName>
 						<fileDirectory>/home/shuxuan/SDMA</fileDirectory>
-						<lineNumber>154</lineNumber>
+						<lineNumber>181</lineNumber>
 						<contextFuncName>pu_kernel</contextFuncName>
 						<contextNormFuncName>pu_kernel</contextNormFuncName>
 						<inlineStackInfo>
@@ -1539,14 +1539,14 @@
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>pu_kernel</second>
 										</first>
-										<second>154</second>
+										<second>181</second>
 									</item>
 									<item>
 										<first>
 											<first>src/spmm_device_fpga.cpp</first>
 											<second>spmm_hls</second>
 										</first>
-										<second>253</second>
+										<second>316</second>
 									</item>
 								</second>
 							</item>
@@ -1559,7 +1559,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>1397508187</coreId>
+						<coreId>114517587</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1601,7 +1601,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4197317136</coreId>
+						<coreId>4121759232</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>0</bitwidth>
@@ -1646,7 +1646,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4198164192</coreId>
+						<coreId>114804729</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>32</bitwidth>
@@ -1677,7 +1677,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4197573856</coreId>
+						<coreId>4121467664</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -1708,7 +1708,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4197664960</coreId>
+						<coreId>4121889696</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -1739,7 +1739,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>158132628</coreId>
+						<coreId>4121155328</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>3</bitwidth>
@@ -1770,7 +1770,7 @@
 						<coreName></coreName>
 						<isStorage>0</isStorage>
 						<storageDepth>0</storageDepth>
-						<coreId>4197573856</coreId>
+						<coreId>101861217</coreId>
 						<rtlModuleName></rtlModuleName>
 					</Obj>
 					<bitwidth>64</bitwidth>
@@ -1804,7 +1804,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>757935405</coreId>
+					<coreId>4121046000</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -1837,7 +1837,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>1916886893</coreId>
+					<coreId>4121428624</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -1871,7 +1871,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>4196755040</coreId>
+					<coreId>114353019</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>
@@ -1916,7 +1916,7 @@
 					<coreName></coreName>
 					<isStorage>0</isStorage>
 					<storageDepth>0</storageDepth>
-					<coreId>4197130128</coreId>
+					<coreId>4121467792</coreId>
 					<rtlModuleName></rtlModuleName>
 				</Obj>
 				<node_objs>

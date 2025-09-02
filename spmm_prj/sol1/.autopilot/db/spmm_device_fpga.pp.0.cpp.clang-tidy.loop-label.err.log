@@ -1,4 +1,4 @@
-1 warning and 1 error generated.
+3 warnings and 2 errors generated.
 Error while processing /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.
-clang-tidy applied 12 of 12 suggested fixes.
-Suppressed 1 warnings (1 with check filters).
+clang-tidy applied 14 of 14 suggested fixes.
+Suppressed 3 warnings (3 with check filters).

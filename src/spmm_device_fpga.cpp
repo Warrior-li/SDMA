@@ -103,7 +103,8 @@ void dfm(
     value_t* Dbuf,
     index_t& Dlen,
     const value_t* B,
-    index_t K
+    index_t K,
+    index_t* tile_to_dbuf_begin
 ){
     #pragma hls inline off
 
@@ -114,7 +115,12 @@ void dfm(
                 #pragma hls pipeline II = 1
                 Dbuf[Dlen + j] = B[tile[i].y * K + j];
             }
+            tile_to_dbuf_begin[i] = Dlen;
             Dlen = Dlen + K;
+        }else{
+            for(int j = 0; j < i; ++j){
+                if(tile[i].y == tile[j].y) {tile_to_dbuf_begin[i] = tile_to_dbuf_begin[j]; break;}
+            }
         }
     }
 }
@@ -123,12 +129,26 @@ void pu_comp(
     value_t * res,
     Sp_value a,
     value_t * Dbuf,
-    const index_t K
+    const index_t K,
+    index_t begin
 ){
     #pragma hls inline off
     for(int i = 0; i < K; ++i){
         #pragma hls pipeline II=1
-        res[i] = a.value * Dbuf[a.y * K + i];
+        res[i] = a.value * Dbuf[begin + i];
+    }
+}
+
+void write_to_Obuf(
+    value_t * Obuf,
+    value_t * AU,
+    index_t K,
+    index_t row_num
+){
+    for(int i = 0; i < K; ++i){
+        #pragma HLS pipeline II = 1
+        Obuf[row_num * K + i] = AU[i];
+        AU[i] = 0;
     }
 }
 
@@ -145,8 +165,15 @@ void pu_kernel(
     #pragma HLS BIND_STORAGE variable=Dbuf type=ram_2p impl=bram
     index_t Dlen = 0;
 
+    value_t Obuf[MAX_K];
+    #pragma HLS BIND_STORAGE variable=Dbuf type=ram_2p impl=bram
+    index_t O_ref[TILE_NNZ];
+    index_t O_row_len = 0;
+    
+
     Sp_value tile[TILE_NNZ];
     bool tile_ref[TILE_NNZ];
+    index_t tile_to_dbuf_begin[TILE_NNZ];
 
     TilePkt p = in.read();
 
@@ -157,7 +184,7 @@ void pu_kernel(
         tile_ref[u] = p.ref[u];
     }
 
-    dfm(tile, tile_ref, Dbuf, Dlen, B, K);
+    dfm(tile, tile_ref, Dbuf, Dlen, B, K, tile_to_dbuf_begin);
 
     value_t resA[MAX_K],resB[MAX_K];
     value_t AU0[MAX_K], AU1[MAX_K];
@@ -165,7 +192,7 @@ void pu_kernel(
     int au0_r = -1, au1_r = -1;
 
     init_au:
-    for(int i = 0; i < MAX_K; ++i){
+    for(int i = 0; i < K; ++i){
         #pragma hls pipeline II = 1
         AU0[i] = 0;
         AU1[i] = 0;
@@ -175,31 +202,59 @@ void pu_kernel(
     for(int i = 0; i < 2; ++i){
         {
             #pragma hls dataflow
-            pu_comp(resA, tile[i * 2], Dbuf, K);
-            pu_comp(resB, tile[i * 2 + 1], Dbuf, K);
+            pu_comp(resA, tile[i * 2], Dbuf, K, tile_to_dbuf_begin[i * 2]);
+            pu_comp(resB, tile[i * 2 + 1], Dbuf, K, tile_to_dbuf_begin[i * 2 + 1]);
         }
 
         // Round 2
         if(i == 1){
-            
+            if(au0_r == tile[i*2].y) continue;
+            else if(au1_r == tile[i*2].y){
+                write_to_Obuf(Obuf, AU0, K, O_row_len);
+                O_ref[O_row_len] = au0_r;
+                au0_r = au1_r;
+                au1_r = -1;
+                ++O_row_len;
+            }else{
+                {
+                    #pragma hls dataflow
+                    write_to_Obuf(Obuf,AU0,K,O_row_len);
+                    write_to_Obuf(Obuf,AU1,K,O_row_len + 1);
+                }
+                O_ref[O_row_len] = au0_r;
+                O_ref[O_row_len + 1] = au1_r;
+                O_row_len += 2;
+                au0_r = au1_r = -1;
+            }
         }
 
 
         AU_step:
+        au0_r = tile[i*2].y;
         if(tile[i*2].y == tile[i*2+1].y){
-            au0_r = tile[i*2].y;
             for(int j = 0; j < K; ++j){
                 #pragma hls pipeline II = 1
                 AU0[j] += resA[j] + resB[j];
             }
         }else{
-            au0_r = tile[i*2].y;
             au1_r = tile[i*2+1].y;
             for(int j = 0; j < K; ++j){
                 #pragma hls pipeline II = 1
                 AU0[j] = resA[j];
-                AU1[j] = resA[j];
+                AU1[j] = resB[j];
             }
+        }
+    }
+
+    {
+        #pragma hls dataflow
+        if(au0_r != -1){
+            write_to_Obuf(Obuf, AU0, K, O_row_len);
+            O_ref[O_row_len] = au0_r;
+        }
+        if(au1_r != -1){
+            write_to_Obuf(Obuf, AU1, K, O_row_len + 1);
+            O_ref[O_row_len + 1] = au1_r;
         }
     }
 

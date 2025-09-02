@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'set_tile_broadcast'
 ================================================================
-* Date:           Mon Sep  1 19:26:56 2025
+* Date:           Tue Sep  2 16:52:39 2025
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        spmm_prj
@@ -396,12 +396,12 @@ ST_6 : Operation 55 [1/1] (0.00ns)   --->   "%pkt_ref_addr_3 = getelementptr i1 
 ST_6 : Operation 56 [2/2] (0.63ns)   --->   "%pkt_ref_load_3 = load i2 %pkt_ref_addr_3"   --->   Operation 56 'load' 'pkt_ref_load_3' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
 
 State 7 <SV = 6> <Delay = 1.93>
-ST_7 : Operation 57 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_3, void @empty_22, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 57 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 58 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_2, void @empty_22, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 58 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 59 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_1, void @empty_22, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 59 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 60 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_0, void @empty_22, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_25, void @empty_25, void @empty_25, i32 0, i32 0, i32 0, i32 0, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 60 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 61 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem2, void @empty_13, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty, void @empty_38, void @empty_25, i32 16, i32 16, i32 16, i32 16, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 61 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem1, void @empty_13, i32 0, i32 0, void @empty_25, i32 0, i32 0, void @empty_14, void @empty_38, void @empty_25, i32 16, i32 16, i32 16, i32 16, void @empty_25, void @empty_25, i32 4294967295, i32 0"   --->   Operation 62 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 57 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_3, void @empty_22, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_28, void @empty_28, void @empty_28, i32 0, i32 0, i32 0, i32 0, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 57 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 58 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_2, void @empty_22, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_28, void @empty_28, void @empty_28, i32 0, i32 0, i32 0, i32 0, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 58 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 59 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_1, void @empty_22, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_28, void @empty_28, void @empty_28, i32 0, i32 0, i32 0, i32 0, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 59 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 60 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_0, void @empty_22, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_28, void @empty_28, void @empty_28, i32 0, i32 0, i32 0, i32 0, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 60 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 61 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem2, void @empty_14, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty, void @empty_27, void @empty_28, i32 16, i32 16, i32 16, i32 16, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 61 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem1, void @empty_14, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_15, void @empty_27, void @empty_28, i32 16, i32 16, i32 16, i32 16, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 62 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
 ST_7 : Operation 63 [1/2] (0.69ns)   --->   "%pkt_v_value_load_2 = load i2 %pkt_v_value_addr_2"   --->   Operation 63 'load' 'pkt_v_value_load_2' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
 ST_7 : Operation 64 [1/2] (0.69ns)   --->   "%pkt_v_y_load_2 = load i2 %pkt_v_y_addr_2"   --->   Operation 64 'load' 'pkt_v_y_load_2' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
 ST_7 : Operation 65 [1/2] (0.69ns)   --->   "%pkt_v_value_load_3 = load i2 %pkt_v_value_addr_3"   --->   Operation 65 'load' 'pkt_v_value_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
@@ -703,7 +703,7 @@ ret_ln98           (ret           ) [ 00000000]
 <pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_25"/></StgValue>
+<StgValue><ssdm name="empty_28"/></StgValue>
 </bind>
 </comp>
 
@@ -721,7 +721,7 @@ ret_ln98           (ret           ) [ 00000000]
 <pin id="47" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_13"/></StgValue>
+<StgValue><ssdm name="empty_14"/></StgValue>
 </bind>
 </comp>
 
@@ -739,7 +739,7 @@ ret_ln98           (ret           ) [ 00000000]
 <pin id="51" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_38"/></StgValue>
+<StgValue><ssdm name="empty_27"/></StgValue>
 </bind>
 </comp>
 
@@ -757,7 +757,7 @@ ret_ln98           (ret           ) [ 00000000]
 <pin id="55" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_14"/></StgValue>
+<StgValue><ssdm name="empty_15"/></StgValue>
 </bind>
 </comp>
 

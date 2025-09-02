@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'spmm_hls'" level="0">
-<item name = "Date">Mon Sep  1 19:27:04 2025
+<item name = "Date">Tue Sep  2 16:52:49 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -51,7 +51,7 @@
 <column name="DSP">-, -, -, -, -</column>
 <column name="Expression">-, -, 0, 63, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">256, 44, 21597, 22296, 0</column>
+<column name="Instance">256, 40, 22833, 24848, 0</column>
 <column name="Memory">-, -, -, -, -</column>
 <column name="Multiplexer">-, -, -, 143, -</column>
 <column name="Register">-, -, 519, -, -</column>
@@ -66,7 +66,7 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="control_s_axi_U">control_s_axi, 0, 0, 748, 1320, 0</column>
-<column name="grp_dataflow_in_loop_row_loop_fu_178">dataflow_in_loop_row_loop, 256, 44, 16265, 14268, 0</column>
+<column name="grp_dataflow_in_loop_row_loop_fu_178">dataflow_in_loop_row_loop, 256, 40, 17501, 16820, 0</column>
 <column name="gmem1_m_axi_U">gmem1_m_axi, 0, 0, 764, 1118, 0</column>
 <column name="gmem2_m_axi_U">gmem2_m_axi, 0, 0, 764, 1118, 0</column>
 <column name="gmem3_m_axi_U">gmem3_m_axi, 0, 0, 764, 1118, 0</column>
@@ -90,7 +90,7 @@
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
 <column name="i_3_fu_216_p2">+, 0, 0, 39, 32, 3</column>
-<column name="icmp_ln248_fu_211_p2">icmp, 0, 0, 20, 32, 32</column>
+<column name="icmp_ln311_fu_211_p2">icmp, 0, 0, 20, 32, 32</column>
 <column name="ap_sync_grp_dataflow_in_loop_row_loop_fu_178_ap_done">or, 0, 0, 2, 1, 1</column>
 <column name="ap_sync_grp_dataflow_in_loop_row_loop_fu_178_ap_ready">or, 0, 0, 2, 1, 1</column>
 </table>

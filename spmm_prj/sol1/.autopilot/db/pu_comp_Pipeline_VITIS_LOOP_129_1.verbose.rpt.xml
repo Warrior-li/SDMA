@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'pu_comp_Pipeline_VITIS_LOOP_129_1'" level="0">
-<item name = "Date">Mon Sep  1 19:26:57 2025
+<item name = "Date">Tue Sep  2 15:51:24 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -64,7 +64,7 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
-<column name="fmul_32ns_32ns_32_4_max_dsp_1_U50">fmul_32ns_32ns_32_4_max_dsp_1, 0, 3, 143, 78, 0</column>
+<column name="fmul_32ns_32ns_32_4_max_dsp_1_U51">fmul_32ns_32ns_32_4_max_dsp_1, 0, 3, 143, 78, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
