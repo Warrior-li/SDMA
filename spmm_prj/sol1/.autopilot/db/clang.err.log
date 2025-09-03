@@ -1,10 +1,13 @@
-src/spmm_device_fpga.cpp:204:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
+src/spmm_device_fpga.cpp:155:20: warning: unexpected pragma parameter 'on' [-Winvalid-hls-pragmas]
+#pragma hls inline on
+                   ^
+src/spmm_device_fpga.cpp:173:20: warning: unexpected pragma parameter 'on' [-Winvalid-hls-pragmas]
+#pragma hls inline on
+                   ^
+src/spmm_device_fpga.cpp:265:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
 #pragma hls dataflow
         ^~~~~~~~~~~~
-src/spmm_device_fpga.cpp:220:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
+src/spmm_device_fpga.cpp:322:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
 #pragma hls dataflow
         ^~~~~~~~~~~~
-src/spmm_device_fpga.cpp:250:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
-#pragma hls dataflow
-        ^~~~~~~~~~~~
-3 warnings generated.
+4 warnings generated.

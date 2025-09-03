@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'pu_kernel_Pipeline_pu_save_stream_into_pu'" level="0">
-<item name = "Date">Tue Sep  2 16:52:28 2025
+<item name = "Date">Wed Sep  3 20:05:49 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">4.00 ns, 1.398 ns, 1.08 ns</column>
+<column name="ap_clk">4.00 ns, 0.959 ns, 1.08 ns</column>
 </table>
 </item>
 </section>
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- pu_save_stream_into_pu">4, 4, 2, 1, 1, 4, yes</column>
+<column name="- pu_save_stream_into_pu">4, 4, 1, 1, 1, 4, yes</column>
 </table>
 </item>
 </section>

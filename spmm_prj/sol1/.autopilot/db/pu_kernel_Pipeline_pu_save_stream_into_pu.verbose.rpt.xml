@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'pu_kernel_Pipeline_pu_save_stream_into_pu'" level="0">
-<item name = "Date">Tue Sep  2 16:52:39 2025
+<item name = "Date">Wed Sep  3 20:05:53 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">4.00 ns, 1.398 ns, 1.08 ns</column>
+<column name="ap_clk">4.00 ns, 0.959 ns, 1.08 ns</column>
 </table>
 </item>
 </section>
@@ -35,7 +35,7 @@
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- pu_save_stream_into_pu">4, 4, 2, 1, 1, 4, yes</column>
+<column name="- pu_save_stream_into_pu">4, 4, 1, 1, 1, 4, yes</column>
 </table>
 </item>
 </section>
@@ -48,12 +48,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 21, -</column>
+<column name="Expression">-, -, 0, 19, -</column>
 <column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">-, -, -, -, -</column>
+<column name="Instance">-, -, 0, 60, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 36, -</column>
-<column name="Register">-, -, 9, -, -</column>
+<column name="Multiplexer">-, -, -, 27, -</column>
+<column name="Register">-, -, 265, -, -</column>
 <specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
 <specialColumn name="Utilization SLR (%)">0, 0, ~0, ~0, 0</specialColumn>
 <specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
@@ -64,6 +64,9 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
+<column name="mux_42_1_1_1_U39">mux_42_1_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_42_32_1_1_U37">mux_42_32_1_1, 0, 0, 0, 20, 0</column>
+<column name="mux_42_32_1_1_U38">mux_42_32_1_1, 0, 0, 0, 20, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -80,26 +83,34 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln181_fu_135_p2">+, 0, 0, 10, 3, 1</column>
-<column name="icmp_ln181_fu_129_p2">icmp, 0, 0, 9, 3, 4</column>
-<column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
+<column name="add_ln241_fu_316_p2">+, 0, 0, 10, 3, 1</column>
+<column name="icmp_ln241_fu_310_p2">icmp, 0, 0, 9, 3, 4</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
 <column name="ap_done_int">9, 2, 1, 2</column>
-<column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
 <column name="ap_sig_allocacmp_u_1">9, 2, 3, 6</column>
-<column name="u_fu_36">9, 2, 3, 6</column>
+<column name="u_fu_94">9, 2, 3, 6</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
 <column name="ap_CS_fsm">1, 0, 1, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
-<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
-<column name="u_fu_36">3, 0, 3, 0</column>
-<column name="zext_ln181_reg_163">3, 0, 64, 61</column>
+<column name="tile_ref_1_1_fu_134">1, 0, 1, 0</column>
+<column name="tile_ref_1_2_fu_138">1, 0, 1, 0</column>
+<column name="tile_ref_1_3_fu_142">1, 0, 1, 0</column>
+<column name="tile_ref_1_fu_130">1, 0, 1, 0</column>
+<column name="tile_value_1_1_fu_102">32, 0, 32, 0</column>
+<column name="tile_value_1_2_fu_106">32, 0, 32, 0</column>
+<column name="tile_value_1_3_fu_110">32, 0, 32, 0</column>
+<column name="tile_value_1_fu_98">32, 0, 32, 0</column>
+<column name="tile_y_1_1_fu_118">32, 0, 32, 0</column>
+<column name="tile_y_1_2_fu_122">32, 0, 32, 0</column>
+<column name="tile_y_1_3_fu_126">32, 0, 32, 0</column>
+<column name="tile_y_1_fu_114">32, 0, 32, 0</column>
+<column name="u_fu_94">3, 0, 3, 0</column>
 </table>
 </item>
 </section>
@@ -115,27 +126,42 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, pu_kernel_Pipeline_pu_save_stream_into_pu, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, pu_kernel_Pipeline_pu_save_stream_into_pu, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, pu_kernel_Pipeline_pu_save_stream_into_pu, return value</column>
-<column name="p_v_value_address0">out, 2, ap_memory, p_v_value, array</column>
-<column name="p_v_value_ce0">out, 1, ap_memory, p_v_value, array</column>
-<column name="p_v_value_q0">in, 32, ap_memory, p_v_value, array</column>
-<column name="p_v_y_address0">out, 2, ap_memory, p_v_y, array</column>
-<column name="p_v_y_ce0">out, 1, ap_memory, p_v_y, array</column>
-<column name="p_v_y_q0">in, 32, ap_memory, p_v_y, array</column>
-<column name="tile_value_address0">out, 2, ap_memory, tile_value, array</column>
-<column name="tile_value_ce0">out, 1, ap_memory, tile_value, array</column>
-<column name="tile_value_we0">out, 1, ap_memory, tile_value, array</column>
-<column name="tile_value_d0">out, 32, ap_memory, tile_value, array</column>
-<column name="tile_y_address0">out, 2, ap_memory, tile_y, array</column>
-<column name="tile_y_ce0">out, 1, ap_memory, tile_y, array</column>
-<column name="tile_y_we0">out, 1, ap_memory, tile_y, array</column>
-<column name="tile_y_d0">out, 32, ap_memory, tile_y, array</column>
-<column name="p_ref_address0">out, 2, ap_memory, p_ref, array</column>
-<column name="p_ref_ce0">out, 1, ap_memory, p_ref, array</column>
-<column name="p_ref_q0">in, 1, ap_memory, p_ref, array</column>
-<column name="tile_ref_address0">out, 2, ap_memory, tile_ref, array</column>
-<column name="tile_ref_ce0">out, 1, ap_memory, tile_ref, array</column>
-<column name="tile_ref_we0">out, 1, ap_memory, tile_ref, array</column>
-<column name="tile_ref_d0">out, 1, ap_memory, tile_ref, array</column>
+<column name="p_ref_0">in, 1, ap_none, p_ref_0, scalar</column>
+<column name="p_ref_1">in, 1, ap_none, p_ref_1, scalar</column>
+<column name="p_ref_2">in, 1, ap_none, p_ref_2, scalar</column>
+<column name="p_ref_3">in, 1, ap_none, p_ref_3, scalar</column>
+<column name="p_v_value_0">in, 32, ap_none, p_v_value_0, scalar</column>
+<column name="p_v_value_1">in, 32, ap_none, p_v_value_1, scalar</column>
+<column name="p_v_value_2">in, 32, ap_none, p_v_value_2, scalar</column>
+<column name="p_v_value_3">in, 32, ap_none, p_v_value_3, scalar</column>
+<column name="p_v_y_0">in, 32, ap_none, p_v_y_0, scalar</column>
+<column name="p_v_y_1">in, 32, ap_none, p_v_y_1, scalar</column>
+<column name="p_v_y_2">in, 32, ap_none, p_v_y_2, scalar</column>
+<column name="p_v_y_3">in, 32, ap_none, p_v_y_3, scalar</column>
+<column name="tile_ref_3_020_out">out, 1, ap_vld, tile_ref_3_020_out, pointer</column>
+<column name="tile_ref_3_020_out_ap_vld">out, 1, ap_vld, tile_ref_3_020_out, pointer</column>
+<column name="tile_ref_2_019_out">out, 1, ap_vld, tile_ref_2_019_out, pointer</column>
+<column name="tile_ref_2_019_out_ap_vld">out, 1, ap_vld, tile_ref_2_019_out, pointer</column>
+<column name="tile_ref_1_018_out">out, 1, ap_vld, tile_ref_1_018_out, pointer</column>
+<column name="tile_ref_1_018_out_ap_vld">out, 1, ap_vld, tile_ref_1_018_out, pointer</column>
+<column name="tile_ref_0_017_out">out, 1, ap_vld, tile_ref_0_017_out, pointer</column>
+<column name="tile_ref_0_017_out_ap_vld">out, 1, ap_vld, tile_ref_0_017_out, pointer</column>
+<column name="tile_y_3_016_out">out, 32, ap_vld, tile_y_3_016_out, pointer</column>
+<column name="tile_y_3_016_out_ap_vld">out, 1, ap_vld, tile_y_3_016_out, pointer</column>
+<column name="tile_y_2_015_out">out, 32, ap_vld, tile_y_2_015_out, pointer</column>
+<column name="tile_y_2_015_out_ap_vld">out, 1, ap_vld, tile_y_2_015_out, pointer</column>
+<column name="tile_y_1_014_out">out, 32, ap_vld, tile_y_1_014_out, pointer</column>
+<column name="tile_y_1_014_out_ap_vld">out, 1, ap_vld, tile_y_1_014_out, pointer</column>
+<column name="tile_y_0_013_out">out, 32, ap_vld, tile_y_0_013_out, pointer</column>
+<column name="tile_y_0_013_out_ap_vld">out, 1, ap_vld, tile_y_0_013_out, pointer</column>
+<column name="tile_value_3_0165_out">out, 32, ap_vld, tile_value_3_0165_out, pointer</column>
+<column name="tile_value_3_0165_out_ap_vld">out, 1, ap_vld, tile_value_3_0165_out, pointer</column>
+<column name="tile_value_2_0164_out">out, 32, ap_vld, tile_value_2_0164_out, pointer</column>
+<column name="tile_value_2_0164_out_ap_vld">out, 1, ap_vld, tile_value_2_0164_out, pointer</column>
+<column name="tile_value_1_0163_out">out, 32, ap_vld, tile_value_1_0163_out, pointer</column>
+<column name="tile_value_1_0163_out_ap_vld">out, 1, ap_vld, tile_value_1_0163_out, pointer</column>
+<column name="tile_value_0_0162_out">out, 32, ap_vld, tile_value_0_0162_out, pointer</column>
+<column name="tile_value_0_0162_out_ap_vld">out, 1, ap_vld, tile_value_0_0162_out, pointer</column>
 </table>
 </item>
 </section>

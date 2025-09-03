@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'spmm_hls'" level="0">
-<item name = "Date">Tue Sep  2 16:52:49 2025
+<item name = "Date">Wed Sep  3 20:05:56 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">4.00 ns, 2.920 ns, 1.08 ns</column>
+<column name="ap_clk">4.00 ns, 3.332 ns, 1.08 ns</column>
 </table>
 </item>
 </section>
@@ -31,12 +31,16 @@
 <section name = "" level="1">
 <item name = "Instance"><table name="" hasTotal="0">
 <keys size="9">Instance, Module, min, max, min, max, min, max, Type</keys>
-<column name="grp_dataflow_in_loop_row_loop_fu_178">dataflow_in_loop_row_loop, ?, ?, ?, ?, ?, ?, dataflow</column>
+<column name="grp_set_tile_broadcast_fu_214">set_tile_broadcast, 25, 25, 0.100 us, 0.100 us, 25, 25, no</column>
+<column name="grp_pu_kernel_fu_230">pu_kernel, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_fu_239">pu_kernel, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_fu_248">pu_kernel, ?, ?, ?, ?, ?, ?, no</column>
+<column name="grp_pu_kernel_fu_257">pu_kernel, ?, ?, ?, ?, ?, ?, no</column>
 </table>
 </item>
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
-<column name="- row_loop">?, ?, ?, -, -, ?, no</column>
+<column name="- VITIS_LOOP_323_1">?, ?, ?, -, -, ?, no</column>
 </table>
 </item>
 </section>
@@ -49,16 +53,16 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 63, -</column>
-<column name="FIFO">-, -, -, -, -</column>
-<column name="Instance">256, 40, 22833, 24848, 0</column>
+<column name="Expression">-, -, 0, 61, -</column>
+<column name="FIFO">0, -, 6208, 3328, -</column>
+<column name="Instance">200, 104, 35000, 30098, 0</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 143, -</column>
-<column name="Register">-, -, 519, -, -</column>
+<column name="Multiplexer">-, -, -, 226, -</column>
+<column name="Register">-, -, 521, -, -</column>
 <specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
-<specialColumn name="Utilization SLR (%)">19, 1, 2, 5, 0</specialColumn>
+<specialColumn name="Utilization SLR (%)">14, 3, 4, 7, 0</specialColumn>
 <specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
-<specialColumn name="Utilization (%)">6, ~0, ~0, 1, 0</specialColumn>
+<specialColumn name="Utilization (%)">4, 1, 1, 2, 0</specialColumn>
 </table>
 </item>
 <item name = "Detail">
@@ -66,13 +70,17 @@
 <item name = "Instance"><table name="" hasTotal="1">
 <keys size="7">Instance, Module, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="control_s_axi_U">control_s_axi, 0, 0, 748, 1320, 0</column>
-<column name="grp_dataflow_in_loop_row_loop_fu_178">dataflow_in_loop_row_loop, 256, 40, 17501, 16820, 0</column>
 <column name="gmem1_m_axi_U">gmem1_m_axi, 0, 0, 764, 1118, 0</column>
 <column name="gmem2_m_axi_U">gmem2_m_axi, 0, 0, 764, 1118, 0</column>
 <column name="gmem3_m_axi_U">gmem3_m_axi, 0, 0, 764, 1118, 0</column>
 <column name="gmem4_m_axi_U">gmem4_m_axi, 0, 0, 764, 1118, 0</column>
 <column name="gmem5_m_axi_U">gmem5_m_axi, 0, 0, 764, 1118, 0</column>
 <column name="gmem6_m_axi_U">gmem6_m_axi, 0, 0, 764, 1118, 0</column>
+<column name="grp_pu_kernel_fu_230">pu_kernel, 50, 26, 7195, 5209, 0</column>
+<column name="grp_pu_kernel_fu_239">pu_kernel, 50, 26, 7195, 5209, 0</column>
+<column name="grp_pu_kernel_fu_248">pu_kernel, 50, 26, 7195, 5209, 0</column>
+<column name="grp_pu_kernel_fu_257">pu_kernel, 50, 26, 7195, 5209, 0</column>
+<column name="grp_set_tile_broadcast_fu_214">set_tile_broadcast, 0, 0, 888, 1234, 0</column>
 </table>
 </item>
 <item name = "DSP"><table name="" hasTotal="0">
@@ -85,19 +93,22 @@
 </item>
 <item name = "FIFO"><table name="" hasTotal="1">
 <keys size="8">Name, BRAM_18K, FF, LUT, URAM, Depth, Bits, Size:D*B</keys>
+<column name="s_0_fifo_U">0, 1552, 0, -, 16, 388, 6208</column>
+<column name="s_1_fifo_U">0, 1552, 0, -, 16, 388, 6208</column>
+<column name="s_2_fifo_U">0, 1552, 0, -, 16, 388, 6208</column>
+<column name="s_3_fifo_U">0, 1552, 0, -, 16, 388, 6208</column>
 </table>
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="i_3_fu_216_p2">+, 0, 0, 39, 32, 3</column>
-<column name="icmp_ln311_fu_211_p2">icmp, 0, 0, 20, 32, 32</column>
-<column name="ap_sync_grp_dataflow_in_loop_row_loop_fu_178_ap_done">or, 0, 0, 2, 1, 1</column>
-<column name="ap_sync_grp_dataflow_in_loop_row_loop_fu_178_ap_ready">or, 0, 0, 2, 1, 1</column>
+<column name="i_3_fu_289_p2">+, 0, 0, 39, 32, 3</column>
+<column name="icmp_ln323_fu_284_p2">icmp, 0, 0, 20, 32, 32</column>
+<column name="ap_block_state6_on_subcall_done">or, 0, 0, 2, 1, 1</column>
 </table>
 </item>
 <item name = "Multiplexer"><table name="" hasTotal="1">
 <keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
-<column name="ap_NS_fsm">26, 5, 1, 5</column>
+<column name="ap_NS_fsm">37, 7, 1, 7</column>
 <column name="gmem1_ARVALID">9, 2, 1, 2</column>
 <column name="gmem1_RREADY">9, 2, 1, 2</column>
 <column name="gmem2_ARVALID">9, 2, 1, 2</column>
@@ -110,25 +121,35 @@
 <column name="gmem5_RREADY">9, 2, 1, 2</column>
 <column name="gmem6_ARVALID">9, 2, 1, 2</column>
 <column name="gmem6_RREADY">9, 2, 1, 2</column>
-<column name="i_fu_126">9, 2, 32, 64</column>
+<column name="i_fu_146">9, 2, 32, 64</column>
+<column name="s_0_read">9, 2, 1, 2</column>
+<column name="s_0_write">9, 2, 1, 2</column>
+<column name="s_1_read">9, 2, 1, 2</column>
+<column name="s_1_write">9, 2, 1, 2</column>
+<column name="s_2_read">9, 2, 1, 2</column>
+<column name="s_2_write">9, 2, 1, 2</column>
+<column name="s_3_read">9, 2, 1, 2</column>
+<column name="s_3_write">9, 2, 1, 2</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
 <keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
-<column name="B1_read_reg_248">64, 0, 64, 0</column>
-<column name="B2_read_reg_243">64, 0, 64, 0</column>
-<column name="B3_read_reg_238">64, 0, 64, 0</column>
-<column name="B4_read_reg_233">64, 0, 64, 0</column>
-<column name="K_read_reg_269">32, 0, 32, 0</column>
-<column name="a_val_read_reg_253">64, 0, 64, 0</column>
-<column name="ap_CS_fsm">4, 0, 4, 0</column>
-<column name="ap_sync_reg_grp_dataflow_in_loop_row_loop_fu_178_ap_done">1, 0, 1, 0</column>
-<column name="ap_sync_reg_grp_dataflow_in_loop_row_loop_fu_178_ap_ready">1, 0, 1, 0</column>
-<column name="col_idx_read_reg_258">64, 0, 64, 0</column>
-<column name="grp_dataflow_in_loop_row_loop_fu_178_ap_start_reg">1, 0, 1, 0</column>
-<column name="i_2_reg_274">32, 0, 32, 0</column>
-<column name="i_fu_126">32, 0, 32, 0</column>
-<column name="nnz_read_reg_263">32, 0, 32, 0</column>
+<column name="B1_read_reg_321">64, 0, 64, 0</column>
+<column name="B2_read_reg_316">64, 0, 64, 0</column>
+<column name="B3_read_reg_311">64, 0, 64, 0</column>
+<column name="B4_read_reg_306">64, 0, 64, 0</column>
+<column name="a_val_read_reg_326">64, 0, 64, 0</column>
+<column name="ap_CS_fsm">6, 0, 6, 0</column>
+<column name="col_idx_read_reg_331">64, 0, 64, 0</column>
+<column name="grp_pu_kernel_fu_230_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_pu_kernel_fu_239_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_pu_kernel_fu_248_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_pu_kernel_fu_257_ap_start_reg">1, 0, 1, 0</column>
+<column name="grp_set_tile_broadcast_fu_214_ap_start_reg">1, 0, 1, 0</column>
+<column name="i_2_reg_374">32, 0, 32, 0</column>
+<column name="i_fu_146">32, 0, 32, 0</column>
+<column name="nnz_read_reg_336">32, 0, 32, 0</column>
+<column name="trunc_ln_reg_366">30, 0, 30, 0</column>
 </table>
 </item>
 </section>

@@ -14,11 +14,15 @@ module spmm_hls_pu_kernel_Pipeline_init_au (
         ap_done,
         ap_idle,
         ap_ready,
-        trunc_ln,
+        K,
         AU0_address0,
         AU0_ce0,
         AU0_we0,
-        AU0_d0
+        AU0_d0,
+        AU1_address0,
+        AU1_ce0,
+        AU1_we0,
+        AU1_d0
 );
 
 parameter    ap_ST_fsm_state1 = 1'd1;
@@ -29,28 +33,35 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
-input  [29:0] trunc_ln;
+input  [29:0] K;
 output  [15:0] AU0_address0;
 output   AU0_ce0;
 output   AU0_we0;
 output  [31:0] AU0_d0;
+output  [15:0] AU1_address0;
+output   AU1_ce0;
+output   AU1_we0;
+output  [31:0] AU1_d0;
 
 reg ap_idle;
 reg AU0_ce0;
 reg AU0_we0;
+reg AU1_ce0;
+reg AU1_we0;
 
 (* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    ap_block_state1_pp0_stage0_iter0;
-wire   [0:0] icmp_ln195_fu_58_p2;
+wire   [0:0] icmp_ln256_fu_82_p2;
 reg    ap_condition_exit_pp0_iter0_stage0;
 wire    ap_loop_exit_ready;
 reg    ap_ready_int;
-wire   [63:0] zext_ln195_fu_70_p1;
-reg   [29:0] i_fu_26;
-wire   [29:0] add_ln195_fu_64_p2;
+wire   [63:0] zext_ln256_fu_94_p1;
+reg   [15:0] i_fu_32;
+wire   [15:0] add_ln256_fu_88_p2;
 wire    ap_loop_init;
-reg   [29:0] ap_sig_allocacmp_i_5;
+reg   [15:0] ap_sig_allocacmp_i_5;
+wire   [29:0] zext_ln256_1_fu_78_p1;
 reg    ap_done_reg;
 wire    ap_continue_int;
 reg    ap_done_int;
@@ -102,10 +113,10 @@ end
 
 always @ (posedge ap_clk) begin
     if (((ap_start_int == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        if ((icmp_ln195_fu_58_p2 == 1'd0)) begin
-            i_fu_26 <= add_ln195_fu_64_p2;
+        if ((icmp_ln256_fu_82_p2 == 1'd0)) begin
+            i_fu_32 <= add_ln256_fu_88_p2;
         end else if ((ap_loop_init == 1'b1)) begin
-            i_fu_26 <= 30'd0;
+            i_fu_32 <= 16'd0;
         end
     end
 end
@@ -119,10 +130,26 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_start_int == 1'b1) & (icmp_ln195_fu_58_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((ap_start_int == 1'b1) & (icmp_ln256_fu_82_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
         AU0_we0 = 1'b1;
     end else begin
         AU0_we0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start_int == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
+        AU1_ce0 = 1'b1;
+    end else begin
+        AU1_ce0 = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((ap_start_int == 1'b1) & (icmp_ln256_fu_82_p2 == 1'd0) & (1'b1 == ap_CS_fsm_state1))) begin
+        AU1_we0 = 1'b1;
+    end else begin
+        AU1_we0 = 1'b0;
     end
 end
 
@@ -135,7 +162,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_start_int == 1'b1) & (icmp_ln195_fu_58_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
+    if (((ap_start_int == 1'b1) & (icmp_ln256_fu_82_p2 == 1'd1) & (1'b1 == ap_CS_fsm_state1))) begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b0;
@@ -168,9 +195,9 @@ end
 
 always @ (*) begin
     if (((ap_loop_init == 1'b1) & (1'b1 == ap_CS_fsm_state1))) begin
-        ap_sig_allocacmp_i_5 = 30'd0;
+        ap_sig_allocacmp_i_5 = 16'd0;
     end else begin
-        ap_sig_allocacmp_i_5 = i_fu_26;
+        ap_sig_allocacmp_i_5 = i_fu_32;
     end
 end
 
@@ -185,11 +212,15 @@ always @ (*) begin
     endcase
 end
 
-assign AU0_address0 = zext_ln195_fu_70_p1;
+assign AU0_address0 = zext_ln256_fu_94_p1;
 
 assign AU0_d0 = 32'd0;
 
-assign add_ln195_fu_64_p2 = (ap_sig_allocacmp_i_5 + 30'd1);
+assign AU1_address0 = zext_ln256_fu_94_p1;
+
+assign AU1_d0 = 32'd0;
+
+assign add_ln256_fu_88_p2 = (ap_sig_allocacmp_i_5 + 16'd1);
 
 assign ap_CS_fsm_state1 = ap_CS_fsm[32'd0];
 
@@ -199,8 +230,10 @@ end
 
 assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
-assign icmp_ln195_fu_58_p2 = ((ap_sig_allocacmp_i_5 == trunc_ln) ? 1'b1 : 1'b0);
+assign icmp_ln256_fu_82_p2 = ((zext_ln256_1_fu_78_p1 == K) ? 1'b1 : 1'b0);
 
-assign zext_ln195_fu_70_p1 = ap_sig_allocacmp_i_5;
+assign zext_ln256_1_fu_78_p1 = ap_sig_allocacmp_i_5;
+
+assign zext_ln256_fu_94_p1 = ap_sig_allocacmp_i_5;
 
 endmodule //spmm_hls_pu_kernel_Pipeline_init_au

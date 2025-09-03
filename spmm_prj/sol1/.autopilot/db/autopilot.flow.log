@@ -35916,3 +35916,1770 @@ Command       autosyn done; 29.12 sec.
 Command     csynth_design done; 39.36 sec.
 INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 37.13 seconds. CPU system time: 2.12 seconds. Elapsed time: 39.36 seconds; current allocated memory: 493.250 MB.
 Execute     cleanup_all 
+INFO-FLOW: Workspace /home/shuxuan/SDMA/spmm_prj/sol1 opened at Wed Sep 03 20:05:25 BST 2025
+Execute       ap_set_clock -name default -period 4 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+Execute       set_part xcu280-fsvh2892-2L-e 
+Execute         create_platform xcu280-fsvh2892-2L-e -board  
+DBG:HLSDevice: Trying to load device library: /opt/xilinx/Vitis_HLS/2022.2/lib/lnx64.o/libxv_hlsvwrap.so
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: /opt/xilinx/Vivado/2022.2/data/parts/arch.xml
+DBG:HLSDevice: init success
+INFO: [HLS 200-1611] Setting target device to 'xcu280-fsvh2892-2L-e'
+Command         create_platform done; 1.69 sec.
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfir.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfft.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/util.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+Execute         config_compile -quiet -complex-mul-dsp=0 
+Command       set_part done; 1.81 sec.
+Execute       send_msg_by_id INFO @200-1505@%s%s  vivado 
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Execute       send_msg_by_id INFO @200-1464@%s config_interface -m_axi_latency=0 
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=0
+Execute       config_interface -m_axi_latency=0 
+Execute       send_msg_by_id INFO @200-1464@%s config_export -format=xo 
+INFO: [HLS 200-1464] Running solution command: config_export -format=xo
+Execute       config_export -format=xo 
+Execute       send_msg_by_id INFO @200-1464@%s config_export -output=build_fpga/spmm_hls.xo 
+INFO: [HLS 200-1464] Running solution command: config_export -output=build_fpga/spmm_hls.xo
+Execute       config_export -output=build_fpga/spmm_hls.xo 
+Command     open_solution done; 1.9 sec.
+Execute     set_part xcu280-fsvh2892-2L-e 
+INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
+Execute       create_platform xcu280-fsvh2892-2L-e -board  
+Execute       source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/common/xilinx.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/plb46.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/axi4.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/saxilite.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfir.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfft.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/util.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/DSP48/dsp48.gen 
+Execute       ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+Execute       config_compile -quiet -complex-mul-dsp=0 
+Command     set_part done; 0.12 sec.
+Execute     create_clock -period 4.0 -name default 
+INFO: [HLS 200-1510] Running: create_clock -period 4.0 -name default 
+Execute     csynth_design 
+INFO: [HLS 200-1510] Running: csynth_design 
+Execute       elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.02 seconds. Elapsed time: 10.04 seconds; current allocated memory: 732.820 MB.
+INFO: [HLS 200-10] Analyzing design file 'src/spmm_device_fpga.cpp' ... 
+INFO-FLOW: Compiling one TU...
+INFO-FLOW: Handling src/spmm_device_fpga.cpp as C++
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+INFO-FLOW: Running: GCC PP 39
+INFO-FLOW: Source preprocessing
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/clang src/spmm_device_fpga.cpp -foptimization-record-file=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -gcc-toolchain /opt/xilinx/Vitis_HLS/2022.2/tps/lnx64/gcc-8.3.0 -fhls -fno-exceptions -E -std=c++17 -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -fno-threadsafe-statics -fno-use-cxa-atexit -target fpga64-xilinx-linux-gnu -fno-threadsafe-statics -fno-use-cxa-atexit -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot -I /opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -I /usr/include/x86_64-linux-gnu -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp -hls-platform-db-name=/opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_4032.000000_DSP_9024.000000_FF_2607360.000000_LUT_1303680.000000_SLICE_162960.000000_SLR_3.000000_URAM_960.000000 -device-name-info=xcu280-fsvh2892-2L-e > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.cpp.clang.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.cpp.clang.err.log 
+Command         ap_eval done; 0.19 sec.
+INFO-FLOW: Done: GCC PP 39 time: 0.2 seconds per iteration
+Execute         set_directive_top spmm_hls -name=spmm_hls 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+INFO-FLOW: Source syntax check for synthesis
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fsyntax-only -fhls -target fpga64-xilinx-linux-gnu /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp -hls-platform-db-name=/opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_4032.000000_DSP_9024.000000_FF_2607360.000000_LUT_1303680.000000_SLICE_162960.000000_SLR_3.000000_URAM_960.000000 -device-name-info=xcu280-fsvh2892-2L-e > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/clang.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/clang.err.log 
+Command         ap_eval done; 0.49 sec.
+WARNING: [HLS 207-5554] unexpected pragma parameter 'on' (src/spmm_device_fpga.cpp:155:20)
+WARNING: [HLS 207-5554] unexpected pragma parameter 'on' (src/spmm_device_fpga.cpp:173:20)
+WARNING: [HLS 207-5558] Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:265:9)
+WARNING: [HLS 207-5558] Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:322:9)
+Execute         clang_tidy xilinx-systemc-detector -desc systemc-detector /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp std=c++17 -target fpga  -directive=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/.systemc_flag -fix-errors /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp -- -std=c++17 -target fpga -fhls -ferror-limit=0
+Command         clang_tidy done; 0.48 sec.
+INFO-FLOW: Running: clang-tidy CDT preprocess 39
+Execute         clang_tidy xilinx-directive2pragma -desc directive2pragma /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp std=c++17 -target fpga  -directive=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/all.directive.json -fix-errors /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp -- -std=c++17 -target fpga -fhls -ferror-limit=0
+Command         clang_tidy done; 0.67 sec.
+Execute         clang_tidy xilinx-remove-assert -desc remove-assert /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp std=c++17 -target fpga  
+INFO-FLOW: exec /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-remove-assert -fix-errors /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp -- -std=c++17 -target fpga -fhls -ferror-limit=0
+Command         clang_tidy done; 0.45 sec.
+INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 1.1 seconds per iteration
+INFO-FLOW: Calling xilinx-label-all-loops ... 
+INFO-FLOW: Calling xilinx-aggregate-on-hls-vector ... 
+Execute         clang_tidy -errorcheck -desc loop-label xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp std=c++17 -target fpga  
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.clang-tidy.loop-label.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops,xilinx-aggregate-on-hls-vector,,xilinx-warn-mayneed-no-ctor-attribute -fix-errors /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp -- -std=c++17 -target fpga -fhls -ferror-limit=0 > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.clang-tidy.loop-label.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.clang-tidy.loop-label.err.log 
+Command           ap_eval done; 0.89 sec.
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
+Command         clang_tidy done; 1.01 sec.
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.xilinx-dataflow-lawyer.diag.yml /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp -- -std=c++17 -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.xilinx-dataflow-lawyer.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.xilinx-dataflow-lawyer.err.log 
+Command         ap_eval done; 0.44 sec.
+WARNING: [HLS 214-104] Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:265:9)
+WARNING: [HLS 214-104] Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:322:9)
+Execute         send_msg_by_id WARNING @200-471@%s%s 2 src/spmm_device_fpga.cpp 
+WARNING: [HLS 200-471] Dataflow form checks found 2 issue(s) in file src/spmm_device_fpga.cpp
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info 
+INFO-FLOW: compiling source code to llvm bc
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fno-limit-debug-info -fhls -flto -fno-exceptions -Wno-error=c++11-narrowing /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp -std=c++17 -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -Wdump-hls-pragmas -Wno-error=dump-hls-pragmas -fno-threadsafe-statics -fno-use-cxa-atexit -target fpga64-xilinx-linux-gnu -D__VITIS_HLS__ -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I /opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot -I /opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E2__ -g -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.bc -hls-platform-db-name=/opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_4032.000000_DSP_9024.000000_FF_2607360.000000_LUT_1303680.000000_SLICE_162960.000000_SLR_3.000000_URAM_960.000000 -device-name-info=xcu280-fsvh2892-2L-e > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.clang.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp.clang.err.log 
+Command         ap_eval done; 0.54 sec.
+WARNING: [HLS 207-5292] unused parameter 'row_ptr' (src/spmm_device_fpga.cpp:27:20)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.84 seconds. CPU system time: 0.63 seconds. Elapsed time: 4.49 seconds; current allocated memory: 733.289 MB.
+INFO-FLOW: Linking Debug ...
+INFO-FLOW: Linking dut bc code.
+Execute         run_link_or_opt -out /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.0.bc -args  "/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.g.bc"  
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.g.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.0.bc > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.0.bc.llvm-link.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.0.bc.llvm-link.err.log 
+INFO-FLOW: 
+Execute         run_link_or_opt -opt -out /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.1.lower.bc -args /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.1.lower.bc.opt.diag.yml /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.1.lower.bc > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.1.lower.bc.opt.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.1.lower.bc.opt.err.log 
+INFO-FLOW: 
+INFO-FLOW: Linking math bc lib
+Execute         run_link_or_opt -out /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.2.m1.bc -args /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.1.lower.bc -only-needed /opt/xilinx/Vitis_HLS/2022.2/lnx64/lib/libhlsm_39.bc /opt/xilinx/Vitis_HLS/2022.2/lnx64/lib/libhlsmc++_39.bc 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.1.lower.bc -only-needed /opt/xilinx/Vitis_HLS/2022.2/lnx64/lib/libhlsm_39.bc /opt/xilinx/Vitis_HLS/2022.2/lnx64/lib/libhlsmc++_39.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.2.m1.bc > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.2.m1.bc.llvm-link.err.log 
+Command           ap_eval done; 2.93 sec.
+INFO-FLOW: 
+Command         run_link_or_opt done; 2.94 sec.
+Execute         run_link_or_opt -opt -out /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.3.fpc.bc -args /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=spmm_hls -reflow-float-conversion 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.3.fpc.bc.opt.diag.yml /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=spmm_hls -reflow-float-conversion -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.3.fpc.bc > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.3.fpc.bc.opt.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.3.fpc.bc.opt.err.log 
+Command           ap_eval done; 0.99 sec.
+INFO-FLOW: 
+Command         run_link_or_opt done; 0.99 sec.
+Execute         run_link_or_opt -out /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.4.m2.bc -args /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /opt/xilinx/Vitis_HLS/2022.2/lnx64/lib/libfloatconversion_39.bc 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/llvm-link /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.3.fpc.bc -only-needed /opt/xilinx/Vitis_HLS/2022.2/lnx64/lib/libfloatconversion_39.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.4.m2.bc > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.4.m2.bc.llvm-link.err.log 
+INFO-FLOW: 
+Execute         run_link_or_opt -opt -out /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.5.gdce.bc -args /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=spmm_hls 
+Execute           ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=reflow|pasta|unroll -pass-remarks=reflow|pasta|unroll|inline -pass-remarks-output=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.5.gdce.bc.opt.diag.yml /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=spmm_hls -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.5.gdce.bc > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.5.gdce.bc.opt.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.5.gdce.bc.opt.err.log 
+INFO-FLOW: 
+Execute         send_msg_by_id INFO @200-777@%s Vivado 
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+Execute         is_m_axi_addr64 
+INFO-FLOW: Doing LTO.
+Execute         ap_eval exec -ignorestderr /opt/xilinx/Vitis_HLS/2022.2/lnx64/tools/clang-3.9-csynth/bin/clang -foptimization-record-file=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.0.bc.clang.diag.yml -mllvm -pass-remarks-missed=reflow|pasta|unroll -mllvm -pass-remarks=reflow|pasta|unroll|inline -fhls -mllvm -hls-top-function-name=spmm_hls -mllvm -hls-db-dir -mllvm /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -emit-llvm -c -target fpga64-xilinx-none -mllvm -xcl-xmlinfo=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/../../../kernel.xml -mllvm -top-io-mapping-info=/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/top-io-fe.xml -mllvm -hls-bitcode-version=3.1 -mllvm -reflow-enable-slave-interface-default-setting=true -mllvm -gen-kernel-xml=true -mllvm -default-maxi-offset=slave -mllvm -maxi-latency=0 -mllvm -hls-maxi-data-size-in-bits=8 -mllvm -hls-maxi-max-data-size-in-bits=1024 -mllvm -hls-max-widen-size-in-bits=0 -mllvm -xcl-kernel-max-mem-ports=0 -mllvm -maxi-read-trans=16 -mllvm -maxi-write-trans=16 -mllvm -maxi-read-burst-len=16 -mllvm -maxi-write-burst-len=16 -mllvm -reflow-enable-saxi-64bits=0 -mllvm -reflow-basic-block-instr-threshold=200000 -mllvm -reflow-auto-pipeline-threshold=64 -mllvm -reflow-enable-maxi-auto-id-channel=0 -mllvm -assume-maxi-align=1 -mllvm -reflow-pipeline-style-llvm-setting=2 -mllvm -reflow-enable-dataflow-strict-mode-checking=1 -mllvm -reflow-auto-array-partition-mode=default -mllvm -reflow-enable-auto-array-partition=true -mllvm -reflow-enable-auto-parallel-performance-driven=true -mllvm -reflow-enable-partition-for-automation=true -mllvm -reflow-aggregate-bitwidth-threshold=4096 -mllvm -reflow-assume-no-address-wrap=true -mllvm -hls -mllvm -disable-inlined-alloca-merging=true -mllvm -default-clock-period=4 -x ir /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.5.gdce.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.lto.bc -hls-platform-db-name=/opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/common/platform.db -hls-platform-name=virtexuplus_medium -device-resource-info=BRAM_4032.000000_DSP_9024.000000_FF_2607360.000000_LUT_1303680.000000_SLICE_162960.000000_SLR_3.000000_URAM_960.000000 -device-name-info=xcu280-fsvh2892-2L-e > /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.0.bc.clang.out.log 2> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.ld.0.bc.clang.err.log 
+Command         ap_eval done; 0.6 sec.
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_121_3' is marked as complete unroll implied by the pipeline pragma (src/spmm_device_fpga.cpp:121:31)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_114_2' is marked as complete unroll implied by the pipeline pragma (src/spmm_device_fpga.cpp:114:31)
+INFO: [HLS 214-291] Loop 'compare_all' is marked as complete unroll implied by the pipeline pragma (src/spmm_device_fpga.cpp:69:13)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_94_1' (src/spmm_device_fpga.cpp:94:22) in function 'set_tile_broadcast' completely with a factor of 4 (src/spmm_device_fpga.cpp:33:0)
+INFO: [HLS 214-186] Unrolling loop 'compare_all' (src/spmm_device_fpga.cpp:69:13) in function 'set_tile_broadcast' completely with a factor of 4 (src/spmm_device_fpga.cpp:33:0)
+INFO: [HLS 214-178] Inlining function 'merge_into_one_AU(unsigned int, hls::stream<float, 0>&, hls::stream<float, 0>&, float*, int&, int)' into 'au_merge(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)' (src/spmm_device_fpga.cpp:192:0)
+INFO: [HLS 214-178] Inlining function 'split_into_two_AU(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)' into 'au_merge(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)' (src/spmm_device_fpga.cpp:192:0)
+INFO: [HLS 214-248] Applying array_partition to 'seen_y': Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:38:10)
+INFO: [HLS 214-248] Applying array_partition to 'seen_v': Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:39:10)
+INFO: [HLS 214-248] Applying array_partition to 's': Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_0' with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_1' with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_2' with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_3' with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 32 in loop 'VITIS_LOOP_114_2'(src/spmm_device_fpga.cpp:114:31) has been inferred on bundle 'gmem3'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (src/spmm_device_fpga.cpp:114:31)
+INFO-FLOW: DBG:PUTS: copy_raw_kernel_xml ap_link_39: copying raw kernel.xml: /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/../../../kernel.xml -> /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/kernel.internal.xml
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 4.32 seconds. CPU system time: 0.74 seconds. Elapsed time: 5.08 seconds; current allocated memory: 733.762 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 733.762 MB.
+Execute         opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute           cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+INFO-FLOW: Running Standard Transforms...
+Execute           transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top spmm_hls -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -auto-shift-reg-idiom -promote-dbg-pointer -norm-name /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.0.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 735.027 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute           transform -hls -syn-check -check-rec-only -scalarrepl -norm-name -dce -mem2reg -instcombine -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -data-pack -instcombine -dce -inst-simplify -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -directive-preproc -mem2reg -dse -dce -globaldce /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.1.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute           transform -syn-check /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.2.prechk.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+WARNING: [SYNCHK 200-77] The top function 'spmm_hls' (src/spmm_device_fpga.cpp:275) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 735.801 MB.
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.g.1.bc to /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute           transform -hls -tmp /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -interface-port-rename -directive-preproc -mem2reg -dse -dce -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -directive-preproc -mem2reg -dse -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -scalar-auto-dep-elim -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -prepare-dynamic-array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -scalar-auto-dep-elim -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -accesses-merge -function-inline -complex-op-raise -inst-simplify -globaldce -func-legal -dce -loop-bound -arraycheck -bitwidthmin2 -bitwidthmin2 -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -duplicate-dataflow-processes -check-dataflow-syntax -legalize-stream-variable -globaldce -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -hls-dead-arg-elim -deadargelim -directive-preproc -canonicalize-dataflow -dce -globaldce -scalar-preprocessing -scalar-propagation2 -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -hls-display -norm-name /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.o.1.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.o.1.tmp.bc -f 
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_157_1' (src/spmm_device_fpga.cpp:157) in function 'au_merge' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_176_1' (src/spmm_device_fpga.cpp:176) in function 'au_merge' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_176_1' (src/spmm_device_fpga.cpp:176) in function 'au_merge' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_157_1' (src/spmm_device_fpga.cpp:157) in function 'au_merge' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_176_1' (src/spmm_device_fpga.cpp:176) in function 'au_merge' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_111_1' (src/spmm_device_fpga.cpp:111) in function 'dfm' for pipelining.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_114_2' (src/spmm_device_fpga.cpp:114) in function 'dfm': cannot completely unroll a loop with a variable trip count.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_121_3' (src/spmm_device_fpga.cpp:121) in function 'dfm': cannot completely unroll a loop with a variable trip count.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pkt.v.value' (src/spmm_device_fpga.cpp:45) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pkt.v.y' (src/spmm_device_fpga.cpp:45) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pkt.ref' (src/spmm_device_fpga.cpp:45) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'tile.value' (src/spmm_device_fpga.cpp:234) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'tile.y' (src/spmm_device_fpga.cpp:234) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'tile_ref' (src/spmm_device_fpga.cpp:235) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'tile_to_dbuf_begin' (src/spmm_device_fpga.cpp:236) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'p.v.value' (src/spmm_device_fpga.cpp:238) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'p.v.y' (src/spmm_device_fpga.cpp:238) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'p.ref' (src/spmm_device_fpga.cpp:238) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'pkt.v.value' (src/spmm_device_fpga.cpp:45) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pkt.v.y' (src/spmm_device_fpga.cpp:45) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pkt.ref' (src/spmm_device_fpga.cpp:45) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tile.value' (src/spmm_device_fpga.cpp:234) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tile.y' (src/spmm_device_fpga.cpp:234) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tile_ref' (src/spmm_device_fpga.cpp:235) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tile_to_dbuf_begin' (src/spmm_device_fpga.cpp:236) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'p.v.value' (src/spmm_device_fpga.cpp:238) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'p.v.y' (src/spmm_device_fpga.cpp:238) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'p.ref' (src/spmm_device_fpga.cpp:238) in dimension 1 completely.
+Command           transform done; 0.24 sec.
+INFO-FLOW: Presyn 2...
+Execute           transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin2 -bitwidthmin2 -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -barrier -norm-name /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.o.1.tmp.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/spmm_device_fpga.cpp:91:20) to (src/spmm_device_fpga.cpp:57:5) in function 'set_tile_broadcast'... converting 13 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/spmm_device_fpga.cpp:82:30) to (src/spmm_device_fpga.cpp:85:13) in function 'set_tile_broadcast'... converting 5 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'set_tile_broadcast' (src/spmm_device_fpga.cpp:38:13)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 759.543 MB.
+INFO-FLOW: Building ssdm...
+Execute           transform -hls -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -aggr-aa -licm -loop-dep -loop-bound -licm -loop-simplify -loop-sink-hoist -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -deadargelim -dce -canonicalize-dataflow -dce -deadargelim -globaldce -mem2reg -bram-byte-enable -load-elim -read-loop-dep -loop-simplify -loop-extract-inner -directive-preproc -bitwidthmin2 -bitwidthmin2 -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable-spec-prop -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -float-op-raise -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -float-op-raise -fma-raise -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -dyn-mem-reuse -dce -recurrence-min -dce -share-scalar-alloca -deadargelim -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.o.2.bc -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_111_1' (src/spmm_device_fpga.cpp:111:28) in function 'dfm' more than one sub loop.
+INFO: [HLS 200-472] Inferring partial write operation for 'AU0' (src/spmm_device_fpga.cpp:258:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'AU1' (src/spmm_device_fpga.cpp:259:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'Dbuf' (src/spmm_device_fpga.cpp:116:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'AU0' (src/spmm_device_fpga.cpp:158:15)
+INFO: [HLS 200-472] Inferring partial write operation for 'AU0' (src/spmm_device_fpga.cpp:177:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'AU1' (src/spmm_device_fpga.cpp:178:16)
+Command           transform done; 0.25 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.19 seconds. CPU system time: 0.06 seconds. Elapsed time: 0.25 seconds; current allocated memory: 897.723 MB.
+INFO-FLOW: Finish building internal data model.
+Command         opt_and_import_c done; 0.74 sec.
+Command       elaborate done; 10.32 sec.
+Execute       ap_eval exec zip -j /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dut.hcp $dbDir/a.o.3.bc $dbDir/${topname}.rtl_wrap.cfg.tcl $dbDir/apatb_${topname}.cpp $dbDir/apatb_${topname}_util.cpp $dbDir/apatb_${topname}_ir.ll $dbDir/mapper_${topname}.cpp $dbDir/top-io-fe.xml $dbDir/kernel.internal.xml $workdir/../hls.app 
+Execute       autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'spmm_hls' ...
+Execute         ap_set_top_model spmm_hls 
+Execute         get_model_list spmm_hls -filter all-wo-channel -topdown 
+Execute         preproc_iomode -model spmm_hls 
+Execute         preproc_iomode -model pu_kernel 
+Execute         preproc_iomode -model au_merge 
+Execute         preproc_iomode -model au_merge_Pipeline_VITIS_LOOP_157_1 
+Execute         preproc_iomode -model au_merge_Pipeline_VITIS_LOOP_176_1 
+Execute         preproc_iomode -model au_merge_Pipeline_VITIS_LOOP_176_11 
+Execute         preproc_iomode -model au_merge_Pipeline_VITIS_LOOP_157_12 
+Execute         preproc_iomode -model au_merge_Pipeline_VITIS_LOOP_176_13 
+Execute         preproc_iomode -model pu_comp 
+Execute         preproc_iomode -model pu_kernel_Pipeline_init_au 
+Execute         preproc_iomode -model dfm 
+Execute         preproc_iomode -model dfm_Pipeline_VITIS_LOOP_114_2 
+Execute         preproc_iomode -model pu_kernel_Pipeline_pu_save_stream_into_pu 
+Execute         preproc_iomode -model set_tile_broadcast 
+Execute         preproc_iomode -model set_tile_broadcast_Pipeline_copy_tile_loop 
+Execute         preproc_iomode -model set_tile_broadcast_Pipeline_init_seen 
+Execute         get_model_list spmm_hls -filter all-wo-channel 
+INFO-FLOW: Model list for configure: set_tile_broadcast_Pipeline_init_seen set_tile_broadcast_Pipeline_copy_tile_loop set_tile_broadcast pu_kernel_Pipeline_pu_save_stream_into_pu dfm_Pipeline_VITIS_LOOP_114_2 dfm pu_kernel_Pipeline_init_au pu_comp au_merge_Pipeline_VITIS_LOOP_176_13 au_merge_Pipeline_VITIS_LOOP_157_12 au_merge_Pipeline_VITIS_LOOP_176_11 au_merge_Pipeline_VITIS_LOOP_176_1 au_merge_Pipeline_VITIS_LOOP_157_1 au_merge pu_kernel spmm_hls
+INFO-FLOW: Configuring Module : set_tile_broadcast_Pipeline_init_seen ...
+Execute         set_default_model set_tile_broadcast_Pipeline_init_seen 
+Execute         apply_spec_resource_limit set_tile_broadcast_Pipeline_init_seen 
+INFO-FLOW: Configuring Module : set_tile_broadcast_Pipeline_copy_tile_loop ...
+Execute         set_default_model set_tile_broadcast_Pipeline_copy_tile_loop 
+Execute         apply_spec_resource_limit set_tile_broadcast_Pipeline_copy_tile_loop 
+INFO-FLOW: Configuring Module : set_tile_broadcast ...
+Execute         set_default_model set_tile_broadcast 
+Execute         apply_spec_resource_limit set_tile_broadcast 
+INFO-FLOW: Configuring Module : pu_kernel_Pipeline_pu_save_stream_into_pu ...
+Execute         set_default_model pu_kernel_Pipeline_pu_save_stream_into_pu 
+Execute         apply_spec_resource_limit pu_kernel_Pipeline_pu_save_stream_into_pu 
+INFO-FLOW: Configuring Module : dfm_Pipeline_VITIS_LOOP_114_2 ...
+Execute         set_default_model dfm_Pipeline_VITIS_LOOP_114_2 
+Execute         apply_spec_resource_limit dfm_Pipeline_VITIS_LOOP_114_2 
+INFO-FLOW: Configuring Module : dfm ...
+Execute         set_default_model dfm 
+Execute         apply_spec_resource_limit dfm 
+INFO-FLOW: Configuring Module : pu_kernel_Pipeline_init_au ...
+Execute         set_default_model pu_kernel_Pipeline_init_au 
+Execute         apply_spec_resource_limit pu_kernel_Pipeline_init_au 
+INFO-FLOW: Configuring Module : pu_comp ...
+Execute         set_default_model pu_comp 
+Execute         apply_spec_resource_limit pu_comp 
+INFO-FLOW: Configuring Module : au_merge_Pipeline_VITIS_LOOP_176_13 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_13 
+Execute         apply_spec_resource_limit au_merge_Pipeline_VITIS_LOOP_176_13 
+INFO-FLOW: Configuring Module : au_merge_Pipeline_VITIS_LOOP_157_12 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_157_12 
+Execute         apply_spec_resource_limit au_merge_Pipeline_VITIS_LOOP_157_12 
+INFO-FLOW: Configuring Module : au_merge_Pipeline_VITIS_LOOP_176_11 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_11 
+Execute         apply_spec_resource_limit au_merge_Pipeline_VITIS_LOOP_176_11 
+INFO-FLOW: Configuring Module : au_merge_Pipeline_VITIS_LOOP_176_1 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_1 
+Execute         apply_spec_resource_limit au_merge_Pipeline_VITIS_LOOP_176_1 
+INFO-FLOW: Configuring Module : au_merge_Pipeline_VITIS_LOOP_157_1 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_157_1 
+Execute         apply_spec_resource_limit au_merge_Pipeline_VITIS_LOOP_157_1 
+INFO-FLOW: Configuring Module : au_merge ...
+Execute         set_default_model au_merge 
+Execute         apply_spec_resource_limit au_merge 
+INFO-FLOW: Configuring Module : pu_kernel ...
+Execute         set_default_model pu_kernel 
+Execute         apply_spec_resource_limit pu_kernel 
+INFO-FLOW: Configuring Module : spmm_hls ...
+Execute         set_default_model spmm_hls 
+Execute         apply_spec_resource_limit spmm_hls 
+INFO-FLOW: Model list for preprocess: set_tile_broadcast_Pipeline_init_seen set_tile_broadcast_Pipeline_copy_tile_loop set_tile_broadcast pu_kernel_Pipeline_pu_save_stream_into_pu dfm_Pipeline_VITIS_LOOP_114_2 dfm pu_kernel_Pipeline_init_au pu_comp au_merge_Pipeline_VITIS_LOOP_176_13 au_merge_Pipeline_VITIS_LOOP_157_12 au_merge_Pipeline_VITIS_LOOP_176_11 au_merge_Pipeline_VITIS_LOOP_176_1 au_merge_Pipeline_VITIS_LOOP_157_1 au_merge pu_kernel spmm_hls
+INFO-FLOW: Preprocessing Module: set_tile_broadcast_Pipeline_init_seen ...
+Execute         set_default_model set_tile_broadcast_Pipeline_init_seen 
+Execute         cdfg_preprocess -model set_tile_broadcast_Pipeline_init_seen 
+Execute         rtl_gen_preprocess set_tile_broadcast_Pipeline_init_seen 
+INFO-FLOW: Preprocessing Module: set_tile_broadcast_Pipeline_copy_tile_loop ...
+Execute         set_default_model set_tile_broadcast_Pipeline_copy_tile_loop 
+Execute         cdfg_preprocess -model set_tile_broadcast_Pipeline_copy_tile_loop 
+Execute         rtl_gen_preprocess set_tile_broadcast_Pipeline_copy_tile_loop 
+INFO-FLOW: Preprocessing Module: set_tile_broadcast ...
+Execute         set_default_model set_tile_broadcast 
+Execute         cdfg_preprocess -model set_tile_broadcast 
+Execute         rtl_gen_preprocess set_tile_broadcast 
+INFO-FLOW: Preprocessing Module: pu_kernel_Pipeline_pu_save_stream_into_pu ...
+Execute         set_default_model pu_kernel_Pipeline_pu_save_stream_into_pu 
+Execute         cdfg_preprocess -model pu_kernel_Pipeline_pu_save_stream_into_pu 
+Execute         rtl_gen_preprocess pu_kernel_Pipeline_pu_save_stream_into_pu 
+INFO-FLOW: Preprocessing Module: dfm_Pipeline_VITIS_LOOP_114_2 ...
+Execute         set_default_model dfm_Pipeline_VITIS_LOOP_114_2 
+Execute         cdfg_preprocess -model dfm_Pipeline_VITIS_LOOP_114_2 
+Execute         rtl_gen_preprocess dfm_Pipeline_VITIS_LOOP_114_2 
+INFO-FLOW: Preprocessing Module: dfm ...
+Execute         set_default_model dfm 
+Execute         cdfg_preprocess -model dfm 
+Execute         rtl_gen_preprocess dfm 
+INFO-FLOW: Preprocessing Module: pu_kernel_Pipeline_init_au ...
+Execute         set_default_model pu_kernel_Pipeline_init_au 
+Execute         cdfg_preprocess -model pu_kernel_Pipeline_init_au 
+Execute         rtl_gen_preprocess pu_kernel_Pipeline_init_au 
+INFO-FLOW: Preprocessing Module: pu_comp ...
+Execute         set_default_model pu_comp 
+Execute         cdfg_preprocess -model pu_comp 
+Execute         rtl_gen_preprocess pu_comp 
+INFO-FLOW: Preprocessing Module: au_merge_Pipeline_VITIS_LOOP_176_13 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_13 
+Execute         cdfg_preprocess -model au_merge_Pipeline_VITIS_LOOP_176_13 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_176_13 
+INFO-FLOW: Preprocessing Module: au_merge_Pipeline_VITIS_LOOP_157_12 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_157_12 
+Execute         cdfg_preprocess -model au_merge_Pipeline_VITIS_LOOP_157_12 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_157_12 
+INFO-FLOW: Preprocessing Module: au_merge_Pipeline_VITIS_LOOP_176_11 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_11 
+Execute         cdfg_preprocess -model au_merge_Pipeline_VITIS_LOOP_176_11 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_176_11 
+INFO-FLOW: Preprocessing Module: au_merge_Pipeline_VITIS_LOOP_176_1 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_1 
+Execute         cdfg_preprocess -model au_merge_Pipeline_VITIS_LOOP_176_1 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_176_1 
+INFO-FLOW: Preprocessing Module: au_merge_Pipeline_VITIS_LOOP_157_1 ...
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_157_1 
+Execute         cdfg_preprocess -model au_merge_Pipeline_VITIS_LOOP_157_1 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_157_1 
+INFO-FLOW: Preprocessing Module: au_merge ...
+Execute         set_default_model au_merge 
+Execute         cdfg_preprocess -model au_merge 
+Execute         rtl_gen_preprocess au_merge 
+INFO-FLOW: Preprocessing Module: pu_kernel ...
+Execute         set_default_model pu_kernel 
+Execute         cdfg_preprocess -model pu_kernel 
+Execute         rtl_gen_preprocess pu_kernel 
+INFO-FLOW: Preprocessing Module: spmm_hls ...
+Execute         set_default_model spmm_hls 
+Execute         cdfg_preprocess -model spmm_hls 
+Execute         rtl_gen_preprocess spmm_hls 
+INFO-FLOW: Model list for synthesis: set_tile_broadcast_Pipeline_init_seen set_tile_broadcast_Pipeline_copy_tile_loop set_tile_broadcast pu_kernel_Pipeline_pu_save_stream_into_pu dfm_Pipeline_VITIS_LOOP_114_2 dfm pu_kernel_Pipeline_init_au pu_comp au_merge_Pipeline_VITIS_LOOP_176_13 au_merge_Pipeline_VITIS_LOOP_157_12 au_merge_Pipeline_VITIS_LOOP_176_11 au_merge_Pipeline_VITIS_LOOP_176_1 au_merge_Pipeline_VITIS_LOOP_157_1 au_merge pu_kernel spmm_hls
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'set_tile_broadcast_Pipeline_init_seen' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model set_tile_broadcast_Pipeline_init_seen 
+Execute         schedule -model set_tile_broadcast_Pipeline_init_seen 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'init_seen'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'init_seen'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.1 seconds; current allocated memory: 899.555 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.sched.adb -f 
+INFO-FLOW: Finish scheduling set_tile_broadcast_Pipeline_init_seen.
+Execute         set_default_model set_tile_broadcast_Pipeline_init_seen 
+Execute         bind -model set_tile_broadcast_Pipeline_init_seen 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 899.555 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.bind.adb -f 
+INFO-FLOW: Finish binding set_tile_broadcast_Pipeline_init_seen.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'set_tile_broadcast_Pipeline_copy_tile_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model set_tile_broadcast_Pipeline_copy_tile_loop 
+Execute         schedule -model set_tile_broadcast_Pipeline_copy_tile_loop 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'copy_tile_loop'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 10, loop 'copy_tile_loop'
+INFO: [SCHED 204-11] Finished scheduling.
+Command         schedule done; 0.12 sec.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 901.480 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.sched.adb -f 
+INFO-FLOW: Finish scheduling set_tile_broadcast_Pipeline_copy_tile_loop.
+Execute         set_default_model set_tile_broadcast_Pipeline_copy_tile_loop 
+Execute         bind -model set_tile_broadcast_Pipeline_copy_tile_loop 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 901.480 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 0.17 sec.
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.bind.adb -f 
+INFO-FLOW: Finish binding set_tile_broadcast_Pipeline_copy_tile_loop.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'set_tile_broadcast' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model set_tile_broadcast 
+Execute         schedule -model set_tile_broadcast 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.21 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 901.480 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.sched.adb -f 
+INFO-FLOW: Finish scheduling set_tile_broadcast.
+Execute         set_default_model set_tile_broadcast 
+Execute         bind -model set_tile_broadcast 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 901.480 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 0.14 sec.
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.bind.adb -f 
+INFO-FLOW: Finish binding set_tile_broadcast.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pu_kernel_Pipeline_pu_save_stream_into_pu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model pu_kernel_Pipeline_pu_save_stream_into_pu 
+Execute         schedule -model pu_kernel_Pipeline_pu_save_stream_into_pu 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'pu_save_stream_into_pu'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'pu_save_stream_into_pu'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 902.043 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.sched.adb -f 
+INFO-FLOW: Finish scheduling pu_kernel_Pipeline_pu_save_stream_into_pu.
+Execute         set_default_model pu_kernel_Pipeline_pu_save_stream_into_pu 
+Execute         bind -model pu_kernel_Pipeline_pu_save_stream_into_pu 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 902.043 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.bind.adb -f 
+INFO-FLOW: Finish binding pu_kernel_Pipeline_pu_save_stream_into_pu.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dfm_Pipeline_VITIS_LOOP_114_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model dfm_Pipeline_VITIS_LOOP_114_2 
+Execute         schedule -model dfm_Pipeline_VITIS_LOOP_114_2 
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'dfm_Pipeline_VITIS_LOOP_114_2': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_114_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'VITIS_LOOP_114_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 902.375 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.sched.adb -f 
+INFO-FLOW: Finish scheduling dfm_Pipeline_VITIS_LOOP_114_2.
+Execute         set_default_model dfm_Pipeline_VITIS_LOOP_114_2 
+Execute         bind -model dfm_Pipeline_VITIS_LOOP_114_2 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 902.375 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.bind.adb -f 
+INFO-FLOW: Finish binding dfm_Pipeline_VITIS_LOOP_114_2.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dfm' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model dfm 
+Execute         schedule -model dfm 
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for loop 'VITIS_LOOP_111_1': contains subloop(s) that are not unrolled or flattened.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 903.453 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.sched.adb -f 
+INFO-FLOW: Finish scheduling dfm.
+Execute         set_default_model dfm 
+Execute         bind -model dfm 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 903.453 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.bind.adb -f 
+INFO-FLOW: Finish binding dfm.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pu_kernel_Pipeline_init_au' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model pu_kernel_Pipeline_init_au 
+Execute         schedule -model pu_kernel_Pipeline_init_au 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'init_au'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'init_au'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 903.453 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.sched.adb -f 
+INFO-FLOW: Finish scheduling pu_kernel_Pipeline_init_au.
+Execute         set_default_model pu_kernel_Pipeline_init_au 
+Execute         bind -model pu_kernel_Pipeline_init_au 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 903.453 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.bind.adb -f 
+INFO-FLOW: Finish binding pu_kernel_Pipeline_init_au.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pu_comp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model pu_comp 
+Execute         schedule -model pu_comp 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_136_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 7, loop 'VITIS_LOOP_136_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 903.730 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.sched.adb -f 
+INFO-FLOW: Finish scheduling pu_comp.
+Execute         set_default_model pu_comp 
+Execute         bind -model pu_comp 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 903.730 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.bind.adb -f 
+INFO-FLOW: Finish binding pu_comp.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_176_13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_13 
+Execute         schedule -model au_merge_Pipeline_VITIS_LOOP_176_13 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_176_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'VITIS_LOOP_176_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 904.070 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.sched.adb -f 
+INFO-FLOW: Finish scheduling au_merge_Pipeline_VITIS_LOOP_176_13.
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_13 
+Execute         bind -model au_merge_Pipeline_VITIS_LOOP_176_13 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 904.070 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.bind.adb -f 
+INFO-FLOW: Finish binding au_merge_Pipeline_VITIS_LOOP_176_13.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_157_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_157_12 
+Execute         schedule -model au_merge_Pipeline_VITIS_LOOP_157_12 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_157_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 17, loop 'VITIS_LOOP_157_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 904.445 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.sched.adb -f 
+INFO-FLOW: Finish scheduling au_merge_Pipeline_VITIS_LOOP_157_12.
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_157_12 
+Execute         bind -model au_merge_Pipeline_VITIS_LOOP_157_12 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.12 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 904.445 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.bind.adb -f 
+INFO-FLOW: Finish binding au_merge_Pipeline_VITIS_LOOP_157_12.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_176_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_11 
+Execute         schedule -model au_merge_Pipeline_VITIS_LOOP_176_11 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_176_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'VITIS_LOOP_176_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 904.852 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.sched.adb -f 
+INFO-FLOW: Finish scheduling au_merge_Pipeline_VITIS_LOOP_176_11.
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_11 
+Execute         bind -model au_merge_Pipeline_VITIS_LOOP_176_11 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 904.852 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.bind.adb -f 
+INFO-FLOW: Finish binding au_merge_Pipeline_VITIS_LOOP_176_11.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_176_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_1 
+Execute         schedule -model au_merge_Pipeline_VITIS_LOOP_176_1 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_176_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'VITIS_LOOP_176_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 905.250 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.sched.adb -f 
+INFO-FLOW: Finish scheduling au_merge_Pipeline_VITIS_LOOP_176_1.
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_176_1 
+Execute         bind -model au_merge_Pipeline_VITIS_LOOP_176_1 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 905.250 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.bind.adb -f 
+INFO-FLOW: Finish binding au_merge_Pipeline_VITIS_LOOP_176_1.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_157_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_157_1 
+Execute         schedule -model au_merge_Pipeline_VITIS_LOOP_157_1 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_157_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 17, loop 'VITIS_LOOP_157_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 905.719 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.sched.adb -f 
+INFO-FLOW: Finish scheduling au_merge_Pipeline_VITIS_LOOP_157_1.
+Execute         set_default_model au_merge_Pipeline_VITIS_LOOP_157_1 
+Execute         bind -model au_merge_Pipeline_VITIS_LOOP_157_1 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 905.719 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.bind.adb -f 
+INFO-FLOW: Finish binding au_merge_Pipeline_VITIS_LOOP_157_1.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model au_merge 
+Execute         schedule -model au_merge 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 906.000 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.sched.adb -f 
+INFO-FLOW: Finish scheduling au_merge.
+Execute         set_default_model au_merge 
+Execute         bind -model au_merge 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 906.000 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.bind.adb -f 
+INFO-FLOW: Finish binding au_merge.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pu_kernel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model pu_kernel 
+Execute         schedule -model pu_kernel 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 906.402 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.sched.adb -f 
+INFO-FLOW: Finish scheduling pu_kernel.
+Execute         set_default_model pu_kernel 
+Execute         bind -model pu_kernel 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command         bind done; 0.12 sec.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 906.402 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 0.22 sec.
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.bind.adb -f 
+INFO-FLOW: Finish binding pu_kernel.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'spmm_hls' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         set_default_model spmm_hls 
+Execute         schedule -model spmm_hls 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.27 seconds. CPU system time: 0 seconds. Elapsed time: 0.27 seconds; current allocated memory: 907.113 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.verbose.sched.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.sched.adb -f 
+INFO-FLOW: Finish scheduling spmm_hls.
+Execute         set_default_model spmm_hls 
+Execute         bind -model spmm_hls 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+Command         bind done; 0.37 sec.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.4 seconds. CPU system time: 0 seconds. Elapsed time: 0.4 seconds; current allocated memory: 907.113 MB.
+Execute         syn_report -verbosereport -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.verbose.bind.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 1.03 sec.
+Execute         db_write -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.bind.adb -f 
+INFO-FLOW: Finish binding spmm_hls.
+Execute         get_model_list spmm_hls -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute         rtl_gen_preprocess set_tile_broadcast_Pipeline_init_seen 
+Execute         rtl_gen_preprocess set_tile_broadcast_Pipeline_copy_tile_loop 
+Execute         rtl_gen_preprocess set_tile_broadcast 
+Execute         rtl_gen_preprocess pu_kernel_Pipeline_pu_save_stream_into_pu 
+Execute         rtl_gen_preprocess dfm_Pipeline_VITIS_LOOP_114_2 
+Execute         rtl_gen_preprocess dfm 
+Execute         rtl_gen_preprocess pu_kernel_Pipeline_init_au 
+Execute         rtl_gen_preprocess pu_comp 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_176_13 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_157_12 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_176_11 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_176_1 
+Execute         rtl_gen_preprocess au_merge_Pipeline_VITIS_LOOP_157_1 
+Execute         rtl_gen_preprocess au_merge 
+Execute         rtl_gen_preprocess pu_kernel 
+Execute         rtl_gen_preprocess spmm_hls 
+INFO-FLOW: Model list for RTL generation: set_tile_broadcast_Pipeline_init_seen set_tile_broadcast_Pipeline_copy_tile_loop set_tile_broadcast pu_kernel_Pipeline_pu_save_stream_into_pu dfm_Pipeline_VITIS_LOOP_114_2 dfm pu_kernel_Pipeline_init_au pu_comp au_merge_Pipeline_VITIS_LOOP_176_13 au_merge_Pipeline_VITIS_LOOP_157_12 au_merge_Pipeline_VITIS_LOOP_176_11 au_merge_Pipeline_VITIS_LOOP_176_1 au_merge_Pipeline_VITIS_LOOP_157_1 au_merge pu_kernel spmm_hls
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'set_tile_broadcast_Pipeline_init_seen' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model set_tile_broadcast_Pipeline_init_seen -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'set_tile_broadcast_Pipeline_init_seen'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.06 seconds. CPU system time: 0 seconds. Elapsed time: 1.06 seconds; current allocated memory: 907.180 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl set_tile_broadcast_Pipeline_init_seen -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_set_tile_broadcast_Pipeline_init_seen 
+Execute         gen_rtl set_tile_broadcast_Pipeline_init_seen -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_set_tile_broadcast_Pipeline_init_seen 
+Execute         syn_report -csynth -model set_tile_broadcast_Pipeline_init_seen -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/set_tile_broadcast_Pipeline_init_seen_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model set_tile_broadcast_Pipeline_init_seen -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/set_tile_broadcast_Pipeline_init_seen_csynth.xml 
+Execute         syn_report -verbosereport -model set_tile_broadcast_Pipeline_init_seen -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model set_tile_broadcast_Pipeline_init_seen -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.adb 
+Execute         db_write -model set_tile_broadcast_Pipeline_init_seen -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info set_tile_broadcast_Pipeline_init_seen -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'set_tile_broadcast_Pipeline_copy_tile_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model set_tile_broadcast_Pipeline_copy_tile_loop -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.compgen.tcl 
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'set_tile_broadcast_Pipeline_copy_tile_loop' pipeline 'copy_tile_loop' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'set_tile_broadcast_Pipeline_copy_tile_loop'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 909.535 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl set_tile_broadcast_Pipeline_copy_tile_loop -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_set_tile_broadcast_Pipeline_copy_tile_loop 
+Execute         gen_rtl set_tile_broadcast_Pipeline_copy_tile_loop -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_set_tile_broadcast_Pipeline_copy_tile_loop 
+Execute         syn_report -csynth -model set_tile_broadcast_Pipeline_copy_tile_loop -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/set_tile_broadcast_Pipeline_copy_tile_loop_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 0.12 sec.
+Execute         syn_report -rtlxml -model set_tile_broadcast_Pipeline_copy_tile_loop -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/set_tile_broadcast_Pipeline_copy_tile_loop_csynth.xml 
+Execute         syn_report -verbosereport -model set_tile_broadcast_Pipeline_copy_tile_loop -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 0.22 sec.
+Execute         db_write -model set_tile_broadcast_Pipeline_copy_tile_loop -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.adb 
+Execute         db_write -model set_tile_broadcast_Pipeline_copy_tile_loop -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info set_tile_broadcast_Pipeline_copy_tile_loop -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'set_tile_broadcast' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model set_tile_broadcast -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'set_tile_broadcast'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.54 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.54 seconds; current allocated memory: 913.754 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl set_tile_broadcast -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_set_tile_broadcast 
+Execute         gen_rtl set_tile_broadcast -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_set_tile_broadcast 
+Execute         syn_report -csynth -model set_tile_broadcast -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/set_tile_broadcast_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model set_tile_broadcast -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/set_tile_broadcast_csynth.xml 
+Execute         syn_report -verbosereport -model set_tile_broadcast -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 0.15 sec.
+Execute         db_write -model set_tile_broadcast -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.adb 
+Execute         db_write -model set_tile_broadcast -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info set_tile_broadcast -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pu_kernel_Pipeline_pu_save_stream_into_pu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model pu_kernel_Pipeline_pu_save_stream_into_pu -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.compgen.tcl 
+INFO: [RTGEN 206-100] Generating core module 'mux_42_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_42_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pu_kernel_Pipeline_pu_save_stream_into_pu'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.2 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.2 seconds; current allocated memory: 915.055 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl pu_kernel_Pipeline_pu_save_stream_into_pu -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_pu_kernel_Pipeline_pu_save_stream_into_pu 
+Execute         gen_rtl pu_kernel_Pipeline_pu_save_stream_into_pu -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_pu_kernel_Pipeline_pu_save_stream_into_pu 
+Execute         syn_report -csynth -model pu_kernel_Pipeline_pu_save_stream_into_pu -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/pu_kernel_Pipeline_pu_save_stream_into_pu_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model pu_kernel_Pipeline_pu_save_stream_into_pu -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/pu_kernel_Pipeline_pu_save_stream_into_pu_csynth.xml 
+Execute         syn_report -verbosereport -model pu_kernel_Pipeline_pu_save_stream_into_pu -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model pu_kernel_Pipeline_pu_save_stream_into_pu -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.adb 
+Execute         db_write -model pu_kernel_Pipeline_pu_save_stream_into_pu -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info pu_kernel_Pipeline_pu_save_stream_into_pu -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dfm_Pipeline_VITIS_LOOP_114_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model dfm_Pipeline_VITIS_LOOP_114_2 -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.compgen.tcl 
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'dfm_Pipeline_VITIS_LOOP_114_2' pipeline 'VITIS_LOOP_114_2' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dfm_Pipeline_VITIS_LOOP_114_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 916.797 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl dfm_Pipeline_VITIS_LOOP_114_2 -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_dfm_Pipeline_VITIS_LOOP_114_2 
+Execute         gen_rtl dfm_Pipeline_VITIS_LOOP_114_2 -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_dfm_Pipeline_VITIS_LOOP_114_2 
+Execute         syn_report -csynth -model dfm_Pipeline_VITIS_LOOP_114_2 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/dfm_Pipeline_VITIS_LOOP_114_2_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model dfm_Pipeline_VITIS_LOOP_114_2 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/dfm_Pipeline_VITIS_LOOP_114_2_csynth.xml 
+Execute         syn_report -verbosereport -model dfm_Pipeline_VITIS_LOOP_114_2 -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model dfm_Pipeline_VITIS_LOOP_114_2 -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.adb 
+Execute         db_write -model dfm_Pipeline_VITIS_LOOP_114_2 -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info dfm_Pipeline_VITIS_LOOP_114_2 -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dfm' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model dfm -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.compgen.tcl 
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_30ns_32_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_42_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_42_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dfm'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 918.391 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl dfm -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_dfm 
+Execute         gen_rtl dfm -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_dfm 
+Execute         syn_report -csynth -model dfm -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/dfm_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model dfm -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/dfm_csynth.xml 
+Execute         syn_report -verbosereport -model dfm -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model dfm -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.adb 
+Execute         db_write -model dfm -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info dfm -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pu_kernel_Pipeline_init_au' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model pu_kernel_Pipeline_init_au -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pu_kernel_Pipeline_init_au'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 920.246 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl pu_kernel_Pipeline_init_au -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_pu_kernel_Pipeline_init_au 
+Execute         gen_rtl pu_kernel_Pipeline_init_au -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_pu_kernel_Pipeline_init_au 
+Execute         syn_report -csynth -model pu_kernel_Pipeline_init_au -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/pu_kernel_Pipeline_init_au_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model pu_kernel_Pipeline_init_au -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/pu_kernel_Pipeline_init_au_csynth.xml 
+Execute         syn_report -verbosereport -model pu_kernel_Pipeline_init_au -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model pu_kernel_Pipeline_init_au -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.adb 
+Execute         db_write -model pu_kernel_Pipeline_init_au -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info pu_kernel_Pipeline_init_au -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pu_comp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model pu_comp -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.compgen.tcl 
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pu_comp' pipeline 'VITIS_LOOP_136_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pu_comp'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 920.980 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl pu_comp -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_pu_comp 
+Execute         gen_rtl pu_comp -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_pu_comp 
+Execute         syn_report -csynth -model pu_comp -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/pu_comp_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model pu_comp -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/pu_comp_csynth.xml 
+Execute         syn_report -verbosereport -model pu_comp -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model pu_comp -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.adb 
+Execute         db_write -model pu_comp -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info pu_comp -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_176_13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model au_merge_Pipeline_VITIS_LOOP_176_13 -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.compgen.tcl 
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_176_13' pipeline 'VITIS_LOOP_176_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_176_13'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 922.090 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_176_13 -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_au_merge_Pipeline_VITIS_LOOP_176_13 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_176_13 -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_au_merge_Pipeline_VITIS_LOOP_176_13 
+Execute         syn_report -csynth -model au_merge_Pipeline_VITIS_LOOP_176_13 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_176_13_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model au_merge_Pipeline_VITIS_LOOP_176_13 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_176_13_csynth.xml 
+Execute         syn_report -verbosereport -model au_merge_Pipeline_VITIS_LOOP_176_13 -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_176_13 -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.adb 
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_176_13 -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info au_merge_Pipeline_VITIS_LOOP_176_13 -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_157_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model au_merge_Pipeline_VITIS_LOOP_157_12 -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.compgen.tcl 
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_157_12' pipeline 'VITIS_LOOP_157_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_157_12'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 923.293 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_157_12 -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_au_merge_Pipeline_VITIS_LOOP_157_12 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_157_12 -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_au_merge_Pipeline_VITIS_LOOP_157_12 
+Execute         syn_report -csynth -model au_merge_Pipeline_VITIS_LOOP_157_12 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_157_12_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model au_merge_Pipeline_VITIS_LOOP_157_12 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_157_12_csynth.xml 
+Execute         syn_report -verbosereport -model au_merge_Pipeline_VITIS_LOOP_157_12 -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_157_12 -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.adb 
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_157_12 -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info au_merge_Pipeline_VITIS_LOOP_157_12 -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_176_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model au_merge_Pipeline_VITIS_LOOP_176_11 -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.compgen.tcl 
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_176_11' pipeline 'VITIS_LOOP_176_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_176_11'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 924.426 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_176_11 -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_au_merge_Pipeline_VITIS_LOOP_176_11 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_176_11 -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_au_merge_Pipeline_VITIS_LOOP_176_11 
+Execute         syn_report -csynth -model au_merge_Pipeline_VITIS_LOOP_176_11 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_176_11_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model au_merge_Pipeline_VITIS_LOOP_176_11 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_176_11_csynth.xml 
+Execute         syn_report -verbosereport -model au_merge_Pipeline_VITIS_LOOP_176_11 -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_176_11 -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.adb 
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_176_11 -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info au_merge_Pipeline_VITIS_LOOP_176_11 -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_176_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model au_merge_Pipeline_VITIS_LOOP_176_1 -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.compgen.tcl 
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_176_1' pipeline 'VITIS_LOOP_176_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_176_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 925.582 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_176_1 -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_au_merge_Pipeline_VITIS_LOOP_176_1 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_176_1 -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_au_merge_Pipeline_VITIS_LOOP_176_1 
+Execute         syn_report -csynth -model au_merge_Pipeline_VITIS_LOOP_176_1 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_176_1_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model au_merge_Pipeline_VITIS_LOOP_176_1 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_176_1_csynth.xml 
+Execute         syn_report -verbosereport -model au_merge_Pipeline_VITIS_LOOP_176_1 -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_176_1 -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.adb 
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_176_1 -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info au_merge_Pipeline_VITIS_LOOP_176_1 -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_157_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model au_merge_Pipeline_VITIS_LOOP_157_1 -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.compgen.tcl 
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_157_1' pipeline 'VITIS_LOOP_157_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_157_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 926.754 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_157_1 -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_au_merge_Pipeline_VITIS_LOOP_157_1 
+Execute         gen_rtl au_merge_Pipeline_VITIS_LOOP_157_1 -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_au_merge_Pipeline_VITIS_LOOP_157_1 
+Execute         syn_report -csynth -model au_merge_Pipeline_VITIS_LOOP_157_1 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_157_1_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model au_merge_Pipeline_VITIS_LOOP_157_1 -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_Pipeline_VITIS_LOOP_157_1_csynth.xml 
+Execute         syn_report -verbosereport -model au_merge_Pipeline_VITIS_LOOP_157_1 -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_157_1 -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.adb 
+Execute         db_write -model au_merge_Pipeline_VITIS_LOOP_157_1 -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info au_merge_Pipeline_VITIS_LOOP_157_1 -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model au_merge -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 928.223 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl au_merge -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_au_merge 
+Execute         gen_rtl au_merge -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_au_merge 
+Execute         syn_report -csynth -model au_merge -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model au_merge -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/au_merge_csynth.xml 
+Execute         syn_report -verbosereport -model au_merge -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 0.12 sec.
+Execute         db_write -model au_merge -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.adb 
+Execute         db_write -model au_merge -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info au_merge -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pu_kernel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model pu_kernel -top_prefix spmm_hls_ -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.compgen.tcl 
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pu_kernel'.
+INFO: [RTMG 210-278] Implementing memory 'spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'streamA_U(spmm_hls_fifo_w32_d61278_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'streamB_U(spmm_hls_fifo_w32_d61278_A)' using Vivado Default RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.25 seconds. CPU system time: 0 seconds. Elapsed time: 0.24 seconds; current allocated memory: 930.594 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl pu_kernel -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls_pu_kernel 
+Execute         gen_rtl pu_kernel -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls_pu_kernel 
+Execute         syn_report -csynth -model pu_kernel -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/pu_kernel_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model pu_kernel -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/pu_kernel_csynth.xml 
+Execute         syn_report -verbosereport -model pu_kernel -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 0.25 sec.
+Execute         db_write -model pu_kernel -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.adb 
+Execute         db_write -model pu_kernel -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info pu_kernel -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'spmm_hls' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute         create_rtl_model spmm_hls -top_prefix  -sub_prefix spmm_hls_ -mg_file /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.compgen.tcl 
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem3' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem4' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem5' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem6' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem7' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/N' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/M' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/K' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/nnz' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/row_ptr' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/col_idx' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/a_val' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/B1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/B2' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/B3' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/B4' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/C' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'spmm_hls' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'N', 'M', 'K', 'nnz', 'row_ptr', 'col_idx', 'a_val', 'B1', 'B2', 'B3', 'B4', 'C' to AXI-Lite port control.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WDATA' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WSTRB' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WSTRB' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WLAST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_RREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_BREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WDATA' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WSTRB' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WSTRB' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WLAST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_RREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_BVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_BREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_BREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_BRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_BID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_BUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'spmm_hls'.
+INFO: [RTMG 210-285] Implementing FIFO 's_0_U(spmm_hls_fifo_w388_d16_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 's_1_U(spmm_hls_fifo_w388_d16_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 's_2_U(spmm_hls_fifo_w388_d16_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 's_3_U(spmm_hls_fifo_w388_d16_A)' using Vivado Default RAMs.
+Command         create_rtl_model done; 0.78 sec.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.13 seconds. CPU system time: 0.07 seconds. Elapsed time: 1.2 seconds; current allocated memory: 936.141 MB.
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         gen_rtl spmm_hls -istop -style xilinx -f -lang vhdl -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/vhdl/spmm_hls 
+Execute         gen_rtl spmm_hls -istop -style xilinx -f -lang vlog -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/verilog/spmm_hls 
+Execute         syn_report -csynth -model spmm_hls -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/spmm_hls_csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -rtlxml -model spmm_hls -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/spmm_hls_csynth.xml 
+Execute         syn_report -verbosereport -model spmm_hls -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.verbose.rpt 
+Execute           AP::get_flow_target_display_name
+Command         syn_report done; 1.07 sec.
+Execute         db_write -model spmm_hls -f -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.adb 
+Execute         db_write -model spmm_hls -bindview -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/design.bindinfo.xml 
+Execute         gen_tb_info spmm_hls -p /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls 
+Execute         export_constraint_db -f -tool general -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.constraint.tcl 
+Execute         syn_report -designview -model spmm_hls -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.design.xml 
+Command         syn_report done; 0.41 sec.
+Execute         syn_report -csynthDesign -model spmm_hls -o /home/shuxuan/SDMA/spmm_prj/sol1/syn/report/csynth.rpt 
+Execute           AP::get_flow_target_display_name
+Execute         syn_report -wcfg -model spmm_hls -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls_dataflow_ana.wcfg 
+Execute         syn_report -protoinst -model spmm_hls -o /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.protoinst 
+Execute         sc_get_clocks spmm_hls 
+Execute         sc_get_portdomain spmm_hls 
+INFO-FLOW: Model list for RTL component generation: set_tile_broadcast_Pipeline_init_seen set_tile_broadcast_Pipeline_copy_tile_loop set_tile_broadcast pu_kernel_Pipeline_pu_save_stream_into_pu dfm_Pipeline_VITIS_LOOP_114_2 dfm pu_kernel_Pipeline_init_au pu_comp au_merge_Pipeline_VITIS_LOOP_176_13 au_merge_Pipeline_VITIS_LOOP_157_12 au_merge_Pipeline_VITIS_LOOP_176_11 au_merge_Pipeline_VITIS_LOOP_176_1 au_merge_Pipeline_VITIS_LOOP_157_1 au_merge pu_kernel spmm_hls
+INFO-FLOW: Handling components in module [set_tile_broadcast_Pipeline_init_seen] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [set_tile_broadcast_Pipeline_copy_tile_loop] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [set_tile_broadcast] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.compgen.tcl 
+INFO-FLOW: Handling components in module [pu_kernel_Pipeline_pu_save_stream_into_pu] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_mux_42_32_1_1.
+INFO-FLOW: Append model spmm_hls_mux_42_32_1_1
+INFO-FLOW: Found component spmm_hls_mux_42_1_1_1.
+INFO-FLOW: Append model spmm_hls_mux_42_1_1_1
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [dfm_Pipeline_VITIS_LOOP_114_2] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [dfm] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_mul_32s_30ns_32_2_1.
+INFO-FLOW: Append model spmm_hls_mul_32s_30ns_32_2_1
+INFO-FLOW: Handling components in module [pu_kernel_Pipeline_init_au] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [pu_comp] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1.
+INFO-FLOW: Append model spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [au_merge_Pipeline_VITIS_LOOP_176_13] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_fadd_32ns_32ns_32_7_full_dsp_1.
+INFO-FLOW: Append model spmm_hls_fadd_32ns_32ns_32_7_full_dsp_1
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [au_merge_Pipeline_VITIS_LOOP_157_12] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [au_merge_Pipeline_VITIS_LOOP_176_11] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [au_merge_Pipeline_VITIS_LOOP_176_1] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [au_merge_Pipeline_VITIS_LOOP_157_1] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_flow_control_loop_pipe_sequential_init.
+INFO-FLOW: Append model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: Handling components in module [au_merge] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.compgen.tcl 
+INFO-FLOW: Handling components in module [pu_kernel] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W.
+INFO-FLOW: Append model spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W
+INFO-FLOW: Found component spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W.
+INFO-FLOW: Append model spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W
+INFO-FLOW: Found component spmm_hls_fifo_w32_d61278_A.
+INFO-FLOW: Append model spmm_hls_fifo_w32_d61278_A
+INFO-FLOW: Found component spmm_hls_fifo_w32_d61278_A.
+INFO-FLOW: Append model spmm_hls_fifo_w32_d61278_A
+INFO-FLOW: Handling components in module [spmm_hls] ... 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.compgen.tcl 
+INFO-FLOW: Found component spmm_hls_fifo_w388_d16_A.
+INFO-FLOW: Append model spmm_hls_fifo_w388_d16_A
+INFO-FLOW: Found component spmm_hls_fifo_w388_d16_A.
+INFO-FLOW: Append model spmm_hls_fifo_w388_d16_A
+INFO-FLOW: Found component spmm_hls_fifo_w388_d16_A.
+INFO-FLOW: Append model spmm_hls_fifo_w388_d16_A
+INFO-FLOW: Found component spmm_hls_fifo_w388_d16_A.
+INFO-FLOW: Append model spmm_hls_fifo_w388_d16_A
+INFO-FLOW: Found component spmm_hls_gmem1_m_axi.
+INFO-FLOW: Append model spmm_hls_gmem1_m_axi
+INFO-FLOW: Found component spmm_hls_gmem2_m_axi.
+INFO-FLOW: Append model spmm_hls_gmem2_m_axi
+INFO-FLOW: Found component spmm_hls_gmem3_m_axi.
+INFO-FLOW: Append model spmm_hls_gmem3_m_axi
+INFO-FLOW: Found component spmm_hls_gmem4_m_axi.
+INFO-FLOW: Append model spmm_hls_gmem4_m_axi
+INFO-FLOW: Found component spmm_hls_gmem5_m_axi.
+INFO-FLOW: Append model spmm_hls_gmem5_m_axi
+INFO-FLOW: Found component spmm_hls_gmem6_m_axi.
+INFO-FLOW: Append model spmm_hls_gmem6_m_axi
+INFO-FLOW: Found component spmm_hls_control_s_axi.
+INFO-FLOW: Append model spmm_hls_control_s_axi
+INFO-FLOW: Append model set_tile_broadcast_Pipeline_init_seen
+INFO-FLOW: Append model set_tile_broadcast_Pipeline_copy_tile_loop
+INFO-FLOW: Append model set_tile_broadcast
+INFO-FLOW: Append model pu_kernel_Pipeline_pu_save_stream_into_pu
+INFO-FLOW: Append model dfm_Pipeline_VITIS_LOOP_114_2
+INFO-FLOW: Append model dfm
+INFO-FLOW: Append model pu_kernel_Pipeline_init_au
+INFO-FLOW: Append model pu_comp
+INFO-FLOW: Append model au_merge_Pipeline_VITIS_LOOP_176_13
+INFO-FLOW: Append model au_merge_Pipeline_VITIS_LOOP_157_12
+INFO-FLOW: Append model au_merge_Pipeline_VITIS_LOOP_176_11
+INFO-FLOW: Append model au_merge_Pipeline_VITIS_LOOP_176_1
+INFO-FLOW: Append model au_merge_Pipeline_VITIS_LOOP_157_1
+INFO-FLOW: Append model au_merge
+INFO-FLOW: Append model pu_kernel
+INFO-FLOW: Append model spmm_hls
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_mux_42_32_1_1 spmm_hls_mux_42_1_1_1 spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_mul_32s_30ns_32_2_1 spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1 spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_fadd_32ns_32ns_32_7_full_dsp_1 spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_flow_control_loop_pipe_sequential_init spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W spmm_hls_fifo_w32_d61278_A spmm_hls_fifo_w32_d61278_A spmm_hls_fifo_w388_d16_A spmm_hls_fifo_w388_d16_A spmm_hls_fifo_w388_d16_A spmm_hls_fifo_w388_d16_A spmm_hls_gmem1_m_axi spmm_hls_gmem2_m_axi spmm_hls_gmem3_m_axi spmm_hls_gmem4_m_axi spmm_hls_gmem5_m_axi spmm_hls_gmem6_m_axi spmm_hls_control_s_axi set_tile_broadcast_Pipeline_init_seen set_tile_broadcast_Pipeline_copy_tile_loop set_tile_broadcast pu_kernel_Pipeline_pu_save_stream_into_pu dfm_Pipeline_VITIS_LOOP_114_2 dfm pu_kernel_Pipeline_init_au pu_comp au_merge_Pipeline_VITIS_LOOP_176_13 au_merge_Pipeline_VITIS_LOOP_157_12 au_merge_Pipeline_VITIS_LOOP_176_11 au_merge_Pipeline_VITIS_LOOP_176_1 au_merge_Pipeline_VITIS_LOOP_157_1 au_merge pu_kernel spmm_hls
+INFO-FLOW: Generating /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/autopilot.rtl.models.txt file...
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_mux_42_32_1_1
+INFO-FLOW: To file: write model spmm_hls_mux_42_1_1_1
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_mul_32s_30ns_32_2_1
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_fadd_32ns_32ns_32_7_full_dsp_1
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_flow_control_loop_pipe_sequential_init
+INFO-FLOW: To file: write model spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W
+INFO-FLOW: To file: write model spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W
+INFO-FLOW: To file: write model spmm_hls_fifo_w32_d61278_A
+INFO-FLOW: To file: write model spmm_hls_fifo_w32_d61278_A
+INFO-FLOW: To file: write model spmm_hls_fifo_w388_d16_A
+INFO-FLOW: To file: write model spmm_hls_fifo_w388_d16_A
+INFO-FLOW: To file: write model spmm_hls_fifo_w388_d16_A
+INFO-FLOW: To file: write model spmm_hls_fifo_w388_d16_A
+INFO-FLOW: To file: write model spmm_hls_gmem1_m_axi
+INFO-FLOW: To file: write model spmm_hls_gmem2_m_axi
+INFO-FLOW: To file: write model spmm_hls_gmem3_m_axi
+INFO-FLOW: To file: write model spmm_hls_gmem4_m_axi
+INFO-FLOW: To file: write model spmm_hls_gmem5_m_axi
+INFO-FLOW: To file: write model spmm_hls_gmem6_m_axi
+INFO-FLOW: To file: write model spmm_hls_control_s_axi
+INFO-FLOW: To file: write model set_tile_broadcast_Pipeline_init_seen
+INFO-FLOW: To file: write model set_tile_broadcast_Pipeline_copy_tile_loop
+INFO-FLOW: To file: write model set_tile_broadcast
+INFO-FLOW: To file: write model pu_kernel_Pipeline_pu_save_stream_into_pu
+INFO-FLOW: To file: write model dfm_Pipeline_VITIS_LOOP_114_2
+INFO-FLOW: To file: write model dfm
+INFO-FLOW: To file: write model pu_kernel_Pipeline_init_au
+INFO-FLOW: To file: write model pu_comp
+INFO-FLOW: To file: write model au_merge_Pipeline_VITIS_LOOP_176_13
+INFO-FLOW: To file: write model au_merge_Pipeline_VITIS_LOOP_157_12
+INFO-FLOW: To file: write model au_merge_Pipeline_VITIS_LOOP_176_11
+INFO-FLOW: To file: write model au_merge_Pipeline_VITIS_LOOP_176_1
+INFO-FLOW: To file: write model au_merge_Pipeline_VITIS_LOOP_157_1
+INFO-FLOW: To file: write model au_merge
+INFO-FLOW: To file: write model pu_kernel
+INFO-FLOW: To file: write model spmm_hls
+INFO-FLOW: Generating /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/autopilot.rtl.models.tcl file...
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::auto_generate_csynth_design
+INFO-FLOW: DBG:PUTS: read_platform_lib /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/global.setting.tcl
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/generic/autopilot/common.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/generic/autopilot/APCoreGen.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/generic/autopilot/op.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/generic/autopilot/op_simcore.gen 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/generic/autopilot/interface.gen 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/global.setting.tcl 
+Execute         source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/common/xilinx.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/plb46.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/axi4.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/saxilite.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfir.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/xfft.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/ip/util.gen 
+Execute           source /opt/xilinx/Vitis_HLS/2022.2/common/technology/xilinx/DSP48/dsp48.gen 
+INFO-FLOW: DBG:PUTS:   using AESL_AUTOCG::g_clock_period=4.000 (was NA)
+INFO-FLOW: DBG:PROC: ::AESL_AUTOMG::generate_ip_cores gen_sim_model='1' gen_fp_models='0' gen_for_export='0' dstSCDir='' dstVhdlDir='/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/vhdl' dstVlogDir='/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/vlog' tclDir='/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db' modelList='spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_mux_42_32_1_1
+spmm_hls_mux_42_1_1_1
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_mul_32s_30ns_32_2_1
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_fadd_32ns_32ns_32_7_full_dsp_1
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W
+spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W
+spmm_hls_fifo_w32_d61278_A
+spmm_hls_fifo_w32_d61278_A
+spmm_hls_fifo_w388_d16_A
+spmm_hls_fifo_w388_d16_A
+spmm_hls_fifo_w388_d16_A
+spmm_hls_fifo_w388_d16_A
+spmm_hls_gmem1_m_axi
+spmm_hls_gmem2_m_axi
+spmm_hls_gmem3_m_axi
+spmm_hls_gmem4_m_axi
+spmm_hls_gmem5_m_axi
+spmm_hls_gmem6_m_axi
+spmm_hls_control_s_axi
+set_tile_broadcast_Pipeline_init_seen
+set_tile_broadcast_Pipeline_copy_tile_loop
+set_tile_broadcast
+pu_kernel_Pipeline_pu_save_stream_into_pu
+dfm_Pipeline_VITIS_LOOP_114_2
+dfm
+pu_kernel_Pipeline_init_au
+pu_comp
+au_merge_Pipeline_VITIS_LOOP_176_13
+au_merge_Pipeline_VITIS_LOOP_157_12
+au_merge_Pipeline_VITIS_LOOP_176_11
+au_merge_Pipeline_VITIS_LOOP_176_1
+au_merge_Pipeline_VITIS_LOOP_157_1
+au_merge
+pu_kernel
+spmm_hls
+' expOnly='0'
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/global.setting.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/global.setting.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.compgen.tcl 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute           ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.compgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.compgen.tcl 
+Execute           source ./control.slave.tcl 
+INFO: [HLS 200-111] Finished Generating all RTL models: CPU user time: 1.82 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.86 seconds; current allocated memory: 939.812 MB.
+INFO-FLOW: DBG:PROC: ::HLSREPORTS::create_csynth_xml bind_info_var='bind_info' RtlSubPrefix='spmm_hls_' outfile=''
+INFO-FLOW: Running: create_csynth_xml read xml data
+INFO-FLOW: Done: create_csynth_xml read xml data time: 0 seconds per iteration
+INFO-FLOW: Running: create_csynth_xml bind info
+INFO-FLOW: No bind nodes found for module_name set_tile_broadcast
+INFO-FLOW: No bind nodes found for module_name au_merge
+INFO-FLOW: Done: create_csynth_xml bind info time: 0 seconds per iteration
+INFO-FLOW: Running: create_csynth_xml config info
+INFO-FLOW: Done: create_csynth_xml config info time: 0 seconds per iteration
+INFO-FLOW: Running: create_csynth_xml write xml
+INFO-FLOW: Done: create_csynth_xml write xml time: 0 seconds per iteration
+INFO-FLOW: DBG:PUTS:      create_csynth_xml wrote csynth_xml=/home/shuxuan/SDMA/spmm_prj/sol1/syn/report/csynth.xml
+INFO-FLOW: DBG:PROC: ::AP::DESIGN_DATA::generate_json generate_bd_files='0' generate_xo_files='0' modelList='spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_mux_42_32_1_1
+spmm_hls_mux_42_1_1_1
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_mul_32s_30ns_32_2_1
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_fadd_32ns_32ns_32_7_full_dsp_1
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_flow_control_loop_pipe_sequential_init
+spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W
+spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W
+spmm_hls_fifo_w32_d61278_A
+spmm_hls_fifo_w32_d61278_A
+spmm_hls_fifo_w388_d16_A
+spmm_hls_fifo_w388_d16_A
+spmm_hls_fifo_w388_d16_A
+spmm_hls_fifo_w388_d16_A
+spmm_hls_gmem1_m_axi
+spmm_hls_gmem2_m_axi
+spmm_hls_gmem3_m_axi
+spmm_hls_gmem4_m_axi
+spmm_hls_gmem5_m_axi
+spmm_hls_gmem6_m_axi
+spmm_hls_control_s_axi
+set_tile_broadcast_Pipeline_init_seen
+set_tile_broadcast_Pipeline_copy_tile_loop
+set_tile_broadcast
+pu_kernel_Pipeline_pu_save_stream_into_pu
+dfm_Pipeline_VITIS_LOOP_114_2
+dfm
+pu_kernel_Pipeline_init_au
+pu_comp
+au_merge_Pipeline_VITIS_LOOP_176_13
+au_merge_Pipeline_VITIS_LOOP_157_12
+au_merge_Pipeline_VITIS_LOOP_176_11
+au_merge_Pipeline_VITIS_LOOP_176_1
+au_merge_Pipeline_VITIS_LOOP_157_1
+au_merge
+pu_kernel
+spmm_hls
+' rtl_lang='both' bootstrap_tcl='false' outdir='' outfilename=''
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/global.setting.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/global.setting.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/top-io-be.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.compgen.dataonly.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.compgen.dataonly.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.rtl_wrap.cfg.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.compgen.dataonly.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_init_seen.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast_Pipeline_copy_tile_loop.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/set_tile_broadcast.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_pu_save_stream_into_pu.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm_Pipeline_VITIS_LOOP_114_2.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/dfm.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel_Pipeline_init_au.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_comp.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_13.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_12.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_11.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_176_1.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge_Pipeline_VITIS_LOOP_157_1.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/au_merge.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/pu_kernel.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.tbgen.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/global.setting.tcl 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data names -quiet 
+Execute         ap_part_info -name xcu280-fsvh2892-2L-e -data info -quiet 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_hls.constraint.tcl 
+Execute         sc_get_clocks spmm_hls 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/global.setting.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/impl/misc/spmm_hls_fadd_32ns_32ns_32_7_full_dsp_1_ip.tcl 
+Execute         source /home/shuxuan/SDMA/spmm_prj/sol1/impl/misc/spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1_ip.tcl 
+INFO-FLOW: DBG:PROC: ::HLSREPORTS::add_csynth_report_sections bind_info_dict='adapter_nodes {{BINDTYPE adapter DISPLAY {bind_adapter axilite} ID {} IMPL {} LATENCY {} OPTYPE {} PRAGMA yes RTLNAME control_s_axi_U SOURCE {} VARIABLE {} MODULE spmm_hls LOOP {} BUNDLEDNAME control DSP 0 BRAM 0 URAM 0} {BINDTYPE adapter DISPLAY {bind_adapter axi_master} ID {} IMPL {} LATENCY {} OPTYPE {} PRAGMA yes RTLNAME gmem1_m_axi_U SOURCE {} VARIABLE {} MODULE spmm_hls LOOP {} BUNDLEDNAME gmem1 DSP 0 BRAM 0 URAM 0} {BINDTYPE adapter DISPLAY {bind_adapter axi_master} ID {} IMPL {} LATENCY {} OPTYPE {} PRAGMA yes RTLNAME gmem2_m_axi_U SOURCE {} VARIABLE {} MODULE spmm_hls LOOP {} BUNDLEDNAME gmem2 DSP 0 BRAM 0 URAM 0} {BINDTYPE adapter DISPLAY {bind_adapter axi_master} ID {} IMPL {} LATENCY {} OPTYPE {} PRAGMA yes RTLNAME gmem3_m_axi_U SOURCE {} VARIABLE {} MODULE spmm_hls LOOP {} BUNDLEDNAME gmem3 DSP 0 BRAM 0 URAM 0} {BINDTYPE adapter DISPLAY {bind_adapter axi_master} ID {} IMPL {} LATENCY {} OPTYPE {} PRAGMA yes RTLNAME gmem4_m_axi_U SOURCE {} VARIABLE {} MODULE spmm_hls LOOP {} BUNDLEDNAME gmem4 DSP 0 BRAM 0 URAM 0} {BINDTYPE adapter DISPLAY {bind_adapter axi_master} ID {} IMPL {} LATENCY {} OPTYPE {} PRAGMA yes RTLNAME gmem5_m_axi_U SOURCE {} VARIABLE {} MODULE spmm_hls LOOP {} BUNDLEDNAME gmem5 DSP 0 BRAM 0 URAM 0} {BINDTYPE adapter DISPLAY {bind_adapter axi_master} ID {} IMPL {} LATENCY {} OPTYPE {} PRAGMA yes RTLNAME gmem6_m_axi_U SOURCE {} VARIABLE {} MODULE spmm_hls LOOP {} BUNDLEDNAME gmem6 DSP 0 BRAM 0 URAM 0}} report_dict {TOPINST spmm_hls MODULE2INSTS {spmm_hls spmm_hls set_tile_broadcast grp_set_tile_broadcast_fu_214 set_tile_broadcast_Pipeline_init_seen grp_set_tile_broadcast_Pipeline_init_seen_fu_170 set_tile_broadcast_Pipeline_copy_tile_loop grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178 pu_kernel {grp_pu_kernel_fu_230 grp_pu_kernel_fu_239 grp_pu_kernel_fu_248 grp_pu_kernel_fu_257} pu_kernel_Pipeline_pu_save_stream_into_pu {grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216 grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216 grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216 grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216} pu_kernel_Pipeline_init_au {grp_pu_kernel_Pipeline_init_au_fu_244 grp_pu_kernel_Pipeline_init_au_fu_244 grp_pu_kernel_Pipeline_init_au_fu_244 grp_pu_kernel_Pipeline_init_au_fu_244} dfm {grp_dfm_fu_254 grp_dfm_fu_254 grp_dfm_fu_254 grp_dfm_fu_254} dfm_Pipeline_VITIS_LOOP_114_2 {grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_203 grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_203 grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_203 grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_203} pu_comp {grp_pu_comp_fu_272 grp_pu_comp_fu_272 grp_pu_comp_fu_272 grp_pu_comp_fu_272} au_merge {grp_au_merge_fu_281 grp_au_merge_fu_281 grp_au_merge_fu_281 grp_au_merge_fu_281} au_merge_Pipeline_VITIS_LOOP_176_13 {grp_au_merge_Pipeline_VITIS_LOOP_176_13_fu_110 grp_au_merge_Pipeline_VITIS_LOOP_176_13_fu_110 grp_au_merge_Pipeline_VITIS_LOOP_176_13_fu_110 grp_au_merge_Pipeline_VITIS_LOOP_176_13_fu_110} au_merge_Pipeline_VITIS_LOOP_157_12 {grp_au_merge_Pipeline_VITIS_LOOP_157_12_fu_124 grp_au_merge_Pipeline_VITIS_LOOP_157_12_fu_124 grp_au_merge_Pipeline_VITIS_LOOP_157_12_fu_124 grp_au_merge_Pipeline_VITIS_LOOP_157_12_fu_124} au_merge_Pipeline_VITIS_LOOP_176_11 {grp_au_merge_Pipeline_VITIS_LOOP_176_11_fu_136 grp_au_merge_Pipeline_VITIS_LOOP_176_11_fu_136 grp_au_merge_Pipeline_VITIS_LOOP_176_11_fu_136 grp_au_merge_Pipeline_VITIS_LOOP_176_11_fu_136} au_merge_Pipeline_VITIS_LOOP_176_1 {grp_au_merge_Pipeline_VITIS_LOOP_176_1_fu_150 grp_au_merge_Pipeline_VITIS_LOOP_176_1_fu_150 grp_au_merge_Pipeline_VITIS_LOOP_176_1_fu_150 grp_au_merge_Pipeline_VITIS_LOOP_176_1_fu_150} au_merge_Pipeline_VITIS_LOOP_157_1 {grp_au_merge_Pipeline_VITIS_LOOP_157_1_fu_164 grp_au_merge_Pipeline_VITIS_LOOP_157_1_fu_164 grp_au_merge_Pipeline_VITIS_LOOP_157_1_fu_164 grp_au_merge_Pipeline_VITIS_LOOP_157_1_fu_164}} INST2MODULE {spmm_hls spmm_hls grp_set_tile_broadcast_fu_214 set_tile_broadcast grp_set_tile_broadcast_Pipeline_init_seen_fu_170 set_tile_broadcast_Pipeline_init_seen grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178 set_tile_broadcast_Pipeline_copy_tile_loop grp_pu_kernel_fu_230 pu_kernel grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216 pu_kernel_Pipeline_pu_save_stream_into_pu grp_pu_kernel_Pipeline_init_au_fu_244 pu_kernel_Pipeline_init_au grp_dfm_fu_254 dfm grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_203 dfm_Pipeline_VITIS_LOOP_114_2 grp_pu_comp_fu_272 pu_comp grp_au_merge_fu_281 au_merge grp_au_merge_Pipeline_VITIS_LOOP_176_13_fu_110 au_merge_Pipeline_VITIS_LOOP_176_13 grp_au_merge_Pipeline_VITIS_LOOP_157_12_fu_124 au_merge_Pipeline_VITIS_LOOP_157_12 grp_au_merge_Pipeline_VITIS_LOOP_176_11_fu_136 au_merge_Pipeline_VITIS_LOOP_176_11 grp_au_merge_Pipeline_VITIS_LOOP_176_1_fu_150 au_merge_Pipeline_VITIS_LOOP_176_1 grp_au_merge_Pipeline_VITIS_LOOP_157_1_fu_164 au_merge_Pipeline_VITIS_LOOP_157_1 grp_pu_kernel_fu_239 pu_kernel grp_pu_kernel_fu_248 pu_kernel grp_pu_kernel_fu_257 pu_kernel} INSTDATA {spmm_hls {DEPTH 1 CHILDREN {grp_set_tile_broadcast_fu_214 grp_pu_kernel_fu_230 grp_pu_kernel_fu_239 grp_pu_kernel_fu_248 grp_pu_kernel_fu_257}} grp_set_tile_broadcast_fu_214 {DEPTH 2 CHILDREN {grp_set_tile_broadcast_Pipeline_init_seen_fu_170 grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178}} grp_set_tile_broadcast_Pipeline_init_seen_fu_170 {DEPTH 3 CHILDREN {}} grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178 {DEPTH 3 CHILDREN {}} grp_pu_kernel_fu_230 {DEPTH 2 CHILDREN {grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216 grp_pu_kernel_Pipeline_init_au_fu_244 grp_dfm_fu_254 grp_pu_comp_fu_272 grp_au_merge_fu_281}} grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216 {DEPTH 3 CHILDREN {}} grp_pu_kernel_Pipeline_init_au_fu_244 {DEPTH 3 CHILDREN {}} grp_dfm_fu_254 {DEPTH 3 CHILDREN grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_203} grp_dfm_Pipeline_VITIS_LOOP_114_2_fu_203 {DEPTH 4 CHILDREN {}} grp_pu_comp_fu_272 {DEPTH 3 CHILDREN {}} grp_au_merge_fu_281 {DEPTH 3 CHILDREN {grp_au_merge_Pipeline_VITIS_LOOP_176_13_fu_110 grp_au_merge_Pipeline_VITIS_LOOP_157_12_fu_124 grp_au_merge_Pipeline_VITIS_LOOP_176_11_fu_136 grp_au_merge_Pipeline_VITIS_LOOP_176_1_fu_150 grp_au_merge_Pipeline_VITIS_LOOP_157_1_fu_164}} grp_au_merge_Pipeline_VITIS_LOOP_176_13_fu_110 {DEPTH 4 CHILDREN {}} grp_au_merge_Pipeline_VITIS_LOOP_157_12_fu_124 {DEPTH 4 CHILDREN {}} grp_au_merge_Pipeline_VITIS_LOOP_176_11_fu_136 {DEPTH 4 CHILDREN {}} grp_au_merge_Pipeline_VITIS_LOOP_176_1_fu_150 {DEPTH 4 CHILDREN {}} grp_au_merge_Pipeline_VITIS_LOOP_157_1_fu_164 {DEPTH 4 CHILDREN {}} grp_pu_kernel_fu_239 {DEPTH 2 CHILDREN {grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216 grp_pu_kernel_Pipeline_init_au_fu_244 grp_dfm_fu_254 grp_pu_comp_fu_272 grp_au_merge_fu_281}} grp_pu_kernel_fu_248 {DEPTH 2 CHILDREN {grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216 grp_pu_kernel_Pipeline_init_au_fu_244 grp_dfm_fu_254 grp_pu_comp_fu_272 grp_au_merge_fu_281}} grp_pu_kernel_fu_257 {DEPTH 2 CHILDREN {grp_pu_kernel_Pipeline_pu_save_stream_into_pu_fu_216 grp_pu_kernel_Pipeline_init_au_fu_244 grp_dfm_fu_254 grp_pu_comp_fu_272 grp_au_merge_fu_281}}} MODULEDATA {set_tile_broadcast_Pipeline_init_seen {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln49_fu_102_p2 SOURCE src/spmm_device_fpga.cpp:49 VARIABLE add_ln49 LOOP init_seen BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}}} AREA {DSP 0 BRAM 0 URAM 0}} set_tile_broadcast_Pipeline_copy_tile_loop {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln57_fu_422_p2 SOURCE src/spmm_device_fpga.cpp:57 VARIABLE add_ln57 LOOP copy_tile_loop BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME idx_fu_436_p2 SOURCE src/spmm_device_fpga.cpp:59 VARIABLE idx LOOP copy_tile_loop BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln62_fu_460_p2 SOURCE src/spmm_device_fpga.cpp:62 VARIABLE add_ln62 LOOP copy_tile_loop BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln63_fu_486_p2 SOURCE src/spmm_device_fpga.cpp:63 VARIABLE add_ln63 LOOP copy_tile_loop BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME used_3_fu_742_p2 SOURCE src/spmm_device_fpga.cpp:84 VARIABLE used_3 LOOP copy_tile_loop BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}}} AREA {DSP 0 BRAM 0 URAM 0}} pu_kernel_Pipeline_pu_save_stream_into_pu {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln241_fu_316_p2 SOURCE src/spmm_device_fpga.cpp:241 VARIABLE add_ln241 LOOP pu_save_stream_into_pu BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}}} AREA {DSP 0 BRAM 0 URAM 0}} dfm_Pipeline_VITIS_LOOP_114_2 {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln114_fu_122_p2 SOURCE src/spmm_device_fpga.cpp:114 VARIABLE add_ln114 LOOP VITIS_LOOP_114_2 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln116_fu_132_p2 SOURCE src/spmm_device_fpga.cpp:116 VARIABLE add_ln116 LOOP VITIS_LOOP_114_2 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}}} AREA {DSP 0 BRAM 0 URAM 0}} dfm {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln111_fu_252_p2 SOURCE src/spmm_device_fpga.cpp:111 VARIABLE add_ln111 LOOP VITIS_LOOP_111_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL auto LATENCY 1 OPTYPE mul PRAGMA {} RTLNAME mul_32s_30ns_32_2_1_U73 SOURCE src/spmm_device_fpga.cpp:112 VARIABLE mul LOOP VITIS_LOOP_111_1 BUNDLEDNAME {} DSP 3 BRAM 0 URAM 0 DISPNAME {bind_op mul}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln114_fu_343_p2 SOURCE src/spmm_device_fpga.cpp:114 VARIABLE add_ln114 LOOP VITIS_LOOP_111_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln119_fu_384_p2 SOURCE src/spmm_device_fpga.cpp:119 VARIABLE add_ln119 LOOP VITIS_LOOP_111_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln121_fu_402_p2 SOURCE src/spmm_device_fpga.cpp:121 VARIABLE add_ln121 LOOP VITIS_LOOP_121_3 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}}} AREA {DSP 3 BRAM 0 URAM 0}} pu_kernel_Pipeline_init_au {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln256_fu_88_p2 SOURCE src/spmm_device_fpga.cpp:256 VARIABLE add_ln256 LOOP init_au BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}}} AREA {DSP 0 BRAM 0 URAM 0}} pu_comp {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln136_fu_114_p2 SOURCE src/spmm_device_fpga.cpp:136 VARIABLE add_ln136 LOOP VITIS_LOOP_136_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln138_fu_124_p2 SOURCE src/spmm_device_fpga.cpp:138 VARIABLE add_ln138 LOOP VITIS_LOOP_136_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL maxdsp LATENCY 3 OPTYPE fmul PRAGMA {} RTLNAME fmul_32ns_32ns_32_4_max_dsp_1_U93 SOURCE src/spmm_device_fpga.cpp:138 VARIABLE mul LOOP VITIS_LOOP_136_1 BUNDLEDNAME {} DSP 3 BRAM 0 URAM 0 DISPNAME {bind_op fmul}}} AREA {DSP 3 BRAM 0 URAM 0}} au_merge_Pipeline_VITIS_LOOP_176_13 {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln176_fu_126_p2 SOURCE src/spmm_device_fpga.cpp:176 VARIABLE add_ln176 LOOP VITIS_LOOP_176_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U100 SOURCE src/spmm_device_fpga.cpp:177 VARIABLE add_i3 LOOP VITIS_LOOP_176_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U101 SOURCE src/spmm_device_fpga.cpp:178 VARIABLE add4_i2 LOOP VITIS_LOOP_176_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}}} AREA {DSP 4 BRAM 0 URAM 0}} au_merge_Pipeline_VITIS_LOOP_157_12 {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln157_fu_107_p2 SOURCE src/spmm_device_fpga.cpp:157 VARIABLE add_ln157 LOOP VITIS_LOOP_157_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U108 SOURCE src/spmm_device_fpga.cpp:158 VARIABLE add_i2 LOOP VITIS_LOOP_157_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U109 SOURCE src/spmm_device_fpga.cpp:158 VARIABLE add2_i1 LOOP VITIS_LOOP_157_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}}} AREA {DSP 4 BRAM 0 URAM 0}} au_merge_Pipeline_VITIS_LOOP_176_11 {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln176_fu_126_p2 SOURCE src/spmm_device_fpga.cpp:176 VARIABLE add_ln176 LOOP VITIS_LOOP_176_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U114 SOURCE src/spmm_device_fpga.cpp:177 VARIABLE add_i1 LOOP VITIS_LOOP_176_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U115 SOURCE src/spmm_device_fpga.cpp:178 VARIABLE add4_i1 LOOP VITIS_LOOP_176_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}}} AREA {DSP 4 BRAM 0 URAM 0}} au_merge_Pipeline_VITIS_LOOP_176_1 {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln176_fu_126_p2 SOURCE src/spmm_device_fpga.cpp:176 VARIABLE add_ln176 LOOP VITIS_LOOP_176_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U121 SOURCE src/spmm_device_fpga.cpp:177 VARIABLE add_i9 LOOP VITIS_LOOP_176_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U122 SOURCE src/spmm_device_fpga.cpp:178 VARIABLE add4_i LOOP VITIS_LOOP_176_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}}} AREA {DSP 4 BRAM 0 URAM 0}} au_merge_Pipeline_VITIS_LOOP_157_1 {BINDINFO {{BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln157_fu_107_p2 SOURCE src/spmm_device_fpga.cpp:157 VARIABLE add_ln157 LOOP VITIS_LOOP_157_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U128 SOURCE src/spmm_device_fpga.cpp:158 VARIABLE add_i LOOP VITIS_LOOP_157_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}} {BINDTYPE op ID {} IMPL fulldsp LATENCY 6 OPTYPE fadd PRAGMA {} RTLNAME fadd_32ns_32ns_32_7_full_dsp_1_U129 SOURCE src/spmm_device_fpga.cpp:158 VARIABLE add2_i LOOP VITIS_LOOP_157_1 BUNDLEDNAME {} DSP 2 BRAM 0 URAM 0 DISPNAME {bind_op fadd}}} AREA {DSP 4 BRAM 0 URAM 0}} pu_kernel {BINDINFO {{BINDTYPE storage ID {} IMPL memory LATENCY 0 OPTYPE fifo PRAGMA {} RTLNAME streamA_fifo_U SOURCE src/spmm_device_fpga.cpp:249 VARIABLE streamA LOOP {} BUNDLEDNAME {} DSP 0 BRAM 1 URAM 0 DISPNAME {bind_storage fifo}} {BINDTYPE storage ID {} IMPL memory LATENCY 0 OPTYPE fifo PRAGMA {} RTLNAME streamB_fifo_U SOURCE src/spmm_device_fpga.cpp:249 VARIABLE streamB LOOP {} BUNDLEDNAME {} DSP 0 BRAM 1 URAM 0 DISPNAME {bind_storage fifo}} {BINDTYPE storage ID {} IMPL bram LATENCY 1 OPTYPE ram_2p PRAGMA yes RTLNAME Dbuf_U SOURCE src/spmm_device_fpga.cpp:218 VARIABLE Dbuf LOOP {} BUNDLEDNAME {} DSP 0 BRAM 16 URAM 0 DISPNAME {bind_storage ram_2p}} {BINDTYPE storage ID {} IMPL auto LATENCY 1 OPTYPE ram_s2p PRAGMA {} RTLNAME AU0_U SOURCE src/spmm_device_fpga.cpp:252 VARIABLE AU0 LOOP {} BUNDLEDNAME {} DSP 0 BRAM 16 URAM 0 DISPNAME {bind_storage ram_s2p}} {BINDTYPE storage ID {} IMPL auto LATENCY 1 OPTYPE ram_s2p PRAGMA {} RTLNAME AU1_U SOURCE src/spmm_device_fpga.cpp:252 VARIABLE AU1 LOOP {} BUNDLEDNAME {} DSP 0 BRAM 16 URAM 0 DISPNAME {bind_storage ram_s2p}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME add_ln263_fu_512_p2 SOURCE src/spmm_device_fpga.cpp:263 VARIABLE add_ln263 LOOP VITIS_LOOP_263_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}}} AREA {DSP 26 BRAM 50 URAM 0}} spmm_hls {BINDINFO {{BINDTYPE storage ID {} IMPL memory LATENCY 0 OPTYPE fifo PRAGMA {} RTLNAME s_0_fifo_U SOURCE {} VARIABLE s_0 LOOP {} BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_storage fifo}} {BINDTYPE storage ID {} IMPL memory LATENCY 0 OPTYPE fifo PRAGMA {} RTLNAME s_1_fifo_U SOURCE {} VARIABLE s_1 LOOP {} BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_storage fifo}} {BINDTYPE storage ID {} IMPL memory LATENCY 0 OPTYPE fifo PRAGMA {} RTLNAME s_2_fifo_U SOURCE {} VARIABLE s_2 LOOP {} BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_storage fifo}} {BINDTYPE storage ID {} IMPL memory LATENCY 0 OPTYPE fifo PRAGMA {} RTLNAME s_3_fifo_U SOURCE {} VARIABLE s_3 LOOP {} BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_storage fifo}} {BINDTYPE op ID {} IMPL fabric LATENCY 0 OPTYPE add PRAGMA {} RTLNAME i_3_fu_289_p2 SOURCE src/spmm_device_fpga.cpp:323 VARIABLE i_3 LOOP VITIS_LOOP_323_1 BUNDLEDNAME {} DSP 0 BRAM 0 URAM 0 DISPNAME {bind_op add}}} AREA {DSP 104 BRAM 200 URAM 0}} set_tile_broadcast {AREA {DSP 0 BRAM 0 URAM 0}} au_merge {AREA {DSP 20 BRAM 0 URAM 0}}}}'
+INFO-FLOW: DBG:PUTS:      update_csynth_reports json2rpt_hw_sw_interfaces
+Execute         send_msg_by_id INFO @200-1603@%s  and missed bursts 
+INFO: [HLS 200-1603] Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information.
+INFO-FLOW: Running: gen_csynth_sec_pragma
+INFO-FLOW: Done: gen_csynth_sec_pragma time: 0 seconds per iteration
+INFO-FLOW: DBG:PUTS:      update_csynth_reports wrote xml
+INFO-FLOW: DBG:PUTS:      update_csynth_reports appended to csynth rpt file
+INFO: [HLS 200-111] Finished Updating report files: CPU user time: 3.63 seconds. CPU system time: 0.01 seconds. Elapsed time: 3.63 seconds; current allocated memory: 956.559 MB.
+INFO: [VHDL 208-304] Generating VHDL RTL for spmm_hls.
+INFO: [VLOG 209-307] Generating Verilog RTL for spmm_hls.
+Execute         syn_report -model spmm_hls -printsummary 
+INFO: [HLS 200-790] **** Loop Constraint Status: All loop constraints were satisfied.
+INFO: [HLS 200-789] **** Estimated Fmax: 300.11 MHz
+Command       autosyn done; 13.97 sec.
+Command     csynth_design done; 24.34 sec.
+INFO: [HLS 200-111] Finished Command csynth_design CPU user time: 22.54 seconds. CPU system time: 1.73 seconds. Elapsed time: 24.34 seconds; current allocated memory: 223.738 MB.
+Execute     cleanup_all 

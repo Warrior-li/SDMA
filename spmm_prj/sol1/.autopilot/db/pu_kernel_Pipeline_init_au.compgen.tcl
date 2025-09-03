@@ -11,7 +11,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 if {${::AESL::PGuard_autoexp_gen}} {
 if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
 eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
-    id 51 \
+    id 91 \
     name AU0 \
     reset_level 1 \
     sync_rst true \
@@ -26,18 +26,37 @@ puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored ge
 }
 
 
+# XIL_BRAM:
+if {${::AESL::PGuard_autoexp_gen}} {
+if {[info proc ::AESL_LIB_XILADAPTER::xil_bram_gen] == "::AESL_LIB_XILADAPTER::xil_bram_gen"} {
+eval "::AESL_LIB_XILADAPTER::xil_bram_gen { \
+    id 92 \
+    name AU1 \
+    reset_level 1 \
+    sync_rst true \
+    dir O \
+    corename AU1 \
+    op interface \
+    ports { AU1_address0 { O 16 vector } AU1_ce0 { O 1 bit } AU1_we0 { O 1 bit } AU1_d0 { O 32 vector } } \
+} "
+} else {
+puts "@W \[IMPL-110\] Cannot find bus interface model in the library. Ignored generation of bus interface for 'AU1'"
+}
+}
+
+
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 50 \
-    name trunc_ln \
+    id 90 \
+    name K \
     type other \
     dir I \
     reset_level 1 \
     sync_rst true \
-    corename dc_trunc_ln \
+    corename dc_K \
     op interface \
-    ports { trunc_ln { I 30 vector } } \
+    ports { K { I 30 vector } } \
 } "
 }
 

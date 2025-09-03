@@ -16130,3 +16130,688 @@ WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RREADY' has no fanin or fano
 WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_RREADY' to 0.
 WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RDATA' has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2022.2 (64-bit)
+Tool Version Limit: 2019.12
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 4ns.
+INFO: [HLS 200-1611] Setting target device to 'xcu280-fsvh2892-2L-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1464] Running solution command: config_interface -m_axi_latency=0
+INFO: [HLS 200-1464] Running solution command: config_export -format=xo
+INFO: [HLS 200-1464] Running solution command: config_export -output=build_fpga/spmm_hls.xo
+INFO: [HLS 200-1510] Running: set_part xcu280-fsvh2892-2L-e 
+INFO: [HLS 200-1510] Running: create_clock -period 4.0 -name default 
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.02 seconds. Elapsed time: 10.04 seconds; current allocated memory: 732.820 MB.
+INFO: [HLS 200-10] Analyzing design file 'src/spmm_device_fpga.cpp' ... 
+WARNING: [HLS 207-5554] unexpected pragma parameter 'on' (src/spmm_device_fpga.cpp:155:20)
+WARNING: [HLS 207-5554] unexpected pragma parameter 'on' (src/spmm_device_fpga.cpp:173:20)
+WARNING: [HLS 207-5558] Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:265:9)
+WARNING: [HLS 207-5558] Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:322:9)
+WARNING: [HLS 214-104] Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:265:9)
+WARNING: [HLS 214-104] Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:322:9)
+WARNING: [HLS 200-471] Dataflow form checks found 2 issue(s) in file src/spmm_device_fpga.cpp
+WARNING: [HLS 207-5292] unused parameter 'row_ptr' (src/spmm_device_fpga.cpp:27:20)
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 3.84 seconds. CPU system time: 0.63 seconds. Elapsed time: 4.49 seconds; current allocated memory: 733.289 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_121_3' is marked as complete unroll implied by the pipeline pragma (src/spmm_device_fpga.cpp:121:31)
+INFO: [HLS 214-291] Loop 'VITIS_LOOP_114_2' is marked as complete unroll implied by the pipeline pragma (src/spmm_device_fpga.cpp:114:31)
+INFO: [HLS 214-291] Loop 'compare_all' is marked as complete unroll implied by the pipeline pragma (src/spmm_device_fpga.cpp:69:13)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_94_1' (src/spmm_device_fpga.cpp:94:22) in function 'set_tile_broadcast' completely with a factor of 4 (src/spmm_device_fpga.cpp:33:0)
+INFO: [HLS 214-186] Unrolling loop 'compare_all' (src/spmm_device_fpga.cpp:69:13) in function 'set_tile_broadcast' completely with a factor of 4 (src/spmm_device_fpga.cpp:33:0)
+INFO: [HLS 214-178] Inlining function 'merge_into_one_AU(unsigned int, hls::stream<float, 0>&, hls::stream<float, 0>&, float*, int&, int)' into 'au_merge(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)' (src/spmm_device_fpga.cpp:192:0)
+INFO: [HLS 214-178] Inlining function 'split_into_two_AU(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)' into 'au_merge(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)' (src/spmm_device_fpga.cpp:192:0)
+INFO: [HLS 214-248] Applying array_partition to 'seen_y': Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:38:10)
+INFO: [HLS 214-248] Applying array_partition to 'seen_v': Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:39:10)
+INFO: [HLS 214-248] Applying array_partition to 's': Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_0' with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_1' with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_2' with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-241] Aggregating fifo (hls::stream) variable 's_3' with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)
+INFO: [HLS 214-115] Multiple burst reads of variable length and bit width 32 in loop 'VITIS_LOOP_114_2'(src/spmm_device_fpga.cpp:114:31) has been inferred on bundle 'gmem3'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (src/spmm_device_fpga.cpp:114:31)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 4.32 seconds. CPU system time: 0.74 seconds. Elapsed time: 5.08 seconds; current allocated memory: 733.762 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 733.762 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 735.027 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+WARNING: [SYNCHK 200-77] The top function 'spmm_hls' (src/spmm_device_fpga.cpp:275) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops.
+INFO: [SYNCHK 200-10] 0 error(s), 1 warning(s).
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 735.801 MB.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_157_1' (src/spmm_device_fpga.cpp:157) in function 'au_merge' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_176_1' (src/spmm_device_fpga.cpp:176) in function 'au_merge' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_176_1' (src/spmm_device_fpga.cpp:176) in function 'au_merge' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_157_1' (src/spmm_device_fpga.cpp:157) in function 'au_merge' automatically.
+INFO: [XFORM 203-510] Pipelining loop 'VITIS_LOOP_176_1' (src/spmm_device_fpga.cpp:176) in function 'au_merge' automatically.
+INFO: [XFORM 203-502] Unrolling all sub-loops inside loop 'VITIS_LOOP_111_1' (src/spmm_device_fpga.cpp:111) in function 'dfm' for pipelining.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_114_2' (src/spmm_device_fpga.cpp:114) in function 'dfm': cannot completely unroll a loop with a variable trip count.
+WARNING: [HLS 200-936] Cannot unroll loop 'VITIS_LOOP_121_3' (src/spmm_device_fpga.cpp:121) in function 'dfm': cannot completely unroll a loop with a variable trip count.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pkt.v.value' (src/spmm_device_fpga.cpp:45) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pkt.v.y' (src/spmm_device_fpga.cpp:45) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'pkt.ref' (src/spmm_device_fpga.cpp:45) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'tile.value' (src/spmm_device_fpga.cpp:234) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'tile.y' (src/spmm_device_fpga.cpp:234) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'tile_ref' (src/spmm_device_fpga.cpp:235) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'tile_to_dbuf_begin' (src/spmm_device_fpga.cpp:236) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'p.v.value' (src/spmm_device_fpga.cpp:238) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'p.v.y' (src/spmm_device_fpga.cpp:238) completely based on array size.
+INFO: [XFORM 203-102] Automatically partitioning small array 'p.ref' (src/spmm_device_fpga.cpp:238) completely based on array size.
+INFO: [XFORM 203-101] Partitioning array 'pkt.v.value' (src/spmm_device_fpga.cpp:45) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pkt.v.y' (src/spmm_device_fpga.cpp:45) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'pkt.ref' (src/spmm_device_fpga.cpp:45) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tile.value' (src/spmm_device_fpga.cpp:234) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tile.y' (src/spmm_device_fpga.cpp:234) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tile_ref' (src/spmm_device_fpga.cpp:235) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'tile_to_dbuf_begin' (src/spmm_device_fpga.cpp:236) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'p.v.value' (src/spmm_device_fpga.cpp:238) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'p.v.y' (src/spmm_device_fpga.cpp:238) in dimension 1 completely.
+INFO: [XFORM 203-101] Partitioning array 'p.ref' (src/spmm_device_fpga.cpp:238) in dimension 1 completely.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/spmm_device_fpga.cpp:91:20) to (src/spmm_device_fpga.cpp:57:5) in function 'set_tile_broadcast'... converting 13 basic blocks.
+INFO: [XFORM 203-401] Performing if-conversion on hyperblock from (src/spmm_device_fpga.cpp:82:30) to (src/spmm_device_fpga.cpp:85:13) in function 'set_tile_broadcast'... converting 5 basic blocks.
+INFO: [XFORM 203-11] Balancing expressions in function 'set_tile_broadcast' (src/spmm_device_fpga.cpp:38:13)...3 expression(s) balanced.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 759.543 MB.
+WARNING: [HLS 200-960] Cannot flatten loop 'VITIS_LOOP_111_1' (src/spmm_device_fpga.cpp:111:28) in function 'dfm' more than one sub loop.
+INFO: [HLS 200-472] Inferring partial write operation for 'AU0' (src/spmm_device_fpga.cpp:258:9)
+INFO: [HLS 200-472] Inferring partial write operation for 'AU1' (src/spmm_device_fpga.cpp:259:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'Dbuf' (src/spmm_device_fpga.cpp:116:17)
+INFO: [HLS 200-472] Inferring partial write operation for 'AU0' (src/spmm_device_fpga.cpp:158:15)
+INFO: [HLS 200-472] Inferring partial write operation for 'AU0' (src/spmm_device_fpga.cpp:177:16)
+INFO: [HLS 200-472] Inferring partial write operation for 'AU1' (src/spmm_device_fpga.cpp:178:16)
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.19 seconds. CPU system time: 0.06 seconds. Elapsed time: 0.25 seconds; current allocated memory: 897.723 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'spmm_hls' ...
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'set_tile_broadcast_Pipeline_init_seen' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'init_seen'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'init_seen'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.1 seconds; current allocated memory: 899.555 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 899.555 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'set_tile_broadcast_Pipeline_copy_tile_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'copy_tile_loop'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 10, loop 'copy_tile_loop'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 901.480 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 901.480 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'set_tile_broadcast' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.21 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 901.480 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 901.480 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pu_kernel_Pipeline_pu_save_stream_into_pu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'pu_save_stream_into_pu'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'pu_save_stream_into_pu'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 902.043 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 902.043 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dfm_Pipeline_VITIS_LOOP_114_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for function 'dfm_Pipeline_VITIS_LOOP_114_2': contains subloop(s) that are not unrolled.
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_114_2'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop 'VITIS_LOOP_114_2'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 902.375 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 902.375 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'dfm' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+WARNING: [SCHED 204-65] Unable to satisfy pipeline directive for loop 'VITIS_LOOP_111_1': contains subloop(s) that are not unrolled or flattened.
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 903.453 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 903.453 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pu_kernel_Pipeline_init_au' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'init_au'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop 'init_au'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 903.453 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 903.453 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pu_comp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_136_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 1, Final II = 1, Depth = 7, loop 'VITIS_LOOP_136_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 903.730 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 903.730 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_176_13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_176_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'VITIS_LOOP_176_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 904.070 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 904.070 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_157_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_157_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 17, loop 'VITIS_LOOP_157_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 904.445 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.12 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 904.445 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_176_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_176_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'VITIS_LOOP_176_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 904.852 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 904.852 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_176_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_176_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop 'VITIS_LOOP_176_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 905.250 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 905.250 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge_Pipeline_VITIS_LOOP_157_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_157_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = NA, Final II = 1, Depth = 17, loop 'VITIS_LOOP_157_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 905.719 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 905.719 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'au_merge' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 906.000 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 906.000 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pu_kernel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 906.402 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 906.402 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'spmm_hls' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.27 seconds. CPU system time: 0 seconds. Elapsed time: 0.27 seconds; current allocated memory: 907.113 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.4 seconds. CPU system time: 0 seconds. Elapsed time: 0.4 seconds; current allocated memory: 907.113 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'set_tile_broadcast_Pipeline_init_seen' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'set_tile_broadcast_Pipeline_init_seen'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 1.06 seconds. CPU system time: 0 seconds. Elapsed time: 1.06 seconds; current allocated memory: 907.180 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'set_tile_broadcast_Pipeline_copy_tile_loop' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'set_tile_broadcast_Pipeline_copy_tile_loop' pipeline 'copy_tile_loop' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'set_tile_broadcast_Pipeline_copy_tile_loop'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 909.535 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'set_tile_broadcast' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'set_tile_broadcast'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.54 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.54 seconds; current allocated memory: 913.754 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pu_kernel_Pipeline_pu_save_stream_into_pu' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mux_42_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_42_32_1_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pu_kernel_Pipeline_pu_save_stream_into_pu'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.2 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.2 seconds; current allocated memory: 915.055 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dfm_Pipeline_VITIS_LOOP_114_2' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'dfm_Pipeline_VITIS_LOOP_114_2' pipeline 'VITIS_LOOP_114_2' pipeline type 'loop pipeline'
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARUSER' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dfm_Pipeline_VITIS_LOOP_114_2'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 916.797 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'dfm' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Generating core module 'mul_32s_30ns_32_2_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_42_1_1_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'mux_42_32_1_1': 4 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'dfm'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 918.391 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pu_kernel_Pipeline_init_au' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pu_kernel_Pipeline_init_au'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 920.246 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pu_comp' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'pu_comp' pipeline 'VITIS_LOOP_136_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pu_comp'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 920.980 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_176_13' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_176_13' pipeline 'VITIS_LOOP_176_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_176_13'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 922.090 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_157_12' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_157_12' pipeline 'VITIS_LOOP_157_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_157_12'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 923.293 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_176_11' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_176_11' pipeline 'VITIS_LOOP_176_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_176_11'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 924.426 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_176_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_176_1' pipeline 'VITIS_LOOP_176_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_176_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 925.582 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge_Pipeline_VITIS_LOOP_157_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'au_merge_Pipeline_VITIS_LOOP_157_1' pipeline 'VITIS_LOOP_157_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_7_full_dsp_1': 2 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge_Pipeline_VITIS_LOOP_157_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 926.754 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'au_merge' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'au_merge'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 928.223 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pu_kernel' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pu_kernel'.
+INFO: [RTMG 210-278] Implementing memory 'spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W' using block RAMs.
+INFO: [RTMG 210-278] Implementing memory 'spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W' using auto RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'streamA_U(spmm_hls_fifo_w32_d61278_A)' using Vivado Default RAMs.
+INFO: [RTMG 210-285] Implementing FIFO 'streamB_U(spmm_hls_fifo_w32_d61278_A)' using Vivado Default RAMs.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.25 seconds. CPU system time: 0 seconds. Elapsed time: 0.24 seconds; current allocated memory: 930.594 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'spmm_hls' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem2' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem3' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem4' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem5' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem6' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/gmem7' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/N' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/M' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/K' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/nnz' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/row_ptr' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/col_idx' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/a_val' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/B1' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/B2' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/B3' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/B4' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'spmm_hls/C' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'spmm_hls' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'N', 'M', 'K', 'nnz', 'row_ptr', 'col_idx', 'a_val', 'B1', 'B2', 'B3', 'B4', 'C' to AXI-Lite port control.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_AWUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WDATA' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WSTRB' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WSTRB' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WLAST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_WUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_WUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_ARUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_RREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_RRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem0_BREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem0_BUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_AWUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WDATA' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WSTRB' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WSTRB' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WLAST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_WUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_WUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARADDR' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARID' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARLEN' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARSIZE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARBURST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARLOCK' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARCACHE' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARPROT' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARQOS' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARREGION' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_ARUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_RREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RDATA' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RLAST' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RUSER' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_RRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_BVALID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_BREADY' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Setting dangling out port 'spmm_hls/m_axi_gmem7_BREADY' to 0.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_BRESP' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.
+WARNING: [RTGEN 206-101] Port 'spmm_hls/m_axi_gmem7_BID' has no fanin or fanout and is left dangling.
+               Please use C simulation to confirm this function argument can be read from or written to.

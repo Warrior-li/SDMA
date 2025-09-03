@@ -48,29 +48,29 @@
  ^~~
  VITIS_LOOP_136_1: 
 /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6313:2: note: FIX-IT applied suggested code changes
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6325:5: warning: Added loop label VITIS_LOOP_148_1:   [xilinx-label-all-loops]
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6334:5: warning: Added loop label VITIS_LOOP_157_1:   [xilinx-label-all-loops]
+    for(int i = 0 ; i < K; ++i){
+    ^~~
+    VITIS_LOOP_157_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6334:5: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6353:5: warning: Added loop label VITIS_LOOP_176_1:   [xilinx-label-all-loops]
     for(int i = 0; i < K; ++i){
     ^~~
-    VITIS_LOOP_148_1: 
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6325:5: note: FIX-IT applied suggested code changes
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6342:45: error: Invalid Directive: for current device, ram_2p + bram is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+    VITIS_LOOP_176_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6353:5: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6397:45: error: Invalid Directive: for current device, ram_2p + bram is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
 #pragma HLS BIND_STORAGE variable=Dbuf type=ram_2p impl=bram
                                             ^
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6346:45: error: Invalid Directive: for current device, ram_2p + bram is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
-#pragma HLS BIND_STORAGE variable=Dbuf type=ram_2p impl=bram
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6401:45: error: Invalid Directive: for current device, ram_2p + bram is invalid combination for BIND_STORAGE's option 'type + impl' [clang-diagnostic-error]
+#pragma HLS BIND_STORAGE variable=Obuf type=ram_2p impl=bram
                                             ^
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6379:5: warning: Added loop label VITIS_LOOP_202_1:   [xilinx-label-all-loops]
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6440:5: warning: Added loop label VITIS_LOOP_263_1:   [xilinx-label-all-loops]
     for(int i = 0; i < 2; ++i){
     ^~~
-    VITIS_LOOP_202_1: 
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6379:5: note: FIX-IT applied suggested code changes
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6412:13: warning: Added loop label VITIS_LOOP_235_2:   [xilinx-label-all-loops]
-            for(int j = 0; j < K; ++j){
-            ^~~
-            VITIS_LOOP_235_2: 
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6412:13: note: FIX-IT applied suggested code changes
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6418:13: warning: Added loop label VITIS_LOOP_241_3:   [xilinx-label-all-loops]
-            for(int j = 0; j < K; ++j){
-            ^~~
-            VITIS_LOOP_241_3: 
-/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6418:13: note: FIX-IT applied suggested code changes
+    VITIS_LOOP_263_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6440:5: note: FIX-IT applied suggested code changes
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6504:2: warning: Added loop label VITIS_LOOP_323_1:   [xilinx-label-all-loops]
+ for(int i = 0; i < nnz; i = i + TILE_NNZ){
+ ^~~
+ VITIS_LOOP_323_1: 
+/home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga.pp.0.cpp:6504:2: note: FIX-IT applied suggested code changes

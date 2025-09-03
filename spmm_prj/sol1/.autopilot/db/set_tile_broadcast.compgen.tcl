@@ -1,15 +1,5 @@
 # This script segment is generated automatically by AutoPilot
 
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_set_tile_broadcast_pkt_v_value_RAM_AUTO_1R1W BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_set_tile_broadcast_pkt_ref_RAM_AUTO_1R1W BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
-}
-
-
 # clear list
 if {${::AESL::PGuard_autoexp_gen}} {
     cg_default_interface_gen_dc_begin
@@ -20,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 20 \
+    id 27 \
     name gmem1 \
     type other \
     dir I \
@@ -35,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 21 \
+    id 28 \
     name col_idx \
     type other \
     dir I \
@@ -50,7 +40,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 22 \
+    id 29 \
     name gmem2 \
     type other \
     dir I \
@@ -65,7 +55,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 23 \
+    id 30 \
     name a_val \
     type other \
     dir I \
@@ -80,7 +70,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 24 \
+    id 31 \
     name s_0 \
     type fifo \
     dir O \
@@ -88,14 +78,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_s_0 \
     op interface \
-    ports { s_0_din { O 388 vector } s_0_num_data_valid { I 5 vector } s_0_fifo_cap { I 5 vector } s_0_full_n { I 1 bit } s_0_write { O 1 bit } } \
+    ports { s_0_din { O 388 vector } s_0_full_n { I 1 bit } s_0_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 25 \
+    id 32 \
     name s_1 \
     type fifo \
     dir O \
@@ -103,14 +93,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_s_1 \
     op interface \
-    ports { s_1_din { O 388 vector } s_1_num_data_valid { I 5 vector } s_1_fifo_cap { I 5 vector } s_1_full_n { I 1 bit } s_1_write { O 1 bit } } \
+    ports { s_1_din { O 388 vector } s_1_full_n { I 1 bit } s_1_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 26 \
+    id 33 \
     name s_2 \
     type fifo \
     dir O \
@@ -118,14 +108,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_s_2 \
     op interface \
-    ports { s_2_din { O 388 vector } s_2_num_data_valid { I 5 vector } s_2_fifo_cap { I 5 vector } s_2_full_n { I 1 bit } s_2_write { O 1 bit } } \
+    ports { s_2_din { O 388 vector } s_2_full_n { I 1 bit } s_2_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 27 \
+    id 34 \
     name s_3 \
     type fifo \
     dir O \
@@ -133,14 +123,14 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename dc_s_3 \
     op interface \
-    ports { s_3_din { O 388 vector } s_3_num_data_valid { I 5 vector } s_3_fifo_cap { I 5 vector } s_3_full_n { I 1 bit } s_3_write { O 1 bit } } \
+    ports { s_3_din { O 388 vector } s_3_full_n { I 1 bit } s_3_write { O 1 bit } } \
 } "
 }
 
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 28 \
+    id 35 \
     name pointer \
     type other \
     dir I \
@@ -155,7 +145,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 29 \
+    id 36 \
     name nnz \
     type other \
     dir I \
@@ -177,7 +167,7 @@ eval "cg_default_interface_gen_dc { \
     sync_rst true \
     corename ap_ctrl \
     op interface \
-    ports { ap_start { I 1 bit } ap_ready { O 1 bit } ap_done { O 1 bit } ap_idle { O 1 bit } ap_continue { I 1 bit } } \
+    ports { ap_start { I 1 bit } ap_ready { O 1 bit } ap_done { O 1 bit } ap_idle { O 1 bit } } \
 } "
 }
 

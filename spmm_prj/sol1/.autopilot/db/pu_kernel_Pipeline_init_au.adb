@@ -9,14 +9,14 @@
       <module_structure>Sequential</module_structure>
       <ret_bitwidth>0</ret_bitwidth>
       <ports class_id="2" tracking_level="0" version="0">
-        <count>2</count>
+        <count>3</count>
         <item_version>0</item_version>
         <item class_id="3" tracking_level="1" version="0" object_id="_1">
           <Value class_id="4" tracking_level="0" version="0">
             <Obj class_id="5" tracking_level="0" version="0">
               <type>1</type>
               <id>1</id>
-              <name>trunc_ln</name>
+              <name>K</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -70,7 +70,43 @@
               <coreName>RAM</coreName>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4117045488</coreId>
+              <coreId>54</coreId>
+              <rtlModuleName/>
+            </Obj>
+            <bitwidth>32</bitwidth>
+          </Value>
+          <direction>1</direction>
+          <if_type>1</if_type>
+          <array_size>61278</array_size>
+          <bit_vecs>
+            <count>0</count>
+            <item_version>0</item_version>
+          </bit_vecs>
+        </item>
+        <item class_id_reference="3" object_id="_3">
+          <Value>
+            <Obj>
+              <type>1</type>
+              <id>3</id>
+              <name>AU1</name>
+              <fileName/>
+              <fileDirectory/>
+              <lineNumber>0</lineNumber>
+              <contextFuncName/>
+              <contextNormFuncName/>
+              <inlineStackInfo>
+                <count>0</count>
+                <item_version>0</item_version>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName/>
+              <control/>
+              <opType/>
+              <implIndex/>
+              <coreName>RAM</coreName>
+              <isStorage>0</isStorage>
+              <storageDepth>0</storageDepth>
+              <coreId>3420057200</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -85,13 +121,13 @@
         </item>
       </ports>
       <nodes class_id="8" tracking_level="0" version="0">
-        <count>14</count>
+        <count>17</count>
         <item_version>0</item_version>
-        <item class_id="9" tracking_level="1" version="0" object_id="_3">
+        <item class_id="9" tracking_level="1" version="0" object_id="_4">
           <Value>
             <Obj>
               <type>0</type>
-              <id>3</id>
+              <id>4</id>
               <name>i</name>
               <fileName/>
               <fileDirectory/>
@@ -110,15 +146,15 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4117840880</coreId>
+              <coreId>4294967284</coreId>
               <rtlModuleName/>
             </Obj>
-            <bitwidth>30</bitwidth>
+            <bitwidth>16</bitwidth>
           </Value>
           <oprand_edges>
             <count>1</count>
             <item_version>0</item_version>
-            <item>24</item>
+            <item>29</item>
           </oprand_edges>
           <opcode>alloca</opcode>
           <m_Display>0</m_Display>
@@ -129,12 +165,12 @@
           <m_topoIndex>1</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_4">
+        <item class_id_reference="9" object_id="_5">
           <Value>
             <Obj>
               <type>0</type>
-              <id>4</id>
-              <name>trunc_ln_read</name>
+              <id>5</id>
+              <name>K_read</name>
               <fileName/>
               <fileDirectory/>
               <lineNumber>0</lineNumber>
@@ -152,7 +188,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4116900032</coreId>
+              <coreId>0</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>30</bitwidth>
@@ -160,8 +196,8 @@
           <oprand_edges>
             <count>2</count>
             <item_version>0</item_version>
-            <item>26</item>
-            <item>27</item>
+            <item>31</item>
+            <item>32</item>
           </oprand_edges>
           <opcode>read</opcode>
           <m_Display>0</m_Display>
@@ -172,11 +208,11 @@
           <m_topoIndex>2</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_5">
+        <item class_id_reference="9" object_id="_6">
           <Value>
             <Obj>
               <type>0</type>
-              <id>5</id>
+              <id>6</id>
               <name>i_write_ln0</name>
               <fileName/>
               <fileDirectory/>
@@ -195,7 +231,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4117399840</coreId>
+              <coreId>3418917744</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -203,8 +239,8 @@
           <oprand_edges>
             <count>2</count>
             <item_version>0</item_version>
-            <item>29</item>
-            <item>30</item>
+            <item>34</item>
+            <item>35</item>
           </oprand_edges>
           <opcode>store</opcode>
           <m_Display>0</m_Display>
@@ -215,11 +251,11 @@
           <m_topoIndex>3</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_6">
+        <item class_id_reference="9" object_id="_7">
           <Value>
             <Obj>
               <type>0</type>
-              <id>6</id>
+              <id>7</id>
               <name>br_ln0</name>
               <fileName/>
               <fileDirectory/>
@@ -238,7 +274,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4117548448</coreId>
+              <coreId>3419570544</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -246,7 +282,7 @@
           <oprand_edges>
             <count>1</count>
             <item_version>0</item_version>
-            <item>31</item>
+            <item>36</item>
           </oprand_edges>
           <opcode>br</opcode>
           <m_Display>0</m_Display>
@@ -257,15 +293,15 @@
           <m_topoIndex>4</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_7">
+        <item class_id_reference="9" object_id="_8">
           <Value>
             <Obj>
               <type>0</type>
-              <id>8</id>
+              <id>9</id>
               <name>i_5</name>
               <fileName>src/spmm_device_fpga.cpp</fileName>
               <fileDirectory>..</fileDirectory>
-              <lineNumber>195</lineNumber>
+              <lineNumber>256</lineNumber>
               <contextFuncName>pu_kernel</contextFuncName>
               <contextNormFuncName>pu_kernel</contextNormFuncName>
               <inlineStackInfo>
@@ -274,21 +310,14 @@
                 <item class_id="11" tracking_level="0" version="0">
                   <first>/home/shuxuan/SDMA</first>
                   <second class_id="12" tracking_level="0" version="0">
-                    <count>2</count>
+                    <count>1</count>
                     <item_version>0</item_version>
                     <item class_id="13" tracking_level="0" version="0">
                       <first class_id="14" tracking_level="0" version="0">
                         <first>src/spmm_device_fpga.cpp</first>
                         <second>pu_kernel</second>
                       </first>
-                      <second>195</second>
-                    </item>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>spmm_hls</second>
-                      </first>
-                      <second>314</second>
+                      <second>256</second>
                     </item>
                   </second>
                 </item>
@@ -301,16 +330,16 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4117379184</coreId>
+              <coreId>3419192384</coreId>
               <rtlModuleName/>
             </Obj>
-            <bitwidth>30</bitwidth>
+            <bitwidth>16</bitwidth>
           </Value>
           <oprand_edges>
             <count>2</count>
             <item_version>0</item_version>
-            <item>32</item>
-            <item>69</item>
+            <item>37</item>
+            <item>86</item>
           </oprand_edges>
           <opcode>load</opcode>
           <m_Display>0</m_Display>
@@ -321,15 +350,15 @@
           <m_topoIndex>5</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_8">
+        <item class_id_reference="9" object_id="_9">
           <Value>
             <Obj>
               <type>0</type>
-              <id>9</id>
-              <name>icmp_ln195</name>
+              <id>10</id>
+              <name>zext_ln256_1</name>
               <fileName>src/spmm_device_fpga.cpp</fileName>
               <fileDirectory>..</fileDirectory>
-              <lineNumber>195</lineNumber>
+              <lineNumber>256</lineNumber>
               <contextFuncName>pu_kernel</contextFuncName>
               <contextNormFuncName>pu_kernel</contextNormFuncName>
               <inlineStackInfo>
@@ -338,27 +367,76 @@
                 <item>
                   <first>/home/shuxuan/SDMA</first>
                   <second>
-                    <count>2</count>
+                    <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
                         <first>src/spmm_device_fpga.cpp</first>
                         <second>pu_kernel</second>
                       </first>
-                      <second>195</second>
-                    </item>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>spmm_hls</second>
-                      </first>
-                      <second>314</second>
+                      <second>256</second>
                     </item>
                   </second>
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>icmp_ln195_fu_58_p2</rtlName>
+              <rtlName>zext_ln256_1_fu_78_p1</rtlName>
+              <control/>
+              <opType/>
+              <implIndex/>
+              <coreName/>
+              <isStorage>0</isStorage>
+              <storageDepth>0</storageDepth>
+              <coreId>0</coreId>
+              <rtlModuleName/>
+            </Obj>
+            <bitwidth>30</bitwidth>
+          </Value>
+          <oprand_edges>
+            <count>1</count>
+            <item_version>0</item_version>
+            <item>38</item>
+          </oprand_edges>
+          <opcode>zext</opcode>
+          <m_Display>0</m_Display>
+          <m_isOnCriticalPath>0</m_isOnCriticalPath>
+          <m_isLCDNode>0</m_isLCDNode>
+          <m_isStartOfPath>0</m_isStartOfPath>
+          <m_delay>0.00</m_delay>
+          <m_topoIndex>6</m_topoIndex>
+          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
+        </item>
+        <item class_id_reference="9" object_id="_10">
+          <Value>
+            <Obj>
+              <type>0</type>
+              <id>11</id>
+              <name>icmp_ln256</name>
+              <fileName>src/spmm_device_fpga.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>256</lineNumber>
+              <contextFuncName>pu_kernel</contextFuncName>
+              <contextNormFuncName>pu_kernel</contextNormFuncName>
+              <inlineStackInfo>
+                <count>1</count>
+                <item_version>0</item_version>
+                <item>
+                  <first>/home/shuxuan/SDMA</first>
+                  <second>
+                    <count>1</count>
+                    <item_version>0</item_version>
+                    <item>
+                      <first>
+                        <first>src/spmm_device_fpga.cpp</first>
+                        <second>pu_kernel</second>
+                      </first>
+                      <second>256</second>
+                    </item>
+                  </second>
+                </item>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName>icmp_ln256_fu_82_p2</rtlName>
               <control>auto</control>
               <opType>icmp</opType>
               <implIndex>auto</implIndex>
@@ -373,8 +451,8 @@
           <oprand_edges>
             <count>2</count>
             <item_version>0</item_version>
-            <item>33</item>
-            <item>34</item>
+            <item>39</item>
+            <item>40</item>
           </oprand_edges>
           <opcode>icmp</opcode>
           <m_Display>0</m_Display>
@@ -382,18 +460,18 @@
           <m_isLCDNode>0</m_isLCDNode>
           <m_isStartOfPath>0</m_isStartOfPath>
           <m_delay>0.83</m_delay>
-          <m_topoIndex>6</m_topoIndex>
+          <m_topoIndex>7</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_9">
+        <item class_id_reference="9" object_id="_11">
           <Value>
             <Obj>
               <type>0</type>
-              <id>10</id>
-              <name>add_ln195</name>
+              <id>13</id>
+              <name>add_ln256</name>
               <fileName>src/spmm_device_fpga.cpp</fileName>
               <fileDirectory>..</fileDirectory>
-              <lineNumber>195</lineNumber>
+              <lineNumber>256</lineNumber>
               <contextFuncName>pu_kernel</contextFuncName>
               <contextNormFuncName>pu_kernel</contextNormFuncName>
               <inlineStackInfo>
@@ -402,27 +480,20 @@
                 <item>
                   <first>/home/shuxuan/SDMA</first>
                   <second>
-                    <count>2</count>
+                    <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
                         <first>src/spmm_device_fpga.cpp</first>
                         <second>pu_kernel</second>
                       </first>
-                      <second>195</second>
-                    </item>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>spmm_hls</second>
-                      </first>
-                      <second>314</second>
+                      <second>256</second>
                     </item>
                   </second>
                 </item>
               </inlineStackInfo>
               <originalName/>
-              <rtlName>add_ln195_fu_64_p2</rtlName>
+              <rtlName>add_ln256_fu_88_p2</rtlName>
               <control>auto</control>
               <opType>add</opType>
               <implIndex>fabric</implIndex>
@@ -432,32 +503,32 @@
               <coreId>1</coreId>
               <rtlModuleName/>
             </Obj>
-            <bitwidth>30</bitwidth>
+            <bitwidth>16</bitwidth>
           </Value>
           <oprand_edges>
             <count>2</count>
             <item_version>0</item_version>
-            <item>35</item>
-            <item>37</item>
+            <item>41</item>
+            <item>43</item>
           </oprand_edges>
           <opcode>add</opcode>
           <m_Display>0</m_Display>
           <m_isOnCriticalPath>0</m_isOnCriticalPath>
           <m_isLCDNode>0</m_isLCDNode>
           <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>0.86</m_delay>
-          <m_topoIndex>7</m_topoIndex>
+          <m_delay>0.78</m_delay>
+          <m_topoIndex>8</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_10">
+        <item class_id_reference="9" object_id="_12">
           <Value>
             <Obj>
               <type>0</type>
-              <id>11</id>
-              <name>br_ln195</name>
+              <id>14</id>
+              <name>br_ln256</name>
               <fileName>src/spmm_device_fpga.cpp</fileName>
               <fileDirectory>..</fileDirectory>
-              <lineNumber>195</lineNumber>
+              <lineNumber>256</lineNumber>
               <contextFuncName>pu_kernel</contextFuncName>
               <contextNormFuncName>pu_kernel</contextNormFuncName>
               <inlineStackInfo>
@@ -466,21 +537,14 @@
                 <item>
                   <first>/home/shuxuan/SDMA</first>
                   <second>
-                    <count>2</count>
+                    <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
                         <first>src/spmm_device_fpga.cpp</first>
                         <second>pu_kernel</second>
                       </first>
-                      <second>195</second>
-                    </item>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>spmm_hls</second>
-                      </first>
-                      <second>314</second>
+                      <second>256</second>
                     </item>
                   </second>
                 </item>
@@ -493,7 +557,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
+              <coreId>3419706416</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -501,74 +565,11 @@
           <oprand_edges>
             <count>3</count>
             <item_version>0</item_version>
-            <item>38</item>
-            <item>39</item>
-            <item>40</item>
+            <item>44</item>
+            <item>45</item>
+            <item>46</item>
           </oprand_edges>
           <opcode>br</opcode>
-          <m_Display>0</m_Display>
-          <m_isOnCriticalPath>0</m_isOnCriticalPath>
-          <m_isLCDNode>0</m_isLCDNode>
-          <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>0.00</m_delay>
-          <m_topoIndex>8</m_topoIndex>
-          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
-        </item>
-        <item class_id_reference="9" object_id="_11">
-          <Value>
-            <Obj>
-              <type>0</type>
-              <id>13</id>
-              <name>zext_ln195</name>
-              <fileName>src/spmm_device_fpga.cpp</fileName>
-              <fileDirectory>..</fileDirectory>
-              <lineNumber>195</lineNumber>
-              <contextFuncName>pu_kernel</contextFuncName>
-              <contextNormFuncName>pu_kernel</contextNormFuncName>
-              <inlineStackInfo>
-                <count>1</count>
-                <item_version>0</item_version>
-                <item>
-                  <first>/home/shuxuan/SDMA</first>
-                  <second>
-                    <count>2</count>
-                    <item_version>0</item_version>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>pu_kernel</second>
-                      </first>
-                      <second>195</second>
-                    </item>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>spmm_hls</second>
-                      </first>
-                      <second>314</second>
-                    </item>
-                  </second>
-                </item>
-              </inlineStackInfo>
-              <originalName/>
-              <rtlName>zext_ln195_fu_70_p1</rtlName>
-              <control/>
-              <opType/>
-              <implIndex/>
-              <coreName/>
-              <isStorage>0</isStorage>
-              <storageDepth>0</storageDepth>
-              <coreId>4117086864</coreId>
-              <rtlModuleName/>
-            </Obj>
-            <bitwidth>64</bitwidth>
-          </Value>
-          <oprand_edges>
-            <count>1</count>
-            <item_version>0</item_version>
-            <item>41</item>
-          </oprand_edges>
-          <opcode>zext</opcode>
           <m_Display>0</m_Display>
           <m_isOnCriticalPath>0</m_isOnCriticalPath>
           <m_isLCDNode>0</m_isLCDNode>
@@ -577,15 +578,15 @@
           <m_topoIndex>9</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_12">
+        <item class_id_reference="9" object_id="_13">
           <Value>
             <Obj>
               <type>0</type>
               <id>16</id>
-              <name>AU0_addr</name>
+              <name>zext_ln256</name>
               <fileName>src/spmm_device_fpga.cpp</fileName>
               <fileDirectory>..</fileDirectory>
-              <lineNumber>197</lineNumber>
+              <lineNumber>256</lineNumber>
               <contextFuncName>pu_kernel</contextFuncName>
               <contextNormFuncName>pu_kernel</contextNormFuncName>
               <inlineStackInfo>
@@ -594,21 +595,70 @@
                 <item>
                   <first>/home/shuxuan/SDMA</first>
                   <second>
-                    <count>2</count>
+                    <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
                         <first>src/spmm_device_fpga.cpp</first>
                         <second>pu_kernel</second>
                       </first>
-                      <second>197</second>
+                      <second>256</second>
                     </item>
+                  </second>
+                </item>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName>zext_ln256_fu_94_p1</rtlName>
+              <control/>
+              <opType/>
+              <implIndex/>
+              <coreName/>
+              <isStorage>0</isStorage>
+              <storageDepth>0</storageDepth>
+              <coreId>608</coreId>
+              <rtlModuleName/>
+            </Obj>
+            <bitwidth>64</bitwidth>
+          </Value>
+          <oprand_edges>
+            <count>1</count>
+            <item_version>0</item_version>
+            <item>47</item>
+          </oprand_edges>
+          <opcode>zext</opcode>
+          <m_Display>0</m_Display>
+          <m_isOnCriticalPath>0</m_isOnCriticalPath>
+          <m_isLCDNode>0</m_isLCDNode>
+          <m_isStartOfPath>0</m_isStartOfPath>
+          <m_delay>0.00</m_delay>
+          <m_topoIndex>10</m_topoIndex>
+          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
+        </item>
+        <item class_id_reference="9" object_id="_14">
+          <Value>
+            <Obj>
+              <type>0</type>
+              <id>19</id>
+              <name>AU0_addr</name>
+              <fileName>src/spmm_device_fpga.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>258</lineNumber>
+              <contextFuncName>pu_kernel</contextFuncName>
+              <contextNormFuncName>pu_kernel</contextNormFuncName>
+              <inlineStackInfo>
+                <count>1</count>
+                <item_version>0</item_version>
+                <item>
+                  <first>/home/shuxuan/SDMA</first>
+                  <second>
+                    <count>1</count>
+                    <item_version>0</item_version>
                     <item>
                       <first>
                         <first>src/spmm_device_fpga.cpp</first>
-                        <second>spmm_hls</second>
+                        <second>pu_kernel</second>
                       </first>
-                      <second>314</second>
+                      <second>258</second>
                     </item>
                   </second>
                 </item>
@@ -621,7 +671,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4117340272</coreId>
+              <coreId>3419559824</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>16</bitwidth>
@@ -629,9 +679,9 @@
           <oprand_edges>
             <count>3</count>
             <item_version>0</item_version>
-            <item>42</item>
-            <item>44</item>
-            <item>45</item>
+            <item>48</item>
+            <item>50</item>
+            <item>51</item>
           </oprand_edges>
           <opcode>getelementptr</opcode>
           <m_Display>0</m_Display>
@@ -639,18 +689,18 @@
           <m_isLCDNode>0</m_isLCDNode>
           <m_isStartOfPath>0</m_isStartOfPath>
           <m_delay>0.00</m_delay>
-          <m_topoIndex>10</m_topoIndex>
+          <m_topoIndex>11</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_13">
+        <item class_id_reference="9" object_id="_15">
           <Value>
             <Obj>
               <type>0</type>
-              <id>17</id>
-              <name>AU0_addr_write_ln197</name>
+              <id>20</id>
+              <name>AU0_addr_write_ln258</name>
               <fileName>src/spmm_device_fpga.cpp</fileName>
               <fileDirectory>..</fileDirectory>
-              <lineNumber>197</lineNumber>
+              <lineNumber>258</lineNumber>
               <contextFuncName>pu_kernel</contextFuncName>
               <contextNormFuncName>pu_kernel</contextNormFuncName>
               <inlineStackInfo>
@@ -659,21 +709,14 @@
                 <item>
                   <first>/home/shuxuan/SDMA</first>
                   <second>
-                    <count>2</count>
+                    <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
                         <first>src/spmm_device_fpga.cpp</first>
                         <second>pu_kernel</second>
                       </first>
-                      <second>197</second>
-                    </item>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>spmm_hls</second>
-                      </first>
-                      <second>314</second>
+                      <second>258</second>
                     </item>
                   </second>
                 </item>
@@ -694,8 +737,8 @@
           <oprand_edges>
             <count>2</count>
             <item_version>0</item_version>
-            <item>47</item>
-            <item>48</item>
+            <item>53</item>
+            <item>54</item>
           </oprand_edges>
           <opcode>store</opcode>
           <m_Display>0</m_Display>
@@ -703,84 +746,18 @@
           <m_isLCDNode>0</m_isLCDNode>
           <m_isStartOfPath>0</m_isStartOfPath>
           <m_delay>1.24</m_delay>
-          <m_topoIndex>11</m_topoIndex>
-          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
-        </item>
-        <item class_id_reference="9" object_id="_14">
-          <Value>
-            <Obj>
-              <type>0</type>
-              <id>18</id>
-              <name>i_write_ln195</name>
-              <fileName>src/spmm_device_fpga.cpp</fileName>
-              <fileDirectory>..</fileDirectory>
-              <lineNumber>195</lineNumber>
-              <contextFuncName>pu_kernel</contextFuncName>
-              <contextNormFuncName>pu_kernel</contextNormFuncName>
-              <inlineStackInfo>
-                <count>1</count>
-                <item_version>0</item_version>
-                <item>
-                  <first>/home/shuxuan/SDMA</first>
-                  <second>
-                    <count>2</count>
-                    <item_version>0</item_version>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>pu_kernel</second>
-                      </first>
-                      <second>195</second>
-                    </item>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>spmm_hls</second>
-                      </first>
-                      <second>314</second>
-                    </item>
-                  </second>
-                </item>
-              </inlineStackInfo>
-              <originalName/>
-              <rtlName/>
-              <control/>
-              <opType/>
-              <implIndex/>
-              <coreName/>
-              <isStorage>0</isStorage>
-              <storageDepth>0</storageDepth>
-              <coreId>4117863392</coreId>
-              <rtlModuleName/>
-            </Obj>
-            <bitwidth>0</bitwidth>
-          </Value>
-          <oprand_edges>
-            <count>4</count>
-            <item_version>0</item_version>
-            <item>49</item>
-            <item>50</item>
-            <item>70</item>
-            <item>71</item>
-          </oprand_edges>
-          <opcode>store</opcode>
-          <m_Display>0</m_Display>
-          <m_isOnCriticalPath>0</m_isOnCriticalPath>
-          <m_isLCDNode>0</m_isLCDNode>
-          <m_isStartOfPath>0</m_isStartOfPath>
-          <m_delay>0.38</m_delay>
           <m_topoIndex>12</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_15">
+        <item class_id_reference="9" object_id="_16">
           <Value>
             <Obj>
               <type>0</type>
-              <id>19</id>
-              <name>br_ln195</name>
+              <id>21</id>
+              <name>AU1_addr</name>
               <fileName>src/spmm_device_fpga.cpp</fileName>
               <fileDirectory>..</fileDirectory>
-              <lineNumber>195</lineNumber>
+              <lineNumber>259</lineNumber>
               <contextFuncName>pu_kernel</contextFuncName>
               <contextNormFuncName>pu_kernel</contextNormFuncName>
               <inlineStackInfo>
@@ -789,21 +766,14 @@
                 <item>
                   <first>/home/shuxuan/SDMA</first>
                   <second>
-                    <count>2</count>
+                    <count>1</count>
                     <item_version>0</item_version>
                     <item>
                       <first>
                         <first>src/spmm_device_fpga.cpp</first>
                         <second>pu_kernel</second>
                       </first>
-                      <second>195</second>
-                    </item>
-                    <item>
-                      <first>
-                        <first>src/spmm_device_fpga.cpp</first>
-                        <second>spmm_hls</second>
-                      </first>
-                      <second>314</second>
+                      <second>259</second>
                     </item>
                   </second>
                 </item>
@@ -816,17 +786,19 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4117399840</coreId>
+              <coreId>0</coreId>
               <rtlModuleName/>
             </Obj>
-            <bitwidth>0</bitwidth>
+            <bitwidth>16</bitwidth>
           </Value>
           <oprand_edges>
-            <count>1</count>
+            <count>3</count>
             <item_version>0</item_version>
-            <item>51</item>
+            <item>55</item>
+            <item>56</item>
+            <item>57</item>
           </oprand_edges>
-          <opcode>br</opcode>
+          <opcode>getelementptr</opcode>
           <m_Display>0</m_Display>
           <m_isOnCriticalPath>0</m_isOnCriticalPath>
           <m_isLCDNode>0</m_isLCDNode>
@@ -835,11 +807,183 @@
           <m_topoIndex>13</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
-        <item class_id_reference="9" object_id="_16">
+        <item class_id_reference="9" object_id="_17">
           <Value>
             <Obj>
               <type>0</type>
-              <id>21</id>
+              <id>22</id>
+              <name>AU1_addr_write_ln259</name>
+              <fileName>src/spmm_device_fpga.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>259</lineNumber>
+              <contextFuncName>pu_kernel</contextFuncName>
+              <contextNormFuncName>pu_kernel</contextNormFuncName>
+              <inlineStackInfo>
+                <count>1</count>
+                <item_version>0</item_version>
+                <item>
+                  <first>/home/shuxuan/SDMA</first>
+                  <second>
+                    <count>1</count>
+                    <item_version>0</item_version>
+                    <item>
+                      <first>
+                        <first>src/spmm_device_fpga.cpp</first>
+                        <second>pu_kernel</second>
+                      </first>
+                      <second>259</second>
+                    </item>
+                  </second>
+                </item>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName/>
+              <control>auto</control>
+              <opType>ram</opType>
+              <implIndex>auto</implIndex>
+              <coreName>RAM</coreName>
+              <isStorage>0</isStorage>
+              <storageDepth>0</storageDepth>
+              <coreId>83</coreId>
+              <rtlModuleName/>
+            </Obj>
+            <bitwidth>0</bitwidth>
+          </Value>
+          <oprand_edges>
+            <count>2</count>
+            <item_version>0</item_version>
+            <item>58</item>
+            <item>59</item>
+          </oprand_edges>
+          <opcode>store</opcode>
+          <m_Display>0</m_Display>
+          <m_isOnCriticalPath>0</m_isOnCriticalPath>
+          <m_isLCDNode>0</m_isLCDNode>
+          <m_isStartOfPath>0</m_isStartOfPath>
+          <m_delay>1.24</m_delay>
+          <m_topoIndex>14</m_topoIndex>
+          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
+        </item>
+        <item class_id_reference="9" object_id="_18">
+          <Value>
+            <Obj>
+              <type>0</type>
+              <id>23</id>
+              <name>i_write_ln256</name>
+              <fileName>src/spmm_device_fpga.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>256</lineNumber>
+              <contextFuncName>pu_kernel</contextFuncName>
+              <contextNormFuncName>pu_kernel</contextNormFuncName>
+              <inlineStackInfo>
+                <count>1</count>
+                <item_version>0</item_version>
+                <item>
+                  <first>/home/shuxuan/SDMA</first>
+                  <second>
+                    <count>1</count>
+                    <item_version>0</item_version>
+                    <item>
+                      <first>
+                        <first>src/spmm_device_fpga.cpp</first>
+                        <second>pu_kernel</second>
+                      </first>
+                      <second>256</second>
+                    </item>
+                  </second>
+                </item>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName/>
+              <control/>
+              <opType/>
+              <implIndex/>
+              <coreName/>
+              <isStorage>0</isStorage>
+              <storageDepth>0</storageDepth>
+              <coreId>0</coreId>
+              <rtlModuleName/>
+            </Obj>
+            <bitwidth>0</bitwidth>
+          </Value>
+          <oprand_edges>
+            <count>4</count>
+            <item_version>0</item_version>
+            <item>60</item>
+            <item>61</item>
+            <item>87</item>
+            <item>88</item>
+          </oprand_edges>
+          <opcode>store</opcode>
+          <m_Display>0</m_Display>
+          <m_isOnCriticalPath>0</m_isOnCriticalPath>
+          <m_isLCDNode>0</m_isLCDNode>
+          <m_isStartOfPath>0</m_isStartOfPath>
+          <m_delay>0.38</m_delay>
+          <m_topoIndex>15</m_topoIndex>
+          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
+        </item>
+        <item class_id_reference="9" object_id="_19">
+          <Value>
+            <Obj>
+              <type>0</type>
+              <id>24</id>
+              <name>br_ln256</name>
+              <fileName>src/spmm_device_fpga.cpp</fileName>
+              <fileDirectory>..</fileDirectory>
+              <lineNumber>256</lineNumber>
+              <contextFuncName>pu_kernel</contextFuncName>
+              <contextNormFuncName>pu_kernel</contextNormFuncName>
+              <inlineStackInfo>
+                <count>1</count>
+                <item_version>0</item_version>
+                <item>
+                  <first>/home/shuxuan/SDMA</first>
+                  <second>
+                    <count>1</count>
+                    <item_version>0</item_version>
+                    <item>
+                      <first>
+                        <first>src/spmm_device_fpga.cpp</first>
+                        <second>pu_kernel</second>
+                      </first>
+                      <second>256</second>
+                    </item>
+                  </second>
+                </item>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName/>
+              <control/>
+              <opType/>
+              <implIndex/>
+              <coreName/>
+              <isStorage>0</isStorage>
+              <storageDepth>0</storageDepth>
+              <coreId>0</coreId>
+              <rtlModuleName/>
+            </Obj>
+            <bitwidth>0</bitwidth>
+          </Value>
+          <oprand_edges>
+            <count>1</count>
+            <item_version>0</item_version>
+            <item>62</item>
+          </oprand_edges>
+          <opcode>br</opcode>
+          <m_Display>0</m_Display>
+          <m_isOnCriticalPath>0</m_isOnCriticalPath>
+          <m_isLCDNode>0</m_isLCDNode>
+          <m_isStartOfPath>0</m_isStartOfPath>
+          <m_delay>0.00</m_delay>
+          <m_topoIndex>16</m_topoIndex>
+          <m_clusterGroupNumber>-1</m_clusterGroupNumber>
+        </item>
+        <item class_id_reference="9" object_id="_20">
+          <Value>
+            <Obj>
+              <type>0</type>
+              <id>26</id>
               <name>_ln0</name>
               <fileName/>
               <fileDirectory/>
@@ -858,7 +1002,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>102166650</coreId>
+              <coreId>3419530896</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>0</bitwidth>
@@ -873,45 +1017,14 @@
           <m_isLCDNode>0</m_isLCDNode>
           <m_isStartOfPath>0</m_isStartOfPath>
           <m_delay>0.00</m_delay>
-          <m_topoIndex>14</m_topoIndex>
+          <m_topoIndex>17</m_topoIndex>
           <m_clusterGroupNumber>-1</m_clusterGroupNumber>
         </item>
       </nodes>
       <consts class_id="15" tracking_level="0" version="0">
         <count>5</count>
         <item_version>0</item_version>
-        <item class_id="16" tracking_level="1" version="0" object_id="_17">
-          <Value>
-            <Obj>
-              <type>2</type>
-              <id>23</id>
-              <name>empty</name>
-              <fileName/>
-              <fileDirectory/>
-              <lineNumber>0</lineNumber>
-              <contextFuncName/>
-              <contextNormFuncName/>
-              <inlineStackInfo>
-                <count>0</count>
-                <item_version>0</item_version>
-              </inlineStackInfo>
-              <originalName/>
-              <rtlName/>
-              <control/>
-              <opType/>
-              <implIndex/>
-              <coreName/>
-              <isStorage>0</isStorage>
-              <storageDepth>0</storageDepth>
-              <coreId>0</coreId>
-              <rtlModuleName/>
-            </Obj>
-            <bitwidth>32</bitwidth>
-          </Value>
-          <const_type>0</const_type>
-          <content>1</content>
-        </item>
-        <item class_id_reference="16" object_id="_18">
+        <item class_id="16" tracking_level="1" version="0" object_id="_21">
           <Value>
             <Obj>
               <type>2</type>
@@ -934,50 +1047,19 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>1819113532</coreId>
+              <coreId>604920638</coreId>
               <rtlModuleName/>
             </Obj>
-            <bitwidth>30</bitwidth>
-          </Value>
-          <const_type>0</const_type>
-          <content>0</content>
-        </item>
-        <item class_id_reference="16" object_id="_19">
-          <Value>
-            <Obj>
-              <type>2</type>
-              <id>36</id>
-              <name>empty</name>
-              <fileName/>
-              <fileDirectory/>
-              <lineNumber>0</lineNumber>
-              <contextFuncName/>
-              <contextNormFuncName/>
-              <inlineStackInfo>
-                <count>0</count>
-                <item_version>0</item_version>
-              </inlineStackInfo>
-              <originalName/>
-              <rtlName/>
-              <control/>
-              <opType/>
-              <implIndex/>
-              <coreName/>
-              <isStorage>0</isStorage>
-              <storageDepth>0</storageDepth>
-              <coreId>4116440576</coreId>
-              <rtlModuleName/>
-            </Obj>
-            <bitwidth>30</bitwidth>
+            <bitwidth>32</bitwidth>
           </Value>
           <const_type>0</const_type>
           <content>1</content>
         </item>
-        <item class_id_reference="16" object_id="_20">
+        <item class_id_reference="16" object_id="_22">
           <Value>
             <Obj>
               <type>2</type>
-              <id>43</id>
+              <id>33</id>
               <name>empty</name>
               <fileName/>
               <fileDirectory/>
@@ -996,7 +1078,69 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4116439352</coreId>
+              <coreId>3419596688</coreId>
+              <rtlModuleName/>
+            </Obj>
+            <bitwidth>16</bitwidth>
+          </Value>
+          <const_type>0</const_type>
+          <content>0</content>
+        </item>
+        <item class_id_reference="16" object_id="_23">
+          <Value>
+            <Obj>
+              <type>2</type>
+              <id>42</id>
+              <name>empty</name>
+              <fileName/>
+              <fileDirectory/>
+              <lineNumber>0</lineNumber>
+              <contextFuncName/>
+              <contextNormFuncName/>
+              <inlineStackInfo>
+                <count>0</count>
+                <item_version>0</item_version>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName/>
+              <control/>
+              <opType/>
+              <implIndex/>
+              <coreName/>
+              <isStorage>0</isStorage>
+              <storageDepth>0</storageDepth>
+              <coreId>3420049808</coreId>
+              <rtlModuleName/>
+            </Obj>
+            <bitwidth>16</bitwidth>
+          </Value>
+          <const_type>0</const_type>
+          <content>1</content>
+        </item>
+        <item class_id_reference="16" object_id="_24">
+          <Value>
+            <Obj>
+              <type>2</type>
+              <id>49</id>
+              <name>empty</name>
+              <fileName/>
+              <fileDirectory/>
+              <lineNumber>0</lineNumber>
+              <contextFuncName/>
+              <contextNormFuncName/>
+              <inlineStackInfo>
+                <count>0</count>
+                <item_version>0</item_version>
+              </inlineStackInfo>
+              <originalName/>
+              <rtlName/>
+              <control/>
+              <opType/>
+              <implIndex/>
+              <coreName/>
+              <isStorage>0</isStorage>
+              <storageDepth>0</storageDepth>
+              <coreId>3420064848</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>64</bitwidth>
@@ -1004,11 +1148,11 @@
           <const_type>0</const_type>
           <content>0</content>
         </item>
-        <item class_id_reference="16" object_id="_21">
+        <item class_id_reference="16" object_id="_25">
           <Value>
             <Obj>
               <type>2</type>
-              <id>46</id>
+              <id>52</id>
               <name>empty</name>
               <fileName/>
               <fileDirectory/>
@@ -1027,7 +1171,7 @@
               <coreName/>
               <isStorage>0</isStorage>
               <storageDepth>0</storageDepth>
-              <coreId>4117478960</coreId>
+              <coreId>3420064240</coreId>
               <rtlModuleName/>
             </Obj>
             <bitwidth>32</bitwidth>
@@ -1039,10 +1183,10 @@
       <blocks class_id="17" tracking_level="0" version="0">
         <count>4</count>
         <item_version>0</item_version>
-        <item class_id="18" tracking_level="1" version="0" object_id="_22">
+        <item class_id="18" tracking_level="1" version="0" object_id="_26">
           <Obj>
             <type>3</type>
-            <id>7</id>
+            <id>8</id>
             <name>newFuncRoot</name>
             <fileName/>
             <fileDirectory/>
@@ -1061,23 +1205,23 @@
             <coreName/>
             <isStorage>0</isStorage>
             <storageDepth>0</storageDepth>
-            <coreId>757935405</coreId>
+            <coreId>0</coreId>
             <rtlModuleName/>
           </Obj>
           <node_objs>
             <count>4</count>
             <item_version>0</item_version>
-            <item>3</item>
             <item>4</item>
             <item>5</item>
             <item>6</item>
+            <item>7</item>
           </node_objs>
         </item>
-        <item class_id_reference="18" object_id="_23">
+        <item class_id_reference="18" object_id="_27">
           <Obj>
             <type>3</type>
-            <id>12</id>
-            <name>for.inc18.i</name>
+            <id>15</id>
+            <name>for.inc28</name>
             <fileName/>
             <fileDirectory/>
             <lineNumber>0</lineNumber>
@@ -1095,58 +1239,24 @@
             <coreName/>
             <isStorage>0</isStorage>
             <storageDepth>0</storageDepth>
-            <coreId>4117399840</coreId>
-            <rtlModuleName/>
-          </Obj>
-          <node_objs>
-            <count>4</count>
-            <item_version>0</item_version>
-            <item>8</item>
-            <item>9</item>
-            <item>10</item>
-            <item>11</item>
-          </node_objs>
-        </item>
-        <item class_id_reference="18" object_id="_24">
-          <Obj>
-            <type>3</type>
-            <id>20</id>
-            <name>for.inc18.split.i</name>
-            <fileName/>
-            <fileDirectory/>
-            <lineNumber>0</lineNumber>
-            <contextFuncName/>
-            <contextNormFuncName/>
-            <inlineStackInfo>
-              <count>0</count>
-              <item_version>0</item_version>
-            </inlineStackInfo>
-            <originalName/>
-            <rtlName/>
-            <control/>
-            <opType/>
-            <implIndex/>
-            <coreName/>
-            <isStorage>0</isStorage>
-            <storageDepth>0</storageDepth>
-            <coreId>544108393</coreId>
+            <coreId>784</coreId>
             <rtlModuleName/>
           </Obj>
           <node_objs>
             <count>5</count>
             <item_version>0</item_version>
+            <item>9</item>
+            <item>10</item>
+            <item>11</item>
             <item>13</item>
-            <item>16</item>
-            <item>17</item>
-            <item>18</item>
-            <item>19</item>
+            <item>14</item>
           </node_objs>
         </item>
-        <item class_id_reference="18" object_id="_25">
+        <item class_id_reference="18" object_id="_28">
           <Obj>
             <type>3</type>
-            <id>22</id>
-            <name>VITIS_LOOP_202_1.loopexit.i.exitStub</name>
+            <id>25</id>
+            <name>for.inc28.split</name>
             <fileName/>
             <fileDirectory/>
             <lineNumber>0</lineNumber>
@@ -1164,220 +1274,299 @@
             <coreName/>
             <isStorage>0</isStorage>
             <storageDepth>0</storageDepth>
-            <coreId>4117340112</coreId>
+            <coreId>3419437312</coreId>
+            <rtlModuleName/>
+          </Obj>
+          <node_objs>
+            <count>7</count>
+            <item_version>0</item_version>
+            <item>16</item>
+            <item>19</item>
+            <item>20</item>
+            <item>21</item>
+            <item>22</item>
+            <item>23</item>
+            <item>24</item>
+          </node_objs>
+        </item>
+        <item class_id_reference="18" object_id="_29">
+          <Obj>
+            <type>3</type>
+            <id>27</id>
+            <name>for.inc61.preheader.exitStub</name>
+            <fileName/>
+            <fileDirectory/>
+            <lineNumber>0</lineNumber>
+            <contextFuncName/>
+            <contextNormFuncName/>
+            <inlineStackInfo>
+              <count>0</count>
+              <item_version>0</item_version>
+            </inlineStackInfo>
+            <originalName/>
+            <rtlName/>
+            <control/>
+            <opType/>
+            <implIndex/>
+            <coreName/>
+            <isStorage>0</isStorage>
+            <storageDepth>0</storageDepth>
+            <coreId>3419746624</coreId>
             <rtlModuleName/>
           </Obj>
           <node_objs>
             <count>1</count>
             <item_version>0</item_version>
-            <item>21</item>
+            <item>26</item>
           </node_objs>
         </item>
       </blocks>
       <edges class_id="19" tracking_level="0" version="0">
-        <count>29</count>
+        <count>35</count>
         <item_version>0</item_version>
-        <item class_id="20" tracking_level="1" version="0" object_id="_26">
-          <id>24</id>
-          <edge_type>1</edge_type>
-          <source_obj>23</source_obj>
-          <sink_obj>3</sink_obj>
-          <is_back_edge>0</is_back_edge>
-        </item>
-        <item class_id_reference="20" object_id="_27">
-          <id>27</id>
-          <edge_type>1</edge_type>
-          <source_obj>1</source_obj>
-          <sink_obj>4</sink_obj>
-          <is_back_edge>0</is_back_edge>
-        </item>
-        <item class_id_reference="20" object_id="_28">
+        <item class_id="20" tracking_level="1" version="0" object_id="_30">
           <id>29</id>
           <edge_type>1</edge_type>
           <source_obj>28</source_obj>
-          <sink_obj>5</sink_obj>
-          <is_back_edge>0</is_back_edge>
-        </item>
-        <item class_id_reference="20" object_id="_29">
-          <id>30</id>
-          <edge_type>1</edge_type>
-          <source_obj>3</source_obj>
-          <sink_obj>5</sink_obj>
-          <is_back_edge>0</is_back_edge>
-        </item>
-        <item class_id_reference="20" object_id="_30">
-          <id>31</id>
-          <edge_type>2</edge_type>
-          <source_obj>12</source_obj>
-          <sink_obj>6</sink_obj>
+          <sink_obj>4</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_31">
           <id>32</id>
           <edge_type>1</edge_type>
-          <source_obj>3</source_obj>
-          <sink_obj>8</sink_obj>
+          <source_obj>1</source_obj>
+          <sink_obj>5</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_32">
-          <id>33</id>
+          <id>34</id>
           <edge_type>1</edge_type>
-          <source_obj>8</source_obj>
-          <sink_obj>9</sink_obj>
+          <source_obj>33</source_obj>
+          <sink_obj>6</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_33">
-          <id>34</id>
+          <id>35</id>
           <edge_type>1</edge_type>
           <source_obj>4</source_obj>
-          <sink_obj>9</sink_obj>
+          <sink_obj>6</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_34">
-          <id>35</id>
-          <edge_type>1</edge_type>
-          <source_obj>8</source_obj>
-          <sink_obj>10</sink_obj>
+          <id>36</id>
+          <edge_type>2</edge_type>
+          <source_obj>15</source_obj>
+          <sink_obj>7</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_35">
           <id>37</id>
           <edge_type>1</edge_type>
-          <source_obj>36</source_obj>
-          <sink_obj>10</sink_obj>
+          <source_obj>4</source_obj>
+          <sink_obj>9</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_36">
           <id>38</id>
           <edge_type>1</edge_type>
           <source_obj>9</source_obj>
-          <sink_obj>11</sink_obj>
+          <sink_obj>10</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_37">
           <id>39</id>
-          <edge_type>2</edge_type>
-          <source_obj>20</source_obj>
+          <edge_type>1</edge_type>
+          <source_obj>10</source_obj>
           <sink_obj>11</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_38">
           <id>40</id>
-          <edge_type>2</edge_type>
-          <source_obj>22</source_obj>
+          <edge_type>1</edge_type>
+          <source_obj>5</source_obj>
           <sink_obj>11</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_39">
           <id>41</id>
           <edge_type>1</edge_type>
-          <source_obj>8</source_obj>
+          <source_obj>9</source_obj>
           <sink_obj>13</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_40">
-          <id>42</id>
+          <id>43</id>
           <edge_type>1</edge_type>
-          <source_obj>2</source_obj>
-          <sink_obj>16</sink_obj>
+          <source_obj>42</source_obj>
+          <sink_obj>13</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_41">
           <id>44</id>
           <edge_type>1</edge_type>
-          <source_obj>43</source_obj>
-          <sink_obj>16</sink_obj>
+          <source_obj>11</source_obj>
+          <sink_obj>14</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_42">
           <id>45</id>
-          <edge_type>1</edge_type>
-          <source_obj>13</source_obj>
-          <sink_obj>16</sink_obj>
+          <edge_type>2</edge_type>
+          <source_obj>25</source_obj>
+          <sink_obj>14</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_43">
-          <id>47</id>
-          <edge_type>1</edge_type>
-          <source_obj>46</source_obj>
-          <sink_obj>17</sink_obj>
+          <id>46</id>
+          <edge_type>2</edge_type>
+          <source_obj>27</source_obj>
+          <sink_obj>14</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_44">
-          <id>48</id>
+          <id>47</id>
           <edge_type>1</edge_type>
-          <source_obj>16</source_obj>
-          <sink_obj>17</sink_obj>
+          <source_obj>9</source_obj>
+          <sink_obj>16</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_45">
-          <id>49</id>
+          <id>48</id>
           <edge_type>1</edge_type>
-          <source_obj>10</source_obj>
-          <sink_obj>18</sink_obj>
+          <source_obj>2</source_obj>
+          <sink_obj>19</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_46">
           <id>50</id>
           <edge_type>1</edge_type>
-          <source_obj>3</source_obj>
-          <sink_obj>18</sink_obj>
+          <source_obj>49</source_obj>
+          <sink_obj>19</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_47">
           <id>51</id>
-          <edge_type>2</edge_type>
-          <source_obj>12</source_obj>
+          <edge_type>1</edge_type>
+          <source_obj>16</source_obj>
           <sink_obj>19</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_48">
-          <id>65</id>
-          <edge_type>2</edge_type>
-          <source_obj>7</source_obj>
-          <sink_obj>12</sink_obj>
-          <is_back_edge>0</is_back_edge>
-        </item>
-        <item class_id_reference="20" object_id="_49">
-          <id>66</id>
-          <edge_type>2</edge_type>
-          <source_obj>12</source_obj>
-          <sink_obj>22</sink_obj>
-          <is_back_edge>0</is_back_edge>
-        </item>
-        <item class_id_reference="20" object_id="_50">
-          <id>67</id>
-          <edge_type>2</edge_type>
-          <source_obj>12</source_obj>
+          <id>53</id>
+          <edge_type>1</edge_type>
+          <source_obj>52</source_obj>
           <sink_obj>20</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
+        <item class_id_reference="20" object_id="_49">
+          <id>54</id>
+          <edge_type>1</edge_type>
+          <source_obj>19</source_obj>
+          <sink_obj>20</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_50">
+          <id>55</id>
+          <edge_type>1</edge_type>
+          <source_obj>3</source_obj>
+          <sink_obj>21</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
         <item class_id_reference="20" object_id="_51">
-          <id>68</id>
-          <edge_type>2</edge_type>
-          <source_obj>20</source_obj>
-          <sink_obj>12</sink_obj>
-          <is_back_edge>1</is_back_edge>
+          <id>56</id>
+          <edge_type>1</edge_type>
+          <source_obj>49</source_obj>
+          <sink_obj>21</sink_obj>
+          <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_52">
-          <id>69</id>
-          <edge_type>4</edge_type>
-          <source_obj>5</source_obj>
-          <sink_obj>8</sink_obj>
+          <id>57</id>
+          <edge_type>1</edge_type>
+          <source_obj>16</source_obj>
+          <sink_obj>21</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_53">
-          <id>70</id>
-          <edge_type>4</edge_type>
-          <source_obj>5</source_obj>
-          <sink_obj>18</sink_obj>
+          <id>58</id>
+          <edge_type>1</edge_type>
+          <source_obj>52</source_obj>
+          <sink_obj>22</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
         <item class_id_reference="20" object_id="_54">
-          <id>71</id>
-          <edge_type>4</edge_type>
+          <id>59</id>
+          <edge_type>1</edge_type>
+          <source_obj>21</source_obj>
+          <sink_obj>22</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_55">
+          <id>60</id>
+          <edge_type>1</edge_type>
+          <source_obj>13</source_obj>
+          <sink_obj>23</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_56">
+          <id>61</id>
+          <edge_type>1</edge_type>
+          <source_obj>4</source_obj>
+          <sink_obj>23</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_57">
+          <id>62</id>
+          <edge_type>2</edge_type>
+          <source_obj>15</source_obj>
+          <sink_obj>24</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_58">
+          <id>82</id>
+          <edge_type>2</edge_type>
           <source_obj>8</source_obj>
-          <sink_obj>18</sink_obj>
+          <sink_obj>15</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_59">
+          <id>83</id>
+          <edge_type>2</edge_type>
+          <source_obj>15</source_obj>
+          <sink_obj>27</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_60">
+          <id>84</id>
+          <edge_type>2</edge_type>
+          <source_obj>15</source_obj>
+          <sink_obj>25</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_61">
+          <id>85</id>
+          <edge_type>2</edge_type>
+          <source_obj>25</source_obj>
+          <sink_obj>15</sink_obj>
+          <is_back_edge>1</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_62">
+          <id>86</id>
+          <edge_type>4</edge_type>
+          <source_obj>6</source_obj>
+          <sink_obj>9</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_63">
+          <id>87</id>
+          <edge_type>4</edge_type>
+          <source_obj>6</source_obj>
+          <sink_obj>23</sink_obj>
+          <is_back_edge>0</is_back_edge>
+        </item>
+        <item class_id_reference="20" object_id="_64">
+          <id>88</id>
+          <edge_type>4</edge_type>
+          <source_obj>9</source_obj>
+          <sink_obj>23</sink_obj>
           <is_back_edge>0</is_back_edge>
         </item>
       </edges>
@@ -1385,7 +1574,7 @@
     <cdfg_regions class_id="21" tracking_level="0" version="0">
       <count>4</count>
       <item_version>0</item_version>
-      <item class_id="22" tracking_level="1" version="0" object_id="_55">
+      <item class_id="22" tracking_level="1" version="0" object_id="_65">
         <mId>1</mId>
         <mTag>pu_kernel_Pipeline_init_au</mTag>
         <mNormTag>pu_kernel_Pipeline_init_au</mNormTag>
@@ -1405,12 +1594,12 @@
         <mDepth>-1</mDepth>
         <mMinTripCount>-1</mMinTripCount>
         <mMaxTripCount>-1</mMaxTripCount>
-        <mMinLatency>-1</mMinLatency>
-        <mMaxLatency>-1</mMaxLatency>
+        <mMinLatency>2</mMinLatency>
+        <mMaxLatency>1073741825</mMaxLatency>
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"/>
       </item>
-      <item class_id_reference="22" object_id="_56">
+      <item class_id_reference="22" object_id="_66">
         <mId>2</mId>
         <mTag>Entry</mTag>
         <mNormTag>Entry</mNormTag>
@@ -1422,7 +1611,7 @@
         <basic_blocks>
           <count>1</count>
           <item_version>0</item_version>
-          <item>7</item>
+          <item>8</item>
         </basic_blocks>
         <mII>-1</mII>
         <mDepth>-1</mDepth>
@@ -1433,7 +1622,7 @@
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"/>
       </item>
-      <item class_id_reference="22" object_id="_57">
+      <item class_id_reference="22" object_id="_67">
         <mId>3</mId>
         <mTag>init_au</mTag>
         <mNormTag>init_au</mNormTag>
@@ -1445,19 +1634,19 @@
         <basic_blocks>
           <count>2</count>
           <item_version>0</item_version>
-          <item>12</item>
-          <item>20</item>
+          <item>15</item>
+          <item>25</item>
         </basic_blocks>
         <mII>1</mII>
         <mDepth>1</mDepth>
-        <mMinTripCount>-1</mMinTripCount>
-        <mMaxTripCount>-1</mMaxTripCount>
-        <mMinLatency>-1</mMinLatency>
-        <mMaxLatency>-1</mMaxLatency>
+        <mMinTripCount>0</mMinTripCount>
+        <mMaxTripCount>1073741823</mMaxTripCount>
+        <mMinLatency>0</mMinLatency>
+        <mMaxLatency>1073741823</mMaxLatency>
         <mIsDfPipe>0</mIsDfPipe>
         <mDfPipe class_id="-1"/>
       </item>
-      <item class_id_reference="22" object_id="_58">
+      <item class_id_reference="22" object_id="_68">
         <mId>4</mId>
         <mTag>Return</mTag>
         <mNormTag>Return</mNormTag>
@@ -1469,7 +1658,7 @@
         <basic_blocks>
           <count>1</count>
           <item_version>0</item_version>
-          <item>22</item>
+          <item>27</item>
         </basic_blocks>
         <mII>-1</mII>
         <mDepth>-1</mDepth>
@@ -1481,92 +1670,112 @@
         <mDfPipe class_id="-1"/>
       </item>
     </cdfg_regions>
-    <fsm class_id="24" tracking_level="1" version="0" object_id="_59">
+    <fsm class_id="24" tracking_level="1" version="0" object_id="_69">
       <states class_id="25" tracking_level="0" version="0">
         <count>1</count>
         <item_version>0</item_version>
-        <item class_id="26" tracking_level="1" version="0" object_id="_60">
+        <item class_id="26" tracking_level="1" version="0" object_id="_70">
           <id>1</id>
           <operations class_id="27" tracking_level="0" version="0">
-            <count>16</count>
+            <count>20</count>
             <item_version>0</item_version>
-            <item class_id="28" tracking_level="1" version="0" object_id="_61">
-              <id>3</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
-            <item class_id_reference="28" object_id="_62">
+            <item class_id="28" tracking_level="1" version="0" object_id="_71">
               <id>4</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_63">
+            <item class_id_reference="28" object_id="_72">
               <id>5</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_64">
+            <item class_id_reference="28" object_id="_73">
               <id>6</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
-            <item class_id_reference="28" object_id="_65">
-              <id>8</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
-            <item class_id_reference="28" object_id="_66">
-              <id>9</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
-            <item class_id_reference="28" object_id="_67">
-              <id>10</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
-            <item class_id_reference="28" object_id="_68">
-              <id>11</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
-            <item class_id_reference="28" object_id="_69">
-              <id>13</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
-            <item class_id_reference="28" object_id="_70">
-              <id>14</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
-            <item class_id_reference="28" object_id="_71">
-              <id>15</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
-            <item class_id_reference="28" object_id="_72">
-              <id>16</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
-            <item class_id_reference="28" object_id="_73">
-              <id>17</id>
-              <stage>1</stage>
-              <latency>1</latency>
-            </item>
             <item class_id_reference="28" object_id="_74">
-              <id>18</id>
+              <id>7</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
             <item class_id_reference="28" object_id="_75">
-              <id>19</id>
+              <id>9</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
             <item class_id_reference="28" object_id="_76">
+              <id>10</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_77">
+              <id>11</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_78">
+              <id>12</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_79">
+              <id>13</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_80">
+              <id>14</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_81">
+              <id>16</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_82">
+              <id>17</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_83">
+              <id>18</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_84">
+              <id>19</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_85">
+              <id>20</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_86">
               <id>21</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_87">
+              <id>22</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_88">
+              <id>23</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_89">
+              <id>24</id>
+              <stage>1</stage>
+              <latency>1</latency>
+            </item>
+            <item class_id_reference="28" object_id="_90">
+              <id>26</id>
               <stage>1</stage>
               <latency>1</latency>
             </item>
@@ -1578,7 +1787,7 @@
         <item_version>0</item_version>
       </transitions>
     </fsm>
-    <res class_id="30" tracking_level="1" version="0" object_id="_77">
+    <res class_id="30" tracking_level="1" version="0" object_id="_91">
       <dp_component_resource class_id="31" tracking_level="0" version="0">
         <count>1</count>
         <item_version>0</item_version>
@@ -1594,13 +1803,13 @@
         <count>2</count>
         <item_version>0</item_version>
         <item>
-          <first>add_ln195_fu_64_p2 ( + ) </first>
+          <first>add_ln256_fu_88_p2 ( + ) </first>
           <second>
             <count>4</count>
             <item_version>0</item_version>
             <item class_id="34" tracking_level="0" version="0">
               <first>(0P0)</first>
-              <second>30</second>
+              <second>16</second>
             </item>
             <item>
               <first>(1P1)</first>
@@ -1612,12 +1821,12 @@
             </item>
             <item>
               <first>LUT</first>
-              <second>37</second>
+              <second>23</second>
             </item>
           </second>
         </item>
         <item>
-          <first>icmp_ln195_fu_58_p2 ( icmp ) </first>
+          <first>icmp_ln256_fu_82_p2 ( icmp ) </first>
           <second>
             <count>4</count>
             <item_version>0</item_version>
@@ -1685,11 +1894,11 @@
             </item>
             <item>
               <first>(1Bits)</first>
-              <second>30</second>
+              <second>16</second>
             </item>
             <item>
               <first>(2Count)</first>
-              <second>60</second>
+              <second>32</second>
             </item>
             <item>
               <first>LUT</first>
@@ -1698,7 +1907,7 @@
           </second>
         </item>
         <item>
-          <first>i_fu_26</first>
+          <first>i_fu_32</first>
           <second>
             <count>4</count>
             <item_version>0</item_version>
@@ -1708,11 +1917,11 @@
             </item>
             <item>
               <first>(1Bits)</first>
-              <second>30</second>
+              <second>16</second>
             </item>
             <item>
               <first>(2Count)</first>
-              <second>60</second>
+              <second>32</second>
             </item>
             <item>
               <first>LUT</first>
@@ -1763,13 +1972,13 @@
           </second>
         </item>
         <item>
-          <first>i_fu_26</first>
+          <first>i_fu_32</first>
           <second>
             <count>3</count>
             <item_version>0</item_version>
             <item>
               <first>(Bits)</first>
-              <second>30</second>
+              <second>16</second>
             </item>
             <item>
               <first>(Consts)</first>
@@ -1777,7 +1986,7 @@
             </item>
             <item>
               <first>FF</first>
-              <second>30</second>
+              <second>16</second>
             </item>
           </second>
         </item>
@@ -1801,19 +2010,19 @@
         <count>2</count>
         <item_version>0</item_version>
         <item class_id="36" tracking_level="0" version="0">
-          <first>add_ln195_fu_64_p2 ( + ) </first>
+          <first>add_ln256_fu_88_p2 ( + ) </first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>10</item>
+            <item>13</item>
           </second>
         </item>
         <item>
-          <first>icmp_ln195_fu_58_p2 ( icmp ) </first>
+          <first>icmp_ln256_fu_82_p2 ( icmp ) </first>
           <second>
             <count>1</count>
             <item_version>0</item_version>
-            <item>9</item>
+            <item>11</item>
           </second>
         </item>
       </dp_expression_map>
@@ -1827,18 +2036,11 @@
       </dp_memory_map>
     </res>
     <node_label_latency class_id="37" tracking_level="0" version="0">
-      <count>14</count>
+      <count>17</count>
       <item_version>0</item_version>
       <item class_id="38" tracking_level="0" version="0">
-        <first>3</first>
-        <second class_id="39" tracking_level="0" version="0">
-          <first>0</first>
-          <second>0</second>
-        </second>
-      </item>
-      <item>
         <first>4</first>
-        <second>
+        <second class_id="39" tracking_level="0" version="0">
           <first>0</first>
           <second>0</second>
         </second>
@@ -1858,7 +2060,7 @@
         </second>
       </item>
       <item>
-        <first>8</first>
+        <first>7</first>
         <second>
           <first>0</first>
           <second>0</second>
@@ -1893,21 +2095,14 @@
         </second>
       </item>
       <item>
+        <first>14</first>
+        <second>
+          <first>0</first>
+          <second>0</second>
+        </second>
+      </item>
+      <item>
         <first>16</first>
-        <second>
-          <first>0</first>
-          <second>0</second>
-        </second>
-      </item>
-      <item>
-        <first>17</first>
-        <second>
-          <first>0</first>
-          <second>0</second>
-        </second>
-      </item>
-      <item>
-        <first>18</first>
         <second>
           <first>0</first>
           <second>0</second>
@@ -1921,7 +2116,42 @@
         </second>
       </item>
       <item>
+        <first>20</first>
+        <second>
+          <first>0</first>
+          <second>0</second>
+        </second>
+      </item>
+      <item>
         <first>21</first>
+        <second>
+          <first>0</first>
+          <second>0</second>
+        </second>
+      </item>
+      <item>
+        <first>22</first>
+        <second>
+          <first>0</first>
+          <second>0</second>
+        </second>
+      </item>
+      <item>
+        <first>23</first>
+        <second>
+          <first>0</first>
+          <second>0</second>
+        </second>
+      </item>
+      <item>
+        <first>24</first>
+        <second>
+          <first>0</first>
+          <second>0</second>
+        </second>
+      </item>
+      <item>
+        <first>26</first>
         <second>
           <first>0</first>
           <second>0</second>
@@ -1932,28 +2162,28 @@
       <count>4</count>
       <item_version>0</item_version>
       <item class_id="41" tracking_level="0" version="0">
-        <first>7</first>
+        <first>8</first>
         <second class_id="42" tracking_level="0" version="0">
           <first>0</first>
           <second>0</second>
         </second>
       </item>
       <item>
-        <first>12</first>
+        <first>15</first>
         <second>
           <first>1</first>
           <second>1</second>
         </second>
       </item>
       <item>
-        <first>20</first>
+        <first>25</first>
         <second>
           <first>1</first>
           <second>1</second>
         </second>
       </item>
       <item>
-        <first>22</first>
+        <first>27</first>
         <second>
           <first>2</first>
           <second>2</second>
@@ -1963,13 +2193,13 @@
     <regions class_id="43" tracking_level="0" version="0">
       <count>1</count>
       <item_version>0</item_version>
-      <item class_id="44" tracking_level="1" version="0" object_id="_78">
+      <item class_id="44" tracking_level="1" version="0" object_id="_92">
         <region_name>init_au</region_name>
         <basic_blocks>
           <count>2</count>
           <item_version>0</item_version>
-          <item>12</item>
-          <item>20</item>
+          <item>15</item>
+          <item>25</item>
         </basic_blocks>
         <nodes>
           <count>0</count>
@@ -1986,18 +2216,10 @@
       </item>
     </regions>
     <dp_fu_nodes class_id="46" tracking_level="0" version="0">
-      <count>10</count>
+      <count>13</count>
       <item_version>0</item_version>
       <item class_id="47" tracking_level="0" version="0">
-        <first>26</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>3</item>
-        </second>
-      </item>
-      <item>
-        <first>30</first>
+        <first>32</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2009,47 +2231,39 @@
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>16</item>
-        </second>
-      </item>
-      <item>
-        <first>43</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>17</item>
-        </second>
-      </item>
-      <item>
-        <first>50</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
           <item>5</item>
         </second>
       </item>
       <item>
-        <first>55</first>
+        <first>42</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>8</item>
+          <item>19</item>
         </second>
       </item>
       <item>
-        <first>58</first>
+        <first>49</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>9</item>
+          <item>20</item>
         </second>
       </item>
       <item>
-        <first>64</first>
+        <first>56</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>10</item>
+          <item>21</item>
+        </second>
+      </item>
+      <item>
+        <first>63</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>22</item>
         </second>
       </item>
       <item>
@@ -2057,7 +2271,7 @@
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>13</item>
+          <item>6</item>
         </second>
       </item>
       <item>
@@ -2065,23 +2279,11 @@
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>18</item>
-        </second>
-      </item>
-    </dp_fu_nodes>
-    <dp_fu_nodes_expression class_id="49" tracking_level="0" version="0">
-      <count>5</count>
-      <item_version>0</item_version>
-      <item class_id="50" tracking_level="0" version="0">
-        <first>AU0_addr_gep_fu_36</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>16</item>
+          <item>9</item>
         </second>
       </item>
       <item>
-        <first>add_ln195_fu_64</first>
+        <first>78</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2089,27 +2291,95 @@
         </second>
       </item>
       <item>
-        <first>i_fu_26</first>
+        <first>82</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>3</item>
+          <item>11</item>
         </second>
       </item>
       <item>
-        <first>icmp_ln195_fu_58</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>9</item>
-        </second>
-      </item>
-      <item>
-        <first>zext_ln195_fu_70</first>
+        <first>88</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
           <item>13</item>
+        </second>
+      </item>
+      <item>
+        <first>94</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>16</item>
+        </second>
+      </item>
+      <item>
+        <first>100</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>23</item>
+        </second>
+      </item>
+    </dp_fu_nodes>
+    <dp_fu_nodes_expression class_id="49" tracking_level="0" version="0">
+      <count>7</count>
+      <item_version>0</item_version>
+      <item class_id="50" tracking_level="0" version="0">
+        <first>AU0_addr_gep_fu_42</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>19</item>
+        </second>
+      </item>
+      <item>
+        <first>AU1_addr_gep_fu_56</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>21</item>
+        </second>
+      </item>
+      <item>
+        <first>add_ln256_fu_88</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>13</item>
+        </second>
+      </item>
+      <item>
+        <first>i_fu_32</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>4</item>
+        </second>
+      </item>
+      <item>
+        <first>icmp_ln256_fu_82</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>11</item>
+        </second>
+      </item>
+      <item>
+        <first>zext_ln256_1_fu_78</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>10</item>
+        </second>
+      </item>
+      <item>
+        <first>zext_ln256_fu_94</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>16</item>
         </second>
       </item>
     </dp_fu_nodes_expression>
@@ -2121,15 +2391,7 @@
       <count>4</count>
       <item_version>0</item_version>
       <item>
-        <first>i_5_load_fu_55</first>
-        <second>
-          <count>1</count>
-          <item_version>0</item_version>
-          <item>8</item>
-        </second>
-      </item>
-      <item>
-        <first>store_ln0_store_fu_50</first>
+        <first>K_read_read_fu_36</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2137,19 +2399,27 @@
         </second>
       </item>
       <item>
-        <first>store_ln195_store_fu_75</first>
+        <first>i_5_load_fu_75</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>18</item>
+          <item>9</item>
         </second>
       </item>
       <item>
-        <first>trunc_ln_read_read_fu_30</first>
+        <first>store_ln0_store_fu_70</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>4</item>
+          <item>6</item>
+        </second>
+      </item>
+      <item>
+        <first>store_ln256_store_fu_100</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>23</item>
         </second>
       </item>
     </dp_fu_nodes_io>
@@ -2158,7 +2428,7 @@
       <item_version>0</item_version>
     </return_ports>
     <dp_mem_port_nodes class_id="51" tracking_level="0" version="0">
-      <count>1</count>
+      <count>2</count>
       <item_version>0</item_version>
       <item class_id="52" tracking_level="0" version="0">
         <first class_id="53" tracking_level="0" version="0">
@@ -2168,7 +2438,18 @@
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>17</item>
+          <item>20</item>
+        </second>
+      </item>
+      <item>
+        <first>
+          <first>AU1</first>
+          <second>0</second>
+        </first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>22</item>
         </second>
       </item>
     </dp_mem_port_nodes>
@@ -2176,11 +2457,11 @@
       <count>1</count>
       <item_version>0</item_version>
       <item>
-        <first>80</first>
+        <first>105</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>3</item>
+          <item>4</item>
         </second>
       </item>
     </dp_reg_nodes>
@@ -2188,11 +2469,11 @@
       <count>1</count>
       <item_version>0</item_version>
       <item>
-        <first>i_reg_80</first>
+        <first>i_reg_105</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
-          <item>3</item>
+          <item>4</item>
         </second>
       </item>
     </dp_regname_nodes>
@@ -2205,7 +2486,7 @@
       <item_version>0</item_version>
     </dp_regname_phi>
     <dp_port_io_nodes class_id="54" tracking_level="0" version="0">
-      <count>2</count>
+      <count>3</count>
       <item_version>0</item_version>
       <item class_id="55" tracking_level="0" version="0">
         <first>AU0(p0)</first>
@@ -2217,13 +2498,28 @@
             <second>
               <count>1</count>
               <item_version>0</item_version>
-              <item>17</item>
+              <item>20</item>
             </second>
           </item>
         </second>
       </item>
       <item>
-        <first>trunc_ln</first>
+        <first>AU1(p0)</first>
+        <second>
+          <count>1</count>
+          <item_version>0</item_version>
+          <item>
+            <first>store</first>
+            <second>
+              <count>1</count>
+              <item_version>0</item_version>
+              <item>22</item>
+            </second>
+          </item>
+        </second>
+      </item>
+      <item>
+        <first>K</first>
         <second>
           <count>1</count>
           <item_version>0</item_version>
@@ -2232,14 +2528,14 @@
             <second>
               <count>1</count>
               <item_version>0</item_version>
-              <item>4</item>
+              <item>5</item>
             </second>
           </item>
         </second>
       </item>
     </dp_port_io_nodes>
     <port2core>
-      <count>1</count>
+      <count>2</count>
       <item_version>0</item_version>
       <item>
         <first>2</first>
@@ -2248,26 +2544,40 @@
           <second>136</second>
         </second>
       </item>
+      <item>
+        <first>3</first>
+        <second>
+          <first>666</first>
+          <second>136</second>
+        </second>
+      </item>
     </port2core>
     <node2core>
-      <count>3</count>
+      <count>4</count>
       <item_version>0</item_version>
       <item>
-        <first>9</first>
+        <first>11</first>
         <second>
           <first>45</first>
           <second>0</second>
         </second>
       </item>
       <item>
-        <first>10</first>
+        <first>13</first>
         <second>
           <first>8</first>
           <second>4</second>
         </second>
       </item>
       <item>
-        <first>17</first>
+        <first>20</first>
+        <second>
+          <first>666</first>
+          <second>136</second>
+        </second>
+      </item>
+      <item>
+        <first>22</first>
         <second>
           <first>666</first>
           <second>136</second>

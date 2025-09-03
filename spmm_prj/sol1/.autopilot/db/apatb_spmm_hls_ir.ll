@@ -3,7 +3,7 @@ source_filename = "llvm-link"
 target datalayout = "e-m:e-i64:64-i128:128-i256:256-i512:512-i1024:1024-i2048:2048-i4096:4096-n8:16:32:64-S128-v16:16-v24:32-v32:32-v48:64-v96:128-v192:256-v256:256-v512:512-v1024:1024"
 target triple = "fpga64-xilinx-none"
 
-; Function Attrs: noinline
+; Function Attrs: inaccessiblemem_or_argmemonly noinline
 define void @apatb_spmm_hls_ir(i32 %N, i32 %M, i32 %K, i32 %nnz, i32* noalias nocapture nonnull readonly %row_ptr, i32* noalias nocapture nonnull readonly %col_idx, float* noalias nocapture nonnull readonly %a_val, float* noalias nocapture nonnull readonly %B1, float* noalias nocapture nonnull readonly %B2, float* noalias nocapture nonnull readonly %B3, float* noalias nocapture nonnull readonly %B4, float* noalias nocapture nonnull readonly %C) local_unnamed_addr #0 {
 entry:
   %row_ptr_copy = alloca i32, align 512
@@ -100,7 +100,7 @@ entry:
 
 declare void @spmm_hls_hw_stub(i32, i32, i32, i32, i32*, i32*, float*, float*, float*, float*, float*, float*)
 
-attributes #0 = { noinline "fpga.wrapper.func"="wrapper" }
+attributes #0 = { inaccessiblemem_or_argmemonly noinline "fpga.wrapper.func"="wrapper" }
 attributes #1 = { argmemonly noinline norecurse "fpga.wrapper.func"="copyin" }
 attributes #2 = { argmemonly noinline norecurse "fpga.wrapper.func"="onebyonecpy_hls" }
 attributes #3 = { argmemonly noinline norecurse "fpga.wrapper.func"="copyout" }

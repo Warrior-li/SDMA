@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'pu_kernel_Pipeline_pu_save_stream_into_pu'
 ================================================================
-* Date:           Tue Sep  2 16:52:28 2025
+* Date:           Wed Sep  3 20:05:49 2025
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        spmm_prj
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  4.00 ns|  1.398 ns|     1.08 ns|
+    |ap_clk  |  4.00 ns|  0.959 ns|     1.08 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -41,7 +41,7 @@
         |                          |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
         |         Loop Name        |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
         +--------------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- pu_save_stream_into_pu  |        4|        4|         2|          1|          1|     4|       yes|
+        |- pu_save_stream_into_pu  |        4|        4|         1|          1|          1|     4|       yes|
         +--------------------------+---------+---------+----------+-----------+-----------+------+----------+
 
 ============================================================
@@ -67,55 +67,110 @@ HasImplIP: 0
 IsGatedGlobalClock: 0
 
 + Individual pipeline summary: 
-  * Pipeline-0: initiation interval (II) = 1, depth = 2
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
 
 
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 2
+* Number of FSM states : 1
 * Pipeline : 1
-  Pipeline-0 : II = 1, D = 2, States = { 1 2 }
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
 * Dataflow Pipeline: 0
 
 * FSM state transitions: 
-1 --> 2 
-2 --> 
+1 --> 
 
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 0.95>
-ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%u = alloca i32 1"   --->   Operation 5 'alloca' 'u' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 6 [1/1] (0.38ns)   --->   "%store_ln0 = store i3 0, i3 %u"   --->   Operation 6 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
-ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc.i"   --->   Operation 7 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%u_1 = load i3 %u" [src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314]   --->   Operation 8 'load' 'u_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.49ns)   --->   "%icmp_ln181 = icmp_eq  i3 %u_1, i3 4" [src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314]   --->   Operation 9 'icmp' 'icmp_ln181' <Predicate = true> <Delay = 0.49> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 4, i64 4, i64 4"   --->   Operation 10 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.57ns)   --->   "%add_ln181 = add i3 %u_1, i3 1" [src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314]   --->   Operation 11 'add' 'add_ln181' <Predicate = true> <Delay = 0.57> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%br_ln181 = br i1 %icmp_ln181, void %for.inc.split.i, void %for.end.i.exitStub" [src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314]   --->   Operation 12 'br' 'br_ln181' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%zext_ln181 = zext i3 %u_1" [src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314]   --->   Operation 13 'zext' 'zext_ln181' <Predicate = (!icmp_ln181)> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%p_v_value_addr = getelementptr i32 %p_v_value, i64 0, i64 %zext_ln181" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 14 'getelementptr' 'p_v_value_addr' <Predicate = (!icmp_ln181)> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%p_v_y_addr = getelementptr i32 %p_v_y, i64 0, i64 %zext_ln181" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 15 'getelementptr' 'p_v_y_addr' <Predicate = (!icmp_ln181)> <Delay = 0.00>
-ST_1 : Operation 16 [2/2] (0.69ns)   --->   "%p_v_value_load = load i2 %p_v_value_addr" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 16 'load' 'p_v_value_load' <Predicate = (!icmp_ln181)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 17 [2/2] (0.69ns)   --->   "%p_v_y_load = load i2 %p_v_y_addr" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 17 'load' 'p_v_y_load' <Predicate = (!icmp_ln181)> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%p_ref_addr = getelementptr i1 %p_ref, i64 0, i64 %zext_ln181" [src/spmm_device_fpga.cpp:184->src/spmm_device_fpga.cpp:314]   --->   Operation 18 'getelementptr' 'p_ref_addr' <Predicate = (!icmp_ln181)> <Delay = 0.00>
-ST_1 : Operation 19 [2/2] (0.63ns)   --->   "%p_ref_load = load i2 %p_ref_addr" [src/spmm_device_fpga.cpp:184->src/spmm_device_fpga.cpp:314]   --->   Operation 19 'load' 'p_ref_load' <Predicate = (!icmp_ln181)> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_1 : Operation 20 [1/1] (0.38ns)   --->   "%store_ln181 = store i3 %add_ln181, i3 %u" [src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314]   --->   Operation 20 'store' 'store_ln181' <Predicate = (!icmp_ln181)> <Delay = 0.38>
-ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 33 'ret' 'ret_ln0' <Predicate = (icmp_ln181)> <Delay = 0.00>
-
-State 2 <SV = 1> <Delay = 1.39>
-ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%specpipeline_ln182 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_28" [src/spmm_device_fpga.cpp:182->src/spmm_device_fpga.cpp:314]   --->   Operation 21 'specpipeline' 'specpipeline_ln182' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%specloopname_ln181 = specloopname void @_ssdm_op_SpecLoopName, void @empty_33" [src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314]   --->   Operation 22 'specloopname' 'specloopname_ln181' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%tile_value_addr = getelementptr i32 %tile_value, i64 0, i64 %zext_ln181" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 23 'getelementptr' 'tile_value_addr' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%tile_y_addr = getelementptr i32 %tile_y, i64 0, i64 %zext_ln181" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 24 'getelementptr' 'tile_y_addr' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 25 [1/2] (0.69ns)   --->   "%p_v_value_load = load i2 %p_v_value_addr" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 25 'load' 'p_v_value_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_2 : Operation 26 [1/2] (0.69ns)   --->   "%p_v_y_load = load i2 %p_v_y_addr" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 26 'load' 'p_v_y_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_2 : Operation 27 [1/1] (0.69ns)   --->   "%store_ln183 = store i32 %p_v_value_load, i2 %tile_value_addr" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 27 'store' 'store_ln183' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_2 : Operation 28 [1/1] (0.69ns)   --->   "%store_ln183 = store i32 %p_v_y_load, i2 %tile_y_addr" [src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314]   --->   Operation 28 'store' 'store_ln183' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM_1WnR">   --->   Core 84 'RAM_1WnR' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 17> <Width = 32> <Depth = 4> <RAM>
-ST_2 : Operation 29 [1/2] (0.63ns)   --->   "%p_ref_load = load i2 %p_ref_addr" [src/spmm_device_fpga.cpp:184->src/spmm_device_fpga.cpp:314]   --->   Operation 29 'load' 'p_ref_load' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%tile_ref_addr = getelementptr i1 %tile_ref, i64 0, i64 %zext_ln181" [src/spmm_device_fpga.cpp:184->src/spmm_device_fpga.cpp:314]   --->   Operation 30 'getelementptr' 'tile_ref_addr' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 31 [1/1] (0.63ns)   --->   "%store_ln184 = store i1 %p_ref_load, i2 %tile_ref_addr" [src/spmm_device_fpga.cpp:184->src/spmm_device_fpga.cpp:314]   --->   Operation 31 'store' 'store_ln184' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%br_ln181 = br void %for.inc.i" [src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314]   --->   Operation 32 'br' 'br_ln181' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%u = alloca i32 1"   --->   Operation 4 'alloca' 'u' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%tile_value_1 = alloca i32 1"   --->   Operation 5 'alloca' 'tile_value_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%tile_value_1_1 = alloca i32 1"   --->   Operation 6 'alloca' 'tile_value_1_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%tile_value_1_2 = alloca i32 1"   --->   Operation 7 'alloca' 'tile_value_1_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%tile_value_1_3 = alloca i32 1"   --->   Operation 8 'alloca' 'tile_value_1_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%tile_y_1 = alloca i32 1"   --->   Operation 9 'alloca' 'tile_y_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%tile_y_1_1 = alloca i32 1"   --->   Operation 10 'alloca' 'tile_y_1_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%tile_y_1_2 = alloca i32 1"   --->   Operation 11 'alloca' 'tile_y_1_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%tile_y_1_3 = alloca i32 1"   --->   Operation 12 'alloca' 'tile_y_1_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%tile_ref_1 = alloca i32 1"   --->   Operation 13 'alloca' 'tile_ref_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%tile_ref_1_1 = alloca i32 1"   --->   Operation 14 'alloca' 'tile_ref_1_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tile_ref_1_2 = alloca i32 1"   --->   Operation 15 'alloca' 'tile_ref_1_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%tile_ref_1_3 = alloca i32 1"   --->   Operation 16 'alloca' 'tile_ref_1_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%p_v_y_3_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_v_y_3"   --->   Operation 17 'read' 'p_v_y_3_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%p_v_y_2_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_v_y_2"   --->   Operation 18 'read' 'p_v_y_2_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%p_v_y_1_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_v_y_1"   --->   Operation 19 'read' 'p_v_y_1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%p_v_y_0_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_v_y_0"   --->   Operation 20 'read' 'p_v_y_0_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%p_v_value_3_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %p_v_value_3"   --->   Operation 21 'read' 'p_v_value_3_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%p_v_value_2_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %p_v_value_2"   --->   Operation 22 'read' 'p_v_value_2_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%p_v_value_1_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %p_v_value_1"   --->   Operation 23 'read' 'p_v_value_1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%p_v_value_0_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %p_v_value_0"   --->   Operation 24 'read' 'p_v_value_0_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%p_ref_3_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_ref_3"   --->   Operation 25 'read' 'p_ref_3_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%p_ref_2_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_ref_2"   --->   Operation 26 'read' 'p_ref_2_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%p_ref_1_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_ref_1"   --->   Operation 27 'read' 'p_ref_1_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%p_ref_0_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_ref_0"   --->   Operation 28 'read' 'p_ref_0_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (0.38ns)   --->   "%store_ln0 = store i3 0, i3 %u"   --->   Operation 29 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc13"   --->   Operation 30 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%u_1 = load i3 %u" [src/spmm_device_fpga.cpp:243]   --->   Operation 31 'load' 'u_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.49ns)   --->   "%icmp_ln241 = icmp_eq  i3 %u_1, i3 4" [src/spmm_device_fpga.cpp:241]   --->   Operation 32 'icmp' 'icmp_ln241' <Predicate = true> <Delay = 0.49> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 4, i64 4, i64 4"   --->   Operation 33 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 34 [1/1] (0.57ns)   --->   "%add_ln241 = add i3 %u_1, i3 1" [src/spmm_device_fpga.cpp:241]   --->   Operation 34 'add' 'add_ln241' <Predicate = true> <Delay = 0.57> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%br_ln241 = br i1 %icmp_ln241, void %for.inc13.split, void %for.end15.exitStub" [src/spmm_device_fpga.cpp:241]   --->   Operation 35 'br' 'br_ln241' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%specpipeline_ln242 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_15" [src/spmm_device_fpga.cpp:242]   --->   Operation 36 'specpipeline' 'specpipeline_ln242' <Predicate = (!icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%specloopname_ln241 = specloopname void @_ssdm_op_SpecLoopName, void @empty_29" [src/spmm_device_fpga.cpp:241]   --->   Operation 37 'specloopname' 'specloopname_ln241' <Predicate = (!icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%trunc_ln243 = trunc i3 %u_1" [src/spmm_device_fpga.cpp:243]   --->   Operation 38 'trunc' 'trunc_ln243' <Predicate = (!icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 39 [1/1] (0.45ns)   --->   "%tile_value_1_5 = mux i32 @_ssdm_op_Mux.ap_auto.4float.i2, i32 %p_v_value_0_read, i32 %p_v_value_1_read, i32 %p_v_value_2_read, i32 %p_v_value_3_read, i2 %trunc_ln243" [src/spmm_device_fpga.cpp:243]   --->   Operation 39 'mux' 'tile_value_1_5' <Predicate = (!icmp_ln241)> <Delay = 0.45> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 0.45> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 40 [1/1] (0.45ns)   --->   "%tile_y_1_5 = mux i32 @_ssdm_op_Mux.ap_auto.4i32.i2, i32 %p_v_y_0_read, i32 %p_v_y_1_read, i32 %p_v_y_2_read, i32 %p_v_y_3_read, i2 %trunc_ln243" [src/spmm_device_fpga.cpp:243]   --->   Operation 40 'mux' 'tile_y_1_5' <Predicate = (!icmp_ln241)> <Delay = 0.45> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 0.45> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 41 [1/1] (0.34ns)   --->   "%switch_ln243 = switch i2 %trunc_ln243, void %branch11, i2 0, void %for.inc13.split.for.inc13.split29_crit_edge, i2 1, void %for.inc13.split.for.inc13.split29_crit_edge14, i2 2, void %branch10" [src/spmm_device_fpga.cpp:243]   --->   Operation 41 'switch' 'switch_ln243' <Predicate = (!icmp_ln241)> <Delay = 0.34>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%store_ln243 = store i32 %tile_value_1_5, i32 %tile_value_1_2" [src/spmm_device_fpga.cpp:243]   --->   Operation 42 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 2)> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%br_ln243 = br void %for.inc13.split29" [src/spmm_device_fpga.cpp:243]   --->   Operation 43 'br' 'br_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 2)> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%store_ln243 = store i32 %tile_value_1_5, i32 %tile_value_1_1" [src/spmm_device_fpga.cpp:243]   --->   Operation 44 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 1)> <Delay = 0.00>
+ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%br_ln243 = br void %for.inc13.split29" [src/spmm_device_fpga.cpp:243]   --->   Operation 45 'br' 'br_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 1)> <Delay = 0.00>
+ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%store_ln243 = store i32 %tile_value_1_5, i32 %tile_value_1" [src/spmm_device_fpga.cpp:243]   --->   Operation 46 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 0)> <Delay = 0.00>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%br_ln243 = br void %for.inc13.split29" [src/spmm_device_fpga.cpp:243]   --->   Operation 47 'br' 'br_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 0)> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%store_ln243 = store i32 %tile_value_1_5, i32 %tile_value_1_3" [src/spmm_device_fpga.cpp:243]   --->   Operation 48 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 3)> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%br_ln243 = br void %for.inc13.split29" [src/spmm_device_fpga.cpp:243]   --->   Operation 49 'br' 'br_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 3)> <Delay = 0.00>
+ST_1 : Operation 50 [1/1] (0.45ns)   --->   "%tile_ref_1_5 = mux i1 @_ssdm_op_Mux.ap_auto.4i1.i2, i1 %p_ref_0_read, i1 %p_ref_1_read, i1 %p_ref_2_read, i1 %p_ref_3_read, i2 %trunc_ln243" [src/spmm_device_fpga.cpp:244]   --->   Operation 50 'mux' 'tile_ref_1_5' <Predicate = (!icmp_ln241)> <Delay = 0.45> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 0.45> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 51 [1/1] (0.34ns)   --->   "%switch_ln243 = switch i2 %trunc_ln243, void %branch23, i2 0, void %for.inc13.split29.for.inc13.split295561_crit_edge, i2 1, void %for.inc13.split29.for.inc13.split295561_crit_edge13, i2 2, void %branch22" [src/spmm_device_fpga.cpp:243]   --->   Operation 51 'switch' 'switch_ln243' <Predicate = (!icmp_ln241)> <Delay = 0.34>
+ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%store_ln244 = store i1 %tile_ref_1_5, i1 %tile_ref_1_2" [src/spmm_device_fpga.cpp:244]   --->   Operation 52 'store' 'store_ln244' <Predicate = (!icmp_ln241 & trunc_ln243 == 2)> <Delay = 0.00>
+ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%store_ln243 = store i32 %tile_y_1_5, i32 %tile_y_1_2" [src/spmm_device_fpga.cpp:243]   --->   Operation 53 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 2)> <Delay = 0.00>
+ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc13.split295561"   --->   Operation 54 'br' 'br_ln0' <Predicate = (!icmp_ln241 & trunc_ln243 == 2)> <Delay = 0.00>
+ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%store_ln243 = store i1 %tile_ref_1_5, i1 %tile_ref_1_1" [src/spmm_device_fpga.cpp:243]   --->   Operation 55 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 1)> <Delay = 0.00>
+ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%store_ln243 = store i32 %tile_y_1_5, i32 %tile_y_1_1" [src/spmm_device_fpga.cpp:243]   --->   Operation 56 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 1)> <Delay = 0.00>
+ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%br_ln243 = br void %for.inc13.split295561" [src/spmm_device_fpga.cpp:243]   --->   Operation 57 'br' 'br_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 1)> <Delay = 0.00>
+ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%store_ln243 = store i1 %tile_ref_1_5, i1 %tile_ref_1" [src/spmm_device_fpga.cpp:243]   --->   Operation 58 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 0)> <Delay = 0.00>
+ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%store_ln243 = store i32 %tile_y_1_5, i32 %tile_y_1" [src/spmm_device_fpga.cpp:243]   --->   Operation 59 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 0)> <Delay = 0.00>
+ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%br_ln243 = br void %for.inc13.split295561" [src/spmm_device_fpga.cpp:243]   --->   Operation 60 'br' 'br_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 0)> <Delay = 0.00>
+ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%store_ln244 = store i1 %tile_ref_1_5, i1 %tile_ref_1_3" [src/spmm_device_fpga.cpp:244]   --->   Operation 61 'store' 'store_ln244' <Predicate = (!icmp_ln241 & trunc_ln243 == 3)> <Delay = 0.00>
+ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%store_ln243 = store i32 %tile_y_1_5, i32 %tile_y_1_3" [src/spmm_device_fpga.cpp:243]   --->   Operation 62 'store' 'store_ln243' <Predicate = (!icmp_ln241 & trunc_ln243 == 3)> <Delay = 0.00>
+ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.inc13.split295561"   --->   Operation 63 'br' 'br_ln0' <Predicate = (!icmp_ln241 & trunc_ln243 == 3)> <Delay = 0.00>
+ST_1 : Operation 64 [1/1] (0.38ns)   --->   "%store_ln241 = store i3 %add_ln241, i3 %u" [src/spmm_device_fpga.cpp:241]   --->   Operation 64 'store' 'store_ln241' <Predicate = (!icmp_ln241)> <Delay = 0.38>
+ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%br_ln241 = br void %for.inc13" [src/spmm_device_fpga.cpp:241]   --->   Operation 65 'br' 'br_ln241' <Predicate = (!icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%tile_value_1_load = load i32 %tile_value_1"   --->   Operation 66 'load' 'tile_value_1_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%tile_value_1_1_load = load i32 %tile_value_1_1"   --->   Operation 67 'load' 'tile_value_1_1_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%tile_value_1_2_load = load i32 %tile_value_1_2"   --->   Operation 68 'load' 'tile_value_1_2_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%tile_value_1_3_load = load i32 %tile_value_1_3"   --->   Operation 69 'load' 'tile_value_1_3_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%tile_y_1_load = load i32 %tile_y_1"   --->   Operation 70 'load' 'tile_y_1_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%tile_y_1_1_load = load i32 %tile_y_1_1"   --->   Operation 71 'load' 'tile_y_1_1_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%tile_y_1_2_load = load i32 %tile_y_1_2"   --->   Operation 72 'load' 'tile_y_1_2_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 73 [1/1] (0.00ns)   --->   "%tile_y_1_3_load = load i32 %tile_y_1_3"   --->   Operation 73 'load' 'tile_y_1_3_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 74 [1/1] (0.00ns)   --->   "%tile_ref_1_load = load i1 %tile_ref_1"   --->   Operation 74 'load' 'tile_ref_1_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 75 [1/1] (0.00ns)   --->   "%tile_ref_1_1_load = load i1 %tile_ref_1_1"   --->   Operation 75 'load' 'tile_ref_1_1_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 76 [1/1] (0.00ns)   --->   "%tile_ref_1_2_load = load i1 %tile_ref_1_2"   --->   Operation 76 'load' 'tile_ref_1_2_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 77 [1/1] (0.00ns)   --->   "%tile_ref_1_3_load = load i1 %tile_ref_1_3"   --->   Operation 77 'load' 'tile_ref_1_3_load' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 78 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %tile_ref_3_020_out, i1 %tile_ref_1_3_load"   --->   Operation 78 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 79 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %tile_ref_2_019_out, i1 %tile_ref_1_2_load"   --->   Operation 79 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 80 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %tile_ref_1_018_out, i1 %tile_ref_1_1_load"   --->   Operation 80 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 81 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %tile_ref_0_017_out, i1 %tile_ref_1_load"   --->   Operation 81 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 82 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %tile_y_3_016_out, i32 %tile_y_1_3_load"   --->   Operation 82 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 83 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %tile_y_2_015_out, i32 %tile_y_1_2_load"   --->   Operation 83 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 84 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %tile_y_1_014_out, i32 %tile_y_1_1_load"   --->   Operation 84 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 85 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %tile_y_0_013_out, i32 %tile_y_1_load"   --->   Operation 85 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 86 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.floatP0A, i32 %tile_value_3_0165_out, i32 %tile_value_1_3_load"   --->   Operation 86 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 87 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.floatP0A, i32 %tile_value_2_0164_out, i32 %tile_value_1_2_load"   --->   Operation 87 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 88 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.floatP0A, i32 %tile_value_1_0163_out, i32 %tile_value_1_1_load"   --->   Operation 88 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 89 [1/1] (0.00ns)   --->   "%write_ln0 = write void @_ssdm_op_Write.ap_auto.floatP0A, i32 %tile_value_0_0162_out, i32 %tile_value_1_load"   --->   Operation 89 'write' 'write_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
+ST_1 : Operation 90 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 90 'ret' 'ret_ln0' <Predicate = (icmp_ln241)> <Delay = 0.00>
 
 
 ============================================================
@@ -125,15 +180,10 @@ Target clock period: 4ns, clock uncertainty: 1.08ns.
 
  <State 1>: 0.959ns
 The critical path consists of the following:
-	'alloca' operation ('u') [7]  (0 ns)
-	'load' operation ('u', src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314) on local variable 'u' [11]  (0 ns)
-	'add' operation ('add_ln181', src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314) [14]  (0.572 ns)
-	'store' operation ('store_ln181', src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314) of variable 'add_ln181', src/spmm_device_fpga.cpp:181->src/spmm_device_fpga.cpp:314 on local variable 'u' [32]  (0.387 ns)
-
- <State 2>: 1.4ns
-The critical path consists of the following:
-	'load' operation ('p_v_value_load', src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314) on array 'p_v_value' [24]  (0.699 ns)
-	'store' operation ('store_ln183', src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314) of variable 'p_v_value_load', src/spmm_device_fpga.cpp:183->src/spmm_device_fpga.cpp:314 on array 'tile_value' [26]  (0.699 ns)
+	'alloca' operation ('u') [25]  (0 ns)
+	'load' operation ('u', src/spmm_device_fpga.cpp:243) on local variable 'u' [53]  (0 ns)
+	'add' operation ('add_ln241', src/spmm_device_fpga.cpp:241) [56]  (0.572 ns)
+	'store' operation ('store_ln241', src/spmm_device_fpga.cpp:241) of variable 'add_ln241', src/spmm_device_fpga.cpp:241 on local variable 'u' [97]  (0.387 ns)
 
 
 ============================================================
@@ -145,7 +195,6 @@ N/A
  - Input state : 
   - Chain level:
 	State 1
-	State 2
 
 
 ============================================================

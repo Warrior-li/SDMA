@@ -27,8 +27,6 @@ entity spmm_hls_fifo_w388_d16_A is
         if_din            : in  std_logic_vector(DATA_WIDTH - 1 downto 0);
 
         -- read 
-        if_num_data_valid : out std_logic_vector(ADDR_WIDTH downto 0); -- for FRP
-        if_fifo_cap       : out std_logic_vector(ADDR_WIDTH downto 0); -- for FRP
         if_empty_n        : out std_logic;
         if_read_ce        : in  std_logic;
         if_read           : in  std_logic;
@@ -88,8 +86,7 @@ begin
         dout  => if_dout);
 
 --------------------------- Body ----------------------------
-    -- has num_data_valid ?  
-    if_fifo_cap       <= STD_LOGIC_VECTOR(TO_UNSIGNED(DEPTH + 1, ADDR_WIDTH + 1)); -- yes 
+    -- has num_data_valid ?  no 
 
     -- has almost full ? 
     if_full_n  <= full_n; -- no 
@@ -181,29 +178,7 @@ begin
         end if; -- sync end 
     end process;
 
-    -- if_num_data_valid  
-    process (clk ) begin
-        -- reset  sync
-        if clk'event and clk = '1' then
-            if reset = '1' then
-                if_num_data_valid <= (others => '0');
-            elsif pop = '1' then
-                if (push = '1' ) then
-                    if_num_data_valid <= STD_LOGIC_VECTOR(mOutPtr+1);
-                else
-                    if_num_data_valid <= STD_LOGIC_VECTOR(mOutPtr);
-                end if;
-            elsif not (if_read_ce = '1' and if_read = '1') and dout_vld = '1' then
-                if (push = '1' ) then
-                    if_num_data_valid <= STD_LOGIC_VECTOR(mOutPtr+2);
-                else
-                    if_num_data_valid <= STD_LOGIC_VECTOR(mOutPtr+1);
-                end if;
-            else
-                if_num_data_valid <= (others=>'0');
-            end if;
-        end if; -- sync end 
-    end process; -- 
+    -- if_num_data_valid 
 
     -- dout_vld  
     process (clk ) begin

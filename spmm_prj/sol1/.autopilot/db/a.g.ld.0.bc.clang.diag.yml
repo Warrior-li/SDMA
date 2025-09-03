@@ -63,15 +63,29 @@ Args:
 --- !Passed
 Pass:            reflow-inliner
 Name:            AutoInline
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 161, Column: 0 }
-Function:        _Z9pu_kernelRN3hls6streamI7TilePktLi0EEEPKfj
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 192, Column: 0 }
+Function:        _Z8au_mergeRN3hls6streamIfLi0EEES2_jjPfS3_RiS4_i
 Args:            
   - String:          'Inlining function '''
-  - Callee:          'write_to_Obuf(float*, float*, unsigned int, unsigned int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 147, Column: 0 }
+  - Callee:          'merge_into_one_AU(unsigned int, hls::stream<float, 0>&, hls::stream<float, 0>&, float*, int&, int)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 154, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'pu_kernel(hls::stream<TilePkt, 0>&, float const*, unsigned int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 161, Column: 0 }
+  - Caller:          'au_merge(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 192, Column: 0 }
+  - String:          ''''
+...
+--- !Passed
+Pass:            reflow-inliner
+Name:            AutoInline
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 192, Column: 0 }
+Function:        _Z8au_mergeRN3hls6streamIfLi0EEES2_jjPfS3_RiS4_i
+Args:            
+  - String:          'Inlining function '''
+  - Callee:          'split_into_two_AU(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 172, Column: 0 }
+  - String:          ''' into '''
+  - Caller:          'au_merge(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 192, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
@@ -113,7 +127,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 305, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -131,7 +145,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 305, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Aggregating '
@@ -147,7 +161,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 305, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Aggregating '
@@ -163,7 +177,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 305, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Aggregating '
@@ -179,7 +193,7 @@ Args:
 --- !Passed
 Pass:            reflow-aggr
 Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 305, Column: 23 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
 Function:        spmm_hls
 Args:            
   - String:          'Aggregating '
@@ -361,7 +375,7 @@ Args:
   - String:          ' '
   - ArrayName:       ''
   - String:          ' '
-  - BundleName:      gmem6
+  - BundleName:      gmem3
   - String:          ' '
   - LoopName:        VITIS_LOOP_114_2
   - String:          ' '
@@ -389,7 +403,7 @@ Args:
   - LoopLoc:         'src/spmm_device_fpga.cpp:114:31'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
-  - BundleName:      gmem6
+  - BundleName:      gmem3
   - String:          '''.'
   - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
 ...

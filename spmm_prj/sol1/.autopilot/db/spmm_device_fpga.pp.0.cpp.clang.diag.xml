@@ -265,11 +265,27 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>149</integer>
+      <integer>155</integer>
+      <key>column</key>
+      <integer>20</integer>
+      <key>message</key>
+      <string>unexpected pragma parameter &apos;on&apos;</string>
+      <key>ID</key>
+      <integer>5554</integer>
+      <key>WarningOption</key>
+      <string>invalid-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>155</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=write_to_Obuf_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=0_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=merge_into_one_AU_XLX_SEP_ PragmaOptions=on_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -281,7 +297,39 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>162</integer>
+      <integer>173</integer>
+      <key>column</key>
+      <integer>20</integer>
+      <key>message</key>
+      <string>unexpected pragma parameter &apos;on&apos;</string>
+      <key>ID</key>
+      <integer>5554</integer>
+      <key>WarningOption</key>
+      <string>invalid-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>173</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=0_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=split_into_two_AU_XLX_SEP_ PragmaOptions=on_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>217</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -297,91 +345,11 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>165</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=variable=Dbuf type=ram_2p impl=bram_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>src/spmm_device_fpga.cpp</string>
-      <key>line</key>
-      <integer>169</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=variable=Dbuf type=ram_2p impl=bram_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>src/spmm_device_fpga.cpp</string>
-      <key>line</key>
-      <integer>182</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>src/spmm_device_fpga.cpp</string>
-      <key>line</key>
-      <integer>196</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>src/spmm_device_fpga.cpp</string>
-      <key>line</key>
-      <integer>204</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=_XLX_SEP_</string>
-      <key>ID</key>
-      <integer>5471</integer>
-      <key>WarningOption</key>
-      <string>dump-hls-pragmas</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>src/spmm_device_fpga.cpp</string>
-      <key>line</key>
       <integer>220</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=variable=Dbuf type=ram_2p impl=bram_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -393,11 +361,27 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>236</integer>
+      <integer>224</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
-      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_</string>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=bind_storage_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=variable=Obuf type=ram_2p impl=bram_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>230</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
       <key>WarningOption</key>
@@ -429,6 +413,54 @@
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=variable=streamA depth=MAX_K_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>251</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=variable=streamB depth=MAX_K_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>257</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_</string>
+      <key>ID</key>
+      <integer>5471</integer>
+      <key>WarningOption</key>
+      <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>265</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
       <string>HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pu_kernel_XLX_SEP_ PragmaOptions=_XLX_SEP_</string>
       <key>ID</key>
       <integer>5471</integer>
@@ -441,39 +473,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>204</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>Only for-loops and functions support the dataflow</string>
-      <key>ID</key>
-      <integer>5558</integer>
-      <key>WarningOption</key>
-      <string>ignored-hls-dataflow-attribute</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>src/spmm_device_fpga.cpp</string>
-      <key>line</key>
-      <integer>220</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>Only for-loops and functions support the dataflow</string>
-      <key>ID</key>
-      <integer>5558</integer>
-      <key>WarningOption</key>
-      <string>ignored-hls-dataflow-attribute</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>src/spmm_device_fpga.cpp</string>
-      <key>line</key>
-      <integer>250</integer>
+      <integer>265</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -505,7 +505,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>282</integer>
+      <integer>293</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -521,7 +521,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>283</integer>
+      <integer>294</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -537,7 +537,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>284</integer>
+      <integer>295</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -553,7 +553,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>285</integer>
+      <integer>296</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -569,7 +569,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>286</integer>
+      <integer>297</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -585,7 +585,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>287</integer>
+      <integer>298</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -601,7 +601,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>288</integer>
+      <integer>299</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -617,7 +617,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>289</integer>
+      <integer>300</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -633,7 +633,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>291</integer>
+      <integer>302</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -649,7 +649,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>292</integer>
+      <integer>303</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -665,7 +665,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>293</integer>
+      <integer>304</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -681,7 +681,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>294</integer>
+      <integer>305</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -697,7 +697,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>295</integer>
+      <integer>306</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -713,7 +713,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>296</integer>
+      <integer>307</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -729,7 +729,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>297</integer>
+      <integer>308</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -745,7 +745,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>298</integer>
+      <integer>309</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -761,7 +761,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>299</integer>
+      <integer>310</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -777,7 +777,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>300</integer>
+      <integer>311</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -793,7 +793,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>301</integer>
+      <integer>312</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -809,7 +809,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>302</integer>
+      <integer>313</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -825,7 +825,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>303</integer>
+      <integer>314</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -841,7 +841,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>306</integer>
+      <integer>317</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -857,7 +857,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>312</integer>
+      <integer>322</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -866,6 +866,22 @@
       <integer>5471</integer>
       <key>WarningOption</key>
       <string>dump-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>322</integer>
+      <key>column</key>
+      <integer>9</integer>
+      <key>message</key>
+      <string>Only for-loops and functions support the dataflow</string>
+      <key>ID</key>
+      <integer>5558</integer>
+      <key>WarningOption</key>
+      <string>ignored-hls-dataflow-attribute</string>
     </dict>
   </array>
 </dict>

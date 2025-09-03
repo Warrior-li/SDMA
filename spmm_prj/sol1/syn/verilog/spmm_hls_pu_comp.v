@@ -14,10 +14,9 @@ module spmm_hls_pu_comp (
         ap_done,
         ap_idle,
         ap_ready,
-        res_address0,
-        res_ce0,
-        res_we0,
-        res_d0,
+        streamA38_din,
+        streamA38_full_n,
+        streamA38_write,
         a_value,
         Dbuf_address0,
         Dbuf_ce0,
@@ -34,10 +33,9 @@ input   ap_start;
 output   ap_done;
 output   ap_idle;
 output   ap_ready;
-output  [15:0] res_address0;
-output   res_ce0;
-output   res_we0;
-output  [31:0] res_d0;
+output  [31:0] streamA38_din;
+input   streamA38_full_n;
+output   streamA38_write;
 input  [31:0] a_value;
 output  [15:0] Dbuf_address0;
 output   Dbuf_ce0;
@@ -46,8 +44,7 @@ input  [29:0] K;
 input  [15:0] begin_r;
 
 reg ap_idle;
-reg res_ce0;
-reg res_we0;
+reg streamA38_write;
 reg Dbuf_ce0;
 
 (* fsm_encoding = "none" *) reg   [0:0] ap_CS_fsm;
@@ -66,31 +63,27 @@ wire    ap_block_state3_pp0_stage0_iter2;
 wire    ap_block_state4_pp0_stage0_iter3;
 wire    ap_block_state5_pp0_stage0_iter4;
 wire    ap_block_state6_pp0_stage0_iter5;
-wire    ap_block_state7_pp0_stage0_iter6;
-wire    ap_block_pp0_stage0_subdone;
-wire   [0:0] icmp_ln136_fu_102_p2;
+reg    ap_block_state7_pp0_stage0_iter6;
+reg    ap_block_pp0_stage0_subdone;
+wire   [0:0] icmp_ln136_fu_108_p2;
 reg    ap_condition_exit_pp0_iter0_stage0;
 wire    ap_loop_exit_ready;
 reg    ap_ready_int;
-wire    ap_block_pp0_stage0_11001;
-reg   [29:0] i_14_reg_150;
-reg   [29:0] i_14_reg_150_pp0_iter1_reg;
-reg   [29:0] i_14_reg_150_pp0_iter2_reg;
-reg   [29:0] i_14_reg_150_pp0_iter3_reg;
-reg   [29:0] i_14_reg_150_pp0_iter4_reg;
-reg   [29:0] i_14_reg_150_pp0_iter5_reg;
-reg   [31:0] Dbuf_load_reg_164;
-wire   [31:0] grp_fu_90_p2;
-reg   [31:0] mul_reg_169;
-wire   [63:0] zext_ln138_fu_124_p1;
+reg    streamA38_blk_n;
 wire    ap_block_pp0_stage0;
-wire   [63:0] zext_ln136_fu_134_p1;
-reg   [29:0] i_fu_42;
-wire   [29:0] add_ln136_fu_108_p2;
+reg    ap_block_pp0_stage0_11001;
+reg   [31:0] Dbuf_load_reg_165;
+wire   [31:0] grp_fu_96_p2;
+reg   [31:0] mul_reg_170;
+wire   [63:0] zext_ln138_fu_130_p1;
+reg   [29:0] i_fu_54;
+wire   [29:0] add_ln136_fu_114_p2;
 wire    ap_loop_init;
-reg   [29:0] ap_sig_allocacmp_i_14;
-wire   [15:0] trunc_ln138_fu_114_p1;
-wire   [15:0] add_ln138_fu_118_p2;
+reg   [29:0] ap_sig_allocacmp_i_6;
+reg    ap_block_pp0_stage0_01001;
+wire   [15:0] trunc_ln138_fu_120_p1;
+wire   [15:0] add_ln138_fu_124_p2;
+reg    grp_fu_96_ce;
 reg    ap_done_reg;
 wire    ap_continue_int;
 reg    ap_done_int;
@@ -122,13 +115,13 @@ spmm_hls_fmul_32ns_32ns_32_4_max_dsp_1 #(
     .din0_WIDTH( 32 ),
     .din1_WIDTH( 32 ),
     .dout_WIDTH( 32 ))
-fmul_32ns_32ns_32_4_max_dsp_1_U52(
+fmul_32ns_32ns_32_4_max_dsp_1_U93(
     .clk(ap_clk),
     .reset(ap_rst),
-    .din0(Dbuf_load_reg_164),
+    .din0(Dbuf_load_reg_165),
     .din1(a_value),
-    .ce(1'b1),
-    .dout(grp_fu_90_p2)
+    .ce(grp_fu_96_ce),
+    .dout(grp_fu_96_p2)
 );
 
 spmm_hls_flow_control_loop_pipe_sequential_init flow_control_loop_pipe_sequential_init_U(
@@ -230,21 +223,19 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        if (((icmp_ln136_fu_102_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
-            i_fu_42 <= add_ln136_fu_108_p2;
+        if (((icmp_ln136_fu_108_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
+            i_fu_54 <= add_ln136_fu_114_p2;
         end else if ((ap_loop_init == 1'b1)) begin
-            i_fu_42 <= 30'd0;
+            i_fu_54 <= 30'd0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        Dbuf_load_reg_164 <= Dbuf_q0;
+        Dbuf_load_reg_165 <= Dbuf_q0;
         ap_loop_exit_ready_pp0_iter1_reg <= ap_loop_exit_ready;
         ap_loop_exit_ready_pp0_iter2_reg <= ap_loop_exit_ready_pp0_iter1_reg;
-        i_14_reg_150 <= ap_sig_allocacmp_i_14;
-        i_14_reg_150_pp0_iter1_reg <= i_14_reg_150;
     end
 end
 
@@ -253,11 +244,7 @@ always @ (posedge ap_clk) begin
         ap_loop_exit_ready_pp0_iter3_reg <= ap_loop_exit_ready_pp0_iter2_reg;
         ap_loop_exit_ready_pp0_iter4_reg <= ap_loop_exit_ready_pp0_iter3_reg;
         ap_loop_exit_ready_pp0_iter5_reg <= ap_loop_exit_ready_pp0_iter4_reg;
-        i_14_reg_150_pp0_iter2_reg <= i_14_reg_150_pp0_iter1_reg;
-        i_14_reg_150_pp0_iter3_reg <= i_14_reg_150_pp0_iter2_reg;
-        i_14_reg_150_pp0_iter4_reg <= i_14_reg_150_pp0_iter3_reg;
-        i_14_reg_150_pp0_iter5_reg <= i_14_reg_150_pp0_iter4_reg;
-        mul_reg_169 <= grp_fu_90_p2;
+        mul_reg_170 <= grp_fu_96_p2;
     end
 end
 
@@ -270,7 +257,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln136_fu_102_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((icmp_ln136_fu_108_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b0;
@@ -286,7 +273,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((ap_idle_pp0 == 1'b1) & (ap_start_int == 1'b0) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((ap_idle_pp0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_start_int == 1'b0))) begin
         ap_idle = 1'b1;
     end else begin
         ap_idle = 1'b0;
@@ -311,25 +298,33 @@ end
 
 always @ (*) begin
     if (((1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_loop_init == 1'b1))) begin
-        ap_sig_allocacmp_i_14 = 30'd0;
+        ap_sig_allocacmp_i_6 = 30'd0;
     end else begin
-        ap_sig_allocacmp_i_14 = i_fu_42;
+        ap_sig_allocacmp_i_6 = i_fu_54;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        grp_fu_96_ce = 1'b1;
+    end else begin
+        grp_fu_96_ce = 1'b0;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0) & (ap_enable_reg_pp0_iter6 == 1'b1))) begin
+        streamA38_blk_n = streamA38_full_n;
+    end else begin
+        streamA38_blk_n = 1'b1;
     end
 end
 
 always @ (*) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter6 == 1'b1))) begin
-        res_ce0 = 1'b1;
+        streamA38_write = 1'b1;
     end else begin
-        res_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter6 == 1'b1))) begin
-        res_we0 = 1'b1;
-    end else begin
-        res_we0 = 1'b0;
+        streamA38_write = 1'b0;
     end
 end
 
@@ -344,19 +339,27 @@ always @ (*) begin
     endcase
 end
 
-assign Dbuf_address0 = zext_ln138_fu_124_p1;
+assign Dbuf_address0 = zext_ln138_fu_130_p1;
 
-assign add_ln136_fu_108_p2 = (ap_sig_allocacmp_i_14 + 30'd1);
+assign add_ln136_fu_114_p2 = (ap_sig_allocacmp_i_6 + 30'd1);
 
-assign add_ln138_fu_118_p2 = (trunc_ln138_fu_114_p1 + begin_r);
+assign add_ln138_fu_124_p2 = (trunc_ln138_fu_120_p1 + begin_r);
 
 assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
 assign ap_block_pp0_stage0 = ~(1'b1 == 1'b1);
 
-assign ap_block_pp0_stage0_11001 = ~(1'b1 == 1'b1);
+always @ (*) begin
+    ap_block_pp0_stage0_01001 = ((streamA38_full_n == 1'b0) & (ap_enable_reg_pp0_iter6 == 1'b1));
+end
 
-assign ap_block_pp0_stage0_subdone = ~(1'b1 == 1'b1);
+always @ (*) begin
+    ap_block_pp0_stage0_11001 = ((streamA38_full_n == 1'b0) & (ap_enable_reg_pp0_iter6 == 1'b1));
+end
+
+always @ (*) begin
+    ap_block_pp0_stage0_subdone = ((streamA38_full_n == 1'b0) & (ap_enable_reg_pp0_iter6 == 1'b1));
+end
 
 assign ap_block_state1_pp0_stage0_iter0 = ~(1'b1 == 1'b1);
 
@@ -370,7 +373,9 @@ assign ap_block_state5_pp0_stage0_iter4 = ~(1'b1 == 1'b1);
 
 assign ap_block_state6_pp0_stage0_iter5 = ~(1'b1 == 1'b1);
 
-assign ap_block_state7_pp0_stage0_iter6 = ~(1'b1 == 1'b1);
+always @ (*) begin
+    ap_block_state7_pp0_stage0_iter6 = (streamA38_full_n == 1'b0);
+end
 
 assign ap_enable_pp0 = (ap_idle_pp0 ^ 1'b1);
 
@@ -378,16 +383,12 @@ assign ap_enable_reg_pp0_iter0 = ap_start_int;
 
 assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
-assign icmp_ln136_fu_102_p2 = ((ap_sig_allocacmp_i_14 == K) ? 1'b1 : 1'b0);
+assign icmp_ln136_fu_108_p2 = ((ap_sig_allocacmp_i_6 == K) ? 1'b1 : 1'b0);
 
-assign res_address0 = zext_ln136_fu_134_p1;
+assign streamA38_din = mul_reg_170;
 
-assign res_d0 = mul_reg_169;
+assign trunc_ln138_fu_120_p1 = ap_sig_allocacmp_i_6[15:0];
 
-assign trunc_ln138_fu_114_p1 = ap_sig_allocacmp_i_14[15:0];
-
-assign zext_ln136_fu_134_p1 = i_14_reg_150_pp0_iter5_reg;
-
-assign zext_ln138_fu_124_p1 = add_ln138_fu_118_p2;
+assign zext_ln138_fu_130_p1 = add_ln138_fu_124_p2;
 
 endmodule //spmm_hls_pu_comp

@@ -12,7 +12,6 @@ module spmm_hls_set_tile_broadcast (
         ap_rst,
         ap_start,
         ap_done,
-        ap_continue,
         ap_idle,
         ap_ready,
         m_axi_gmem1_AWVALID,
@@ -110,42 +109,31 @@ module spmm_hls_set_tile_broadcast (
         m_axi_gmem2_BUSER,
         a_val,
         s_0_din,
-        s_0_num_data_valid,
-        s_0_fifo_cap,
         s_0_full_n,
         s_0_write,
         s_1_din,
-        s_1_num_data_valid,
-        s_1_fifo_cap,
         s_1_full_n,
         s_1_write,
         s_2_din,
-        s_2_num_data_valid,
-        s_2_fifo_cap,
         s_2_full_n,
         s_2_write,
         s_3_din,
-        s_3_num_data_valid,
-        s_3_fifo_cap,
         s_3_full_n,
         s_3_write,
         pointer,
         nnz
 );
 
-parameter    ap_ST_fsm_state1 = 7'd1;
-parameter    ap_ST_fsm_state2 = 7'd2;
-parameter    ap_ST_fsm_state3 = 7'd4;
-parameter    ap_ST_fsm_state4 = 7'd8;
-parameter    ap_ST_fsm_state5 = 7'd16;
-parameter    ap_ST_fsm_state6 = 7'd32;
-parameter    ap_ST_fsm_state7 = 7'd64;
+parameter    ap_ST_fsm_state1 = 5'd1;
+parameter    ap_ST_fsm_state2 = 5'd2;
+parameter    ap_ST_fsm_state3 = 5'd4;
+parameter    ap_ST_fsm_state4 = 5'd8;
+parameter    ap_ST_fsm_state5 = 5'd16;
 
 input   ap_clk;
 input   ap_rst;
 input   ap_start;
 output   ap_done;
-input   ap_continue;
 output   ap_idle;
 output   ap_ready;
 output   m_axi_gmem1_AWVALID;
@@ -243,23 +231,15 @@ input  [0:0] m_axi_gmem2_BID;
 input  [0:0] m_axi_gmem2_BUSER;
 input  [63:0] a_val;
 output  [387:0] s_0_din;
-input  [4:0] s_0_num_data_valid;
-input  [4:0] s_0_fifo_cap;
 input   s_0_full_n;
 output   s_0_write;
 output  [387:0] s_1_din;
-input  [4:0] s_1_num_data_valid;
-input  [4:0] s_1_fifo_cap;
 input   s_1_full_n;
 output   s_1_write;
 output  [387:0] s_2_din;
-input  [4:0] s_2_num_data_valid;
-input  [4:0] s_2_fifo_cap;
 input   s_2_full_n;
 output   s_2_write;
 output  [387:0] s_3_din;
-input  [4:0] s_3_num_data_valid;
-input  [4:0] s_3_fifo_cap;
 input   s_3_full_n;
 output   s_3_write;
 input  [31:0] pointer;
@@ -277,276 +257,202 @@ reg s_1_write;
 reg s_2_write;
 reg s_3_write;
 
-reg    ap_done_reg;
-(* fsm_encoding = "none" *) reg   [6:0] ap_CS_fsm;
+(* fsm_encoding = "none" *) reg   [4:0] ap_CS_fsm;
 wire    ap_CS_fsm_state1;
 reg    s_0_blk_n;
-wire    ap_CS_fsm_state7;
+wire    ap_CS_fsm_state5;
 reg    s_1_blk_n;
 reg    s_2_blk_n;
 reg    s_3_blk_n;
 wire    ap_CS_fsm_state3;
-wire    ap_CS_fsm_state5;
-wire   [31:0] pkt_v_value_q1;
-reg   [31:0] pkt_v_value_load_reg_446;
-wire    ap_CS_fsm_state6;
-wire   [31:0] pkt_v_y_q1;
-reg   [31:0] pkt_v_y_load_reg_451;
-wire   [31:0] pkt_v_value_q0;
-reg   [31:0] pkt_v_value_load_1_reg_456;
-wire   [31:0] pkt_v_y_q0;
-reg   [31:0] pkt_v_y_load_1_reg_461;
-wire   [0:0] pkt_ref_q1;
-reg   [0:0] pkt_ref_load_reg_486;
-wire   [0:0] pkt_ref_q0;
-reg   [0:0] pkt_ref_load_1_reg_491;
-reg   [1:0] pkt_v_value_address0;
-reg    pkt_v_value_ce0;
-reg    pkt_v_value_we0;
-reg   [1:0] pkt_v_value_address1;
-reg    pkt_v_value_ce1;
-reg   [1:0] pkt_v_y_address0;
-reg    pkt_v_y_ce0;
-reg    pkt_v_y_we0;
-reg   [1:0] pkt_v_y_address1;
-reg    pkt_v_y_ce1;
-reg   [1:0] pkt_ref_address0;
-reg    pkt_ref_ce0;
-reg    pkt_ref_we0;
-reg   [1:0] pkt_ref_address1;
-reg    pkt_ref_ce1;
-wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_start;
-wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_done;
-wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_idle;
-wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_ready;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_3_out;
-wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_3_out_ap_vld;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_2_out;
-wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_2_out_ap_vld;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_1_out;
-wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_1_out_ap_vld;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_out;
-wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_out_ap_vld;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_start;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_done;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_idle;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_ready;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWVALID;
-wire   [63:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWADDR;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWID;
-wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWLEN;
-wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWSIZE;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWBURST;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWLOCK;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWCACHE;
-wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWPROT;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWQOS;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWREGION;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWUSER;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WVALID;
-wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WDATA;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WSTRB;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WLAST;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WID;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WUSER;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARVALID;
-wire   [63:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARADDR;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARID;
-wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARLEN;
-wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARSIZE;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARBURST;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARLOCK;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARCACHE;
-wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARPROT;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARQOS;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARREGION;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARUSER;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_RREADY;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_BREADY;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWVALID;
-wire   [63:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWADDR;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWID;
-wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWLEN;
-wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWSIZE;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWBURST;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWLOCK;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWCACHE;
-wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWPROT;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWQOS;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWREGION;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWUSER;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WVALID;
-wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WDATA;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WSTRB;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WLAST;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WID;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WUSER;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARVALID;
-wire   [63:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARADDR;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARID;
-wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARLEN;
-wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARSIZE;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARBURST;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARLOCK;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARCACHE;
-wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARPROT;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARQOS;
-wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARREGION;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARUSER;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_RREADY;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_BREADY;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_address0;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_ce0;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_we0;
-wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_d0;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_address0;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_ce0;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_we0;
-wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_d0;
-wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_address0;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_ce0;
-wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_we0;
-wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_d0;
-reg    grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_start_reg;
-reg    ap_block_state1_ignore_call17;
+wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_start;
+wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_done;
+wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_idle;
+wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_ready;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_3_out;
+wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_3_out_ap_vld;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_2_out;
+wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_2_out_ap_vld;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_1_out;
+wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_1_out_ap_vld;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_out;
+wire    grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_out_ap_vld;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_start;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_done;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_idle;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_ready;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWVALID;
+wire   [63:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWADDR;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWID;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWLEN;
+wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWSIZE;
+wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWBURST;
+wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWLOCK;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWCACHE;
+wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWPROT;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWQOS;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWREGION;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWUSER;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WVALID;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WDATA;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WSTRB;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WLAST;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WID;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WUSER;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARVALID;
+wire   [63:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARADDR;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARID;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARLEN;
+wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARSIZE;
+wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARBURST;
+wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARLOCK;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARCACHE;
+wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARPROT;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARQOS;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARREGION;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARUSER;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_RREADY;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_BREADY;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWVALID;
+wire   [63:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWADDR;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWID;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWLEN;
+wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWSIZE;
+wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWBURST;
+wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWLOCK;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWCACHE;
+wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWPROT;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWQOS;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWREGION;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWUSER;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WVALID;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WDATA;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WSTRB;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WLAST;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WID;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WUSER;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARVALID;
+wire   [63:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARADDR;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARID;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARLEN;
+wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARSIZE;
+wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARBURST;
+wire   [1:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARLOCK;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARCACHE;
+wire   [2:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARPROT;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARQOS;
+wire   [3:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARREGION;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARUSER;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_RREADY;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_BREADY;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_3_088_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_3_088_out_ap_vld;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_2_087_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_2_087_out_ap_vld;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_1_086_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_1_086_out_ap_vld;
+wire   [0:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_0_085_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_0_085_out_ap_vld;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_3_084_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_3_084_out_ap_vld;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_2_083_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_2_083_out_ap_vld;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_1_082_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_1_082_out_ap_vld;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_0_081_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_0_081_out_ap_vld;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_3_080_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_3_080_out_ap_vld;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_2_079_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_2_079_out_ap_vld;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_1_078_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_1_078_out_ap_vld;
+wire   [31:0] grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_0_077_out;
+wire    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_0_077_out_ap_vld;
+reg    grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_start_reg;
 wire    ap_CS_fsm_state2;
-reg    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_start_reg;
+reg    grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_start_reg;
 wire    ap_CS_fsm_state4;
-wire   [387:0] p_0_fu_324_p17;
-reg    ap_block_state7;
-wire   [31:0] bitcast_ln96_3_fu_320_p1;
-wire   [31:0] bitcast_ln96_2_fu_316_p1;
-wire   [31:0] bitcast_ln96_1_fu_313_p1;
-wire   [31:0] bitcast_ln96_fu_310_p1;
-reg   [6:0] ap_NS_fsm;
-reg    ap_block_state1;
+wire   [387:0] p_0_fu_278_p17;
+reg    ap_block_state5;
+wire   [31:0] bitcast_ln96_3_fu_274_p1;
+wire   [31:0] bitcast_ln96_2_fu_270_p1;
+wire   [31:0] bitcast_ln96_1_fu_266_p1;
+wire   [31:0] bitcast_ln96_fu_262_p1;
+reg   [4:0] ap_NS_fsm;
 reg    ap_ST_fsm_state1_blk;
 reg    ap_ST_fsm_state2_blk;
 wire    ap_ST_fsm_state3_blk;
 reg    ap_ST_fsm_state4_blk;
-wire    ap_ST_fsm_state5_blk;
-wire    ap_ST_fsm_state6_blk;
-reg    ap_ST_fsm_state7_blk;
+reg    ap_ST_fsm_state5_blk;
 wire    ap_ce_reg;
 
 // power-on initialization
 initial begin
-#0 ap_done_reg = 1'b0;
-#0 ap_CS_fsm = 7'd1;
-#0 grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_start_reg = 1'b0;
-#0 grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_start_reg = 1'b0;
+#0 ap_CS_fsm = 5'd1;
+#0 grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_start_reg = 1'b0;
+#0 grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_start_reg = 1'b0;
 end
 
-spmm_hls_set_tile_broadcast_pkt_v_value_RAM_AUTO_1R1W #(
-    .DataWidth( 32 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-pkt_v_value_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(pkt_v_value_address0),
-    .ce0(pkt_v_value_ce0),
-    .we0(pkt_v_value_we0),
-    .d0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_d0),
-    .q0(pkt_v_value_q0),
-    .address1(pkt_v_value_address1),
-    .ce1(pkt_v_value_ce1),
-    .q1(pkt_v_value_q1)
-);
-
-spmm_hls_set_tile_broadcast_pkt_v_value_RAM_AUTO_1R1W #(
-    .DataWidth( 32 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-pkt_v_y_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(pkt_v_y_address0),
-    .ce0(pkt_v_y_ce0),
-    .we0(pkt_v_y_we0),
-    .d0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_d0),
-    .q0(pkt_v_y_q0),
-    .address1(pkt_v_y_address1),
-    .ce1(pkt_v_y_ce1),
-    .q1(pkt_v_y_q1)
-);
-
-spmm_hls_set_tile_broadcast_pkt_ref_RAM_AUTO_1R1W #(
-    .DataWidth( 1 ),
-    .AddressRange( 4 ),
-    .AddressWidth( 2 ))
-pkt_ref_U(
-    .clk(ap_clk),
-    .reset(ap_rst),
-    .address0(pkt_ref_address0),
-    .ce0(pkt_ref_ce0),
-    .we0(pkt_ref_we0),
-    .d0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_d0),
-    .q0(pkt_ref_q0),
-    .address1(pkt_ref_address1),
-    .ce1(pkt_ref_ce1),
-    .q1(pkt_ref_q1)
-);
-
-spmm_hls_set_tile_broadcast_Pipeline_init_seen grp_set_tile_broadcast_Pipeline_init_seen_fu_263(
+spmm_hls_set_tile_broadcast_Pipeline_init_seen grp_set_tile_broadcast_Pipeline_init_seen_fu_170(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_start),
-    .ap_done(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_done),
-    .ap_idle(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_idle),
-    .ap_ready(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_ready),
-    .seen_v_3_out(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_3_out),
-    .seen_v_3_out_ap_vld(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_3_out_ap_vld),
-    .seen_v_2_out(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_2_out),
-    .seen_v_2_out_ap_vld(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_2_out_ap_vld),
-    .seen_v_1_out(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_1_out),
-    .seen_v_1_out_ap_vld(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_1_out_ap_vld),
-    .seen_v_out(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_out),
-    .seen_v_out_ap_vld(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_out_ap_vld)
+    .ap_start(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_start),
+    .ap_done(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_done),
+    .ap_idle(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_idle),
+    .ap_ready(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_ready),
+    .seen_v_3_out(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_3_out),
+    .seen_v_3_out_ap_vld(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_3_out_ap_vld),
+    .seen_v_2_out(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_2_out),
+    .seen_v_2_out_ap_vld(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_2_out_ap_vld),
+    .seen_v_1_out(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_1_out),
+    .seen_v_1_out_ap_vld(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_1_out_ap_vld),
+    .seen_v_out(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_out),
+    .seen_v_out_ap_vld(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_out_ap_vld)
 );
 
-spmm_hls_set_tile_broadcast_Pipeline_copy_tile_loop grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271(
+spmm_hls_set_tile_broadcast_Pipeline_copy_tile_loop grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178(
     .ap_clk(ap_clk),
     .ap_rst(ap_rst),
-    .ap_start(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_start),
-    .ap_done(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_done),
-    .ap_idle(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_idle),
-    .ap_ready(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_ready),
-    .m_axi_gmem2_AWVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWVALID),
+    .ap_start(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_start),
+    .ap_done(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_done),
+    .ap_idle(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_idle),
+    .ap_ready(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_ready),
+    .m_axi_gmem2_AWVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWVALID),
     .m_axi_gmem2_AWREADY(1'b0),
-    .m_axi_gmem2_AWADDR(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWADDR),
-    .m_axi_gmem2_AWID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWID),
-    .m_axi_gmem2_AWLEN(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWLEN),
-    .m_axi_gmem2_AWSIZE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWSIZE),
-    .m_axi_gmem2_AWBURST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWBURST),
-    .m_axi_gmem2_AWLOCK(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWLOCK),
-    .m_axi_gmem2_AWCACHE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWCACHE),
-    .m_axi_gmem2_AWPROT(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWPROT),
-    .m_axi_gmem2_AWQOS(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWQOS),
-    .m_axi_gmem2_AWREGION(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWREGION),
-    .m_axi_gmem2_AWUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_AWUSER),
-    .m_axi_gmem2_WVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WVALID),
+    .m_axi_gmem2_AWADDR(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWADDR),
+    .m_axi_gmem2_AWID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWID),
+    .m_axi_gmem2_AWLEN(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWLEN),
+    .m_axi_gmem2_AWSIZE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWSIZE),
+    .m_axi_gmem2_AWBURST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWBURST),
+    .m_axi_gmem2_AWLOCK(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWLOCK),
+    .m_axi_gmem2_AWCACHE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWCACHE),
+    .m_axi_gmem2_AWPROT(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWPROT),
+    .m_axi_gmem2_AWQOS(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWQOS),
+    .m_axi_gmem2_AWREGION(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWREGION),
+    .m_axi_gmem2_AWUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_AWUSER),
+    .m_axi_gmem2_WVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WVALID),
     .m_axi_gmem2_WREADY(1'b0),
-    .m_axi_gmem2_WDATA(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WDATA),
-    .m_axi_gmem2_WSTRB(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WSTRB),
-    .m_axi_gmem2_WLAST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WLAST),
-    .m_axi_gmem2_WID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WID),
-    .m_axi_gmem2_WUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_WUSER),
-    .m_axi_gmem2_ARVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARVALID),
+    .m_axi_gmem2_WDATA(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WDATA),
+    .m_axi_gmem2_WSTRB(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WSTRB),
+    .m_axi_gmem2_WLAST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WLAST),
+    .m_axi_gmem2_WID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WID),
+    .m_axi_gmem2_WUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_WUSER),
+    .m_axi_gmem2_ARVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARVALID),
     .m_axi_gmem2_ARREADY(m_axi_gmem2_ARREADY),
-    .m_axi_gmem2_ARADDR(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARADDR),
-    .m_axi_gmem2_ARID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARID),
-    .m_axi_gmem2_ARLEN(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARLEN),
-    .m_axi_gmem2_ARSIZE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARSIZE),
-    .m_axi_gmem2_ARBURST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARBURST),
-    .m_axi_gmem2_ARLOCK(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARLOCK),
-    .m_axi_gmem2_ARCACHE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARCACHE),
-    .m_axi_gmem2_ARPROT(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARPROT),
-    .m_axi_gmem2_ARQOS(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARQOS),
-    .m_axi_gmem2_ARREGION(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARREGION),
-    .m_axi_gmem2_ARUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARUSER),
+    .m_axi_gmem2_ARADDR(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARADDR),
+    .m_axi_gmem2_ARID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARID),
+    .m_axi_gmem2_ARLEN(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARLEN),
+    .m_axi_gmem2_ARSIZE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARSIZE),
+    .m_axi_gmem2_ARBURST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARBURST),
+    .m_axi_gmem2_ARLOCK(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARLOCK),
+    .m_axi_gmem2_ARCACHE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARCACHE),
+    .m_axi_gmem2_ARPROT(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARPROT),
+    .m_axi_gmem2_ARQOS(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARQOS),
+    .m_axi_gmem2_ARREGION(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARREGION),
+    .m_axi_gmem2_ARUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARUSER),
     .m_axi_gmem2_RVALID(m_axi_gmem2_RVALID),
-    .m_axi_gmem2_RREADY(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_RREADY),
+    .m_axi_gmem2_RREADY(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_RREADY),
     .m_axi_gmem2_RDATA(m_axi_gmem2_RDATA),
     .m_axi_gmem2_RLAST(m_axi_gmem2_RLAST),
     .m_axi_gmem2_RID(m_axi_gmem2_RID),
@@ -554,45 +460,45 @@ spmm_hls_set_tile_broadcast_Pipeline_copy_tile_loop grp_set_tile_broadcast_Pipel
     .m_axi_gmem2_RUSER(m_axi_gmem2_RUSER),
     .m_axi_gmem2_RRESP(m_axi_gmem2_RRESP),
     .m_axi_gmem2_BVALID(1'b0),
-    .m_axi_gmem2_BREADY(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_BREADY),
+    .m_axi_gmem2_BREADY(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_BREADY),
     .m_axi_gmem2_BRESP(2'd0),
     .m_axi_gmem2_BID(1'd0),
     .m_axi_gmem2_BUSER(1'd0),
-    .m_axi_gmem1_AWVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWVALID),
+    .m_axi_gmem1_AWVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWVALID),
     .m_axi_gmem1_AWREADY(1'b0),
-    .m_axi_gmem1_AWADDR(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWADDR),
-    .m_axi_gmem1_AWID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWID),
-    .m_axi_gmem1_AWLEN(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWLEN),
-    .m_axi_gmem1_AWSIZE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWSIZE),
-    .m_axi_gmem1_AWBURST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWBURST),
-    .m_axi_gmem1_AWLOCK(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWLOCK),
-    .m_axi_gmem1_AWCACHE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWCACHE),
-    .m_axi_gmem1_AWPROT(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWPROT),
-    .m_axi_gmem1_AWQOS(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWQOS),
-    .m_axi_gmem1_AWREGION(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWREGION),
-    .m_axi_gmem1_AWUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_AWUSER),
-    .m_axi_gmem1_WVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WVALID),
+    .m_axi_gmem1_AWADDR(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWADDR),
+    .m_axi_gmem1_AWID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWID),
+    .m_axi_gmem1_AWLEN(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWLEN),
+    .m_axi_gmem1_AWSIZE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWSIZE),
+    .m_axi_gmem1_AWBURST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWBURST),
+    .m_axi_gmem1_AWLOCK(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWLOCK),
+    .m_axi_gmem1_AWCACHE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWCACHE),
+    .m_axi_gmem1_AWPROT(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWPROT),
+    .m_axi_gmem1_AWQOS(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWQOS),
+    .m_axi_gmem1_AWREGION(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWREGION),
+    .m_axi_gmem1_AWUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_AWUSER),
+    .m_axi_gmem1_WVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WVALID),
     .m_axi_gmem1_WREADY(1'b0),
-    .m_axi_gmem1_WDATA(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WDATA),
-    .m_axi_gmem1_WSTRB(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WSTRB),
-    .m_axi_gmem1_WLAST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WLAST),
-    .m_axi_gmem1_WID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WID),
-    .m_axi_gmem1_WUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_WUSER),
-    .m_axi_gmem1_ARVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARVALID),
+    .m_axi_gmem1_WDATA(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WDATA),
+    .m_axi_gmem1_WSTRB(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WSTRB),
+    .m_axi_gmem1_WLAST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WLAST),
+    .m_axi_gmem1_WID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WID),
+    .m_axi_gmem1_WUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_WUSER),
+    .m_axi_gmem1_ARVALID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARVALID),
     .m_axi_gmem1_ARREADY(m_axi_gmem1_ARREADY),
-    .m_axi_gmem1_ARADDR(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARADDR),
-    .m_axi_gmem1_ARID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARID),
-    .m_axi_gmem1_ARLEN(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARLEN),
-    .m_axi_gmem1_ARSIZE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARSIZE),
-    .m_axi_gmem1_ARBURST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARBURST),
-    .m_axi_gmem1_ARLOCK(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARLOCK),
-    .m_axi_gmem1_ARCACHE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARCACHE),
-    .m_axi_gmem1_ARPROT(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARPROT),
-    .m_axi_gmem1_ARQOS(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARQOS),
-    .m_axi_gmem1_ARREGION(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARREGION),
-    .m_axi_gmem1_ARUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARUSER),
+    .m_axi_gmem1_ARADDR(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARADDR),
+    .m_axi_gmem1_ARID(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARID),
+    .m_axi_gmem1_ARLEN(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARLEN),
+    .m_axi_gmem1_ARSIZE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARSIZE),
+    .m_axi_gmem1_ARBURST(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARBURST),
+    .m_axi_gmem1_ARLOCK(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARLOCK),
+    .m_axi_gmem1_ARCACHE(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARCACHE),
+    .m_axi_gmem1_ARPROT(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARPROT),
+    .m_axi_gmem1_ARQOS(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARQOS),
+    .m_axi_gmem1_ARREGION(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARREGION),
+    .m_axi_gmem1_ARUSER(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARUSER),
     .m_axi_gmem1_RVALID(m_axi_gmem1_RVALID),
-    .m_axi_gmem1_RREADY(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_RREADY),
+    .m_axi_gmem1_RREADY(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_RREADY),
     .m_axi_gmem1_RDATA(m_axi_gmem1_RDATA),
     .m_axi_gmem1_RLAST(m_axi_gmem1_RLAST),
     .m_axi_gmem1_RID(m_axi_gmem1_RID),
@@ -600,30 +506,42 @@ spmm_hls_set_tile_broadcast_Pipeline_copy_tile_loop grp_set_tile_broadcast_Pipel
     .m_axi_gmem1_RUSER(m_axi_gmem1_RUSER),
     .m_axi_gmem1_RRESP(m_axi_gmem1_RRESP),
     .m_axi_gmem1_BVALID(1'b0),
-    .m_axi_gmem1_BREADY(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_BREADY),
+    .m_axi_gmem1_BREADY(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_BREADY),
     .m_axi_gmem1_BRESP(2'd0),
     .m_axi_gmem1_BID(1'd0),
     .m_axi_gmem1_BUSER(1'd0),
-    .seen_v_3_reload(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_3_out),
-    .seen_v_2_reload(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_2_out),
-    .seen_v_1_reload(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_1_out),
-    .seen_v_reload(grp_set_tile_broadcast_Pipeline_init_seen_fu_263_seen_v_out),
-    .pkt_v_value_address0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_address0),
-    .pkt_v_value_ce0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_ce0),
-    .pkt_v_value_we0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_we0),
-    .pkt_v_value_d0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_d0),
-    .pkt_v_y_address0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_address0),
-    .pkt_v_y_ce0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_ce0),
-    .pkt_v_y_we0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_we0),
-    .pkt_v_y_d0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_d0),
-    .pkt_ref_address0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_address0),
-    .pkt_ref_ce0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_ce0),
-    .pkt_ref_we0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_we0),
-    .pkt_ref_d0(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_d0),
+    .seen_v_3_reload(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_3_out),
+    .seen_v_2_reload(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_2_out),
+    .seen_v_1_reload(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_1_out),
+    .seen_v_reload(grp_set_tile_broadcast_Pipeline_init_seen_fu_170_seen_v_out),
     .pointer(pointer),
     .nnz(nnz),
     .a_val(a_val),
-    .col_idx(col_idx)
+    .col_idx(col_idx),
+    .pkt_ref_3_088_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_3_088_out),
+    .pkt_ref_3_088_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_3_088_out_ap_vld),
+    .pkt_ref_2_087_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_2_087_out),
+    .pkt_ref_2_087_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_2_087_out_ap_vld),
+    .pkt_ref_1_086_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_1_086_out),
+    .pkt_ref_1_086_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_1_086_out_ap_vld),
+    .pkt_ref_0_085_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_0_085_out),
+    .pkt_ref_0_085_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_0_085_out_ap_vld),
+    .pkt_v_y_3_084_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_3_084_out),
+    .pkt_v_y_3_084_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_3_084_out_ap_vld),
+    .pkt_v_y_2_083_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_2_083_out),
+    .pkt_v_y_2_083_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_2_083_out_ap_vld),
+    .pkt_v_y_1_082_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_1_082_out),
+    .pkt_v_y_1_082_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_1_082_out_ap_vld),
+    .pkt_v_y_0_081_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_0_081_out),
+    .pkt_v_y_0_081_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_0_081_out_ap_vld),
+    .pkt_v_value_3_080_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_3_080_out),
+    .pkt_v_value_3_080_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_3_080_out_ap_vld),
+    .pkt_v_value_2_079_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_2_079_out),
+    .pkt_v_value_2_079_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_2_079_out_ap_vld),
+    .pkt_v_value_1_078_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_1_078_out),
+    .pkt_v_value_1_078_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_1_078_out_ap_vld),
+    .pkt_v_value_0_077_out(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_0_077_out),
+    .pkt_v_value_0_077_out_ap_vld(grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_0_077_out_ap_vld)
 );
 
 always @ (posedge ap_clk) begin
@@ -636,53 +554,30 @@ end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        ap_done_reg <= 1'b0;
-    end else begin
-        if ((ap_continue == 1'b1)) begin
-            ap_done_reg <= 1'b0;
-        end else if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
-            ap_done_reg <= 1'b1;
-        end
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if (ap_rst == 1'b1) begin
-        grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_start_reg <= 1'b0;
+        grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_start_reg <= 1'b0;
     end else begin
         if ((1'b1 == ap_CS_fsm_state3)) begin
-            grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_start_reg <= 1'b1;
-        end else if ((grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_ready == 1'b1)) begin
-            grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_start_reg <= 1'b0;
+            grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_start_reg <= 1'b1;
+        end else if ((grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_ready == 1'b1)) begin
+            grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_start_reg <= 1'b0;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
     if (ap_rst == 1'b1) begin
-        grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_start_reg <= 1'b0;
+        grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_start_reg <= 1'b0;
     end else begin
-        if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
-            grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_start_reg <= 1'b1;
-        end else if ((grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_ready == 1'b1)) begin
-            grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_start_reg <= 1'b0;
+        if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
+            grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_start_reg <= 1'b1;
+        end else if ((grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_ready == 1'b1)) begin
+            grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_start_reg <= 1'b0;
         end
-    end
-end
-
-always @ (posedge ap_clk) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        pkt_ref_load_1_reg_491 <= pkt_ref_q0;
-        pkt_ref_load_reg_486 <= pkt_ref_q1;
-        pkt_v_value_load_1_reg_456 <= pkt_v_value_q0;
-        pkt_v_value_load_reg_446 <= pkt_v_value_q1;
-        pkt_v_y_load_1_reg_461 <= pkt_v_y_q0;
-        pkt_v_y_load_reg_451 <= pkt_v_y_q1;
     end
 end
 
 always @ (*) begin
-    if (((ap_done_reg == 1'b1) | (ap_start == 1'b0))) begin
+    if ((ap_start == 1'b0)) begin
         ap_ST_fsm_state1_blk = 1'b1;
     end else begin
         ap_ST_fsm_state1_blk = 1'b0;
@@ -690,7 +585,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_done == 1'b0)) begin
+    if ((grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_done == 1'b0)) begin
         ap_ST_fsm_state2_blk = 1'b1;
     end else begin
         ap_ST_fsm_state2_blk = 1'b0;
@@ -700,30 +595,26 @@ end
 assign ap_ST_fsm_state3_blk = 1'b0;
 
 always @ (*) begin
-    if ((grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_done == 1'b0)) begin
+    if ((grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_done == 1'b0)) begin
         ap_ST_fsm_state4_blk = 1'b1;
     end else begin
         ap_ST_fsm_state4_blk = 1'b0;
     end
 end
 
-assign ap_ST_fsm_state5_blk = 1'b0;
-
-assign ap_ST_fsm_state6_blk = 1'b0;
-
 always @ (*) begin
     if (((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0))) begin
-        ap_ST_fsm_state7_blk = 1'b1;
+        ap_ST_fsm_state5_blk = 1'b1;
     end else begin
-        ap_ST_fsm_state7_blk = 1'b0;
+        ap_ST_fsm_state5_blk = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
+    if (((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5)) | ((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b0)))) begin
         ap_done = 1'b1;
     end else begin
-        ap_done = ap_done_reg;
+        ap_done = 1'b0;
     end
 end
 
@@ -736,7 +627,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
+    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
         ap_ready = 1'b1;
     end else begin
         ap_ready = 1'b0;
@@ -745,7 +636,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_gmem1_ARVALID = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARVALID;
+        m_axi_gmem1_ARVALID = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARVALID;
     end else begin
         m_axi_gmem1_ARVALID = 1'b0;
     end
@@ -753,7 +644,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_gmem1_RREADY = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_RREADY;
+        m_axi_gmem1_RREADY = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_RREADY;
     end else begin
         m_axi_gmem1_RREADY = 1'b0;
     end
@@ -761,7 +652,7 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_gmem2_ARVALID = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARVALID;
+        m_axi_gmem2_ARVALID = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARVALID;
     end else begin
         m_axi_gmem2_ARVALID = 1'b0;
     end
@@ -769,158 +660,14 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_state4) | (1'b1 == ap_CS_fsm_state3))) begin
-        m_axi_gmem2_RREADY = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_RREADY;
+        m_axi_gmem2_RREADY = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_RREADY;
     end else begin
         m_axi_gmem2_RREADY = 1'b0;
     end
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        pkt_ref_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        pkt_ref_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        pkt_ref_address0 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_address0;
-    end else begin
-        pkt_ref_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        pkt_ref_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        pkt_ref_address1 = 64'd0;
-    end else begin
-        pkt_ref_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5))) begin
-        pkt_ref_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        pkt_ref_ce0 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_ce0;
-    end else begin
-        pkt_ref_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5))) begin
-        pkt_ref_ce1 = 1'b1;
-    end else begin
-        pkt_ref_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        pkt_ref_we0 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_ref_we0;
-    end else begin
-        pkt_ref_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        pkt_v_value_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        pkt_v_value_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        pkt_v_value_address0 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_address0;
-    end else begin
-        pkt_v_value_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        pkt_v_value_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        pkt_v_value_address1 = 64'd0;
-    end else begin
-        pkt_v_value_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5))) begin
-        pkt_v_value_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        pkt_v_value_ce0 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_ce0;
-    end else begin
-        pkt_v_value_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5))) begin
-        pkt_v_value_ce1 = 1'b1;
-    end else begin
-        pkt_v_value_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        pkt_v_value_we0 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_value_we0;
-    end else begin
-        pkt_v_value_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        pkt_v_y_address0 = 64'd3;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        pkt_v_y_address0 = 64'd1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        pkt_v_y_address0 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_address0;
-    end else begin
-        pkt_v_y_address0 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state6)) begin
-        pkt_v_y_address1 = 64'd2;
-    end else if ((1'b1 == ap_CS_fsm_state5)) begin
-        pkt_v_y_address1 = 64'd0;
-    end else begin
-        pkt_v_y_address1 = 'bx;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5))) begin
-        pkt_v_y_ce0 = 1'b1;
-    end else if ((1'b1 == ap_CS_fsm_state4)) begin
-        pkt_v_y_ce0 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_ce0;
-    end else begin
-        pkt_v_y_ce0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if (((1'b1 == ap_CS_fsm_state6) | (1'b1 == ap_CS_fsm_state5))) begin
-        pkt_v_y_ce1 = 1'b1;
-    end else begin
-        pkt_v_y_ce1 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state4)) begin
-        pkt_v_y_we0 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_pkt_v_y_we0;
-    end else begin
-        pkt_v_y_we0 = 1'b0;
-    end
-end
-
-always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
         s_0_blk_n = s_0_full_n;
     end else begin
         s_0_blk_n = 1'b1;
@@ -928,7 +675,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
+    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
         s_0_write = 1'b1;
     end else begin
         s_0_write = 1'b0;
@@ -936,7 +683,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
         s_1_blk_n = s_1_full_n;
     end else begin
         s_1_blk_n = 1'b1;
@@ -944,7 +691,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
+    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
         s_1_write = 1'b1;
     end else begin
         s_1_write = 1'b0;
@@ -952,7 +699,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
         s_2_blk_n = s_2_full_n;
     end else begin
         s_2_blk_n = 1'b1;
@@ -960,7 +707,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
+    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
         s_2_write = 1'b1;
     end else begin
         s_2_write = 1'b0;
@@ -968,7 +715,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((1'b1 == ap_CS_fsm_state7)) begin
+    if ((1'b1 == ap_CS_fsm_state5)) begin
         s_3_blk_n = s_3_full_n;
     end else begin
         s_3_blk_n = 1'b1;
@@ -976,7 +723,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
+    if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
         s_3_write = 1'b1;
     end else begin
         s_3_write = 1'b0;
@@ -986,14 +733,14 @@ end
 always @ (*) begin
     case (ap_CS_fsm)
         ap_ST_fsm_state1 : begin
-            if ((~((ap_done_reg == 1'b1) | (ap_start == 1'b0)) & (1'b1 == ap_CS_fsm_state1))) begin
+            if (((1'b1 == ap_CS_fsm_state1) & (ap_start == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state2;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end
         end
         ap_ST_fsm_state2 : begin
-            if (((grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state2))) begin
+            if (((1'b1 == ap_CS_fsm_state2) & (grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_done == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state3;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state2;
@@ -1003,23 +750,17 @@ always @ (*) begin
             ap_NS_fsm = ap_ST_fsm_state4;
         end
         ap_ST_fsm_state4 : begin
-            if (((grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_done == 1'b1) & (1'b1 == ap_CS_fsm_state4))) begin
+            if (((1'b1 == ap_CS_fsm_state4) & (grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_done == 1'b1))) begin
                 ap_NS_fsm = ap_ST_fsm_state5;
             end else begin
                 ap_NS_fsm = ap_ST_fsm_state4;
             end
         end
         ap_ST_fsm_state5 : begin
-            ap_NS_fsm = ap_ST_fsm_state6;
-        end
-        ap_ST_fsm_state6 : begin
-            ap_NS_fsm = ap_ST_fsm_state7;
-        end
-        ap_ST_fsm_state7 : begin
-            if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state7))) begin
+            if ((~((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0)) & (1'b1 == ap_CS_fsm_state5))) begin
                 ap_NS_fsm = ap_ST_fsm_state1;
             end else begin
-                ap_NS_fsm = ap_ST_fsm_state7;
+                ap_NS_fsm = ap_ST_fsm_state5;
             end
         end
         default : begin
@@ -1038,55 +779,43 @@ assign ap_CS_fsm_state4 = ap_CS_fsm[32'd3];
 
 assign ap_CS_fsm_state5 = ap_CS_fsm[32'd4];
 
-assign ap_CS_fsm_state6 = ap_CS_fsm[32'd5];
-
-assign ap_CS_fsm_state7 = ap_CS_fsm[32'd6];
-
 always @ (*) begin
-    ap_block_state1 = ((ap_done_reg == 1'b1) | (ap_start == 1'b0));
+    ap_block_state5 = ((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0));
 end
 
-always @ (*) begin
-    ap_block_state1_ignore_call17 = ((ap_done_reg == 1'b1) | (ap_start == 1'b0));
-end
+assign bitcast_ln96_1_fu_266_p1 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_1_078_out;
 
-always @ (*) begin
-    ap_block_state7 = ((s_3_full_n == 1'b0) | (s_2_full_n == 1'b0) | (s_1_full_n == 1'b0) | (s_0_full_n == 1'b0));
-end
+assign bitcast_ln96_2_fu_270_p1 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_2_079_out;
 
-assign bitcast_ln96_1_fu_313_p1 = pkt_v_value_load_1_reg_456;
+assign bitcast_ln96_3_fu_274_p1 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_3_080_out;
 
-assign bitcast_ln96_2_fu_316_p1 = pkt_v_value_q1;
+assign bitcast_ln96_fu_262_p1 = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_value_0_077_out;
 
-assign bitcast_ln96_3_fu_320_p1 = pkt_v_value_q0;
+assign grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_start = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_ap_start_reg;
 
-assign bitcast_ln96_fu_310_p1 = pkt_v_value_load_reg_446;
+assign grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_start = grp_set_tile_broadcast_Pipeline_init_seen_fu_170_ap_start_reg;
 
-assign grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_start = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_ap_start_reg;
+assign m_axi_gmem1_ARADDR = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARADDR;
 
-assign grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_start = grp_set_tile_broadcast_Pipeline_init_seen_fu_263_ap_start_reg;
+assign m_axi_gmem1_ARBURST = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARBURST;
 
-assign m_axi_gmem1_ARADDR = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARADDR;
+assign m_axi_gmem1_ARCACHE = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARCACHE;
 
-assign m_axi_gmem1_ARBURST = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARBURST;
+assign m_axi_gmem1_ARID = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARID;
 
-assign m_axi_gmem1_ARCACHE = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARCACHE;
+assign m_axi_gmem1_ARLEN = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARLEN;
 
-assign m_axi_gmem1_ARID = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARID;
+assign m_axi_gmem1_ARLOCK = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARLOCK;
 
-assign m_axi_gmem1_ARLEN = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARLEN;
+assign m_axi_gmem1_ARPROT = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARPROT;
 
-assign m_axi_gmem1_ARLOCK = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARLOCK;
+assign m_axi_gmem1_ARQOS = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARQOS;
 
-assign m_axi_gmem1_ARPROT = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARPROT;
+assign m_axi_gmem1_ARREGION = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARREGION;
 
-assign m_axi_gmem1_ARQOS = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARQOS;
+assign m_axi_gmem1_ARSIZE = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARSIZE;
 
-assign m_axi_gmem1_ARREGION = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARREGION;
-
-assign m_axi_gmem1_ARSIZE = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARSIZE;
-
-assign m_axi_gmem1_ARUSER = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem1_ARUSER;
+assign m_axi_gmem1_ARUSER = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem1_ARUSER;
 
 assign m_axi_gmem1_AWADDR = 64'd0;
 
@@ -1126,27 +855,27 @@ assign m_axi_gmem1_WUSER = 1'd0;
 
 assign m_axi_gmem1_WVALID = 1'b0;
 
-assign m_axi_gmem2_ARADDR = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARADDR;
+assign m_axi_gmem2_ARADDR = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARADDR;
 
-assign m_axi_gmem2_ARBURST = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARBURST;
+assign m_axi_gmem2_ARBURST = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARBURST;
 
-assign m_axi_gmem2_ARCACHE = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARCACHE;
+assign m_axi_gmem2_ARCACHE = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARCACHE;
 
-assign m_axi_gmem2_ARID = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARID;
+assign m_axi_gmem2_ARID = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARID;
 
-assign m_axi_gmem2_ARLEN = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARLEN;
+assign m_axi_gmem2_ARLEN = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARLEN;
 
-assign m_axi_gmem2_ARLOCK = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARLOCK;
+assign m_axi_gmem2_ARLOCK = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARLOCK;
 
-assign m_axi_gmem2_ARPROT = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARPROT;
+assign m_axi_gmem2_ARPROT = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARPROT;
 
-assign m_axi_gmem2_ARQOS = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARQOS;
+assign m_axi_gmem2_ARQOS = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARQOS;
 
-assign m_axi_gmem2_ARREGION = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARREGION;
+assign m_axi_gmem2_ARREGION = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARREGION;
 
-assign m_axi_gmem2_ARSIZE = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARSIZE;
+assign m_axi_gmem2_ARSIZE = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARSIZE;
 
-assign m_axi_gmem2_ARUSER = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_271_m_axi_gmem2_ARUSER;
+assign m_axi_gmem2_ARUSER = grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_m_axi_gmem2_ARUSER;
 
 assign m_axi_gmem2_AWADDR = 64'd0;
 
@@ -1186,14 +915,14 @@ assign m_axi_gmem2_WUSER = 1'd0;
 
 assign m_axi_gmem2_WVALID = 1'b0;
 
-assign p_0_fu_324_p17 = {{{{{{{{{{{{{{{{pkt_ref_q0}, {pkt_ref_q1}}, {pkt_ref_load_1_reg_491}}, {pkt_ref_load_reg_486}}, {pkt_v_y_q0}}, {32'd0}}, {bitcast_ln96_3_fu_320_p1}}, {pkt_v_y_q1}}, {32'd0}}, {bitcast_ln96_2_fu_316_p1}}, {pkt_v_y_load_1_reg_461}}, {32'd0}}, {bitcast_ln96_1_fu_313_p1}}, {pkt_v_y_load_reg_451}}, {32'd0}}, {bitcast_ln96_fu_310_p1}};
+assign p_0_fu_278_p17 = {{{{{{{{{{{{{{{{grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_3_088_out}, {grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_2_087_out}}, {grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_1_086_out}}, {grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_ref_0_085_out}}, {grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_3_084_out}}, {32'd0}}, {bitcast_ln96_3_fu_274_p1}}, {grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_2_083_out}}, {32'd0}}, {bitcast_ln96_2_fu_270_p1}}, {grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_1_082_out}}, {32'd0}}, {bitcast_ln96_1_fu_266_p1}}, {grp_set_tile_broadcast_Pipeline_copy_tile_loop_fu_178_pkt_v_y_0_081_out}}, {32'd0}}, {bitcast_ln96_fu_262_p1}};
 
-assign s_0_din = p_0_fu_324_p17;
+assign s_0_din = p_0_fu_278_p17;
 
-assign s_1_din = p_0_fu_324_p17;
+assign s_1_din = p_0_fu_278_p17;
 
-assign s_2_din = p_0_fu_324_p17;
+assign s_2_din = p_0_fu_278_p17;
 
-assign s_3_din = p_0_fu_324_p17;
+assign s_3_din = p_0_fu_278_p17;
 
 endmodule //spmm_hls_set_tile_broadcast

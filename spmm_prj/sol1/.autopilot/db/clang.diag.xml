@@ -9,7 +9,39 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>204</integer>
+      <integer>155</integer>
+      <key>column</key>
+      <integer>20</integer>
+      <key>message</key>
+      <string>unexpected pragma parameter &apos;on&apos;</string>
+      <key>ID</key>
+      <integer>5554</integer>
+      <key>WarningOption</key>
+      <string>invalid-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>173</integer>
+      <key>column</key>
+      <integer>20</integer>
+      <key>message</key>
+      <string>unexpected pragma parameter &apos;on&apos;</string>
+      <key>ID</key>
+      <integer>5554</integer>
+      <key>WarningOption</key>
+      <string>invalid-hls-pragmas</string>
+    </dict>
+    <dict>
+      <key>level</key>
+      <string>warning</string>
+      <key>filename</key>
+      <string>src/spmm_device_fpga.cpp</string>
+      <key>line</key>
+      <integer>265</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>
@@ -25,23 +57,7 @@
       <key>filename</key>
       <string>src/spmm_device_fpga.cpp</string>
       <key>line</key>
-      <integer>220</integer>
-      <key>column</key>
-      <integer>9</integer>
-      <key>message</key>
-      <string>Only for-loops and functions support the dataflow</string>
-      <key>ID</key>
-      <integer>5558</integer>
-      <key>WarningOption</key>
-      <string>ignored-hls-dataflow-attribute</string>
-    </dict>
-    <dict>
-      <key>level</key>
-      <string>warning</string>
-      <key>filename</key>
-      <string>src/spmm_device_fpga.cpp</string>
-      <key>line</key>
-      <integer>250</integer>
+      <integer>322</integer>
       <key>column</key>
       <integer>9</integer>
       <key>message</key>

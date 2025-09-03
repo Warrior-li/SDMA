@@ -6303,7 +6303,7 @@ void dfm(
 }
 
 void pu_comp(
-    value_t * res,
+    hls::stream<value_t> &res_stream,
     Sp_value a,
     value_t * Dbuf,
     const index_t K,
@@ -6312,20 +6312,75 @@ void pu_comp(
 #pragma hls inline off
  VITIS_LOOP_136_1: for(int i = 0; i < K; ++i){
 #pragma hls pipeline II=1
- res[i] = a.value * Dbuf[begin + i];
+ res_stream.write(a.value * Dbuf[begin + i]);
     }
 }
 
-void write_to_Obuf(
-    value_t * Obuf,
-    value_t * AU,
-    index_t K,
-    index_t row_num
+
+void flush_to_Obuf(){
+
+}
+
+void merge_into_one_AU(
+    index_t row,
+    hls::stream<value_t> &inA,
+    hls::stream<value_t> &inB,
+    value_t *AU,
+    int &au_row,
+    const int K
 ){
-    VITIS_LOOP_148_1: for(int i = 0; i < K; ++i){
-#pragma HLS pipeline II = 1
- Obuf[row_num * K + i] = AU[i];
-        AU[i] = 0;
+#pragma hls inline on
+ au_row = row;
+    VITIS_LOOP_157_1: for(int i = 0 ; i < K; ++i){
+        AU[i] += inA.read() + inB.read();
+    }
+}
+
+void split_into_two_AU(
+    hls::stream<value_t> &inA,
+    hls::stream<value_t> &inB,
+    index_t rowA,
+    index_t rowB,
+    value_t *AU0,
+    value_t *AU1,
+    int &au_row_0,
+    int &au_row_1,
+    const int K
+){
+#pragma hls inline on
+ au_row_0 = rowA;
+    au_row_1 = rowB;
+    VITIS_LOOP_176_1: for(int i = 0; i < K; ++i){
+        AU0[i] += inA.read();
+        AU1[i] += inB.read();
+    }
+}
+
+void au_merge(
+    hls::stream<value_t> &inA,
+    hls::stream<value_t> &inB,
+    index_t rowA,
+    index_t rowB,
+    value_t *AU0,
+    value_t *AU1,
+    int &au_row_a,
+    int &au_row_b,
+    const int K
+){
+    if(au_row_a == -1 && au_row_b == -1){
+        if(rowA == rowB) merge_into_one_AU(rowA, inA, inB, AU0, au_row_a, K);
+        else split_into_two_AU(inA,inB,rowA,rowB,AU0,AU1,au_row_a,au_row_b,K);
+    }else if(au_row_a != -1 && au_row_b == -1){
+        if(rowA == au_row_a) split_into_two_AU(inA,inB,rowA,rowB,AU0,AU1,au_row_a,au_row_b,K);
+        else{
+            if(rowA == rowB) merge_into_one_AU(rowB, inA, inB, AU1, au_row_b, K);
+            else{
+                flush_to_Obuf();
+                split_into_two_AU(inA,inB,rowA,rowB,AU0,AU1,au_row_a,au_row_b,K);
+            }
+        }
+    }else{
+
     }
 }
 
@@ -6343,10 +6398,15 @@ void pu_kernel(
  index_t Dlen = 0;
 
     value_t Obuf[MAX_K];
-#pragma HLS BIND_STORAGE variable=Dbuf type=ram_2p impl=bram
- index_t O_ref[TILE_NNZ];
-    index_t O_row_len = 0;
+#pragma HLS BIND_STORAGE variable=Obuf type=ram_2p impl=bram
+ index_t O_idx[TILE_NNZ];
 
+    init_Obuf:
+
+    for(int i = 0; i < TILE_NNZ; ++i){
+#pragma HLS pipeline II=1
+ O_idx[i] = -1;
+    }
 
     Sp_value tile[TILE_NNZ];
     bool tile_ref[TILE_NNZ];
@@ -6363,9 +6423,10 @@ void pu_kernel(
 
     dfm(tile, tile_ref, Dbuf, Dlen, B, K, tile_to_dbuf_begin);
 
-    value_t resA[MAX_K],resB[MAX_K];
-    value_t AU0[MAX_K], AU1[MAX_K];
-    index_t au0_p = 0, au1_p = 0;
+    hls::stream<value_t> streamA, streamB;
+#pragma HLS STREAM variable=streamA depth=MAX_K
+#pragma HLS STREAM variable=streamB depth=MAX_K
+ value_t AU0[MAX_K], AU1[MAX_K];
     int au0_r = -1, au1_r = -1;
 
     init_au:
@@ -6376,65 +6437,15 @@ void pu_kernel(
     }
 
 
-    VITIS_LOOP_202_1: for(int i = 0; i < 2; ++i){
+    VITIS_LOOP_263_1: for(int i = 0; i < 2; ++i){
         {
 #pragma hls dataflow
- pu_comp(resA, tile[i * 2], Dbuf, K, tile_to_dbuf_begin[i * 2]);
-            pu_comp(resB, tile[i * 2 + 1], Dbuf, K, tile_to_dbuf_begin[i * 2 + 1]);
-        }
+ pu_comp(streamA, tile[i * 2], Dbuf, K, tile_to_dbuf_begin[i * 2]);
+            pu_comp(streamB, tile[i * 2 + 1], Dbuf, K, tile_to_dbuf_begin[i * 2 + 1]);
 
-
-        if(i == 1){
-            if(au0_r == tile[i*2].y) continue;
-            else if(au1_r == tile[i*2].y){
-                write_to_Obuf(Obuf, AU0, K, O_row_len);
-                O_ref[O_row_len] = au0_r;
-                au0_r = au1_r;
-                au1_r = -1;
-                ++O_row_len;
-            }else{
-                {
-#pragma hls dataflow
- write_to_Obuf(Obuf,AU0,K,O_row_len);
-                    write_to_Obuf(Obuf,AU1,K,O_row_len + 1);
-                }
-                O_ref[O_row_len] = au0_r;
-                O_ref[O_row_len + 1] = au1_r;
-                O_row_len += 2;
-                au0_r = au1_r = -1;
-            }
-        }
-
-
-        AU_step:
-        au0_r = tile[i*2].y;
-        if(tile[i*2].y == tile[i*2+1].y){
-            VITIS_LOOP_235_2: for(int j = 0; j < K; ++j){
-#pragma hls pipeline II = 1
- AU0[j] += resA[j] + resB[j];
-            }
-        }else{
-            au1_r = tile[i*2+1].y;
-            VITIS_LOOP_241_3: for(int j = 0; j < K; ++j){
-#pragma hls pipeline II = 1
- AU0[j] = resA[j];
-                AU1[j] = resA[j];
-            }
+            au_merge(streamA, streamB, tile[i*2].y, tile[i*2+1].y, AU0, AU1, au0_r, au1_r, K);
         }
     }
-
-    {
-#pragma hls dataflow
- if(au0_r != -1){
-            write_to_Obuf(Obuf, AU0, K, O_row_len);
-            O_ref[O_row_len] = au0_r;
-        }
-        if(au1_r != -1){
-            write_to_Obuf(Obuf, AU1, K, O_row_len + 1);
-            O_ref[O_row_len + 1] = au1_r;
-        }
-    }
-
 }
 
 extern "C"
@@ -6458,7 +6469,7 @@ __attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
 {
 #line 13 "/home/shuxuan/SDMA/hls.tcl"
 #pragma HLSDIRECTIVE TOP name=spmm_hls
-# 281 "src/spmm_device_fpga.cpp"
+# 292 "src/spmm_device_fpga.cpp"
 
 #pragma HLS interface m_axi port = row_ptr offset = slave bundle = gmem0
 #pragma HLS interface m_axi port = col_idx offset = slave bundle = gmem1
@@ -6489,9 +6500,9 @@ __attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
 
 
  row_loop:
-    for(int i = 0; i < nnz; i = i + TILE_NNZ){
 #pragma hls dataflow
- set_tile_broadcast(row_ptr, col_idx, a_val, s ,i, nnz);
+ VITIS_LOOP_323_1: for(int i = 0; i < nnz; i = i + TILE_NNZ){
+        set_tile_broadcast(row_ptr, col_idx, a_val, s ,i, nnz);
         pu_kernel(s[0], B1, K /4);
         pu_kernel(s[1], B2, K /4);
         pu_kernel(s[2], B3, K /4);

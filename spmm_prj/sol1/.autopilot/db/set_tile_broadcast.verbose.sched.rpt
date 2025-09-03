@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'set_tile_broadcast'
 ================================================================
-* Date:           Tue Sep  2 16:52:28 2025
+* Date:           Wed Sep  3 20:05:48 2025
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        spmm_prj
@@ -29,7 +29,7 @@
     |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
     |   min   |   max   |    min   |    max   | min | max |   Type  |
     +---------+---------+----------+----------+-----+-----+---------+
-    |       27|       27|  0.108 us|  0.108 us|   27|   27|       no|
+    |       25|       25|  0.100 us|  0.100 us|   25|   25|       no|
     +---------+---------+----------+----------+-----+-----+---------+
 
     + Detail: 
@@ -49,7 +49,7 @@ ExposeGlobal: 0
 ============================================================
 IsTopModel: 0
 ResetActiveHigh: 1
-IsCombinational: 2
+IsCombinational: 0
 IsDatapathOnly: 0
 HasWiredReturn: 1
 HasMFsm: 0
@@ -65,7 +65,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 7
+* Number of FSM states : 5
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
@@ -74,96 +74,75 @@ IsGatedGlobalClock: 0
 2 --> 3 
 3 --> 4 
 4 --> 5 
-5 --> 6 
-6 --> 7 
-7 --> 
+5 --> 
 
 * FSM state operations: 
 
 State 1 <SV = 0> <Delay = 0.00>
-ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%seen_v_loc = alloca i64 1"   --->   Operation 8 'alloca' 'seen_v_loc' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%seen_v_1_loc = alloca i64 1"   --->   Operation 9 'alloca' 'seen_v_1_loc' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%seen_v_2_loc = alloca i64 1"   --->   Operation 10 'alloca' 'seen_v_2_loc' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%seen_v_3_loc = alloca i64 1"   --->   Operation 11 'alloca' 'seen_v_3_loc' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%pkt_v_value = alloca i64 1" [src/spmm_device_fpga.cpp:45]   --->   Operation 12 'alloca' 'pkt_v_value' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%pkt_v_y = alloca i64 1" [src/spmm_device_fpga.cpp:45]   --->   Operation 13 'alloca' 'pkt_v_y' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%pkt_ref = alloca i64 1" [src/spmm_device_fpga.cpp:45]   --->   Operation 14 'alloca' 'pkt_ref' <Predicate = true> <Delay = 0.00> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_1 : Operation 15 [2/2] (0.00ns)   --->   "%call_ln0 = call void @set_tile_broadcast_Pipeline_init_seen, i1 %seen_v_3_loc, i1 %seen_v_2_loc, i1 %seen_v_1_loc, i1 %seen_v_loc"   --->   Operation 15 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%pkt_v_value_0_077_loc = alloca i64 1"   --->   Operation 6 'alloca' 'pkt_v_value_0_077_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%pkt_v_value_1_078_loc = alloca i64 1"   --->   Operation 7 'alloca' 'pkt_v_value_1_078_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%pkt_v_value_2_079_loc = alloca i64 1"   --->   Operation 8 'alloca' 'pkt_v_value_2_079_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%pkt_v_value_3_080_loc = alloca i64 1"   --->   Operation 9 'alloca' 'pkt_v_value_3_080_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%pkt_v_y_0_081_loc = alloca i64 1"   --->   Operation 10 'alloca' 'pkt_v_y_0_081_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%pkt_v_y_1_082_loc = alloca i64 1"   --->   Operation 11 'alloca' 'pkt_v_y_1_082_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%pkt_v_y_2_083_loc = alloca i64 1"   --->   Operation 12 'alloca' 'pkt_v_y_2_083_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%pkt_v_y_3_084_loc = alloca i64 1"   --->   Operation 13 'alloca' 'pkt_v_y_3_084_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%pkt_ref_0_085_loc = alloca i64 1"   --->   Operation 14 'alloca' 'pkt_ref_0_085_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%pkt_ref_1_086_loc = alloca i64 1"   --->   Operation 15 'alloca' 'pkt_ref_1_086_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%pkt_ref_2_087_loc = alloca i64 1"   --->   Operation 16 'alloca' 'pkt_ref_2_087_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%pkt_ref_3_088_loc = alloca i64 1"   --->   Operation 17 'alloca' 'pkt_ref_3_088_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%seen_v_loc = alloca i64 1"   --->   Operation 18 'alloca' 'seen_v_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%seen_v_1_loc = alloca i64 1"   --->   Operation 19 'alloca' 'seen_v_1_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%seen_v_2_loc = alloca i64 1"   --->   Operation 20 'alloca' 'seen_v_2_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%seen_v_3_loc = alloca i64 1"   --->   Operation 21 'alloca' 'seen_v_3_loc' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [2/2] (0.00ns)   --->   "%call_ln0 = call void @set_tile_broadcast_Pipeline_init_seen, i1 %seen_v_3_loc, i1 %seen_v_2_loc, i1 %seen_v_1_loc, i1 %seen_v_loc"   --->   Operation 22 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 2 <SV = 1> <Delay = 0.88>
-ST_2 : Operation 16 [1/2] (0.88ns)   --->   "%call_ln0 = call void @set_tile_broadcast_Pipeline_init_seen, i1 %seen_v_3_loc, i1 %seen_v_2_loc, i1 %seen_v_1_loc, i1 %seen_v_loc"   --->   Operation 16 'call' 'call_ln0' <Predicate = true> <Delay = 0.88> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 23 [1/2] (0.88ns)   --->   "%call_ln0 = call void @set_tile_broadcast_Pipeline_init_seen, i1 %seen_v_3_loc, i1 %seen_v_2_loc, i1 %seen_v_1_loc, i1 %seen_v_loc"   --->   Operation 23 'call' 'call_ln0' <Predicate = true> <Delay = 0.88> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 3 <SV = 2> <Delay = 2.12>
-ST_3 : Operation 17 [1/1] (0.00ns)   --->   "%nnz_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %nnz"   --->   Operation 17 'read' 'nnz_read' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 18 [1/1] (0.00ns)   --->   "%pointer_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %pointer"   --->   Operation 18 'read' 'pointer_read' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 19 [1/1] (0.00ns)   --->   "%a_val_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %a_val"   --->   Operation 19 'read' 'a_val_read' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 20 [1/1] (0.00ns)   --->   "%col_idx_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %col_idx"   --->   Operation 20 'read' 'col_idx_read' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 21 [1/1] (0.00ns)   --->   "%seen_v_3_loc_load = load i1 %seen_v_3_loc"   --->   Operation 21 'load' 'seen_v_3_loc_load' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%seen_v_2_loc_load = load i1 %seen_v_2_loc"   --->   Operation 22 'load' 'seen_v_2_loc_load' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%seen_v_1_loc_load = load i1 %seen_v_1_loc"   --->   Operation 23 'load' 'seen_v_1_loc_load' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%seen_v_loc_load = load i1 %seen_v_loc"   --->   Operation 24 'load' 'seen_v_loc_load' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 25 [2/2] (2.12ns)   --->   "%call_ln0 = call void @set_tile_broadcast_Pipeline_copy_tile_loop, i1 %seen_v_3_loc_load, i1 %seen_v_2_loc_load, i1 %seen_v_1_loc_load, i1 %seen_v_loc_load, i32 %pkt_v_value, i32 %pkt_v_y, i1 %pkt_ref, i32 %pointer_read, i32 %nnz_read, i64 %a_val_read, i32 %gmem2, i64 %col_idx_read, i32 %gmem1"   --->   Operation 25 'call' 'call_ln0' <Predicate = true> <Delay = 2.12> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_3 : Operation 24 [1/1] (0.00ns)   --->   "%nnz_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %nnz"   --->   Operation 24 'read' 'nnz_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%pointer_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %pointer"   --->   Operation 25 'read' 'pointer_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 26 [1/1] (0.00ns)   --->   "%a_val_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %a_val"   --->   Operation 26 'read' 'a_val_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 27 [1/1] (0.00ns)   --->   "%col_idx_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %col_idx"   --->   Operation 27 'read' 'col_idx_read' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 28 [1/1] (0.00ns)   --->   "%seen_v_3_loc_load = load i1 %seen_v_3_loc"   --->   Operation 28 'load' 'seen_v_3_loc_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 29 [1/1] (0.00ns)   --->   "%seen_v_2_loc_load = load i1 %seen_v_2_loc"   --->   Operation 29 'load' 'seen_v_2_loc_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 30 [1/1] (0.00ns)   --->   "%seen_v_1_loc_load = load i1 %seen_v_1_loc"   --->   Operation 30 'load' 'seen_v_1_loc_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 31 [1/1] (0.00ns)   --->   "%seen_v_loc_load = load i1 %seen_v_loc"   --->   Operation 31 'load' 'seen_v_loc_load' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 32 [2/2] (2.12ns)   --->   "%call_ln0 = call void @set_tile_broadcast_Pipeline_copy_tile_loop, i1 %seen_v_3_loc_load, i1 %seen_v_2_loc_load, i1 %seen_v_1_loc_load, i1 %seen_v_loc_load, i32 %pointer_read, i32 %nnz_read, i64 %a_val_read, i32 %gmem2, i64 %col_idx_read, i32 %gmem1, i1 %pkt_ref_3_088_loc, i1 %pkt_ref_2_087_loc, i1 %pkt_ref_1_086_loc, i1 %pkt_ref_0_085_loc, i32 %pkt_v_y_3_084_loc, i32 %pkt_v_y_2_083_loc, i32 %pkt_v_y_1_082_loc, i32 %pkt_v_y_0_081_loc, i32 %pkt_v_value_3_080_loc, i32 %pkt_v_value_2_079_loc, i32 %pkt_v_value_1_078_loc, i32 %pkt_v_value_0_077_loc"   --->   Operation 32 'call' 'call_ln0' <Predicate = true> <Delay = 2.12> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
 State 4 <SV = 3> <Delay = 0.00>
-ST_4 : Operation 26 [1/2] (0.00ns)   --->   "%call_ln0 = call void @set_tile_broadcast_Pipeline_copy_tile_loop, i1 %seen_v_3_loc_load, i1 %seen_v_2_loc_load, i1 %seen_v_1_loc_load, i1 %seen_v_loc_load, i32 %pkt_v_value, i32 %pkt_v_y, i1 %pkt_ref, i32 %pointer_read, i32 %nnz_read, i64 %a_val_read, i32 %gmem2, i64 %col_idx_read, i32 %gmem1"   --->   Operation 26 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 33 [1/2] (0.00ns)   --->   "%call_ln0 = call void @set_tile_broadcast_Pipeline_copy_tile_loop, i1 %seen_v_3_loc_load, i1 %seen_v_2_loc_load, i1 %seen_v_1_loc_load, i1 %seen_v_loc_load, i32 %pointer_read, i32 %nnz_read, i64 %a_val_read, i32 %gmem2, i64 %col_idx_read, i32 %gmem1, i1 %pkt_ref_3_088_loc, i1 %pkt_ref_2_087_loc, i1 %pkt_ref_1_086_loc, i1 %pkt_ref_0_085_loc, i32 %pkt_v_y_3_084_loc, i32 %pkt_v_y_2_083_loc, i32 %pkt_v_y_1_082_loc, i32 %pkt_v_y_0_081_loc, i32 %pkt_v_value_3_080_loc, i32 %pkt_v_value_2_079_loc, i32 %pkt_v_value_1_078_loc, i32 %pkt_v_value_0_077_loc"   --->   Operation 33 'call' 'call_ln0' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 5 <SV = 4> <Delay = 0.69>
-ST_5 : Operation 27 [1/1] (0.00ns)   --->   "%pkt_v_value_addr = getelementptr i32 %pkt_v_value, i64 0, i64 0"   --->   Operation 27 'getelementptr' 'pkt_v_value_addr' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 28 [2/2] (0.69ns)   --->   "%pkt_v_value_load = load i2 %pkt_v_value_addr"   --->   Operation 28 'load' 'pkt_v_value_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_5 : Operation 29 [1/1] (0.00ns)   --->   "%pkt_v_y_addr = getelementptr i32 %pkt_v_y, i64 0, i64 0"   --->   Operation 29 'getelementptr' 'pkt_v_y_addr' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 30 [2/2] (0.69ns)   --->   "%pkt_v_y_load = load i2 %pkt_v_y_addr"   --->   Operation 30 'load' 'pkt_v_y_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_5 : Operation 31 [1/1] (0.00ns)   --->   "%pkt_v_value_addr_1 = getelementptr i32 %pkt_v_value, i64 0, i64 1"   --->   Operation 31 'getelementptr' 'pkt_v_value_addr_1' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 32 [2/2] (0.69ns)   --->   "%pkt_v_value_load_1 = load i2 %pkt_v_value_addr_1"   --->   Operation 32 'load' 'pkt_v_value_load_1' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_5 : Operation 33 [1/1] (0.00ns)   --->   "%pkt_v_y_addr_1 = getelementptr i32 %pkt_v_y, i64 0, i64 1"   --->   Operation 33 'getelementptr' 'pkt_v_y_addr_1' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 34 [2/2] (0.69ns)   --->   "%pkt_v_y_load_1 = load i2 %pkt_v_y_addr_1"   --->   Operation 34 'load' 'pkt_v_y_load_1' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_5 : Operation 35 [1/1] (0.00ns)   --->   "%pkt_ref_addr = getelementptr i1 %pkt_ref, i64 0, i64 0"   --->   Operation 35 'getelementptr' 'pkt_ref_addr' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 36 [2/2] (0.63ns)   --->   "%pkt_ref_load = load i2 %pkt_ref_addr"   --->   Operation 36 'load' 'pkt_ref_load' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_5 : Operation 37 [1/1] (0.00ns)   --->   "%pkt_ref_addr_1 = getelementptr i1 %pkt_ref, i64 0, i64 1"   --->   Operation 37 'getelementptr' 'pkt_ref_addr_1' <Predicate = true> <Delay = 0.00>
-ST_5 : Operation 38 [2/2] (0.63ns)   --->   "%pkt_ref_load_1 = load i2 %pkt_ref_addr_1"   --->   Operation 38 'load' 'pkt_ref_load_1' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-
-State 6 <SV = 5> <Delay = 0.69>
-ST_6 : Operation 39 [1/2] (0.69ns)   --->   "%pkt_v_value_load = load i2 %pkt_v_value_addr"   --->   Operation 39 'load' 'pkt_v_value_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_6 : Operation 40 [1/2] (0.69ns)   --->   "%pkt_v_y_load = load i2 %pkt_v_y_addr"   --->   Operation 40 'load' 'pkt_v_y_load' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_6 : Operation 41 [1/2] (0.69ns)   --->   "%pkt_v_value_load_1 = load i2 %pkt_v_value_addr_1"   --->   Operation 41 'load' 'pkt_v_value_load_1' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_6 : Operation 42 [1/2] (0.69ns)   --->   "%pkt_v_y_load_1 = load i2 %pkt_v_y_addr_1"   --->   Operation 42 'load' 'pkt_v_y_load_1' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_6 : Operation 43 [1/1] (0.00ns)   --->   "%pkt_v_value_addr_2 = getelementptr i32 %pkt_v_value, i64 0, i64 2"   --->   Operation 43 'getelementptr' 'pkt_v_value_addr_2' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 44 [2/2] (0.69ns)   --->   "%pkt_v_value_load_2 = load i2 %pkt_v_value_addr_2"   --->   Operation 44 'load' 'pkt_v_value_load_2' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_6 : Operation 45 [1/1] (0.00ns)   --->   "%pkt_v_y_addr_2 = getelementptr i32 %pkt_v_y, i64 0, i64 2"   --->   Operation 45 'getelementptr' 'pkt_v_y_addr_2' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 46 [2/2] (0.69ns)   --->   "%pkt_v_y_load_2 = load i2 %pkt_v_y_addr_2"   --->   Operation 46 'load' 'pkt_v_y_load_2' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_6 : Operation 47 [1/1] (0.00ns)   --->   "%pkt_v_value_addr_3 = getelementptr i32 %pkt_v_value, i64 0, i64 3"   --->   Operation 47 'getelementptr' 'pkt_v_value_addr_3' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 48 [2/2] (0.69ns)   --->   "%pkt_v_value_load_3 = load i2 %pkt_v_value_addr_3"   --->   Operation 48 'load' 'pkt_v_value_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_6 : Operation 49 [1/1] (0.00ns)   --->   "%pkt_v_y_addr_3 = getelementptr i32 %pkt_v_y, i64 0, i64 3"   --->   Operation 49 'getelementptr' 'pkt_v_y_addr_3' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 50 [2/2] (0.69ns)   --->   "%pkt_v_y_load_3 = load i2 %pkt_v_y_addr_3"   --->   Operation 50 'load' 'pkt_v_y_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_6 : Operation 51 [1/2] (0.63ns)   --->   "%pkt_ref_load = load i2 %pkt_ref_addr"   --->   Operation 51 'load' 'pkt_ref_load' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_6 : Operation 52 [1/2] (0.63ns)   --->   "%pkt_ref_load_1 = load i2 %pkt_ref_addr_1"   --->   Operation 52 'load' 'pkt_ref_load_1' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_6 : Operation 53 [1/1] (0.00ns)   --->   "%pkt_ref_addr_2 = getelementptr i1 %pkt_ref, i64 0, i64 2"   --->   Operation 53 'getelementptr' 'pkt_ref_addr_2' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 54 [2/2] (0.63ns)   --->   "%pkt_ref_load_2 = load i2 %pkt_ref_addr_2"   --->   Operation 54 'load' 'pkt_ref_load_2' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_6 : Operation 55 [1/1] (0.00ns)   --->   "%pkt_ref_addr_3 = getelementptr i1 %pkt_ref, i64 0, i64 3"   --->   Operation 55 'getelementptr' 'pkt_ref_addr_3' <Predicate = true> <Delay = 0.00>
-ST_6 : Operation 56 [2/2] (0.63ns)   --->   "%pkt_ref_load_3 = load i2 %pkt_ref_addr_3"   --->   Operation 56 'load' 'pkt_ref_load_3' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-
-State 7 <SV = 6> <Delay = 1.93>
-ST_7 : Operation 57 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_3, void @empty_22, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_28, void @empty_28, void @empty_28, i32 0, i32 0, i32 0, i32 0, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 57 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 58 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_2, void @empty_22, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_28, void @empty_28, void @empty_28, i32 0, i32 0, i32 0, i32 0, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 58 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 59 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_1, void @empty_22, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_28, void @empty_28, void @empty_28, i32 0, i32 0, i32 0, i32 0, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 59 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 60 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_0, void @empty_22, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_28, void @empty_28, void @empty_28, i32 0, i32 0, i32 0, i32 0, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 60 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 61 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem2, void @empty_14, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty, void @empty_27, void @empty_28, i32 16, i32 16, i32 16, i32 16, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 61 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 62 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem1, void @empty_14, i32 0, i32 0, void @empty_28, i32 0, i32 0, void @empty_15, void @empty_27, void @empty_28, i32 16, i32 16, i32 16, i32 16, void @empty_28, void @empty_28, i32 4294967295, i32 0"   --->   Operation 62 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 63 [1/2] (0.69ns)   --->   "%pkt_v_value_load_2 = load i2 %pkt_v_value_addr_2"   --->   Operation 63 'load' 'pkt_v_value_load_2' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_7 : Operation 64 [1/2] (0.69ns)   --->   "%pkt_v_y_load_2 = load i2 %pkt_v_y_addr_2"   --->   Operation 64 'load' 'pkt_v_y_load_2' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_7 : Operation 65 [1/2] (0.69ns)   --->   "%pkt_v_value_load_3 = load i2 %pkt_v_value_addr_3"   --->   Operation 65 'load' 'pkt_v_value_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_7 : Operation 66 [1/2] (0.69ns)   --->   "%pkt_v_y_load_3 = load i2 %pkt_v_y_addr_3"   --->   Operation 66 'load' 'pkt_v_y_load_3' <Predicate = true> <Delay = 0.69> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.69> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 32> <Depth = 4> <RAM>
-ST_7 : Operation 67 [1/2] (0.63ns)   --->   "%pkt_ref_load_2 = load i2 %pkt_ref_addr_2"   --->   Operation 67 'load' 'pkt_ref_load_2' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_7 : Operation 68 [1/2] (0.63ns)   --->   "%pkt_ref_load_3 = load i2 %pkt_ref_addr_3"   --->   Operation 68 'load' 'pkt_ref_load_3' <Predicate = true> <Delay = 0.63> <CoreInst = "RAM">   --->   Core 83 'RAM' <Latency = 1> <II = 1> <Delay = 0.63> <Storage> <Opcode : 'load' 'store'> <Ports = 2> <Width = 1> <Depth = 4> <RAM>
-ST_7 : Operation 69 [1/1] (0.00ns)   --->   "%bitcast_ln96 = bitcast i32 %pkt_v_value_load" [src/spmm_device_fpga.cpp:96]   --->   Operation 69 'bitcast' 'bitcast_ln96' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 70 [1/1] (0.00ns)   --->   "%bitcast_ln96_1 = bitcast i32 %pkt_v_value_load_1" [src/spmm_device_fpga.cpp:96]   --->   Operation 70 'bitcast' 'bitcast_ln96_1' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 71 [1/1] (0.00ns)   --->   "%bitcast_ln96_2 = bitcast i32 %pkt_v_value_load_2" [src/spmm_device_fpga.cpp:96]   --->   Operation 71 'bitcast' 'bitcast_ln96_2' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 72 [1/1] (0.00ns)   --->   "%bitcast_ln96_3 = bitcast i32 %pkt_v_value_load_3" [src/spmm_device_fpga.cpp:96]   --->   Operation 72 'bitcast' 'bitcast_ln96_3' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 73 [1/1] (0.00ns)   --->   "%p_0 = bitconcatenate i388 @_ssdm_op_BitConcatenate.i388.i1.i1.i1.i1.i32.i32.i32.i32.i32.i32.i32.i32.i32.i32.i32.i32, i1 %pkt_ref_load_3, i1 %pkt_ref_load_2, i1 %pkt_ref_load_1, i1 %pkt_ref_load, i32 %pkt_v_y_load_3, i32 0, i32 %bitcast_ln96_3, i32 %pkt_v_y_load_2, i32 0, i32 %bitcast_ln96_2, i32 %pkt_v_y_load_1, i32 0, i32 %bitcast_ln96_1, i32 %pkt_v_y_load, i32 0, i32 %bitcast_ln96" [src/spmm_device_fpga.cpp:96]   --->   Operation 73 'bitconcatenate' 'p_0' <Predicate = true> <Delay = 0.00>
-ST_7 : Operation 74 [1/1] (1.23ns)   --->   "%write_ln96 = write void @_ssdm_op_Write.ap_fifo.volatile.i388P0A, i388 %s_0, i388 %p_0" [src/spmm_device_fpga.cpp:96]   --->   Operation 74 'write' 'write_ln96' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
-ST_7 : Operation 75 [1/1] (1.23ns)   --->   "%write_ln96 = write void @_ssdm_op_Write.ap_fifo.volatile.i388P0A, i388 %s_1, i388 %p_0" [src/spmm_device_fpga.cpp:96]   --->   Operation 75 'write' 'write_ln96' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
-ST_7 : Operation 76 [1/1] (1.23ns)   --->   "%write_ln96 = write void @_ssdm_op_Write.ap_fifo.volatile.i388P0A, i388 %s_2, i388 %p_0" [src/spmm_device_fpga.cpp:96]   --->   Operation 76 'write' 'write_ln96' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
-ST_7 : Operation 77 [1/1] (1.23ns)   --->   "%write_ln96 = write void @_ssdm_op_Write.ap_fifo.volatile.i388P0A, i388 %s_3, i388 %p_0" [src/spmm_device_fpga.cpp:96]   --->   Operation 77 'write' 'write_ln96' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
-ST_7 : Operation 78 [1/1] (0.00ns)   --->   "%ret_ln98 = ret" [src/spmm_device_fpga.cpp:98]   --->   Operation 78 'ret' 'ret_ln98' <Predicate = true> <Delay = 0.00>
+State 5 <SV = 4> <Delay = 1.23>
+ST_5 : Operation 34 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_3, void @empty_22, i32 0, i32 0, void @empty_15, i32 0, i32 0, void @empty_15, void @empty_15, void @empty_15, i32 0, i32 0, i32 0, i32 0, void @empty_15, void @empty_15, i32 4294967295, i32 0"   --->   Operation 34 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 35 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_2, void @empty_22, i32 0, i32 0, void @empty_15, i32 0, i32 0, void @empty_15, void @empty_15, void @empty_15, i32 0, i32 0, i32 0, i32 0, void @empty_15, void @empty_15, i32 4294967295, i32 0"   --->   Operation 35 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 36 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_1, void @empty_22, i32 0, i32 0, void @empty_15, i32 0, i32 0, void @empty_15, void @empty_15, void @empty_15, i32 0, i32 0, i32 0, i32 0, void @empty_15, void @empty_15, i32 4294967295, i32 0"   --->   Operation 36 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 37 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i388 %s_0, void @empty_22, i32 0, i32 0, void @empty_15, i32 0, i32 0, void @empty_15, void @empty_15, void @empty_15, i32 0, i32 0, i32 0, i32 0, void @empty_15, void @empty_15, i32 4294967295, i32 0"   --->   Operation 37 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 38 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem2, void @empty_37, i32 0, i32 0, void @empty_15, i32 0, i32 0, void @empty, void @empty_26, void @empty_15, i32 16, i32 16, i32 16, i32 16, void @empty_15, void @empty_15, i32 4294967295, i32 0"   --->   Operation 38 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 39 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem1, void @empty_37, i32 0, i32 0, void @empty_15, i32 0, i32 0, void @empty_14, void @empty_26, void @empty_15, i32 16, i32 16, i32 16, i32 16, void @empty_15, void @empty_15, i32 4294967295, i32 0"   --->   Operation 39 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 40 [1/1] (0.00ns)   --->   "%pkt_ref_3_088_loc_load = load i1 %pkt_ref_3_088_loc"   --->   Operation 40 'load' 'pkt_ref_3_088_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 41 [1/1] (0.00ns)   --->   "%pkt_ref_2_087_loc_load = load i1 %pkt_ref_2_087_loc"   --->   Operation 41 'load' 'pkt_ref_2_087_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 42 [1/1] (0.00ns)   --->   "%pkt_ref_1_086_loc_load = load i1 %pkt_ref_1_086_loc"   --->   Operation 42 'load' 'pkt_ref_1_086_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%pkt_ref_0_085_loc_load = load i1 %pkt_ref_0_085_loc"   --->   Operation 43 'load' 'pkt_ref_0_085_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 44 [1/1] (0.00ns)   --->   "%pkt_v_y_3_084_loc_load = load i32 %pkt_v_y_3_084_loc"   --->   Operation 44 'load' 'pkt_v_y_3_084_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 45 [1/1] (0.00ns)   --->   "%pkt_v_y_2_083_loc_load = load i32 %pkt_v_y_2_083_loc"   --->   Operation 45 'load' 'pkt_v_y_2_083_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 46 [1/1] (0.00ns)   --->   "%pkt_v_y_1_082_loc_load = load i32 %pkt_v_y_1_082_loc"   --->   Operation 46 'load' 'pkt_v_y_1_082_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 47 [1/1] (0.00ns)   --->   "%pkt_v_y_0_081_loc_load = load i32 %pkt_v_y_0_081_loc"   --->   Operation 47 'load' 'pkt_v_y_0_081_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%pkt_v_value_3_080_loc_load = load i32 %pkt_v_value_3_080_loc"   --->   Operation 48 'load' 'pkt_v_value_3_080_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 49 [1/1] (0.00ns)   --->   "%pkt_v_value_2_079_loc_load = load i32 %pkt_v_value_2_079_loc"   --->   Operation 49 'load' 'pkt_v_value_2_079_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%pkt_v_value_1_078_loc_load = load i32 %pkt_v_value_1_078_loc"   --->   Operation 50 'load' 'pkt_v_value_1_078_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 51 [1/1] (0.00ns)   --->   "%pkt_v_value_0_077_loc_load = load i32 %pkt_v_value_0_077_loc"   --->   Operation 51 'load' 'pkt_v_value_0_077_loc_load' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 52 [1/1] (0.00ns)   --->   "%bitcast_ln96 = bitcast i32 %pkt_v_value_0_077_loc_load" [src/spmm_device_fpga.cpp:96]   --->   Operation 52 'bitcast' 'bitcast_ln96' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 53 [1/1] (0.00ns)   --->   "%bitcast_ln96_1 = bitcast i32 %pkt_v_value_1_078_loc_load" [src/spmm_device_fpga.cpp:96]   --->   Operation 53 'bitcast' 'bitcast_ln96_1' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 54 [1/1] (0.00ns)   --->   "%bitcast_ln96_2 = bitcast i32 %pkt_v_value_2_079_loc_load" [src/spmm_device_fpga.cpp:96]   --->   Operation 54 'bitcast' 'bitcast_ln96_2' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 55 [1/1] (0.00ns)   --->   "%bitcast_ln96_3 = bitcast i32 %pkt_v_value_3_080_loc_load" [src/spmm_device_fpga.cpp:96]   --->   Operation 55 'bitcast' 'bitcast_ln96_3' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 56 [1/1] (0.00ns)   --->   "%p_0 = bitconcatenate i388 @_ssdm_op_BitConcatenate.i388.i1.i1.i1.i1.i32.i32.i32.i32.i32.i32.i32.i32.i32.i32.i32.i32, i1 %pkt_ref_3_088_loc_load, i1 %pkt_ref_2_087_loc_load, i1 %pkt_ref_1_086_loc_load, i1 %pkt_ref_0_085_loc_load, i32 %pkt_v_y_3_084_loc_load, i32 0, i32 %bitcast_ln96_3, i32 %pkt_v_y_2_083_loc_load, i32 0, i32 %bitcast_ln96_2, i32 %pkt_v_y_1_082_loc_load, i32 0, i32 %bitcast_ln96_1, i32 %pkt_v_y_0_081_loc_load, i32 0, i32 %bitcast_ln96" [src/spmm_device_fpga.cpp:96]   --->   Operation 56 'bitconcatenate' 'p_0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 57 [1/1] (1.23ns)   --->   "%write_ln96 = write void @_ssdm_op_Write.ap_fifo.volatile.i388P0A, i388 %s_0, i388 %p_0" [src/spmm_device_fpga.cpp:96]   --->   Operation 57 'write' 'write_ln96' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
+ST_5 : Operation 58 [1/1] (1.23ns)   --->   "%write_ln96 = write void @_ssdm_op_Write.ap_fifo.volatile.i388P0A, i388 %s_1, i388 %p_0" [src/spmm_device_fpga.cpp:96]   --->   Operation 58 'write' 'write_ln96' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
+ST_5 : Operation 59 [1/1] (1.23ns)   --->   "%write_ln96 = write void @_ssdm_op_Write.ap_fifo.volatile.i388P0A, i388 %s_2, i388 %p_0" [src/spmm_device_fpga.cpp:96]   --->   Operation 59 'write' 'write_ln96' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
+ST_5 : Operation 60 [1/1] (1.23ns)   --->   "%write_ln96 = write void @_ssdm_op_Write.ap_fifo.volatile.i388P0A, i388 %s_3, i388 %p_0" [src/spmm_device_fpga.cpp:96]   --->   Operation 60 'write' 'write_ln96' <Predicate = true> <Delay = 1.23> <CoreInst = "FIFO">   --->   Core 78 'FIFO' <Latency = 0> <II = 1> <Delay = 1.23> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 388> <Depth = 16> <FIFO>
+ST_5 : Operation 61 [1/1] (0.00ns)   --->   "%ret_ln98 = ret" [src/spmm_device_fpga.cpp:98]   --->   Operation 61 'ret' 'ret_ln98' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -176,29 +155,20 @@ The critical path consists of the following:
 
  <State 2>: 0.887ns
 The critical path consists of the following:
-	'call' operation ('call_ln0') to 'set_tile_broadcast_Pipeline_init_seen' [28]  (0.887 ns)
+	'call' operation ('call_ln0') to 'set_tile_broadcast_Pipeline_init_seen' [37]  (0.887 ns)
 
  <State 3>: 2.13ns
 The critical path consists of the following:
 	wire read operation ('nnz_read') on port 'nnz' [11]  (0 ns)
-	'call' operation ('call_ln0') to 'set_tile_broadcast_Pipeline_copy_tile_loop' [33]  (2.13 ns)
+	'call' operation ('call_ln0') to 'set_tile_broadcast_Pipeline_copy_tile_loop' [42]  (2.13 ns)
 
  <State 4>: 0ns
 The critical path consists of the following:
 
- <State 5>: 0.699ns
+ <State 5>: 1.23ns
 The critical path consists of the following:
-	'getelementptr' operation ('pkt_v_value_addr') [34]  (0 ns)
-	'load' operation ('pkt_v_value_load') on array 'pkt.v.value', src/spmm_device_fpga.cpp:45 [35]  (0.699 ns)
-
- <State 6>: 0.699ns
-The critical path consists of the following:
-	'load' operation ('pkt_v_value_load') on array 'pkt.v.value', src/spmm_device_fpga.cpp:45 [35]  (0.699 ns)
-
- <State 7>: 1.93ns
-The critical path consists of the following:
-	'load' operation ('pkt_v_value_load_2') on array 'pkt.v.value', src/spmm_device_fpga.cpp:45 [43]  (0.699 ns)
-	fifo write operation ('write_ln96', src/spmm_device_fpga.cpp:96) on port 's_0' (src/spmm_device_fpga.cpp:96) [63]  (1.23 ns)
+	'load' operation ('pkt_ref_3_088_loc_load') on local variable 'pkt_ref_3_088_loc' [43]  (0 ns)
+	fifo write operation ('write_ln96', src/spmm_device_fpga.cpp:96) on port 's_0' (src/spmm_device_fpga.cpp:96) [60]  (1.23 ns)
 
 
 ============================================================
@@ -214,8 +184,6 @@ N/A
 	State 3
 	State 4
 	State 5
-	State 6
-	State 7
 
 
 ============================================================
