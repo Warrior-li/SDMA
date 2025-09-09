@@ -9,7 +9,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity spmm_hls_control_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 8;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 6;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     ACLK                  :in   STD_LOGIC;
@@ -33,18 +33,10 @@ port (
     RVALID                :out  STD_LOGIC;
     RREADY                :in   STD_LOGIC;
     interrupt             :out  STD_LOGIC;
-    N                     :out  STD_LOGIC_VECTOR(31 downto 0);
+    A                     :out  STD_LOGIC_VECTOR(63 downto 0);
+    nnz                   :out  STD_LOGIC_VECTOR(31 downto 0);
     M                     :out  STD_LOGIC_VECTOR(31 downto 0);
     K                     :out  STD_LOGIC_VECTOR(31 downto 0);
-    nnz                   :out  STD_LOGIC_VECTOR(31 downto 0);
-    row_ptr               :out  STD_LOGIC_VECTOR(63 downto 0);
-    col_idx               :out  STD_LOGIC_VECTOR(63 downto 0);
-    a_val                 :out  STD_LOGIC_VECTOR(63 downto 0);
-    B1                    :out  STD_LOGIC_VECTOR(63 downto 0);
-    B2                    :out  STD_LOGIC_VECTOR(63 downto 0);
-    B3                    :out  STD_LOGIC_VECTOR(63 downto 0);
-    B4                    :out  STD_LOGIC_VECTOR(63 downto 0);
-    C                     :out  STD_LOGIC_VECTOR(63 downto 0);
     ap_start              :out  STD_LOGIC;
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
@@ -72,58 +64,20 @@ end entity spmm_hls_control_s_axi;
 --        bit 0 - ap_done (Read/TOW)
 --        bit 1 - ap_ready (Read/TOW)
 --        others - reserved
--- 0x10 : Data signal of N
---        bit 31~0 - N[31:0] (Read/Write)
--- 0x14 : reserved
--- 0x18 : Data signal of M
---        bit 31~0 - M[31:0] (Read/Write)
--- 0x1c : reserved
--- 0x20 : Data signal of K
---        bit 31~0 - K[31:0] (Read/Write)
--- 0x24 : reserved
--- 0x28 : Data signal of nnz
+-- 0x10 : Data signal of A
+--        bit 31~0 - A[31:0] (Read/Write)
+-- 0x14 : Data signal of A
+--        bit 31~0 - A[63:32] (Read/Write)
+-- 0x18 : reserved
+-- 0x1c : Data signal of nnz
 --        bit 31~0 - nnz[31:0] (Read/Write)
--- 0x2c : reserved
--- 0x30 : Data signal of row_ptr
---        bit 31~0 - row_ptr[31:0] (Read/Write)
--- 0x34 : Data signal of row_ptr
---        bit 31~0 - row_ptr[63:32] (Read/Write)
--- 0x38 : reserved
--- 0x3c : Data signal of col_idx
---        bit 31~0 - col_idx[31:0] (Read/Write)
--- 0x40 : Data signal of col_idx
---        bit 31~0 - col_idx[63:32] (Read/Write)
--- 0x44 : reserved
--- 0x48 : Data signal of a_val
---        bit 31~0 - a_val[31:0] (Read/Write)
--- 0x4c : Data signal of a_val
---        bit 31~0 - a_val[63:32] (Read/Write)
--- 0x50 : reserved
--- 0x54 : Data signal of B1
---        bit 31~0 - B1[31:0] (Read/Write)
--- 0x58 : Data signal of B1
---        bit 31~0 - B1[63:32] (Read/Write)
--- 0x5c : reserved
--- 0x60 : Data signal of B2
---        bit 31~0 - B2[31:0] (Read/Write)
--- 0x64 : Data signal of B2
---        bit 31~0 - B2[63:32] (Read/Write)
--- 0x68 : reserved
--- 0x6c : Data signal of B3
---        bit 31~0 - B3[31:0] (Read/Write)
--- 0x70 : Data signal of B3
---        bit 31~0 - B3[63:32] (Read/Write)
--- 0x74 : reserved
--- 0x78 : Data signal of B4
---        bit 31~0 - B4[31:0] (Read/Write)
--- 0x7c : Data signal of B4
---        bit 31~0 - B4[63:32] (Read/Write)
--- 0x80 : reserved
--- 0x84 : Data signal of C
---        bit 31~0 - C[31:0] (Read/Write)
--- 0x88 : Data signal of C
---        bit 31~0 - C[63:32] (Read/Write)
--- 0x8c : reserved
+-- 0x20 : reserved
+-- 0x24 : Data signal of M
+--        bit 31~0 - M[31:0] (Read/Write)
+-- 0x28 : reserved
+-- 0x2c : Data signal of K
+--        bit 31~0 - K[31:0] (Read/Write)
+-- 0x30 : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of spmm_hls_control_s_axi is
@@ -131,43 +85,20 @@ architecture behave of spmm_hls_control_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL        : INTEGER := 16#00#;
-    constant ADDR_GIE            : INTEGER := 16#04#;
-    constant ADDR_IER            : INTEGER := 16#08#;
-    constant ADDR_ISR            : INTEGER := 16#0c#;
-    constant ADDR_N_DATA_0       : INTEGER := 16#10#;
-    constant ADDR_N_CTRL         : INTEGER := 16#14#;
-    constant ADDR_M_DATA_0       : INTEGER := 16#18#;
-    constant ADDR_M_CTRL         : INTEGER := 16#1c#;
-    constant ADDR_K_DATA_0       : INTEGER := 16#20#;
-    constant ADDR_K_CTRL         : INTEGER := 16#24#;
-    constant ADDR_NNZ_DATA_0     : INTEGER := 16#28#;
-    constant ADDR_NNZ_CTRL       : INTEGER := 16#2c#;
-    constant ADDR_ROW_PTR_DATA_0 : INTEGER := 16#30#;
-    constant ADDR_ROW_PTR_DATA_1 : INTEGER := 16#34#;
-    constant ADDR_ROW_PTR_CTRL   : INTEGER := 16#38#;
-    constant ADDR_COL_IDX_DATA_0 : INTEGER := 16#3c#;
-    constant ADDR_COL_IDX_DATA_1 : INTEGER := 16#40#;
-    constant ADDR_COL_IDX_CTRL   : INTEGER := 16#44#;
-    constant ADDR_A_VAL_DATA_0   : INTEGER := 16#48#;
-    constant ADDR_A_VAL_DATA_1   : INTEGER := 16#4c#;
-    constant ADDR_A_VAL_CTRL     : INTEGER := 16#50#;
-    constant ADDR_B1_DATA_0      : INTEGER := 16#54#;
-    constant ADDR_B1_DATA_1      : INTEGER := 16#58#;
-    constant ADDR_B1_CTRL        : INTEGER := 16#5c#;
-    constant ADDR_B2_DATA_0      : INTEGER := 16#60#;
-    constant ADDR_B2_DATA_1      : INTEGER := 16#64#;
-    constant ADDR_B2_CTRL        : INTEGER := 16#68#;
-    constant ADDR_B3_DATA_0      : INTEGER := 16#6c#;
-    constant ADDR_B3_DATA_1      : INTEGER := 16#70#;
-    constant ADDR_B3_CTRL        : INTEGER := 16#74#;
-    constant ADDR_B4_DATA_0      : INTEGER := 16#78#;
-    constant ADDR_B4_DATA_1      : INTEGER := 16#7c#;
-    constant ADDR_B4_CTRL        : INTEGER := 16#80#;
-    constant ADDR_C_DATA_0       : INTEGER := 16#84#;
-    constant ADDR_C_DATA_1       : INTEGER := 16#88#;
-    constant ADDR_C_CTRL         : INTEGER := 16#8c#;
-    constant ADDR_BITS         : INTEGER := 8;
+    constant ADDR_AP_CTRL    : INTEGER := 16#00#;
+    constant ADDR_GIE        : INTEGER := 16#04#;
+    constant ADDR_IER        : INTEGER := 16#08#;
+    constant ADDR_ISR        : INTEGER := 16#0c#;
+    constant ADDR_A_DATA_0   : INTEGER := 16#10#;
+    constant ADDR_A_DATA_1   : INTEGER := 16#14#;
+    constant ADDR_A_CTRL     : INTEGER := 16#18#;
+    constant ADDR_NNZ_DATA_0 : INTEGER := 16#1c#;
+    constant ADDR_NNZ_CTRL   : INTEGER := 16#20#;
+    constant ADDR_M_DATA_0   : INTEGER := 16#24#;
+    constant ADDR_M_CTRL     : INTEGER := 16#28#;
+    constant ADDR_K_DATA_0   : INTEGER := 16#2c#;
+    constant ADDR_K_CTRL     : INTEGER := 16#30#;
+    constant ADDR_BITS         : INTEGER := 6;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(C_S_AXI_DATA_WIDTH-1 downto 0);
@@ -195,18 +126,10 @@ architecture behave of spmm_hls_control_s_axi is
     signal int_gie             : STD_LOGIC := '0';
     signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
-    signal int_N               : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_A               : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_nnz             : UNSIGNED(31 downto 0) := (others => '0');
     signal int_M               : UNSIGNED(31 downto 0) := (others => '0');
     signal int_K               : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_nnz             : UNSIGNED(31 downto 0) := (others => '0');
-    signal int_row_ptr         : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_col_idx         : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_a_val           : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_B1              : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_B2              : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_B3              : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_B4              : UNSIGNED(63 downto 0) := (others => '0');
-    signal int_C               : UNSIGNED(63 downto 0) := (others => '0');
 
 
 begin
@@ -335,46 +258,16 @@ begin
                         rdata_data(1 downto 0) <= int_ier;
                     when ADDR_ISR =>
                         rdata_data(1 downto 0) <= int_isr;
-                    when ADDR_N_DATA_0 =>
-                        rdata_data <= RESIZE(int_N(31 downto 0), 32);
+                    when ADDR_A_DATA_0 =>
+                        rdata_data <= RESIZE(int_A(31 downto 0), 32);
+                    when ADDR_A_DATA_1 =>
+                        rdata_data <= RESIZE(int_A(63 downto 32), 32);
+                    when ADDR_NNZ_DATA_0 =>
+                        rdata_data <= RESIZE(int_nnz(31 downto 0), 32);
                     when ADDR_M_DATA_0 =>
                         rdata_data <= RESIZE(int_M(31 downto 0), 32);
                     when ADDR_K_DATA_0 =>
                         rdata_data <= RESIZE(int_K(31 downto 0), 32);
-                    when ADDR_NNZ_DATA_0 =>
-                        rdata_data <= RESIZE(int_nnz(31 downto 0), 32);
-                    when ADDR_ROW_PTR_DATA_0 =>
-                        rdata_data <= RESIZE(int_row_ptr(31 downto 0), 32);
-                    when ADDR_ROW_PTR_DATA_1 =>
-                        rdata_data <= RESIZE(int_row_ptr(63 downto 32), 32);
-                    when ADDR_COL_IDX_DATA_0 =>
-                        rdata_data <= RESIZE(int_col_idx(31 downto 0), 32);
-                    when ADDR_COL_IDX_DATA_1 =>
-                        rdata_data <= RESIZE(int_col_idx(63 downto 32), 32);
-                    when ADDR_A_VAL_DATA_0 =>
-                        rdata_data <= RESIZE(int_a_val(31 downto 0), 32);
-                    when ADDR_A_VAL_DATA_1 =>
-                        rdata_data <= RESIZE(int_a_val(63 downto 32), 32);
-                    when ADDR_B1_DATA_0 =>
-                        rdata_data <= RESIZE(int_B1(31 downto 0), 32);
-                    when ADDR_B1_DATA_1 =>
-                        rdata_data <= RESIZE(int_B1(63 downto 32), 32);
-                    when ADDR_B2_DATA_0 =>
-                        rdata_data <= RESIZE(int_B2(31 downto 0), 32);
-                    when ADDR_B2_DATA_1 =>
-                        rdata_data <= RESIZE(int_B2(63 downto 32), 32);
-                    when ADDR_B3_DATA_0 =>
-                        rdata_data <= RESIZE(int_B3(31 downto 0), 32);
-                    when ADDR_B3_DATA_1 =>
-                        rdata_data <= RESIZE(int_B3(63 downto 32), 32);
-                    when ADDR_B4_DATA_0 =>
-                        rdata_data <= RESIZE(int_B4(31 downto 0), 32);
-                    when ADDR_B4_DATA_1 =>
-                        rdata_data <= RESIZE(int_B4(63 downto 32), 32);
-                    when ADDR_C_DATA_0 =>
-                        rdata_data <= RESIZE(int_C(31 downto 0), 32);
-                    when ADDR_C_DATA_1 =>
-                        rdata_data <= RESIZE(int_C(63 downto 32), 32);
                     when others =>
                         NULL;
                     end case;
@@ -389,18 +282,10 @@ begin
     task_ap_done         <= (ap_done and not auto_restart_status) or auto_restart_done;
     task_ap_ready        <= ap_ready and not int_auto_restart;
     auto_restart_done    <= auto_restart_status and (ap_idle and not int_ap_idle);
-    N                    <= STD_LOGIC_VECTOR(int_N);
+    A                    <= STD_LOGIC_VECTOR(int_A);
+    nnz                  <= STD_LOGIC_VECTOR(int_nnz);
     M                    <= STD_LOGIC_VECTOR(int_M);
     K                    <= STD_LOGIC_VECTOR(int_K);
-    nnz                  <= STD_LOGIC_VECTOR(int_nnz);
-    row_ptr              <= STD_LOGIC_VECTOR(int_row_ptr);
-    col_idx              <= STD_LOGIC_VECTOR(int_col_idx);
-    a_val                <= STD_LOGIC_VECTOR(int_a_val);
-    B1                   <= STD_LOGIC_VECTOR(int_B1);
-    B2                   <= STD_LOGIC_VECTOR(int_B2);
-    B3                   <= STD_LOGIC_VECTOR(int_B3);
-    B4                   <= STD_LOGIC_VECTOR(int_B4);
-    C                    <= STD_LOGIC_VECTOR(int_C);
 
     process (ACLK)
     begin
@@ -576,8 +461,30 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_N_DATA_0) then
-                    int_N(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_N(31 downto 0));
+                if (w_hs = '1' and waddr = ADDR_A_DATA_0) then
+                    int_A(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_A(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_A_DATA_1) then
+                    int_A(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_A(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_NNZ_DATA_0) then
+                    int_nnz(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_nnz(31 downto 0));
                 end if;
             end if;
         end if;
@@ -600,193 +507,6 @@ begin
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_K_DATA_0) then
                     int_K(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_K(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_NNZ_DATA_0) then
-                    int_nnz(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_nnz(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_ROW_PTR_DATA_0) then
-                    int_row_ptr(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_row_ptr(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_ROW_PTR_DATA_1) then
-                    int_row_ptr(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_row_ptr(63 downto 32));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_COL_IDX_DATA_0) then
-                    int_col_idx(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_col_idx(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_COL_IDX_DATA_1) then
-                    int_col_idx(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_col_idx(63 downto 32));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_A_VAL_DATA_0) then
-                    int_a_val(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_a_val(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_A_VAL_DATA_1) then
-                    int_a_val(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_a_val(63 downto 32));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_B1_DATA_0) then
-                    int_B1(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_B1(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_B1_DATA_1) then
-                    int_B1(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_B1(63 downto 32));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_B2_DATA_0) then
-                    int_B2(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_B2(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_B2_DATA_1) then
-                    int_B2(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_B2(63 downto 32));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_B3_DATA_0) then
-                    int_B3(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_B3(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_B3_DATA_1) then
-                    int_B3(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_B3(63 downto 32));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_B4_DATA_0) then
-                    int_B4(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_B4(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_B4_DATA_1) then
-                    int_B4(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_B4(63 downto 32));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_C_DATA_0) then
-                    int_C(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_C(31 downto 0));
-                end if;
-            end if;
-        end if;
-    end process;
-
-    process (ACLK)
-    begin
-        if (ACLK'event and ACLK = '1') then
-            if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_C_DATA_1) then
-                    int_C(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_C(63 downto 32));
                 end if;
             end if;
         end if;

@@ -1,690 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Messages>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.02 seconds. Elapsed time: 10.04 seconds; current allocated memory: 732.820 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0.02 seconds. Elapsed time: 10.04 seconds; current allocated memory: 735.781 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1312" tag="" content="Analyzing design file &apos;src/spmm_device_fpga.cpp&apos; ..." resolution=""/>
-	<Message severity="WARNING" prefix="[HLS 207-5554]" key="HLS 207-5554" tag="" content="unexpected pragma parameter &apos;on&apos; (src/spmm_device_fpga.cpp:155:20)" resolution=""/>
-	<Message severity="WARNING" prefix="[HLS 207-5554]" key="HLS 207-5554" tag="" content="unexpected pragma parameter &apos;on&apos; (src/spmm_device_fpga.cpp:173:20)" resolution=""/>
-	<Message severity="WARNING" prefix="[HLS 207-5558]" key="HLS 207-5558" tag="" content="Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:265:9)" resolution=""/>
-	<Message severity="WARNING" prefix="[HLS 207-5558]" key="HLS 207-5558" tag="" content="Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:322:9)" resolution=""/>
-	<Message severity="WARNING" prefix="[HLS 214-104]" key="HLS 214-104" tag="DATAFLOW,VITIS_THROUGHPUT" content="Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:265:9)" resolution="http://www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-104.html"/>
-	<Message severity="WARNING" prefix="[HLS 214-104]" key="HLS 214-104" tag="DATAFLOW,VITIS_THROUGHPUT" content="Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:322:9)" resolution="http://www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-104.html"/>
-	<Message severity="WARNING" prefix="[HLS 200-471]" key="HLS 200-471" tag="DATAFLOW,VITIS_THROUGHPUT" content="Dataflow form checks found 2 issue(s) in file src/spmm_device_fpga.cpp" resolution="http://www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-471.html"/>
-	<Message severity="WARNING" prefix="[HLS 207-5292]" key="HLS 207-5292" tag="" content="unused parameter &apos;row_ptr&apos; (src/spmm_device_fpga.cpp:27:20)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Source Code Analysis and Preprocessing: CPU user time: 3.84 seconds. CPU system time: 0.63 seconds. Elapsed time: 4.49 seconds; current allocated memory: 733.289 MB." resolution=""/>
+	<Message severity="WARNING" prefix="[HLS 207-5558]" key="HLS 207-5558" tag="" content="Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:79:9)" resolution=""/>
+	<Message severity="WARNING" prefix="[HLS 214-104]" key="HLS 214-104" tag="DATAFLOW,VITIS_THROUGHPUT" content="Only for-loops and functions support the dataflow (src/spmm_device_fpga.cpp:79:9)" resolution="http://www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=214-104.html"/>
+	<Message severity="WARNING" prefix="[HLS 200-471]" key="HLS 200-471" tag="DATAFLOW,VITIS_THROUGHPUT" content="Dataflow form checks found 1 issue(s) in file src/spmm_device_fpga.cpp" resolution="http://www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-471.html"/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Source Code Analysis and Preprocessing: CPU user time: 3.62 seconds. CPU system time: 0.58 seconds. Elapsed time: 4.21 seconds; current allocated memory: 735.781 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-777]" key="HLS 200-777" tag="" content="Using interface defaults for &apos;Vivado&apos; flow target." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-291]" key="HLS 214-291" tag="" content="Loop &apos;VITIS_LOOP_121_3&apos; is marked as complete unroll implied by the pipeline pragma (src/spmm_device_fpga.cpp:121:31)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-291]" key="HLS 214-291" tag="" content="Loop &apos;VITIS_LOOP_114_2&apos; is marked as complete unroll implied by the pipeline pragma (src/spmm_device_fpga.cpp:114:31)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-291]" key="HLS 214-291" tag="" content="Loop &apos;compare_all&apos; is marked as complete unroll implied by the pipeline pragma (src/spmm_device_fpga.cpp:69:13)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-186]" key="HLS 214-186" tag="" content="Unrolling loop &apos;VITIS_LOOP_94_1&apos; (src/spmm_device_fpga.cpp:94:22) in function &apos;set_tile_broadcast&apos; completely with a factor of 4 (src/spmm_device_fpga.cpp:33:0)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-186]" key="HLS 214-186" tag="" content="Unrolling loop &apos;compare_all&apos; (src/spmm_device_fpga.cpp:69:13) in function &apos;set_tile_broadcast&apos; completely with a factor of 4 (src/spmm_device_fpga.cpp:33:0)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-178]" key="HLS 214-178" tag="" content="Inlining function &apos;merge_into_one_AU(unsigned int, hls::stream&lt;float, 0&gt;&amp;, hls::stream&lt;float, 0&gt;&amp;, float*, int&amp;, int)&apos; into &apos;au_merge(hls::stream&lt;float, 0&gt;&amp;, hls::stream&lt;float, 0&gt;&amp;, unsigned int, unsigned int, float*, float*, int&amp;, int&amp;, int)&apos; (src/spmm_device_fpga.cpp:192:0)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-178]" key="HLS 214-178" tag="" content="Inlining function &apos;split_into_two_AU(hls::stream&lt;float, 0&gt;&amp;, hls::stream&lt;float, 0&gt;&amp;, unsigned int, unsigned int, float*, float*, int&amp;, int&amp;, int)&apos; into &apos;au_merge(hls::stream&lt;float, 0&gt;&amp;, hls::stream&lt;float, 0&gt;&amp;, unsigned int, unsigned int, float*, float*, int&amp;, int&amp;, int)&apos; (src/spmm_device_fpga.cpp:192:0)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-248]" key="HLS 214-248" tag="" content="Applying array_partition to &apos;seen_y&apos;: Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:38:10)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-248]" key="HLS 214-248" tag="" content="Applying array_partition to &apos;seen_v&apos;: Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:39:10)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-248]" key="HLS 214-248" tag="" content="Applying array_partition to &apos;s&apos;: Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:316:23)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-241]" key="HLS 214-241" tag="" content="Aggregating fifo (hls::stream) variable &apos;s_0&apos; with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-241]" key="HLS 214-241" tag="" content="Aggregating fifo (hls::stream) variable &apos;s_1&apos; with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-241]" key="HLS 214-241" tag="" content="Aggregating fifo (hls::stream) variable &apos;s_2&apos; with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-241]" key="HLS 214-241" tag="" content="Aggregating fifo (hls::stream) variable &apos;s_3&apos; with compact=bit mode in 388-bits (src/spmm_device_fpga.cpp:316:23)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 214-115]" key="HLS 214-115" tag="VITIS_INTERFACE" content="Multiple burst reads of variable length and bit width 32 in loop &apos;VITIS_LOOP_114_2&apos;(src/spmm_device_fpga.cpp:114:31) has been inferred on bundle &apos;gmem3&apos;. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (src/spmm_device_fpga.cpp:114:31)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Compiling Optimization and Transform: CPU user time: 4.32 seconds. CPU system time: 0.74 seconds. Elapsed time: 5.08 seconds; current allocated memory: 733.762 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 733.762 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 214-131]" key="HLS 214-131" tag="" content="Inlining function &apos;load_stream_to_buffer(hls::stream&lt;ap_uint&lt;64&gt;, 0&gt;&amp;, PCOO*)&apos; into &apos;spmm_hls&apos; (src/spmm_device_fpga.cpp:83:13)" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 214-178]" key="HLS 214-178" tag="" content="Inlining function &apos;unpack_pcoo(ap_uint&lt;64&gt;)&apos; into &apos;spmm_hls&apos; (src/spmm_device_fpga.cpp:44:0)" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 214-248]" key="HLS 214-248" tag="" content="Applying array_partition to &apos;buf0&apos;: Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:57:7)" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 214-248]" key="HLS 214-248" tag="" content="Applying array_partition to &apos;buf1&apos;: Complete partitioning on dimension 1. (src/spmm_device_fpga.cpp:58:10)" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 214-115]" key="HLS 214-115" tag="VITIS_INTERFACE" content="Multiple burst reads of variable length and bit width 64 in loop &apos;VITIS_LOOP_18_1&apos;(src/spmm_device_fpga.cpp:18:19) has been inferred on bundle &apos;gmem0&apos;. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (src/spmm_device_fpga.cpp:18:19)" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Compiling Optimization and Transform: CPU user time: 3.75 seconds. CPU system time: 0.57 seconds. Elapsed time: 4.34 seconds; current allocated memory: 736.180 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0 seconds. Elapsed time: 0 seconds; current allocated memory: 736.180 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1467" tag="" content="Starting code transformations ..." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Standard Transforms: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 735.027 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Standard Transforms: CPU user time: 0.05 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 743.492 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1472" tag="" content="Checking synthesizability ..." resolution=""/>
-	<Message severity="WARNING" prefix="[SYNCHK 200-77]" key="SYNCHK_RETURN_NULL_370" tag="" content="The top function &apos;spmm_hls&apos; (src/spmm_device_fpga.cpp:275) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops." resolution=""/>
+	<Message severity="WARNING" prefix="[SYNCHK 200-77]" key="SYNCHK_RETURN_NULL_370" tag="" content="The top function &apos;load_stream_to_buffer&apos; (src/spmm_device_fpga.cpp:24) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops." resolution=""/>
 	<Message severity="INFO" prefix="[SYNCHK 200-10]" key="SYNCHK_SYNCHK_SUMMARY_377" tag="" content="0 error(s), 1 warning(s)." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Checking Synthesizability: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 735.801 MB." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-510]" key="XFORM_AUTO_PIPELINE_STATUS_244" tag="" content="Pipelining loop &apos;VITIS_LOOP_157_1&apos; (src/spmm_device_fpga.cpp:157) in function &apos;au_merge&apos; automatically." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-510]" key="XFORM_AUTO_PIPELINE_STATUS_244" tag="" content="Pipelining loop &apos;VITIS_LOOP_176_1&apos; (src/spmm_device_fpga.cpp:176) in function &apos;au_merge&apos; automatically." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-510]" key="XFORM_AUTO_PIPELINE_STATUS_244" tag="" content="Pipelining loop &apos;VITIS_LOOP_176_1&apos; (src/spmm_device_fpga.cpp:176) in function &apos;au_merge&apos; automatically." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-510]" key="XFORM_AUTO_PIPELINE_STATUS_244" tag="" content="Pipelining loop &apos;VITIS_LOOP_157_1&apos; (src/spmm_device_fpga.cpp:157) in function &apos;au_merge&apos; automatically." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-510]" key="XFORM_AUTO_PIPELINE_STATUS_244" tag="" content="Pipelining loop &apos;VITIS_LOOP_176_1&apos; (src/spmm_device_fpga.cpp:176) in function &apos;au_merge&apos; automatically." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-502]" key="XFORM_AUTO_UNROLL_STATUS_246" tag="" content="Unrolling all sub-loops inside loop &apos;VITIS_LOOP_111_1&apos; (src/spmm_device_fpga.cpp:111) in function &apos;dfm&apos; for pipelining." resolution=""/>
-	<Message severity="WARNING" prefix="[HLS 200-936]" key="HLS 200-936" tag="LOOP,VITIS_LATENCY" content="Cannot unroll loop &apos;VITIS_LOOP_114_2&apos; (src/spmm_device_fpga.cpp:114) in function &apos;dfm&apos;: cannot completely unroll a loop with a variable trip count." resolution="http://www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html"/>
-	<Message severity="WARNING" prefix="[HLS 200-936]" key="HLS 200-936" tag="LOOP,VITIS_LATENCY" content="Cannot unroll loop &apos;VITIS_LOOP_121_3&apos; (src/spmm_device_fpga.cpp:121) in function &apos;dfm&apos;: cannot completely unroll a loop with a variable trip count." resolution="http://www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-936.html"/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;pkt.v.value&apos; (src/spmm_device_fpga.cpp:45) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;pkt.v.y&apos; (src/spmm_device_fpga.cpp:45) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;pkt.ref&apos; (src/spmm_device_fpga.cpp:45) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;tile.value&apos; (src/spmm_device_fpga.cpp:234) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;tile.y&apos; (src/spmm_device_fpga.cpp:234) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;tile_ref&apos; (src/spmm_device_fpga.cpp:235) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;tile_to_dbuf_begin&apos; (src/spmm_device_fpga.cpp:236) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;p.v.value&apos; (src/spmm_device_fpga.cpp:238) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;p.v.y&apos; (src/spmm_device_fpga.cpp:238) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-102]" key="XFORM_AUTO_PARTITION_STATUS_115" tag="" content="Automatically partitioning small array &apos;p.ref&apos; (src/spmm_device_fpga.cpp:238) completely based on array size." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;pkt.v.value&apos; (src/spmm_device_fpga.cpp:45) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;pkt.v.y&apos; (src/spmm_device_fpga.cpp:45) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;pkt.ref&apos; (src/spmm_device_fpga.cpp:45) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;tile.value&apos; (src/spmm_device_fpga.cpp:234) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;tile.y&apos; (src/spmm_device_fpga.cpp:234) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;tile_ref&apos; (src/spmm_device_fpga.cpp:235) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;tile_to_dbuf_begin&apos; (src/spmm_device_fpga.cpp:236) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;p.v.value&apos; (src/spmm_device_fpga.cpp:238) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;p.v.y&apos; (src/spmm_device_fpga.cpp:238) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-101]" key="XFORM_PARTITION_STATUS_116" tag="" content="Partitioning array &apos;p.ref&apos; (src/spmm_device_fpga.cpp:238) in dimension 1 completely." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (src/spmm_device_fpga.cpp:91:20) to (src/spmm_device_fpga.cpp:57:5) in function &apos;set_tile_broadcast&apos;... converting 13 basic blocks." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-401]" key="XFORM_IFCONV_STATUS_239" tag="" content="Performing if-conversion on hyperblock from (src/spmm_device_fpga.cpp:82:30) to (src/spmm_device_fpga.cpp:85:13) in function &apos;set_tile_broadcast&apos;... converting 5 basic blocks." resolution=""/>
-	<Message severity="INFO" prefix="[XFORM 203-11]" key="XFORM_EXPR_BALANCE_STATUS_178" tag="" content="Balancing expressions in function &apos;set_tile_broadcast&apos; (src/spmm_device_fpga.cpp:38:13)...3 expression(s) balanced." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Loop, function and other optimizations: CPU user time: 0.33 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.34 seconds; current allocated memory: 759.543 MB." resolution=""/>
-	<Message severity="WARNING" prefix="[HLS 200-960]" key="HLS 200-960" tag="LOOP,VITIS_LATENCY" content="Cannot flatten loop &apos;VITIS_LOOP_111_1&apos; (src/spmm_device_fpga.cpp:111:28) in function &apos;dfm&apos; more than one sub loop." resolution="http://www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=200-960.html"/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;AU0&apos; (src/spmm_device_fpga.cpp:258:9)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;AU1&apos; (src/spmm_device_fpga.cpp:259:16)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;Dbuf&apos; (src/spmm_device_fpga.cpp:116:17)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;AU0&apos; (src/spmm_device_fpga.cpp:158:15)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;AU0&apos; (src/spmm_device_fpga.cpp:177:16)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-472]" key="HLS 200-472" tag="" content="Inferring partial write operation for &apos;AU1&apos; (src/spmm_device_fpga.cpp:178:16)" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Architecture Synthesis: CPU user time: 0.19 seconds. CPU system time: 0.06 seconds. Elapsed time: 0.25 seconds; current allocated memory: 897.723 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Checking Synthesizability: CPU user time: 0.11 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.13 seconds; current allocated memory: 753.414 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Loop, function and other optimizations: CPU user time: 0.16 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.19 seconds; current allocated memory: 785.352 MB." resolution=""/>
+	<Message severity="INFO" prefix="[XFORM 203-541]" key="XFORM_LOOPFLAT_STATUS_218" tag="" content="Flattening a loop nest &apos;VITIS_LOOP_81_1&apos; (src/spmm_device_fpga.cpp:81:34) in function &apos;spmm_hls&apos;." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Architecture Synthesis: CPU user time: 0.11 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1317" tag="" content="Starting hardware synthesis ..." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1385" tag="" content="Synthesizing &apos;spmm_hls&apos; ..." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;set_tile_broadcast_Pipeline_init_seen&apos;" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;load_A_Pipeline_VITIS_LOOP_18_1&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;init_seen&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop &apos;init_seen&apos;" resolution=""/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;VITIS_LOOP_18_1&apos;." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop &apos;VITIS_LOOP_18_1&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.05 seconds. Elapsed time: 0.1 seconds; current allocated memory: 899.555 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0.03 seconds. Elapsed time: 0.08 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 899.555 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;set_tile_broadcast_Pipeline_copy_tile_loop&apos;" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;load_A&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;copy_tile_loop&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = 1, Final II = 1, Depth = 10, loop &apos;copy_tile_loop&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.14 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.14 seconds; current allocated memory: 901.480 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.14 seconds; current allocated memory: 901.480 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;set_tile_broadcast&apos;" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;spmm_hls_Pipeline_VITIS_LOOP_81_1_VITIS_LOOP_29_1&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
+	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;VITIS_LOOP_81_1_VITIS_LOOP_29_1&apos;." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop &apos;VITIS_LOOP_81_1_VITIS_LOOP_29_1&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.21 seconds. CPU system time: 0 seconds. Elapsed time: 0.21 seconds; current allocated memory: 901.480 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 901.480 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;pu_kernel_Pipeline_pu_save_stream_into_pu&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;pu_save_stream_into_pu&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop &apos;pu_save_stream_into_pu&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 902.043 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 902.043 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;dfm_Pipeline_VITIS_LOOP_114_2&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="WARNING" prefix="[SCHED 204-65]" key="SCHED_PIPELINE_REPORT_FAILURE_1080" tag="SCHEDULE" content="Unable to satisfy pipeline directive for function &apos;dfm_Pipeline_VITIS_LOOP_114_2&apos;: contains subloop(s) that are not unrolled." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;VITIS_LOOP_114_2&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = 1, Final II = 1, Depth = 3, loop &apos;VITIS_LOOP_114_2&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 902.375 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 902.375 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;dfm&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="WARNING" prefix="[SCHED 204-65]" key="SCHED_PIPELINE_REPORT_FAILURE_1080" tag="SCHEDULE" content="Unable to satisfy pipeline directive for loop &apos;VITIS_LOOP_111_1&apos;: contains subloop(s) that are not unrolled or flattened." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 903.453 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 903.453 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;pu_kernel_Pipeline_init_au&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;init_au&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = 1, Final II = 1, Depth = 1, loop &apos;init_au&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.08 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.09 seconds; current allocated memory: 903.453 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 903.453 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;pu_comp&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;VITIS_LOOP_136_1&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = 1, Final II = 1, Depth = 7, loop &apos;VITIS_LOOP_136_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.06 seconds; current allocated memory: 903.730 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 903.730 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;au_merge_Pipeline_VITIS_LOOP_176_13&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;VITIS_LOOP_176_1&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop &apos;VITIS_LOOP_176_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 904.070 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 904.070 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;au_merge_Pipeline_VITIS_LOOP_157_12&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;VITIS_LOOP_157_1&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = NA, Final II = 1, Depth = 17, loop &apos;VITIS_LOOP_157_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 904.445 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.12 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 904.445 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;au_merge_Pipeline_VITIS_LOOP_176_11&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;VITIS_LOOP_176_1&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop &apos;VITIS_LOOP_176_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 904.852 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 904.852 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;au_merge_Pipeline_VITIS_LOOP_176_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;VITIS_LOOP_176_1&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = NA, Final II = 1, Depth = 10, loop &apos;VITIS_LOOP_176_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.12 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.12 seconds; current allocated memory: 905.250 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 905.250 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;au_merge_Pipeline_VITIS_LOOP_157_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-61]" key="SCHED_PIPELINING_STATUS_41" tag="" content="Pipelining loop &apos;VITIS_LOOP_157_1&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1470]" key="HLS 200-1470" tag="SCHEDULE,VITIS_THROUGHPUT" content="Pipelining result : Target II = NA, Final II = 1, Depth = 17, loop &apos;VITIS_LOOP_157_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 905.719 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 905.719 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;au_merge&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.09 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 906.000 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.07 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 906.000 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;pu_kernel&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
-	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.17 seconds. CPU system time: 0 seconds. Elapsed time: 0.18 seconds; current allocated memory: 906.402 MB." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
-	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 906.402 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1477" tag="" content="----------------------------------------------------------------" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-42]" key="HLS_42_1438" tag="" content="-- Implementing module &apos;spmm_hls&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1478" tag="" content="----------------------------------------------------------------" resolution=""/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_597" tag="" content="Starting scheduling ..." resolution=""/>
 	<Message severity="INFO" prefix="[SCHED 204-11]" key="SCHED_SCHED_STATUS_596" tag="" content="Finished scheduling." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.27 seconds. CPU system time: 0 seconds. Elapsed time: 0.27 seconds; current allocated memory: 907.113 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.05 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_926" tag="" content="Starting micro-architecture generation ..." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_698" tag="" content="Performing variable lifetime analysis." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_697" tag="" content="Exploring resource sharing." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-101]" key="BIND_101_693" tag="" content="Binding ..." resolution=""/>
 	<Message severity="INFO" prefix="[BIND 205-100]" key="BIND_100_925" tag="" content="Finished micro-architecture generation." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.4 seconds. CPU system time: 0 seconds. Elapsed time: 0.4 seconds; current allocated memory: 907.113 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Binding: CPU user time: 0.05 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;set_tile_broadcast_Pipeline_init_seen&apos;" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;load_A_Pipeline_VITIS_LOOP_18_1&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;set_tile_broadcast_Pipeline_init_seen&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 1.06 seconds. CPU system time: 0 seconds. Elapsed time: 1.06 seconds; current allocated memory: 907.180 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;load_A_Pipeline_VITIS_LOOP_18_1&apos; pipeline &apos;VITIS_LOOP_18_1&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARVALID&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARADDR&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARID&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARLEN&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARSIZE&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARBURST&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARLOCK&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARCACHE&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARPROT&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARQOS&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARREGION&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;load_A_Pipeline_VITIS_LOOP_18_1/m_axi_gmem0_ARUSER&apos; to 0." resolution=""/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;load_A_Pipeline_VITIS_LOOP_18_1&apos;." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;set_tile_broadcast_Pipeline_copy_tile_loop&apos;" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;load_A&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;set_tile_broadcast_Pipeline_copy_tile_loop&apos; pipeline &apos;copy_tile_loop&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;set_tile_broadcast_Pipeline_copy_tile_loop&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 909.535 MB." resolution=""/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;load_A&apos;." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 810.488 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;set_tile_broadcast&apos;" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;spmm_hls_Pipeline_VITIS_LOOP_81_1_VITIS_LOOP_29_1&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;set_tile_broadcast&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.54 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.54 seconds; current allocated memory: 913.754 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;pu_kernel_Pipeline_pu_save_stream_into_pu&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;mux_42_1_1_1&apos;: 1 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;mux_42_32_1_1&apos;: 2 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;pu_kernel_Pipeline_pu_save_stream_into_pu&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.2 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.2 seconds; current allocated memory: 915.055 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;dfm_Pipeline_VITIS_LOOP_114_2&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;dfm_Pipeline_VITIS_LOOP_114_2&apos; pipeline &apos;VITIS_LOOP_114_2&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARVALID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARADDR&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARLEN&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARSIZE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARBURST&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARLOCK&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARCACHE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARPROT&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARQOS&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARREGION&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;dfm_Pipeline_VITIS_LOOP_114_2/m_axi_gmem3_ARUSER&apos; to 0." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;dfm_Pipeline_VITIS_LOOP_114_2&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0 seconds. Elapsed time: 0.11 seconds; current allocated memory: 916.797 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;dfm&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;mul_32s_30ns_32_2_1&apos;: 1 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;mux_42_1_1_1&apos;: 1 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;mux_42_32_1_1&apos;: 4 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;dfm&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.1 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.1 seconds; current allocated memory: 918.391 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;pu_kernel_Pipeline_init_au&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;pu_kernel_Pipeline_init_au&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.17 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.17 seconds; current allocated memory: 920.246 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;pu_comp&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;pu_comp&apos; pipeline &apos;VITIS_LOOP_136_1&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fmul_32ns_32ns_32_4_max_dsp_1&apos;: 1 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;pu_comp&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 920.980 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;au_merge_Pipeline_VITIS_LOOP_176_13&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;au_merge_Pipeline_VITIS_LOOP_176_13&apos; pipeline &apos;VITIS_LOOP_176_1&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fadd_32ns_32ns_32_7_full_dsp_1&apos;: 2 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;au_merge_Pipeline_VITIS_LOOP_176_13&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.11 seconds. CPU system time: 0 seconds. Elapsed time: 0.1 seconds; current allocated memory: 922.090 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;au_merge_Pipeline_VITIS_LOOP_157_12&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;au_merge_Pipeline_VITIS_LOOP_157_12&apos; pipeline &apos;VITIS_LOOP_157_1&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fadd_32ns_32ns_32_7_full_dsp_1&apos;: 2 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;au_merge_Pipeline_VITIS_LOOP_157_12&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 923.293 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;au_merge_Pipeline_VITIS_LOOP_176_11&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;au_merge_Pipeline_VITIS_LOOP_176_11&apos; pipeline &apos;VITIS_LOOP_176_1&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fadd_32ns_32ns_32_7_full_dsp_1&apos;: 2 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;au_merge_Pipeline_VITIS_LOOP_176_11&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.16 seconds; current allocated memory: 924.426 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;au_merge_Pipeline_VITIS_LOOP_176_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;au_merge_Pipeline_VITIS_LOOP_176_1&apos; pipeline &apos;VITIS_LOOP_176_1&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fadd_32ns_32ns_32_7_full_dsp_1&apos;: 2 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;au_merge_Pipeline_VITIS_LOOP_176_1&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 925.582 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;au_merge_Pipeline_VITIS_LOOP_157_1&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;au_merge_Pipeline_VITIS_LOOP_157_1&apos; pipeline &apos;VITIS_LOOP_157_1&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_855" tag="" content="Generating core module &apos;fadd_32ns_32ns_32_7_full_dsp_1&apos;: 2 instance(s)." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;au_merge_Pipeline_VITIS_LOOP_157_1&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.16 seconds. CPU system time: 0 seconds. Elapsed time: 0.16 seconds; current allocated memory: 926.754 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;au_merge&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;au_merge&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.15 seconds. CPU system time: 0 seconds. Elapsed time: 0.15 seconds; current allocated memory: 928.223 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;pu_kernel&apos;" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;pu_kernel&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;spmm_hls_pu_kernel_Dbuf_RAM_2P_BRAM_1R1W&apos; using block RAMs." resolution=""/>
-	<Message severity="INFO" prefix="[RTMG 210-278]" key="RTMG_278_1790" tag="" content="Implementing memory &apos;spmm_hls_pu_kernel_AU0_RAM_AUTO_1R1W&apos; using auto RAMs." resolution=""/>
-	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;streamA_U(spmm_hls_fifo_w32_d61278_A)&apos; using Vivado Default RAMs." resolution=""/>
-	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;streamB_U(spmm_hls_fifo_w32_d61278_A)&apos; using Vivado Default RAMs." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.25 seconds. CPU system time: 0 seconds. Elapsed time: 0.24 seconds; current allocated memory: 930.594 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-1030]" key="HLS 200-1030" tag="" content="Apply Unified Pipeline Control on module &apos;spmm_hls_Pipeline_VITIS_LOOP_81_1_VITIS_LOOP_29_1&apos; pipeline &apos;VITIS_LOOP_81_1_VITIS_LOOP_29_1&apos; pipeline type &apos;loop pipeline&apos;" resolution=""/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;spmm_hls_Pipeline_VITIS_LOOP_81_1_VITIS_LOOP_29_1&apos;." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.06 seconds. CPU system time: 0 seconds. Elapsed time: 0.06 seconds; current allocated memory: 810.824 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1483" tag="" content="----------------------------------------------------------------" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1484" tag="" content="-- Generating RTL for module &apos;spmm_hls&apos;" resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-10]" key="HLS_10_1485" tag="" content="----------------------------------------------------------------" resolution=""/>
 	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_918" tag="" content="Design contains AXI ports. Reset is fixed to synchronous and active low." resolution=""/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/gmem0&apos; to &apos;m_axi&apos;." resolution=""/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/gmem1&apos; to &apos;m_axi&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/gmem2&apos; to &apos;m_axi&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/gmem3&apos; to &apos;m_axi&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/gmem4&apos; to &apos;m_axi&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/gmem5&apos; to &apos;m_axi&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/gmem6&apos; to &apos;m_axi&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/gmem7&apos; to &apos;m_axi&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/N&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/A&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/nnz&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
+	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/B&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/M&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/K&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/nnz&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/row_ptr&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/col_idx&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/a_val&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/B1&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/B2&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/B3&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/B4&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on port &apos;spmm_hls/C&apos; to &apos;s_axilite &amp; ap_none&apos;." resolution=""/>
 	<Message severity="INFO" prefix="[RTGEN 206-500]" key="PREPROC_IO_COMP_CONFLICT_1950" tag="" content="Setting interface mode on function &apos;spmm_hls&apos; to &apos;s_axilite &amp; ap_ctrl_hs&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_851" tag="" content="Bundling port &apos;N&apos;, &apos;M&apos;, &apos;K&apos;, &apos;nnz&apos;, &apos;row_ptr&apos;, &apos;col_idx&apos;, &apos;a_val&apos;, &apos;B1&apos;, &apos;B2&apos;, &apos;B3&apos;, &apos;B4&apos;, &apos;C&apos; to AXI-Lite port control." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWVALID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_851" tag="" content="Bundling port &apos;A&apos;, &apos;nnz&apos;, &apos;M&apos;, &apos;K&apos; and &apos;return&apos; to AXI-Lite port control." resolution=""/>
+	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_851" tag="" content="Bundling port &apos;B&apos; to AXI-Lite port control_r." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWVALID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWVALID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWREADY&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWVALID&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWREADY&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWADDR&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWADDR&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWADDR&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWADDR&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWLEN&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWID&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWLEN&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWLEN&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWSIZE&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWLEN&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWSIZE&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWSIZE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWBURST&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWSIZE&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWBURST&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWBURST&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWLOCK&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWBURST&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWLOCK&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWLOCK&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWCACHE&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWLOCK&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWCACHE&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWCACHE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWPROT&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWCACHE&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWPROT&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWPROT&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWQOS&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWPROT&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWQOS&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWQOS&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWREGION&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWQOS&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWREGION&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWREGION&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_AWUSER&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWREGION&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_AWUSER&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_AWUSER&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_WVALID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_AWUSER&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_WVALID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_WVALID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_WREADY&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_WVALID&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_WREADY&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_WDATA&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_WDATA&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_WDATA&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_WSTRB&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_WDATA&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_WSTRB&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_WSTRB&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_WLAST&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_WSTRB&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_WLAST&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_WLAST&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_WID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_WLAST&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_WID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_WID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_WUSER&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_WID&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_WUSER&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_WUSER&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARVALID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_WUSER&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARVALID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARVALID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARREADY&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARVALID&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARREADY&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARADDR&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARADDR&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARADDR&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARADDR&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARLEN&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARID&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARLEN&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARLEN&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARSIZE&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARLEN&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARSIZE&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARSIZE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARBURST&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARSIZE&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARBURST&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARBURST&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARLOCK&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARBURST&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARLOCK&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARLOCK&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARCACHE&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARLOCK&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARCACHE&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARCACHE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARPROT&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARCACHE&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARPROT&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARPROT&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARQOS&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARPROT&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARQOS&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARQOS&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARREGION&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARQOS&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARREGION&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARREGION&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_ARUSER&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARREGION&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_ARUSER&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_ARUSER&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_RVALID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_ARUSER&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_RVALID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_RREADY&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_RREADY&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_RREADY&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_RDATA&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_RREADY&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_RDATA&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_RLAST&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_RLAST&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_RID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_RID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_RUSER&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_RUSER&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_RRESP&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_RRESP&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_BVALID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_BVALID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_BREADY&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_BREADY&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem0_BREADY&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_BRESP&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem1_BREADY&apos; to 0." resolution=""/>
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_BRESP&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_BID&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_BID&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem0_BUSER&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWVALID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWVALID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWREADY&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWADDR&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWADDR&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWLEN&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWLEN&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWSIZE&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWSIZE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWBURST&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWBURST&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWLOCK&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWLOCK&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWCACHE&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWCACHE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWPROT&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWPROT&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWQOS&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWQOS&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWREGION&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWREGION&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_AWUSER&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_AWUSER&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_WVALID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_WVALID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_WREADY&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_WDATA&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_WDATA&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_WSTRB&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_WSTRB&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_WLAST&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_WLAST&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_WID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_WID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_WUSER&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_WUSER&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARVALID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARVALID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARREADY&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARADDR&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARADDR&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARID&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARLEN&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARLEN&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARSIZE&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARSIZE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARBURST&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARBURST&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARLOCK&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARLOCK&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARCACHE&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARCACHE&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARPROT&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARPROT&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARQOS&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARQOS&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARREGION&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARREGION&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_ARUSER&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_ARUSER&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_RVALID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_RREADY&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_RREADY&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_RDATA&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_RLAST&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_RID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_RUSER&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_RRESP&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_BVALID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_BREADY&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_739" tag="" content="Setting dangling out port &apos;spmm_hls/m_axi_gmem7_BREADY&apos; to 0." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_BRESP&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_BID&apos; has no fanin or fanout and is left dangling.
-               Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
-	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem7_BUSER&apos; has no fanin or fanout and is left dangling.
+	<Message severity="WARNING" prefix="[RTGEN 206-101]" key="RTGEN_101_738" tag="" content="Port &apos;spmm_hls/m_axi_gmem1_BUSER&apos; has no fanin or fanout and is left dangling.
                Please use C simulation to confirm this function argument can be read from or written to." resolution=""/>
 	<Message severity="INFO" prefix="[RTGEN 206-100]" key="RTGEN_100_856" tag="" content="Finished creating RTL model for &apos;spmm_hls&apos;." resolution=""/>
-	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;s_0_U(spmm_hls_fifo_w388_d16_A)&apos; using Vivado Default RAMs." resolution=""/>
-	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;s_1_U(spmm_hls_fifo_w388_d16_A)&apos; using Vivado Default RAMs." resolution=""/>
-	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;s_2_U(spmm_hls_fifo_w388_d16_A)&apos; using Vivado Default RAMs." resolution=""/>
-	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;s_3_U(spmm_hls_fifo_w388_d16_A)&apos; using Vivado Default RAMs." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 1.13 seconds. CPU system time: 0.07 seconds. Elapsed time: 1.2 seconds; current allocated memory: 936.141 MB." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Generating all RTL models: CPU user time: 1.82 seconds. CPU system time: 0.04 seconds. Elapsed time: 1.86 seconds; current allocated memory: 939.812 MB." resolution=""/>
+	<Message severity="INFO" prefix="[RTMG 210-285]" key="RTMG_285_1799" tag="" content="Implementing FIFO &apos;A_stream_U(spmm_hls_fifo_w64_d16_S)&apos; using Shift Registers." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Creating RTL model: CPU user time: 0.18 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.19 seconds; current allocated memory: 812.773 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Generating all RTL models: CPU user time: 0.31 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.32 seconds; current allocated memory: 816.188 MB." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-1603]" key="HLS 200-1603" tag="VITIS_INTERFACE" content="Design has inferred MAXI bursts and missed bursts, see Vitis HLS GUI synthesis summary report for detailed information." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Updating report files: CPU user time: 3.63 seconds. CPU system time: 0.01 seconds. Elapsed time: 3.63 seconds; current allocated memory: 956.559 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Updating report files: CPU user time: 0.88 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.89 seconds; current allocated memory: 827.707 MB." resolution=""/>
 	<Message severity="INFO" prefix="[VHDL 208-304]" key="VHDL_304_1066" tag="" content="Generating VHDL RTL for spmm_hls." resolution=""/>
 	<Message severity="INFO" prefix="[VLOG 209-307]" key="VLOG_307_1067" tag="" content="Generating Verilog RTL for spmm_hls." resolution=""/>
 	<Message severity="INFO" prefix="[HLS 200-790]" key="HLS 200-790" tag="LOOP,VITIS_KERNEL" content="**** Loop Constraint Status: All loop constraints were satisfied." resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,VITIS_KERNEL" content="**** Estimated Fmax: 300.11 MHz" resolution=""/>
-	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Command csynth_design CPU user time: 22.54 seconds. CPU system time: 1.73 seconds. Elapsed time: 24.34 seconds; current allocated memory: 223.738 MB." resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-789]" key="HLS 200-789" tag="THROUGHPUT,VITIS_KERNEL" content="**** Estimated Fmax: 342.47 MHz" resolution=""/>
+	<Message severity="INFO" prefix="[HLS 200-111]" key="HLS_111_966" tag="RUNTIME" content="Finished Command csynth_design CPU user time: 9.69 seconds. CPU system time: 1.32 seconds. Elapsed time: 11.04 seconds; current allocated memory: 91.926 MB." resolution=""/>
 </Messages>

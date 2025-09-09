@@ -1,52 +1,12 @@
 # This script segment is generated automatically by AutoPilot
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_fifo_w388_d16_A BINDTYPE {storage} TYPE {fifo} IMPL {memory} ALLOW_PRAGMA 1 INSTNAME {s_0_U}
+	::AP::rtl_comp_handler spmm_hls_fifo_w64_d16_S BINDTYPE {storage} TYPE {fifo} IMPL {srl} ALLOW_PRAGMA 1 INSTNAME {A_stream_U}
 }
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_fifo_w388_d16_A BINDTYPE {storage} TYPE {fifo} IMPL {memory} ALLOW_PRAGMA 1 INSTNAME {s_1_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_fifo_w388_d16_A BINDTYPE {storage} TYPE {fifo} IMPL {memory} ALLOW_PRAGMA 1 INSTNAME {s_2_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_fifo_w388_d16_A BINDTYPE {storage} TYPE {fifo} IMPL {memory} ALLOW_PRAGMA 1 INSTNAME {s_3_U}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_gmem1_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_gmem2_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_gmem3_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_gmem4_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_gmem5_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
-}
-
-
-if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_gmem6_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
+	::AP::rtl_comp_handler spmm_hls_gmem0_m_axi BINDTYPE {interface} TYPE {adapter} IMPL {m_axi}
 }
 
 
@@ -59,101 +19,37 @@ if {${::AESL::PGuard_autoexp_gen}} {
 
 set axilite_register_dict [dict create]
 set port_control {
-N { 
+A { 
 	dir I
-	width 32
+	width 64
 	depth 1
 	mode ap_none
 	offset 16
-	offset_end 23
-}
-M { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 24
-	offset_end 31
-}
-K { 
-	dir I
-	width 32
-	depth 1
-	mode ap_none
-	offset 32
-	offset_end 39
+	offset_end 27
 }
 nnz { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
-	offset 40
-	offset_end 47
+	offset 28
+	offset_end 35
 }
-row_ptr { 
+M { 
 	dir I
-	width 64
+	width 32
 	depth 1
 	mode ap_none
-	offset 48
-	offset_end 59
+	offset 36
+	offset_end 43
 }
-col_idx { 
+K { 
 	dir I
-	width 64
+	width 32
 	depth 1
 	mode ap_none
-	offset 60
-	offset_end 71
-}
-a_val { 
-	dir I
-	width 64
-	depth 1
-	mode ap_none
-	offset 72
-	offset_end 83
-}
-B1 { 
-	dir I
-	width 64
-	depth 1
-	mode ap_none
-	offset 84
-	offset_end 95
-}
-B2 { 
-	dir I
-	width 64
-	depth 1
-	mode ap_none
-	offset 96
-	offset_end 107
-}
-B3 { 
-	dir I
-	width 64
-	depth 1
-	mode ap_none
-	offset 108
-	offset_end 119
-}
-B4 { 
-	dir I
-	width 64
-	depth 1
-	mode ap_none
-	offset 120
-	offset_end 131
-}
-C { 
-	dir I
-	width 64
-	depth 1
-	mode ap_none
-	offset 132
-	offset_end 143
+	offset 44
+	offset_end 51
 }
 ap_start { }
 ap_done { }
@@ -169,7 +65,7 @@ dict set axilite_register_dict control $port_control
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 155 \
+			id 12 \
 			corename spmm_hls_control_axilite \
 			name spmm_hls_control_s_axi \
 			ports {$port_control} \
@@ -187,6 +83,43 @@ if {${::AESL::PGuard_simmodel_gen}} {
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
 	::AP::rtl_comp_handler spmm_hls_control_s_axi BINDTYPE interface TYPE interface_s_axilite
+}
+
+set port_control_r {
+B { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 16
+	offset_end 27
+}
+}
+dict set axilite_register_dict control_r $port_control_r
+
+
+# Native S_AXILite:
+if {${::AESL::PGuard_simmodel_gen}} {
+	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
+		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
+			id 13 \
+			corename spmm_hls_control_r_axilite \
+			name spmm_hls_control_r_s_axi \
+			ports {$port_control_r} \
+			op interface \
+			interrupt_clear_mode TOW \
+			interrupt_trigger_type default \
+			is_flushable 0 \
+			is_datawidth64 0 \
+			is_addrwidth64 1 \
+		} "
+	} else {
+		puts "@W \[IMPL-110\] Cannot find AXI Lite interface model in the library. Ignored generation of AXI Lite  interface for 'control_r'"
+	}
+}
+
+if {${::AESL::PGuard_rtl_comp_handler}} {
+	::AP::rtl_comp_handler spmm_hls_control_r_s_axi BINDTYPE interface TYPE interface_s_axilite
 }
 
 

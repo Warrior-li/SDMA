@@ -237,105 +237,33 @@ class AESL_RUNTIME_BC {
     string mName;
 };
 using hls::sim::Byte;
-extern "C" void spmm_hls(Byte<4>*, Byte<4>*, Byte<4>*, Byte<4>*, Byte<4>*, Byte<4>*, Byte<4>*, Byte<4>*, int, int, int, int, int, int, int, int, int, int, int, int);
-extern "C" void apatb_spmm_hls_hw(int __xlx_apatb_param_N, int __xlx_apatb_param_M, int __xlx_apatb_param_K, int __xlx_apatb_param_nnz, volatile void * __xlx_apatb_param_row_ptr, volatile void * __xlx_apatb_param_col_idx, volatile void * __xlx_apatb_param_a_val, volatile void * __xlx_apatb_param_B1, volatile void * __xlx_apatb_param_B2, volatile void * __xlx_apatb_param_B3, volatile void * __xlx_apatb_param_B4, volatile void * __xlx_apatb_param_C) {
+extern "C" void spmm_hls(Byte<8>*, Byte<4>*, int, int, int, int, int);
+extern "C" void apatb_spmm_hls_hw(volatile void * __xlx_apatb_param_A, int __xlx_apatb_param_nnz, volatile void * __xlx_apatb_param_B, int __xlx_apatb_param_M, int __xlx_apatb_param_K) {
 using hls::sim::createStream;
-  // Collect __xlx_row_ptr__tmp_vec
-std::vector<Byte<4>> __xlx_row_ptr__tmp_vec;
+  // Collect __xlx_A__tmp_vec
+std::vector<Byte<8>> __xlx_A__tmp_vec;
 for (size_t i = 0; i < 1; ++i){
-__xlx_row_ptr__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_row_ptr)[i]);
+__xlx_A__tmp_vec.push_back(((Byte<8>*)__xlx_apatb_param_A)[i]);
 }
-  int __xlx_size_param_row_ptr = 1;
-  int __xlx_offset_param_row_ptr = 0;
-  int __xlx_offset_byte_param_row_ptr = 0*4;
-  // Collect __xlx_col_idx__tmp_vec
-std::vector<Byte<4>> __xlx_col_idx__tmp_vec;
+  int __xlx_size_param_A = 1;
+  int __xlx_offset_param_A = 0;
+  int __xlx_offset_byte_param_A = 0*8;
+  // Collect __xlx_B__tmp_vec
+std::vector<Byte<4>> __xlx_B__tmp_vec;
 for (size_t i = 0; i < 1; ++i){
-__xlx_col_idx__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_col_idx)[i]);
+__xlx_B__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_B)[i]);
 }
-  int __xlx_size_param_col_idx = 1;
-  int __xlx_offset_param_col_idx = 0;
-  int __xlx_offset_byte_param_col_idx = 0*4;
-  // Collect __xlx_a_val__tmp_vec
-std::vector<Byte<4>> __xlx_a_val__tmp_vec;
-for (size_t i = 0; i < 1; ++i){
-__xlx_a_val__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_a_val)[i]);
-}
-  int __xlx_size_param_a_val = 1;
-  int __xlx_offset_param_a_val = 0;
-  int __xlx_offset_byte_param_a_val = 0*4;
-  // Collect __xlx_B1__tmp_vec
-std::vector<Byte<4>> __xlx_B1__tmp_vec;
-for (size_t i = 0; i < 1; ++i){
-__xlx_B1__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_B1)[i]);
-}
-  int __xlx_size_param_B1 = 1;
-  int __xlx_offset_param_B1 = 0;
-  int __xlx_offset_byte_param_B1 = 0*4;
-  // Collect __xlx_B2__tmp_vec
-std::vector<Byte<4>> __xlx_B2__tmp_vec;
-for (size_t i = 0; i < 1; ++i){
-__xlx_B2__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_B2)[i]);
-}
-  int __xlx_size_param_B2 = 1;
-  int __xlx_offset_param_B2 = 0;
-  int __xlx_offset_byte_param_B2 = 0*4;
-  // Collect __xlx_B3__tmp_vec
-std::vector<Byte<4>> __xlx_B3__tmp_vec;
-for (size_t i = 0; i < 1; ++i){
-__xlx_B3__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_B3)[i]);
-}
-  int __xlx_size_param_B3 = 1;
-  int __xlx_offset_param_B3 = 0;
-  int __xlx_offset_byte_param_B3 = 0*4;
-  // Collect __xlx_B4__tmp_vec
-std::vector<Byte<4>> __xlx_B4__tmp_vec;
-for (size_t i = 0; i < 1; ++i){
-__xlx_B4__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_B4)[i]);
-}
-  int __xlx_size_param_B4 = 1;
-  int __xlx_offset_param_B4 = 0;
-  int __xlx_offset_byte_param_B4 = 0*4;
-  // Collect __xlx_C__tmp_vec
-std::vector<Byte<4>> __xlx_C__tmp_vec;
-for (size_t i = 0; i < 1; ++i){
-__xlx_C__tmp_vec.push_back(((Byte<4>*)__xlx_apatb_param_C)[i]);
-}
-  int __xlx_size_param_C = 1;
-  int __xlx_offset_param_C = 0;
-  int __xlx_offset_byte_param_C = 0*4;
+  int __xlx_size_param_B = 1;
+  int __xlx_offset_param_B = 0;
+  int __xlx_offset_byte_param_B = 0*4;
   // DUT call
-  spmm_hls(__xlx_row_ptr__tmp_vec.data(), __xlx_col_idx__tmp_vec.data(), __xlx_a_val__tmp_vec.data(), __xlx_B1__tmp_vec.data(), __xlx_B2__tmp_vec.data(), __xlx_B3__tmp_vec.data(), __xlx_B4__tmp_vec.data(), __xlx_C__tmp_vec.data(), __xlx_apatb_param_N, __xlx_apatb_param_M, __xlx_apatb_param_K, __xlx_apatb_param_nnz, __xlx_offset_byte_param_row_ptr, __xlx_offset_byte_param_col_idx, __xlx_offset_byte_param_a_val, __xlx_offset_byte_param_B1, __xlx_offset_byte_param_B2, __xlx_offset_byte_param_B3, __xlx_offset_byte_param_B4, __xlx_offset_byte_param_C);
-// print __xlx_apatb_param_row_ptr
-for (size_t i = 0; i < __xlx_size_param_row_ptr; ++i) {
-((Byte<4>*)__xlx_apatb_param_row_ptr)[i] = __xlx_row_ptr__tmp_vec[__xlx_offset_param_row_ptr+i];
+  spmm_hls(__xlx_A__tmp_vec.data(), __xlx_B__tmp_vec.data(), __xlx_offset_byte_param_A, __xlx_apatb_param_nnz, __xlx_offset_byte_param_B, __xlx_apatb_param_M, __xlx_apatb_param_K);
+// print __xlx_apatb_param_A
+for (size_t i = 0; i < __xlx_size_param_A; ++i) {
+((Byte<8>*)__xlx_apatb_param_A)[i] = __xlx_A__tmp_vec[__xlx_offset_param_A+i];
 }
-// print __xlx_apatb_param_col_idx
-for (size_t i = 0; i < __xlx_size_param_col_idx; ++i) {
-((Byte<4>*)__xlx_apatb_param_col_idx)[i] = __xlx_col_idx__tmp_vec[__xlx_offset_param_col_idx+i];
-}
-// print __xlx_apatb_param_a_val
-for (size_t i = 0; i < __xlx_size_param_a_val; ++i) {
-((Byte<4>*)__xlx_apatb_param_a_val)[i] = __xlx_a_val__tmp_vec[__xlx_offset_param_a_val+i];
-}
-// print __xlx_apatb_param_B1
-for (size_t i = 0; i < __xlx_size_param_B1; ++i) {
-((Byte<4>*)__xlx_apatb_param_B1)[i] = __xlx_B1__tmp_vec[__xlx_offset_param_B1+i];
-}
-// print __xlx_apatb_param_B2
-for (size_t i = 0; i < __xlx_size_param_B2; ++i) {
-((Byte<4>*)__xlx_apatb_param_B2)[i] = __xlx_B2__tmp_vec[__xlx_offset_param_B2+i];
-}
-// print __xlx_apatb_param_B3
-for (size_t i = 0; i < __xlx_size_param_B3; ++i) {
-((Byte<4>*)__xlx_apatb_param_B3)[i] = __xlx_B3__tmp_vec[__xlx_offset_param_B3+i];
-}
-// print __xlx_apatb_param_B4
-for (size_t i = 0; i < __xlx_size_param_B4; ++i) {
-((Byte<4>*)__xlx_apatb_param_B4)[i] = __xlx_B4__tmp_vec[__xlx_offset_param_B4+i];
-}
-// print __xlx_apatb_param_C
-for (size_t i = 0; i < __xlx_size_param_C; ++i) {
-((Byte<4>*)__xlx_apatb_param_C)[i] = __xlx_C__tmp_vec[__xlx_offset_param_C+i];
+// print __xlx_apatb_param_B
+for (size_t i = 0; i < __xlx_size_param_B; ++i) {
+((Byte<4>*)__xlx_apatb_param_B)[i] = __xlx_B__tmp_vec[__xlx_offset_param_B+i];
 }
 }

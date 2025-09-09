@@ -1,5 +1,2 @@
-unexpected pragma parameter 'on'
-unexpected pragma parameter 'on'
 Only for-loops and functions support the dataflow
-Only for-loops and functions support the dataflow
-4 warnings generated.
+1 warning generated.

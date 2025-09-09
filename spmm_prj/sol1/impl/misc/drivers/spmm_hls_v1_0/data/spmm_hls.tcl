@@ -7,15 +7,20 @@ proc generate {drv_handle} {
     xdefine_include_file $drv_handle "xparameters.h" "XSpmm_hls" \
         "NUM_INSTANCES" \
         "DEVICE_ID" \
+        "C_S_AXI_CONTROL_R_BASEADDR" \
+        "C_S_AXI_CONTROL_R_HIGHADDR" \
         "C_S_AXI_CONTROL_BASEADDR" \
         "C_S_AXI_CONTROL_HIGHADDR"
 
     xdefine_config_file $drv_handle "xspmm_hls_g.c" "XSpmm_hls" \
         "DEVICE_ID" \
+        "C_S_AXI_CONTROL_R_BASEADDR" \
         "C_S_AXI_CONTROL_BASEADDR"
 
     xdefine_canonical_xpars $drv_handle "xparameters.h" "XSpmm_hls" \
         "DEVICE_ID" \
+        "C_S_AXI_CONTROL_R_BASEADDR" \
+        "C_S_AXI_CONTROL_R_HIGHADDR" \
         "C_S_AXI_CONTROL_BASEADDR" \
         "C_S_AXI_CONTROL_HIGHADDR"
 }

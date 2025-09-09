@@ -472,31 +472,6 @@ namespace std
   using ::uintptr_t;
 }
 # 2 "src/spmm_device_fpga.hpp" 2
-
-using index_t = std::uint32_t;
-using value_t = float;
-
-
-extern "C"
-__attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
-    index_t N,
-    index_t M,
-    index_t K,
-    index_t nnz,
-
-
-    const index_t *row_ptr,
-    const index_t *col_idx,
-    const value_t *a_val,
-
-    const value_t *B1,
-    const value_t *B2,
-    const value_t *B3,
-    const value_t *B4,
-
-    value_t *C
-);
-# 2 "src/spmm_device_fpga.cpp" 2
 # 1 "/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int.h" 1
 # 10 "/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int.h"
 # 1 "/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" 1
@@ -6045,7 +6020,34 @@ inline __attribute__((nodebug)) bool operator!=(
 }
 # 366 "/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_fixed.h" 2
 # 361 "/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int.h" 2
-# 3 "src/spmm_device_fpga.cpp" 2
+# 3 "src/spmm_device_fpga.hpp" 2
+
+
+struct PCOO {
+    ap_uint<1> eor;
+    ap_uint<31> col;
+    ap_uint<32> value;
+};
+
+static inline PCOO unpack_pcoo(ap_uint<64> w);
+
+constexpr int BUF_DEPTH = 16;
+constexpr int NUM_PU = 8;
+constexpr int NUM_PE = 2 * NUM_PU;
+constexpr int NUM_DEN_BUF = 1 << 16;
+constexpr int NUM_OUT_BUF = NUM_DEN_BUF;
+
+
+
+extern "C"
+__attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
+    const ap_uint<64> * __restrict A,
+    const int nnz,
+    const ap_uint<32> * B,
+    const int M,
+    const int K
+);
+# 2 "src/spmm_device_fpga.cpp" 2
 # 1 "/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_stream.h" 1
 # 15 "/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_stream.h"
 # 1 "/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_stream_39.h" 1
@@ -6177,335 +6179,93 @@ class stream : public stream<__STREAM_T__, 0> {
 };
 }
 # 16 "/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/hls_stream.h" 2
-# 4 "src/spmm_device_fpga.cpp" 2
+# 3 "src/spmm_device_fpga.cpp" 2
 
-constexpr int MAX_K = 61278;
-constexpr int TILE_NNZ = 4;
-constexpr int NUM_PU = 4;
-
-
-struct Sp_value
-{
-    value_t value;
-    index_t x;
-    index_t y;
-};
-
-
-
-struct TilePkt
-{
-    Sp_value v[TILE_NNZ];
-    bool ref[TILE_NNZ];
-};
-
-
-void set_tile_broadcast(
-    const index_t *row_ptr,
-    const index_t *col_idx,
-    const value_t *a_val,
-    hls::stream<TilePkt> out[NUM_PU],
-    const index_t pointer,
-    const index_t nnz
-){
-#pragma hls inline off
-
-
-
- index_t seen_y[TILE_NNZ];
-    bool seen_v[TILE_NNZ];
-#pragma HLS ARRAY_PARTITION variable=seen_y complete dim=1
-#pragma HLS ARRAY_PARTITION variable=seen_v complete dim=1
-
- Sp_value tile;
-    bool tile_ref;
-    TilePkt pkt;
-
-
-    init_seen:
-    for (int k = 0; k < TILE_NNZ; ++k) {
-#pragma HLS PIPELINE II=1
- seen_v[k] = false;
-    }
-
-    int used = 0;
-
-    copy_tile_loop:
-    for(int i = 0; i < TILE_NNZ; ++i){
-#pragma HLS PIPELINE II=1
- index_t idx = pointer + i;
-        if(idx < nnz){
-            Sp_value t;
-            value_t v = a_val[idx];
-            index_t y = col_idx[idx];
-
-
-
-            bool dup = false;
-            compare_all:
-            for (int k = 0; k < TILE_NNZ; ++k) {
-#pragma HLS UNROLL
- dup |= (seen_v[k] && (seen_y[k] == y));
-            }
-
-
-            tile.value = v;
-            tile.y = y;
-            tile_ref = dup;
-
-
-
-            if (!dup && used < TILE_NNZ) {
-                seen_y[used] = y;
-                seen_v[used] = true;
-                used++;
-            }
-        } else {
-
-            tile_ref = true;
-        }
-        pkt.v[i] = tile;
-        pkt.ref[i] = tile_ref;
-    }
-
-    VITIS_LOOP_94_1: for(int u = 0; u < NUM_PU; ++u){
-#pragma hls unroll
- out[u] << pkt;
-    }
+static inline PCOO unpack_pcoo(ap_uint<64> w){
+    PCOO x;
+    x.eor = w[63];
+    x.col = w.range(62,32);
+    x.value = w.range(31,0);
+    return x;
 }
 
-void dfm(
-    Sp_value* tile,
-    bool* tile_ref,
-    value_t* Dbuf,
-    index_t& Dlen,
-    const value_t* B,
-    index_t K,
-    index_t* tile_to_dbuf_begin
+void load_A(
+    const ap_uint<64> * __restrict A,
+    const int nnz,
+    hls::stream<ap_uint<64>>& s
 ){
 #pragma hls inline off
-
- VITIS_LOOP_111_1: for(int i = 0; i < TILE_NNZ; ++i){
-#pragma hls pipeline II=1
- if(tile_ref[i] == false){
-            VITIS_LOOP_114_2: for(int j = 0; j < K; ++j){
+ VITIS_LOOP_18_1: for(int i = 0; i < nnz; ++i){
 #pragma hls pipeline II = 1
- Dbuf[Dlen + j] = B[tile[i].y * K + j];
-            }
-            tile_to_dbuf_begin[i] = Dlen;
-            Dlen = Dlen + K;
-        }else{
-            VITIS_LOOP_121_3: for(int j = 0; j < i; ++j){
-                if(tile[i].y == tile[j].y) {tile_to_dbuf_begin[i] = tile_to_dbuf_begin[j]; break;}
-            }
-        }
+ s.write(A[i]);
     }
 }
 
-void pu_comp(
-    hls::stream<value_t> &res_stream,
-    Sp_value a,
-    value_t * Dbuf,
-    const index_t K,
-    index_t begin
+void load_stream_to_buffer(
+    hls::stream<ap_uint<64>>& s,
+    PCOO* sparse_buf
 ){
-#pragma hls inline off
- VITIS_LOOP_136_1: for(int i = 0; i < K; ++i){
-#pragma hls pipeline II=1
- res_stream.write(a.value * Dbuf[begin + i]);
-    }
-}
-
-
-void flush_to_Obuf(){
-
-}
-
-void merge_into_one_AU(
-    index_t row,
-    hls::stream<value_t> &inA,
-    hls::stream<value_t> &inB,
-    value_t *AU,
-    int &au_row,
-    const int K
-){
-#pragma hls inline on
- au_row = row;
-    VITIS_LOOP_157_1: for(int i = 0 ; i < K; ++i){
-        AU[i] += inA.read() + inB.read();
-    }
-}
-
-void split_into_two_AU(
-    hls::stream<value_t> &inA,
-    hls::stream<value_t> &inB,
-    index_t rowA,
-    index_t rowB,
-    value_t *AU0,
-    value_t *AU1,
-    int &au_row_0,
-    int &au_row_1,
-    const int K
-){
-#pragma hls inline on
- au_row_0 = rowA;
-    au_row_1 = rowB;
-    VITIS_LOOP_176_1: for(int i = 0; i < K; ++i){
-        AU0[i] += inA.read();
-        AU1[i] += inB.read();
-    }
-}
-
-void au_merge(
-    hls::stream<value_t> &inA,
-    hls::stream<value_t> &inB,
-    index_t rowA,
-    index_t rowB,
-    value_t *AU0,
-    value_t *AU1,
-    int &au_row_a,
-    int &au_row_b,
-    const int K
-){
-    if(au_row_a == -1 && au_row_b == -1){
-        if(rowA == rowB) merge_into_one_AU(rowA, inA, inB, AU0, au_row_a, K);
-        else split_into_two_AU(inA,inB,rowA,rowB,AU0,AU1,au_row_a,au_row_b,K);
-    }else if(au_row_a != -1 && au_row_b == -1){
-        if(rowA == au_row_a) split_into_two_AU(inA,inB,rowA,rowB,AU0,AU1,au_row_a,au_row_b,K);
-        else{
-            if(rowA == rowB) merge_into_one_AU(rowB, inA, inB, AU1, au_row_b, K);
-            else{
-                flush_to_Obuf();
-                split_into_two_AU(inA,inB,rowA,rowB,AU0,AU1,au_row_a,au_row_b,K);
-            }
-        }
-    }else{
-
-    }
-}
-
-
-void pu_kernel(
-    hls::stream<TilePkt> & in,
-    const value_t* B,
-
-    index_t K
-){
-#pragma hls inline off
- value_t Dbuf[MAX_K];
-
-#pragma HLS BIND_STORAGE variable=Dbuf type=ram_2p impl=bram
- index_t Dlen = 0;
-
-    value_t Obuf[MAX_K];
-#pragma HLS BIND_STORAGE variable=Obuf type=ram_2p impl=bram
- index_t O_idx[TILE_NNZ];
-
-    init_Obuf:
-
-    for(int i = 0; i < TILE_NNZ; ++i){
-#pragma HLS pipeline II=1
- O_idx[i] = -1;
-    }
-
-    Sp_value tile[TILE_NNZ];
-    bool tile_ref[TILE_NNZ];
-    index_t tile_to_dbuf_begin[TILE_NNZ];
-
-    TilePkt p = in.read();
-
-    pu_save_stream_into_pu:
-    for(int u = 0; u < TILE_NNZ; ++u){
+#pragma hls inline
+ VITIS_LOOP_29_1: for(int i = 0 ; i < BUF_DEPTH; ++i){
 #pragma hls pipeline II = 1
- tile[u] = p.v[u];
-        tile_ref[u] = p.ref[u];
-    }
-
-    dfm(tile, tile_ref, Dbuf, Dlen, B, K, tile_to_dbuf_begin);
-
-    hls::stream<value_t> streamA, streamB;
-#pragma HLS STREAM variable=streamA depth=MAX_K
-#pragma HLS STREAM variable=streamB depth=MAX_K
- value_t AU0[MAX_K], AU1[MAX_K];
-    int au0_r = -1, au1_r = -1;
-
-    init_au:
-    for(int i = 0; i < K; ++i){
-#pragma hls pipeline II = 1
- AU0[i] = 0;
-        AU1[i] = 0;
-    }
-
-
-    VITIS_LOOP_263_1: for(int i = 0; i < 2; ++i){
-        {
-#pragma hls dataflow
- pu_comp(streamA, tile[i * 2], Dbuf, K, tile_to_dbuf_begin[i * 2]);
-            pu_comp(streamB, tile[i * 2 + 1], Dbuf, K, tile_to_dbuf_begin[i * 2 + 1]);
-
-            au_merge(streamA, streamB, tile[i*2].y, tile[i*2+1].y, AU0, AU1, au0_r, au1_r, K);
-        }
+ ap_uint<64> raw = s.read();
+        sparse_buf[i] = unpack_pcoo(raw);
     }
 }
+
 
 extern "C"
 __attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
-    index_t N,
-    index_t M,
-    index_t K,
-    index_t nnz,
-
-
-    const index_t *row_ptr,
-    const index_t *col_idx,
-    const value_t *a_val,
-
-    const value_t *B1,
-    const value_t *B2,
-    const value_t *B3,
-    const value_t *B4,
-
-    value_t *C)
-{
+    const ap_uint<64> * __restrict A,
+    const int nnz,
+    const ap_uint<32> * B,
+    const int M,
+    const int K
+){
 #line 13 "/home/shuxuan/SDMA/hls.tcl"
 #pragma HLSDIRECTIVE TOP name=spmm_hls
-# 292 "src/spmm_device_fpga.cpp"
+# 44 "src/spmm_device_fpga.cpp"
 
-#pragma HLS interface m_axi port = row_ptr offset = slave bundle = gmem0
-#pragma HLS interface m_axi port = col_idx offset = slave bundle = gmem1
-#pragma HLS interface m_axi port = a_val offset = slave bundle = gmem2
-#pragma HLS INTERFACE m_axi port=B1 offset = slave bundle = gmem3
-#pragma HLS INTERFACE m_axi port=B2 offset = slave bundle = gmem4
-#pragma HLS INTERFACE m_axi port=B3 offset = slave bundle = gmem5
-#pragma HLS INTERFACE m_axi port=B4 offset = slave bundle = gmem6
-#pragma HLS INTERFACE m_axi port=C offset = slave bundle = gmem7
+#pragma hls interface m_axi port = A offset = slave bundle = gmem0
+#pragma hls interface m_axi port = B offset = slave bundle = gmem1
+#pragma hls interface s_axilite port = A bundle = control
+#pragma hls interface s_axilite port = nnz bundle = control
+#pragma hls interface s_axilite port = return bundle = control
+#pragma hls interface s_axilite port = M bundle = control
+#pragma hls interface s_axilite port = K bundle = control
 
-#pragma HLS INTERFACE s_axilite port=N bundle=control
-#pragma HLS INTERFACE s_axilite port=M bundle=control
-#pragma HLS INTERFACE s_axilite port=K bundle=control
-#pragma HLS INTERFACE s_axilite port=nnz bundle=control
-#pragma HLS INTERFACE s_axilite port=row_ptr bundle=control
-#pragma HLS INTERFACE s_axilite port=col_idx bundle=control
-#pragma HLS INTERFACE s_axilite port=a_val bundle=control
-#pragma HLS INTERFACE s_axilite port=B1 bundle=control
-#pragma HLS INTERFACE s_axilite port=B2 bundle=control
-#pragma HLS INTERFACE s_axilite port=B3 bundle=control
-#pragma HLS INTERFACE s_axilite port=B4 bundle=control
-#pragma HLS INTERFACE s_axilite port=C bundle=control
-#pragma HLS INTERFACE s_axilite port=return bundle=control
-
- hls::stream<TilePkt> s[NUM_PU];
-#pragma HLS stream variable = s depth = 16
+ hls::stream<ap_uint<64>> A_stream;
+#pragma HLS stream variable = A_stream depth = BUF_DEPTH
 
 
+ PCOO buf0[BUF_DEPTH];
+    PCOO buf1[BUF_DEPTH];
+#pragma HLS array_partition variable=buf0 complete dim=1
+#pragma HLS array_partition variable=buf1 complete dim=1
+ float Dense_Buf0[NUM_DEN_BUF];
+    float Dense_Buf1[NUM_DEN_BUF];
+#pragma HLS array_partition variable=Dense_Buf0 cyclic factor=NUM_PU dim=1
+#pragma HLS array_partition variable=Dense_Buf1 cyclic factor=NUM_PU dim=1
 
- row_loop:
+ float Out_Buf0[NUM_OUT_BUF];
+    float Out_Buf1[NUM_OUT_BUF];
+
+    bool ping = true;
+
+    int total_batches = (nnz + BUF_DEPTH - 1) / BUF_DEPTH;
+
+
+    PCOO* sparse_ptr = ping ? buf0 : buf1;
+    float* dense_ptr = ping ? Dense_Buf0 : Dense_Buf1;
+    float* out_ptr = ping ? Out_Buf0 : Out_Buf1;
+
+    {
 #pragma hls dataflow
- VITIS_LOOP_323_1: for(int i = 0; i < nnz; i = i + TILE_NNZ){
-        set_tile_broadcast(row_ptr, col_idx, a_val, s ,i, nnz);
-        pu_kernel(s[0], B1, K /4);
-        pu_kernel(s[1], B2, K /4);
-        pu_kernel(s[2], B3, K /4);
-        pu_kernel(s[3], B4, K /4);
+ load_A(A, nnz, A_stream);
+        VITIS_LOOP_81_1: for(int batch = 0; batch < total_batches; ++batch){
+            PCOO* sparse_ptr = ping ? buf0 : buf1;
+            load_stream_to_buffer(A_stream, sparse_ptr);
+            ping = !ping;
+        }
     }
 }

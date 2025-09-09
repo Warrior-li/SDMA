@@ -12,6 +12,7 @@ int XSpmm_hls_CfgInitialize(XSpmm_hls *InstancePtr, XSpmm_hls_Config *ConfigPtr)
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(ConfigPtr != NULL);
 
+    InstancePtr->Control_r_BaseAddress = ConfigPtr->Control_r_BaseAddress;
     InstancePtr->Control_BaseAddress = ConfigPtr->Control_BaseAddress;
     InstancePtr->IsReady = XIL_COMPONENT_IS_READY;
 
@@ -74,20 +75,58 @@ void XSpmm_hls_DisableAutoRestart(XSpmm_hls *InstancePtr) {
     XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_AP_CTRL, 0);
 }
 
-void XSpmm_hls_Set_N(XSpmm_hls *InstancePtr, u32 Data) {
+void XSpmm_hls_Set_B(XSpmm_hls *InstancePtr, u64 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_N_DATA, Data);
+    XSpmm_hls_WriteReg(InstancePtr->Control_r_BaseAddress, XSPMM_HLS_CONTROL_R_ADDR_B_DATA, (u32)(Data));
+    XSpmm_hls_WriteReg(InstancePtr->Control_r_BaseAddress, XSPMM_HLS_CONTROL_R_ADDR_B_DATA + 4, (u32)(Data >> 32));
 }
 
-u32 XSpmm_hls_Get_N(XSpmm_hls *InstancePtr) {
+u64 XSpmm_hls_Get_B(XSpmm_hls *InstancePtr) {
+    u64 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XSpmm_hls_ReadReg(InstancePtr->Control_r_BaseAddress, XSPMM_HLS_CONTROL_R_ADDR_B_DATA);
+    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_r_BaseAddress, XSPMM_HLS_CONTROL_R_ADDR_B_DATA + 4) << 32;
+    return Data;
+}
+
+void XSpmm_hls_Set_A(XSpmm_hls *InstancePtr, u64 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_A_DATA, (u32)(Data));
+    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_A_DATA + 4, (u32)(Data >> 32));
+}
+
+u64 XSpmm_hls_Get_A(XSpmm_hls *InstancePtr) {
+    u64 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_A_DATA);
+    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_A_DATA + 4) << 32;
+    return Data;
+}
+
+void XSpmm_hls_Set_nnz(XSpmm_hls *InstancePtr, u32 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_NNZ_DATA, Data);
+}
+
+u32 XSpmm_hls_Get_nnz(XSpmm_hls *InstancePtr) {
     u32 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_N_DATA);
+    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_NNZ_DATA);
     return Data;
 }
 
@@ -122,175 +161,6 @@ u32 XSpmm_hls_Get_K(XSpmm_hls *InstancePtr) {
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
     Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_K_DATA);
-    return Data;
-}
-
-void XSpmm_hls_Set_nnz(XSpmm_hls *InstancePtr, u32 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_NNZ_DATA, Data);
-}
-
-u32 XSpmm_hls_Get_nnz(XSpmm_hls *InstancePtr) {
-    u32 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_NNZ_DATA);
-    return Data;
-}
-
-void XSpmm_hls_Set_row_ptr(XSpmm_hls *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_ROW_PTR_DATA, (u32)(Data));
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_ROW_PTR_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XSpmm_hls_Get_row_ptr(XSpmm_hls *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_ROW_PTR_DATA);
-    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_ROW_PTR_DATA + 4) << 32;
-    return Data;
-}
-
-void XSpmm_hls_Set_col_idx(XSpmm_hls *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_COL_IDX_DATA, (u32)(Data));
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_COL_IDX_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XSpmm_hls_Get_col_idx(XSpmm_hls *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_COL_IDX_DATA);
-    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_COL_IDX_DATA + 4) << 32;
-    return Data;
-}
-
-void XSpmm_hls_Set_a_val(XSpmm_hls *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_A_VAL_DATA, (u32)(Data));
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_A_VAL_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XSpmm_hls_Get_a_val(XSpmm_hls *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_A_VAL_DATA);
-    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_A_VAL_DATA + 4) << 32;
-    return Data;
-}
-
-void XSpmm_hls_Set_B1(XSpmm_hls *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B1_DATA, (u32)(Data));
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B1_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XSpmm_hls_Get_B1(XSpmm_hls *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B1_DATA);
-    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B1_DATA + 4) << 32;
-    return Data;
-}
-
-void XSpmm_hls_Set_B2(XSpmm_hls *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B2_DATA, (u32)(Data));
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B2_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XSpmm_hls_Get_B2(XSpmm_hls *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B2_DATA);
-    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B2_DATA + 4) << 32;
-    return Data;
-}
-
-void XSpmm_hls_Set_B3(XSpmm_hls *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B3_DATA, (u32)(Data));
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B3_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XSpmm_hls_Get_B3(XSpmm_hls *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B3_DATA);
-    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B3_DATA + 4) << 32;
-    return Data;
-}
-
-void XSpmm_hls_Set_B4(XSpmm_hls *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B4_DATA, (u32)(Data));
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B4_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XSpmm_hls_Get_B4(XSpmm_hls *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B4_DATA);
-    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_B4_DATA + 4) << 32;
-    return Data;
-}
-
-void XSpmm_hls_Set_C(XSpmm_hls *InstancePtr, u64 Data) {
-    Xil_AssertVoid(InstancePtr != NULL);
-    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_C_DATA, (u32)(Data));
-    XSpmm_hls_WriteReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_C_DATA + 4, (u32)(Data >> 32));
-}
-
-u64 XSpmm_hls_Get_C(XSpmm_hls *InstancePtr) {
-    u64 Data;
-
-    Xil_AssertNonvoid(InstancePtr != NULL);
-    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
-
-    Data = XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_C_DATA);
-    Data += (u64)XSpmm_hls_ReadReg(InstancePtr->Control_BaseAddress, XSPMM_HLS_CONTROL_ADDR_C_DATA + 4) << 32;
     return Data;
 }
 

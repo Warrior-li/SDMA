@@ -39,11 +39,13 @@ typedef uint64_t u64;
 #else
 typedef struct {
     u16 DeviceId;
+    u64 Control_r_BaseAddress;
     u64 Control_BaseAddress;
 } XSpmm_hls_Config;
 #endif
 
 typedef struct {
+    u64 Control_r_BaseAddress;
     u64 Control_BaseAddress;
     u32 IsReady;
 } XSpmm_hls;
@@ -88,30 +90,16 @@ u32 XSpmm_hls_IsReady(XSpmm_hls *InstancePtr);
 void XSpmm_hls_EnableAutoRestart(XSpmm_hls *InstancePtr);
 void XSpmm_hls_DisableAutoRestart(XSpmm_hls *InstancePtr);
 
-void XSpmm_hls_Set_N(XSpmm_hls *InstancePtr, u32 Data);
-u32 XSpmm_hls_Get_N(XSpmm_hls *InstancePtr);
+void XSpmm_hls_Set_B(XSpmm_hls *InstancePtr, u64 Data);
+u64 XSpmm_hls_Get_B(XSpmm_hls *InstancePtr);
+void XSpmm_hls_Set_A(XSpmm_hls *InstancePtr, u64 Data);
+u64 XSpmm_hls_Get_A(XSpmm_hls *InstancePtr);
+void XSpmm_hls_Set_nnz(XSpmm_hls *InstancePtr, u32 Data);
+u32 XSpmm_hls_Get_nnz(XSpmm_hls *InstancePtr);
 void XSpmm_hls_Set_M(XSpmm_hls *InstancePtr, u32 Data);
 u32 XSpmm_hls_Get_M(XSpmm_hls *InstancePtr);
 void XSpmm_hls_Set_K(XSpmm_hls *InstancePtr, u32 Data);
 u32 XSpmm_hls_Get_K(XSpmm_hls *InstancePtr);
-void XSpmm_hls_Set_nnz(XSpmm_hls *InstancePtr, u32 Data);
-u32 XSpmm_hls_Get_nnz(XSpmm_hls *InstancePtr);
-void XSpmm_hls_Set_row_ptr(XSpmm_hls *InstancePtr, u64 Data);
-u64 XSpmm_hls_Get_row_ptr(XSpmm_hls *InstancePtr);
-void XSpmm_hls_Set_col_idx(XSpmm_hls *InstancePtr, u64 Data);
-u64 XSpmm_hls_Get_col_idx(XSpmm_hls *InstancePtr);
-void XSpmm_hls_Set_a_val(XSpmm_hls *InstancePtr, u64 Data);
-u64 XSpmm_hls_Get_a_val(XSpmm_hls *InstancePtr);
-void XSpmm_hls_Set_B1(XSpmm_hls *InstancePtr, u64 Data);
-u64 XSpmm_hls_Get_B1(XSpmm_hls *InstancePtr);
-void XSpmm_hls_Set_B2(XSpmm_hls *InstancePtr, u64 Data);
-u64 XSpmm_hls_Get_B2(XSpmm_hls *InstancePtr);
-void XSpmm_hls_Set_B3(XSpmm_hls *InstancePtr, u64 Data);
-u64 XSpmm_hls_Get_B3(XSpmm_hls *InstancePtr);
-void XSpmm_hls_Set_B4(XSpmm_hls *InstancePtr, u64 Data);
-u64 XSpmm_hls_Get_B4(XSpmm_hls *InstancePtr);
-void XSpmm_hls_Set_C(XSpmm_hls *InstancePtr, u64 Data);
-u64 XSpmm_hls_Get_C(XSpmm_hls *InstancePtr);
 
 void XSpmm_hls_InterruptGlobalEnable(XSpmm_hls *InstancePtr);
 void XSpmm_hls_InterruptGlobalDisable(XSpmm_hls *InstancePtr);

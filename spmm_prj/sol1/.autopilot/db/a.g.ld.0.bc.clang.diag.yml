@@ -1,103 +1,41 @@
 --- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 121, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_121_3
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_114_2
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 69, Column: 13 }
-Function:        _Z18set_tile_broadcastPKjS0_PKfPN3hls6streamI7TilePktLi0EEEjj
-Args:            
-  - String:          'Loop '''
-  - LoopName:        compare_all
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 33, Column: 0 }
-Function:        _Z18set_tile_broadcastPKjS0_PKfPN3hls6streamI7TilePktLi0EEEjj
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        VITIS_LOOP_94_1
-  - String:          ''' ('
-  - LoopLoc:         'src/spmm_device_fpga.cpp:94:22'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          set_tile_broadcast
-  - String:          ''' completely with a factor of '
-  - Factor:          '4'
-...
---- !Passed
-Pass:            reflow-pragma-loop-unroll
-Name:            PragmaFullyUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 33, Column: 0 }
-Function:        _Z18set_tile_broadcastPKjS0_PKfPN3hls6streamI7TilePktLi0EEEjj
-Args:            
-  - String:          'Unrolling loop '''
-  - LoopName:        compare_all
-  - String:          ''' ('
-  - LoopLoc:         'src/spmm_device_fpga.cpp:69:13'
-  - String:          ') '
-  - String:          'in function '''
-  - String:          set_tile_broadcast
-  - String:          ''' completely with a factor of '
-  - Factor:          '4'
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            AutoInline
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 192, Column: 0 }
-Function:        _Z8au_mergeRN3hls6streamIfLi0EEES2_jjPfS3_RiS4_i
+Pass:            inline
+Name:            AlwaysInline
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 83, Column: 13 }
+Function:        spmm_hls
 Args:            
   - String:          'Inlining function '''
-  - Callee:          'merge_into_one_AU(unsigned int, hls::stream<float, 0>&, hls::stream<float, 0>&, float*, int&, int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 154, Column: 0 }
+  - Callee:          'load_stream_to_buffer(hls::stream<ap_uint<64>, 0>&, PCOO*)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 27, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'au_merge(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 192, Column: 0 }
+  - Caller:          spmm_hls
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 44, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-inliner
 Name:            AutoInline
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 192, Column: 0 }
-Function:        _Z8au_mergeRN3hls6streamIfLi0EEES2_jjPfS3_RiS4_i
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 44, Column: 0 }
+Function:        spmm_hls
 Args:            
   - String:          'Inlining function '''
-  - Callee:          'split_into_two_AU(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 172, Column: 0 }
+  - Callee:          'unpack_pcoo(ap_uint<64>)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 4, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'au_merge(hls::stream<float, 0>&, hls::stream<float, 0>&, unsigned int, unsigned int, float*, float*, int&, int&, int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 192, Column: 0 }
+  - Caller:          spmm_hls
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 44, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 38, Column: 10 }
-Function:        _Z18set_tile_broadcastPKjS0_PKfPN3hls6streamI7TilePktLi0EEEjj
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 57, Column: 7 }
+Function:        spmm_hls
 Args:            
   - String:          'Applying '
   - String:          array_partition
   - String:          ' to '''
-  - UOName:          seen_y
+  - UOName:          buf0
   - String:          ''':'
   - String:          ' '
   - Mode:            Complete
@@ -109,13 +47,13 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 39, Column: 10 }
-Function:        _Z18set_tile_broadcastPKjS0_PKfPN3hls6streamI7TilePktLi0EEEjj
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 58, Column: 10 }
+Function:        spmm_hls
 Args:            
   - String:          'Applying '
   - String:          array_partition
   - String:          ' to '''
-  - UOName:          seen_v
+  - UOName:          buf1
   - String:          ''':'
   - String:          ' '
   - Mode:            Complete
@@ -123,94 +61,12 @@ Args:
   - String:          ' on dimension '
   - Dim:             '1'
   - String:          .
-...
---- !Passed
-Pass:            reflow-array-partition
-Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
-Function:        spmm_hls
-Args:            
-  - String:          'Applying '
-  - String:          array_partition
-  - String:          ' to '''
-  - UOName:          s
-  - String:          ''':'
-  - String:          ' '
-  - Mode:            Complete
-  - String:          ' partitioning'
-  - String:          ' on dimension '
-  - Dim:             '1'
-  - String:          .
-...
---- !Passed
-Pass:            reflow-aggr
-Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
-Function:        spmm_hls
-Args:            
-  - String:          'Aggregating '
-  - HwTyName:        'fifo (hls::stream)'
-  - String:          ' variable '''
-  - Name:            s_0
-  - String:          ''' with '
-  - AggregateTypeName: 'compact=bit'
-  - String:          ' mode in '
-  - Bitwidth:        '388'
-  - String:          '-bits'
-...
---- !Passed
-Pass:            reflow-aggr
-Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
-Function:        spmm_hls
-Args:            
-  - String:          'Aggregating '
-  - HwTyName:        'fifo (hls::stream)'
-  - String:          ' variable '''
-  - Name:            s_1
-  - String:          ''' with '
-  - AggregateTypeName: 'compact=bit'
-  - String:          ' mode in '
-  - Bitwidth:        '388'
-  - String:          '-bits'
-...
---- !Passed
-Pass:            reflow-aggr
-Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
-Function:        spmm_hls
-Args:            
-  - String:          'Aggregating '
-  - HwTyName:        'fifo (hls::stream)'
-  - String:          ' variable '''
-  - Name:            s_2
-  - String:          ''' with '
-  - AggregateTypeName: 'compact=bit'
-  - String:          ' mode in '
-  - Bitwidth:        '388'
-  - String:          '-bits'
-...
---- !Passed
-Pass:            reflow-aggr
-Name:            AggrSucc
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 316, Column: 23 }
-Function:        spmm_hls
-Args:            
-  - String:          'Aggregating '
-  - HwTyName:        'fifo (hls::stream)'
-  - String:          ' variable '''
-  - Name:            s_3
-  - String:          ''' with '
-  - AggregateTypeName: 'compact=bit'
-  - String:          ' mode in '
-  - Bitwidth:        '388'
-  - String:          '-bits'
 ...
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 18, Column: 19 }
+Function:        _Z6load_APK7ap_uintILi64EEiRN3hls6streamIS0_Li0EEE
 Args:            
   - String:          'Sequential '
   - Direction:       read
@@ -219,155 +75,60 @@ Args:
   - String:          ' length'
   - String:          ' has been inferred'
   - String:          ' _XLX_SEP_ OldID='
-  - String:          for.inc.load.7
+  - String:          for.inc.load.6
   - String:          ', '
   - String:          ' _XLX_SEP_ '
-  - AccessID:        scevgepseq
+  - AccessID:        Aseq
   - String:          ' '
-  - ArrayName:       B
+  - ArrayName:       A
   - String:          ' '
-  - BundleName:      gmem3,gmem4,gmem5,gmem6
+  - BundleName:      gmem0
   - String:          ' '
-  - LoopName:        VITIS_LOOP_114_2
+  - LoopName:        VITIS_LOOP_18_1
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:114:31'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:18:19'
   - String:          ' '
-  - Function:        'dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int, unsigned int*)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 108, Column: 0 }
-  - String:          ' '
-...
---- !Missed
-Pass:            reflow-burst-inference
-Name:            AccessInCondBranch
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj
-Args:            
-  - String:          'Access '
-  - Access:          call
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
-  - String:          ' is in the conditional branch'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        scevgepseq
-  - String:          ' '
-  - ArrayName:       B
-  - String:          ' '
-  - BundleName:      gmem3,gmem4,gmem5,gmem6
-  - String:          ' '
-  - LoopName:        VITIS_LOOP_111_1
-  - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:111:20'
-  - String:          ' '
-  - Function:        'dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int, unsigned int*)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 108, Column: 0 }
-  - String:          ' '
-...
---- !Missed
-Pass:            reflow-burst-inference
-Name:            AccessInCondBranch
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 62, Column: 25 }
-Function:        _Z18set_tile_broadcastPKjS0_PKfPN3hls6streamI7TilePktLi0EEEjj
-Args:            
-  - String:          'Access '
-  - Access:          tile.value
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 62, Column: 25 }
-  - String:          ' is in the conditional branch'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        for.body14.load.2
-  - String:          ' '
-  - ArrayName:       a_val
-  - String:          ' '
-  - BundleName:      gmem2
-  - String:          ' '
-  - LoopName:        copy_tile_loop
-  - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:57:5'
-  - String:          ' '
-  - Function:        'set_tile_broadcast(unsigned int const*, unsigned int const*, float const*, hls::stream<TilePkt, 0>*, unsigned int, unsigned int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 33, Column: 0 }
-  - String:          ' '
-...
---- !Missed
-Pass:            reflow-burst-inference
-Name:            AccessInCondBranch
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 63, Column: 25 }
-Function:        _Z18set_tile_broadcastPKjS0_PKfPN3hls6streamI7TilePktLi0EEEjj
-Args:            
-  - String:          'Access '
-  - Access:          seen_y
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 63, Column: 25 }
-  - String:          ' is in the conditional branch'
-  - String:          ' _XLX_SEP_ '
-  - AccessID:        for.body14.load.5
-  - String:          ' '
-  - ArrayName:       col_idx
-  - String:          ' '
-  - BundleName:      gmem1
-  - String:          ' '
-  - LoopName:        copy_tile_loop
-  - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:57:5'
-  - String:          ' '
-  - Function:        'set_tile_broadcast(unsigned int const*, unsigned int const*, float const*, hls::stream<TilePkt, 0>*, unsigned int, unsigned int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 33, Column: 0 }
+  - Function:        'load_A(ap_uint<64> const*, int, hls::stream<ap_uint<64>, 0>&)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 16, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 18, Column: 19 }
+Function:        _Z6load_APK7ap_uintILi64EEiRN3hls6streamIS0_Li0EEE
 Args:            
   - String:          'Could not widen since type '
-  - Type:            float
+  - Type:            i64
   - String:          ' size is greater than or equal to the max_widen_bitwidth threshold of '
   - Threshold:       '0'
   - String:          ' _XLX_SEP_ '
-  - AccessID:        scevgepseq
+  - AccessID:        Aseq
   - String:          ' '
-  - ArrayName:       B
+  - ArrayName:       A
   - String:          ' '
-  - BundleName:      gmem3,gmem4,gmem5,gmem6
+  - BundleName:      gmem0
   - String:          ' '
-  - LoopName:        VITIS_LOOP_114_2
+  - LoopName:        VITIS_LOOP_18_1
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:114:31'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:18:19'
   - String:          ' '
-  - Function:        'dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int, unsigned int*)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 108, Column: 0 }
+  - Function:        'load_A(ap_uint<64> const*, int, hls::stream<ap_uint<64>, 0>&)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 16, Column: 0 }
   - String:          ' '
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 121, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_121_3
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_114_2
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj.1
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 18, Column: 19 }
+Function:        _Z6load_APK7ap_uintILi64EEiRN3hls6streamIS0_Li0EEE.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
   - String:          ' of '
   - Length:          variable
   - String:          ' length and bit width '
-  - Width:           '32'
+  - Width:           '64'
   - String:          ' has been inferred.'
   - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
   - String:          ' _XLX_SEP_ '
@@ -375,55 +136,35 @@ Args:
   - String:          ' '
   - ArrayName:       ''
   - String:          ' '
-  - BundleName:      gmem3
+  - BundleName:      gmem0
   - String:          ' '
-  - LoopName:        VITIS_LOOP_114_2
+  - LoopName:        VITIS_LOOP_18_1
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:114:31'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:18:19'
   - String:          ' '
-  - Function:        'dfm(Sp_value*, bool*, float*, unsigned int&, float const*, unsigned int, unsigned int*) (.1)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 108, Column: 0 }
+  - Function:        'load_A(ap_uint<64> const*, int, hls::stream<ap_uint<64>, 0>&) (.1)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 16, Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj.1
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 18, Column: 19 }
+Function:        _Z6load_APK7ap_uintILi64EEiRN3hls6streamIS0_Li0EEE.1
 Args:            
   - String:          'Multiple burst '
   - Direction:       reads
   - String:          ' of '
   - Length:          variable
   - String:          ' length and bit width '
-  - Width:           '32'
+  - Width:           '64'
   - String:          ' in loop '''
-  - LoopName:        VITIS_LOOP_114_2
+  - LoopName:        VITIS_LOOP_18_1
   - String:          '''('
-  - LoopLoc:         'src/spmm_device_fpga.cpp:114:31'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:18:19'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
-  - BundleName:      gmem3
+  - BundleName:      gmem0
   - String:          '''.'
   - String:          ' These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 121, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj.1
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_121_3
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
-...
---- !Passed
-Pass:            reflow-infer-unroll
-Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 114, Column: 31 }
-Function:        _Z3dfmP8Sp_valuePbPfRjPKfjPj.1
-Args:            
-  - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_114_2
-  - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
