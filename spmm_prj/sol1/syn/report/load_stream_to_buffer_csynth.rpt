@@ -1,0 +1,241 @@
+
+
+================================================================
+== Vitis HLS Report for 'load_stream_to_buffer'
+================================================================
+* Date:           Thu Sep 11 18:20:11 2025
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        spmm_prj
+* Solution:       sol1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  1.374 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |  Latency (cycles) |   Latency (absolute)  |  Interval | Pipeline|
+    |   min   |   max   |    min    |    max    | min | max |   Type  |
+    +---------+---------+-----------+-----------+-----+-----+---------+
+    |       18|       18|  72.000 ns|  72.000 ns|   18|   18|       no|
+    +---------+---------+-----------+-----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                  |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name    |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- read_data_loop  |       16|       16|         2|          1|          1|    16|       yes|
+        +------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+------+---------+---------+-----+
+|         Name        | BRAM_18K|  DSP |    FF   |   LUT   | URAM|
++---------------------+---------+------+---------+---------+-----+
+|DSP                  |        -|     -|        -|        -|    -|
+|Expression           |        -|     -|        0|       26|    -|
+|FIFO                 |        -|     -|        -|        -|    -|
+|Instance             |        -|     -|        -|        -|    -|
+|Memory               |        -|     -|        -|        -|    -|
+|Multiplexer          |        -|     -|        -|       45|    -|
+|Register             |        -|     -|       12|        -|    -|
++---------------------+---------+------+---------+---------+-----+
+|Total                |        0|     0|       12|       71|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available SLR        |     1344|  3008|   869120|   434560|  320|
++---------------------+---------+------+---------+---------+-----+
+|Utilization SLR (%)  |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+|Available            |     4032|  9024|  2607360|  1303680|  960|
++---------------------+---------+------+---------+---------+-----+
+|Utilization (%)      |        0|     0|       ~0|       ~0|    0|
++---------------------+---------+------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------------------+----------+----+---+----+------------+------------+
+    |       Variable Name       | Operation| DSP| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |add_ln32_fu_534_p2         |         +|   0|  0|  12|           5|           1|
+    |ap_block_pp0_stage0_01001  |       and|   0|  0|   2|           1|           1|
+    |icmp_ln32_fu_528_p2        |      icmp|   0|  0|  10|           5|           6|
+    |ap_enable_pp0              |       xor|   0|  0|   2|           1|           2|
+    +---------------------------+----------+----+---+----+------------+------------+
+    |Total                      |          |   0|  0|  26|          12|          10|
+    +---------------------------+----------+----+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-------------------------+----+-----------+-----+-----------+
+    |           Name          | LUT| Input Size| Bits| Total Bits|
+    +-------------------------+----+-----------+-----+-----------+
+    |A_stream3_blk_n          |   9|          2|    1|          2|
+    |ap_done_int              |   9|          2|    1|          2|
+    |ap_enable_reg_pp0_iter1  |   9|          2|    1|          2|
+    |ap_sig_allocacmp_i_3     |   9|          2|    5|         10|
+    |i_fu_174                 |   9|          2|    5|         10|
+    +-------------------------+----+-----------+-----+-----------+
+    |Total                    |  45|         10|   13|         26|
+    +-------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-------------------------+---+----+-----+-----------+
+    |           Name          | FF| LUT| Bits| Const Bits|
+    +-------------------------+---+----+-----+-----------+
+    |ap_CS_fsm                |  1|   0|    1|          0|
+    |ap_done_reg              |  1|   0|    1|          0|
+    |ap_enable_reg_pp0_iter1  |  1|   0|    1|          0|
+    |i_fu_174                 |  5|   0|    5|          0|
+    |trunc_ln35_reg_629       |  4|   0|    4|          0|
+    +-------------------------+---+----+-----+-----------+
+    |Total                    | 12|   0|   12|          0|
+    +-------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------------+-----+-----+------------+-----------------------+--------------+
+|          RTL Ports         | Dir | Bits|  Protocol  |     Source Object     |    C Type    |
++----------------------------+-----+-----+------------+-----------------------+--------------+
+|ap_clk                      |   in|    1|  ap_ctrl_hs|  load_stream_to_buffer|  return value|
+|ap_rst                      |   in|    1|  ap_ctrl_hs|  load_stream_to_buffer|  return value|
+|ap_start                    |   in|    1|  ap_ctrl_hs|  load_stream_to_buffer|  return value|
+|ap_done                     |  out|    1|  ap_ctrl_hs|  load_stream_to_buffer|  return value|
+|ap_idle                     |  out|    1|  ap_ctrl_hs|  load_stream_to_buffer|  return value|
+|ap_ready                    |  out|    1|  ap_ctrl_hs|  load_stream_to_buffer|  return value|
+|A_stream3_dout              |   in|   64|     ap_fifo|              A_stream3|       pointer|
+|A_stream3_empty_n           |   in|    1|     ap_fifo|              A_stream3|       pointer|
+|A_stream3_read              |  out|    1|     ap_fifo|              A_stream3|       pointer|
+|sparse_buf_eor_0            |  out|    1|      ap_vld|       sparse_buf_eor_0|       pointer|
+|sparse_buf_eor_0_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_0|       pointer|
+|sparse_buf_eor_1            |  out|    1|      ap_vld|       sparse_buf_eor_1|       pointer|
+|sparse_buf_eor_1_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_1|       pointer|
+|sparse_buf_eor_2            |  out|    1|      ap_vld|       sparse_buf_eor_2|       pointer|
+|sparse_buf_eor_2_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_2|       pointer|
+|sparse_buf_eor_3            |  out|    1|      ap_vld|       sparse_buf_eor_3|       pointer|
+|sparse_buf_eor_3_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_3|       pointer|
+|sparse_buf_eor_4            |  out|    1|      ap_vld|       sparse_buf_eor_4|       pointer|
+|sparse_buf_eor_4_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_4|       pointer|
+|sparse_buf_eor_5            |  out|    1|      ap_vld|       sparse_buf_eor_5|       pointer|
+|sparse_buf_eor_5_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_5|       pointer|
+|sparse_buf_eor_6            |  out|    1|      ap_vld|       sparse_buf_eor_6|       pointer|
+|sparse_buf_eor_6_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_6|       pointer|
+|sparse_buf_eor_7            |  out|    1|      ap_vld|       sparse_buf_eor_7|       pointer|
+|sparse_buf_eor_7_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_7|       pointer|
+|sparse_buf_eor_8            |  out|    1|      ap_vld|       sparse_buf_eor_8|       pointer|
+|sparse_buf_eor_8_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_8|       pointer|
+|sparse_buf_eor_9            |  out|    1|      ap_vld|       sparse_buf_eor_9|       pointer|
+|sparse_buf_eor_9_ap_vld     |  out|    1|      ap_vld|       sparse_buf_eor_9|       pointer|
+|sparse_buf_eor_10           |  out|    1|      ap_vld|      sparse_buf_eor_10|       pointer|
+|sparse_buf_eor_10_ap_vld    |  out|    1|      ap_vld|      sparse_buf_eor_10|       pointer|
+|sparse_buf_eor_11           |  out|    1|      ap_vld|      sparse_buf_eor_11|       pointer|
+|sparse_buf_eor_11_ap_vld    |  out|    1|      ap_vld|      sparse_buf_eor_11|       pointer|
+|sparse_buf_eor_12           |  out|    1|      ap_vld|      sparse_buf_eor_12|       pointer|
+|sparse_buf_eor_12_ap_vld    |  out|    1|      ap_vld|      sparse_buf_eor_12|       pointer|
+|sparse_buf_eor_13           |  out|    1|      ap_vld|      sparse_buf_eor_13|       pointer|
+|sparse_buf_eor_13_ap_vld    |  out|    1|      ap_vld|      sparse_buf_eor_13|       pointer|
+|sparse_buf_eor_14           |  out|    1|      ap_vld|      sparse_buf_eor_14|       pointer|
+|sparse_buf_eor_14_ap_vld    |  out|    1|      ap_vld|      sparse_buf_eor_14|       pointer|
+|sparse_buf_eor_15           |  out|    1|      ap_vld|      sparse_buf_eor_15|       pointer|
+|sparse_buf_eor_15_ap_vld    |  out|    1|      ap_vld|      sparse_buf_eor_15|       pointer|
+|sparse_buf_col_0            |  out|   31|      ap_vld|       sparse_buf_col_0|       pointer|
+|sparse_buf_col_0_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_0|       pointer|
+|sparse_buf_col_1            |  out|   31|      ap_vld|       sparse_buf_col_1|       pointer|
+|sparse_buf_col_1_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_1|       pointer|
+|sparse_buf_col_2            |  out|   31|      ap_vld|       sparse_buf_col_2|       pointer|
+|sparse_buf_col_2_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_2|       pointer|
+|sparse_buf_col_3            |  out|   31|      ap_vld|       sparse_buf_col_3|       pointer|
+|sparse_buf_col_3_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_3|       pointer|
+|sparse_buf_col_4            |  out|   31|      ap_vld|       sparse_buf_col_4|       pointer|
+|sparse_buf_col_4_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_4|       pointer|
+|sparse_buf_col_5            |  out|   31|      ap_vld|       sparse_buf_col_5|       pointer|
+|sparse_buf_col_5_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_5|       pointer|
+|sparse_buf_col_6            |  out|   31|      ap_vld|       sparse_buf_col_6|       pointer|
+|sparse_buf_col_6_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_6|       pointer|
+|sparse_buf_col_7            |  out|   31|      ap_vld|       sparse_buf_col_7|       pointer|
+|sparse_buf_col_7_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_7|       pointer|
+|sparse_buf_col_8            |  out|   31|      ap_vld|       sparse_buf_col_8|       pointer|
+|sparse_buf_col_8_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_8|       pointer|
+|sparse_buf_col_9            |  out|   31|      ap_vld|       sparse_buf_col_9|       pointer|
+|sparse_buf_col_9_ap_vld     |  out|    1|      ap_vld|       sparse_buf_col_9|       pointer|
+|sparse_buf_col_10           |  out|   31|      ap_vld|      sparse_buf_col_10|       pointer|
+|sparse_buf_col_10_ap_vld    |  out|    1|      ap_vld|      sparse_buf_col_10|       pointer|
+|sparse_buf_col_11           |  out|   31|      ap_vld|      sparse_buf_col_11|       pointer|
+|sparse_buf_col_11_ap_vld    |  out|    1|      ap_vld|      sparse_buf_col_11|       pointer|
+|sparse_buf_col_12           |  out|   31|      ap_vld|      sparse_buf_col_12|       pointer|
+|sparse_buf_col_12_ap_vld    |  out|    1|      ap_vld|      sparse_buf_col_12|       pointer|
+|sparse_buf_col_13           |  out|   31|      ap_vld|      sparse_buf_col_13|       pointer|
+|sparse_buf_col_13_ap_vld    |  out|    1|      ap_vld|      sparse_buf_col_13|       pointer|
+|sparse_buf_col_14           |  out|   31|      ap_vld|      sparse_buf_col_14|       pointer|
+|sparse_buf_col_14_ap_vld    |  out|    1|      ap_vld|      sparse_buf_col_14|       pointer|
+|sparse_buf_col_15           |  out|   31|      ap_vld|      sparse_buf_col_15|       pointer|
+|sparse_buf_col_15_ap_vld    |  out|    1|      ap_vld|      sparse_buf_col_15|       pointer|
+|sparse_buf_value_0          |  out|   32|      ap_vld|     sparse_buf_value_0|       pointer|
+|sparse_buf_value_0_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_0|       pointer|
+|sparse_buf_value_1          |  out|   32|      ap_vld|     sparse_buf_value_1|       pointer|
+|sparse_buf_value_1_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_1|       pointer|
+|sparse_buf_value_2          |  out|   32|      ap_vld|     sparse_buf_value_2|       pointer|
+|sparse_buf_value_2_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_2|       pointer|
+|sparse_buf_value_3          |  out|   32|      ap_vld|     sparse_buf_value_3|       pointer|
+|sparse_buf_value_3_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_3|       pointer|
+|sparse_buf_value_4          |  out|   32|      ap_vld|     sparse_buf_value_4|       pointer|
+|sparse_buf_value_4_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_4|       pointer|
+|sparse_buf_value_5          |  out|   32|      ap_vld|     sparse_buf_value_5|       pointer|
+|sparse_buf_value_5_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_5|       pointer|
+|sparse_buf_value_6          |  out|   32|      ap_vld|     sparse_buf_value_6|       pointer|
+|sparse_buf_value_6_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_6|       pointer|
+|sparse_buf_value_7          |  out|   32|      ap_vld|     sparse_buf_value_7|       pointer|
+|sparse_buf_value_7_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_7|       pointer|
+|sparse_buf_value_8          |  out|   32|      ap_vld|     sparse_buf_value_8|       pointer|
+|sparse_buf_value_8_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_8|       pointer|
+|sparse_buf_value_9          |  out|   32|      ap_vld|     sparse_buf_value_9|       pointer|
+|sparse_buf_value_9_ap_vld   |  out|    1|      ap_vld|     sparse_buf_value_9|       pointer|
+|sparse_buf_value_10         |  out|   32|      ap_vld|    sparse_buf_value_10|       pointer|
+|sparse_buf_value_10_ap_vld  |  out|    1|      ap_vld|    sparse_buf_value_10|       pointer|
+|sparse_buf_value_11         |  out|   32|      ap_vld|    sparse_buf_value_11|       pointer|
+|sparse_buf_value_11_ap_vld  |  out|    1|      ap_vld|    sparse_buf_value_11|       pointer|
+|sparse_buf_value_12         |  out|   32|      ap_vld|    sparse_buf_value_12|       pointer|
+|sparse_buf_value_12_ap_vld  |  out|    1|      ap_vld|    sparse_buf_value_12|       pointer|
+|sparse_buf_value_13         |  out|   32|      ap_vld|    sparse_buf_value_13|       pointer|
+|sparse_buf_value_13_ap_vld  |  out|    1|      ap_vld|    sparse_buf_value_13|       pointer|
+|sparse_buf_value_14         |  out|   32|      ap_vld|    sparse_buf_value_14|       pointer|
+|sparse_buf_value_14_ap_vld  |  out|    1|      ap_vld|    sparse_buf_value_14|       pointer|
+|sparse_buf_value_15         |  out|   32|      ap_vld|    sparse_buf_value_15|       pointer|
+|sparse_buf_value_15_ap_vld  |  out|    1|      ap_vld|    sparse_buf_value_15|       pointer|
++----------------------------+-----+-----+------------+-----------------------+--------------+
+

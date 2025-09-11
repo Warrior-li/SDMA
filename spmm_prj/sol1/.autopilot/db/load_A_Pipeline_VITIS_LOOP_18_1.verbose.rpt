@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'load_A_Pipeline_VITIS_LOOP_18_1'
 ================================================================
-* Date:           Tue Sep  9 18:13:39 2025
+* Date:           Wed Sep 10 13:05:28 2025
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        spmm_prj
@@ -260,7 +260,7 @@ ST_2 : Operation 26 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 
 
 State 3 <SV = 2> <Delay = 1.37>
 ST_3 : Operation 22 [1/1] (0.00ns)   --->   "%specpipeline_ln19 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_3" [src/spmm_device_fpga.cpp:19]   --->   Operation 22 'specpipeline' 'specpipeline_ln19' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%specloopname_ln18 = specloopname void @_ssdm_op_SpecLoopName, void @empty_15" [src/spmm_device_fpga.cpp:18]   --->   Operation 23 'specloopname' 'specloopname_ln18' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 23 [1/1] (0.00ns)   --->   "%specloopname_ln18 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17" [src/spmm_device_fpga.cpp:18]   --->   Operation 23 'specloopname' 'specloopname_ln18' <Predicate = true> <Delay = 0.00>
 ST_3 : Operation 24 [1/1] (1.37ns)   --->   "%write_ln20 = write void @_ssdm_op_Write.ap_fifo.volatile.i64P0A, i64 %A_stream1, i64 %gmem0_addr_read" [src/spmm_device_fpga.cpp:20]   --->   Operation 24 'write' 'write_ln20' <Predicate = true> <Delay = 1.37> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.37> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 16> <FIFO>
 ST_3 : Operation 25 [1/1] (0.00ns)   --->   "%br_ln18 = br void %for.inc" [src/spmm_device_fpga.cpp:18]   --->   Operation 25 'br' 'br_ln18' <Predicate = true> <Delay = 0.00>
 
@@ -506,7 +506,7 @@ ret_ln0           (ret          ) [ 0000]
 <pin id="43" dir="1" index="0" bw="1" slack="2147483647"/>
 </pin_list>
 <bind>
-<StgValue><ssdm name="empty_15"/></StgValue>
+<StgValue><ssdm name="empty_17"/></StgValue>
 </bind>
 </comp>
 

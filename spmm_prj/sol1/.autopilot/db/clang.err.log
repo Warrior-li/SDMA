@@ -1,4 +1,10 @@
-src/spmm_device_fpga.cpp:79:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
+src/spmm_device_fpga.cpp:95:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
 #pragma hls dataflow
         ^~~~~~~~~~~~
-1 warning generated.
+src/spmm_device_fpga.cpp:146:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
+#pragma HLS dataflow
+        ^~~~~~~~~~~~
+src/spmm_device_fpga.cpp:153:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
+#pragma HLS dataflow
+        ^~~~~~~~~~~~
+3 warnings generated.

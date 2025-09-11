@@ -24,7 +24,7 @@ entry:
 ; Function Attrs: argmemonly noinline norecurse
 define internal fastcc void @copy_in(%"struct.ap_uint<64>"* noalias readonly "unpacked"="0", i64* noalias nocapture align 512 "unpacked"="1.0.0.0", %"struct.ap_uint<32>"* noalias readonly "unpacked"="2", i32* noalias nocapture align 512 "unpacked"="3.0.0.0") unnamed_addr #1 {
 entry:
-  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<64>.42"(i64* align 512 %1, %"struct.ap_uint<64>"* %0)
+  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<64>.204"(i64* align 512 %1, %"struct.ap_uint<64>"* %0)
   call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<32>"(i32* align 512 %3, %"struct.ap_uint<32>"* %2)
   ret void
 }
@@ -33,12 +33,12 @@ entry:
 define internal fastcc void @copy_out(%"struct.ap_uint<64>"* noalias "unpacked"="0", i64* noalias nocapture readonly align 512 "unpacked"="1.0.0.0", %"struct.ap_uint<32>"* noalias "unpacked"="2", i32* noalias nocapture readonly align 512 "unpacked"="3.0.0.0") unnamed_addr #2 {
 entry:
   call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<64>"(%"struct.ap_uint<64>"* %0, i64* align 512 %1)
-  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<32>.17"(%"struct.ap_uint<32>"* %2, i32* align 512 %3)
+  call fastcc void @"onebyonecpy_hls.p0struct.ap_uint<32>.167"(%"struct.ap_uint<32>"* %2, i32* align 512 %3)
   ret void
 }
 
 ; Function Attrs: argmemonly noinline norecurse
-define internal fastcc void @"onebyonecpy_hls.p0struct.ap_uint<32>.17"(%"struct.ap_uint<32>"* noalias "unpacked"="0", i32* noalias nocapture readonly align 512 "unpacked"="1.0.0.0") unnamed_addr #3 {
+define internal fastcc void @"onebyonecpy_hls.p0struct.ap_uint<32>.167"(%"struct.ap_uint<32>"* noalias "unpacked"="0", i32* noalias nocapture readonly align 512 "unpacked"="1.0.0.0") unnamed_addr #3 {
 entry:
   %2 = icmp eq %"struct.ap_uint<32>"* %0, null
   br i1 %2, label %ret, label %copy
@@ -70,7 +70,7 @@ ret:                                              ; preds = %copy, %entry
 }
 
 ; Function Attrs: argmemonly noinline norecurse
-define internal fastcc void @"onebyonecpy_hls.p0struct.ap_uint<64>.42"(i64* noalias nocapture align 512 "unpacked"="0.0.0.0", %"struct.ap_uint<64>"* noalias readonly "unpacked"="1") unnamed_addr #3 {
+define internal fastcc void @"onebyonecpy_hls.p0struct.ap_uint<64>.204"(i64* noalias nocapture align 512 "unpacked"="0.0.0.0", %"struct.ap_uint<64>"* noalias readonly "unpacked"="1") unnamed_addr #3 {
 entry:
   %2 = icmp eq %"struct.ap_uint<64>"* %1, null
   br i1 %2, label %ret, label %copy

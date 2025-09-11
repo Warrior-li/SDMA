@@ -10,61 +10,97 @@ In file included from /opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/a
 /opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h:706:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=unroll_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=xor_reduce_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS unroll
         ^
-src/spmm_device_fpga.cpp:17:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_A_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:18:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_A_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls inline off
         ^
-src/spmm_device_fpga.cpp:19:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_A_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:21:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_A_XLX_SEP_ PragmaOptions=II=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS pipeline II=1
+        ^
+src/spmm_device_fpga.cpp:30:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_stream_to_buffer_XLX_SEP_ PragmaOptions=off_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma hls inline off
+        ^
+src/spmm_device_fpga.cpp:33:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_stream_to_buffer_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls pipeline II = 1
         ^
-src/spmm_device_fpga.cpp:28:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=inline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_stream_to_buffer_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma hls inline
-        ^
-src/spmm_device_fpga.cpp:30:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_stream_to_buffer_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:48:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_dense_accoding_A_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls pipeline II = 1
         ^
+src/spmm_device_fpga.cpp:52:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_dense_accoding_A_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma hls pipeline II = 1
+        ^
+src/spmm_device_fpga.cpp:55:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_dense_accoding_A_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma hls pipeline II = 1
+        ^
+src/spmm_device_fpga.cpp:63:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=load_dense_accoding_A_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma hls pipeline II = 1
+        ^
+src/spmm_device_fpga.cpp:77:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=pipeline_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pe_kernel_XLX_SEP_ PragmaOptions=II = 1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma hls pipeline II = 1
+        ^
+src/spmm_device_fpga.cpp:95:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=pe_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma hls dataflow
+        ^
+src/spmm_device_fpga.cpp:95:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
+#pragma hls dataflow
+        ^~~~~~~~~~~~
 /home/shuxuan/SDMA/hls.tcl:13:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=top_XLX_SEP_ PragmaContext=directive_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=name=spmm_hls_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLSDIRECTIVE TOP name=spmm_hls
         ^
-src/spmm_device_fpga.cpp:45:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=m_axi port = A offset = slave bundle = gmem0_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:112:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=m_axi port = A offset = slave bundle = gmem0_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls interface m_axi port = A offset = slave bundle = gmem0
         ^
-src/spmm_device_fpga.cpp:46:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=m_axi port = B offset = slave bundle = gmem1_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:113:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=m_axi port = B offset = slave bundle = gmem1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls interface m_axi port = B offset = slave bundle = gmem1
         ^
-src/spmm_device_fpga.cpp:47:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = A bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:114:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = A bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls interface s_axilite port = A bundle = control
         ^
-src/spmm_device_fpga.cpp:48:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = nnz bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:115:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = nnz bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls interface s_axilite port = nnz bundle = control
         ^
-src/spmm_device_fpga.cpp:49:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = return bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:116:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = return bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls interface s_axilite port = return bundle = control
         ^
-src/spmm_device_fpga.cpp:50:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = M bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:117:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = M bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls interface s_axilite port = M bundle = control
         ^
-src/spmm_device_fpga.cpp:51:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = K bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:118:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=interface_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=s_axilite port = K bundle = control_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma hls interface s_axilite port = K bundle = control
         ^
-src/spmm_device_fpga.cpp:54:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable = A_stream depth = BUF_DEPTH_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:121:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=stream_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable = A_stream depth = BUF_DEPTH_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS stream variable = A_stream depth = BUF_DEPTH
         ^
-src/spmm_device_fpga.cpp:59:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=buf0 complete dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:126:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=buf0 complete dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS array_partition variable=buf0 complete dim=1
         ^
-src/spmm_device_fpga.cpp:60:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=buf1 complete dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:127:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=buf1 complete dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS array_partition variable=buf1 complete dim=1
         ^
-src/spmm_device_fpga.cpp:63:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=Dense_Buf0 cyclic factor=NUM_PU dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:129:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=map_buf complete_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS array_partition variable=map_buf complete
+        ^
+src/spmm_device_fpga.cpp:132:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=Dense_Buf0 cyclic factor=NUM_PU dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS array_partition variable=Dense_Buf0 cyclic factor=NUM_PU dim=1
         ^
-src/spmm_device_fpga.cpp:64:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=Dense_Buf1 cyclic factor=NUM_PU dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
+src/spmm_device_fpga.cpp:133:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=Dense_Buf1 cyclic factor=NUM_PU dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
 #pragma HLS array_partition variable=Dense_Buf1 cyclic factor=NUM_PU dim=1
         ^
-src/spmm_device_fpga.cpp:79:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
-#pragma hls dataflow
+src/spmm_device_fpga.cpp:137:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=Out_Buf0 cyclic factor=NUM_PU dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS array_partition variable=Out_Buf0 cyclic factor=NUM_PU dim=1
         ^
-src/spmm_device_fpga.cpp:79:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
-#pragma hls dataflow
+src/spmm_device_fpga.cpp:138:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=array_partition_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=variable=Out_Buf1 cyclic factor=NUM_PU dim=1_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS array_partition variable=Out_Buf1 cyclic factor=NUM_PU dim=1
+        ^
+src/spmm_device_fpga.cpp:146:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS dataflow
+        ^
+src/spmm_device_fpga.cpp:153:9: warning: HLS pragma dump _XLX_SEP_ PragmaIsValid=1_XLX_SEP_ PragmaType=dataflow_XLX_SEP_ PragmaContext=_XLX_SEP_ PragmaFunction=spmm_hls_XLX_SEP_ PragmaOptions=_XLX_SEP_ [-Wdump-hls-pragmas]
+#pragma HLS dataflow
+        ^
+src/spmm_device_fpga.cpp:146:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
+#pragma HLS dataflow
         ^~~~~~~~~~~~
-22 warnings generated.
+src/spmm_device_fpga.cpp:153:9: warning: Only for-loops and functions support the dataflow [-Wignored-hls-dataflow-attribute]
+#pragma HLS dataflow
+        ^~~~~~~~~~~~
+34 warnings generated.

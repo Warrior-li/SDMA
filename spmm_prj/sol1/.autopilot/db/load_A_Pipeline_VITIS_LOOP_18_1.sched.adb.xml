@@ -310,7 +310,7 @@ for.inc.split:0 %specpipeline_ln19 = specpipeline void @_ssdm_op_SpecPipeline, i
 
 <Node id="22" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.inc.split:1 %specloopname_ln18 = specloopname void @_ssdm_op_SpecLoopName, void @empty_15
+for.inc.split:1 %specloopname_ln18 = specloopname void @_ssdm_op_SpecLoopName, void @empty_17
 
 ]]></Node>
 <StgValue><ssdm name="specloopname_ln18"/></StgValue>

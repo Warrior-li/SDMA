@@ -1,0 +1,181 @@
+
+
+================================================================
+== Vitis HLS Report for 'dataflow_in_loop_VITIS_LOOP_144_1'
+================================================================
+* Date:           Thu Sep 11 18:13:46 2025
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        spmm_prj
+* Solution:       sol1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  2.920 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+----------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline |
+    |   min   |   max   |    min   |    max   | min | max |   Type   |
+    +---------+---------+----------+----------+-----+-----+----------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|  dataflow|
+    +---------+---------+----------+----------+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 5, States = { 1 2 3 4 5 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.14>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%A_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %A"   --->   Operation 6 'read' 'A_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%batch_read = read i28 @_ssdm_op_Read.ap_auto.i28, i28 %batch"   --->   Operation 7 'read' 'batch_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%K_c = alloca i64 1"   --->   Operation 8 'alloca' 'K_c' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%A_stream = alloca i64 1" [src/spmm_device_fpga.cpp:120]   --->   Operation 9 'alloca' 'A_stream' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.37> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 64> <Depth = 16> <FIFO>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%Dense_Buf0 = alloca i64 1" [src/spmm_device_fpga.cpp:130]   --->   Operation 10 'alloca' 'Dense_Buf0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%Dense_Buf0_1 = alloca i64 1" [src/spmm_device_fpga.cpp:130]   --->   Operation 11 'alloca' 'Dense_Buf0_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%Dense_Buf0_2 = alloca i64 1" [src/spmm_device_fpga.cpp:130]   --->   Operation 12 'alloca' 'Dense_Buf0_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%Dense_Buf0_3 = alloca i64 1" [src/spmm_device_fpga.cpp:130]   --->   Operation 13 'alloca' 'Dense_Buf0_3' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%Dense_Buf0_4 = alloca i64 1" [src/spmm_device_fpga.cpp:130]   --->   Operation 14 'alloca' 'Dense_Buf0_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%Dense_Buf0_5 = alloca i64 1" [src/spmm_device_fpga.cpp:130]   --->   Operation 15 'alloca' 'Dense_Buf0_5' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%Dense_Buf0_6 = alloca i64 1" [src/spmm_device_fpga.cpp:130]   --->   Operation 16 'alloca' 'Dense_Buf0_6' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%Dense_Buf0_7 = alloca i64 1" [src/spmm_device_fpga.cpp:130]   --->   Operation 17 'alloca' 'Dense_Buf0_7' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [2/2] (1.14ns)   --->   "%call_ln147 = call void @load_A, i64 %gmem0, i28 %batch_read, i64 %A_read, i64 %A_stream" [src/spmm_device_fpga.cpp:147]   --->   Operation 18 'call' 'call_ln147' <Predicate = true> <Delay = 1.14> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 0.00>
+ST_2 : Operation 19 [1/2] (0.00ns)   --->   "%call_ln147 = call void @load_A, i64 %gmem0, i28 %batch_read, i64 %A_read, i64 %A_stream" [src/spmm_device_fpga.cpp:147]   --->   Operation 19 'call' 'call_ln147' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 3 <SV = 2> <Delay = 0.00>
+ST_3 : Operation 20 [2/2] (0.00ns)   --->   "%call_ret = call i496 @load_stream_to_buffer, i64 %A_stream" [src/spmm_device_fpga.cpp:148]   --->   Operation 20 'call' 'call_ret' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 4 <SV = 3> <Delay = 1.42>
+ST_4 : Operation 21 [1/1] (0.00ns)   --->   "%K_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %K"   --->   Operation 21 'read' 'K_read' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 22 [1/1] (0.00ns)   --->   "%B_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %B"   --->   Operation 22 'read' 'B_read' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 23 [1/1] (1.42ns)   --->   "%call_ln0 = call void @entry_proc, i32 %K_read, i32 %K_c"   --->   Operation 23 'call' 'call_ln0' <Predicate = true> <Delay = 1.42> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 24 [1/2] (0.00ns)   --->   "%call_ret = call i496 @load_stream_to_buffer, i64 %A_stream" [src/spmm_device_fpga.cpp:148]   --->   Operation 24 'call' 'call_ret' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_4 : Operation 25 [1/1] (0.00ns)   --->   "%buf0_col_V = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 25 'extractvalue' 'buf0_col_V' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 26 [1/1] (0.00ns)   --->   "%buf0_col_V_1 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 26 'extractvalue' 'buf0_col_V_1' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 27 [1/1] (0.00ns)   --->   "%buf0_col_V_2 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 27 'extractvalue' 'buf0_col_V_2' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 28 [1/1] (0.00ns)   --->   "%buf0_col_V_3 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 28 'extractvalue' 'buf0_col_V_3' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 29 [1/1] (0.00ns)   --->   "%buf0_col_V_4 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 29 'extractvalue' 'buf0_col_V_4' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 30 [1/1] (0.00ns)   --->   "%buf0_col_V_5 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 30 'extractvalue' 'buf0_col_V_5' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 31 [1/1] (0.00ns)   --->   "%buf0_col_V_6 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 31 'extractvalue' 'buf0_col_V_6' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 32 [1/1] (0.00ns)   --->   "%buf0_col_V_7 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 32 'extractvalue' 'buf0_col_V_7' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 33 [1/1] (0.00ns)   --->   "%buf0_col_V_8 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 33 'extractvalue' 'buf0_col_V_8' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 34 [1/1] (0.00ns)   --->   "%buf0_col_V_9 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 34 'extractvalue' 'buf0_col_V_9' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 35 [1/1] (0.00ns)   --->   "%buf0_col_V_10 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 35 'extractvalue' 'buf0_col_V_10' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 36 [1/1] (0.00ns)   --->   "%buf0_col_V_11 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 36 'extractvalue' 'buf0_col_V_11' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 37 [1/1] (0.00ns)   --->   "%buf0_col_V_12 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 37 'extractvalue' 'buf0_col_V_12' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 38 [1/1] (0.00ns)   --->   "%buf0_col_V_13 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 38 'extractvalue' 'buf0_col_V_13' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 39 [1/1] (0.00ns)   --->   "%buf0_col_V_14 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 39 'extractvalue' 'buf0_col_V_14' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 40 [1/1] (0.00ns)   --->   "%buf0_col_V_15 = extractvalue i496 %call_ret" [src/spmm_device_fpga.cpp:148]   --->   Operation 40 'extractvalue' 'buf0_col_V_15' <Predicate = true> <Delay = 0.00> <CoreInst = "FIFO_SRL">   --->   Core 81 'FIFO_SRL' <Latency = 0> <II = 1> <Delay = 1.39> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 31> <Depth = 2> <FIFO>
+ST_4 : Operation 41 [2/2] (1.42ns)   --->   "%call_ln149 = call void @load_dense_accoding_A, i31 %buf0_col_V, i31 %buf0_col_V_1, i31 %buf0_col_V_2, i31 %buf0_col_V_3, i31 %buf0_col_V_4, i31 %buf0_col_V_5, i31 %buf0_col_V_6, i31 %buf0_col_V_7, i31 %buf0_col_V_8, i31 %buf0_col_V_9, i31 %buf0_col_V_10, i31 %buf0_col_V_11, i31 %buf0_col_V_12, i31 %buf0_col_V_13, i31 %buf0_col_V_14, i31 %buf0_col_V_15, i32 %Dense_Buf0, i32 %Dense_Buf0_1, i32 %Dense_Buf0_2, i32 %Dense_Buf0_3, i32 %Dense_Buf0_4, i32 %Dense_Buf0_5, i32 %Dense_Buf0_6, i32 %Dense_Buf0_7, i32 %gmem1, i64 %B_read, i32 %K_read" [src/spmm_device_fpga.cpp:149]   --->   Operation 41 'call' 'call_ln149' <Predicate = true> <Delay = 1.42> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 5 <SV = 4> <Delay = 0.00>
+ST_5 : Operation 42 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %K_c, void @ap_fifo_str, i32 0, i32 0, void @p_str, i32 0, i32 0, void @p_str, void @p_str, void @p_str, i32 2, i32 2, i32 16, i32 16, void @p_str, void @p_str, i32 4294967295, i32 0"   --->   Operation 42 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 43 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %gmem0, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_0, void @empty_17, void @empty_1, i32 16, i32 16, i32 16, i32 16, void @empty_1, void @empty_1, i32 4294967295, i32 0"   --->   Operation 43 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 44 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem1, void @empty_2, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty, void @empty_17, void @empty_1, i32 16, i32 16, i32 16, i32 16, void @empty_1, void @empty_1, i32 4294967295, i32 0"   --->   Operation 44 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 45 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln146 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty_1" [src/spmm_device_fpga.cpp:146]   --->   Operation 45 'specdataflowpipeline' 'specdataflowpipeline_ln146' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 46 [1/1] (0.00ns)   --->   "%empty = specchannel i32 @_ssdm_op_SpecChannel, void @A_stream_str, i32 1, void @p_str, void @p_str, i32 16, i32 16, i64 %A_stream, i64 %A_stream"   --->   Operation 46 'specchannel' 'empty' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 47 [1/1] (0.00ns)   --->   "%empty_36 = specchannel i32 @_ssdm_op_SpecChannel, void @A_stream_str, i32 1, void @p_str, void @p_str, i32 16, i32 16, i64 %A_stream, i64 %A_stream"   --->   Operation 47 'specchannel' 'empty_36' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 48 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %A_stream, void @empty_19, i32 0, i32 0, void @empty_1, i32 0, i32 0, void @empty_1, void @empty_1, void @empty_1, i32 0, i32 0, i32 0, i32 0, void @empty_1, void @empty_1, i32 4294967295, i32 0"   --->   Operation 48 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 49 [1/2] (0.00ns)   --->   "%call_ln149 = call void @load_dense_accoding_A, i31 %buf0_col_V, i31 %buf0_col_V_1, i31 %buf0_col_V_2, i31 %buf0_col_V_3, i31 %buf0_col_V_4, i31 %buf0_col_V_5, i31 %buf0_col_V_6, i31 %buf0_col_V_7, i31 %buf0_col_V_8, i31 %buf0_col_V_9, i31 %buf0_col_V_10, i31 %buf0_col_V_11, i31 %buf0_col_V_12, i31 %buf0_col_V_13, i31 %buf0_col_V_14, i31 %buf0_col_V_15, i32 %Dense_Buf0, i32 %Dense_Buf0_1, i32 %Dense_Buf0_2, i32 %Dense_Buf0_3, i32 %Dense_Buf0_4, i32 %Dense_Buf0_5, i32 %Dense_Buf0_6, i32 %Dense_Buf0_7, i32 %gmem1, i64 %B_read, i32 %K_read" [src/spmm_device_fpga.cpp:149]   --->   Operation 49 'call' 'call_ln149' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_5 : Operation 50 [1/1] (0.00ns)   --->   "%ret_ln150 = ret" [src/spmm_device_fpga.cpp:150]   --->   Operation 50 'ret' 'ret_ln150' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4ns, clock uncertainty: 1.08ns.
+
+ <State 1>: 1.15ns
+The critical path consists of the following:
+	wire read operation ('A_read') on port 'A' [9]  (0 ns)
+	'call' operation ('call_ln147', src/spmm_device_fpga.cpp:147) to 'load_A' [29]  (1.15 ns)
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+ <State 4>: 1.43ns
+The critical path consists of the following:
+	wire read operation ('K_read') on port 'K' [7]  (0 ns)
+	'call' operation ('call_ln149', src/spmm_device_fpga.cpp:149) to 'load_dense_accoding_A' [47]  (1.43 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

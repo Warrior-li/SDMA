@@ -10,7 +10,7 @@ if {${::AESL::PGuard_autoexp_gen}} {
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 5 \
+    id 4 \
     name gmem0 \
     type other \
     dir I \
@@ -25,7 +25,7 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 6 \
+    id 5 \
     name A \
     type other \
     dir I \
@@ -40,30 +40,15 @@ eval "cg_default_interface_gen_dc { \
 # Direct connection:
 if {${::AESL::PGuard_autoexp_gen}} {
 eval "cg_default_interface_gen_dc { \
-    id 7 \
-    name nnz \
-    type other \
-    dir I \
-    reset_level 1 \
-    sync_rst true \
-    corename dc_nnz \
-    op interface \
-    ports { nnz { I 32 vector } } \
-} "
-}
-
-# Direct connection:
-if {${::AESL::PGuard_autoexp_gen}} {
-eval "cg_default_interface_gen_dc { \
-    id 8 \
-    name A_stream1 \
+    id 6 \
+    name A_stream3 \
     type fifo \
     dir O \
     reset_level 1 \
     sync_rst true \
-    corename dc_A_stream1 \
+    corename dc_A_stream3 \
     op interface \
-    ports { A_stream1_din { O 64 vector } A_stream1_full_n { I 1 bit } A_stream1_write { O 1 bit } } \
+    ports { A_stream3_din { O 64 vector } A_stream3_full_n { I 1 bit } A_stream3_write { O 1 bit } } \
 } "
 }
 

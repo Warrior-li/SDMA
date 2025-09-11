@@ -1,8 +1,28 @@
-remark: src/spmm_device_fpga.cpp:83:13: Inlining function 'load_stream_to_buffer(hls::stream<ap_uint<64>, 0>&, PCOO*)' into 'spmm_hls'
-remark: src/spmm_device_fpga.cpp:44:0: Inlining function 'unpack_pcoo(ap_uint<64>)' into 'spmm_hls'
-remark: src/spmm_device_fpga.cpp:57:7: Applying array_partition to 'buf0': Complete partitioning on dimension 1.
-remark: src/spmm_device_fpga.cpp:58:10: Applying array_partition to 'buf1': Complete partitioning on dimension 1.
-remark: src/spmm_device_fpga.cpp:18:19: Sequential read of variable length has been inferred _XLX_SEP_ OldID=for.inc.load.6,  _XLX_SEP_ Aseq A gmem0 VITIS_LOOP_18_1 src/spmm_device_fpga.cpp:18:19 load_A(ap_uint<64> const*, int, hls::stream<ap_uint<64>, 0>&) 
-remark: src/spmm_device_fpga.cpp:18:19: Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 _XLX_SEP_ Aseq A gmem0 VITIS_LOOP_18_1 src/spmm_device_fpga.cpp:18:19 load_A(ap_uint<64> const*, int, hls::stream<ap_uint<64>, 0>&) 
-remark: src/spmm_device_fpga.cpp:18:19: Multiple burst reads of variable length and bit width 64 has been inferred. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. _XLX_SEP_ seq  gmem0 VITIS_LOOP_18_1 src/spmm_device_fpga.cpp:18:19 load_A(ap_uint<64> const*, int, hls::stream<ap_uint<64>, 0>&) (.1) 
-remark: src/spmm_device_fpga.cpp:18:19: Multiple burst reads of variable length and bit width 64 in loop 'VITIS_LOOP_18_1'(src/spmm_device_fpga.cpp:18:19) has been inferred on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+remark: src/spmm_device_fpga.cpp:54:26: Loop 'VITIS_LOOP_54_3' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:62:30: Loop 'VITIS_LOOP_62_4' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:29:0: Inlining function 'unpack_pcoo(ap_uint<64>)' into 'load_stream_to_buffer(hls::stream<ap_uint<64>, 0>&, PCOO*)'
+remark: src/spmm_device_fpga.cpp:88:0: Inlining function 'pe_kernel(PCOO&, float*, float*, int) (.19.37.43.61.73.79.97.109.115.133)' into 'pe(PCOO*, float*, int*, float*, int)'
+remark: src/spmm_device_fpga.cpp:124:7: Applying array_partition to 'buf0.eor': Complete partitioning on dimension 1.
+remark: src/spmm_device_fpga.cpp:124:7: Applying array_partition to 'buf0.col': Complete partitioning on dimension 1.
+remark: src/spmm_device_fpga.cpp:124:7: Applying array_partition to 'buf0.value': Complete partitioning on dimension 1.
+remark: src/spmm_device_fpga.cpp:125:10: Applying array_partition to 'buf1.eor': Complete partitioning on dimension 1.
+remark: src/spmm_device_fpga.cpp:125:10: Applying array_partition to 'buf1.col': Complete partitioning on dimension 1.
+remark: src/spmm_device_fpga.cpp:125:10: Applying array_partition to 'buf1.value': Complete partitioning on dimension 1.
+remark: src/spmm_device_fpga.cpp:128:6: Applying array_partition to 'map_buf': Complete partitioning on dimension 1.
+remark: src/spmm_device_fpga.cpp:130:8: Applying array_partition to 'Dense_Buf0': Cyclic partitioning with factor 8 on dimension 1.
+remark: src/spmm_device_fpga.cpp:131:11: Applying array_partition to 'Dense_Buf1': Cyclic partitioning with factor 8 on dimension 1.
+remark: src/spmm_device_fpga.cpp:135:8: Applying array_partition to 'Out_Buf0': Cyclic partitioning with factor 8 on dimension 1.
+remark: src/spmm_device_fpga.cpp:136:11: Applying array_partition to 'Out_Buf1': Cyclic partitioning with factor 8 on dimension 1.
+remark: src/spmm_device_fpga.cpp:20:19: Sequential read of length 16 has been inferred _XLX_SEP_ OldID=for.inc.load.4,  _XLX_SEP_ Aseq A gmem0,gmem0 VITIS_LOOP_20_1 src/spmm_device_fpga.cpp:20:19 load_A(ap_uint<64> const*, int, hls::stream<ap_uint<64>, 0>&) 
+remark: src/spmm_device_fpga.cpp:62:30: Sequential read of variable length has been inferred _XLX_SEP_ OldID=for.inc37.load.29,  _XLX_SEP_ scevgepseq B gmem1,gmem1 VITIS_LOOP_62_4 src/spmm_device_fpga.cpp:62:30 load_dense_accoding_A(PCOO*, float*, int*, ap_uint<32> const*, int) 
+remark: src/spmm_device_fpga.cpp:51:22: Could not analyze the loop bounds _XLX_SEP_ VITIS_LOOP_51_2 src/spmm_device_fpga.cpp:51:22 load_dense_accoding_A(PCOO*, float*, int*, ap_uint<32> const*, int) 
+remark: src/spmm_device_fpga.cpp:20:19: Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 _XLX_SEP_ Aseq A gmem0,gmem0 VITIS_LOOP_20_1 src/spmm_device_fpga.cpp:20:19 load_A(ap_uint<64> const*, int, hls::stream<ap_uint<64>, 0>&) 
+remark: src/spmm_device_fpga.cpp:62:30: Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 _XLX_SEP_ scevgepseq B gmem1,gmem1 VITIS_LOOP_62_4 src/spmm_device_fpga.cpp:62:30 load_dense_accoding_A(PCOO*, float*, int*, ap_uint<32> const*, int) 
+remark: src/spmm_device_fpga.cpp:54:26: Loop 'VITIS_LOOP_54_3' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:62:30: Loop 'VITIS_LOOP_62_4' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:20:19: Multiple burst reads of length 16 and bit width 64 has been inferred. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. _XLX_SEP_ seq  gmem0 VITIS_LOOP_20_1 src/spmm_device_fpga.cpp:20:19 load_A(ap_uint<64> const*, int, hls::stream<ap_uint<64>, 0>&) (.1) 
+remark: src/spmm_device_fpga.cpp:20:19: Multiple burst reads of length 16 and bit width 64 in loop 'VITIS_LOOP_20_1'(src/spmm_device_fpga.cpp:20:19) has been inferred on bundle 'gmem0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+remark: src/spmm_device_fpga.cpp:62:30: Multiple burst reads of variable length and bit width 32 has been inferred. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. _XLX_SEP_ seq  gmem1 VITIS_LOOP_62_4 src/spmm_device_fpga.cpp:62:30 load_dense_accoding_A(PCOO*, float*, int*, ap_uint<32> const*, int) (.1) 
+remark: src/spmm_device_fpga.cpp:62:30: Multiple burst reads of variable length and bit width 32 in loop 'VITIS_LOOP_62_4'(src/spmm_device_fpga.cpp:62:30) has been inferred on bundle 'gmem1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings.
+remark: src/spmm_device_fpga.cpp:54:26: Loop 'VITIS_LOOP_54_3' is marked as complete unroll implied by the pipeline pragma
+remark: src/spmm_device_fpga.cpp:62:30: Loop 'VITIS_LOOP_62_4' is marked as complete unroll implied by the pipeline pragma

@@ -1,0 +1,134 @@
+
+
+================================================================
+== Vitis HLS Report for 'spmm_hls_Pipeline_VITIS_LOOP_54_3'
+================================================================
+* Date:           Thu Sep 11 18:10:11 2025
+
+* Version:        2022.2 (Build 3670227 on Oct 13 2022)
+* Project:        spmm_prj
+* Solution:       sol1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  4.00 ns|  2.126 ns|     1.08 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |        ?|        ?|         ?|         ?|    ?|    ?|       no|
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
+        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        |- VITIS_LOOP_54_3  |        ?|        ?|         1|          1|          1|     ?|       yes|
+        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 1
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 1
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 1, States = { 1 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 2.12>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%i_1 = alloca i32 1"   --->   Operation 4 'alloca' 'i_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%cmp_i_i_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %cmp_i_i"   --->   Operation 5 'read' 'cmp_i_i_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%i_read = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %i"   --->   Operation 6 'read' 'i_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%i_cast = zext i4 %i_read"   --->   Operation 7 'zext' 'i_cast' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.38ns)   --->   "%store_ln0 = store i32 %i_cast, i32 %i_1"   --->   Operation 8 'store' 'store_ln0' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%br_ln0 = br void %for.body11.i"   --->   Operation 9 'br' 'br_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.38ns)   --->   "%br_ln56 = br i1 %cmp_i_i_read, void %for.inc19.i, void %for.body11.i.for.end21.i.loopexit_crit_edge.exitStub" [src/spmm_device_fpga.cpp:56]   --->   Operation 10 'br' 'br_ln56' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%i_1_load = load i32 %i_1" [src/spmm_device_fpga.cpp:54]   --->   Operation 11 'load' 'i_1_load' <Predicate = (!cmp_i_i_read)> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%specpipeline_ln55 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_4" [src/spmm_device_fpga.cpp:55]   --->   Operation 12 'specpipeline' 'specpipeline_ln55' <Predicate = (!cmp_i_i_read)> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specloopname_ln54 = specloopname void @_ssdm_op_SpecLoopName, void @empty_16" [src/spmm_device_fpga.cpp:54]   --->   Operation 13 'specloopname' 'specloopname_ln54' <Predicate = (!cmp_i_i_read)> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.88ns)   --->   "%i_2 = add i32 %i_1_load, i32 1" [src/spmm_device_fpga.cpp:54]   --->   Operation 14 'add' 'i_2' <Predicate = (!cmp_i_i_read)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 15 [1/1] (0.85ns)   --->   "%icmp_ln54 = icmp_sgt  i32 %i_2, i32 0" [src/spmm_device_fpga.cpp:54]   --->   Operation 15 'icmp' 'icmp_ln54' <Predicate = (!cmp_i_i_read)> <Delay = 0.85> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.85> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 16 [1/1] (0.38ns)   --->   "%br_ln54 = br i1 %icmp_ln54, void %for.body11.i.for.end21.i.loopexit_crit_edge.exitStub, void %for.inc19.i.for.body11.i_crit_edge" [src/spmm_device_fpga.cpp:54]   --->   Operation 16 'br' 'br_ln54' <Predicate = (!cmp_i_i_read)> <Delay = 0.38>
+ST_1 : Operation 17 [1/1] (0.38ns)   --->   "%store_ln54 = store i32 %i_2, i32 %i_1" [src/spmm_device_fpga.cpp:54]   --->   Operation 17 'store' 'store_ln54' <Predicate = (!cmp_i_i_read & icmp_ln54)> <Delay = 0.38>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%br_ln54 = br void %for.body11.i" [src/spmm_device_fpga.cpp:54]   --->   Operation 18 'br' 'br_ln54' <Predicate = (!cmp_i_i_read & icmp_ln54)> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%merge = phi i1 1, void %for.body11.i, i1 0, void %for.inc19.i"   --->   Operation 19 'phi' 'merge' <Predicate = (!icmp_ln54) | (cmp_i_i_read)> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%ret_ln0 = ret i1 %merge"   --->   Operation 20 'ret' 'ret_ln0' <Predicate = (!icmp_ln54) | (cmp_i_i_read)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4ns, clock uncertainty: 1.08ns.
+
+ <State 1>: 2.13ns
+The critical path consists of the following:
+	'alloca' operation ('i') [3]  (0 ns)
+	'load' operation ('i_1_load', src/spmm_device_fpga.cpp:54) on local variable 'i' [12]  (0 ns)
+	'add' operation ('i', src/spmm_device_fpga.cpp:54) [15]  (0.88 ns)
+	'icmp' operation ('icmp_ln54', src/spmm_device_fpga.cpp:54) [16]  (0.859 ns)
+	multiplexor before 'phi' operation ('merge') [22]  (0.387 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
