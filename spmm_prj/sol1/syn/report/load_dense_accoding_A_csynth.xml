@@ -32,7 +32,7 @@
 <Interval-max>undef</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_51_2>
+<VITIS_LOOP_53_2>
 <Slack>2.92</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -40,7 +40,7 @@
 <IterationLatency>undef</IterationLatency>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_51_2>
+</VITIS_LOOP_53_2>
 </SummaryOfLoopLatency>
 </PerformanceEstimates>
 
@@ -305,7 +305,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_0_address0</name>
+<name>dense_ptr_0_address1</name>
 <Object>dense_ptr_0</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -316,7 +316,7 @@
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_0_ce0</name>
+<name>dense_ptr_0_ce1</name>
 <Object>dense_ptr_0</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -327,7 +327,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_0_we0</name>
+<name>dense_ptr_0_we1</name>
 <Object>dense_ptr_0</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -338,7 +338,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_0_d0</name>
+<name>dense_ptr_0_d1</name>
 <Object>dense_ptr_0</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -349,7 +349,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_1_address0</name>
+<name>dense_ptr_1_address1</name>
 <Object>dense_ptr_1</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -360,7 +360,7 @@
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_1_ce0</name>
+<name>dense_ptr_1_ce1</name>
 <Object>dense_ptr_1</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -371,7 +371,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_1_we0</name>
+<name>dense_ptr_1_we1</name>
 <Object>dense_ptr_1</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -382,7 +382,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_1_d0</name>
+<name>dense_ptr_1_d1</name>
 <Object>dense_ptr_1</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -393,7 +393,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_2_address0</name>
+<name>dense_ptr_2_address1</name>
 <Object>dense_ptr_2</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -404,7 +404,7 @@
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_2_ce0</name>
+<name>dense_ptr_2_ce1</name>
 <Object>dense_ptr_2</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -415,7 +415,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_2_we0</name>
+<name>dense_ptr_2_we1</name>
 <Object>dense_ptr_2</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -426,7 +426,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_2_d0</name>
+<name>dense_ptr_2_d1</name>
 <Object>dense_ptr_2</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -437,7 +437,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_3_address0</name>
+<name>dense_ptr_3_address1</name>
 <Object>dense_ptr_3</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -448,7 +448,7 @@
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_3_ce0</name>
+<name>dense_ptr_3_ce1</name>
 <Object>dense_ptr_3</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -459,7 +459,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_3_we0</name>
+<name>dense_ptr_3_we1</name>
 <Object>dense_ptr_3</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -470,7 +470,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_3_d0</name>
+<name>dense_ptr_3_d1</name>
 <Object>dense_ptr_3</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -481,7 +481,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_4_address0</name>
+<name>dense_ptr_4_address1</name>
 <Object>dense_ptr_4</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -492,7 +492,7 @@
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_4_ce0</name>
+<name>dense_ptr_4_ce1</name>
 <Object>dense_ptr_4</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -503,7 +503,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_4_we0</name>
+<name>dense_ptr_4_we1</name>
 <Object>dense_ptr_4</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -514,7 +514,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_4_d0</name>
+<name>dense_ptr_4_d1</name>
 <Object>dense_ptr_4</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -525,7 +525,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_5_address0</name>
+<name>dense_ptr_5_address1</name>
 <Object>dense_ptr_5</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -536,7 +536,7 @@
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_5_ce0</name>
+<name>dense_ptr_5_ce1</name>
 <Object>dense_ptr_5</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -547,7 +547,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_5_we0</name>
+<name>dense_ptr_5_we1</name>
 <Object>dense_ptr_5</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -558,7 +558,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_5_d0</name>
+<name>dense_ptr_5_d1</name>
 <Object>dense_ptr_5</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -569,7 +569,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_6_address0</name>
+<name>dense_ptr_6_address1</name>
 <Object>dense_ptr_6</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -580,7 +580,7 @@
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_6_ce0</name>
+<name>dense_ptr_6_ce1</name>
 <Object>dense_ptr_6</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -591,7 +591,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_6_we0</name>
+<name>dense_ptr_6_we1</name>
 <Object>dense_ptr_6</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -602,7 +602,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_6_d0</name>
+<name>dense_ptr_6_d1</name>
 <Object>dense_ptr_6</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -613,7 +613,7 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_7_address0</name>
+<name>dense_ptr_7_address1</name>
 <Object>dense_ptr_7</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -624,7 +624,7 @@
 <Attribute>address</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_7_ce0</name>
+<name>dense_ptr_7_ce1</name>
 <Object>dense_ptr_7</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -635,7 +635,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_7_we0</name>
+<name>dense_ptr_7_we1</name>
 <Object>dense_ptr_7</Object>
 <Type>array</Type>
 <Scope></Scope>
@@ -646,7 +646,7 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>dense_ptr_7_d0</name>
+<name>dense_ptr_7_d1</name>
 <Object>dense_ptr_7</Object>
 <Type>array</Type>
 <Scope></Scope>

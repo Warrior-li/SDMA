@@ -96,6 +96,8 @@ void XSpmm_hls_Set_A(XSpmm_hls *InstancePtr, u64 Data);
 u64 XSpmm_hls_Get_A(XSpmm_hls *InstancePtr);
 void XSpmm_hls_Set_nnz(XSpmm_hls *InstancePtr, u32 Data);
 u32 XSpmm_hls_Get_nnz(XSpmm_hls *InstancePtr);
+void XSpmm_hls_Set_C(XSpmm_hls *InstancePtr, u64 Data);
+u64 XSpmm_hls_Get_C(XSpmm_hls *InstancePtr);
 void XSpmm_hls_Set_M(XSpmm_hls *InstancePtr, u32 Data);
 u32 XSpmm_hls_Get_M(XSpmm_hls *InstancePtr);
 void XSpmm_hls_Set_K(XSpmm_hls *InstancePtr, u32 Data);

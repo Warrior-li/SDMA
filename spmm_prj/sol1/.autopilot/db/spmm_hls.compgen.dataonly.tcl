@@ -18,21 +18,29 @@ nnz {
 	offset 28
 	offset_end 35
 }
+C { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 36
+	offset_end 47
+}
 M { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
-	offset 36
-	offset_end 43
+	offset 48
+	offset_end 55
 }
 K { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
-	offset 44
-	offset_end 51
+	offset 56
+	offset_end 63
 }
 ap_start { }
 ap_done { }

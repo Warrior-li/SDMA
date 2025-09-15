@@ -12,8 +12,8 @@ entity spmm_hls_Out_Buf0_RAM_AUTO_0R0W is
     generic(
         MEM_TYPE        : string    := "auto"; 
         DataWidth       : integer   := 32; 
-        AddressWidth    : integer   := 16;
-        AddressRange    : integer   := 65536
+        AddressWidth    : integer   := 13;
+        AddressRange    : integer   := 8192
     ); 
     port (
         address0    : in std_logic_vector(AddressWidth-1 downto 0); 

@@ -13,8 +13,8 @@ module spmm_hls_Out_Buf0_RAM_AUTO_0R0W (
     reset, clk);
 
 parameter DataWidth = 32;
-parameter AddressWidth = 16;
-parameter AddressRange = 65536;
+parameter AddressWidth = 13;
+parameter AddressRange = 8192;
  
 input[AddressWidth-1:0] address0;
 input ce0;

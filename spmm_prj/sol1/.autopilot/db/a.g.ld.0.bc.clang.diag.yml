@@ -1,55 +1,57 @@
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 54, Column: 26 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 56, Column: 26 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_54_3
+  - LoopName:        VITIS_LOOP_56_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 62, Column: 30 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 64, Column: 30 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_62_4
+  - LoopName:        VITIS_LOOP_64_4
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
+...
+--- !Passed
+Pass:            reflow-pragma-loop-unroll
+Name:            PragmaFullyUnroll
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 106, Column: 0 }
+Function:        _Z2peP4PCOOPfPiS1_i
+Args:            
+  - String:          'Unrolling loop '''
+  - LoopName:        VITIS_LOOP_116_1
+  - String:          ''' ('
+  - LoopLoc:         'src/spmm_device_fpga.cpp:116:20'
+  - String:          ') '
+  - String:          'in function '''
+  - String:          pe
+  - String:          ''' completely with a factor of '
+  - Factor:          '16'
 ...
 --- !Passed
 Pass:            reflow-inliner
 Name:            AutoInline
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 29, Column: 0 }
-Function:        _Z21load_stream_to_bufferRN3hls6streamI7ap_uintILi64EELi0EEEP4PCOO
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 30, Column: 0 }
+Function:        _Z21load_stream_to_bufferRN3hls6streamI7ap_uintILi64EELi0EEEP4PCOORS1_ILi32EE
 Args:            
   - String:          'Inlining function '''
   - Callee:          'unpack_pcoo(ap_uint<64>)'
     DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 4, Column: 0 }
   - String:          ''' into '''
-  - Caller:          'load_stream_to_buffer(hls::stream<ap_uint<64>, 0>&, PCOO*)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 29, Column: 0 }
-  - String:          ''''
-...
---- !Passed
-Pass:            reflow-inliner
-Name:            AutoInline
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 88, Column: 0 }
-Function:        _Z2peP4PCOOPfPiS1_i
-Args:            
-  - String:          'Inlining function '''
-  - Callee:          'pe_kernel(PCOO&, float*, float*, int) (.19.37.43.61.73.79.97.109.115.133)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 75, Column: 0 }
-  - String:          ''' into '''
-  - Caller:          'pe(PCOO*, float*, int*, float*, int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 88, Column: 0 }
+  - Caller:          'load_stream_to_buffer(hls::stream<ap_uint<64>, 0>&, PCOO*, ap_uint<32>&)'
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 30, Column: 0 }
   - String:          ''''
 ...
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 124, Column: 7 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 157, Column: 7 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -67,7 +69,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 124, Column: 7 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 157, Column: 7 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -85,7 +87,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 124, Column: 7 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 157, Column: 7 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -103,7 +105,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 125, Column: 10 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 158, Column: 10 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -121,7 +123,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 125, Column: 10 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 158, Column: 10 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -139,7 +141,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 125, Column: 10 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 158, Column: 10 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -157,7 +159,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 128, Column: 6 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 163, Column: 9 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -175,7 +177,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 130, Column: 8 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 165, Column: 8 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -195,7 +197,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 131, Column: 11 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 166, Column: 11 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -215,7 +217,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 135, Column: 8 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 172, Column: 8 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -235,7 +237,7 @@ Args:
 --- !Passed
 Pass:            reflow-array-partition
 Name:            ArrayXform
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 136, Column: 11 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 173, Column: 11 }
 Function:        spmm_hls
 Args:            
   - String:          'Applying '
@@ -284,7 +286,7 @@ Args:
 --- !Passed
 Pass:            reflow-burst-inference
 Name:            BurstInferred
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 62, Column: 30 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 64, Column: 30 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi
 Args:            
   - String:          'Sequential '
@@ -303,28 +305,28 @@ Args:
   - String:          ' '
   - BundleName:      gmem1,gmem1
   - String:          ' '
-  - LoopName:        VITIS_LOOP_62_4
+  - LoopName:        VITIS_LOOP_64_4
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:62:30'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:64:30'
   - String:          ' '
   - Function:        'load_dense_accoding_A(PCOO*, float*, int*, ap_uint<32> const*, int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 46, Column: 0 }
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 48, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
 Pass:            reflow-burst-inference
 Name:            CouldNotAnalyzeBoundsPattern
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 51, Column: 22 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 53, Column: 22 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi
 Args:            
   - String:          Could not analyze the loop bounds
   - String:          ' _XLX_SEP_ '
-  - LoopName:        VITIS_LOOP_51_2
+  - LoopName:        VITIS_LOOP_53_2
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:51:22'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:53:22'
   - String:          ' '
   - Function:        'load_dense_accoding_A(PCOO*, float*, int*, ap_uint<32> const*, int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 46, Column: 0 }
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 48, Column: 0 }
   - String:          ' '
 ...
 --- !Missed
@@ -355,7 +357,7 @@ Args:
 --- !Missed
 Pass:            reflow-burst-widen
 Name:            GreaterOrEqualThreshold
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 62, Column: 30 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 64, Column: 30 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi
 Args:            
   - String:          'Could not widen since type '
@@ -369,32 +371,32 @@ Args:
   - String:          ' '
   - BundleName:      gmem1,gmem1
   - String:          ' '
-  - LoopName:        VITIS_LOOP_62_4
+  - LoopName:        VITIS_LOOP_64_4
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:62:30'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:64:30'
   - String:          ' '
   - Function:        'load_dense_accoding_A(PCOO*, float*, int*, ap_uint<32> const*, int)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 46, Column: 0 }
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 48, Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 54, Column: 26 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 56, Column: 26 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_54_3
+  - LoopName:        VITIS_LOOP_56_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 62, Column: 30 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 64, Column: 30 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_62_4
+  - LoopName:        VITIS_LOOP_64_4
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
@@ -451,7 +453,7 @@ Args:
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredVerboseSummary
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 62, Column: 30 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 64, Column: 30 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi.1
 Args:            
   - String:          'Multiple burst '
@@ -469,18 +471,18 @@ Args:
   - String:          ' '
   - BundleName:      gmem1
   - String:          ' '
-  - LoopName:        VITIS_LOOP_62_4
+  - LoopName:        VITIS_LOOP_64_4
   - String:          ' '
-  - LoopLoc:         'src/spmm_device_fpga.cpp:62:30'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:64:30'
   - String:          ' '
   - Function:        'load_dense_accoding_A(PCOO*, float*, int*, ap_uint<32> const*, int) (.1)'
-    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 46, Column: 0 }
+    DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 48, Column: 0 }
   - String:          ' '
 ...
 --- !Passed
 Pass:            reflow-burst-summary
 Name:            BurstInferredSummary
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 62, Column: 30 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 64, Column: 30 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi.1
 Args:            
   - String:          'Multiple burst '
@@ -490,9 +492,9 @@ Args:
   - String:          ' length and bit width '
   - Width:           '32'
   - String:          ' in loop '''
-  - LoopName:        VITIS_LOOP_62_4
+  - LoopName:        VITIS_LOOP_64_4
   - String:          '''('
-  - LoopLoc:         'src/spmm_device_fpga.cpp:62:30'
+  - LoopLoc:         'src/spmm_device_fpga.cpp:64:30'
   - String:          ')'
   - String:          ' has been inferred on bundle '''
   - BundleName:      gmem1
@@ -502,20 +504,20 @@ Args:
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 54, Column: 26 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 56, Column: 26 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi.1
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_54_3
+  - LoopName:        VITIS_LOOP_56_3
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...
 --- !Passed
 Pass:            reflow-infer-unroll
 Name:            ImplicitUnroll
-DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 62, Column: 30 }
+DebugLoc:        { File: src/spmm_device_fpga.cpp, Line: 64, Column: 30 }
 Function:        _Z21load_dense_accoding_AP4PCOOPfPiPK7ap_uintILi32EEi.1
 Args:            
   - String:          'Loop '''
-  - LoopName:        VITIS_LOOP_62_4
+  - LoopName:        VITIS_LOOP_64_4
   - String:          ''' is marked as complete unroll implied by the pipeline pragma'
 ...

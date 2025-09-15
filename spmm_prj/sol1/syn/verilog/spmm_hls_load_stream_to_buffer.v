@@ -112,7 +112,9 @@ module spmm_hls_load_stream_to_buffer (
         sparse_buf_value_14,
         sparse_buf_value_14_ap_vld,
         sparse_buf_value_15,
-        sparse_buf_value_15_ap_vld
+        sparse_buf_value_15_ap_vld,
+        p_read,
+        ap_return
 );
 
 parameter    ap_ST_fsm_pp0_stage0 = 1'd1;
@@ -222,6 +224,8 @@ output  [31:0] sparse_buf_value_14;
 output   sparse_buf_value_14_ap_vld;
 output  [31:0] sparse_buf_value_15;
 output   sparse_buf_value_15_ap_vld;
+input  [31:0] p_read;
+output  [31:0] ap_return;
 
 reg ap_idle;
 reg A_stream3_read;
@@ -282,21 +286,26 @@ reg    ap_idle_pp0;
 wire    ap_block_state1_pp0_stage0_iter0;
 reg    ap_block_state2_pp0_stage0_iter1;
 reg    ap_block_pp0_stage0_subdone;
-wire   [0:0] icmp_ln32_fu_528_p2;
+wire   [0:0] icmp_ln33_fu_547_p2;
 reg    ap_condition_exit_pp0_iter0_stage0;
 wire    ap_loop_exit_ready;
 reg    ap_ready_int;
 reg    A_stream3_blk_n;
 wire    ap_block_pp0_stage0;
-wire   [3:0] trunc_ln35_fu_540_p1;
-reg   [3:0] trunc_ln35_reg_629;
+wire   [3:0] trunc_ln36_fu_559_p1;
+reg   [3:0] trunc_ln36_reg_681;
 reg    ap_block_pp0_stage0_11001;
-reg   [4:0] i_fu_174;
-wire   [4:0] add_ln32_fu_534_p2;
+reg   [4:0] i_fu_178;
+wire   [4:0] add_ln33_fu_553_p2;
 wire    ap_loop_init;
-reg   [4:0] ap_sig_allocacmp_i_3;
+reg   [4:0] ap_sig_allocacmp_i_2;
+reg   [31:0] cur_row_0_fu_182;
+wire   [31:0] select_ln37_fu_647_p3;
+reg   [31:0] ap_sig_allocacmp_cur_row_0_load_1;
+wire   [0:0] p_Result_s_fu_568_p3;
 reg    ap_block_pp0_stage0_01001;
-wire   [31:0] x_value_V_fu_599_p1;
+wire   [31:0] x_value_V_fu_618_p1;
+wire   [31:0] add_ln840_fu_641_p2;
 reg    ap_done_reg;
 wire    ap_continue_int;
 reg    ap_done_int;
@@ -361,17 +370,27 @@ end
 
 always @ (posedge ap_clk) begin
     if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        if (((icmp_ln32_fu_528_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
-            i_fu_174 <= add_ln32_fu_534_p2;
-        end else if ((ap_loop_init == 1'b1)) begin
-            i_fu_174 <= 5'd0;
+        if ((ap_loop_init == 1'b1)) begin
+            cur_row_0_fu_182 <= p_read;
+        end else if ((ap_enable_reg_pp0_iter1 == 1'b1)) begin
+            cur_row_0_fu_182 <= select_ln37_fu_647_p3;
         end
     end
 end
 
 always @ (posedge ap_clk) begin
-    if (((icmp_ln32_fu_528_p2 == 1'd0) & (1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
-        trunc_ln35_reg_629 <= trunc_ln35_fu_540_p1;
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        if (((icmp_ln33_fu_547_p2 == 1'd0) & (ap_enable_reg_pp0_iter0 == 1'b1))) begin
+            i_fu_178 <= add_ln33_fu_553_p2;
+        end else if ((ap_loop_init == 1'b1)) begin
+            i_fu_178 <= 5'd0;
+        end
+    end
+end
+
+always @ (posedge ap_clk) begin
+    if (((icmp_ln33_fu_547_p2 == 1'd0) & (1'b0 == ap_block_pp0_stage0_11001) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        trunc_ln36_reg_681 <= trunc_ln36_fu_559_p1;
     end
 end
 
@@ -392,7 +411,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((icmp_ln32_fu_528_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+    if (((icmp_ln33_fu_547_p2 == 1'd1) & (1'b0 == ap_block_pp0_stage0_subdone) & (ap_enable_reg_pp0_iter0 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b1;
     end else begin
         ap_condition_exit_pp0_iter0_stage0 = 1'b0;
@@ -432,15 +451,29 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_loop_init == 1'b1))) begin
-        ap_sig_allocacmp_i_3 = 5'd0;
+    if (((1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0))) begin
+        if ((ap_loop_init == 1'b1)) begin
+            ap_sig_allocacmp_cur_row_0_load_1 = p_read;
+        end else if ((ap_enable_reg_pp0_iter1 == 1'b1)) begin
+            ap_sig_allocacmp_cur_row_0_load_1 = select_ln37_fu_647_p3;
+        end else begin
+            ap_sig_allocacmp_cur_row_0_load_1 = cur_row_0_fu_182;
+        end
     end else begin
-        ap_sig_allocacmp_i_3 = i_fu_174;
+        ap_sig_allocacmp_cur_row_0_load_1 = cur_row_0_fu_182;
     end
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd0))) begin
+    if (((1'b0 == ap_block_pp0_stage0) & (1'b1 == ap_CS_fsm_pp0_stage0) & (ap_loop_init == 1'b1))) begin
+        ap_sig_allocacmp_i_2 = 5'd0;
+    end else begin
+        ap_sig_allocacmp_i_2 = i_fu_178;
+    end
+end
+
+always @ (*) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd0))) begin
         sparse_buf_col_0_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_0_ap_vld = 1'b0;
@@ -448,7 +481,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd10))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd10))) begin
         sparse_buf_col_10_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_10_ap_vld = 1'b0;
@@ -456,7 +489,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd11))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd11))) begin
         sparse_buf_col_11_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_11_ap_vld = 1'b0;
@@ -464,7 +497,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd12))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd12))) begin
         sparse_buf_col_12_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_12_ap_vld = 1'b0;
@@ -472,7 +505,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd13))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd13))) begin
         sparse_buf_col_13_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_13_ap_vld = 1'b0;
@@ -480,7 +513,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd14))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd14))) begin
         sparse_buf_col_14_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_14_ap_vld = 1'b0;
@@ -488,7 +521,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd15))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd15))) begin
         sparse_buf_col_15_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_15_ap_vld = 1'b0;
@@ -496,7 +529,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd1))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd1))) begin
         sparse_buf_col_1_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_1_ap_vld = 1'b0;
@@ -504,7 +537,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd2))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd2))) begin
         sparse_buf_col_2_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_2_ap_vld = 1'b0;
@@ -512,7 +545,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd3))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd3))) begin
         sparse_buf_col_3_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_3_ap_vld = 1'b0;
@@ -520,7 +553,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd4))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd4))) begin
         sparse_buf_col_4_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_4_ap_vld = 1'b0;
@@ -528,7 +561,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd5))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd5))) begin
         sparse_buf_col_5_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_5_ap_vld = 1'b0;
@@ -536,7 +569,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd6))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd6))) begin
         sparse_buf_col_6_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_6_ap_vld = 1'b0;
@@ -544,7 +577,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd7))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd7))) begin
         sparse_buf_col_7_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_7_ap_vld = 1'b0;
@@ -552,7 +585,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd8))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd8))) begin
         sparse_buf_col_8_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_8_ap_vld = 1'b0;
@@ -560,7 +593,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd9))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd9))) begin
         sparse_buf_col_9_ap_vld = 1'b1;
     end else begin
         sparse_buf_col_9_ap_vld = 1'b0;
@@ -568,7 +601,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd0))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd0))) begin
         sparse_buf_eor_0_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_0_ap_vld = 1'b0;
@@ -576,7 +609,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd10))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd10))) begin
         sparse_buf_eor_10_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_10_ap_vld = 1'b0;
@@ -584,7 +617,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd11))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd11))) begin
         sparse_buf_eor_11_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_11_ap_vld = 1'b0;
@@ -592,7 +625,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd12))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd12))) begin
         sparse_buf_eor_12_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_12_ap_vld = 1'b0;
@@ -600,7 +633,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd13))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd13))) begin
         sparse_buf_eor_13_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_13_ap_vld = 1'b0;
@@ -608,7 +641,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd14))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd14))) begin
         sparse_buf_eor_14_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_14_ap_vld = 1'b0;
@@ -616,7 +649,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd15))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd15))) begin
         sparse_buf_eor_15_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_15_ap_vld = 1'b0;
@@ -624,7 +657,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd1))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd1))) begin
         sparse_buf_eor_1_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_1_ap_vld = 1'b0;
@@ -632,7 +665,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd2))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd2))) begin
         sparse_buf_eor_2_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_2_ap_vld = 1'b0;
@@ -640,7 +673,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd3))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd3))) begin
         sparse_buf_eor_3_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_3_ap_vld = 1'b0;
@@ -648,7 +681,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd4))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd4))) begin
         sparse_buf_eor_4_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_4_ap_vld = 1'b0;
@@ -656,7 +689,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd5))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd5))) begin
         sparse_buf_eor_5_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_5_ap_vld = 1'b0;
@@ -664,7 +697,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd6))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd6))) begin
         sparse_buf_eor_6_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_6_ap_vld = 1'b0;
@@ -672,7 +705,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd7))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd7))) begin
         sparse_buf_eor_7_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_7_ap_vld = 1'b0;
@@ -680,7 +713,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd8))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd8))) begin
         sparse_buf_eor_8_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_8_ap_vld = 1'b0;
@@ -688,7 +721,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd9))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd9))) begin
         sparse_buf_eor_9_ap_vld = 1'b1;
     end else begin
         sparse_buf_eor_9_ap_vld = 1'b0;
@@ -696,7 +729,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd0))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd0))) begin
         sparse_buf_value_0_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_0_ap_vld = 1'b0;
@@ -704,7 +737,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd10))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd10))) begin
         sparse_buf_value_10_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_10_ap_vld = 1'b0;
@@ -712,7 +745,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd11))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd11))) begin
         sparse_buf_value_11_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_11_ap_vld = 1'b0;
@@ -720,7 +753,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd12))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd12))) begin
         sparse_buf_value_12_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_12_ap_vld = 1'b0;
@@ -728,7 +761,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd13))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd13))) begin
         sparse_buf_value_13_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_13_ap_vld = 1'b0;
@@ -736,7 +769,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd14))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd14))) begin
         sparse_buf_value_14_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_14_ap_vld = 1'b0;
@@ -744,7 +777,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd15))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd15))) begin
         sparse_buf_value_15_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_15_ap_vld = 1'b0;
@@ -752,7 +785,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd1))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd1))) begin
         sparse_buf_value_1_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_1_ap_vld = 1'b0;
@@ -760,7 +793,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd2))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd2))) begin
         sparse_buf_value_2_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_2_ap_vld = 1'b0;
@@ -768,7 +801,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd3))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd3))) begin
         sparse_buf_value_3_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_3_ap_vld = 1'b0;
@@ -776,7 +809,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd4))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd4))) begin
         sparse_buf_value_4_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_4_ap_vld = 1'b0;
@@ -784,7 +817,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd5))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd5))) begin
         sparse_buf_value_5_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_5_ap_vld = 1'b0;
@@ -792,7 +825,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd6))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd6))) begin
         sparse_buf_value_6_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_6_ap_vld = 1'b0;
@@ -800,7 +833,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd7))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd7))) begin
         sparse_buf_value_7_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_7_ap_vld = 1'b0;
@@ -808,7 +841,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd8))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd8))) begin
         sparse_buf_value_8_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_8_ap_vld = 1'b0;
@@ -816,7 +849,7 @@ always @ (*) begin
 end
 
 always @ (*) begin
-    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln35_reg_629 == 4'd9))) begin
+    if (((1'b0 == ap_block_pp0_stage0_11001) & (ap_enable_reg_pp0_iter1 == 1'b1) & (1'b1 == ap_CS_fsm_pp0_stage0) & (trunc_ln36_reg_681 == 4'd9))) begin
         sparse_buf_value_9_ap_vld = 1'b1;
     end else begin
         sparse_buf_value_9_ap_vld = 1'b0;
@@ -834,7 +867,9 @@ always @ (*) begin
     endcase
 end
 
-assign add_ln32_fu_534_p2 = (ap_sig_allocacmp_i_3 + 5'd1);
+assign add_ln33_fu_553_p2 = (ap_sig_allocacmp_i_2 + 5'd1);
+
+assign add_ln840_fu_641_p2 = (cur_row_0_fu_182 + 32'd1);
 
 assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
@@ -864,7 +899,13 @@ assign ap_enable_reg_pp0_iter0 = ap_start_int;
 
 assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
-assign icmp_ln32_fu_528_p2 = ((ap_sig_allocacmp_i_3 == 5'd16) ? 1'b1 : 1'b0);
+assign ap_return = ap_sig_allocacmp_cur_row_0_load_1;
+
+assign icmp_ln33_fu_547_p2 = ((ap_sig_allocacmp_i_2 == 5'd16) ? 1'b1 : 1'b0);
+
+assign p_Result_s_fu_568_p3 = A_stream3_dout[32'd63];
+
+assign select_ln37_fu_647_p3 = ((p_Result_s_fu_568_p3[0:0] == 1'b1) ? add_ln840_fu_641_p2 : cur_row_0_fu_182);
 
 assign sparse_buf_col_0 = {{A_stream3_dout[62:32]}};
 
@@ -930,40 +971,40 @@ assign sparse_buf_eor_8 = A_stream3_dout[32'd63];
 
 assign sparse_buf_eor_9 = A_stream3_dout[32'd63];
 
-assign sparse_buf_value_0 = x_value_V_fu_599_p1;
+assign sparse_buf_value_0 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_1 = x_value_V_fu_599_p1;
+assign sparse_buf_value_1 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_10 = x_value_V_fu_599_p1;
+assign sparse_buf_value_10 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_11 = x_value_V_fu_599_p1;
+assign sparse_buf_value_11 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_12 = x_value_V_fu_599_p1;
+assign sparse_buf_value_12 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_13 = x_value_V_fu_599_p1;
+assign sparse_buf_value_13 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_14 = x_value_V_fu_599_p1;
+assign sparse_buf_value_14 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_15 = x_value_V_fu_599_p1;
+assign sparse_buf_value_15 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_2 = x_value_V_fu_599_p1;
+assign sparse_buf_value_2 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_3 = x_value_V_fu_599_p1;
+assign sparse_buf_value_3 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_4 = x_value_V_fu_599_p1;
+assign sparse_buf_value_4 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_5 = x_value_V_fu_599_p1;
+assign sparse_buf_value_5 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_6 = x_value_V_fu_599_p1;
+assign sparse_buf_value_6 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_7 = x_value_V_fu_599_p1;
+assign sparse_buf_value_7 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_8 = x_value_V_fu_599_p1;
+assign sparse_buf_value_8 = x_value_V_fu_618_p1;
 
-assign sparse_buf_value_9 = x_value_V_fu_599_p1;
+assign sparse_buf_value_9 = x_value_V_fu_618_p1;
 
-assign trunc_ln35_fu_540_p1 = ap_sig_allocacmp_i_3[3:0];
+assign trunc_ln36_fu_559_p1 = ap_sig_allocacmp_i_2[3:0];
 
-assign x_value_V_fu_599_p1 = A_stream3_dout[31:0];
+assign x_value_V_fu_618_p1 = A_stream3_dout[31:0];
 
 endmodule //spmm_hls_load_stream_to_buffer

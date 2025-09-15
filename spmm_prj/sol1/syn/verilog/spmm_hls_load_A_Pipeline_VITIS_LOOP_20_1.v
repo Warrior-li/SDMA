@@ -153,7 +153,7 @@ reg    ap_condition_exit_pp0_iter1_stage0;
 reg   [4:0] i_fu_48;
 wire   [4:0] add_ln20_fu_88_p2;
 wire    ap_loop_init;
-reg   [4:0] ap_sig_allocacmp_i_7;
+reg   [4:0] ap_sig_allocacmp_i_5;
 reg    ap_block_pp0_stage0_01001;
 reg    ap_done_reg;
 wire    ap_continue_int;
@@ -318,9 +318,9 @@ end
 
 always @ (*) begin
     if (((1'b1 == ap_CS_fsm_pp0_stage0) & (ap_loop_init == 1'b1) & (1'b0 == ap_block_pp0_stage0))) begin
-        ap_sig_allocacmp_i_7 = 5'd0;
+        ap_sig_allocacmp_i_5 = 5'd0;
     end else begin
-        ap_sig_allocacmp_i_7 = i_fu_48;
+        ap_sig_allocacmp_i_5 = i_fu_48;
     end
 end
 
@@ -353,7 +353,7 @@ end
 
 assign A_stream3_din = gmem0_addr_read_reg_121;
 
-assign add_ln20_fu_88_p2 = (ap_sig_allocacmp_i_7 + 5'd1);
+assign add_ln20_fu_88_p2 = (ap_sig_allocacmp_i_5 + 5'd1);
 
 assign ap_CS_fsm_pp0_stage0 = ap_CS_fsm[32'd0];
 
@@ -387,7 +387,7 @@ assign ap_enable_reg_pp0_iter0 = ap_start_int;
 
 assign ap_loop_exit_ready = ap_condition_exit_pp0_iter0_stage0;
 
-assign icmp_ln20_fu_82_p2 = ((ap_sig_allocacmp_i_7 == 5'd16) ? 1'b1 : 1'b0);
+assign icmp_ln20_fu_82_p2 = ((ap_sig_allocacmp_i_5 == 5'd16) ? 1'b1 : 1'b0);
 
 assign m_axi_gmem0_ARADDR = 64'd0;
 

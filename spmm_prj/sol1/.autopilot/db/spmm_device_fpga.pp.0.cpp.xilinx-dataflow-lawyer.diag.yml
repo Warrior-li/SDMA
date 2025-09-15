@@ -3,14 +3,14 @@ MainSourceFile:  /home/shuxuan/SDMA/spmm_prj/sol1/.autopilot/db/spmm_device_fpga
 Diagnostics:     
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-1] Only for-loops and functions support the dataflow'
-    FileOffset:      '95:9'
+    FileOffset:      '114:9'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-1] Only for-loops and functions support the dataflow'
-    FileOffset:      '146:9'
+    FileOffset:      '186:9'
     FilePath:        src/spmm_device_fpga.cpp
   - DiagnosticName:  clang-diagnostic-warning
     Message:         '[xlx-df-check-1] Only for-loops and functions support the dataflow'
-    FileOffset:      '153:9'
+    FileOffset:      '194:9'
     FilePath:        src/spmm_device_fpga.cpp
 ...

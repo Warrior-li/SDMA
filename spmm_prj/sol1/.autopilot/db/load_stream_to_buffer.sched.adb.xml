@@ -3,7 +3,7 @@
 
 <trans_list>
 
-<trans id="97" from="1" to="2">
+<trans id="106" from="1" to="2">
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
@@ -23,7 +23,7 @@
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="50" bw="5" op_0_bw="32">
+<Node id="51" bw="5" op_0_bw="32">
 <![CDATA[
 entry:0 %i = alloca i32 1
 
@@ -38,12 +38,12 @@ entry:0 %i = alloca i32 1
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="51" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
+<Node id="52" bw="32" op_0_bw="32">
 <![CDATA[
-entry:1 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %A_stream3, void @empty_12, i32 0, i32 0, void @empty_6, i32 0, i32 0, void @empty_6, void @empty_6, void @empty_6, i32 0, i32 0, i32 0, i32 0, void @empty_6, void @empty_6, i32 4294967295, i32 0
+entry:1 %cur_row_0 = alloca i32 1
 
 ]]></Node>
-<StgValue><ssdm name="specinterface_ln0"/></StgValue>
+<StgValue><ssdm name="cur_row_0"/></StgValue>
 </operation>
 
 <operation id="7" st_id="1" stage="1" lat="1">
@@ -53,12 +53,12 @@ entry:1 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %A_
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="52" bw="0" op_0_bw="5" op_1_bw="5">
+<Node id="53" bw="0" op_0_bw="0" op_1_bw="64" op_2_bw="0" op_3_bw="32" op_4_bw="32" op_5_bw="0" op_6_bw="32" op_7_bw="32" op_8_bw="0" op_9_bw="0" op_10_bw="0" op_11_bw="32" op_12_bw="32" op_13_bw="32" op_14_bw="32" op_15_bw="0" op_16_bw="0" op_17_bw="32" op_18_bw="32">
 <![CDATA[
-entry:2 %store_ln32 = store i5 0, i5 %i
+entry:2 %specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i64 %A_stream3, void @empty_14, i32 0, i32 0, void @empty_3, i32 0, i32 0, void @empty_3, void @empty_3, void @empty_3, i32 0, i32 0, i32 0, i32 0, void @empty_3, void @empty_3, i32 4294967295, i32 0
 
 ]]></Node>
-<StgValue><ssdm name="store_ln32"/></StgValue>
+<StgValue><ssdm name="specinterface_ln0"/></StgValue>
 </operation>
 
 <operation id="8" st_id="1" stage="1" lat="1">
@@ -68,12 +68,12 @@ entry:2 %store_ln32 = store i5 0, i5 %i
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="53" bw="0" op_0_bw="0">
+<Node id="54" bw="32" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-entry:3 %br_ln32 = br void %for.inc
+entry:3 %p_read_33 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read
 
 ]]></Node>
-<StgValue><ssdm name="br_ln32"/></StgValue>
+<StgValue><ssdm name="p_read_33"/></StgValue>
 </operation>
 
 <operation id="9" st_id="1" stage="1" lat="1">
@@ -83,27 +83,27 @@ entry:3 %br_ln32 = br void %for.inc
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="55" bw="5" op_0_bw="5" op_1_bw="0">
+<Node id="55" bw="0" op_0_bw="32" op_1_bw="32">
 <![CDATA[
-for.inc:0 %i_3 = load i5 %i
+entry:4 %store_ln33 = store i32 %p_read_33, i32 %cur_row_0
 
 ]]></Node>
-<StgValue><ssdm name="i_3"/></StgValue>
+<StgValue><ssdm name="store_ln33"/></StgValue>
 </operation>
 
 <operation id="10" st_id="1" stage="1" lat="1">
-<core>Cmp</core>
+<core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="56" bw="1" op_0_bw="5" op_1_bw="5">
+<Node id="56" bw="0" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-for.inc:1 %icmp_ln32 = icmp_eq  i5 %i_3, i5 16
+entry:5 %store_ln33 = store i5 0, i5 %i
 
 ]]></Node>
-<StgValue><ssdm name="icmp_ln32"/></StgValue>
+<StgValue><ssdm name="store_ln33"/></StgValue>
 </operation>
 
 <operation id="11" st_id="1" stage="1" lat="1">
@@ -113,170 +113,185 @@ for.inc:1 %icmp_ln32 = icmp_eq  i5 %i_3, i5 16
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="57" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
+<Node id="57" bw="0" op_0_bw="0">
 <![CDATA[
-for.inc:2 %empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 16, i64 16, i64 16
+entry:6 %br_ln33 = br void %for.body
 
 ]]></Node>
-<StgValue><ssdm name="empty"/></StgValue>
+<StgValue><ssdm name="br_ln33"/></StgValue>
 </operation>
 
 <operation id="12" st_id="1" stage="1" lat="1">
-<core>Adder</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="58" bw="5" op_0_bw="5" op_1_bw="5">
-<![CDATA[
-for.inc:3 %add_ln32 = add i5 %i_3, i5 1
-
-]]></Node>
-<StgValue><ssdm name="add_ln32"/></StgValue>
-</operation>
-
-<operation id="13" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="59" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
+<Node id="59" bw="5" op_0_bw="5" op_1_bw="0">
 <![CDATA[
-for.inc:4 %br_ln32 = br i1 %icmp_ln32, void %for.inc.split, void %for.end
+for.body:0 %i_2 = load i5 %i
 
 ]]></Node>
-<StgValue><ssdm name="br_ln32"/></StgValue>
+<StgValue><ssdm name="i_2"/></StgValue>
+</operation>
+
+<operation id="13" st_id="1" stage="1" lat="1">
+<core>Cmp</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="60" bw="1" op_0_bw="5" op_1_bw="5">
+<![CDATA[
+for.body:1 %icmp_ln33 = icmp_eq  i5 %i_2, i5 16
+
+]]></Node>
+<StgValue><ssdm name="icmp_ln33"/></StgValue>
 </operation>
 
 <operation id="14" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln32" val="0"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="67" bw="4" op_0_bw="5">
+<Node id="61" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-for.inc.split:6 %trunc_ln35 = trunc i5 %i_3
+for.body:2 %empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 16, i64 16, i64 16
 
 ]]></Node>
-<StgValue><ssdm name="trunc_ln35"/></StgValue>
+<StgValue><ssdm name="empty"/></StgValue>
 </operation>
 
 <operation id="15" st_id="1" stage="1" lat="1">
-<core>NULL</core>
+<core>Adder</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln32" val="0"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="68" bw="0" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0" op_4_bw="4" op_5_bw="0" op_6_bw="4" op_7_bw="0" op_8_bw="4" op_9_bw="0" op_10_bw="4" op_11_bw="0" op_12_bw="4" op_13_bw="0" op_14_bw="4" op_15_bw="0" op_16_bw="4" op_17_bw="0" op_18_bw="4" op_19_bw="0" op_20_bw="4" op_21_bw="0" op_22_bw="4" op_23_bw="0" op_24_bw="4" op_25_bw="0" op_26_bw="4" op_27_bw="0" op_28_bw="4" op_29_bw="0" op_30_bw="4" op_31_bw="0">
+<Node id="62" bw="5" op_0_bw="5" op_1_bw="5">
 <![CDATA[
-for.inc.split:7 %switch_ln35 = switch i4 %trunc_ln35, void %arrayidx.27.case.15, i4 0, void %arrayidx.27.case.0, i4 1, void %arrayidx.27.case.1, i4 2, void %arrayidx.27.case.2, i4 3, void %arrayidx.27.case.3, i4 4, void %arrayidx.27.case.4, i4 5, void %arrayidx.27.case.5, i4 6, void %arrayidx.27.case.6, i4 7, void %arrayidx.27.case.7, i4 8, void %arrayidx.27.case.8, i4 9, void %arrayidx.27.case.9, i4 10, void %arrayidx.27.case.10, i4 11, void %arrayidx.27.case.11, i4 12, void %arrayidx.27.case.12, i4 13, void %arrayidx.27.case.13, i4 14, void %arrayidx.27.case.14
+for.body:3 %add_ln33 = add i5 %i_2, i5 1
 
 ]]></Node>
-<StgValue><ssdm name="switch_ln35"/></StgValue>
+<StgValue><ssdm name="add_ln33"/></StgValue>
 </operation>
 
 <operation id="16" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln32" val="0"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="150" bw="0" op_0_bw="5" op_1_bw="5" op_2_bw="0" op_3_bw="0">
+<Node id="63" bw="0" op_0_bw="1" op_1_bw="0" op_2_bw="0">
 <![CDATA[
-arrayidx.27.exit:0 %store_ln32 = store i5 %add_ln32, i5 %i
+for.body:4 %br_ln33 = br i1 %icmp_ln33, void %for.body.split, void %for.end
 
 ]]></Node>
-<StgValue><ssdm name="store_ln32"/></StgValue>
+<StgValue><ssdm name="br_ln33"/></StgValue>
 </operation>
 
 <operation id="17" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln32" val="0"/>
+<or_exp><and_exp><literal name="icmp_ln33" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="151" bw="0" op_0_bw="0">
+<Node id="71" bw="4" op_0_bw="5">
 <![CDATA[
-arrayidx.27.exit:1 %br_ln32 = br void %for.inc
+for.body.split:6 %trunc_ln36 = trunc i5 %i_2
 
 ]]></Node>
-<StgValue><ssdm name="br_ln32"/></StgValue>
+<StgValue><ssdm name="trunc_ln36"/></StgValue>
 </operation>
 
-<operation id="88" st_id="1" stage="1" lat="1">
+<operation id="18" st_id="1" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="icmp_ln32" val="1"/>
+<or_exp><and_exp><literal name="icmp_ln33" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="153" bw="0">
+<Node id="72" bw="0" op_0_bw="4" op_1_bw="0" op_2_bw="4" op_3_bw="0" op_4_bw="4" op_5_bw="0" op_6_bw="4" op_7_bw="0" op_8_bw="4" op_9_bw="0" op_10_bw="4" op_11_bw="0" op_12_bw="4" op_13_bw="0" op_14_bw="4" op_15_bw="0" op_16_bw="4" op_17_bw="0" op_18_bw="4" op_19_bw="0" op_20_bw="4" op_21_bw="0" op_22_bw="4" op_23_bw="0" op_24_bw="4" op_25_bw="0" op_26_bw="4" op_27_bw="0" op_28_bw="4" op_29_bw="0" op_30_bw="4" op_31_bw="0">
 <![CDATA[
-for.end:0 %ret_ln37 = ret
+for.body.split:7 %switch_ln36 = switch i4 %trunc_ln36, void %arrayidx.27.case.15, i4 0, void %arrayidx.27.case.0, i4 1, void %arrayidx.27.case.1, i4 2, void %arrayidx.27.case.2, i4 3, void %arrayidx.27.case.3, i4 4, void %arrayidx.27.case.4, i4 5, void %arrayidx.27.case.5, i4 6, void %arrayidx.27.case.6, i4 7, void %arrayidx.27.case.7, i4 8, void %arrayidx.27.case.8, i4 9, void %arrayidx.27.case.9, i4 10, void %arrayidx.27.case.10, i4 11, void %arrayidx.27.case.11, i4 12, void %arrayidx.27.case.12, i4 13, void %arrayidx.27.case.13, i4 14, void %arrayidx.27.case.14
 
 ]]></Node>
-<StgValue><ssdm name="ret_ln37"/></StgValue>
+<StgValue><ssdm name="switch_ln36"/></StgValue>
+</operation>
+
+<operation id="19" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln33" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="158" bw="0" op_0_bw="5" op_1_bw="5" op_2_bw="0" op_3_bw="0">
+<![CDATA[
+arrayidx.27.exit:4 %store_ln33 = store i5 %add_ln33, i5 %i
+
+]]></Node>
+<StgValue><ssdm name="store_ln33"/></StgValue>
+</operation>
+
+<operation id="95" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln33" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="161" bw="32" op_0_bw="32" op_1_bw="0">
+<![CDATA[
+for.end:0 %cur_row_0_load_1 = load i32 %cur_row_0
+
+]]></Node>
+<StgValue><ssdm name="cur_row_0_load_1"/></StgValue>
+</operation>
+
+<operation id="96" st_id="1" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="icmp_ln33" val="1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="162" bw="0" op_0_bw="32">
+<![CDATA[
+for.end:1 %ret_ln39 = ret i32 %cur_row_0_load_1
+
+]]></Node>
+<StgValue><ssdm name="ret_ln39"/></StgValue>
 </operation>
 </state>
 
 <state id="2" st_id="3">
 
-<operation id="18" st_id="2" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="61" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
-<![CDATA[
-for.inc.split:0 %specpipeline_ln33 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_6
-
-]]></Node>
-<StgValue><ssdm name="specpipeline_ln33"/></StgValue>
-</operation>
-
-<operation id="19" st_id="2" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="-1">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-
-<Node id="62" bw="0" op_0_bw="0" op_1_bw="0">
-<![CDATA[
-for.inc.split:1 %specloopname_ln32 = specloopname void @_ssdm_op_SpecLoopName, void @empty_20
-
-]]></Node>
-<StgValue><ssdm name="specloopname_ln32"/></StgValue>
-</operation>
-
 <operation id="20" st_id="2" stage="1" lat="1">
-<core>FIFO_SRL</core>
+<core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="63" bw="64" op_0_bw="64" op_1_bw="64">
+<Node id="65" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32" op_3_bw="32" op_4_bw="32" op_5_bw="0">
 <![CDATA[
-for.inc.split:2 %raw = read i64 @_ssdm_op_Read.ap_fifo.volatile.i64P0A, i64 %A_stream3
+for.body.split:0 %specpipeline_ln34 = specpipeline void @_ssdm_op_SpecPipeline, i32 1, i32 0, i32 0, i32 0, void @empty_3
 
 ]]></Node>
-<StgValue><ssdm name="raw"/></StgValue>
+<StgValue><ssdm name="specpipeline_ln34"/></StgValue>
 </operation>
 
 <operation id="21" st_id="2" stage="1" lat="1">
@@ -286,27 +301,27 @@ for.inc.split:2 %raw = read i64 @_ssdm_op_Read.ap_fifo.volatile.i64P0A, i64 %A_s
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="64" bw="1" op_0_bw="1" op_1_bw="64" op_2_bw="32">
+<Node id="66" bw="0" op_0_bw="0" op_1_bw="0">
 <![CDATA[
-for.inc.split:3 %p_Result_s = bitselect i1 @_ssdm_op_BitSelect.i1.i64.i32, i64 %raw, i32 63
+for.body.split:1 %specloopname_ln33 = specloopname void @_ssdm_op_SpecLoopName, void @empty_20
 
 ]]></Node>
-<StgValue><ssdm name="p_Result_s"/></StgValue>
+<StgValue><ssdm name="specloopname_ln33"/></StgValue>
 </operation>
 
 <operation id="22" st_id="2" stage="1" lat="1">
-<core>NULL</core>
+<core>FIFO_SRL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="65" bw="31" op_0_bw="31" op_1_bw="64" op_2_bw="32" op_3_bw="32">
+<Node id="67" bw="64" op_0_bw="64" op_1_bw="64">
 <![CDATA[
-for.inc.split:4 %x_col_V = partselect i31 @_ssdm_op_PartSelect.i31.i64.i32.i32, i64 %raw, i32 32, i32 62
+for.body.split:2 %raw = read i64 @_ssdm_op_Read.ap_fifo.volatile.i64P0A, i64 %A_stream3
 
 ]]></Node>
-<StgValue><ssdm name="x_col_V"/></StgValue>
+<StgValue><ssdm name="raw"/></StgValue>
 </operation>
 
 <operation id="23" st_id="2" stage="1" lat="1">
@@ -316,1036 +331,1141 @@ for.inc.split:4 %x_col_V = partselect i31 @_ssdm_op_PartSelect.i31.i64.i32.i32, 
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="66" bw="32" op_0_bw="64">
+<Node id="68" bw="1" op_0_bw="1" op_1_bw="64" op_2_bw="32">
 <![CDATA[
-for.inc.split:5 %x_value_V = trunc i64 %raw
+for.body.split:3 %p_Result_s = bitselect i1 @_ssdm_op_BitSelect.i1.i64.i32, i64 %raw, i32 63
 
 ]]></Node>
-<StgValue><ssdm name="x_value_V"/></StgValue>
+<StgValue><ssdm name="p_Result_s"/></StgValue>
 </operation>
 
 <operation id="24" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-2"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="70" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="69" bw="31" op_0_bw="31" op_1_bw="64" op_2_bw="32" op_3_bw="32">
 <![CDATA[
-arrayidx.27.case.14:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_14, i1 %p_Result_s
+for.body.split:4 %x_col_V = partselect i31 @_ssdm_op_PartSelect.i31.i64.i32.i32, i64 %raw, i32 32, i32 62
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="x_col_V"/></StgValue>
 </operation>
 
 <operation id="25" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-2"/>
-</and_exp></or_exp>
+<or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<Node id="71" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="70" bw="32" op_0_bw="64">
 <![CDATA[
-arrayidx.27.case.14:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_14, i31 %x_col_V
+for.body.split:5 %x_value_V = trunc i64 %raw
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="x_value_V"/></StgValue>
 </operation>
 
 <operation id="26" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-2"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="72" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="74" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.14:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_14, i32 %x_value_V
+arrayidx.27.case.14:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_14, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="27" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-2"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="73" bw="0" op_0_bw="0">
+<Node id="75" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.14:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.14:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_14, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="28" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-3"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="75" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="76" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.13:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_13, i1 %p_Result_s
+arrayidx.27.case.14:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_14, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="29" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-3"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="76" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="77" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.13:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_13, i31 %x_col_V
+arrayidx.27.case.14:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="30" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-3"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-3"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="77" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="79" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.13:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_13, i32 %x_value_V
+arrayidx.27.case.13:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_13, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="31" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-3"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-3"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="78" bw="0" op_0_bw="0">
+<Node id="80" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.13:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.13:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_13, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="32" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-4"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-3"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="80" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="81" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.12:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_12, i1 %p_Result_s
+arrayidx.27.case.13:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_13, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="33" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-4"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-3"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="81" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="82" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.12:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_12, i31 %x_col_V
+arrayidx.27.case.13:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="34" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-4"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="82" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="84" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.12:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_12, i32 %x_value_V
+arrayidx.27.case.12:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_12, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="35" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-4"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="83" bw="0" op_0_bw="0">
+<Node id="85" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.12:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.12:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_12, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="36" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-5"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="85" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="86" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.11:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_11, i1 %p_Result_s
+arrayidx.27.case.12:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_12, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="37" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-5"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="86" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="87" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.11:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_11, i31 %x_col_V
+arrayidx.27.case.12:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="38" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-5"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="87" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="89" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.11:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_11, i32 %x_value_V
+arrayidx.27.case.11:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_11, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="39" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-5"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="88" bw="0" op_0_bw="0">
+<Node id="90" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.11:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.11:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_11, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="40" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-6"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="90" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="91" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.10:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_10, i1 %p_Result_s
+arrayidx.27.case.11:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_11, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="41" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-6"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="91" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="92" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.10:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_10, i31 %x_col_V
+arrayidx.27.case.11:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="42" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-6"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="92" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="94" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.10:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_10, i32 %x_value_V
+arrayidx.27.case.10:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_10, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="43" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-6"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="93" bw="0" op_0_bw="0">
+<Node id="95" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.10:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.10:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_10, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="44" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-7"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="95" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="96" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.9:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_9, i1 %p_Result_s
+arrayidx.27.case.10:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_10, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="45" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-7"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="96" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="97" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.9:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_9, i31 %x_col_V
+arrayidx.27.case.10:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="46" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-7"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="97" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="99" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.9:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_9, i32 %x_value_V
+arrayidx.27.case.9:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_9, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="47" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-7"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="98" bw="0" op_0_bw="0">
+<Node id="100" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.9:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.9:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_9, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="48" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-8"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="100" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="101" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.8:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_8, i1 %p_Result_s
+arrayidx.27.case.9:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_9, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="49" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-8"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="101" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="102" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.8:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_8, i31 %x_col_V
+arrayidx.27.case.9:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="50" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-8"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-8"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="102" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="104" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.8:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_8, i32 %x_value_V
+arrayidx.27.case.8:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_8, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="51" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-8"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-8"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="103" bw="0" op_0_bw="0">
+<Node id="105" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.8:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.8:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_8, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="52" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="7"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-8"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="105" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="106" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.7:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_7, i1 %p_Result_s
+arrayidx.27.case.8:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_8, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="53" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="7"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-8"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="106" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="107" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.7:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_7, i31 %x_col_V
+arrayidx.27.case.8:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="54" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="7"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="107" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="109" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.7:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_7, i32 %x_value_V
+arrayidx.27.case.7:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_7, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="55" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="7"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="108" bw="0" op_0_bw="0">
+<Node id="110" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.7:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.7:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_7, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="56" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="6"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="110" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="111" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.6:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_6, i1 %p_Result_s
+arrayidx.27.case.7:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_7, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="57" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="6"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="7"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="111" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="112" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.6:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_6, i31 %x_col_V
+arrayidx.27.case.7:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="58" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="6"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="112" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="114" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.6:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_6, i32 %x_value_V
+arrayidx.27.case.6:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_6, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="59" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="6"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="113" bw="0" op_0_bw="0">
+<Node id="115" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.6:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.6:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_6, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="60" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="5"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="115" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="116" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.5:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_5, i1 %p_Result_s
+arrayidx.27.case.6:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_6, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="61" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="5"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="6"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="116" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="117" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.5:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_5, i31 %x_col_V
+arrayidx.27.case.6:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="62" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="5"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="117" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="119" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.5:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_5, i32 %x_value_V
+arrayidx.27.case.5:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_5, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="63" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="5"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="118" bw="0" op_0_bw="0">
+<Node id="120" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.5:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.5:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_5, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="64" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="4"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="120" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="121" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.4:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_4, i1 %p_Result_s
+arrayidx.27.case.5:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_5, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="65" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="4"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="5"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="121" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="122" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.4:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_4, i31 %x_col_V
+arrayidx.27.case.5:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="66" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="4"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="122" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="124" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.4:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_4, i32 %x_value_V
+arrayidx.27.case.4:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_4, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="67" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="4"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="123" bw="0" op_0_bw="0">
+<Node id="125" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.4:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.4:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_4, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="68" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="3"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="125" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="126" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.3:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_3, i1 %p_Result_s
+arrayidx.27.case.4:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_4, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="69" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="3"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="4"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="126" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="127" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.3:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_3, i31 %x_col_V
+arrayidx.27.case.4:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="70" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="3"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="3"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="127" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="129" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.3:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_3, i32 %x_value_V
+arrayidx.27.case.3:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_3, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="71" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="3"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="3"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="128" bw="0" op_0_bw="0">
+<Node id="130" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.3:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.3:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_3, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="72" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="2"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="3"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="130" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="131" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.2:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_2, i1 %p_Result_s
+arrayidx.27.case.3:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_3, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="73" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="2"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="3"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="131" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="132" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.2:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_2, i31 %x_col_V
+arrayidx.27.case.3:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="74" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="2"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="132" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="134" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.2:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_2, i32 %x_value_V
+arrayidx.27.case.2:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_2, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="75" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="2"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="133" bw="0" op_0_bw="0">
+<Node id="135" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.2:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.2:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_2, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="76" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="1"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="135" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="136" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.1:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_1, i1 %p_Result_s
+arrayidx.27.case.2:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_2, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="77" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="1"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="2"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="136" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="137" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.1:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_1, i31 %x_col_V
+arrayidx.27.case.2:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="78" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="1"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="137" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="139" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.1:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_1, i32 %x_value_V
+arrayidx.27.case.1:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_1, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="79" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="1"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="138" bw="0" op_0_bw="0">
+<Node id="140" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.1:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.1:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_1, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="80" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="0"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="140" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="141" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.0:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_0, i1 %p_Result_s
+arrayidx.27.case.1:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_1, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="81" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="0"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="141" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="142" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.0:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_0, i31 %x_col_V
+arrayidx.27.case.1:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="82" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="0"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="142" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="144" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.0:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_0, i32 %x_value_V
+arrayidx.27.case.0:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_0, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="83" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="0"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="143" bw="0" op_0_bw="0">
+<Node id="145" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.0:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.0:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_0, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="84" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-1"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="145" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
+<Node id="146" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
 <![CDATA[
-arrayidx.27.case.15:0 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_15, i1 %p_Result_s
+arrayidx.27.case.0:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_0, i32 %x_value_V
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="85" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-1"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="0"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="146" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
+<Node id="147" bw="0" op_0_bw="0">
 <![CDATA[
-arrayidx.27.case.15:1 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_15, i31 %x_col_V
+arrayidx.27.case.0:3 %br_ln36 = br void %arrayidx.27.exit
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="br_ln36"/></StgValue>
 </operation>
 
 <operation id="86" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-1"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="147" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<Node id="149" bw="0" op_0_bw="0" op_1_bw="1" op_2_bw="1">
 <![CDATA[
-arrayidx.27.case.15:2 %write_ln35 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_15, i32 %x_value_V
+arrayidx.27.case.15:0 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i1P0A, i1 %sparse_buf_eor_15, i1 %p_Result_s
 
 ]]></Node>
-<StgValue><ssdm name="write_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
 </operation>
 
 <operation id="87" st_id="2" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
-<or_exp><and_exp><literal name="trunc_ln35" val="-1"/>
+<or_exp><and_exp><literal name="trunc_ln36" val="-1"/>
 </and_exp></or_exp>
 </condition>
 
-<Node id="148" bw="0" op_0_bw="0">
+<Node id="150" bw="0" op_0_bw="0" op_1_bw="31" op_2_bw="31">
 <![CDATA[
-arrayidx.27.case.15:3 %br_ln35 = br void %arrayidx.27.exit
+arrayidx.27.case.15:1 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i31P0A, i31 %sparse_buf_col_15, i31 %x_col_V
 
 ]]></Node>
-<StgValue><ssdm name="br_ln35"/></StgValue>
+<StgValue><ssdm name="write_ln36"/></StgValue>
+</operation>
+
+<operation id="88" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="trunc_ln36" val="-1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="151" bw="0" op_0_bw="0" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+arrayidx.27.case.15:2 %write_ln36 = write void @_ssdm_op_Write.ap_auto.i32P0A, i32 %sparse_buf_value_15, i32 %x_value_V
+
+]]></Node>
+<StgValue><ssdm name="write_ln36"/></StgValue>
+</operation>
+
+<operation id="89" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp><literal name="trunc_ln36" val="-1"/>
+</and_exp></or_exp>
+</condition>
+
+<Node id="152" bw="0" op_0_bw="0">
+<![CDATA[
+arrayidx.27.case.15:3 %br_ln36 = br void %arrayidx.27.exit
+
+]]></Node>
+<StgValue><ssdm name="br_ln36"/></StgValue>
+</operation>
+
+<operation id="90" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="154" bw="32" op_0_bw="32" op_1_bw="0">
+<![CDATA[
+arrayidx.27.exit:0 %cur_row_0_load = load i32 %cur_row_0
+
+]]></Node>
+<StgValue><ssdm name="cur_row_0_load"/></StgValue>
+</operation>
+
+<operation id="91" st_id="2" stage="1" lat="1">
+<core>Adder</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="155" bw="32" op_0_bw="32" op_1_bw="32">
+<![CDATA[
+arrayidx.27.exit:1 %add_ln840 = add i32 %cur_row_0_load, i32 1
+
+]]></Node>
+<StgValue><ssdm name="add_ln840"/></StgValue>
+</operation>
+
+<operation id="92" st_id="2" stage="1" lat="1">
+<core>Sel</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="156" bw="32" op_0_bw="1" op_1_bw="32" op_2_bw="32">
+<![CDATA[
+arrayidx.27.exit:2 %select_ln37 = select i1 %p_Result_s, i32 %add_ln840, i32 %cur_row_0_load
+
+]]></Node>
+<StgValue><ssdm name="select_ln37"/></StgValue>
+</operation>
+
+<operation id="93" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="157" bw="0" op_0_bw="32" op_1_bw="32" op_2_bw="0" op_3_bw="0">
+<![CDATA[
+arrayidx.27.exit:3 %store_ln33 = store i32 %select_ln37, i32 %cur_row_0
+
+]]></Node>
+<StgValue><ssdm name="store_ln33"/></StgValue>
+</operation>
+
+<operation id="94" st_id="2" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="-1">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+
+<Node id="159" bw="0" op_0_bw="0">
+<![CDATA[
+arrayidx.27.exit:5 %br_ln33 = br void %for.body
+
+]]></Node>
+<StgValue><ssdm name="br_ln33"/></StgValue>
 </operation>
 </state>
 </state_list>

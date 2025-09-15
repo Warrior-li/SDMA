@@ -1,12 +1,12 @@
 # This script segment is generated automatically by AutoPilot
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_Dense_Buf0_RAM_AUTO_1R1W BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
+	::AP::rtl_comp_handler spmm_hls_Dense_Buf0_RAM_2P_BRAM_1R1W BINDTYPE {storage} TYPE {ram_2p} IMPL {bram} LATENCY 2 ALLOW_PRAGMA 1
 }
 
 
 if {${::AESL::PGuard_rtl_comp_handler}} {
-	::AP::rtl_comp_handler spmm_hls_Out_Buf0_0_RAM_AUTO_0R0W BINDTYPE {storage} TYPE {ram} IMPL {auto} LATENCY 2 ALLOW_PRAGMA 1
+	::AP::rtl_comp_handler spmm_hls_Out_Buf0_0_RAM_2P_BRAM_0R0W BINDTYPE {storage} TYPE {ram_2p} IMPL {bram} LATENCY 2 ALLOW_PRAGMA 1
 }
 
 
@@ -50,21 +50,29 @@ nnz {
 	offset 28
 	offset_end 35
 }
+C { 
+	dir I
+	width 64
+	depth 1
+	mode ap_none
+	offset 36
+	offset_end 47
+}
 M { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
-	offset 36
-	offset_end 43
+	offset 48
+	offset_end 55
 }
 K { 
 	dir I
 	width 32
 	depth 1
 	mode ap_none
-	offset 44
-	offset_end 51
+	offset 56
+	offset_end 63
 }
 ap_start { }
 ap_done { }
@@ -80,7 +88,7 @@ dict set axilite_register_dict control $port_control
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 269 \
+			id 238 \
 			corename spmm_hls_control_axilite \
 			name spmm_hls_control_s_axi \
 			ports {$port_control} \
@@ -117,7 +125,7 @@ dict set axilite_register_dict control_r $port_control_r
 if {${::AESL::PGuard_simmodel_gen}} {
 	if {[info proc ::AESL_LIB_XILADAPTER::s_axilite_gen] == "::AESL_LIB_XILADAPTER::s_axilite_gen"} {
 		eval "::AESL_LIB_XILADAPTER::s_axilite_gen { \
-			id 270 \
+			id 239 \
 			corename spmm_hls_control_r_axilite \
 			name spmm_hls_control_r_s_axi \
 			ports {$port_control_r} \

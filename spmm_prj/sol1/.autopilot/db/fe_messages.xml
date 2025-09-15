@@ -1,16 +1,22 @@
 <xilinx:hls_fe_msgs>
-    <msg msg_groups="PRAGMA_INVALID" msg_id="207-5558" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:95:9" msg_body="Only for-loops and functions support the dataflow">
+    <msg msg_groups="PRAGMA_INVALID" msg_id="207-5558" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:114:9" msg_body="Only for-loops and functions support the dataflow">
         <args ClangWarningOption="ignored-hls-dataflow-attribute"/>
     </msg>
-    <msg msg_groups="PRAGMA_INVALID" msg_id="207-5558" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:146:9" msg_body="Only for-loops and functions support the dataflow">
+    <msg msg_groups="PRAGMA_INVALID" msg_id="207-5558" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:186:9" msg_body="Only for-loops and functions support the dataflow">
         <args ClangWarningOption="ignored-hls-dataflow-attribute"/>
     </msg>
-    <msg msg_groups="PRAGMA_INVALID" msg_id="207-5558" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:153:9" msg_body="Only for-loops and functions support the dataflow">
+    <msg msg_groups="PRAGMA_INVALID" msg_id="207-5558" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:194:9" msg_body="Only for-loops and functions support the dataflow">
         <args ClangWarningOption="ignored-hls-dataflow-attribute"/>
     </msg>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-104" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:95:9" msg_body="Only for-loops and functions support the dataflow"/>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-104" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:146:9" msg_body="Only for-loops and functions support the dataflow"/>
-    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-104" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:153:9" msg_body="Only for-loops and functions support the dataflow"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-104" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:114:9" msg_body="Only for-loops and functions support the dataflow"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-104" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:186:9" msg_body="Only for-loops and functions support the dataflow"/>
+    <msg msg_groups="PRAGMA_DATAFLOW" msg_id="214-104" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:194:9" msg_body="Only for-loops and functions support the dataflow"/>
+    <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:127:13" msg_body="unused parameter 'outBuf'">
+        <args ClangWarningOption="unused-parameter"/>
+    </msg>
+    <msg msg_groups="" msg_id="207-5292" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:128:13" msg_body="unused parameter 'C'">
+        <args ClangWarningOption="unused-parameter"/>
+    </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h:678:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="and_reduce" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
@@ -26,127 +32,166 @@
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:21:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="load_A" ARG_PragmaIsValid="1" ARG_PragmaOptions="II=1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:30:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:31:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="load_stream_to_buffer" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:33:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:34:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="load_stream_to_buffer" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:48:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:50:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="load_dense_accoding_A" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:52:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:54:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="load_dense_accoding_A" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:55:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:57:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="load_dense_accoding_A" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:63:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:65:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="load_dense_accoding_A" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:77:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="pe_kernel" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:79:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pe_kernel_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:95:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:81:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pe_kernel_0" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:92:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pe_kernel_1" ARG_PragmaIsValid="1" ARG_PragmaOptions="off" ARG_PragmaType="inline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:94:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pe_kernel_1" ARG_PragmaIsValid="1" ARG_PragmaOptions="II = 1" ARG_PragmaType="pipeline" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:107:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pe" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=dense_buf type=ram_2p impl=bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:108:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pe" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=out_buf type=ram_2p impl=bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:114:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="pe" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:115:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pe" ARG_PragmaIsValid="1" ARG_PragmaOptions="function instances=pe_kernel_0 limit=2" ARG_PragmaType="allocation" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:117:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="pe" ARG_PragmaIsValid="1" ARG_PragmaType="unroll" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="/home/shuxuan/SDMA/hls.tcl:13:9" msg_body="HLS pragma dump">
         <args ARG_PragmaContext="directive" ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="name=spmm_hls" ARG_PragmaType="top" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:112:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:143:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = A offset = slave bundle = gmem0" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:113:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:144:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = B offset = slave bundle = gmem1" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:114:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = A bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:115:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = nnz bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:116:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = return bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:117:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = M bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:118:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = K bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:121:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = A_stream depth = BUF_DEPTH" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:126:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=buf0 complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:127:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=buf1 complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:129:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=map_buf complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:132:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Dense_Buf0 cyclic factor=NUM_PU dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:133:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Dense_Buf1 cyclic factor=NUM_PU dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:137:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Out_Buf0 cyclic factor=NUM_PU dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
-    </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:138:9" msg_body="HLS pragma dump">
-        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Out_Buf1 cyclic factor=NUM_PU dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:145:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="m_axi port = C offset = slave bundle = gmem2" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
     <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:146:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = A bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:147:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = C bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:148:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = nnz bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:149:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = return bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:150:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = M bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:151:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="s_axilite port = K bundle = control" ARG_PragmaType="interface" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:154:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable = A_stream depth = BUF_DEPTH" ARG_PragmaType="stream" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:159:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=buf0 complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:160:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=buf1 complete dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:164:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=map_buf complete" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:167:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Dense_Buf0 type=ram_2p impl=bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:168:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Dense_Buf1 type=ram_2p impl=bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:169:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Dense_Buf0 cyclic factor=NUM_PU dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:170:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Dense_Buf1 cyclic factor=NUM_PU dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:174:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Out_Buf0 type=ram_2p impl=bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:175:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Out_Buf1 type=ram_2p impl=bram" ARG_PragmaType="bind_storage" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:176:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Out_Buf0 cyclic factor=NUM_PU dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:177:9" msg_body="HLS pragma dump">
+        <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaOptions="variable=Out_Buf1 cyclic factor=NUM_PU dim=1" ARG_PragmaType="array_partition" ClangWarningOption="dump-hls-pragmas"/>
+    </msg>
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:186:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:153:9" msg_body="HLS pragma dump">
+    <msg msg_groups="PRAGMA_VERBOSE_DUMP" msg_id="207-5471" msg_severity="WARNING" msg_loc="src/spmm_device_fpga.cpp:194:9" msg_body="HLS pragma dump">
         <args ARG_PragmaFunction="spmm_hls" ARG_PragmaIsValid="1" ARG_PragmaType="dataflow" ClangWarningOption="dump-hls-pragmas"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:54:26" msg_body="Loop 'VITIS_LOOP_54_3' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="VITIS_LOOP_54_3"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:56:26" msg_body="Loop 'VITIS_LOOP_56_3' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_56_3"/>
     </msg>
-    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:62:30" msg_body="Loop 'VITIS_LOOP_62_4' is marked as complete unroll implied by the pipeline pragma">
-        <args LoopName="VITIS_LOOP_62_4"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-291" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:64:30" msg_body="Loop 'VITIS_LOOP_64_4' is marked as complete unroll implied by the pipeline pragma">
+        <args LoopName="VITIS_LOOP_64_4"/>
     </msg>
-    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:29:0" msg_body="Inlining function 'unpack_pcoo(ap_uint&lt;64&gt;)' into 'load_stream_to_buffer(hls::stream&lt;ap_uint&lt;64&gt;, 0&gt;&amp;, PCOO*)'">
-        <args Callee="unpack_pcoo(ap_uint&lt;64&gt;)" Caller="load_stream_to_buffer(hls::stream&lt;ap_uint&lt;64&gt;, 0&gt;&amp;, PCOO*)"/>
+    <msg msg_groups="PRAGMA_UNROLL" msg_id="214-186" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:106:0" msg_body="Unrolling loop 'VITIS_LOOP_116_1' (src/spmm_device_fpga.cpp:116:20) in function 'pe' completely with a factor of 16">
+        <args Factor="16" LoopLoc="src/spmm_device_fpga.cpp:116:20" LoopName="VITIS_LOOP_116_1"/>
     </msg>
-    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:88:0" msg_body="Inlining function 'pe_kernel(PCOO&amp;, float*, float*, int) (.19.37.43.61.73.79.97.109.115.133)' into 'pe(PCOO*, float*, int*, float*, int)'">
-        <args Callee="pe_kernel(PCOO&amp;, float*, float*, int) (.19.37.43.61.73.79.97.109.115.133)" Caller="pe(PCOO*, float*, int*, float*, int)"/>
+    <msg msg_groups="PRAGMA_INLINE" msg_id="214-178" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:30:0" msg_body="Inlining function 'unpack_pcoo(ap_uint&lt;64&gt;)' into 'load_stream_to_buffer(hls::stream&lt;ap_uint&lt;64&gt;, 0&gt;&amp;, PCOO*, ap_uint&lt;32&gt;&amp;)'">
+        <args Callee="unpack_pcoo(ap_uint&lt;64&gt;)" Caller="load_stream_to_buffer(hls::stream&lt;ap_uint&lt;64&gt;, 0&gt;&amp;, PCOO*, ap_uint&lt;32&gt;&amp;)"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:124:7" msg_body="Applying array_partition to 'buf0.eor': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:157:7" msg_body="Applying array_partition to 'buf0.eor': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="buf0.eor"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:124:7" msg_body="Applying array_partition to 'buf0.col': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:157:7" msg_body="Applying array_partition to 'buf0.col': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="buf0.col"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:124:7" msg_body="Applying array_partition to 'buf0.value': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:157:7" msg_body="Applying array_partition to 'buf0.value': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="buf0.value"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:125:10" msg_body="Applying array_partition to 'buf1.eor': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:158:10" msg_body="Applying array_partition to 'buf1.eor': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="buf1.eor"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:125:10" msg_body="Applying array_partition to 'buf1.col': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:158:10" msg_body="Applying array_partition to 'buf1.col': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="buf1.col"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:125:10" msg_body="Applying array_partition to 'buf1.value': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:158:10" msg_body="Applying array_partition to 'buf1.value': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="buf1.value"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:128:6" msg_body="Applying array_partition to 'map_buf': Complete partitioning on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:163:9" msg_body="Applying array_partition to 'map_buf': Complete partitioning on dimension 1.">
         <args Dim="1" Mode="Complete" UOName="map_buf"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:130:8" msg_body="Applying array_partition to 'Dense_Buf0': Cyclic partitioning with factor 8 on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:165:8" msg_body="Applying array_partition to 'Dense_Buf0': Cyclic partitioning with factor 8 on dimension 1.">
         <args Dim="1" Factor="8" Mode="Cyclic" UOName="Dense_Buf0"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:131:11" msg_body="Applying array_partition to 'Dense_Buf1': Cyclic partitioning with factor 8 on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:166:11" msg_body="Applying array_partition to 'Dense_Buf1': Cyclic partitioning with factor 8 on dimension 1.">
         <args Dim="1" Factor="8" Mode="Cyclic" UOName="Dense_Buf1"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:135:8" msg_body="Applying array_partition to 'Out_Buf0': Cyclic partitioning with factor 8 on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:172:8" msg_body="Applying array_partition to 'Out_Buf0': Cyclic partitioning with factor 8 on dimension 1.">
         <args Dim="1" Factor="8" Mode="Cyclic" UOName="Out_Buf0"/>
     </msg>
-    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:136:11" msg_body="Applying array_partition to 'Out_Buf1': Cyclic partitioning with factor 8 on dimension 1.">
+    <msg msg_groups="PRAGMA_MISC" msg_id="214-248" msg_severity="INFO" msg_loc="src/spmm_device_fpga.cpp:173:11" msg_body="Applying array_partition to 'Out_Buf1': Cyclic partitioning with factor 8 on dimension 1.">
         <args Dim="1" Factor="8" Mode="Cyclic" UOName="Out_Buf1"/>
     </msg>
 </xilinx:hls_fe_msgs>

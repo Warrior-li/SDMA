@@ -32,6 +32,7 @@ module spmm_hls_control_s_axi
     output wire                          interrupt,
     output wire [63:0]                   A,
     output wire [31:0]                   nnz,
+    output wire [63:0]                   C,
     output wire [31:0]                   M,
     output wire [31:0]                   K,
     output wire                          ap_start,
@@ -67,12 +68,17 @@ module spmm_hls_control_s_axi
 // 0x1c : Data signal of nnz
 //        bit 31~0 - nnz[31:0] (Read/Write)
 // 0x20 : reserved
-// 0x24 : Data signal of M
+// 0x24 : Data signal of C
+//        bit 31~0 - C[31:0] (Read/Write)
+// 0x28 : Data signal of C
+//        bit 31~0 - C[63:32] (Read/Write)
+// 0x2c : reserved
+// 0x30 : Data signal of M
 //        bit 31~0 - M[31:0] (Read/Write)
-// 0x28 : reserved
-// 0x2c : Data signal of K
+// 0x34 : reserved
+// 0x38 : Data signal of K
 //        bit 31~0 - K[31:0] (Read/Write)
-// 0x30 : reserved
+// 0x3c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
@@ -86,10 +92,13 @@ localparam
     ADDR_A_CTRL     = 6'h18,
     ADDR_NNZ_DATA_0 = 6'h1c,
     ADDR_NNZ_CTRL   = 6'h20,
-    ADDR_M_DATA_0   = 6'h24,
-    ADDR_M_CTRL     = 6'h28,
-    ADDR_K_DATA_0   = 6'h2c,
-    ADDR_K_CTRL     = 6'h30,
+    ADDR_C_DATA_0   = 6'h24,
+    ADDR_C_DATA_1   = 6'h28,
+    ADDR_C_CTRL     = 6'h2c,
+    ADDR_M_DATA_0   = 6'h30,
+    ADDR_M_CTRL     = 6'h34,
+    ADDR_K_DATA_0   = 6'h38,
+    ADDR_K_CTRL     = 6'h3c,
     WRIDLE          = 2'd0,
     WRDATA          = 2'd1,
     WRRESP          = 2'd2,
@@ -128,6 +137,7 @@ localparam
     reg  [1:0]                    int_isr = 2'b0;
     reg  [63:0]                   int_A = 'b0;
     reg  [31:0]                   int_nnz = 'b0;
+    reg  [63:0]                   int_C = 'b0;
     reg  [31:0]                   int_M = 'b0;
     reg  [31:0]                   int_K = 'b0;
 
@@ -248,6 +258,12 @@ always @(posedge ACLK) begin
                 ADDR_NNZ_DATA_0: begin
                     rdata <= int_nnz[31:0];
                 end
+                ADDR_C_DATA_0: begin
+                    rdata <= int_C[31:0];
+                end
+                ADDR_C_DATA_1: begin
+                    rdata <= int_C[63:32];
+                end
                 ADDR_M_DATA_0: begin
                     rdata <= int_M[31:0];
                 end
@@ -268,6 +284,7 @@ assign task_ap_ready     = ap_ready && !int_auto_restart;
 assign auto_restart_done = auto_restart_status && (ap_idle && !int_ap_idle);
 assign A                 = int_A;
 assign nnz               = int_nnz;
+assign C                 = int_C;
 assign M                 = int_M;
 assign K                 = int_K;
 // int_interrupt
@@ -429,6 +446,26 @@ always @(posedge ACLK) begin
     else if (ACLK_EN) begin
         if (w_hs && waddr == ADDR_NNZ_DATA_0)
             int_nnz[31:0] <= (WDATA[31:0] & wmask) | (int_nnz[31:0] & ~wmask);
+    end
+end
+
+// int_C[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_C[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_C_DATA_0)
+            int_C[31:0] <= (WDATA[31:0] & wmask) | (int_C[31:0] & ~wmask);
+    end
+end
+
+// int_C[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_C[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_C_DATA_1)
+            int_C[63:32] <= (WDATA[31:0] & wmask) | (int_C[63:32] & ~wmask);
     end
 end
 

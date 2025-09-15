@@ -25,12 +25,17 @@
 // 0x1c : Data signal of nnz
 //        bit 31~0 - nnz[31:0] (Read/Write)
 // 0x20 : reserved
-// 0x24 : Data signal of M
+// 0x24 : Data signal of C
+//        bit 31~0 - C[31:0] (Read/Write)
+// 0x28 : Data signal of C
+//        bit 31~0 - C[63:32] (Read/Write)
+// 0x2c : reserved
+// 0x30 : Data signal of M
 //        bit 31~0 - M[31:0] (Read/Write)
-// 0x28 : reserved
-// 0x2c : Data signal of K
+// 0x34 : reserved
+// 0x38 : Data signal of K
 //        bit 31~0 - K[31:0] (Read/Write)
-// 0x30 : reserved
+// 0x3c : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 #define CONTROL_ADDR_AP_CTRL  0x00
@@ -41,7 +46,9 @@
 #define CONTROL_BITS_A_DATA   64
 #define CONTROL_ADDR_NNZ_DATA 0x1c
 #define CONTROL_BITS_NNZ_DATA 32
-#define CONTROL_ADDR_M_DATA   0x24
+#define CONTROL_ADDR_C_DATA   0x24
+#define CONTROL_BITS_C_DATA   64
+#define CONTROL_ADDR_M_DATA   0x30
 #define CONTROL_BITS_M_DATA   32
-#define CONTROL_ADDR_K_DATA   0x2c
+#define CONTROL_ADDR_K_DATA   0x38
 #define CONTROL_BITS_K_DATA   32

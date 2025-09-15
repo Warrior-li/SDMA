@@ -17,13 +17,13 @@ end entity;
 architecture behav of spmm_hls_mul_mul_16s_16s_16_4_1_DSP48_0 is
     signal a_cvt: signed(16 - 1 downto 0);
     signal b_cvt: signed(16 - 1 downto 0);
-    signal p_cvt: signed(16 - 1 downto 0);
+    signal p_cvt: unsigned(16 - 1 downto 0);
 
-    signal p_reg: signed(16 - 1 downto 0);
+    signal p_reg: unsigned(16 - 1 downto 0);
 
     signal a_reg: signed(16 - 1 downto 0) ; 
     signal b_reg: signed(16 - 1 downto 0) ; 
-    signal p_reg_tmp: signed(16 - 1 downto 0);
+    signal p_reg_tmp: unsigned(16 - 1 downto 0);
 begin
 
     a_cvt <= signed(a);
@@ -41,7 +41,7 @@ begin
         end if;
     end process;
 
-    p_cvt <= signed (resize(unsigned (a_reg * b_reg), 16));
+    p_cvt <= unsigned (resize(unsigned (a_reg * b_reg), 16));
     p <= std_logic_vector(p_reg);
 
 end architecture;

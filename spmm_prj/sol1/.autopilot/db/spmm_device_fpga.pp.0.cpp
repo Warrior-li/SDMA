@@ -6044,6 +6044,7 @@ __attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
     const ap_uint<64> * __restrict A,
     const int nnz,
     const ap_uint<32> * B,
+    ap_uint<32> *C,
     const int M,
     const int K
 );
@@ -6205,7 +6206,8 @@ void load_A(
 
 void load_stream_to_buffer(
     hls::stream<ap_uint<64>>& s,
-    PCOO* sparse_buf
+    PCOO* sparse_buf,
+    ap_uint<32> &cur_row
 ){
 #pragma hls inline off
  read_data_loop:
@@ -6213,6 +6215,7 @@ void load_stream_to_buffer(
 #pragma hls pipeline II = 1
  ap_uint<64> raw = s.read();
         sparse_buf[i] = unpack_pcoo(raw);
+        if(sparse_buf[i].eor == 1) ++cur_row;
     }
 }
 
@@ -6224,14 +6227,14 @@ void load_dense_accoding_A(
 
     const int K
 ){
-    VITIS_LOOP_47_1: for(int i = 0; i < BUF_DEPTH; ++i){
+    VITIS_LOOP_49_1: for(int i = 0; i < BUF_DEPTH; ++i){
 #pragma hls pipeline II = 1
  map_buf[i] = i;
     }
-    VITIS_LOOP_51_2: for(int i = 0; i < BUF_DEPTH; ++i){
+    VITIS_LOOP_53_2: for(int i = 0; i < BUF_DEPTH; ++i){
 #pragma hls pipeline II = 1
  PCOO x = sparse_ptr[i];
-        VITIS_LOOP_54_3: for(int j = 0; j < i; ++i){
+        VITIS_LOOP_56_3: for(int j = 0; j < i; ++i){
 #pragma hls pipeline II = 1
  if(x.col == sparse_ptr[j].col){
                 map_buf[j] = map_buf[i];
@@ -6239,7 +6242,7 @@ void load_dense_accoding_A(
             }
         }
         if(map_buf[i] == i){
-            VITIS_LOOP_62_4: for(int j = 0; j < K; ++j){
+            VITIS_LOOP_64_4: for(int j = 0; j < K; ++j){
 #pragma hls pipeline II = 1
  dense_ptr[i * K + j] = B[x.col * K + j];
             }
@@ -6247,17 +6250,33 @@ void load_dense_accoding_A(
     }
 }
 
-void pe_kernel(
-    PCOO& a,
-    float * dense,
+
+void pe_kernel_0(
+    PCOO * sparse,
+    float* dense_buf,
     float * out_buf,
     const int len
 ){
-    VITIS_LOOP_76_1: for(int i = 0; i < len; ++i){
+#pragma hls inline off
+ VITIS_LOOP_80_1: for(int i = 0; i < len; ++i){
 #pragma hls pipeline II = 1
- out_buf[i] = a.value * dense[i];
+ out_buf[i] = sparse->value * dense_buf[i];
     }
 }
+
+void pe_kernel_1(
+    PCOO * sparse,
+    float* dense_buf,
+    float * out_buf,
+    const int len
+){
+#pragma hls inline off
+ VITIS_LOOP_93_1: for(int i = 0; i < len; ++i){
+#pragma hls pipeline II = 1
+ out_buf[i] = sparse->value * dense_buf[i];
+    }
+}
+
 
 void pe(
     PCOO* sparse_ptr,
@@ -6266,18 +6285,30 @@ void pe(
     float* out_buf,
     const int K
 ){
-    int half = K / 2;
+#pragma HLS bind_storage variable=dense_buf type=ram_2p impl=bram
+#pragma HLS bind_storage variable=out_buf type=ram_2p impl=bram
+
+ int half = K / 2;
 
     int cur_out_row = 0;
-
-    VITIS_LOOP_93_1: for(int i = 0; i < BUF_DEPTH; ++i){
-        {
+    {
 #pragma hls dataflow
- pe_kernel(sparse_ptr[i], dense_buf + (map_buf[i] * K), out_buf + (cur_out_row * K), half);
-            pe_kernel(sparse_ptr[i], dense_buf + (map_buf[i] * K + half), out_buf + (cur_out_row * K + half), K - half);
+#pragma HLS ALLOCATION function instances=pe_kernel_0 limit=2
+ VITIS_LOOP_116_1: for(int i = 0; i < BUF_DEPTH; ++i){
+#pragma hls unroll
+ pe_kernel_0(&sparse_ptr[i], &dense_buf[0], &out_buf[map_buf[i] * K], half);
+            pe_kernel_0(&sparse_ptr[i], &dense_buf[half], &out_buf[map_buf[i] * K + half], K - half);
         }
-        if(sparse_ptr[i].eor == 1) cur_out_row+= 1;
     }
+}
+
+
+
+void outbuf_to_output(
+    float * outBuf,
+    float * C
+){
+
 }
 
 
@@ -6286,16 +6317,19 @@ __attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
     const ap_uint<64> * __restrict A,
     const int nnz,
     const ap_uint<32> * B,
+    ap_uint<32> *C,
     const int M,
     const int K
 ){
 #line 13 "/home/shuxuan/SDMA/hls.tcl"
 #pragma HLSDIRECTIVE TOP name=spmm_hls
-# 111 "src/spmm_device_fpga.cpp"
+# 142 "src/spmm_device_fpga.cpp"
 
 #pragma hls interface m_axi port = A offset = slave bundle = gmem0
 #pragma hls interface m_axi port = B offset = slave bundle = gmem1
+#pragma hls interface m_axi port = C offset = slave bundle = gmem2
 #pragma hls interface s_axilite port = A bundle = control
+#pragma hls interface s_axilite port = C bundle = control
 #pragma hls interface s_axilite port = nnz bundle = control
 #pragma hls interface s_axilite port = return bundle = control
 #pragma hls interface s_axilite port = M bundle = control
@@ -6309,15 +6343,21 @@ __attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
     PCOO buf1[BUF_DEPTH];
 #pragma HLS array_partition variable=buf0 complete dim=1
 #pragma HLS array_partition variable=buf1 complete dim=1
- int map_buf[BUF_DEPTH];
+ ap_uint<32> cur_row0 = 0;
+    ap_uint<32> cur_row1 = 0;
+    int map_buf[BUF_DEPTH];
 #pragma HLS array_partition variable=map_buf complete
  float Dense_Buf0[BUF_DEPTH * NUM_DEN_BUF];
     float Dense_Buf1[BUF_DEPTH * NUM_DEN_BUF];
+#pragma HLS bind_storage variable=Dense_Buf0 type=ram_2p impl=bram
+#pragma HLS bind_storage variable=Dense_Buf1 type=ram_2p impl=bram
 #pragma HLS array_partition variable=Dense_Buf0 cyclic factor=NUM_PU dim=1
 #pragma HLS array_partition variable=Dense_Buf1 cyclic factor=NUM_PU dim=1
 
  float Out_Buf0[NUM_OUT_BUF];
     float Out_Buf1[NUM_OUT_BUF];
+#pragma HLS bind_storage variable=Out_Buf0 type=ram_2p impl=bram
+#pragma HLS bind_storage variable=Out_Buf1 type=ram_2p impl=bram
 #pragma HLS array_partition variable=Out_Buf0 cyclic factor=NUM_PU dim=1
 #pragma HLS array_partition variable=Out_Buf1 cyclic factor=NUM_PU dim=1
 
@@ -6325,18 +6365,21 @@ __attribute__((sdx_kernel("spmm_hls", 0))) void spmm_hls(
 
     int total_batches = (nnz + BUF_DEPTH - 1) / BUF_DEPTH;
 
-    VITIS_LOOP_144_1: for (int batch = 0; batch < total_batches; ++batch) {
+    VITIS_LOOP_183_1: for (int batch = 0; batch < total_batches; ++batch) {
         if (batch % 2 == 0) {
+            {
 #pragma HLS dataflow
  load_A(A + batch * BUF_DEPTH, BUF_DEPTH, A_stream);
-            load_stream_to_buffer(A_stream, buf0);
+                load_stream_to_buffer(A_stream, buf0, cur_row1);
+            }
             load_dense_accoding_A(buf0, Dense_Buf0, map_buf, B, K);
             pe(buf0, Dense_Buf0, map_buf, Out_Buf0, K);
-
         } else {
+            {
 #pragma HLS dataflow
  load_A(A + batch * BUF_DEPTH, BUF_DEPTH, A_stream);
-            load_stream_to_buffer(A_stream, buf1);
+                load_stream_to_buffer(A_stream, buf1, cur_row0);
+            }
             load_dense_accoding_A(buf1, Dense_Buf1, map_buf, B, K);
             pe(buf1, Dense_Buf1, map_buf, Out_Buf1, K);
         }

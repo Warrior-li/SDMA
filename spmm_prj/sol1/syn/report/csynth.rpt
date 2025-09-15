@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'spmm_hls'
 ================================================================
 + General Information: 
-    * Date:           Thu Sep 11 18:20:15 2025
+    * Date:           Mon Sep 15 18:59:13 2025
     * Version:        2022.2 (Build 3670227 on Oct 13 2022)
     * Project:        spmm_prj
     * Solution:       sol1 (Vivado IP Flow Target)
@@ -15,32 +15,29 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +------------------------------------------------------+------+------+---------+---------+----------+---------+------+----------+-----------+----------+------------+------------+-----+
-    |                        Modules                       | Issue|      | Latency | Latency | Iteration|         | Trip |          |           |          |            |            |     |
-    |                        & Loops                       | Type | Slack| (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined|   BRAM    |    DSP   |     FF     |     LUT    | URAM|
-    +------------------------------------------------------+------+------+---------+---------+----------+---------+------+----------+-----------+----------+------------+------------+-----+
-    |+ spmm_hls                                            |     -|  0.00|        -|        -|         -|        -|     -|        no|  512 (12%)|  15 (~0%)|  7297 (~0%)|  9585 (~0%)|    -|
-    | o VITIS_LOOP_144_1                                   |     -|  2.92|        -|        -|         -|        -|     -|        no|          -|         -|           -|           -|    -|
-    |  + load_A                                            |     -|  0.00|       27|  108.000|         -|       27|     -|        no|          -|         -|   146 (~0%)|   286 (~0%)|    -|
-    |   + load_A_Pipeline_VITIS_LOOP_20_1                  |     -|  0.00|       19|   76.000|         -|       19|     -|        no|          -|         -|    75 (~0%)|    82 (~0%)|    -|
-    |    o VITIS_LOOP_20_1                                 |     -|  2.92|       17|   68.000|         3|        1|    16|       yes|          -|         -|           -|           -|    -|
-    |  + load_stream_to_buffer                             |     -|  1.55|       18|   72.000|         -|       18|     -|        no|          -|         -|    12 (~0%)|    71 (~0%)|    -|
-    |   o read_data_loop                                   |     -|  2.92|       16|   64.000|         2|        1|    16|       yes|          -|         -|           -|           -|    -|
-    |  + load_dense_accoding_A                             |     -|  0.00|        -|        -|         -|        -|     -|        no|          -|   6 (~0%)|  1077 (~0%)|  1502 (~0%)|    -|
-    |   + load_dense_accoding_A_Pipeline_VITIS_LOOP_47_1   |     -|  1.83|       18|   72.000|         -|       18|     -|        no|          -|         -|     7 (~0%)|    63 (~0%)|    -|
-    |    o VITIS_LOOP_47_1                                 |     -|  2.92|       16|   64.000|         1|        1|    16|       yes|          -|         -|           -|           -|    -|
-    |   o VITIS_LOOP_51_2                                  |     -|  2.92|        -|        -|         -|        -|     -|        no|          -|         -|           -|           -|    -|
-    |    + load_dense_accoding_A_Pipeline_VITIS_LOOP_54_3  |     -|  0.79|        -|        -|         -|        -|     -|        no|          -|         -|    35 (~0%)|   109 (~0%)|    -|
-    |     o VITIS_LOOP_54_3                                |     -|  2.92|        -|        -|         1|        1|     -|       yes|          -|         -|           -|           -|    -|
-    |    + load_dense_accoding_A_Pipeline_VITIS_LOOP_62_4  |     -|  0.00|        -|        -|         -|        -|     -|        no|          -|         -|   257 (~0%)|   210 (~0%)|    -|
-    |     o VITIS_LOOP_62_4                                |     -|  2.92|        -|        -|         7|        1|     -|       yes|          -|         -|           -|           -|    -|
-    |  + pe                                                |     -|  0.06|        -|        -|         -|        -|     -|        no|          -|   9 (~0%)|  1332 (~0%)|  2025 (~0%)|    -|
-    |   o VITIS_LOOP_93_1                                  |     -|  2.92|        -|        -|         -|        -|     -|        no|          -|         -|           -|           -|    -|
-    |    + pe_Pipeline_VITIS_LOOP_76_1                     |     -|  0.60|        -|        -|         -|        -|     -|        no|          -|         -|   255 (~0%)|   273 (~0%)|    -|
-    |     o VITIS_LOOP_76_1                                |     -|  2.92|        -|        -|         7|        1|     -|       yes|          -|         -|           -|           -|    -|
-    |    + pe_Pipeline_VITIS_LOOP_76_173                   |     -|  0.60|        -|        -|         -|        -|     -|        no|          -|         -|   255 (~0%)|   273 (~0%)|    -|
-    |     o VITIS_LOOP_76_1                                |     -|  2.92|        -|        -|         7|        1|     -|       yes|          -|         -|           -|           -|    -|
-    +------------------------------------------------------+------+------+---------+---------+----------+---------+------+----------+-----------+----------+------------+------------+-----+
+    +------------------------------------------------------+--------+-------+---------+---------+----------+---------+------+----------+-----------+----------+-------------+-------------+-----+
+    |                        Modules                       |  Issue |       | Latency | Latency | Iteration|         | Trip |          |           |          |             |             |     |
+    |                        & Loops                       |  Type  | Slack | (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined|   BRAM    |    DSP   |      FF     |     LUT     | URAM|
+    +------------------------------------------------------+--------+-------+---------+---------+----------+---------+------+----------+-----------+----------+-------------+-------------+-----+
+    |+ spmm_hls                                            |  Timing|  -0.20|        -|        -|         -|        -|     -|        no|  512 (12%)|  13 (~0%)|  10949 (~0%)|  10798 (~0%)|    -|
+    | o VITIS_LOOP_183_1                                   |       -|   2.92|        -|        -|         -|        -|     -|        no|          -|         -|            -|            -|    -|
+    |  + load_A                                            |       -|   0.00|       27|  108.000|         -|       27|     -|        no|          -|         -|    146 (~0%)|    286 (~0%)|    -|
+    |   + load_A_Pipeline_VITIS_LOOP_20_1                  |       -|   0.00|       19|   76.000|         -|       19|     -|        no|          -|         -|     75 (~0%)|     82 (~0%)|    -|
+    |    o VITIS_LOOP_20_1                                 |       -|   2.92|       17|   68.000|         3|        1|    16|       yes|          -|         -|            -|            -|    -|
+    |  + load_stream_to_buffer                             |       -|   0.93|       18|   72.000|         -|       18|     -|        no|          -|         -|     44 (~0%)|    165 (~0%)|    -|
+    |   o read_data_loop                                   |       -|   2.92|       16|   64.000|         2|        1|    16|       yes|          -|         -|            -|            -|    -|
+    |  + load_dense_accoding_A                             |       -|   0.00|        -|        -|         -|        -|     -|        no|          -|   6 (~0%)|   1077 (~0%)|   1502 (~0%)|    -|
+    |   + load_dense_accoding_A_Pipeline_VITIS_LOOP_49_1   |       -|   1.83|       18|   72.000|         -|       18|     -|        no|          -|         -|      7 (~0%)|     63 (~0%)|    -|
+    |    o VITIS_LOOP_49_1                                 |       -|   2.92|       16|   64.000|         1|        1|    16|       yes|          -|         -|            -|            -|    -|
+    |   o VITIS_LOOP_53_2                                  |       -|   2.92|        -|        -|         -|        -|     -|        no|          -|         -|            -|            -|    -|
+    |    + load_dense_accoding_A_Pipeline_VITIS_LOOP_56_3  |       -|   0.79|        -|        -|         -|        -|     -|        no|          -|         -|     35 (~0%)|    109 (~0%)|    -|
+    |     o VITIS_LOOP_56_3                                |       -|   2.92|        -|        -|         1|        1|     -|       yes|          -|         -|            -|            -|    -|
+    |    + load_dense_accoding_A_Pipeline_VITIS_LOOP_64_4  |       -|   0.00|        -|        -|         -|        -|     -|        no|          -|         -|    257 (~0%)|    210 (~0%)|    -|
+    |     o VITIS_LOOP_64_4                                |       -|   2.92|        -|        -|         7|        1|     -|       yes|          -|         -|            -|            -|    -|
+    |  + pe                                                |  Timing|  -0.20|        -|        -|         -|        -|     -|        no|          -|   7 (~0%)|   4882 (~0%)|   3368 (~0%)|    -|
+    |   + pe_kernel_0                                      |       -|   0.26|        -|        -|         -|        -|     -|        no|          -|   3 (~0%)|    472 (~0%)|    381 (~0%)|    -|
+    |    o VITIS_LOOP_80_1                                 |       -|   2.92|        -|        -|         7|        1|     -|       yes|          -|         -|            -|            -|    -|
+    +------------------------------------------------------+--------+-------+---------+---------+----------+---------+------+----------+-----------+----------+-------------+-------------+-----+
 
 
 ================================================================
@@ -53,6 +50,7 @@
 +-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
 | m_axi_gmem0 | 64 -> 64   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
 | m_axi_gmem1 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
+| m_axi_gmem2 | 32 -> 32   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          |
 +-------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+
 
 * S_AXILITE Interfaces
@@ -74,8 +72,10 @@
 | s_axi_control   | A_1      | 0x10   | 32    | W      | Data signal of A                 |                                                                      |
 | s_axi_control   | A_2      | 0x14   | 32    | W      | Data signal of A                 |                                                                      |
 | s_axi_control   | nnz      | 0x1c   | 32    | W      | Data signal of nnz               |                                                                      |
-| s_axi_control   | M        | 0x24   | 32    | W      | Data signal of M                 |                                                                      |
-| s_axi_control   | K        | 0x2c   | 32    | W      | Data signal of K                 |                                                                      |
+| s_axi_control   | C_1      | 0x24   | 32    | W      | Data signal of C                 |                                                                      |
+| s_axi_control   | C_2      | 0x28   | 32    | W      | Data signal of C                 |                                                                      |
+| s_axi_control   | M        | 0x30   | 32    | W      | Data signal of M                 |                                                                      |
+| s_axi_control   | K        | 0x38   | 32    | W      | Data signal of K                 |                                                                      |
 | s_axi_control_r | B_1      | 0x10   | 32    | W      | Data signal of B                 |                                                                      |
 | s_axi_control_r | B_2      | 0x14   | 32    | W      | Data signal of B                 |                                                                      |
 +-----------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
@@ -101,6 +101,7 @@
 | A        | in        |                     |
 | nnz      | in        | int const           |
 | B        | in        | ap_uint<32> const * |
+| C        | unused    | ap_uint<32>*        |
 | M        | in        | int const           |
 | K        | in        | int const           |
 +----------+-----------+---------------------+
@@ -116,8 +117,11 @@
 | B        | m_axi_gmem1     | interface |          |                               |
 | B        | s_axi_control_r | register  | offset   | name=B_1 offset=0x10 range=32 |
 | B        | s_axi_control_r | register  | offset   | name=B_2 offset=0x14 range=32 |
-| M        | s_axi_control   | register  |          | name=M offset=0x24 range=32   |
-| K        | s_axi_control   | register  |          | name=K offset=0x2c range=32   |
+| C        | m_axi_gmem2     | interface |          |                               |
+| C        | s_axi_control   | register  | offset   | name=C_1 offset=0x24 range=32 |
+| C        | s_axi_control   | register  | offset   | name=C_2 offset=0x28 range=32 |
+| M        | s_axi_control   | register  |          | name=M offset=0x30 range=32   |
+| K        | s_axi_control   | register  |          | name=K offset=0x38 range=32   |
 +----------+-----------------+-----------+----------+-------------------------------+
 
 
@@ -131,7 +135,7 @@
 | HW Interface | Loop            | Direction | Length   | Width | Location                       |
 +--------------+-----------------+-----------+----------+-------+--------------------------------+
 | m_axi_gmem0  | VITIS_LOOP_20_1 | read      | 16       | 64    | src/spmm_device_fpga.cpp:20:19 |
-| m_axi_gmem1  | VITIS_LOOP_62_4 | read      | variable | 32    | src/spmm_device_fpga.cpp:62:30 |
+| m_axi_gmem1  | VITIS_LOOP_64_4 | read      | variable | 32    | src/spmm_device_fpga.cpp:64:30 |
 +--------------+-----------------+-----------+----------+-------+--------------------------------+
 
 * Inferred Bursts and Widening Missed
@@ -139,7 +143,7 @@
 | HW Interface      | Variable | Loop            | Problem                                                                                               | Resolution | Location                       |
 +-------------------+----------+-----------------+-------------------------------------------------------------------------------------------------------+------------+--------------------------------+
 | m_axi_gmem0,gmem0 | A        | VITIS_LOOP_20_1 | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/spmm_device_fpga.cpp:20:19 |
-| m_axi_gmem1,gmem1 | B        | VITIS_LOOP_62_4 | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/spmm_device_fpga.cpp:62:30 |
+| m_axi_gmem1,gmem1 | B        | VITIS_LOOP_64_4 | Could not widen since type i32 size is greater than or equal to the max_widen_bitwidth threshold of 0 | 214-353    | src/spmm_device_fpga.cpp:64:30 |
 +-------------------+----------+-----------------+-------------------------------------------------------------------------------------------------------+------------+--------------------------------+
 
     * Resolution URL: www.xilinx.com/cgi-bin/docs/rdoc?v=2022.2;t=hls+guidance;d=XXX-YYY.html (replace XXX-YYY with column value)
@@ -147,58 +151,77 @@
 ================================================================
 == Bind Op Report
 ================================================================
-+----------------------------------------------------+-----+--------+-------------+-----+--------+---------+
-| Name                                               | DSP | Pragma | Variable    | Op  | Impl   | Latency |
-+----------------------------------------------------+-----+--------+-------------+-----+--------+---------+
-| + spmm_hls                                         | 15  |        |             |     |        |         |
-|   add_ln142_fu_961_p2                              | -   |        | add_ln142   | add | fabric | 0       |
-|   sub_ln142_fu_974_p2                              | -   |        | sub_ln142   | sub | fabric | 0       |
-|   sub_ln142_1_fu_993_p2                            | -   |        | sub_ln142_1 | sub | fabric | 0       |
-|   add_ln144_fu_1033_p2                             | -   |        | add_ln144   | add | fabric | 0       |
-|   add_ln154_fu_1055_p2                             | -   |        | add_ln154   | add | fabric | 0       |
-|  + load_A                                          | 0   |        |             |     |        |         |
-|   + load_A_Pipeline_VITIS_LOOP_20_1                | 0   |        |             |     |        |         |
-|     add_ln20_fu_88_p2                              | -   |        | add_ln20    | add | fabric | 0       |
-|  + load_stream_to_buffer                           | 0   |        |             |     |        |         |
-|    add_ln32_fu_534_p2                              | -   |        | add_ln32    | add | fabric | 0       |
-|  + load_dense_accoding_A                           | 6   |        |             |     |        |         |
-|    mul_32s_32s_32_2_1_U95                          | 3   |        | mul         | mul | auto   | 1       |
-|    mul_32ns_31ns_62_2_1_U94                        | 3   |        | mul_ln62    | mul | auto   | 1       |
-|    add_ln62_fu_716_p2                              | -   |        | add_ln62    | add | fabric | 0       |
-|    i_6_fu_753_p2                                   | -   |        | i_6         | add | fabric | 0       |
-|   + load_dense_accoding_A_Pipeline_VITIS_LOOP_47_1 | 0   |        |             |     |        |         |
-|     add_ln47_fu_264_p2                             | -   |        | add_ln47    | add | fabric | 0       |
-|   + load_dense_accoding_A_Pipeline_VITIS_LOOP_54_3 | 0   |        |             |     |        |         |
-|     i_4_fu_63_p2                                   | -   |        | i_4         | add | fabric | 0       |
-|   + load_dense_accoding_A_Pipeline_VITIS_LOOP_62_4 | 0   |        |             |     |        |         |
-|     add_ln62_fu_248_p2                             | -   |        | add_ln62    | add | fabric | 0       |
-|     add_ln64_fu_262_p2                             | -   |        | add_ln64    | add | fabric | 0       |
-|     add_ln64_1_fu_278_p2                           | -   |        | add_ln64_1  | add | fabric | 0       |
-|  + pe                                              | 9   |        |             |     |        |         |
-|    sub_ln89_fu_657_p2                              | -   |        | sub_ln89    | sub | fabric | 0       |
-|    sub_ln89_1_fu_677_p2                            | -   |        | sub_ln89_1  | sub | fabric | 0       |
-|    len_1_fu_713_p2                                 | -   |        | len_1       | sub | fabric | 0       |
-|    add_ln93_fu_742_p2                              | -   |        | add_ln93    | add | fabric | 0       |
-|    mul_32s_32s_32_2_1_U194                         | 3   |        | mul_ln96    | mul | auto   | 1       |
-|    mul_32s_32s_32_2_1_U195                         | 3   |        | mul_ln96_1  | mul | auto   | 1       |
-|    add_ln97_fu_871_p2                              | -   |        | add_ln97    | add | fabric | 0       |
-|    add_ln97_1_fu_875_p2                            | -   |        | add_ln97_1  | add | fabric | 0       |
-|    add_ln78_fu_879_p2                              | -   |        | add_ln78    | add | fabric | 0       |
-|    add_ln78_6_fu_883_p2                            | -   |        | add_ln78_6  | add | fabric | 0       |
-|    add_ln99_fu_831_p2                              | -   |        | add_ln99    | add | fabric | 0       |
-|   + pe_Pipeline_VITIS_LOOP_76_1                    | 0   |        |             |     |        |         |
-|     add_ln76_fu_368_p2                             | -   |        | add_ln76    | add | fabric | 0       |
-|     add_ln78_fu_386_p2                             | -   |        | add_ln78    | add | fabric | 0       |
-|     add_ln78_4_fu_414_p2                           | -   |        | add_ln78_4  | add | fabric | 0       |
-|     add_ln78_1_fu_420_p2                           | -   |        | add_ln78_1  | add | fabric | 0       |
-|     add_ln78_5_fu_436_p2                           | -   |        | add_ln78_5  | add | fabric | 0       |
-|   + pe_Pipeline_VITIS_LOOP_76_173                  | 0   |        |             |     |        |         |
-|     add_ln76_fu_368_p2                             | -   |        | add_ln76    | add | fabric | 0       |
-|     add_ln78_fu_386_p2                             | -   |        | add_ln78    | add | fabric | 0       |
-|     add_ln78_1_fu_414_p2                           | -   |        | add_ln78_1  | add | fabric | 0       |
-|     add_ln78_2_fu_420_p2                           | -   |        | add_ln78_2  | add | fabric | 0       |
-|     add_ln78_3_fu_436_p2                           | -   |        | add_ln78_3  | add | fabric | 0       |
-+----------------------------------------------------+-----+--------+-------------+-----+--------+---------+
++----------------------------------------------------+-----+--------+--------------+------+--------+---------+
+| Name                                               | DSP | Pragma | Variable     | Op   | Impl   | Latency |
++----------------------------------------------------+-----+--------+--------------+------+--------+---------+
+| + spmm_hls                                         | 13  |        |              |      |        |         |
+|   add_ln181_fu_979_p2                              | -   |        | add_ln181    | add  | fabric | 0       |
+|   sub_ln181_fu_992_p2                              | -   |        | sub_ln181    | sub  | fabric | 0       |
+|   sub_ln181_1_fu_1011_p2                           | -   |        | sub_ln181_1  | sub  | fabric | 0       |
+|   add_ln183_fu_1051_p2                             | -   |        | add_ln183    | add  | fabric | 0       |
+|   add_ln195_fu_1073_p2                             | -   |        | add_ln195    | add  | fabric | 0       |
+|  + load_A                                          | 0   |        |              |      |        |         |
+|   + load_A_Pipeline_VITIS_LOOP_20_1                | 0   |        |              |      |        |         |
+|     add_ln20_fu_88_p2                              | -   |        | add_ln20     | add  | fabric | 0       |
+|  + load_stream_to_buffer                           | 0   |        |              |      |        |         |
+|    add_ln33_fu_553_p2                              | -   |        | add_ln33     | add  | fabric | 0       |
+|    add_ln840_fu_641_p2                             | -   |        | add_ln840    | add  | fabric | 0       |
+|  + load_dense_accoding_A                           | 6   |        |              |      |        |         |
+|    mul_32s_32s_32_2_1_U96                          | 3   |        | mul          | mul  | auto   | 1       |
+|    mul_32ns_31ns_62_2_1_U95                        | 3   |        | mul_ln64     | mul  | auto   | 1       |
+|    add_ln64_fu_724_p2                              | -   |        | add_ln64     | add  | fabric | 0       |
+|    i_4_fu_761_p2                                   | -   |        | i_4          | add  | fabric | 0       |
+|   + load_dense_accoding_A_Pipeline_VITIS_LOOP_49_1 | 0   |        |              |      |        |         |
+|     add_ln49_fu_264_p2                             | -   |        | add_ln49     | add  | fabric | 0       |
+|   + load_dense_accoding_A_Pipeline_VITIS_LOOP_56_3 | 0   |        |              |      |        |         |
+|     i_fu_63_p2                                     | -   |        | i            | add  | fabric | 0       |
+|   + load_dense_accoding_A_Pipeline_VITIS_LOOP_64_4 | 0   |        |              |      |        |         |
+|     add_ln64_fu_288_p2                             | -   |        | add_ln64     | add  | fabric | 0       |
+|     add_ln66_fu_302_p2                             | -   |        | add_ln66     | add  | fabric | 0       |
+|     add_ln66_1_fu_318_p2                           | -   |        | add_ln66_1   | add  | fabric | 0       |
+|  + pe                                              | 7   |        |              |      |        |         |
+|    sub_ln110_fu_752_p2                             | -   |        | sub_ln110    | sub  | fabric | 0       |
+|    sub_ln110_1_fu_771_p2                           | -   |        | sub_ln110_1  | sub  | fabric | 0       |
+|    sub_fu_795_p2                                   | -   |        | sub          | sub  | fabric | 0       |
+|    mul_mul_16s_16s_16_4_1_U181                     | 1   |        | mul_ln118    | mul  | dsp48  | 3       |
+|    add_ln119_fu_799_p2                             | -   |        | add_ln119    | add  | fabric | 0       |
+|    add_ln119_1_fu_832_p2                           | -   |        | add_ln119_1  | add  | fabric | 0       |
+|    mul_2ns_32s_32_2_1_U169                         | -   |        | mul_ln118_1  | mul  | auto   | 1       |
+|    add_ln119_2_fu_857_p2                           | -   |        | add_ln119_2  | add  | fabric | 0       |
+|    sub_ln118_fu_870_p2                             | -   |        | sub_ln118    | sub  | fabric | 0       |
+|    add_ln119_3_fu_891_p2                           | -   |        | add_ln119_3  | add  | fabric | 0       |
+|    mul_3ns_32s_32_2_1_U170                         | -   |        | mul_ln118_2  | mul  | auto   | 1       |
+|    add_ln119_4_fu_916_p2                           | -   |        | add_ln119_4  | add  | fabric | 0       |
+|    mul_3ns_32s_32_2_1_U171                         | -   |        | mul_ln118_3  | mul  | auto   | 1       |
+|    add_ln119_5_fu_941_p2                           | -   |        | add_ln119_5  | add  | fabric | 0       |
+|    mul_3ns_32s_32_2_1_U172                         | -   |        | mul_ln118_4  | mul  | auto   | 1       |
+|    add_ln119_6_fu_970_p2                           | -   |        | add_ln119_6  | add  | fabric | 0       |
+|    sub_ln118_1_fu_983_p2                           | -   |        | sub_ln118_1  | sub  | fabric | 0       |
+|    add_ln119_7_fu_1004_p2                          | -   |        | add_ln119_7  | add  | fabric | 0       |
+|    mul_4ns_32s_32_2_1_U173                         | -   |        | mul_ln118_5  | mul  | auto   | 1       |
+|    add_ln119_8_fu_1029_p2                          | -   |        | add_ln119_8  | add  | fabric | 0       |
+|    mul_4ns_32s_32_2_1_U174                         | -   |        | mul_ln118_6  | mul  | auto   | 1       |
+|    add_ln119_9_fu_1054_p2                          | -   |        | add_ln119_9  | add  | fabric | 0       |
+|    mul_4ns_32s_32_2_1_U175                         | -   |        | mul_ln118_7  | mul  | auto   | 1       |
+|    add_ln119_10_fu_1079_p2                         | -   |        | add_ln119_10 | add  | fabric | 0       |
+|    mul_4ns_32s_32_2_1_U176                         | -   |        | mul_ln118_8  | mul  | auto   | 1       |
+|    add_ln119_11_fu_1104_p2                         | -   |        | add_ln119_11 | add  | fabric | 0       |
+|    mul_4ns_32s_32_2_1_U177                         | -   |        | mul_ln118_9  | mul  | auto   | 1       |
+|    add_ln119_12_fu_1133_p2                         | -   |        | add_ln119_12 | add  | fabric | 0       |
+|    mul_4ns_32s_32_2_1_U178                         | -   |        | mul_ln118_10 | mul  | auto   | 1       |
+|    add_ln119_13_fu_1162_p2                         | -   |        | add_ln119_13 | add  | fabric | 0       |
+|    mul_4ns_32s_32_2_1_U179                         | -   |        | mul_ln118_11 | mul  | auto   | 1       |
+|    add_ln119_14_fu_1191_p2                         | -   |        | add_ln119_14 | add  | fabric | 0       |
+|    mul_4ns_32s_32_2_1_U180                         | -   |        | mul_ln118_12 | mul  | auto   | 1       |
+|    add_ln119_15_fu_1216_p2                         | -   |        | add_ln119_15 | add  | fabric | 0       |
+|   + pe_kernel_0                                    | 3   |        |              |      |        |         |
+|     add_ln80_fu_405_p2                             | -   |        | add_ln80     | add  | fabric | 0       |
+|     add_ln82_fu_423_p2                             | -   |        | add_ln82     | add  | fabric | 0       |
+|     add_ln82_2_fu_450_p2                           | -   |        | add_ln82_2   | add  | fabric | 0       |
+|     fmul_32ns_32ns_32_4_max_dsp_1_U144             | 3   |        | mul_i        | fmul | maxdsp | 3       |
+|     add_ln82_1_fu_455_p2                           | -   |        | add_ln82_1   | add  | fabric | 0       |
+|     add_ln82_3_fu_470_p2                           | -   |        | add_ln82_3   | add  | fabric | 0       |
++----------------------------------------------------+-----+--------+--------------+------+--------+---------+
 
 
 ================================================================
@@ -209,38 +232,38 @@
 +-------------------+------+------+--------+--------------+---------+------+---------+
 | + spmm_hls        | 512  | 0    |        |              |         |      |         |
 |   A_stream_fifo_U | -    | -    |        | A_stream     | fifo    | srl  | 0       |
-|   Dense_Buf0_U    | 16   | -    |        | Dense_Buf0   | ram_1p  | auto | 1       |
-|   Dense_Buf0_1_U  | 16   | -    |        | Dense_Buf0_1 | ram_1p  | auto | 1       |
-|   Dense_Buf0_2_U  | 16   | -    |        | Dense_Buf0_2 | ram_1p  | auto | 1       |
-|   Dense_Buf0_3_U  | 16   | -    |        | Dense_Buf0_3 | ram_1p  | auto | 1       |
-|   Dense_Buf0_4_U  | 16   | -    |        | Dense_Buf0_4 | ram_1p  | auto | 1       |
-|   Dense_Buf0_5_U  | 16   | -    |        | Dense_Buf0_5 | ram_1p  | auto | 1       |
-|   Dense_Buf0_6_U  | 16   | -    |        | Dense_Buf0_6 | ram_1p  | auto | 1       |
-|   Dense_Buf0_7_U  | 16   | -    |        | Dense_Buf0_7 | ram_1p  | auto | 1       |
-|   Dense_Buf1_U    | 16   | -    |        | Dense_Buf1   | ram_1p  | auto | 1       |
-|   Dense_Buf1_1_U  | 16   | -    |        | Dense_Buf1_1 | ram_1p  | auto | 1       |
-|   Dense_Buf1_2_U  | 16   | -    |        | Dense_Buf1_2 | ram_1p  | auto | 1       |
-|   Dense_Buf1_3_U  | 16   | -    |        | Dense_Buf1_3 | ram_1p  | auto | 1       |
-|   Dense_Buf1_4_U  | 16   | -    |        | Dense_Buf1_4 | ram_1p  | auto | 1       |
-|   Dense_Buf1_5_U  | 16   | -    |        | Dense_Buf1_5 | ram_1p  | auto | 1       |
-|   Dense_Buf1_6_U  | 16   | -    |        | Dense_Buf1_6 | ram_1p  | auto | 1       |
-|   Dense_Buf1_7_U  | 16   | -    |        | Dense_Buf1_7 | ram_1p  | auto | 1       |
-|   Out_Buf0_0_U    | 16   | -    |        | Out_Buf0_0   | ram_1p  | auto | 1       |
-|   Out_Buf0_1_U    | 16   | -    |        | Out_Buf0_1   | ram_1p  | auto | 1       |
-|   Out_Buf0_2_U    | 16   | -    |        | Out_Buf0_2   | ram_1p  | auto | 1       |
-|   Out_Buf0_3_U    | 16   | -    |        | Out_Buf0_3   | ram_1p  | auto | 1       |
-|   Out_Buf0_4_U    | 16   | -    |        | Out_Buf0_4   | ram_1p  | auto | 1       |
-|   Out_Buf0_5_U    | 16   | -    |        | Out_Buf0_5   | ram_1p  | auto | 1       |
-|   Out_Buf0_6_U    | 16   | -    |        | Out_Buf0_6   | ram_1p  | auto | 1       |
-|   Out_Buf0_7_U    | 16   | -    |        | Out_Buf0_7   | ram_1p  | auto | 1       |
-|   Out_Buf1_0_U    | 16   | -    |        | Out_Buf1_0   | ram_1p  | auto | 1       |
-|   Out_Buf1_1_U    | 16   | -    |        | Out_Buf1_1   | ram_1p  | auto | 1       |
-|   Out_Buf1_2_U    | 16   | -    |        | Out_Buf1_2   | ram_1p  | auto | 1       |
-|   Out_Buf1_3_U    | 16   | -    |        | Out_Buf1_3   | ram_1p  | auto | 1       |
-|   Out_Buf1_4_U    | 16   | -    |        | Out_Buf1_4   | ram_1p  | auto | 1       |
-|   Out_Buf1_5_U    | 16   | -    |        | Out_Buf1_5   | ram_1p  | auto | 1       |
-|   Out_Buf1_6_U    | 16   | -    |        | Out_Buf1_6   | ram_1p  | auto | 1       |
-|   Out_Buf1_7_U    | 16   | -    |        | Out_Buf1_7   | ram_1p  | auto | 1       |
+|   Dense_Buf0_U    | 16   | -    | yes    | Dense_Buf0   | ram_2p  | bram | 1       |
+|   Dense_Buf0_1_U  | 16   | -    | yes    | Dense_Buf0_1 | ram_2p  | bram | 1       |
+|   Dense_Buf0_2_U  | 16   | -    | yes    | Dense_Buf0_2 | ram_2p  | bram | 1       |
+|   Dense_Buf0_3_U  | 16   | -    | yes    | Dense_Buf0_3 | ram_2p  | bram | 1       |
+|   Dense_Buf0_4_U  | 16   | -    | yes    | Dense_Buf0_4 | ram_2p  | bram | 1       |
+|   Dense_Buf0_5_U  | 16   | -    | yes    | Dense_Buf0_5 | ram_2p  | bram | 1       |
+|   Dense_Buf0_6_U  | 16   | -    | yes    | Dense_Buf0_6 | ram_2p  | bram | 1       |
+|   Dense_Buf0_7_U  | 16   | -    | yes    | Dense_Buf0_7 | ram_2p  | bram | 1       |
+|   Dense_Buf1_U    | 16   | -    | yes    | Dense_Buf1   | ram_2p  | bram | 1       |
+|   Dense_Buf1_1_U  | 16   | -    | yes    | Dense_Buf1_1 | ram_2p  | bram | 1       |
+|   Dense_Buf1_2_U  | 16   | -    | yes    | Dense_Buf1_2 | ram_2p  | bram | 1       |
+|   Dense_Buf1_3_U  | 16   | -    | yes    | Dense_Buf1_3 | ram_2p  | bram | 1       |
+|   Dense_Buf1_4_U  | 16   | -    | yes    | Dense_Buf1_4 | ram_2p  | bram | 1       |
+|   Dense_Buf1_5_U  | 16   | -    | yes    | Dense_Buf1_5 | ram_2p  | bram | 1       |
+|   Dense_Buf1_6_U  | 16   | -    | yes    | Dense_Buf1_6 | ram_2p  | bram | 1       |
+|   Dense_Buf1_7_U  | 16   | -    | yes    | Dense_Buf1_7 | ram_2p  | bram | 1       |
+|   Out_Buf0_0_U    | 16   | -    | yes    | Out_Buf0_0   | ram_2p  | bram | 1       |
+|   Out_Buf0_1_U    | 16   | -    | yes    | Out_Buf0_1   | ram_2p  | bram | 1       |
+|   Out_Buf0_2_U    | 16   | -    | yes    | Out_Buf0_2   | ram_2p  | bram | 1       |
+|   Out_Buf0_3_U    | 16   | -    | yes    | Out_Buf0_3   | ram_2p  | bram | 1       |
+|   Out_Buf0_4_U    | 16   | -    | yes    | Out_Buf0_4   | ram_2p  | bram | 1       |
+|   Out_Buf0_5_U    | 16   | -    | yes    | Out_Buf0_5   | ram_2p  | bram | 1       |
+|   Out_Buf0_6_U    | 16   | -    | yes    | Out_Buf0_6   | ram_2p  | bram | 1       |
+|   Out_Buf0_7_U    | 16   | -    | yes    | Out_Buf0_7   | ram_2p  | bram | 1       |
+|   Out_Buf1_0_U    | 16   | -    | yes    | Out_Buf1_0   | ram_2p  | bram | 1       |
+|   Out_Buf1_1_U    | 16   | -    | yes    | Out_Buf1_1   | ram_2p  | bram | 1       |
+|   Out_Buf1_2_U    | 16   | -    | yes    | Out_Buf1_2   | ram_2p  | bram | 1       |
+|   Out_Buf1_3_U    | 16   | -    | yes    | Out_Buf1_3   | ram_2p  | bram | 1       |
+|   Out_Buf1_4_U    | 16   | -    | yes    | Out_Buf1_4   | ram_2p  | bram | 1       |
+|   Out_Buf1_5_U    | 16   | -    | yes    | Out_Buf1_5   | ram_2p  | bram | 1       |
+|   Out_Buf1_6_U    | 16   | -    | yes    | Out_Buf1_6   | ram_2p  | bram | 1       |
+|   Out_Buf1_7_U    | 16   | -    | yes    | Out_Buf1_7   | ram_2p  | bram | 1       |
 +-------------------+------+------+--------+--------------+---------+------+---------+
 
 
@@ -251,11 +274,11 @@
 +----------+---------+------------------------------------------+---------------------------------------------------+
 | Type     | Options | Location                                 | Messages                                          |
 +----------+---------+------------------------------------------+---------------------------------------------------+
-| dataflow |         | src/spmm_device_fpga.cpp:95 in pe        | Only for-loops and functions support the dataflow |
+| dataflow |         | src/spmm_device_fpga.cpp:114 in pe       | Only for-loops and functions support the dataflow |
 |          |         |                                          | Only for-loops and functions support the dataflow |
-| dataflow |         | src/spmm_device_fpga.cpp:146 in spmm_hls | Only for-loops and functions support the dataflow |
+| dataflow |         | src/spmm_device_fpga.cpp:186 in spmm_hls | Only for-loops and functions support the dataflow |
 |          |         |                                          | Only for-loops and functions support the dataflow |
-| dataflow |         | src/spmm_device_fpga.cpp:153 in spmm_hls | Only for-loops and functions support the dataflow |
+| dataflow |         | src/spmm_device_fpga.cpp:194 in spmm_hls | Only for-loops and functions support the dataflow |
 |          |         |                                          | Only for-loops and functions support the dataflow |
 +----------+---------+------------------------------------------+---------------------------------------------------+
 
@@ -265,28 +288,41 @@
 +-----------------+------------------------------------------------+------------------------------------------------------+
 | inline          | off                                            | src/spmm_device_fpga.cpp:18 in load_a                |
 | pipeline        | II=1                                           | src/spmm_device_fpga.cpp:21 in load_a                |
-| inline          | off                                            | src/spmm_device_fpga.cpp:30 in load_stream_to_buffer |
-| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:33 in load_stream_to_buffer |
-| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:48 in load_dense_accoding_a |
-| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:52 in load_dense_accoding_a |
-| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:55 in load_dense_accoding_a |
-| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:63 in load_dense_accoding_a |
-| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:77 in pe_kernel             |
-| interface       | m_axi port = A offset = slave bundle = gmem0   | src/spmm_device_fpga.cpp:112 in spmm_hls             |
-| interface       | m_axi port = B offset = slave bundle = gmem1   | src/spmm_device_fpga.cpp:113 in spmm_hls             |
-| interface       | s_axilite port = A bundle = control            | src/spmm_device_fpga.cpp:114 in spmm_hls             |
-| interface       | s_axilite port = nnz bundle = control          | src/spmm_device_fpga.cpp:115 in spmm_hls             |
-| interface       | s_axilite port = return bundle = control       | src/spmm_device_fpga.cpp:116 in spmm_hls             |
-| interface       | s_axilite port = M bundle = control            | src/spmm_device_fpga.cpp:117 in spmm_hls             |
-| interface       | s_axilite port = K bundle = control            | src/spmm_device_fpga.cpp:118 in spmm_hls             |
-| stream          | variable = A_stream depth = BUF_DEPTH          | src/spmm_device_fpga.cpp:121 in spmm_hls             |
-| array_partition | variable=buf0 complete dim=1                   | src/spmm_device_fpga.cpp:126 in spmm_hls, buf0       |
-| array_partition | variable=buf1 complete dim=1                   | src/spmm_device_fpga.cpp:127 in spmm_hls, buf1       |
-| array_partition | variable=map_buf complete                      | src/spmm_device_fpga.cpp:129 in spmm_hls, map_buf    |
-| array_partition | variable=Dense_Buf0 cyclic factor=NUM_PU dim=1 | src/spmm_device_fpga.cpp:132 in spmm_hls, Dense_Buf0 |
-| array_partition | variable=Dense_Buf1 cyclic factor=NUM_PU dim=1 | src/spmm_device_fpga.cpp:133 in spmm_hls, Dense_Buf1 |
-| array_partition | variable=Out_Buf0 cyclic factor=NUM_PU dim=1   | src/spmm_device_fpga.cpp:137 in spmm_hls, Out_Buf0   |
-| array_partition | variable=Out_Buf1 cyclic factor=NUM_PU dim=1   | src/spmm_device_fpga.cpp:138 in spmm_hls, Out_Buf1   |
+| inline          | off                                            | src/spmm_device_fpga.cpp:31 in load_stream_to_buffer |
+| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:34 in load_stream_to_buffer |
+| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:50 in load_dense_accoding_a |
+| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:54 in load_dense_accoding_a |
+| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:57 in load_dense_accoding_a |
+| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:65 in load_dense_accoding_a |
+| inline          | off                                            | src/spmm_device_fpga.cpp:79 in pe_kernel_0           |
+| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:81 in pe_kernel_0           |
+| inline          | off                                            | src/spmm_device_fpga.cpp:92 in pe_kernel_1           |
+| pipeline        | II = 1                                         | src/spmm_device_fpga.cpp:94 in pe_kernel_1           |
+| bind_storage    | variable=dense_buf type=ram_2p impl=bram       | src/spmm_device_fpga.cpp:107 in pe, dense_buf        |
+| bind_storage    | variable=out_buf type=ram_2p impl=bram         | src/spmm_device_fpga.cpp:108 in pe, out_buf          |
+| allocation      | function instances=pe_kernel_0 limit=2         | src/spmm_device_fpga.cpp:115 in pe                   |
+| unroll          |                                                | src/spmm_device_fpga.cpp:117 in pe                   |
+| interface       | m_axi port = A offset = slave bundle = gmem0   | src/spmm_device_fpga.cpp:143 in spmm_hls             |
+| interface       | m_axi port = B offset = slave bundle = gmem1   | src/spmm_device_fpga.cpp:144 in spmm_hls             |
+| interface       | m_axi port = C offset = slave bundle = gmem2   | src/spmm_device_fpga.cpp:145 in spmm_hls             |
+| interface       | s_axilite port = A bundle = control            | src/spmm_device_fpga.cpp:146 in spmm_hls             |
+| interface       | s_axilite port = C bundle = control            | src/spmm_device_fpga.cpp:147 in spmm_hls             |
+| interface       | s_axilite port = nnz bundle = control          | src/spmm_device_fpga.cpp:148 in spmm_hls             |
+| interface       | s_axilite port = return bundle = control       | src/spmm_device_fpga.cpp:149 in spmm_hls             |
+| interface       | s_axilite port = M bundle = control            | src/spmm_device_fpga.cpp:150 in spmm_hls             |
+| interface       | s_axilite port = K bundle = control            | src/spmm_device_fpga.cpp:151 in spmm_hls             |
+| stream          | variable = A_stream depth = BUF_DEPTH          | src/spmm_device_fpga.cpp:154 in spmm_hls             |
+| array_partition | variable=buf0 complete dim=1                   | src/spmm_device_fpga.cpp:159 in spmm_hls, buf0       |
+| array_partition | variable=buf1 complete dim=1                   | src/spmm_device_fpga.cpp:160 in spmm_hls, buf1       |
+| array_partition | variable=map_buf complete                      | src/spmm_device_fpga.cpp:164 in spmm_hls, map_buf    |
+| bind_storage    | variable=Dense_Buf0 type=ram_2p impl=bram      | src/spmm_device_fpga.cpp:167 in spmm_hls, Dense_Buf0 |
+| bind_storage    | variable=Dense_Buf1 type=ram_2p impl=bram      | src/spmm_device_fpga.cpp:168 in spmm_hls, Dense_Buf1 |
+| array_partition | variable=Dense_Buf0 cyclic factor=NUM_PU dim=1 | src/spmm_device_fpga.cpp:169 in spmm_hls, Dense_Buf0 |
+| array_partition | variable=Dense_Buf1 cyclic factor=NUM_PU dim=1 | src/spmm_device_fpga.cpp:170 in spmm_hls, Dense_Buf1 |
+| bind_storage    | variable=Out_Buf0 type=ram_2p impl=bram        | src/spmm_device_fpga.cpp:174 in spmm_hls, Out_Buf0   |
+| bind_storage    | variable=Out_Buf1 type=ram_2p impl=bram        | src/spmm_device_fpga.cpp:175 in spmm_hls, Out_Buf1   |
+| array_partition | variable=Out_Buf0 cyclic factor=NUM_PU dim=1   | src/spmm_device_fpga.cpp:176 in spmm_hls, Out_Buf0   |
+| array_partition | variable=Out_Buf1 cyclic factor=NUM_PU dim=1   | src/spmm_device_fpga.cpp:177 in spmm_hls, Out_Buf1   |
 +-----------------+------------------------------------------------+------------------------------------------------------+
 
 

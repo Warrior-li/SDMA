@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'pe'
 ================================================================
-* Date:           Thu Sep 11 18:20:10 2025
+* Date:           Mon Sep 15 18:59:07 2025
 
 * Version:        2022.2 (Build 3670227 on Oct 13 2022)
 * Project:        spmm_prj
@@ -20,7 +20,7 @@
     +--------+---------+----------+------------+
     |  Clock |  Target | Estimated| Uncertainty|
     +--------+---------+----------+------------+
-    |ap_clk  |  4.00 ns|  2.861 ns|     1.08 ns|
+    |ap_clk  |  4.00 ns|  2.889 ns|     1.08 ns|
     +--------+---------+----------+------------+
 
 + Latency: 
@@ -37,12 +37,7 @@
         N/A
 
         * Loop: 
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |                   |  Latency (cycles) | Iteration|  Initiation Interval  | Trip |          |
-        |     Loop Name     |   min   |   max   |  Latency |  achieved |   target  | Count| Pipelined|
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
-        |- VITIS_LOOP_93_1  |        ?|        ?|         ?|          -|          -|    16|        no|
-        +-------------------+---------+---------+----------+-----------+-----------+------+----------+
+        N/A
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -70,7 +65,7 @@ IsGatedGlobalClock: 0
 ============================================================
 + Verbose Summary: Schedule
 ============================================================
-* Number of FSM states : 10
+* Number of FSM states : 68
 * Pipeline : 0
 * Dataflow Pipeline: 0
 
@@ -84,151 +79,445 @@ IsGatedGlobalClock: 0
 7 --> 8 
 8 --> 9 
 9 --> 10 
-10 --> 2 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 41 
+41 --> 42 
+42 --> 43 
+43 --> 44 
+44 --> 45 
+45 --> 46 
+46 --> 47 
+47 --> 48 
+48 --> 49 
+49 --> 50 
+50 --> 51 
+51 --> 52 
+52 --> 53 
+53 --> 54 
+54 --> 55 
+55 --> 56 
+56 --> 57 
+57 --> 58 
+58 --> 59 
+59 --> 60 
+60 --> 61 
+61 --> 62 
+62 --> 63 
+63 --> 64 
+64 --> 65 
+65 --> 66 
+66 --> 67 
+67 --> 68 
+68 --> 
 
 * FSM state operations: 
 
-State 1 <SV = 0> <Delay = 2.86>
-ST_1 : Operation 11 [1/1] (0.00ns)   --->   "%cur_out_row = alloca i32 1"   --->   Operation 11 'alloca' 'cur_out_row' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 12 'alloca' 'i' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%K_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %K" [src/spmm_device_fpga.cpp:89]   --->   Operation 13 'read' 'K_read' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%p_read_1 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read47" [src/spmm_device_fpga.cpp:89]   --->   Operation 14 'read' 'p_read_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%p_read_2 = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %p_read46" [src/spmm_device_fpga.cpp:89]   --->   Operation 15 'read' 'p_read_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%p_read_3 = read i3 @_ssdm_op_Read.ap_auto.i3, i3 %p_read45" [src/spmm_device_fpga.cpp:89]   --->   Operation 16 'read' 'p_read_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%p_read_4 = read i3 @_ssdm_op_Read.ap_auto.i3, i3 %p_read44" [src/spmm_device_fpga.cpp:89]   --->   Operation 17 'read' 'p_read_4' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%p_read_5 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read43" [src/spmm_device_fpga.cpp:89]   --->   Operation 18 'read' 'p_read_5' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 19 [1/1] (0.00ns)   --->   "%p_read_6 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read42" [src/spmm_device_fpga.cpp:89]   --->   Operation 19 'read' 'p_read_6' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%p_read_7 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read41" [src/spmm_device_fpga.cpp:89]   --->   Operation 20 'read' 'p_read_7' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%p_read_8 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read40" [src/spmm_device_fpga.cpp:89]   --->   Operation 21 'read' 'p_read_8' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 22 [1/1] (0.00ns)   --->   "%p_read_9 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read39" [src/spmm_device_fpga.cpp:89]   --->   Operation 22 'read' 'p_read_9' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%p_read_10 = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %p_read38" [src/spmm_device_fpga.cpp:89]   --->   Operation 23 'read' 'p_read_10' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 24 [1/1] (0.00ns)   --->   "%p_read_11 = read i3 @_ssdm_op_Read.ap_auto.i3, i3 %p_read37" [src/spmm_device_fpga.cpp:89]   --->   Operation 24 'read' 'p_read_11' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%p_read_12 = read i3 @_ssdm_op_Read.ap_auto.i3, i3 %p_read36" [src/spmm_device_fpga.cpp:89]   --->   Operation 25 'read' 'p_read_12' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%p_read_13 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read35" [src/spmm_device_fpga.cpp:89]   --->   Operation 26 'read' 'p_read_13' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%p_read_14 = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %p_read34" [src/spmm_device_fpga.cpp:89]   --->   Operation 27 'read' 'p_read_14' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%p_read_15 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read33" [src/spmm_device_fpga.cpp:89]   --->   Operation 28 'read' 'p_read_15' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 29 [1/1] (0.00ns)   --->   "%p_read_16 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read32" [src/spmm_device_fpga.cpp:89]   --->   Operation 29 'read' 'p_read_16' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%p_read_17 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read31" [src/spmm_device_fpga.cpp:89]   --->   Operation 30 'read' 'p_read_17' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%p_read_18 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read30" [src/spmm_device_fpga.cpp:89]   --->   Operation 31 'read' 'p_read_18' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%p_read_19 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read29" [src/spmm_device_fpga.cpp:89]   --->   Operation 32 'read' 'p_read_19' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 33 [1/1] (0.00ns)   --->   "%p_read_20 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read28" [src/spmm_device_fpga.cpp:89]   --->   Operation 33 'read' 'p_read_20' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%p_read_21 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read27" [src/spmm_device_fpga.cpp:89]   --->   Operation 34 'read' 'p_read_21' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 35 [1/1] (0.00ns)   --->   "%p_read_22 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read26" [src/spmm_device_fpga.cpp:89]   --->   Operation 35 'read' 'p_read_22' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 36 [1/1] (0.00ns)   --->   "%p_read_23 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read25" [src/spmm_device_fpga.cpp:89]   --->   Operation 36 'read' 'p_read_23' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 37 [1/1] (0.00ns)   --->   "%p_read_24 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read24" [src/spmm_device_fpga.cpp:89]   --->   Operation 37 'read' 'p_read_24' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 38 [1/1] (0.00ns)   --->   "%p_read_25 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read23" [src/spmm_device_fpga.cpp:89]   --->   Operation 38 'read' 'p_read_25' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 39 [1/1] (0.00ns)   --->   "%p_read_26 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read22" [src/spmm_device_fpga.cpp:89]   --->   Operation 39 'read' 'p_read_26' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 40 [1/1] (0.00ns)   --->   "%p_read_27 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read21" [src/spmm_device_fpga.cpp:89]   --->   Operation 40 'read' 'p_read_27' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%p_read_28 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read20" [src/spmm_device_fpga.cpp:89]   --->   Operation 41 'read' 'p_read_28' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%p_read_29 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read19" [src/spmm_device_fpga.cpp:89]   --->   Operation 42 'read' 'p_read_29' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%p_read_30 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read18" [src/spmm_device_fpga.cpp:89]   --->   Operation 43 'read' 'p_read_30' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%p_read_31 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read17" [src/spmm_device_fpga.cpp:89]   --->   Operation 44 'read' 'p_read_31' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 45 [1/1] (0.00ns)   --->   "%p_read_32 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read16" [src/spmm_device_fpga.cpp:89]   --->   Operation 45 'read' 'p_read_32' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 46 [1/1] (0.00ns)   --->   "%p_read_33 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read15" [src/spmm_device_fpga.cpp:89]   --->   Operation 46 'read' 'p_read_33' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%p_read_34 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read14" [src/spmm_device_fpga.cpp:89]   --->   Operation 47 'read' 'p_read_34' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%p_read_35 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read13" [src/spmm_device_fpga.cpp:89]   --->   Operation 48 'read' 'p_read_35' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%p_read_36 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read12" [src/spmm_device_fpga.cpp:89]   --->   Operation 49 'read' 'p_read_36' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 50 [1/1] (0.00ns)   --->   "%p_read_37 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read11" [src/spmm_device_fpga.cpp:89]   --->   Operation 50 'read' 'p_read_37' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 51 [1/1] (0.00ns)   --->   "%p_read_38 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read10" [src/spmm_device_fpga.cpp:89]   --->   Operation 51 'read' 'p_read_38' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 52 [1/1] (0.00ns)   --->   "%p_read_39 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read9" [src/spmm_device_fpga.cpp:89]   --->   Operation 52 'read' 'p_read_39' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 53 [1/1] (0.00ns)   --->   "%p_read_40 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read8" [src/spmm_device_fpga.cpp:89]   --->   Operation 53 'read' 'p_read_40' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 54 [1/1] (0.00ns)   --->   "%p_read_41 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read7" [src/spmm_device_fpga.cpp:89]   --->   Operation 54 'read' 'p_read_41' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 55 [1/1] (0.00ns)   --->   "%p_read_42 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read6" [src/spmm_device_fpga.cpp:89]   --->   Operation 55 'read' 'p_read_42' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 56 [1/1] (0.00ns)   --->   "%p_read_43 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read5" [src/spmm_device_fpga.cpp:89]   --->   Operation 56 'read' 'p_read_43' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 57 [1/1] (0.00ns)   --->   "%p_read_44 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read4" [src/spmm_device_fpga.cpp:89]   --->   Operation 57 'read' 'p_read_44' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 58 [1/1] (0.00ns)   --->   "%p_read_45 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read3" [src/spmm_device_fpga.cpp:89]   --->   Operation 58 'read' 'p_read_45' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 59 [1/1] (0.00ns)   --->   "%p_read_46 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read2" [src/spmm_device_fpga.cpp:89]   --->   Operation 59 'read' 'p_read_46' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 60 [1/1] (0.00ns)   --->   "%p_read_47 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read1" [src/spmm_device_fpga.cpp:89]   --->   Operation 60 'read' 'p_read_47' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 61 [1/1] (0.00ns)   --->   "%p_read48 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read" [src/spmm_device_fpga.cpp:89]   --->   Operation 61 'read' 'p_read48' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 62 [1/1] (0.00ns)   --->   "%zext_ln89 = zext i4 %p_read_1" [src/spmm_device_fpga.cpp:89]   --->   Operation 62 'zext' 'zext_ln89' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 63 [1/1] (0.00ns)   --->   "%sext_ln89 = sext i2 %p_read_2" [src/spmm_device_fpga.cpp:89]   --->   Operation 63 'sext' 'sext_ln89' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 64 [1/1] (0.00ns)   --->   "%zext_ln89_1 = zext i4 %sext_ln89" [src/spmm_device_fpga.cpp:89]   --->   Operation 64 'zext' 'zext_ln89_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 65 [1/1] (0.00ns)   --->   "%sext_ln89_1 = sext i3 %p_read_3" [src/spmm_device_fpga.cpp:89]   --->   Operation 65 'sext' 'sext_ln89_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 66 [1/1] (0.00ns)   --->   "%zext_ln89_2 = zext i4 %sext_ln89_1" [src/spmm_device_fpga.cpp:89]   --->   Operation 66 'zext' 'zext_ln89_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 67 [1/1] (0.00ns)   --->   "%sext_ln89_2 = sext i3 %p_read_4" [src/spmm_device_fpga.cpp:89]   --->   Operation 67 'sext' 'sext_ln89_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 68 [1/1] (0.00ns)   --->   "%zext_ln89_3 = zext i4 %sext_ln89_2" [src/spmm_device_fpga.cpp:89]   --->   Operation 68 'zext' 'zext_ln89_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%zext_ln89_4 = zext i4 %p_read_5" [src/spmm_device_fpga.cpp:89]   --->   Operation 69 'zext' 'zext_ln89_4' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%zext_ln89_5 = zext i4 %p_read_6" [src/spmm_device_fpga.cpp:89]   --->   Operation 70 'zext' 'zext_ln89_5' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%zext_ln89_6 = zext i4 %p_read_7" [src/spmm_device_fpga.cpp:89]   --->   Operation 71 'zext' 'zext_ln89_6' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%zext_ln89_7 = zext i4 %p_read_8" [src/spmm_device_fpga.cpp:89]   --->   Operation 72 'zext' 'zext_ln89_7' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 73 [1/1] (0.35ns)   --->   "%select_ln89 = select i1 %p_read_9, i32 7, i32 0" [src/spmm_device_fpga.cpp:89]   --->   Operation 73 'select' 'select_ln89' <Predicate = true> <Delay = 0.35> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.35> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 74 [1/1] (0.00ns)   --->   "%sext_ln89_3 = sext i2 %p_read_10" [src/spmm_device_fpga.cpp:89]   --->   Operation 74 'sext' 'sext_ln89_3' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 75 [1/1] (0.00ns)   --->   "%zext_ln89_8 = zext i3 %sext_ln89_3" [src/spmm_device_fpga.cpp:89]   --->   Operation 75 'zext' 'zext_ln89_8' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 76 [1/1] (0.00ns)   --->   "%zext_ln89_9 = zext i3 %p_read_11" [src/spmm_device_fpga.cpp:89]   --->   Operation 76 'zext' 'zext_ln89_9' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 77 [1/1] (0.00ns)   --->   "%zext_ln89_10 = zext i3 %p_read_12" [src/spmm_device_fpga.cpp:89]   --->   Operation 77 'zext' 'zext_ln89_10' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 78 [1/1] (0.27ns)   --->   "%select_ln89_1 = select i1 %p_read_13, i32 3, i32 0" [src/spmm_device_fpga.cpp:89]   --->   Operation 78 'select' 'select_ln89_1' <Predicate = true> <Delay = 0.27> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 79 [1/1] (0.00ns)   --->   "%zext_ln89_11 = zext i2 %p_read_14" [src/spmm_device_fpga.cpp:89]   --->   Operation 79 'zext' 'zext_ln89_11' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 80 [1/1] (0.00ns)   --->   "%zext_ln89_12 = zext i1 %p_read_15" [src/spmm_device_fpga.cpp:89]   --->   Operation 80 'zext' 'zext_ln89_12' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 81 [1/1] (0.00ns)   --->   "%tmp_2 = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %K_read, i32 31" [src/spmm_device_fpga.cpp:89]   --->   Operation 81 'bitselect' 'tmp_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 82 [1/1] (0.88ns)   --->   "%sub_ln89 = sub i32 0, i32 %K_read" [src/spmm_device_fpga.cpp:89]   --->   Operation 82 'sub' 'sub_ln89' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 83 [1/1] (0.00ns)   --->   "%lshr_ln89_1 = partselect i31 @_ssdm_op_PartSelect.i31.i32.i32.i32, i32 %sub_ln89, i32 1, i32 31" [src/spmm_device_fpga.cpp:89]   --->   Operation 83 'partselect' 'lshr_ln89_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 84 [1/1] (0.00ns)   --->   "%zext_ln89_13 = zext i31 %lshr_ln89_1" [src/spmm_device_fpga.cpp:89]   --->   Operation 84 'zext' 'zext_ln89_13' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 85 [1/1] (0.87ns)   --->   "%sub_ln89_1 = sub i32 0, i32 %zext_ln89_13" [src/spmm_device_fpga.cpp:89]   --->   Operation 85 'sub' 'sub_ln89_1' <Predicate = true> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 86 [1/1] (0.00ns)   --->   "%lshr_ln89_2 = partselect i31 @_ssdm_op_PartSelect.i31.i32.i32.i32, i32 %K_read, i32 1, i32 31" [src/spmm_device_fpga.cpp:89]   --->   Operation 86 'partselect' 'lshr_ln89_2' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 87 [1/1] (0.00ns)   --->   "%zext_ln89_14 = zext i31 %lshr_ln89_2" [src/spmm_device_fpga.cpp:89]   --->   Operation 87 'zext' 'zext_ln89_14' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 88 [1/1] (0.22ns)   --->   "%half = select i1 %tmp_2, i32 %sub_ln89_1, i32 %zext_ln89_14" [src/spmm_device_fpga.cpp:89]   --->   Operation 88 'select' 'half' <Predicate = true> <Delay = 0.22> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.22> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_1 : Operation 89 [1/1] (0.00ns)   --->   "%trunc_ln89 = trunc i32 %half" [src/spmm_device_fpga.cpp:89]   --->   Operation 89 'trunc' 'trunc_ln89' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 90 [1/1] (0.00ns)   --->   "%trunc_ln89_1 = trunc i32 %half" [src/spmm_device_fpga.cpp:89]   --->   Operation 90 'trunc' 'trunc_ln89_1' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 91 [1/1] (0.88ns)   --->   "%len_1 = sub i32 %K_read, i32 %half" [src/spmm_device_fpga.cpp:89]   --->   Operation 91 'sub' 'len_1' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_1 : Operation 92 [1/1] (0.00ns)   --->   "%trunc_ln97 = trunc i32 %half" [src/spmm_device_fpga.cpp:97]   --->   Operation 92 'trunc' 'trunc_ln97' <Predicate = true> <Delay = 0.00>
-ST_1 : Operation 93 [1/1] (0.38ns)   --->   "%store_ln93 = store i5 0, i5 %i" [src/spmm_device_fpga.cpp:93]   --->   Operation 93 'store' 'store_ln93' <Predicate = true> <Delay = 0.38>
-ST_1 : Operation 94 [1/1] (0.38ns)   --->   "%store_ln93 = store i32 0, i32 %cur_out_row" [src/spmm_device_fpga.cpp:93]   --->   Operation 94 'store' 'store_ln93' <Predicate = true> <Delay = 0.38>
-ST_1 : Operation 95 [1/1] (0.00ns)   --->   "%br_ln93 = br void %for.body" [src/spmm_device_fpga.cpp:93]   --->   Operation 95 'br' 'br_ln93' <Predicate = true> <Delay = 0.00>
+State 1 <SV = 0> <Delay = 0.53>
+ST_1 : Operation 69 [1/1] (0.00ns)   --->   "%K_read = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %K"   --->   Operation 69 'read' 'K_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 70 [1/1] (0.00ns)   --->   "%p_read_17 = read i16 @_ssdm_op_Read.ap_auto.i16, i16 %p_read16"   --->   Operation 70 'read' 'p_read_17' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 71 [1/1] (0.00ns)   --->   "%tmp = bitselect i1 @_ssdm_op_BitSelect.i1.i32.i32, i32 %K_read, i32 31" [src/spmm_device_fpga.cpp:110]   --->   Operation 71 'bitselect' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 72 [1/1] (0.00ns)   --->   "%lshr_ln110_2 = partselect i31 @_ssdm_op_PartSelect.i31.i32.i32.i32, i32 %K_read, i32 1, i32 31" [src/spmm_device_fpga.cpp:110]   --->   Operation 72 'partselect' 'lshr_ln110_2' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 73 [1/1] (0.00ns)   --->   "%trunc_ln118 = trunc i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 73 'trunc' 'trunc_ln118' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 74 [4/4] (0.53ns) (root node of the DSP)   --->   "%mul_ln118 = mul i16 %trunc_ln118, i16 %p_read_17" [src/spmm_device_fpga.cpp:118]   --->   Operation 74 'mul' 'mul_ln118' <Predicate = true> <Delay = 0.53> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
-State 2 <SV = 1> <Delay = 2.78>
-ST_2 : Operation 96 [1/1] (0.00ns)   --->   "%i_2 = load i5 %i" [src/spmm_device_fpga.cpp:96]   --->   Operation 96 'load' 'i_2' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 97 [1/1] (0.63ns)   --->   "%icmp_ln93 = icmp_eq  i5 %i_2, i5 16" [src/spmm_device_fpga.cpp:93]   --->   Operation 97 'icmp' 'icmp_ln93' <Predicate = true> <Delay = 0.63> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 0.63> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 98 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 16, i64 16, i64 16"   --->   Operation 98 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 99 [1/1] (0.70ns)   --->   "%add_ln93 = add i5 %i_2, i5 1" [src/spmm_device_fpga.cpp:93]   --->   Operation 99 'add' 'add_ln93' <Predicate = true> <Delay = 0.70> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 100 [1/1] (0.00ns)   --->   "%br_ln93 = br i1 %icmp_ln93, void %for.body.split, void %for.end" [src/spmm_device_fpga.cpp:93]   --->   Operation 100 'br' 'br_ln93' <Predicate = true> <Delay = 0.00>
-ST_2 : Operation 101 [1/1] (0.00ns)   --->   "%cur_out_row_load = load i32 %cur_out_row" [src/spmm_device_fpga.cpp:96]   --->   Operation 101 'load' 'cur_out_row_load' <Predicate = (!icmp_ln93)> <Delay = 0.00>
-ST_2 : Operation 102 [1/1] (0.00ns)   --->   "%trunc_ln96 = trunc i5 %i_2" [src/spmm_device_fpga.cpp:96]   --->   Operation 102 'trunc' 'trunc_ln96' <Predicate = (!icmp_ln93)> <Delay = 0.00>
-ST_2 : Operation 103 [1/1] (0.49ns)   --->   "%tmp = mux i32 @_ssdm_op_Mux.ap_auto.16i32.i4, i32 %p_read_16, i32 %zext_ln89_12, i32 %zext_ln89_11, i32 %select_ln89_1, i32 %zext_ln89_10, i32 %zext_ln89_9, i32 %zext_ln89_8, i32 %select_ln89, i32 %zext_ln89_7, i32 %zext_ln89_6, i32 %zext_ln89_5, i32 %zext_ln89_4, i32 %zext_ln89_3, i32 %zext_ln89_2, i32 %zext_ln89_1, i32 %zext_ln89, i4 %trunc_ln96" [src/spmm_device_fpga.cpp:96]   --->   Operation 103 'mux' 'tmp' <Predicate = (!icmp_ln93)> <Delay = 0.49> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 104 [2/2] (2.29ns)   --->   "%mul_ln96 = mul i32 %tmp, i32 %K_read" [src/spmm_device_fpga.cpp:96]   --->   Operation 104 'mul' 'mul_ln96' <Predicate = (!icmp_ln93)> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 105 [2/2] (2.29ns)   --->   "%mul_ln96_1 = mul i32 %cur_out_row_load, i32 %K_read" [src/spmm_device_fpga.cpp:96]   --->   Operation 105 'mul' 'mul_ln96_1' <Predicate = (!icmp_ln93)> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 106 [1/1] (0.49ns)   --->   "%tmp_1 = mux i32 @_ssdm_op_Mux.ap_auto.16i32.i4, i32 %p_read_32, i32 %p_read_31, i32 %p_read_30, i32 %p_read_29, i32 %p_read_28, i32 %p_read_27, i32 %p_read_26, i32 %p_read_25, i32 %p_read_24, i32 %p_read_23, i32 %p_read_22, i32 %p_read_21, i32 %p_read_20, i32 %p_read_19, i32 %p_read_18, i32 %p_read_17, i4 %trunc_ln96" [src/spmm_device_fpga.cpp:89]   --->   Operation 106 'mux' 'tmp_1' <Predicate = (!icmp_ln93)> <Delay = 0.49> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 107 [1/1] (0.49ns)   --->   "%tmp_4 = mux i1 @_ssdm_op_Mux.ap_auto.16i1.i4, i1 %p_read48, i1 %p_read_47, i1 %p_read_46, i1 %p_read_45, i1 %p_read_44, i1 %p_read_43, i1 %p_read_42, i1 %p_read_41, i1 %p_read_40, i1 %p_read_39, i1 %p_read_38, i1 %p_read_37, i1 %p_read_36, i1 %p_read_35, i1 %p_read_34, i1 %p_read_33, i4 %trunc_ln96"   --->   Operation 107 'mux' 'tmp_4' <Predicate = (!icmp_ln93)> <Delay = 0.49> <CoreInst = "Multiplexer">   --->   Core 76 'Multiplexer' <Latency = 0> <II = 1> <Delay = 0.49> <FuncUnit> <Opcode : 'mux'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 108 [1/1] (0.88ns)   --->   "%add_ln99 = add i32 %cur_out_row_load, i32 1" [src/spmm_device_fpga.cpp:99]   --->   Operation 108 'add' 'add_ln99' <Predicate = (!icmp_ln93)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_2 : Operation 109 [1/1] (0.22ns)   --->   "%cur_out_row_1 = select i1 %tmp_4, i32 %add_ln99, i32 %cur_out_row_load" [src/spmm_device_fpga.cpp:99]   --->   Operation 109 'select' 'cur_out_row_1' <Predicate = (!icmp_ln93)> <Delay = 0.22> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.22> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
-ST_2 : Operation 110 [1/1] (0.38ns)   --->   "%store_ln93 = store i5 %add_ln93, i5 %i" [src/spmm_device_fpga.cpp:93]   --->   Operation 110 'store' 'store_ln93' <Predicate = (!icmp_ln93)> <Delay = 0.38>
-ST_2 : Operation 111 [1/1] (0.38ns)   --->   "%store_ln93 = store i32 %cur_out_row_1, i32 %cur_out_row" [src/spmm_device_fpga.cpp:93]   --->   Operation 111 'store' 'store_ln93' <Predicate = (!icmp_ln93)> <Delay = 0.38>
-ST_2 : Operation 112 [1/1] (0.00ns)   --->   "%ret_ln101 = ret" [src/spmm_device_fpga.cpp:101]   --->   Operation 112 'ret' 'ret_ln101' <Predicate = (icmp_ln93)> <Delay = 0.00>
+State 2 <SV = 1> <Delay = 0.53>
+ST_2 : Operation 75 [3/4] (0.53ns) (root node of the DSP)   --->   "%mul_ln118 = mul i16 %trunc_ln118, i16 %p_read_17" [src/spmm_device_fpga.cpp:118]   --->   Operation 75 'mul' 'mul_ln118' <Predicate = true> <Delay = 0.53> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
-State 3 <SV = 2> <Delay = 2.66>
-ST_3 : Operation 113 [1/2] (2.29ns)   --->   "%mul_ln96 = mul i32 %tmp, i32 %K_read" [src/spmm_device_fpga.cpp:96]   --->   Operation 113 'mul' 'mul_ln96' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 114 [1/1] (0.00ns)   --->   "%trunc_ln96_1 = trunc i32 %mul_ln96" [src/spmm_device_fpga.cpp:96]   --->   Operation 114 'trunc' 'trunc_ln96_1' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 115 [1/2] (2.29ns)   --->   "%mul_ln96_1 = mul i32 %cur_out_row_load, i32 %K_read" [src/spmm_device_fpga.cpp:96]   --->   Operation 115 'mul' 'mul_ln96_1' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
-ST_3 : Operation 116 [1/1] (0.00ns)   --->   "%trunc_ln96_2 = trunc i32 %mul_ln96_1" [src/spmm_device_fpga.cpp:96]   --->   Operation 116 'trunc' 'trunc_ln96_2' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 117 [4/4] (2.66ns)   --->   "%conv_i_i = uitofp i32 %tmp_1" [src/spmm_device_fpga.cpp:89]   --->   Operation 117 'uitofp' 'conv_i_i' <Predicate = true> <Delay = 2.66> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 3> <II = 1> <Delay = 2.66> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
-ST_3 : Operation 118 [1/1] (0.00ns)   --->   "%trunc_ln78 = trunc i32 %mul_ln96" [src/spmm_device_fpga.cpp:78]   --->   Operation 118 'trunc' 'trunc_ln78' <Predicate = true> <Delay = 0.00>
-ST_3 : Operation 119 [1/1] (0.00ns)   --->   "%trunc_ln78_1 = trunc i32 %mul_ln96_1" [src/spmm_device_fpga.cpp:78]   --->   Operation 119 'trunc' 'trunc_ln78_1' <Predicate = true> <Delay = 0.00>
+State 3 <SV = 2> <Delay = 0.53>
+ST_3 : Operation 76 [2/4] (0.53ns) (root node of the DSP)   --->   "%mul_ln118 = mul i16 %trunc_ln118, i16 %p_read_17" [src/spmm_device_fpga.cpp:118]   --->   Operation 76 'mul' 'mul_ln118' <Predicate = true> <Delay = 0.53> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
-State 4 <SV = 3> <Delay = 2.66>
-ST_4 : Operation 120 [3/4] (2.66ns)   --->   "%conv_i_i = uitofp i32 %tmp_1" [src/spmm_device_fpga.cpp:89]   --->   Operation 120 'uitofp' 'conv_i_i' <Predicate = true> <Delay = 2.66> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 3> <II = 1> <Delay = 2.66> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+State 4 <SV = 3> <Delay = 1.98>
+ST_4 : Operation 77 [1/1] (0.88ns)   --->   "%sub_ln110 = sub i32 0, i32 %K_read" [src/spmm_device_fpga.cpp:110]   --->   Operation 77 'sub' 'sub_ln110' <Predicate = (tmp)> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 78 [1/1] (0.00ns)   --->   "%lshr_ln110_1 = partselect i31 @_ssdm_op_PartSelect.i31.i32.i32.i32, i32 %sub_ln110, i32 1, i32 31" [src/spmm_device_fpga.cpp:110]   --->   Operation 78 'partselect' 'lshr_ln110_1' <Predicate = (tmp)> <Delay = 0.00>
+ST_4 : Operation 79 [1/1] (0.00ns)   --->   "%zext_ln110 = zext i31 %lshr_ln110_1" [src/spmm_device_fpga.cpp:110]   --->   Operation 79 'zext' 'zext_ln110' <Predicate = (tmp)> <Delay = 0.00>
+ST_4 : Operation 80 [1/1] (0.87ns)   --->   "%sub_ln110_1 = sub i32 0, i32 %zext_ln110" [src/spmm_device_fpga.cpp:110]   --->   Operation 80 'sub' 'sub_ln110_1' <Predicate = (tmp)> <Delay = 0.87> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.87> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 81 [1/1] (0.00ns)   --->   "%zext_ln110_1 = zext i31 %lshr_ln110_2" [src/spmm_device_fpga.cpp:110]   --->   Operation 81 'zext' 'zext_ln110_1' <Predicate = (!tmp)> <Delay = 0.00>
+ST_4 : Operation 82 [1/1] (0.22ns)   --->   "%half = select i1 %tmp, i32 %sub_ln110_1, i32 %zext_ln110_1" [src/spmm_device_fpga.cpp:110]   --->   Operation 82 'select' 'half' <Predicate = true> <Delay = 0.22> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.22> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_4 : Operation 83 [1/1] (0.00ns)   --->   "%trunc_ln110 = trunc i32 %half" [src/spmm_device_fpga.cpp:110]   --->   Operation 83 'trunc' 'trunc_ln110' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 84 [1/4] (0.00ns) (root node of the DSP)   --->   "%mul_ln118 = mul i16 %trunc_ln118, i16 %p_read_17" [src/spmm_device_fpga.cpp:118]   --->   Operation 84 'mul' 'mul_ln118' <Predicate = true> <Delay = 0.00> <CoreInst = "DSP48">   --->   Core 127 'DSP48' <Latency = 3> <II = 1> <Delay = 0.53> <IPBlock> <Opcode : 'mul' 'add' 'sub' 'select'> <InPorts = 0> <OutPorts = 1> <Sync> <CReg>
 
 State 5 <SV = 4> <Delay = 2.66>
-ST_5 : Operation 121 [2/4] (2.66ns)   --->   "%conv_i_i = uitofp i32 %tmp_1" [src/spmm_device_fpga.cpp:89]   --->   Operation 121 'uitofp' 'conv_i_i' <Predicate = true> <Delay = 2.66> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 3> <II = 1> <Delay = 2.66> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+ST_5 : Operation 85 [1/1] (0.00ns)   --->   "%p_read32 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read"   --->   Operation 85 'read' 'p_read32' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 86 [1/1] (0.00ns)   --->   "%zext_ln118 = zext i16 %mul_ln118" [src/spmm_device_fpga.cpp:118]   --->   Operation 86 'zext' 'zext_ln118' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 87 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read32, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118" [src/spmm_device_fpga.cpp:118]   --->   Operation 87 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 6 <SV = 5> <Delay = 2.66>
-ST_6 : Operation 122 [1/4] (2.66ns)   --->   "%conv_i_i = uitofp i32 %tmp_1" [src/spmm_device_fpga.cpp:89]   --->   Operation 122 'uitofp' 'conv_i_i' <Predicate = true> <Delay = 2.66> <CoreInst = "Int2Float">   --->   Core 62 'Int2Float' <Latency = 3> <II = 1> <Delay = 2.66> <FuncUnit> <Opcode : 'sitofp' 'uitofp'> <InPorts = 1> <OutPorts = 1>
+State 6 <SV = 5> <Delay = 0.88>
+ST_6 : Operation 88 [1/1] (0.88ns)   --->   "%sub = sub i32 %K_read, i32 %half" [src/spmm_device_fpga.cpp:110]   --->   Operation 88 'sub' 'sub' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 89 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read32, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118" [src/spmm_device_fpga.cpp:118]   --->   Operation 89 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_6 : Operation 90 [1/1] (0.78ns)   --->   "%add_ln119 = add i16 %mul_ln118, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 90 'add' 'add_ln119' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
 
-State 7 <SV = 6> <Delay = 2.05>
-ST_7 : Operation 123 [2/2] (2.05ns)   --->   "%call_ln89 = call void @pe_Pipeline_VITIS_LOOP_76_1, i32 %half, i32 %out_buf_7, i32 %out_buf_6, i32 %out_buf_5, i32 %out_buf_4, i32 %out_buf_3, i32 %out_buf_2, i32 %out_buf_1, i32 %out_buf_0, i20 %trunc_ln96_1, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i3 %trunc_ln78, i32 %conv_i_i, i16 %trunc_ln96_2, i3 %trunc_ln78_1" [src/spmm_device_fpga.cpp:89]   --->   Operation 123 'call' 'call_ln89' <Predicate = true> <Delay = 2.05> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_7 : Operation 124 [1/1] (0.80ns)   --->   "%add_ln97 = add i20 %trunc_ln96_1, i20 %trunc_ln89_1" [src/spmm_device_fpga.cpp:97]   --->   Operation 124 'add' 'add_ln97' <Predicate = true> <Delay = 0.80> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.80> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 125 [1/1] (0.78ns)   --->   "%add_ln97_1 = add i16 %trunc_ln96_2, i16 %trunc_ln89" [src/spmm_device_fpga.cpp:97]   --->   Operation 125 'add' 'add_ln97_1' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 126 [1/1] (0.57ns)   --->   "%add_ln78 = add i3 %trunc_ln78, i3 %trunc_ln97" [src/spmm_device_fpga.cpp:78]   --->   Operation 126 'add' 'add_ln78' <Predicate = true> <Delay = 0.57> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
-ST_7 : Operation 127 [1/1] (0.57ns)   --->   "%add_ln78_6 = add i3 %trunc_ln78_1, i3 %trunc_ln97" [src/spmm_device_fpga.cpp:78]   --->   Operation 127 'add' 'add_ln78_6' <Predicate = true> <Delay = 0.57> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.57> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+State 7 <SV = 6> <Delay = 2.66>
+ST_7 : Operation 91 [1/1] (0.00ns)   --->   "%idxprom8 = zext i32 %half" [src/spmm_device_fpga.cpp:110]   --->   Operation 91 'zext' 'idxprom8' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 92 [1/1] (0.00ns)   --->   "%zext_ln119 = zext i16 %add_ln119" [src/spmm_device_fpga.cpp:119]   --->   Operation 92 'zext' 'zext_ln119' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 93 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read32, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119" [src/spmm_device_fpga.cpp:119]   --->   Operation 93 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 8 <SV = 7> <Delay = 0.00>
-ST_8 : Operation 128 [1/2] (0.00ns)   --->   "%call_ln89 = call void @pe_Pipeline_VITIS_LOOP_76_1, i32 %half, i32 %out_buf_7, i32 %out_buf_6, i32 %out_buf_5, i32 %out_buf_4, i32 %out_buf_3, i32 %out_buf_2, i32 %out_buf_1, i32 %out_buf_0, i20 %trunc_ln96_1, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i3 %trunc_ln78, i32 %conv_i_i, i16 %trunc_ln96_2, i3 %trunc_ln78_1" [src/spmm_device_fpga.cpp:89]   --->   Operation 128 'call' 'call_ln89' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 8 <SV = 7> <Delay = 0.27>
+ST_8 : Operation 94 [1/1] (0.00ns)   --->   "%p_read_16 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read17"   --->   Operation 94 'read' 'p_read_16' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 95 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read32, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119" [src/spmm_device_fpga.cpp:119]   --->   Operation 95 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_8 : Operation 96 [1/1] (0.00ns) (grouped into LUT with out node and_ln118)   --->   "%select_ln118 = select i1 %p_read_16, i32 4294967295, i32 0" [src/spmm_device_fpga.cpp:118]   --->   Operation 96 'select' 'select_ln118' <Predicate = true> <Delay = 0.00> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.27> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_8 : Operation 97 [1/1] (0.27ns) (out node of the LUT)   --->   "%and_ln118 = and i32 %K_read, i32 %select_ln118" [src/spmm_device_fpga.cpp:118]   --->   Operation 97 'and' 'and_ln118' <Predicate = true> <Delay = 0.27> <CoreInst = "LogicGate">   --->   Core 74 'LogicGate' <Latency = 0> <II = 1> <Delay = 0.21> <FuncUnit> <Opcode : 'and' 'or' 'xor'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 98 [1/1] (0.00ns)   --->   "%trunc_ln118_1 = trunc i32 %and_ln118" [src/spmm_device_fpga.cpp:118]   --->   Operation 98 'trunc' 'trunc_ln118_1' <Predicate = true> <Delay = 0.00>
 
-State 9 <SV = 8> <Delay = 2.05>
-ST_9 : Operation 129 [2/2] (2.05ns)   --->   "%call_ln89 = call void @pe_Pipeline_VITIS_LOOP_76_173, i32 %len_1, i32 %out_buf_7, i32 %out_buf_6, i32 %out_buf_5, i32 %out_buf_4, i32 %out_buf_3, i32 %out_buf_2, i32 %out_buf_1, i32 %out_buf_0, i20 %add_ln97, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i3 %add_ln78, i32 %conv_i_i, i16 %add_ln97_1, i3 %add_ln78_6" [src/spmm_device_fpga.cpp:89]   --->   Operation 129 'call' 'call_ln89' <Predicate = true> <Delay = 2.05> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+State 9 <SV = 8> <Delay = 2.66>
+ST_9 : Operation 99 [1/1] (0.00ns)   --->   "%p_read_32 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read1"   --->   Operation 99 'read' 'p_read_32' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 100 [1/1] (0.00ns)   --->   "%zext_ln118_1 = zext i32 %and_ln118" [src/spmm_device_fpga.cpp:118]   --->   Operation 100 'zext' 'zext_ln118_1' <Predicate = true> <Delay = 0.00>
+ST_9 : Operation 101 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_32, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_1" [src/spmm_device_fpga.cpp:118]   --->   Operation 101 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
 
-State 10 <SV = 9> <Delay = 0.00>
-ST_10 : Operation 130 [1/1] (0.00ns)   --->   "%specloopname_ln91 = specloopname void @_ssdm_op_SpecLoopName, void @empty_18" [src/spmm_device_fpga.cpp:91]   --->   Operation 130 'specloopname' 'specloopname_ln91' <Predicate = true> <Delay = 0.00>
-ST_10 : Operation 131 [1/2] (0.00ns)   --->   "%call_ln89 = call void @pe_Pipeline_VITIS_LOOP_76_173, i32 %len_1, i32 %out_buf_7, i32 %out_buf_6, i32 %out_buf_5, i32 %out_buf_4, i32 %out_buf_3, i32 %out_buf_2, i32 %out_buf_1, i32 %out_buf_0, i20 %add_ln97, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i3 %add_ln78, i32 %conv_i_i, i16 %add_ln97_1, i3 %add_ln78_6" [src/spmm_device_fpga.cpp:89]   --->   Operation 131 'call' 'call_ln89' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
-ST_10 : Operation 132 [1/1] (0.00ns)   --->   "%br_ln93 = br void %for.body" [src/spmm_device_fpga.cpp:93]   --->   Operation 132 'br' 'br_ln93' <Predicate = true> <Delay = 0.00>
+State 10 <SV = 9> <Delay = 0.78>
+ST_10 : Operation 102 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_32, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_1" [src/spmm_device_fpga.cpp:118]   --->   Operation 102 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_10 : Operation 103 [1/1] (0.78ns)   --->   "%add_ln119_1 = add i16 %trunc_ln118_1, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 103 'add' 'add_ln119_1' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 11 <SV = 10> <Delay = 2.66>
+ST_11 : Operation 104 [1/1] (0.00ns)   --->   "%p_read_15 = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %p_read18"   --->   Operation 104 'read' 'p_read_15' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 105 [1/1] (0.00ns)   --->   "%p_read18_cast = zext i2 %p_read_15"   --->   Operation 105 'zext' 'p_read18_cast' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 106 [1/1] (0.00ns)   --->   "%zext_ln119_1 = zext i16 %add_ln119_1" [src/spmm_device_fpga.cpp:119]   --->   Operation 106 'zext' 'zext_ln119_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 107 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_32, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_1" [src/spmm_device_fpga.cpp:119]   --->   Operation 107 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_11 : Operation 108 [2/2] (2.29ns)   --->   "%mul_ln118_1 = mul i32 %p_read18_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 108 'mul' 'mul_ln118_1' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 12 <SV = 11> <Delay = 2.29>
+ST_12 : Operation 109 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_32, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_1" [src/spmm_device_fpga.cpp:119]   --->   Operation 109 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_12 : Operation 110 [1/2] (2.29ns)   --->   "%mul_ln118_1 = mul i32 %p_read18_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 110 'mul' 'mul_ln118_1' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 111 [1/1] (0.00ns)   --->   "%trunc_ln118_2 = trunc i32 %mul_ln118_1" [src/spmm_device_fpga.cpp:118]   --->   Operation 111 'trunc' 'trunc_ln118_2' <Predicate = true> <Delay = 0.00>
+
+State 13 <SV = 12> <Delay = 2.66>
+ST_13 : Operation 112 [1/1] (0.00ns)   --->   "%p_read_31 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read2"   --->   Operation 112 'read' 'p_read_31' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 113 [1/1] (0.00ns)   --->   "%zext_ln118_2 = zext i32 %mul_ln118_1" [src/spmm_device_fpga.cpp:118]   --->   Operation 113 'zext' 'zext_ln118_2' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 114 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_31, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_2" [src/spmm_device_fpga.cpp:118]   --->   Operation 114 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 14 <SV = 13> <Delay = 0.78>
+ST_14 : Operation 115 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_31, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_2" [src/spmm_device_fpga.cpp:118]   --->   Operation 115 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_14 : Operation 116 [1/1] (0.78ns)   --->   "%add_ln119_2 = add i16 %trunc_ln118_2, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 116 'add' 'add_ln119_2' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 15 <SV = 14> <Delay = 2.66>
+ST_15 : Operation 117 [1/1] (0.00ns)   --->   "%zext_ln119_2 = zext i16 %add_ln119_2" [src/spmm_device_fpga.cpp:119]   --->   Operation 117 'zext' 'zext_ln119_2' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 118 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_31, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_2" [src/spmm_device_fpga.cpp:119]   --->   Operation 118 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 16 <SV = 15> <Delay = 0.88>
+ST_16 : Operation 119 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_31, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_2" [src/spmm_device_fpga.cpp:119]   --->   Operation 119 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_16 : Operation 120 [1/1] (0.00ns) (grouped into LUT with out node sub_ln118)   --->   "%shl_ln118 = shl i32 %K_read, i32 2" [src/spmm_device_fpga.cpp:118]   --->   Operation 120 'shl' 'shl_ln118' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 121 [1/1] (0.88ns) (out node of the LUT)   --->   "%sub_ln118 = sub i32 %shl_ln118, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 121 'sub' 'sub_ln118' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 2.88>
+ST_17 : Operation 122 [1/1] (0.00ns)   --->   "%p_read_14 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read19"   --->   Operation 122 'read' 'p_read_14' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 123 [1/1] (0.00ns)   --->   "%p_read_30 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read3"   --->   Operation 123 'read' 'p_read_30' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 124 [1/1] (0.22ns)   --->   "%select_ln118_1 = select i1 %p_read_14, i32 %sub_ln118, i32 0" [src/spmm_device_fpga.cpp:118]   --->   Operation 124 'select' 'select_ln118_1' <Predicate = true> <Delay = 0.22> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.22> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_17 : Operation 125 [1/1] (0.00ns)   --->   "%trunc_ln118_3 = trunc i32 %select_ln118_1" [src/spmm_device_fpga.cpp:118]   --->   Operation 125 'trunc' 'trunc_ln118_3' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 126 [1/1] (0.00ns)   --->   "%zext_ln118_3 = zext i32 %select_ln118_1" [src/spmm_device_fpga.cpp:118]   --->   Operation 126 'zext' 'zext_ln118_3' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 127 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_30, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_3" [src/spmm_device_fpga.cpp:118]   --->   Operation 127 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 18 <SV = 17> <Delay = 0.78>
+ST_18 : Operation 128 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_30, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_3" [src/spmm_device_fpga.cpp:118]   --->   Operation 128 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_18 : Operation 129 [1/1] (0.78ns)   --->   "%add_ln119_3 = add i16 %trunc_ln118_3, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 129 'add' 'add_ln119_3' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 2.66>
+ST_19 : Operation 130 [1/1] (0.00ns)   --->   "%p_read_13 = read i3 @_ssdm_op_Read.ap_auto.i3, i3 %p_read20"   --->   Operation 130 'read' 'p_read_13' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 131 [1/1] (0.00ns)   --->   "%p_read20_cast = zext i3 %p_read_13"   --->   Operation 131 'zext' 'p_read20_cast' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 132 [1/1] (0.00ns)   --->   "%zext_ln119_3 = zext i16 %add_ln119_3" [src/spmm_device_fpga.cpp:119]   --->   Operation 132 'zext' 'zext_ln119_3' <Predicate = true> <Delay = 0.00>
+ST_19 : Operation 133 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_30, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_3" [src/spmm_device_fpga.cpp:119]   --->   Operation 133 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_19 : Operation 134 [2/2] (2.29ns)   --->   "%mul_ln118_2 = mul i32 %p_read20_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 134 'mul' 'mul_ln118_2' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 2.29>
+ST_20 : Operation 135 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_30, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_3" [src/spmm_device_fpga.cpp:119]   --->   Operation 135 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_20 : Operation 136 [1/2] (2.29ns)   --->   "%mul_ln118_2 = mul i32 %p_read20_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 136 'mul' 'mul_ln118_2' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 137 [1/1] (0.00ns)   --->   "%trunc_ln118_4 = trunc i32 %mul_ln118_2" [src/spmm_device_fpga.cpp:118]   --->   Operation 137 'trunc' 'trunc_ln118_4' <Predicate = true> <Delay = 0.00>
+
+State 21 <SV = 20> <Delay = 2.66>
+ST_21 : Operation 138 [1/1] (0.00ns)   --->   "%p_read_29 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read4"   --->   Operation 138 'read' 'p_read_29' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 139 [1/1] (0.00ns)   --->   "%zext_ln118_4 = zext i32 %mul_ln118_2" [src/spmm_device_fpga.cpp:118]   --->   Operation 139 'zext' 'zext_ln118_4' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 140 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_29, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_4" [src/spmm_device_fpga.cpp:118]   --->   Operation 140 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 22 <SV = 21> <Delay = 0.78>
+ST_22 : Operation 141 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_29, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_4" [src/spmm_device_fpga.cpp:118]   --->   Operation 141 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_22 : Operation 142 [1/1] (0.78ns)   --->   "%add_ln119_4 = add i16 %trunc_ln118_4, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 142 'add' 'add_ln119_4' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 23 <SV = 22> <Delay = 2.66>
+ST_23 : Operation 143 [1/1] (0.00ns)   --->   "%p_read_12 = read i3 @_ssdm_op_Read.ap_auto.i3, i3 %p_read21"   --->   Operation 143 'read' 'p_read_12' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 144 [1/1] (0.00ns)   --->   "%p_read21_cast = zext i3 %p_read_12"   --->   Operation 144 'zext' 'p_read21_cast' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 145 [1/1] (0.00ns)   --->   "%zext_ln119_4 = zext i16 %add_ln119_4" [src/spmm_device_fpga.cpp:119]   --->   Operation 145 'zext' 'zext_ln119_4' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 146 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_29, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_4" [src/spmm_device_fpga.cpp:119]   --->   Operation 146 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_23 : Operation 147 [2/2] (2.29ns)   --->   "%mul_ln118_3 = mul i32 %p_read21_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 147 'mul' 'mul_ln118_3' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 24 <SV = 23> <Delay = 2.29>
+ST_24 : Operation 148 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_29, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_4" [src/spmm_device_fpga.cpp:119]   --->   Operation 148 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_24 : Operation 149 [1/2] (2.29ns)   --->   "%mul_ln118_3 = mul i32 %p_read21_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 149 'mul' 'mul_ln118_3' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 150 [1/1] (0.00ns)   --->   "%trunc_ln118_5 = trunc i32 %mul_ln118_3" [src/spmm_device_fpga.cpp:118]   --->   Operation 150 'trunc' 'trunc_ln118_5' <Predicate = true> <Delay = 0.00>
+
+State 25 <SV = 24> <Delay = 2.66>
+ST_25 : Operation 151 [1/1] (0.00ns)   --->   "%p_read_28 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read5"   --->   Operation 151 'read' 'p_read_28' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 152 [1/1] (0.00ns)   --->   "%zext_ln118_5 = zext i32 %mul_ln118_3" [src/spmm_device_fpga.cpp:118]   --->   Operation 152 'zext' 'zext_ln118_5' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 153 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_28, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_5" [src/spmm_device_fpga.cpp:118]   --->   Operation 153 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 26 <SV = 25> <Delay = 0.78>
+ST_26 : Operation 154 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_28, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_5" [src/spmm_device_fpga.cpp:118]   --->   Operation 154 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_26 : Operation 155 [1/1] (0.78ns)   --->   "%add_ln119_5 = add i16 %trunc_ln118_5, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 155 'add' 'add_ln119_5' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 27 <SV = 26> <Delay = 2.66>
+ST_27 : Operation 156 [1/1] (0.00ns)   --->   "%p_read_11 = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %p_read22"   --->   Operation 156 'read' 'p_read_11' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 157 [1/1] (0.00ns)   --->   "%p_read22_cast = sext i2 %p_read_11"   --->   Operation 157 'sext' 'p_read22_cast' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 158 [1/1] (0.00ns)   --->   "%p_read22_cast_cast = zext i3 %p_read22_cast"   --->   Operation 158 'zext' 'p_read22_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 159 [1/1] (0.00ns)   --->   "%zext_ln119_5 = zext i16 %add_ln119_5" [src/spmm_device_fpga.cpp:119]   --->   Operation 159 'zext' 'zext_ln119_5' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 160 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_28, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_5" [src/spmm_device_fpga.cpp:119]   --->   Operation 160 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_27 : Operation 161 [2/2] (2.29ns)   --->   "%mul_ln118_4 = mul i32 %p_read22_cast_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 161 'mul' 'mul_ln118_4' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 28 <SV = 27> <Delay = 2.29>
+ST_28 : Operation 162 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_28, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_5" [src/spmm_device_fpga.cpp:119]   --->   Operation 162 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_28 : Operation 163 [1/2] (2.29ns)   --->   "%mul_ln118_4 = mul i32 %p_read22_cast_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 163 'mul' 'mul_ln118_4' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 164 [1/1] (0.00ns)   --->   "%trunc_ln118_6 = trunc i32 %mul_ln118_4" [src/spmm_device_fpga.cpp:118]   --->   Operation 164 'trunc' 'trunc_ln118_6' <Predicate = true> <Delay = 0.00>
+
+State 29 <SV = 28> <Delay = 2.66>
+ST_29 : Operation 165 [1/1] (0.00ns)   --->   "%p_read_27 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read6"   --->   Operation 165 'read' 'p_read_27' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 166 [1/1] (0.00ns)   --->   "%zext_ln118_6 = zext i32 %mul_ln118_4" [src/spmm_device_fpga.cpp:118]   --->   Operation 166 'zext' 'zext_ln118_6' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 167 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_27, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_6" [src/spmm_device_fpga.cpp:118]   --->   Operation 167 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 30 <SV = 29> <Delay = 0.78>
+ST_30 : Operation 168 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_27, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_6" [src/spmm_device_fpga.cpp:118]   --->   Operation 168 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_30 : Operation 169 [1/1] (0.78ns)   --->   "%add_ln119_6 = add i16 %trunc_ln118_6, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 169 'add' 'add_ln119_6' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 31 <SV = 30> <Delay = 2.66>
+ST_31 : Operation 170 [1/1] (0.00ns)   --->   "%zext_ln119_6 = zext i16 %add_ln119_6" [src/spmm_device_fpga.cpp:119]   --->   Operation 170 'zext' 'zext_ln119_6' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 171 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_27, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_6" [src/spmm_device_fpga.cpp:119]   --->   Operation 171 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 32 <SV = 31> <Delay = 0.88>
+ST_32 : Operation 172 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_27, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_6" [src/spmm_device_fpga.cpp:119]   --->   Operation 172 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_32 : Operation 173 [1/1] (0.00ns) (grouped into LUT with out node sub_ln118_1)   --->   "%shl_ln118_1 = shl i32 %K_read, i32 3" [src/spmm_device_fpga.cpp:118]   --->   Operation 173 'shl' 'shl_ln118_1' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 174 [1/1] (0.88ns) (out node of the LUT)   --->   "%sub_ln118_1 = sub i32 %shl_ln118_1, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 174 'sub' 'sub_ln118_1' <Predicate = true> <Delay = 0.88> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.88> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 33 <SV = 32> <Delay = 2.88>
+ST_33 : Operation 175 [1/1] (0.00ns)   --->   "%p_read_10 = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %p_read23"   --->   Operation 175 'read' 'p_read_10' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 176 [1/1] (0.00ns)   --->   "%p_read_26 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read7"   --->   Operation 176 'read' 'p_read_26' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 177 [1/1] (0.22ns)   --->   "%select_ln118_2 = select i1 %p_read_10, i32 %sub_ln118_1, i32 0" [src/spmm_device_fpga.cpp:118]   --->   Operation 177 'select' 'select_ln118_2' <Predicate = true> <Delay = 0.22> <CoreInst = "Sel">   --->   Core 73 'Sel' <Latency = 0> <II = 1> <Delay = 0.22> <FuncUnit> <Opcode : 'select'> <InPorts = 3> <OutPorts = 1>
+ST_33 : Operation 178 [1/1] (0.00ns)   --->   "%trunc_ln118_7 = trunc i32 %select_ln118_2" [src/spmm_device_fpga.cpp:118]   --->   Operation 178 'trunc' 'trunc_ln118_7' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 179 [1/1] (0.00ns)   --->   "%zext_ln118_7 = zext i32 %select_ln118_2" [src/spmm_device_fpga.cpp:118]   --->   Operation 179 'zext' 'zext_ln118_7' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 180 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_26, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_7" [src/spmm_device_fpga.cpp:118]   --->   Operation 180 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 34 <SV = 33> <Delay = 0.78>
+ST_34 : Operation 181 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_26, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_7" [src/spmm_device_fpga.cpp:118]   --->   Operation 181 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_34 : Operation 182 [1/1] (0.78ns)   --->   "%add_ln119_7 = add i16 %trunc_ln118_7, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 182 'add' 'add_ln119_7' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 35 <SV = 34> <Delay = 2.66>
+ST_35 : Operation 183 [1/1] (0.00ns)   --->   "%p_read_9 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read24"   --->   Operation 183 'read' 'p_read_9' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 184 [1/1] (0.00ns)   --->   "%p_read24_cast = zext i4 %p_read_9"   --->   Operation 184 'zext' 'p_read24_cast' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 185 [1/1] (0.00ns)   --->   "%zext_ln119_7 = zext i16 %add_ln119_7" [src/spmm_device_fpga.cpp:119]   --->   Operation 185 'zext' 'zext_ln119_7' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 186 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_26, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_7" [src/spmm_device_fpga.cpp:119]   --->   Operation 186 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_35 : Operation 187 [2/2] (2.29ns)   --->   "%mul_ln118_5 = mul i32 %p_read24_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 187 'mul' 'mul_ln118_5' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 36 <SV = 35> <Delay = 2.29>
+ST_36 : Operation 188 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_26, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_7" [src/spmm_device_fpga.cpp:119]   --->   Operation 188 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_36 : Operation 189 [1/2] (2.29ns)   --->   "%mul_ln118_5 = mul i32 %p_read24_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 189 'mul' 'mul_ln118_5' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_36 : Operation 190 [1/1] (0.00ns)   --->   "%trunc_ln118_8 = trunc i32 %mul_ln118_5" [src/spmm_device_fpga.cpp:118]   --->   Operation 190 'trunc' 'trunc_ln118_8' <Predicate = true> <Delay = 0.00>
+
+State 37 <SV = 36> <Delay = 2.66>
+ST_37 : Operation 191 [1/1] (0.00ns)   --->   "%p_read_25 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read8"   --->   Operation 191 'read' 'p_read_25' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 192 [1/1] (0.00ns)   --->   "%zext_ln118_8 = zext i32 %mul_ln118_5" [src/spmm_device_fpga.cpp:118]   --->   Operation 192 'zext' 'zext_ln118_8' <Predicate = true> <Delay = 0.00>
+ST_37 : Operation 193 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_25, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_8" [src/spmm_device_fpga.cpp:118]   --->   Operation 193 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 38 <SV = 37> <Delay = 0.78>
+ST_38 : Operation 194 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_25, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_8" [src/spmm_device_fpga.cpp:118]   --->   Operation 194 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_38 : Operation 195 [1/1] (0.78ns)   --->   "%add_ln119_8 = add i16 %trunc_ln118_8, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 195 'add' 'add_ln119_8' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 39 <SV = 38> <Delay = 2.66>
+ST_39 : Operation 196 [1/1] (0.00ns)   --->   "%p_read_8 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read25"   --->   Operation 196 'read' 'p_read_8' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 197 [1/1] (0.00ns)   --->   "%p_read25_cast = zext i4 %p_read_8"   --->   Operation 197 'zext' 'p_read25_cast' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 198 [1/1] (0.00ns)   --->   "%zext_ln119_8 = zext i16 %add_ln119_8" [src/spmm_device_fpga.cpp:119]   --->   Operation 198 'zext' 'zext_ln119_8' <Predicate = true> <Delay = 0.00>
+ST_39 : Operation 199 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_25, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_8" [src/spmm_device_fpga.cpp:119]   --->   Operation 199 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_39 : Operation 200 [2/2] (2.29ns)   --->   "%mul_ln118_6 = mul i32 %p_read25_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 200 'mul' 'mul_ln118_6' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 40 <SV = 39> <Delay = 2.29>
+ST_40 : Operation 201 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_25, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_8" [src/spmm_device_fpga.cpp:119]   --->   Operation 201 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_40 : Operation 202 [1/2] (2.29ns)   --->   "%mul_ln118_6 = mul i32 %p_read25_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 202 'mul' 'mul_ln118_6' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_40 : Operation 203 [1/1] (0.00ns)   --->   "%trunc_ln118_9 = trunc i32 %mul_ln118_6" [src/spmm_device_fpga.cpp:118]   --->   Operation 203 'trunc' 'trunc_ln118_9' <Predicate = true> <Delay = 0.00>
+
+State 41 <SV = 40> <Delay = 2.66>
+ST_41 : Operation 204 [1/1] (0.00ns)   --->   "%p_read_24 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read9"   --->   Operation 204 'read' 'p_read_24' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 205 [1/1] (0.00ns)   --->   "%zext_ln118_9 = zext i32 %mul_ln118_6" [src/spmm_device_fpga.cpp:118]   --->   Operation 205 'zext' 'zext_ln118_9' <Predicate = true> <Delay = 0.00>
+ST_41 : Operation 206 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_24, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_9" [src/spmm_device_fpga.cpp:118]   --->   Operation 206 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 42 <SV = 41> <Delay = 0.78>
+ST_42 : Operation 207 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_24, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_9" [src/spmm_device_fpga.cpp:118]   --->   Operation 207 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_42 : Operation 208 [1/1] (0.78ns)   --->   "%add_ln119_9 = add i16 %trunc_ln118_9, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 208 'add' 'add_ln119_9' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 43 <SV = 42> <Delay = 2.66>
+ST_43 : Operation 209 [1/1] (0.00ns)   --->   "%p_read_7 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read26"   --->   Operation 209 'read' 'p_read_7' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 210 [1/1] (0.00ns)   --->   "%p_read26_cast = zext i4 %p_read_7"   --->   Operation 210 'zext' 'p_read26_cast' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 211 [1/1] (0.00ns)   --->   "%zext_ln119_9 = zext i16 %add_ln119_9" [src/spmm_device_fpga.cpp:119]   --->   Operation 211 'zext' 'zext_ln119_9' <Predicate = true> <Delay = 0.00>
+ST_43 : Operation 212 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_24, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_9" [src/spmm_device_fpga.cpp:119]   --->   Operation 212 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_43 : Operation 213 [2/2] (2.29ns)   --->   "%mul_ln118_7 = mul i32 %p_read26_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 213 'mul' 'mul_ln118_7' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 44 <SV = 43> <Delay = 2.29>
+ST_44 : Operation 214 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_24, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_9" [src/spmm_device_fpga.cpp:119]   --->   Operation 214 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_44 : Operation 215 [1/2] (2.29ns)   --->   "%mul_ln118_7 = mul i32 %p_read26_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 215 'mul' 'mul_ln118_7' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_44 : Operation 216 [1/1] (0.00ns)   --->   "%trunc_ln118_10 = trunc i32 %mul_ln118_7" [src/spmm_device_fpga.cpp:118]   --->   Operation 216 'trunc' 'trunc_ln118_10' <Predicate = true> <Delay = 0.00>
+
+State 45 <SV = 44> <Delay = 2.66>
+ST_45 : Operation 217 [1/1] (0.00ns)   --->   "%p_read_23 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read10"   --->   Operation 217 'read' 'p_read_23' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 218 [1/1] (0.00ns)   --->   "%zext_ln118_10 = zext i32 %mul_ln118_7" [src/spmm_device_fpga.cpp:118]   --->   Operation 218 'zext' 'zext_ln118_10' <Predicate = true> <Delay = 0.00>
+ST_45 : Operation 219 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_23, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_10" [src/spmm_device_fpga.cpp:118]   --->   Operation 219 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 46 <SV = 45> <Delay = 0.78>
+ST_46 : Operation 220 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_23, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_10" [src/spmm_device_fpga.cpp:118]   --->   Operation 220 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_46 : Operation 221 [1/1] (0.78ns)   --->   "%add_ln119_10 = add i16 %trunc_ln118_10, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 221 'add' 'add_ln119_10' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 47 <SV = 46> <Delay = 2.66>
+ST_47 : Operation 222 [1/1] (0.00ns)   --->   "%p_read_6 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read27"   --->   Operation 222 'read' 'p_read_6' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 223 [1/1] (0.00ns)   --->   "%p_read27_cast = zext i4 %p_read_6"   --->   Operation 223 'zext' 'p_read27_cast' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 224 [1/1] (0.00ns)   --->   "%zext_ln119_10 = zext i16 %add_ln119_10" [src/spmm_device_fpga.cpp:119]   --->   Operation 224 'zext' 'zext_ln119_10' <Predicate = true> <Delay = 0.00>
+ST_47 : Operation 225 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_23, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_10" [src/spmm_device_fpga.cpp:119]   --->   Operation 225 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_47 : Operation 226 [2/2] (2.29ns)   --->   "%mul_ln118_8 = mul i32 %p_read27_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 226 'mul' 'mul_ln118_8' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 48 <SV = 47> <Delay = 2.29>
+ST_48 : Operation 227 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_23, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_10" [src/spmm_device_fpga.cpp:119]   --->   Operation 227 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_48 : Operation 228 [1/2] (2.29ns)   --->   "%mul_ln118_8 = mul i32 %p_read27_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 228 'mul' 'mul_ln118_8' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_48 : Operation 229 [1/1] (0.00ns)   --->   "%trunc_ln118_11 = trunc i32 %mul_ln118_8" [src/spmm_device_fpga.cpp:118]   --->   Operation 229 'trunc' 'trunc_ln118_11' <Predicate = true> <Delay = 0.00>
+
+State 49 <SV = 48> <Delay = 2.66>
+ST_49 : Operation 230 [1/1] (0.00ns)   --->   "%p_read_22 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read11"   --->   Operation 230 'read' 'p_read_22' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 231 [1/1] (0.00ns)   --->   "%zext_ln118_11 = zext i32 %mul_ln118_8" [src/spmm_device_fpga.cpp:118]   --->   Operation 231 'zext' 'zext_ln118_11' <Predicate = true> <Delay = 0.00>
+ST_49 : Operation 232 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_22, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_11" [src/spmm_device_fpga.cpp:118]   --->   Operation 232 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 50 <SV = 49> <Delay = 0.78>
+ST_50 : Operation 233 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_22, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_11" [src/spmm_device_fpga.cpp:118]   --->   Operation 233 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_50 : Operation 234 [1/1] (0.78ns)   --->   "%add_ln119_11 = add i16 %trunc_ln118_11, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 234 'add' 'add_ln119_11' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 51 <SV = 50> <Delay = 2.66>
+ST_51 : Operation 235 [1/1] (0.00ns)   --->   "%p_read_5 = read i3 @_ssdm_op_Read.ap_auto.i3, i3 %p_read28"   --->   Operation 235 'read' 'p_read_5' <Predicate = true> <Delay = 0.00>
+ST_51 : Operation 236 [1/1] (0.00ns)   --->   "%p_read28_cast_cast = sext i3 %p_read_5"   --->   Operation 236 'sext' 'p_read28_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_51 : Operation 237 [1/1] (0.00ns)   --->   "%p_read28_cast_cast_cast = zext i4 %p_read28_cast_cast"   --->   Operation 237 'zext' 'p_read28_cast_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_51 : Operation 238 [1/1] (0.00ns)   --->   "%zext_ln119_11 = zext i16 %add_ln119_11" [src/spmm_device_fpga.cpp:119]   --->   Operation 238 'zext' 'zext_ln119_11' <Predicate = true> <Delay = 0.00>
+ST_51 : Operation 239 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_22, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_11" [src/spmm_device_fpga.cpp:119]   --->   Operation 239 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_51 : Operation 240 [2/2] (2.29ns)   --->   "%mul_ln118_9 = mul i32 %p_read28_cast_cast_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 240 'mul' 'mul_ln118_9' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 52 <SV = 51> <Delay = 2.29>
+ST_52 : Operation 241 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_22, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_11" [src/spmm_device_fpga.cpp:119]   --->   Operation 241 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_52 : Operation 242 [1/2] (2.29ns)   --->   "%mul_ln118_9 = mul i32 %p_read28_cast_cast_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 242 'mul' 'mul_ln118_9' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_52 : Operation 243 [1/1] (0.00ns)   --->   "%trunc_ln118_12 = trunc i32 %mul_ln118_9" [src/spmm_device_fpga.cpp:118]   --->   Operation 243 'trunc' 'trunc_ln118_12' <Predicate = true> <Delay = 0.00>
+
+State 53 <SV = 52> <Delay = 2.66>
+ST_53 : Operation 244 [1/1] (0.00ns)   --->   "%p_read_21 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read12"   --->   Operation 244 'read' 'p_read_21' <Predicate = true> <Delay = 0.00>
+ST_53 : Operation 245 [1/1] (0.00ns)   --->   "%zext_ln118_12 = zext i32 %mul_ln118_9" [src/spmm_device_fpga.cpp:118]   --->   Operation 245 'zext' 'zext_ln118_12' <Predicate = true> <Delay = 0.00>
+ST_53 : Operation 246 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_21, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_12" [src/spmm_device_fpga.cpp:118]   --->   Operation 246 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 54 <SV = 53> <Delay = 0.78>
+ST_54 : Operation 247 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_21, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_12" [src/spmm_device_fpga.cpp:118]   --->   Operation 247 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_54 : Operation 248 [1/1] (0.78ns)   --->   "%add_ln119_12 = add i16 %trunc_ln118_12, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 248 'add' 'add_ln119_12' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 55 <SV = 54> <Delay = 2.66>
+ST_55 : Operation 249 [1/1] (0.00ns)   --->   "%p_read_4 = read i3 @_ssdm_op_Read.ap_auto.i3, i3 %p_read29"   --->   Operation 249 'read' 'p_read_4' <Predicate = true> <Delay = 0.00>
+ST_55 : Operation 250 [1/1] (0.00ns)   --->   "%p_read29_cast_cast = sext i3 %p_read_4"   --->   Operation 250 'sext' 'p_read29_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_55 : Operation 251 [1/1] (0.00ns)   --->   "%p_read29_cast_cast_cast = zext i4 %p_read29_cast_cast"   --->   Operation 251 'zext' 'p_read29_cast_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_55 : Operation 252 [1/1] (0.00ns)   --->   "%zext_ln119_12 = zext i16 %add_ln119_12" [src/spmm_device_fpga.cpp:119]   --->   Operation 252 'zext' 'zext_ln119_12' <Predicate = true> <Delay = 0.00>
+ST_55 : Operation 253 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_21, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_12" [src/spmm_device_fpga.cpp:119]   --->   Operation 253 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_55 : Operation 254 [2/2] (2.29ns)   --->   "%mul_ln118_10 = mul i32 %p_read29_cast_cast_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 254 'mul' 'mul_ln118_10' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 56 <SV = 55> <Delay = 2.29>
+ST_56 : Operation 255 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_21, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_12" [src/spmm_device_fpga.cpp:119]   --->   Operation 255 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_56 : Operation 256 [1/2] (2.29ns)   --->   "%mul_ln118_10 = mul i32 %p_read29_cast_cast_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 256 'mul' 'mul_ln118_10' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_56 : Operation 257 [1/1] (0.00ns)   --->   "%trunc_ln118_13 = trunc i32 %mul_ln118_10" [src/spmm_device_fpga.cpp:118]   --->   Operation 257 'trunc' 'trunc_ln118_13' <Predicate = true> <Delay = 0.00>
+
+State 57 <SV = 56> <Delay = 2.66>
+ST_57 : Operation 258 [1/1] (0.00ns)   --->   "%p_read_20 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read13"   --->   Operation 258 'read' 'p_read_20' <Predicate = true> <Delay = 0.00>
+ST_57 : Operation 259 [1/1] (0.00ns)   --->   "%zext_ln118_13 = zext i32 %mul_ln118_10" [src/spmm_device_fpga.cpp:118]   --->   Operation 259 'zext' 'zext_ln118_13' <Predicate = true> <Delay = 0.00>
+ST_57 : Operation 260 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_20, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_13" [src/spmm_device_fpga.cpp:118]   --->   Operation 260 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 58 <SV = 57> <Delay = 0.78>
+ST_58 : Operation 261 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_20, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_13" [src/spmm_device_fpga.cpp:118]   --->   Operation 261 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_58 : Operation 262 [1/1] (0.78ns)   --->   "%add_ln119_13 = add i16 %trunc_ln118_13, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 262 'add' 'add_ln119_13' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 59 <SV = 58> <Delay = 2.66>
+ST_59 : Operation 263 [1/1] (0.00ns)   --->   "%p_read_3 = read i2 @_ssdm_op_Read.ap_auto.i2, i2 %p_read30"   --->   Operation 263 'read' 'p_read_3' <Predicate = true> <Delay = 0.00>
+ST_59 : Operation 264 [1/1] (0.00ns)   --->   "%p_read30_cast_cast = sext i2 %p_read_3"   --->   Operation 264 'sext' 'p_read30_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_59 : Operation 265 [1/1] (0.00ns)   --->   "%p_read30_cast_cast_cast = zext i4 %p_read30_cast_cast"   --->   Operation 265 'zext' 'p_read30_cast_cast_cast' <Predicate = true> <Delay = 0.00>
+ST_59 : Operation 266 [1/1] (0.00ns)   --->   "%zext_ln119_13 = zext i16 %add_ln119_13" [src/spmm_device_fpga.cpp:119]   --->   Operation 266 'zext' 'zext_ln119_13' <Predicate = true> <Delay = 0.00>
+ST_59 : Operation 267 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_20, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_13" [src/spmm_device_fpga.cpp:119]   --->   Operation 267 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_59 : Operation 268 [2/2] (2.29ns)   --->   "%mul_ln118_11 = mul i32 %p_read30_cast_cast_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 268 'mul' 'mul_ln118_11' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 60 <SV = 59> <Delay = 2.29>
+ST_60 : Operation 269 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_20, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_13" [src/spmm_device_fpga.cpp:119]   --->   Operation 269 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_60 : Operation 270 [1/2] (2.29ns)   --->   "%mul_ln118_11 = mul i32 %p_read30_cast_cast_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 270 'mul' 'mul_ln118_11' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_60 : Operation 271 [1/1] (0.00ns)   --->   "%trunc_ln118_14 = trunc i32 %mul_ln118_11" [src/spmm_device_fpga.cpp:118]   --->   Operation 271 'trunc' 'trunc_ln118_14' <Predicate = true> <Delay = 0.00>
+
+State 61 <SV = 60> <Delay = 2.66>
+ST_61 : Operation 272 [1/1] (0.00ns)   --->   "%p_read_19 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read14"   --->   Operation 272 'read' 'p_read_19' <Predicate = true> <Delay = 0.00>
+ST_61 : Operation 273 [1/1] (0.00ns)   --->   "%zext_ln118_14 = zext i32 %mul_ln118_11" [src/spmm_device_fpga.cpp:118]   --->   Operation 273 'zext' 'zext_ln118_14' <Predicate = true> <Delay = 0.00>
+ST_61 : Operation 274 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_19, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_14" [src/spmm_device_fpga.cpp:118]   --->   Operation 274 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 62 <SV = 61> <Delay = 0.78>
+ST_62 : Operation 275 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_19, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_14" [src/spmm_device_fpga.cpp:118]   --->   Operation 275 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_62 : Operation 276 [1/1] (0.78ns)   --->   "%add_ln119_14 = add i16 %trunc_ln118_14, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 276 'add' 'add_ln119_14' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 63 <SV = 62> <Delay = 2.66>
+ST_63 : Operation 277 [1/1] (0.00ns)   --->   "%p_read_2 = read i4 @_ssdm_op_Read.ap_auto.i4, i4 %p_read31"   --->   Operation 277 'read' 'p_read_2' <Predicate = true> <Delay = 0.00>
+ST_63 : Operation 278 [1/1] (0.00ns)   --->   "%p_read31_cast = zext i4 %p_read_2"   --->   Operation 278 'zext' 'p_read31_cast' <Predicate = true> <Delay = 0.00>
+ST_63 : Operation 279 [1/1] (0.00ns)   --->   "%zext_ln119_14 = zext i16 %add_ln119_14" [src/spmm_device_fpga.cpp:119]   --->   Operation 279 'zext' 'zext_ln119_14' <Predicate = true> <Delay = 0.00>
+ST_63 : Operation 280 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_19, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_14" [src/spmm_device_fpga.cpp:119]   --->   Operation 280 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_63 : Operation 281 [2/2] (2.29ns)   --->   "%mul_ln118_12 = mul i32 %p_read31_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 281 'mul' 'mul_ln118_12' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+
+State 64 <SV = 63> <Delay = 2.29>
+ST_64 : Operation 282 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_19, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_14" [src/spmm_device_fpga.cpp:119]   --->   Operation 282 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_64 : Operation 283 [1/2] (2.29ns)   --->   "%mul_ln118_12 = mul i32 %p_read31_cast, i32 %K_read" [src/spmm_device_fpga.cpp:118]   --->   Operation 283 'mul' 'mul_ln118_12' <Predicate = true> <Delay = 2.29> <CoreInst = "Multiplier">   --->   Core 3 'Multiplier' <Latency = 1> <II = 1> <Delay = 2.29> <FuncUnit> <Opcode : 'mul'> <InPorts = 2> <OutPorts = 1>
+ST_64 : Operation 284 [1/1] (0.00ns)   --->   "%trunc_ln118_15 = trunc i32 %mul_ln118_12" [src/spmm_device_fpga.cpp:118]   --->   Operation 284 'trunc' 'trunc_ln118_15' <Predicate = true> <Delay = 0.00>
+
+State 65 <SV = 64> <Delay = 2.66>
+ST_65 : Operation 285 [1/1] (0.00ns)   --->   "%p_read_18 = read i32 @_ssdm_op_Read.ap_auto.i32, i32 %p_read15"   --->   Operation 285 'read' 'p_read_18' <Predicate = true> <Delay = 0.00>
+ST_65 : Operation 286 [1/1] (0.00ns)   --->   "%zext_ln118_15 = zext i32 %mul_ln118_12" [src/spmm_device_fpga.cpp:118]   --->   Operation 286 'zext' 'zext_ln118_15' <Predicate = true> <Delay = 0.00>
+ST_65 : Operation 287 [2/2] (2.66ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_18, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_15" [src/spmm_device_fpga.cpp:118]   --->   Operation 287 'call' 'call_ln118' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_65 : Operation 288 [1/1] (0.78ns)   --->   "%add_ln119_15 = add i16 %trunc_ln118_15, i16 %trunc_ln110" [src/spmm_device_fpga.cpp:119]   --->   Operation 288 'add' 'add_ln119_15' <Predicate = true> <Delay = 0.78> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 0.78> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+
+State 66 <SV = 65> <Delay = 0.00>
+ST_66 : Operation 289 [1/2] (0.00ns)   --->   "%call_ln118 = call void @pe_kernel_0, i32 %p_read_18, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %half, i64 0, i64 %zext_ln118_15" [src/spmm_device_fpga.cpp:118]   --->   Operation 289 'call' 'call_ln118' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 67 <SV = 66> <Delay = 2.66>
+ST_67 : Operation 290 [1/1] (0.00ns)   --->   "%zext_ln119_15 = zext i16 %add_ln119_15" [src/spmm_device_fpga.cpp:119]   --->   Operation 290 'zext' 'zext_ln119_15' <Predicate = true> <Delay = 0.00>
+ST_67 : Operation 291 [2/2] (2.66ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_18, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_15" [src/spmm_device_fpga.cpp:119]   --->   Operation 291 'call' 'call_ln119' <Predicate = true> <Delay = 2.66> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 68 <SV = 67> <Delay = 0.00>
+ST_68 : Operation 292 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %out_buf_0, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 292 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 293 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %out_buf_1, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 293 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 294 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %out_buf_2, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 294 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 295 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %out_buf_3, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 295 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 296 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %out_buf_4, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 296 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 297 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %out_buf_5, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 297 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 298 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %out_buf_6, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 298 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 299 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %out_buf_7, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 299 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 300 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %dense_buf_0, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 300 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 301 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %dense_buf_1, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 301 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 302 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %dense_buf_2, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 302 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 303 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %dense_buf_3, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 303 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 304 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %dense_buf_4, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 304 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 305 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %dense_buf_5, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 305 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 306 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %dense_buf_6, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 306 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 307 [1/1] (0.00ns)   --->   "%specmemcore_ln0 = specmemcore void @_ssdm_op_SpecMemCore, i32 %dense_buf_7, i64 666, i64 22, i64 18446744073709551615"   --->   Operation 307 'specmemcore' 'specmemcore_ln0' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 308 [1/1] (0.00ns)   --->   "%specresourcelimit_ln115 = specresourcelimit void @_ssdm_op_SpecResourceLimit, i64 2, void @empty_3, void @empty_3, void @function, void @empty_3" [src/spmm_device_fpga.cpp:115]   --->   Operation 308 'specresourcelimit' 'specresourcelimit_ln115' <Predicate = true> <Delay = 0.00>
+ST_68 : Operation 309 [1/2] (0.00ns)   --->   "%call_ln119 = call void @pe_kernel_0, i32 %p_read_18, i32 %dense_buf_0, i32 %dense_buf_1, i32 %dense_buf_2, i32 %dense_buf_3, i32 %dense_buf_4, i32 %dense_buf_5, i32 %dense_buf_6, i32 %dense_buf_7, i32 %out_buf_0, i32 %out_buf_1, i32 %out_buf_2, i32 %out_buf_3, i32 %out_buf_4, i32 %out_buf_5, i32 %out_buf_6, i32 %out_buf_7, i32 %sub, i64 %idxprom8, i64 %zext_ln119_15" [src/spmm_device_fpga.cpp:119]   --->   Operation 309 'call' 'call_ln119' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_68 : Operation 310 [1/1] (0.00ns)   --->   "%ret_ln122 = ret" [src/spmm_device_fpga.cpp:122]   --->   Operation 310 'ret' 'ret_ln122' <Predicate = true> <Delay = 0.00>
 
 
 ============================================================
@@ -236,48 +525,299 @@ ST_10 : Operation 132 [1/1] (0.00ns)   --->   "%br_ln93 = br void %for.body" [sr
 ============================================================
 Target clock period: 4ns, clock uncertainty: 1.08ns.
 
- <State 1>: 2.86ns
+ <State 1>: 0.535ns
 The critical path consists of the following:
-	wire read operation ('K_read', src/spmm_device_fpga.cpp:89) on port 'K' (src/spmm_device_fpga.cpp:89) [68]  (0 ns)
-	'sub' operation ('sub_ln89', src/spmm_device_fpga.cpp:89) [137]  (0.88 ns)
-	'sub' operation ('sub_ln89_1', src/spmm_device_fpga.cpp:89) [140]  (0.874 ns)
-	'select' operation ('half', src/spmm_device_fpga.cpp:89) [143]  (0.227 ns)
-	'sub' operation ('len', src/spmm_device_fpga.cpp:89) [146]  (0.88 ns)
+	wire read operation ('K_read') on port 'K' [50]  (0 ns)
+	'mul' operation of DSP[128] ('mul_ln118', src/spmm_device_fpga.cpp:118) [128]  (0.535 ns)
 
- <State 2>: 2.78ns
+ <State 2>: 0.535ns
 The critical path consists of the following:
-	'load' operation ('i', src/spmm_device_fpga.cpp:96) on local variable 'i' [152]  (0 ns)
-	'mux' operation ('tmp', src/spmm_device_fpga.cpp:96) [161]  (0.493 ns)
-	'mul' operation ('mul_ln96', src/spmm_device_fpga.cpp:96) [162]  (2.29 ns)
+	'mul' operation of DSP[128] ('mul_ln118', src/spmm_device_fpga.cpp:118) [128]  (0.535 ns)
 
- <State 3>: 2.66ns
+ <State 3>: 0.535ns
 The critical path consists of the following:
-	'uitofp' operation ('conv_i_i', src/spmm_device_fpga.cpp:89) [167]  (2.66 ns)
+	'mul' operation of DSP[128] ('mul_ln118', src/spmm_device_fpga.cpp:118) [128]  (0.535 ns)
 
- <State 4>: 2.66ns
+ <State 4>: 1.98ns
 The critical path consists of the following:
-	'uitofp' operation ('conv_i_i', src/spmm_device_fpga.cpp:89) [167]  (2.66 ns)
+	'sub' operation ('sub_ln110', src/spmm_device_fpga.cpp:110) [116]  (0.88 ns)
+	'sub' operation ('sub_ln110_1', src/spmm_device_fpga.cpp:110) [119]  (0.874 ns)
+	'select' operation ('half', src/spmm_device_fpga.cpp:110) [122]  (0.227 ns)
 
  <State 5>: 2.66ns
 The critical path consists of the following:
-	'uitofp' operation ('conv_i_i', src/spmm_device_fpga.cpp:89) [167]  (2.66 ns)
+	wire read operation ('p_read32') on port 'p_read' [82]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [130]  (2.66 ns)
 
- <State 6>: 2.66ns
+ <State 6>: 0.88ns
 The critical path consists of the following:
-	'uitofp' operation ('conv_i_i', src/spmm_device_fpga.cpp:89) [167]  (2.66 ns)
+	'sub' operation ('sub', src/spmm_device_fpga.cpp:110) [126]  (0.88 ns)
 
- <State 7>: 2.06ns
+ <State 7>: 2.66ns
 The critical path consists of the following:
-	'call' operation ('call_ln89', src/spmm_device_fpga.cpp:89) to 'pe_Pipeline_VITIS_LOOP_76_1' [170]  (2.06 ns)
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [133]  (2.66 ns)
 
- <State 8>: 0ns
+ <State 8>: 0.278ns
+The critical path consists of the following:
+	wire read operation ('p_read_16') on port 'p_read17' [65]  (0 ns)
+	'select' operation ('select_ln118', src/spmm_device_fpga.cpp:118) [134]  (0 ns)
+	'and' operation ('and_ln118', src/spmm_device_fpga.cpp:118) [135]  (0.278 ns)
+
+ <State 9>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_32') on port 'p_read1' [81]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [138]  (2.66 ns)
+
+ <State 10>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_1', src/spmm_device_fpga.cpp:119) [139]  (0.785 ns)
+
+ <State 11>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [141]  (2.66 ns)
+
+ <State 12>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_1', src/spmm_device_fpga.cpp:118) [142]  (2.29 ns)
+
+ <State 13>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_31') on port 'p_read2' [80]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [145]  (2.66 ns)
+
+ <State 14>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_2', src/spmm_device_fpga.cpp:119) [146]  (0.785 ns)
+
+ <State 15>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [148]  (2.66 ns)
+
+ <State 16>: 0.88ns
+The critical path consists of the following:
+	'shl' operation ('shl_ln118', src/spmm_device_fpga.cpp:118) [149]  (0 ns)
+	'sub' operation ('sub_ln118', src/spmm_device_fpga.cpp:118) [150]  (0.88 ns)
+
+ <State 17>: 2.89ns
+The critical path consists of the following:
+	wire read operation ('p_read_14') on port 'p_read19' [63]  (0 ns)
+	'select' operation ('select_ln118_1', src/spmm_device_fpga.cpp:118) [151]  (0.227 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [154]  (2.66 ns)
+
+ <State 18>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_3', src/spmm_device_fpga.cpp:119) [155]  (0.785 ns)
+
+ <State 19>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [157]  (2.66 ns)
+
+ <State 20>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_2', src/spmm_device_fpga.cpp:118) [158]  (2.29 ns)
+
+ <State 21>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_29') on port 'p_read4' [78]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [161]  (2.66 ns)
+
+ <State 22>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_4', src/spmm_device_fpga.cpp:119) [162]  (0.785 ns)
+
+ <State 23>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [164]  (2.66 ns)
+
+ <State 24>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_3', src/spmm_device_fpga.cpp:118) [165]  (2.29 ns)
+
+ <State 25>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_28') on port 'p_read5' [77]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [168]  (2.66 ns)
+
+ <State 26>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_5', src/spmm_device_fpga.cpp:119) [169]  (0.785 ns)
+
+ <State 27>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [171]  (2.66 ns)
+
+ <State 28>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_4', src/spmm_device_fpga.cpp:118) [172]  (2.29 ns)
+
+ <State 29>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_27') on port 'p_read6' [76]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [175]  (2.66 ns)
+
+ <State 30>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_6', src/spmm_device_fpga.cpp:119) [176]  (0.785 ns)
+
+ <State 31>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [178]  (2.66 ns)
+
+ <State 32>: 0.88ns
+The critical path consists of the following:
+	'shl' operation ('shl_ln118_1', src/spmm_device_fpga.cpp:118) [179]  (0 ns)
+	'sub' operation ('sub_ln118_1', src/spmm_device_fpga.cpp:118) [180]  (0.88 ns)
+
+ <State 33>: 2.89ns
+The critical path consists of the following:
+	wire read operation ('p_read_10') on port 'p_read23' [59]  (0 ns)
+	'select' operation ('select_ln118_2', src/spmm_device_fpga.cpp:118) [181]  (0.227 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [184]  (2.66 ns)
+
+ <State 34>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_7', src/spmm_device_fpga.cpp:119) [185]  (0.785 ns)
+
+ <State 35>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [187]  (2.66 ns)
+
+ <State 36>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_5', src/spmm_device_fpga.cpp:118) [188]  (2.29 ns)
+
+ <State 37>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_25') on port 'p_read8' [74]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [191]  (2.66 ns)
+
+ <State 38>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_8', src/spmm_device_fpga.cpp:119) [192]  (0.785 ns)
+
+ <State 39>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [194]  (2.66 ns)
+
+ <State 40>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_6', src/spmm_device_fpga.cpp:118) [195]  (2.29 ns)
+
+ <State 41>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_24') on port 'p_read9' [73]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [198]  (2.66 ns)
+
+ <State 42>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_9', src/spmm_device_fpga.cpp:119) [199]  (0.785 ns)
+
+ <State 43>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [201]  (2.66 ns)
+
+ <State 44>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_7', src/spmm_device_fpga.cpp:118) [202]  (2.29 ns)
+
+ <State 45>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_23') on port 'p_read10' [72]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [205]  (2.66 ns)
+
+ <State 46>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_10', src/spmm_device_fpga.cpp:119) [206]  (0.785 ns)
+
+ <State 47>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [208]  (2.66 ns)
+
+ <State 48>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_8', src/spmm_device_fpga.cpp:118) [209]  (2.29 ns)
+
+ <State 49>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_22') on port 'p_read11' [71]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [212]  (2.66 ns)
+
+ <State 50>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_11', src/spmm_device_fpga.cpp:119) [213]  (0.785 ns)
+
+ <State 51>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [215]  (2.66 ns)
+
+ <State 52>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_9', src/spmm_device_fpga.cpp:118) [216]  (2.29 ns)
+
+ <State 53>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_21') on port 'p_read12' [70]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [219]  (2.66 ns)
+
+ <State 54>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_12', src/spmm_device_fpga.cpp:119) [220]  (0.785 ns)
+
+ <State 55>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [222]  (2.66 ns)
+
+ <State 56>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_10', src/spmm_device_fpga.cpp:118) [223]  (2.29 ns)
+
+ <State 57>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_20') on port 'p_read13' [69]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [226]  (2.66 ns)
+
+ <State 58>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_13', src/spmm_device_fpga.cpp:119) [227]  (0.785 ns)
+
+ <State 59>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [229]  (2.66 ns)
+
+ <State 60>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_11', src/spmm_device_fpga.cpp:118) [230]  (2.29 ns)
+
+ <State 61>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_19') on port 'p_read14' [68]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [233]  (2.66 ns)
+
+ <State 62>: 0.785ns
+The critical path consists of the following:
+	'add' operation ('add_ln119_14', src/spmm_device_fpga.cpp:119) [234]  (0.785 ns)
+
+ <State 63>: 2.66ns
+The critical path consists of the following:
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [236]  (2.66 ns)
+
+ <State 64>: 2.29ns
+The critical path consists of the following:
+	'mul' operation ('mul_ln118_12', src/spmm_device_fpga.cpp:118) [237]  (2.29 ns)
+
+ <State 65>: 2.66ns
+The critical path consists of the following:
+	wire read operation ('p_read_18') on port 'p_read15' [67]  (0 ns)
+	'call' operation ('call_ln118', src/spmm_device_fpga.cpp:118) to 'pe_kernel_0' [240]  (2.66 ns)
+
+ <State 66>: 0ns
 The critical path consists of the following:
 
- <State 9>: 2.06ns
+ <State 67>: 2.66ns
 The critical path consists of the following:
-	'call' operation ('call_ln89', src/spmm_device_fpga.cpp:89) to 'pe_Pipeline_VITIS_LOOP_76_173' [175]  (2.06 ns)
+	'call' operation ('call_ln119', src/spmm_device_fpga.cpp:119) to 'pe_kernel_0' [243]  (2.66 ns)
 
- <State 10>: 0ns
+ <State 68>: 0ns
 The critical path consists of the following:
 
 
@@ -299,6 +839,64 @@ N/A
 	State 8
 	State 9
 	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+	State 54
+	State 55
+	State 56
+	State 57
+	State 58
+	State 59
+	State 60
+	State 61
+	State 62
+	State 63
+	State 64
+	State 65
+	State 66
+	State 67
+	State 68
 
 
 ============================================================

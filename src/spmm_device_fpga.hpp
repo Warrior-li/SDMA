@@ -23,6 +23,7 @@ void spmm_hls(
     const ap_uint<64> * __restrict A,
     const int nnz,
     const ap_uint<32> * B,
+    ap_uint<32> *C,
     const int M,
     const int K
 );

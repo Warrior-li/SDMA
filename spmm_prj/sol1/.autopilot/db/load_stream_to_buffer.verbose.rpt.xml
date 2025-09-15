@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vitis HLS Report for 'load_stream_to_buffer'" level="0">
-<item name = "Date">Thu Sep 11 18:20:11 2025
+<item name = "Date">Mon Sep 15 18:59:10 2025
 </item>
 <item name = "Version">2022.2 (Build 3670227 on Oct 13 2022)</item>
 <item name = "Project">spmm_prj</item>
@@ -15,7 +15,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="4">Clock, Target, Estimated, Uncertainty</keys>
-<column name="ap_clk">4.00 ns, 1.374 ns, 1.08 ns</column>
+<column name="ap_clk">4.00 ns, 1.988 ns, 1.08 ns</column>
 </table>
 </item>
 </section>
@@ -48,12 +48,12 @@
 <item name = "Summary"><table name="" hasTotal="1">
 <keys size="6">Name, BRAM_18K, DSP, FF, LUT, URAM</keys>
 <column name="DSP">-, -, -, -, -</column>
-<column name="Expression">-, -, 0, 26, -</column>
+<column name="Expression">-, -, 0, 97, -</column>
 <column name="FIFO">-, -, -, -, -</column>
 <column name="Instance">-, -, -, -, -</column>
 <column name="Memory">-, -, -, -, -</column>
-<column name="Multiplexer">-, -, -, 45, -</column>
-<column name="Register">-, -, 12, -, -</column>
+<column name="Multiplexer">-, -, -, 68, -</column>
+<column name="Register">-, -, 44, -, -</column>
 <specialColumn name="Available SLR">1344, 3008, 869120, 434560, 320</specialColumn>
 <specialColumn name="Utilization SLR (%)">0, 0, ~0, ~0, 0</specialColumn>
 <specialColumn name="Available">4032, 9024, 2607360, 1303680, 960</specialColumn>
@@ -80,9 +80,11 @@
 </item>
 <item name = "Expression"><table name="" hasTotal="1">
 <keys size="7">Variable Name, Operation, DSP, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
-<column name="add_ln32_fu_534_p2">+, 0, 0, 12, 5, 1</column>
+<column name="add_ln33_fu_553_p2">+, 0, 0, 12, 5, 1</column>
+<column name="add_ln840_fu_641_p2">+, 0, 0, 39, 32, 1</column>
 <column name="ap_block_pp0_stage0_01001">and, 0, 0, 2, 1, 1</column>
-<column name="icmp_ln32_fu_528_p2">icmp, 0, 0, 10, 5, 6</column>
+<column name="icmp_ln33_fu_547_p2">icmp, 0, 0, 10, 5, 6</column>
+<column name="select_ln37_fu_647_p3">select, 0, 0, 32, 1, 32</column>
 <column name="ap_enable_pp0">xor, 0, 0, 2, 1, 2</column>
 </table>
 </item>
@@ -91,8 +93,10 @@
 <column name="A_stream3_blk_n">9, 2, 1, 2</column>
 <column name="ap_done_int">9, 2, 1, 2</column>
 <column name="ap_enable_reg_pp0_iter1">9, 2, 1, 2</column>
-<column name="ap_sig_allocacmp_i_3">9, 2, 5, 10</column>
-<column name="i_fu_174">9, 2, 5, 10</column>
+<column name="ap_sig_allocacmp_cur_row_0_load_1">14, 3, 32, 96</column>
+<column name="ap_sig_allocacmp_i_2">9, 2, 5, 10</column>
+<column name="cur_row_0_fu_182">9, 2, 32, 64</column>
+<column name="i_fu_178">9, 2, 5, 10</column>
 </table>
 </item>
 <item name = "Register"><table name="" hasTotal="1">
@@ -100,8 +104,9 @@
 <column name="ap_CS_fsm">1, 0, 1, 0</column>
 <column name="ap_done_reg">1, 0, 1, 0</column>
 <column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
-<column name="i_fu_174">5, 0, 5, 0</column>
-<column name="trunc_ln35_reg_629">4, 0, 4, 0</column>
+<column name="cur_row_0_fu_182">32, 0, 32, 0</column>
+<column name="i_fu_178">5, 0, 5, 0</column>
+<column name="trunc_ln36_reg_681">4, 0, 4, 0</column>
 </table>
 </item>
 </section>
@@ -117,6 +122,7 @@
 <column name="ap_done">out, 1, ap_ctrl_hs, load_stream_to_buffer, return value</column>
 <column name="ap_idle">out, 1, ap_ctrl_hs, load_stream_to_buffer, return value</column>
 <column name="ap_ready">out, 1, ap_ctrl_hs, load_stream_to_buffer, return value</column>
+<column name="ap_return">out, 32, ap_ctrl_hs, load_stream_to_buffer, return value</column>
 <column name="A_stream3_dout">in, 64, ap_fifo, A_stream3, pointer</column>
 <column name="A_stream3_empty_n">in, 1, ap_fifo, A_stream3, pointer</column>
 <column name="A_stream3_read">out, 1, ap_fifo, A_stream3, pointer</column>
@@ -216,6 +222,7 @@
 <column name="sparse_buf_value_14_ap_vld">out, 1, ap_vld, sparse_buf_value_14, pointer</column>
 <column name="sparse_buf_value_15">out, 32, ap_vld, sparse_buf_value_15, pointer</column>
 <column name="sparse_buf_value_15_ap_vld">out, 1, ap_vld, sparse_buf_value_15, pointer</column>
+<column name="p_read">in, 32, ap_none, p_read, scalar</column>
 </table>
 </item>
 </section>

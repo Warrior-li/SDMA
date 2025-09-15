@@ -1,20 +1,32 @@
 <pragmas>
 <pragma file="src/spmm_device_fpga.cpp" line="18" pragmaType="inline" parentfunction="load_A" off="1" region="0" recursive="0"/>
 <pragma file="src/spmm_device_fpga.cpp" line="21" pragmaType="pipeline" parentfunction="load_A" off="0" ii="1" rewind="0" style=""/>
-<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<1, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="31" pragmaType="inline" parentfunction="load_stream_to_buffer" off="1" region="0" recursive="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="34" pragmaType="pipeline" parentfunction="load_stream_to_buffer" off="0" ii="1" rewind="0" style=""/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1788" pragmaType="inline" parentfunction="bool operator==<1, false>(ap_int_base<1, false> const&, int)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>& ap_int_base<32, false>::operator+=<1, false>(ap_int_base<1, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<1, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int()" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<31>::ap_uint<64, false>(ap_range_ref<64, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="523" pragmaType="inline" parentfunction="_ZN8ssdm_intILi1ELb0EEC2EDq1_j" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<32, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1018" pragmaType="inline" parentfunction="bool ap_int_base<1, false>::operator==<32, true>(ap_int_base<32, true> const&) const" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="515" pragmaType="inline" parentfunction="ssdm_int<32, true>::ssdm_int(int)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1126" pragmaType="inline" parentfunction="ap_int_base<64, false>::operator[](int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<1>::ap_uint<64, false>(ap_bit_ref<64, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1045" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint<64, false>(ap_range_ref<64, false> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="357" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base<64, false>(ap_range_ref<64, false> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<64, false>::ssdm_int()" off="0" region="0" recursive="0"/>
-<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1045" pragmaType="inline" parentfunction="range" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h" line="626" pragmaType="inline" parentfunction="get" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="175" pragmaType="inline" parentfunction="ap_int_base<64, false>::ap_int_base()" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<31, false>::ssdm_int()" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="357" pragmaType="inline" parentfunction="ap_int_base<31, false>::ap_int_base<64, false>(ap_range_ref<64, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<1, false>::ssdm_int()" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h" line="303" pragmaType="inline" parentfunction="ap_range_ref<64, false>::ap_range_ref(ap_int_base<64, false>*, int, int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="30" pragmaType="inline" parentfunction="load_stream_to_buffer" off="1" region="0" recursive="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="33" pragmaType="pipeline" parentfunction="load_stream_to_buffer" off="0" ii="1" rewind="0" style=""/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="362" pragmaType="inline" parentfunction="ap_int_base<1, false>::ap_int_base<64, false>(ap_bit_ref<64, false> const&)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="checkOverflowBaseC" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h" line="779" pragmaType="inline" parentfunction="ap_bit_ref<64, false>::operator bool() const" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_ref.h" line="774" pragmaType="inline" parentfunction="ap_bit_ref<64, false>::ap_bit_ref(ap_int_base<64, false>*, int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<1>::ap_uint()" off="0" region="0" recursive="0"/>
@@ -25,52 +37,59 @@
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="175" pragmaType="inline" parentfunction="ap_int_base<1, false>::ap_int_base()" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<64>::ap_uint()" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="52" pragmaType="pipeline" parentfunction="load_dense_accoding_A" off="0" ii="1" rewind="0" style=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="55" pragmaType="pipeline" parentfunction="load_dense_accoding_A" off="0" ii="1" rewind="0" style=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="63" pragmaType="pipeline" parentfunction="load_dense_accoding_A" off="0" ii="1" rewind="0" style=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="48" pragmaType="pipeline" parentfunction="load_dense_accoding_A" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="54" pragmaType="pipeline" parentfunction="load_dense_accoding_A" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="57" pragmaType="pipeline" parentfunction="load_dense_accoding_A" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="65" pragmaType="pipeline" parentfunction="load_dense_accoding_A" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="50" pragmaType="pipeline" parentfunction="load_dense_accoding_A" off="0" ii="1" rewind="0" style=""/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1018" pragmaType="inline" parentfunction="bool ap_int_base<31, false>::operator==<31, false>(ap_int_base<31, false> const&) const" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1633" pragmaType="inline" parentfunction="ap_int_base<31, false>::RType<($_0)32, true>::mult operator*<31, false>(ap_int_base<31, false> const&, int)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1633" pragmaType="inline" parentfunction="ap_int_base<63, true>::RType<($_0)32, true>::plus operator+<63, true>(ap_int_base<63, true> const&, int)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="541" pragmaType="inline" parentfunction="ap_int_base<64, true>::operator long long() const" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="541" pragmaType="inline" parentfunction="ap_int_base<32, false>::operator unsigned long long() const" off="0" region="0" recursive="0"/>
-<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<32, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1495" pragmaType="inline" parentfunction="ap_int_base<63, true>::RType<32, true>::plus operator+<63, true, 32, true>(ap_int_base<63, true> const&, ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="185" pragmaType="inline" parentfunction="ap_int_base<64, true>::ap_int_base<63, true>(ap_int_base<63, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="185" pragmaType="inline" parentfunction="ap_int_base<64, true>::ap_int_base<32, true>(ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<64, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int<64>::ap_int<64, true>(ap_int_base<64, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="515" pragmaType="inline" parentfunction="ssdm_int<64, true>::ssdm_int(long)" off="0" region="0" recursive="0"/>
-<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="515" pragmaType="inline" parentfunction="ssdm_int<32, true>::ssdm_int(int)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1494" pragmaType="inline" parentfunction="ap_int_base<31, false>::RType<32, true>::mult operator*<31, false, 32, true>(ap_int_base<31, false> const&, ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="185" pragmaType="inline" parentfunction="ap_int_base<63, true>::ap_int_base<31, false>(ap_int_base<31, false> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="185" pragmaType="inline" parentfunction="ap_int_base<63, true>::ap_int_base<32, true>(ap_int_base<32, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<63, true>::ap_int_base(int)" off="0" region="0" recursive="0"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="ap_int<63>::ap_int<63, true>(ap_int_base<63, true> const&)" off="0" region="0" recursive="0"/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="515" pragmaType="inline" parentfunction="_ZN8ssdm_intILi63ELb1EEC2EDq63_i" off="0" region="0" recursive="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="77" pragmaType="pipeline" parentfunction="pe_kernel" off="0" ii="1" rewind="0" style=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="79" pragmaType="inline" parentfunction="pe_kernel_0" off="1" region="0" recursive="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="81" pragmaType="pipeline" parentfunction="pe_kernel_0" off="0" ii="1" rewind="0" style=""/>
 <pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1570" pragmaType="inline" parentfunction="float operator*<32, false>(ap_int_base<32, false> const&, float)" off="0" region="0" recursive="0"/>
-<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1788" pragmaType="inline" parentfunction="bool operator==<1, false>(ap_int_base<1, false> const&, int)" off="0" region="0" recursive="0"/>
-<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1018" pragmaType="inline" parentfunction="bool ap_int_base<1, false>::operator==<32, true>(ap_int_base<32, true> const&) const" off="0" region="0" recursive="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="112" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="A" bundle="gmem0" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="113" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B" bundle="gmem1" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
-<pragma file="src/spmm_device_fpga.cpp" line="114" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="A" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="115" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="nnz" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="116" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="117" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="M" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="118" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="K" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="121" pragmaType="stream" parentfunction="spmm_hls" depth="16" type="fifo" variable="A_stream"/>
-<pragma file="src/spmm_device_fpga.cpp" line="126" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="0" mode="complete" dynamic="0" variable="buf0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="127" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="0" mode="complete" dynamic="0" variable="buf1"/>
-<pragma file="src/spmm_device_fpga.cpp" line="129" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="0" mode="complete" dynamic="0" variable="map_buf"/>
-<pragma file="src/spmm_device_fpga.cpp" line="132" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="8" mode="cyclic" dynamic="0" variable="Dense_Buf0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="133" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="8" mode="cyclic" dynamic="0" variable="Dense_Buf1"/>
-<pragma file="src/spmm_device_fpga.cpp" line="137" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="8" mode="cyclic" dynamic="0" variable="Out_Buf0"/>
-<pragma file="src/spmm_device_fpga.cpp" line="138" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="8" mode="cyclic" dynamic="0" variable="Out_Buf1"/>
+<pragma file="src/spmm_device_fpga.cpp" line="117" pragmaType="unroll" parentfunction="pe" factor="-1" skip_exit_check="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="107" pragmaType="bind_storage" parentfunction="pe" op="666" impl="22" latency="-1" variable="dense_buf"/>
+<pragma file="src/spmm_device_fpga.cpp" line="108" pragmaType="bind_storage" parentfunction="pe" op="666" impl="22" latency="-1" variable="out_buf"/>
+<pragma file="src/spmm_device_fpga.cpp" line="115" pragmaType="allocation" parentfunction="pe" type="function" limit="2" instances="pe_kernel_0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="143" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="A" bundle="gmem0" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="144" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="B" bundle="gmem1" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="145" pragmaType="interface" parentfunction="spmm_hls" mode="m_axi" port="C" bundle="gmem2" offset="slave" name="" depth="-1" num_read_outstanding="-1" num_write_outstanding="-1" max_burst_read_length="-1" max_burst_write_length="-1" latency="-1" max_widen_bitwidth="-1" channel=""/>
+<pragma file="src/spmm_device_fpga.cpp" line="146" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="A" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="147" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="C" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="148" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="nnz" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="149" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="150" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="M" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="151" pragmaType="interface" parentfunction="spmm_hls" mode="s_axilite" port="K" bundle="control" offset="-1" name="" clock="" impl="" register="0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="154" pragmaType="stream" parentfunction="spmm_hls" depth="16" type="fifo" variable="A_stream"/>
+<pragma file="src/spmm_device_fpga.cpp" line="159" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="0" mode="complete" dynamic="0" variable="buf0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="160" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="0" mode="complete" dynamic="0" variable="buf1"/>
+<pragma file="src/spmm_device_fpga.cpp" line="164" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="0" mode="complete" dynamic="0" variable="map_buf"/>
+<pragma file="src/spmm_device_fpga.cpp" line="167" pragmaType="bind_storage" parentfunction="spmm_hls" op="666" impl="22" latency="-1" variable="Dense_Buf0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="168" pragmaType="bind_storage" parentfunction="spmm_hls" op="666" impl="22" latency="-1" variable="Dense_Buf1"/>
+<pragma file="src/spmm_device_fpga.cpp" line="169" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="8" mode="cyclic" dynamic="0" variable="Dense_Buf0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="170" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="8" mode="cyclic" dynamic="0" variable="Dense_Buf1"/>
+<pragma file="src/spmm_device_fpga.cpp" line="174" pragmaType="bind_storage" parentfunction="spmm_hls" op="666" impl="22" latency="-1" variable="Out_Buf0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="175" pragmaType="bind_storage" parentfunction="spmm_hls" op="666" impl="22" latency="-1" variable="Out_Buf1"/>
+<pragma file="src/spmm_device_fpga.cpp" line="176" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="8" mode="cyclic" dynamic="0" variable="Out_Buf0"/>
+<pragma file="src/spmm_device_fpga.cpp" line="177" pragmaType="array_partition" parentfunction="spmm_hls" dim="1" factor="8" mode="cyclic" dynamic="0" variable="Out_Buf1"/>
 <pragma file="" line="0" pragmaType="inline" parentfunction="hls::stream<ap_uint<64>, 0>::stream()" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="read" off="0" region="0" recursive="0"/>
-<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="1126" pragmaType="inline" parentfunction="ap_int_base<64, false>::operator[](int)" off="0" region="0" recursive="0"/>
-<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<1>::ap_uint<64, false>(ap_bit_ref<64, false> const&)" off="0" region="0" recursive="0"/>
-<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<31, false>::ssdm_int()" off="0" region="0" recursive="0"/>
-<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="0" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int()" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="ap_uint<32>::ap_uint(int)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="214" pragmaType="inline" parentfunction="ap_int_base<32, false>::ap_int_base(int)" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_common.h" line="523" pragmaType="inline" parentfunction="ssdm_int<32, false>::ssdm_int(unsigned int)" off="0" region="0" recursive="0"/>
+<pragma file="" line="0" pragmaType="inline" parentfunction="write" off="0" region="0" recursive="0"/>
+<pragma file="/opt/xilinx/Vitis_HLS/2022.2/common/technology/autopilot/ap_int_base.h" line="0" pragmaType="inline" parentfunction="ap_int_base<32, false>::operator++()" off="0" region="0" recursive="0"/>
 </pragmas>

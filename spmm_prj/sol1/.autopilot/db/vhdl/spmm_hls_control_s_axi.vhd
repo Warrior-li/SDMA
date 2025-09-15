@@ -35,6 +35,7 @@ port (
     interrupt             :out  STD_LOGIC;
     A                     :out  STD_LOGIC_VECTOR(63 downto 0);
     nnz                   :out  STD_LOGIC_VECTOR(31 downto 0);
+    C                     :out  STD_LOGIC_VECTOR(63 downto 0);
     M                     :out  STD_LOGIC_VECTOR(31 downto 0);
     K                     :out  STD_LOGIC_VECTOR(31 downto 0);
     ap_start              :out  STD_LOGIC;
@@ -72,12 +73,17 @@ end entity spmm_hls_control_s_axi;
 -- 0x1c : Data signal of nnz
 --        bit 31~0 - nnz[31:0] (Read/Write)
 -- 0x20 : reserved
--- 0x24 : Data signal of M
+-- 0x24 : Data signal of C
+--        bit 31~0 - C[31:0] (Read/Write)
+-- 0x28 : Data signal of C
+--        bit 31~0 - C[63:32] (Read/Write)
+-- 0x2c : reserved
+-- 0x30 : Data signal of M
 --        bit 31~0 - M[31:0] (Read/Write)
--- 0x28 : reserved
--- 0x2c : Data signal of K
+-- 0x34 : reserved
+-- 0x38 : Data signal of K
 --        bit 31~0 - K[31:0] (Read/Write)
--- 0x30 : reserved
+-- 0x3c : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of spmm_hls_control_s_axi is
@@ -94,10 +100,13 @@ architecture behave of spmm_hls_control_s_axi is
     constant ADDR_A_CTRL     : INTEGER := 16#18#;
     constant ADDR_NNZ_DATA_0 : INTEGER := 16#1c#;
     constant ADDR_NNZ_CTRL   : INTEGER := 16#20#;
-    constant ADDR_M_DATA_0   : INTEGER := 16#24#;
-    constant ADDR_M_CTRL     : INTEGER := 16#28#;
-    constant ADDR_K_DATA_0   : INTEGER := 16#2c#;
-    constant ADDR_K_CTRL     : INTEGER := 16#30#;
+    constant ADDR_C_DATA_0   : INTEGER := 16#24#;
+    constant ADDR_C_DATA_1   : INTEGER := 16#28#;
+    constant ADDR_C_CTRL     : INTEGER := 16#2c#;
+    constant ADDR_M_DATA_0   : INTEGER := 16#30#;
+    constant ADDR_M_CTRL     : INTEGER := 16#34#;
+    constant ADDR_K_DATA_0   : INTEGER := 16#38#;
+    constant ADDR_K_CTRL     : INTEGER := 16#3c#;
     constant ADDR_BITS         : INTEGER := 6;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
@@ -128,6 +137,7 @@ architecture behave of spmm_hls_control_s_axi is
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_A               : UNSIGNED(63 downto 0) := (others => '0');
     signal int_nnz             : UNSIGNED(31 downto 0) := (others => '0');
+    signal int_C               : UNSIGNED(63 downto 0) := (others => '0');
     signal int_M               : UNSIGNED(31 downto 0) := (others => '0');
     signal int_K               : UNSIGNED(31 downto 0) := (others => '0');
 
@@ -264,6 +274,10 @@ begin
                         rdata_data <= RESIZE(int_A(63 downto 32), 32);
                     when ADDR_NNZ_DATA_0 =>
                         rdata_data <= RESIZE(int_nnz(31 downto 0), 32);
+                    when ADDR_C_DATA_0 =>
+                        rdata_data <= RESIZE(int_C(31 downto 0), 32);
+                    when ADDR_C_DATA_1 =>
+                        rdata_data <= RESIZE(int_C(63 downto 32), 32);
                     when ADDR_M_DATA_0 =>
                         rdata_data <= RESIZE(int_M(31 downto 0), 32);
                     when ADDR_K_DATA_0 =>
@@ -284,6 +298,7 @@ begin
     auto_restart_done    <= auto_restart_status and (ap_idle and not int_ap_idle);
     A                    <= STD_LOGIC_VECTOR(int_A);
     nnz                  <= STD_LOGIC_VECTOR(int_nnz);
+    C                    <= STD_LOGIC_VECTOR(int_C);
     M                    <= STD_LOGIC_VECTOR(int_M);
     K                    <= STD_LOGIC_VECTOR(int_K);
 
@@ -485,6 +500,28 @@ begin
             if (ACLK_EN = '1') then
                 if (w_hs = '1' and waddr = ADDR_NNZ_DATA_0) then
                     int_nnz(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_nnz(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_C_DATA_0) then
+                    int_C(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_C(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_C_DATA_1) then
+                    int_C(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_C(63 downto 32));
                 end if;
             end if;
         end if;
