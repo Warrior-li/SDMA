@@ -1,3 +1,0 @@
-/home/shuxuan/SDMA/build/CMakeFiles/spmm_demo.dir
-/home/shuxuan/SDMA/build/CMakeFiles/edit_cache.dir
-/home/shuxuan/SDMA/build/CMakeFiles/rebuild_cache.dir
