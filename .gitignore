@@ -39,3 +39,7 @@
 
 # debug information files
 *.dwo
+
+
+# AXI4 repsitory
+BlueAXI4/
