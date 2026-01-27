@@ -39,14 +39,12 @@ module mkFp32MulCore(Fp32MulCoreIfc);
   
   let master_sig <- toAXI4_Master_Sig(axi4_shim_in.master);
   Reg#(Bit#(HBM_ADDR_WIDTH)) rd_base   <- mkReg(0);
-  Reg#(Bit#(HBM_ADDR_WIDTH)) rd_addr   <- mkReg(0);
   Reg#(UInt#(32))            rd_left   <- mkReg(600);   // 还剩多少个 beat 要读（按 HBM_DATA_WIDTH=256bit 计）
   Reg#(UInt#(32))            n <- mkReg(600);
 
     // 创建读请求
   rule create_and_issue_ar(rd_left > 0);
     UInt#(32) beats = (rd_left > 256) ? 256 : rd_left;
-    $display(rd_left);
     rd_left <= rd_left - beats;
 
     AXI4_Len burst_len = truncate(pack(beats - 1)); // len = beats - 1UInt#(32) beats = (rd_left > 256) ? 256 : rd_left;
@@ -85,7 +83,7 @@ module mkFp32MulCore(Fp32MulCoreIfc);
     rf256.upd(read_count, out256);
 
     $display("-----");
-    read_count <= read_count + 1;
+    read_count <= read_count + 8;
   endrule : read_data
 
   AXI4_Shim#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) 
@@ -93,10 +91,50 @@ module mkFp32MulCore(Fp32MulCoreIfc);
 
   let master_sig_out <- toAXI4_Master_Sig(axi4_shim_out.master);
   let slave_out = axi4_shim_out.slave;
-  
-  rule RuleName(Cond);
-    
+
+  Reg#(Bit#(HBM_ADDR_WIDTH)) wr_base <- mkReg(0);   // 你要写回的 base addr（字节地址）
+  Reg#(Bit#(HBM_ADDR_WIDTH)) wr_addr <- mkReg(0);
+  Reg#(UInt#(32)) w_left <- mkReg(0);
+  FIFO#(UInt#(32)) w_left_fifo <- mkFIFO;
+
+
+  rule issue_aw (read_count > n && w_left < n);
+    let aw = AXI4_AWFlit {
+      awid: 0,
+      awaddr: wr_addr,
+      awlen: 0,       
+      awsize: 32, 
+      awburst: INCR,
+      awlock: ?,
+      awcache: 0,
+      awprot: 0,
+      awqos: 0,
+      awregion: 0,
+      awuser: 0
+    };
+
+    slave_out.aw.put(aw);
+    w_left_fifo.enq(w_left);
+    w_left <= w_left + 8;
+    wr_addr <= wr_addr + 32;
   endrule
+
+  rule issue_w;
+    let idx = w_left_fifo.first;
+    w_left_fifo.deq;
+    let w = AXI4_WFlit {
+      wdata: rf256.sub(idx),
+      wstrb: '1,     // 32B 全有效
+      wlast: True,
+      wuser: 0
+    };
+
+    slave_out.w.put(w);
+
+    $display("+++++");
+  endrule
+
+
 
   interface mem_out = master_sig_out;  // 对外的 Master Sig 接口
   interface mem_in = master_sig;        // 对外的 Master Sig 接口
