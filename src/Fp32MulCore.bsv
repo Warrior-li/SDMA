@@ -12,6 +12,11 @@ import BlueBasics :: *;
 import Connectable :: *;
 import Vector :: *;
 import RegFile :: *;
+import BRAM::*;
+import Config :: *;
+import DataFetch :: *;
+import BRAMFetch :: *;
+import ProcessUnit :: *;
 
 
 // 32-bit IEEE754: exp=8, sfd=23
@@ -22,69 +27,23 @@ typedef 28 HBM_ADDR_WIDTH;
 typedef 256 HBM_DATA_WIDTH;
 
 interface Fp32MulCoreIfc;
-  // 对外的硬件信号接口（AXI4 Master - 用于读内存）
-  // 这个接口可以直接与 Xilinx Smart Connect 的 Master 端口连接
-  interface AXI4_Master_Sig#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) mem_in;
+  interface AXI4_Master_Sig#(0, 32, 64, 0, 0, 0, 0, 0) sparse_in;
   interface AXI4_Master_Sig#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) mem_out;
 endinterface
 
 (* synthesize *)
 module mkFp32MulCore(Fp32MulCoreIfc);
-  
-  // 数据访问 Master Xactor（高级接口 - 内部使用）
-  AXI4_Shim#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) 
-    axi4_shim_in <- mkAXI4Shim;
 
-  let slave = axi4_shim_in.slave;
-  
-  let master_sig <- toAXI4_Master_Sig(axi4_shim_in.master);
-  Reg#(Bit#(HBM_ADDR_WIDTH)) rd_base   <- mkReg(0);
-  Reg#(UInt#(32))            rd_left   <- mkReg(600);   // 还剩多少个 beat 要读（按 HBM_DATA_WIDTH=256bit 计）
-  Reg#(UInt#(32))            n <- mkReg(600);
-
-    // 创建读请求
-  rule create_and_issue_ar(rd_left > 0);
-    UInt#(32) beats = (rd_left > 256) ? 256 : rd_left;
-    rd_left <= rd_left - beats;
-
-    AXI4_Len burst_len = truncate(pack(beats - 1)); // len = beats - 1UInt#(32) beats = (rd_left > 256) ? 256 : rd_left;
-
-    let arflit = AXI4_ARFlit {
-      arid: 0,
-      araddr: rd_base,
-      arlen: burst_len,  // len = beats - 1
-      arsize: 32,
-      arburst: INCR,
-      arlock: ?,
-      arcache: 0,  // non-bufferable
-      arprot: 0,
-      arqos: 0,
-      arregion: 0,
-      aruser: 0
-    };
-
-    slave.ar.put(arflit);
-    
-  endrule
-
-  Reg#(UInt#(32)) read_count <- mkReg(0);
-  RegFile#(UInt#(32), Bit#(256)) rf256 <- mkRegFileFull;
-
-  rule read_data;
-    let r <- get(slave.r);
-    Vector#(8, Bit#(32)) w32 = unpack(r.rdata);
-
-    Vector#(8, Bit#(32)) w32p1 = newVector;
-    for(Integer i = 0; i < 8; i = i + 1) begin
-      w32p1[i] = w32[i] + 1;
-    end
-
-    Bit#(256) out256 = pack(w32p1);
-    rf256.upd(read_count, out256);
-
-    $display("-----");
-    read_count <= read_count + 8;
-  endrule : read_data
+  Vector#(TileLen, Reg#(Edge)) buf0 <- replicateM(mkRegU);
+  Vector#(TileLen, Reg#(Edge)) buf1 <- replicateM(mkRegU);
+  FIFO#(Tuple2#(BufSel, UInt#(4))) chD2B <- mkFIFO;
+  Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf0 <- replicateM(mkBRAM1Server(defaultValue));
+  Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf1 <- replicateM(mkBRAM1Server(defaultValue));
+  Reg#(UInt#(32)) row_len <- mkReg(143);
+  Vector#(FMALen, FIFO#(Tuple3#(Bit#(32),Bit#(32),UInt#(32)))) vec_workflow <- replicateM(mkFIFO);
+  DF df <- mkDF(buf0, buf1, chD2B);
+  BF bf <- mkBF(ramBuf0, ramBuf1, buf0, buf1, row_len, chD2B);
+  PU pu <- mkPU;
 
   AXI4_Shim#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) 
     axi4_shim_out <- mkAXI4Shim;
@@ -92,52 +51,8 @@ module mkFp32MulCore(Fp32MulCoreIfc);
   let master_sig_out <- toAXI4_Master_Sig(axi4_shim_out.master);
   let slave_out = axi4_shim_out.slave;
 
-  Reg#(Bit#(HBM_ADDR_WIDTH)) wr_base <- mkReg(0);   // 你要写回的 base addr（字节地址）
-  Reg#(Bit#(HBM_ADDR_WIDTH)) wr_addr <- mkReg(0);
-  Reg#(UInt#(32)) w_left <- mkReg(0);
-  FIFO#(UInt#(32)) w_left_fifo <- mkFIFO;
-
-
-  rule issue_aw (read_count > n && w_left < n);
-    let aw = AXI4_AWFlit {
-      awid: 0,
-      awaddr: wr_addr,
-      awlen: 0,       
-      awsize: 32, 
-      awburst: INCR,
-      awlock: ?,
-      awcache: 0,
-      awprot: 0,
-      awqos: 0,
-      awregion: 0,
-      awuser: 0
-    };
-
-    slave_out.aw.put(aw);
-    w_left_fifo.enq(w_left);
-    w_left <= w_left + 8;
-    wr_addr <= wr_addr + 32;
-  endrule
-
-  rule issue_w;
-    let idx = w_left_fifo.first;
-    w_left_fifo.deq;
-    let w = AXI4_WFlit {
-      wdata: rf256.sub(idx),
-      wstrb: '1,     // 32B 全有效
-      wlast: True,
-      wuser: 0
-    };
-
-    slave_out.w.put(w);
-
-    $display("+++++");
-  endrule
-
-
-
   interface mem_out = master_sig_out;  // 对外的 Master Sig 接口
-  interface mem_in = master_sig;        // 对外的 Master Sig 接口
+  interface sparse_in = df.axiMaster;        // 对外的 Master Sig 接口
 
 endmodule
 
@@ -147,8 +62,8 @@ endmodule
 module mkFp32MulCoreTestbench(Empty);
   
   // 创建 HBM 模拟内存
-  AXI4_Slave#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) 
-    hbm_mem_in <- mkAXI4Mem(4096, UnInit);
+  AXI4_Slave#(0, 32, 64, 0, 0, 0, 0, 0) 
+    hbm_mem_in <- mkAXI4Mem(262144, FilePath("data/cora.hex"));
 
   AXI4_Slave#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) 
     hbm_mem_out <- mkAXI4Mem(4096, UnInit);
@@ -156,8 +71,8 @@ module mkFp32MulCoreTestbench(Empty);
   // 创建你的核心
   Fp32MulCoreIfc core <- mkFp32MulCore;
 
-  AXI4_Master#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0,0,0,0,0)
-    core_m_in <- fromAXI4_Master_Sig(core.mem_in);
+  AXI4_Master#(0, 32, 64, 0,0,0,0,0)
+    core_m_in <- fromAXI4_Master_Sig(core.sparse_in);
   
   AXI4_Master#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0,0,0,0,0)
     core_m_out <- fromAXI4_Master_Sig(core.mem_out);

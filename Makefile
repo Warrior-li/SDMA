@@ -3,7 +3,7 @@ BSC = bsc
 BlueStuff= ./BlueStuff
 include $(BlueStuff)/bluestuff.inc.mk
 
-BSVPATH = +:$(BLUESTUFF_DIRS)
+BSVPATH = +:$(BLUESTUFF_DIRS):src
 
 BUILDDIR = build
 BDIR = $(BUILDDIR)/bdir
