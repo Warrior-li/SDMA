@@ -9,9 +9,9 @@ import Vector::*;
 import BRAM::*;
 
 interface GetRow;
-    interface AXI4_Master#(0,32,32,0,0,0,0,0) axiMaster;
+    interface AXI4_Master_Sig#(0,32,256,0,0,0,0,0) axiMaster;
     // 读回来的 512-bit 数据流
-    interface Get#(Bit#(32)) out;
+    interface Get#(Bit#(256)) out;
     // 行号 长度
     interface Put#(Tuple2#(UInt#(32), UInt#(32))) req;
 endinterface
@@ -19,10 +19,8 @@ endinterface
 module mkGetRow(GetRow);
 
     FIFO#(Tuple2#(UInt#(32), UInt#(32))) req_pipeline <- mkFIFO;
-    FIFO#(AXI4_ARFlit#(0,32,0)) arQ <- mkFIFO;
-    FIFO#(Bit#(32)) out_pipeline <- mkFIFO;
-
-    AXI4_Shim#(0,32,32,0,0,0,0,0) shim <- mkAXI4Shim;
+    FIFO#(Bit#(256)) out_pipeline <- mkFIFO;
+    AXI4_Shim#(0,32,256,0,0,0,0,0) shim <- mkAXI4Shim;
     let slave = shim.slave;
 
     Reg#(Bool) runFlag <- mkReg(False);
@@ -34,7 +32,7 @@ module mkGetRow(GetRow);
         match {.row, .len} = req_pipeline.first;
         req_pipeline.deq;
         currAddr <= pack(row * len) << 2;
-        the_rest_len <= len;
+        the_rest_len <= len >> 3; // 每次读256bit = 8个32bit
     endrule
 
     rule sendAR(the_rest_len != 0);
@@ -46,7 +44,7 @@ module mkGetRow(GetRow);
         ar.araddr  = currAddr;          // 当前起始地址
         ar.arid    = 0;
         ar.arlen   = truncate(the_burst);
-        ar.arsize  = toAXI4_Size(4).Valid;
+        ar.arsize  = toAXI4_Size(32).Valid; // 每 beat = 64 字节（512bit）
         ar.arburst = INCR;
         ar.arlock  = ?;
         ar.arcache = 0;
@@ -57,7 +55,7 @@ module mkGetRow(GetRow);
 
         slave.ar.put(ar);
 
-        currAddr <= currAddr + (256 << 6);
+        currAddr <= currAddr + (256 << 5);
 
     endrule
 
@@ -67,17 +65,19 @@ module mkGetRow(GetRow);
         out_pipeline.enq(rflit.rdata);
     endrule
 
+    let master_sig_out <- toAXI4_Master_Sig(shim.master);
+
     interface req = toPut(req_pipeline);
     interface out = toGet(out_pipeline);
-    interface axiMaster = shim.master;
+    interface axiMaster = master_sig_out;
 endmodule : mkGetRow
 
 interface BF;
-    interface AXI4_Master#(0,32,32,0,0,0,0,0) axiMaster;
+    interface AXI4_Master_Sig#(0,32,256,0,0,0,0,0) axiMaster;
 endinterface
 
-module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf0
-            , Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf1
+module mkBF #(Vector#(BRAMLen, BRAM1Port#(UInt(10), Bit#(32))) ramBuf0
+            , Vector#(BRAMLen, BRAM1Port#(UInt(10), Bit#(32))) ramBuf1
             , Vector#(TileLen, Reg#(Edge)) buf0
             , Vector#(TileLen, Reg#(Edge)) buf1
             , Reg#(UInt#(32)) row_len
@@ -100,7 +100,6 @@ module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32)))
             getRow.req.put(tuple2(zeroExtend(data.data.col),row_len)); 
         end
         work_index <= index;
-        $display("-----------------");
     endrule
 
 
@@ -110,18 +109,12 @@ module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32)))
         let ram = bufType == BUF0 ? ramBuf0 : ramBuf1;
         let data = tmp_buf[index];
         let dense <- getRow.out.get;
-        let dense_index = row_len - the_rest_len;
-        // out 片外偏移量 in 片内偏移量
-        let out_ram_offset = dense_index % fromInteger(valueOf(BRAMLen));
-        let in_ram_offset =  dense_index / fromInteger(valueOf(BRAMLen));
-        ram[out_ram_offset].portA.request.put(
-            BRAMRequest {
-                write: True,
-                responseOnWrite: False,
-                address: tuple2(data.idx, truncate(in_ram_offset)),
-                datain: dense
-            }
-        );
+        $display("BF recv data: ", fshow(dense), " index: ", fshow(work_index), " len: ", fshow(the_rest_len));
+        for(Integer i = 0; i < valueOf(TileLen); i = i + 1) begin
+            Bit#(32) val = dense >> (i * 32);
+            UInt#(4) bram_addr = row_len - the_rest_len + i;
+            ram[bram_addr].write(tuple2(zeroExtend(data.data.col), toUInt(i)), val);
+        end
         if(the_rest_len - 1 == 0) start_fifo.deq;
         the_rest_len <= the_rest_len - 1;
     endrule

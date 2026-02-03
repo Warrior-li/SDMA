@@ -17,6 +17,6 @@ typedef enum { BUF0, BUF1 } BufSel deriving (Bits, Eq, FShow);
 typedef enum { BFree, BFilling, BReady, BComputing } BufState deriving (Bits, Eq);
 
 typedef 16 TileLen;
-typedef 10 BRAMLen;
+typedef 8 BRAMLen;
 typedef 10 FMALen;
 endpackage : Config

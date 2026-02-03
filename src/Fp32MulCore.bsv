@@ -28,6 +28,7 @@ typedef 256 HBM_DATA_WIDTH;
 
 interface Fp32MulCoreIfc;
   interface AXI4_Master_Sig#(0, 32, 64, 0, 0, 0, 0, 0) sparse_in;
+  interface AXI4_Master_Sig#(0, 32, 256, 0, 0, 0, 0, 0) dense_in;
   interface AXI4_Master_Sig#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) mem_out;
 endinterface
 
@@ -37,13 +38,20 @@ module mkFp32MulCore(Fp32MulCoreIfc);
   Vector#(TileLen, Reg#(Edge)) buf0 <- replicateM(mkRegU);
   Vector#(TileLen, Reg#(Edge)) buf1 <- replicateM(mkRegU);
   FIFO#(Tuple2#(BufSel, UInt#(4))) chD2B <- mkFIFO;
-  Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf0 <- replicateM(mkBRAM1Server(defaultValue));
-  Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf1 <- replicateM(mkBRAM1Server(defaultValue));
+  Vector#(BRAMLen, BRAM1Port#(UInt(10), Bit#(32))) ramBuf0 <- replicateM(mkBRAM1Server(defaultValue));
+  Vector#(BRAMLen, BRAM1Port#(UInt(10), Bit#(32))) ramBuf1 <- replicateM(mkBRAM1Server(defaultValue));
   Reg#(UInt#(32)) row_len <- mkReg(143);
   Vector#(FMALen, FIFO#(Tuple3#(Bit#(32),Bit#(32),UInt#(32)))) vec_workflow <- replicateM(mkFIFO);
   DF df <- mkDF(buf0, buf1, chD2B);
   BF bf <- mkBF(ramBuf0, ramBuf1, buf0, buf1, row_len, chD2B);
   PU pu <- mkPU;
+
+  Reg#(UInt#(32)) test_df_start_idx <- mkReg(0);
+
+  rule start(test_df_start_idx < 30);
+      df.start.put(tuple2(test_df_start_idx%2 == 1?BUF0:BUF1, fromInteger(valueOf(TileLen) - 1)));
+      test_df_start_idx <= test_df_start_idx + 1;
+  endrule
 
   AXI4_Shim#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) 
     axi4_shim_out <- mkAXI4Shim;
@@ -53,6 +61,7 @@ module mkFp32MulCore(Fp32MulCoreIfc);
 
   interface mem_out = master_sig_out;  // 对外的 Master Sig 接口
   interface sparse_in = df.axiMaster;        // 对外的 Master Sig 接口
+  interface dense_in = bf.axiMaster;         // 对外的 Master Sig 接口
 
 endmodule
 
@@ -65,6 +74,12 @@ module mkFp32MulCoreTestbench(Empty);
   AXI4_Slave#(0, 32, 64, 0, 0, 0, 0, 0) 
     hbm_mem_in <- mkAXI4Mem(262144, FilePath("data/cora.hex"));
 
+  
+  // 创建 HBM 模拟内存
+  AXI4_Slave#(0, 32, 256, 0, 0, 0, 0, 0) 
+    hbm_mem_in_dense <- mkAXI4Mem(262144, FilePath("data/dense.hex"));
+
+
   AXI4_Slave#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0, 0, 0, 0, 0) 
     hbm_mem_out <- mkAXI4Mem(4096, UnInit);
   
@@ -74,11 +89,16 @@ module mkFp32MulCoreTestbench(Empty);
   AXI4_Master#(0, 32, 64, 0,0,0,0,0)
     core_m_in <- fromAXI4_Master_Sig(core.sparse_in);
   
+  
+  AXI4_Master#(0, 32, 256, 0,0,0,0,0)
+    core_m_dense_in <- fromAXI4_Master_Sig(core.dense_in);
+  
   AXI4_Master#(HBM_ID_WIDTH, HBM_ADDR_WIDTH, HBM_DATA_WIDTH, 0,0,0,0,0)
     core_m_out <- fromAXI4_Master_Sig(core.mem_out);
 
   // 将 core 的信号接口连到 HBM
   mkConnection(core_m_in, hbm_mem_in);
+  mkConnection(core_m_dense_in, hbm_mem_in_dense);
   mkConnection(core_m_out, hbm_mem_out);
 
   

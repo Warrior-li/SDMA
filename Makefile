@@ -28,7 +28,7 @@ $(SIMDIR):
 $(VDIR):
 	mkdir -p $(BDIR) $(VDIR)
 
-$(SIMDIR)/Fp32MulCoreSim: src/Fp32MulCore.bsv $(SIMDIR) $(SIMDIR)/MemSim.o
+$(SIMDIR)/Fp32MulCoreSim: src/*.bsv $(SIMDIR) $(SIMDIR)/MemSim.o
 	$(BSC) $(BSCFLAGS) -check-assert -sim -g mkFp32MulCoreTestbench -u src/Fp32MulCore.bsv
 	$(BSC) $(BSCFLAGS) -check-assert -sim -e mkFp32MulCoreTestbench -Xl $(SIMDIR)/MemSim.o -o $@
 

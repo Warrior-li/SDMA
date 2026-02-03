@@ -6,6 +6,7 @@ import BlueAXI4::*;
 import SourceSink::*;
 import GetPut::*;
 import Vector::*;
+import FIFOF::*;
 import FIFO::*;
 
 typedef enum {SendAR, RecvR} GTState deriving (Bits, Eq);
@@ -48,7 +49,6 @@ module mkGetTile(GetTile);
     rule recvR;
         let rflit <- get(slave.r);  // Source，用 get
         // 把每个 beat 的数据丢进输出 FIFO
-        $display("GetTile recv data: ", fshow(rflit.rdata));
         outbuf.enq(rflit.rdata);
     endrule
 
@@ -70,25 +70,29 @@ module mkDF#( Vector#(TileLen, Reg#(Edge)) buf0
             , FIFO#(Tuple2#(BufSel, UInt#(4))) out_fifo
             )(DF);
 
-    FIFO#(Tuple2#(BufSel, UInt#(4))) task_pipeline <- mkFIFO;
+    FIFOF#(Tuple2#(BufSel, UInt#(4))) task_pipeline <- mkFIFOF;
 
-    Vector#(TileLen, FIFO#(Tuple3#(Edge, UInt#(4), BufSel))) vecJudge_pipe <- replicateM(mkFIFO);
+    Vector#(TileLen, FIFOF#(Tuple3#(Edge, UInt#(4), BufSel))) vecJudge_pipe <- replicateM(mkFIFOF);
 
     GetTile getTile <- mkGetTile;
 
     Reg#(UInt#(4)) tile_offset <- mkReg(0);
 
+
+
     rule consume_data;
         // buf0/buf1 需要多长len-1
         match {.sign, .len} = task_pipeline.first;
         let d <- get(getTile.out);
-        $display("DF recv data: ", fshow(d), " offset: ", fshow(tile_offset));
+        $display("DF recv data: ", fshow(d), " offset: ", fshow(tile_offset), " len: ", fshow(len), " bufType: ", fshow(sign));
         Edge e = Edge {
             data: unpack(d),
             idx: tile_offset
         };
         let tmp_buf = sign == BUF0 ? buf0 : buf1;
-        tmp_buf[0] <= e;
+        if(tile_offset == 0) begin
+            tmp_buf[0] <= e;
+        end
         vecJudge_pipe[0].enq(tuple3(e, tile_offset, sign));
         if(len == tile_offset) begin
             tile_offset <= 0;
@@ -107,13 +111,18 @@ module mkDF#( Vector#(TileLen, Reg#(Edge)) buf0
                 data.idx = tmp_buf[i].idx;
             end
             if(idx == fromInteger(i + 1)) begin
-                tmp_buf[idx] <= data;
-                // out_fifo.enq(tuple2(bufType, idx));
-                // $display(fshow(bufType),fshow(data));
+                tmp_buf[i + 1] <= data;
             end
             vecJudge_pipe[i + 1].enq(tuple3(data, idx, bufType));
         endrule
     end
+
+    rule final_pipeline_stage;
+        match {.data, .idx, .bufType} = vecJudge_pipe[valueOf(TileLen) - 1].first;
+        vecJudge_pipe[valueOf(TileLen) - 1].deq;
+        let tmp_buf = bufType == BUF0 ? buf0 : buf1;
+        out_fifo.enq(tuple2(bufType, idx));
+    endrule : final_pipeline_stage
 
 
 
