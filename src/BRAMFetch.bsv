@@ -115,7 +115,6 @@ module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
 
     rule read_axi4_data_buf0(the_rest_len > 0 && read_bufType == BUF0);
         match {.bufType, .index} = start_fifo.first;
-        // $display("BF read data for buf: ", fshow(bufType), " index: ", fshow(index), " the_rest_len: ", fshow(the_rest_len), " bram_offset: ", fshow(bram_offset));
         let tmp_buf = buf0;
         let ram = ramBuf0;
         let data = tmp_buf[index];
@@ -145,7 +144,6 @@ module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
 
     rule read_axi4_data_buf1(the_rest_len > 0 && read_bufType == BUF1);
         match {.bufType, .index} = start_fifo.first;
-        // $display("BF read data for buf: ", fshow(bufType), " index: ", fshow(index), " the_rest_len: ", fshow(the_rest_len), " bram_offset: ", fshow(bram_offset));
         let tmp_buf = buf1;
         let ram = ramBuf1;
         let data = tmp_buf[index];

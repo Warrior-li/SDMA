@@ -90,6 +90,8 @@ module mkPU #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
     Tuple2#(FP32, Exception)
     )) vecFMA <- replicateM(mkFloatingPointFusedMultiplyAccumulate);
 
+    // Vector#(FMALen, FIFO#()) dataA_vec <- mkRegU;
+
     function ActionValue#(Vector#(FMALen, Bit#(32)))
         read_data(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))) ram);
 
@@ -106,14 +108,36 @@ module mkPU #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
 
     endfunction
 
+    Vector#(ResultLen, Reg#(Bit#(32))) result_vec <- replicateM(mkReg(0));
+
+    function Action send_fma_req(Vector#(FMALen, Bit#(32)) data_vec, FP32 b, FP32 c);
+        return action
+            for(Integer i = 0; i < valueOf(FMALen); i = i + 1) begin
+                FP32 a = unpack(data_vec[i]);
+                vecFMA[i].request.put(tuple4(tagged Valid a, b, c, Rnd_Nearest_Even));
+            end
+        endaction;
+    endfunction
+
     rule read_data_buf0(rest_count > 0 && read_count < row_len);
         let data_vec <- read_data(ramBuf0);
         $display("PU read data_vec: ", fshow(data_vec));
     endrule
 
-    rule read_data_buf1(rest_count > 0 && read_count < row_len);
+    rule read_data_buf1(rest_count > 0);
+        match {.buf_signal, .task_idx} = task_list.first;
         let data_vec <- read_data(ramBuf1);
         $display("PU read data_vec: ", fshow(data_vec));
+        FP32 b = unpack(buf1[task_idx].data.value);
+        FP32 c = unp
+        send_fma_req(data_vec, b, 0.0);
+    endrule
+
+    rule do_recv;
+        for(Integer i = 0; i < valueOf(FMALen); i = i + 1) begin
+            match {.result, .exc} <- vecFMA[i].response.get;
+            $display("PU FMA result: ", fshow(result), " exc: ", fshow(exc));
+        end
     endrule
     
 endmodule : mkPU
