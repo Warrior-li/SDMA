@@ -18,5 +18,5 @@ typedef enum { BFree, BFilling, BReady, BComputing } BufState deriving (Bits, Eq
 
 typedef 16 TileLen;
 typedef 8 BRAMLen;
-typedef 10 FMALen;
+typedef 8 FMALen;
 endpackage : Config

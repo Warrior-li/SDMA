@@ -1,0 +1,1866 @@
+=== Generated schedule for mkFp32MulCoreTestbench ===
+
+Rule schedule
+-------------
+Rule: hbm_mem_in_mem_mem_mem_do_alloc
+Predicate: hbm_mem_in_mem_mem_mem_isAllocated.RDY_write &&
+	   (! hbm_mem_in_mem_mem_mem_isAllocated.read)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_mem_mem_mem_do_init
+Predicate: hbm_mem_in_mem_mem_mem_isAllocated.read &&
+	   (! hbm_mem_in_mem_mem_mem_isInitialized)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_ifc_writeReq
+Predicate: hbm_mem_in_ifc_shim_shim_shim_wff_rv.port1__read[73] &&
+	   hbm_mem_in_ifc_shim_shim_shim_awff_rv.port1__read[61] &&
+	   hbm_mem_in_mem_mem_mem_isInitialized &&
+	   (! hbm_mem_in_mem_mem_mem_rsp_0_rv.port1__read[66]) &&
+	   hbm_mem_in_ifc_writeFF.i_notFull
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_ifc_writeRsp
+Predicate: hbm_mem_in_ifc_writeFF.i_notEmpty &&
+	   (! hbm_mem_in_ifc_shim_shim_shim_bff_rv.port0__read[2])
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_ifc_drainInternalWriteRsp
+Predicate: hbm_mem_in_mem_mem_mem_rsp_0_rv.port0__read[66] &&
+	   hbm_mem_in_mem_mem_mem_isInitialized &&
+	   (hbm_mem_in_mem_mem_mem_rsp_0_rv.port0__read[65:64] == 2'd1)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_ifc_readReq
+Predicate: hbm_mem_in_ifc_shim_shim_shim_arff_rv.port1__read[61] &&
+	   hbm_mem_in_mem_mem_mem_isInitialized &&
+	   (! hbm_mem_in_mem_mem_mem_rsp_1_rv.port1__read[66]) &&
+	   hbm_mem_in_ifc_readFF.i_notFull
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_ifc_readRsp
+Predicate: hbm_mem_in_mem_mem_mem_rsp_1_rv.port0__read[66] &&
+	   hbm_mem_in_mem_mem_mem_isInitialized &&
+	   hbm_mem_in_ifc_readFF.i_notEmpty &&
+	   (! hbm_mem_in_ifc_shim_shim_shim_rff_rv.port0__read[67]) &&
+	   (hbm_mem_in_mem_mem_mem_rsp_1_rv.port0__read[65:64] == 2'd0)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_dense_mem_mem_mem_do_alloc
+Predicate: hbm_mem_in_dense_mem_mem_mem_isAllocated.RDY_write &&
+	   (! hbm_mem_in_dense_mem_mem_mem_isAllocated.read)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_dense_mem_mem_mem_do_init
+Predicate: hbm_mem_in_dense_mem_mem_mem_isAllocated.read &&
+	   (! hbm_mem_in_dense_mem_mem_mem_isInitialized)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_dense_ifc_writeReq
+Predicate: hbm_mem_in_dense_ifc_shim_shim_shim_wff_rv.port1__read[289] &&
+	   hbm_mem_in_dense_ifc_shim_shim_shim_awff_rv.port1__read[61] &&
+	   hbm_mem_in_dense_mem_mem_mem_isInitialized &&
+	   (! hbm_mem_in_dense_mem_mem_mem_rsp_0_rv.port1__read[258]) &&
+	   hbm_mem_in_dense_ifc_writeFF.i_notFull
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_dense_ifc_writeRsp
+Predicate: hbm_mem_in_dense_ifc_writeFF.i_notEmpty &&
+	   (! hbm_mem_in_dense_ifc_shim_shim_shim_bff_rv.port0__read[2])
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_dense_ifc_drainInternalWriteRsp
+Predicate: hbm_mem_in_dense_mem_mem_mem_rsp_0_rv.port0__read[258] &&
+	   hbm_mem_in_dense_mem_mem_mem_isInitialized &&
+	   (hbm_mem_in_dense_mem_mem_mem_rsp_0_rv.port0__read[257:256] ==
+	    2'd1)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_dense_ifc_readReq
+Predicate: hbm_mem_in_dense_ifc_shim_shim_shim_arff_rv.port1__read[61] &&
+	   hbm_mem_in_dense_mem_mem_mem_isInitialized &&
+	   (! hbm_mem_in_dense_mem_mem_mem_rsp_1_rv.port1__read[258]) &&
+	   hbm_mem_in_dense_ifc_readFF.i_notFull
+Blocking rules: (none)
+ 
+Rule: hbm_mem_in_dense_ifc_readRsp
+Predicate: hbm_mem_in_dense_mem_mem_mem_rsp_1_rv.port0__read[258] &&
+	   hbm_mem_in_dense_mem_mem_mem_isInitialized &&
+	   hbm_mem_in_dense_ifc_readFF.i_notEmpty &&
+	   (! hbm_mem_in_dense_ifc_shim_shim_shim_rff_rv.port0__read[259]) &&
+	   (hbm_mem_in_dense_mem_mem_mem_rsp_1_rv.port0__read[257:256] ==
+	    2'd0)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_out_mem_mem_mem_do_alloc
+Predicate: hbm_mem_out_mem_mem_mem_isAllocated.RDY_write &&
+	   (! hbm_mem_out_mem_mem_mem_isAllocated.read)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_out_mem_mem_mem_do_init
+Predicate: hbm_mem_out_mem_mem_mem_isAllocated.read &&
+	   (! hbm_mem_out_mem_mem_mem_isInitialized)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_out_ifc_writeReq
+Predicate: hbm_mem_out_ifc_shim_shim_shim_wff_rv.port1__read[289] &&
+	   hbm_mem_out_ifc_shim_shim_shim_awff_rv.port1__read[61] &&
+	   hbm_mem_out_mem_mem_mem_isInitialized &&
+	   (! hbm_mem_out_mem_mem_mem_rsp_0_rv.port1__read[258]) &&
+	   hbm_mem_out_ifc_writeFF.i_notFull
+Blocking rules: (none)
+ 
+Rule: hbm_mem_out_ifc_writeRsp
+Predicate: hbm_mem_out_ifc_writeFF.i_notEmpty &&
+	   (! hbm_mem_out_ifc_shim_shim_shim_bff_rv.port0__read[6])
+Blocking rules: (none)
+ 
+Rule: hbm_mem_out_ifc_drainInternalWriteRsp
+Predicate: hbm_mem_out_mem_mem_mem_rsp_0_rv.port0__read[258] &&
+	   hbm_mem_out_mem_mem_mem_isInitialized &&
+	   (hbm_mem_out_mem_mem_mem_rsp_0_rv.port0__read[257:256] == 2'd1)
+Blocking rules: (none)
+ 
+Rule: hbm_mem_out_ifc_readReq
+Predicate: hbm_mem_out_ifc_shim_shim_shim_arff_rv.port1__read[61] &&
+	   hbm_mem_out_mem_mem_mem_isInitialized &&
+	   (! hbm_mem_out_mem_mem_mem_rsp_1_rv.port1__read[258]) &&
+	   hbm_mem_out_ifc_readFF.i_notFull
+Blocking rules: (none)
+ 
+Rule: hbm_mem_out_ifc_readRsp
+Predicate: hbm_mem_out_mem_mem_mem_rsp_1_rv.port0__read[258] &&
+	   hbm_mem_out_mem_mem_mem_isInitialized &&
+	   hbm_mem_out_ifc_readFF.i_notEmpty &&
+	   (! hbm_mem_out_ifc_shim_shim_shim_rff_rv.port0__read[263]) &&
+	   (hbm_mem_out_mem_mem_mem_rsp_1_rv.port0__read[257:256] == 2'd0)
+Blocking rules: (none)
+ 
+Rule: core_m_in_awNoSig_buffer_enqueue
+Predicate: core_m_in_awNoSig_buffer_enqw.whas &&
+	   ((! core_m_in_awNoSig_buffer_dequeueing.whas) ||
+	    core_m_in_awNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_in_awNoSig_buffer_dequeue
+Predicate: core_m_in_awNoSig_buffer_dequeueing.whas &&
+	   core_m_in_awNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_in_awNoSig_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_awNoSig_snk_warnDoPut
+Predicate: core_m_in_awNoSig_snk_putWire.whas &&
+	   ((! core_m_in_awNoSig_snk_canPutWire.whas) ||
+	    (! core_m_in_awNoSig_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_in_awNoSig_snk_doPut
+Predicate: core_m_in_awNoSig_buffer_ff.i_notFull &&
+	   core_m_in_awNoSig_snk_putWire.whas &&
+	   core_m_in_awNoSig_snk_canPutWire.whas &&
+	   core_m_in_awNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_in_awNoSig_snk_warnInconsistent
+Predicate: core_m_in_awNoSig_snk_putWire.whas &&
+	   (! core_m_in_awNoSig_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_in_awNoSig_forwardFlit
+Predicate: core.sparse_in_aw_awvalid &&
+	   core_m_in_awNoSig_snk_canPutWire.whas &&
+	   core_m_in_awNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_in_awNoSig_forwardReady
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_wNoSig_buffer_enqueue
+Predicate: core_m_in_wNoSig_buffer_enqw.whas &&
+	   ((! core_m_in_wNoSig_buffer_dequeueing.whas) ||
+	    core_m_in_wNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_in_wNoSig_buffer_dequeue
+Predicate: core_m_in_wNoSig_buffer_dequeueing.whas &&
+	   core_m_in_wNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_in_wNoSig_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_wNoSig_snk_warnDoPut
+Predicate: core_m_in_wNoSig_snk_putWire.whas &&
+	   ((! core_m_in_wNoSig_snk_canPutWire.whas) ||
+	    (! core_m_in_wNoSig_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_in_wNoSig_snk_doPut
+Predicate: core_m_in_wNoSig_buffer_ff.i_notFull &&
+	   core_m_in_wNoSig_snk_putWire.whas &&
+	   core_m_in_wNoSig_snk_canPutWire.whas &&
+	   core_m_in_wNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_in_wNoSig_snk_warnInconsistent
+Predicate: core_m_in_wNoSig_snk_putWire.whas &&
+	   (! core_m_in_wNoSig_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_in_wNoSig_forwardFlit
+Predicate: core.sparse_in_w_wvalid &&
+	   core_m_in_wNoSig_snk_canPutWire.whas &&
+	   core_m_in_wNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_in_wNoSig_forwardReady
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_bNoSig_buffer_enqueue
+Predicate: core_m_in_bNoSig_buffer_enqw.whas &&
+	   ((! core_m_in_bNoSig_buffer_dequeueing.whas) ||
+	    core_m_in_bNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_in_bNoSig_buffer_dequeue
+Predicate: core_m_in_bNoSig_buffer_dequeueing.whas &&
+	   core_m_in_bNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_in_bNoSig_src_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_bNoSig_src_setPeek
+Predicate: core_m_in_bNoSig_buffer_beforeDeq.read &&
+	   (core_m_in_bNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_bNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_in_bNoSig_src_warnDoDrop
+Predicate: core_m_in_bNoSig_src_dropWire.whas &&
+	   ((! core_m_in_bNoSig_src_canPeekWire.whas) ||
+	    (! core_m_in_bNoSig_src_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_in_bNoSig_src_doDrop
+Predicate: (core_m_in_bNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_bNoSig_buffer_enqw.whas) &&
+	   core_m_in_bNoSig_src_dropWire.whas &&
+	   core_m_in_bNoSig_src_canPeekWire.whas &&
+	   core_m_in_bNoSig_src_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_in_bNoSig_src_warnInconsistent
+Predicate: core_m_in_bNoSig_src_dropWire.whas &&
+	   (! core_m_in_bNoSig_src_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_in_bNoSig_forwardFlit
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_bNoSig_dropFlit
+Predicate: core_m_in_bNoSig_src_canPeekWire.whas &&
+	   core_m_in_bNoSig_src_canPeekWire.wget &&
+	   core.sparse_in_b_bready
+Blocking rules: (none)
+ 
+Rule: core_m_in_arNoSig_buffer_enqueue
+Predicate: core_m_in_arNoSig_buffer_enqw.whas &&
+	   ((! core_m_in_arNoSig_buffer_dequeueing.whas) ||
+	    core_m_in_arNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_in_arNoSig_buffer_dequeue
+Predicate: core_m_in_arNoSig_buffer_dequeueing.whas &&
+	   core_m_in_arNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_in_arNoSig_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_arNoSig_snk_warnDoPut
+Predicate: core_m_in_arNoSig_snk_putWire.whas &&
+	   ((! core_m_in_arNoSig_snk_canPutWire.whas) ||
+	    (! core_m_in_arNoSig_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_in_arNoSig_snk_doPut
+Predicate: core_m_in_arNoSig_buffer_ff.i_notFull &&
+	   core_m_in_arNoSig_snk_putWire.whas &&
+	   core_m_in_arNoSig_snk_canPutWire.whas &&
+	   core_m_in_arNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_in_arNoSig_snk_warnInconsistent
+Predicate: core_m_in_arNoSig_snk_putWire.whas &&
+	   (! core_m_in_arNoSig_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_in_arNoSig_forwardFlit
+Predicate: core.sparse_in_ar_arvalid &&
+	   core_m_in_arNoSig_snk_canPutWire.whas &&
+	   core_m_in_arNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_in_arNoSig_forwardReady
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_rNoSig_buffer_enqueue
+Predicate: core_m_in_rNoSig_buffer_enqw.whas &&
+	   ((! core_m_in_rNoSig_buffer_dequeueing.whas) ||
+	    core_m_in_rNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_in_rNoSig_buffer_dequeue
+Predicate: core_m_in_rNoSig_buffer_dequeueing.whas &&
+	   core_m_in_rNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_in_rNoSig_src_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_rNoSig_src_setPeek
+Predicate: core_m_in_rNoSig_buffer_beforeDeq.read &&
+	   (core_m_in_rNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_rNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_in_rNoSig_src_warnDoDrop
+Predicate: core_m_in_rNoSig_src_dropWire.whas &&
+	   ((! core_m_in_rNoSig_src_canPeekWire.whas) ||
+	    (! core_m_in_rNoSig_src_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_in_rNoSig_src_doDrop
+Predicate: (core_m_in_rNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_rNoSig_buffer_enqw.whas) &&
+	   core_m_in_rNoSig_src_dropWire.whas &&
+	   core_m_in_rNoSig_src_canPeekWire.whas &&
+	   core_m_in_rNoSig_src_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_in_rNoSig_src_warnInconsistent
+Predicate: core_m_in_rNoSig_src_dropWire.whas &&
+	   (! core_m_in_rNoSig_src_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_in_rNoSig_forwardFlit
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_in_rNoSig_dropFlit
+Predicate: core_m_in_rNoSig_src_canPeekWire.whas &&
+	   core_m_in_rNoSig_src_canPeekWire.wget &&
+	   core.sparse_in_r_rready
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_awNoSig_buffer_enqueue
+Predicate: core_m_dense_in_awNoSig_buffer_enqw.whas &&
+	   ((! core_m_dense_in_awNoSig_buffer_dequeueing.whas) ||
+	    core_m_dense_in_awNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_awNoSig_buffer_dequeue
+Predicate: core_m_dense_in_awNoSig_buffer_dequeueing.whas &&
+	   core_m_dense_in_awNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_awNoSig_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_awNoSig_snk_warnDoPut
+Predicate: core_m_dense_in_awNoSig_snk_putWire.whas &&
+	   ((! core_m_dense_in_awNoSig_snk_canPutWire.whas) ||
+	    (! core_m_dense_in_awNoSig_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_awNoSig_snk_doPut
+Predicate: core_m_dense_in_awNoSig_buffer_ff.i_notFull &&
+	   core_m_dense_in_awNoSig_snk_putWire.whas &&
+	   core_m_dense_in_awNoSig_snk_canPutWire.whas &&
+	   core_m_dense_in_awNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_awNoSig_snk_warnInconsistent
+Predicate: core_m_dense_in_awNoSig_snk_putWire.whas &&
+	   (! core_m_dense_in_awNoSig_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_awNoSig_forwardFlit
+Predicate: core.dense_in_aw_awvalid &&
+	   core_m_dense_in_awNoSig_snk_canPutWire.whas &&
+	   core_m_dense_in_awNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_awNoSig_forwardReady
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_wNoSig_buffer_enqueue
+Predicate: core_m_dense_in_wNoSig_buffer_enqw.whas &&
+	   ((! core_m_dense_in_wNoSig_buffer_dequeueing.whas) ||
+	    core_m_dense_in_wNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_wNoSig_buffer_dequeue
+Predicate: core_m_dense_in_wNoSig_buffer_dequeueing.whas &&
+	   core_m_dense_in_wNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_wNoSig_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_wNoSig_snk_warnDoPut
+Predicate: core_m_dense_in_wNoSig_snk_putWire.whas &&
+	   ((! core_m_dense_in_wNoSig_snk_canPutWire.whas) ||
+	    (! core_m_dense_in_wNoSig_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_wNoSig_snk_doPut
+Predicate: core_m_dense_in_wNoSig_buffer_ff.i_notFull &&
+	   core_m_dense_in_wNoSig_snk_putWire.whas &&
+	   core_m_dense_in_wNoSig_snk_canPutWire.whas &&
+	   core_m_dense_in_wNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_wNoSig_snk_warnInconsistent
+Predicate: core_m_dense_in_wNoSig_snk_putWire.whas &&
+	   (! core_m_dense_in_wNoSig_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_wNoSig_forwardFlit
+Predicate: core.dense_in_w_wvalid &&
+	   core_m_dense_in_wNoSig_snk_canPutWire.whas &&
+	   core_m_dense_in_wNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_wNoSig_forwardReady
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_bNoSig_buffer_enqueue
+Predicate: core_m_dense_in_bNoSig_buffer_enqw.whas &&
+	   ((! core_m_dense_in_bNoSig_buffer_dequeueing.whas) ||
+	    core_m_dense_in_bNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_bNoSig_buffer_dequeue
+Predicate: core_m_dense_in_bNoSig_buffer_dequeueing.whas &&
+	   core_m_dense_in_bNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_bNoSig_src_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_bNoSig_src_setPeek
+Predicate: core_m_dense_in_bNoSig_buffer_beforeDeq.read &&
+	   (core_m_dense_in_bNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_bNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_bNoSig_src_warnDoDrop
+Predicate: core_m_dense_in_bNoSig_src_dropWire.whas &&
+	   ((! core_m_dense_in_bNoSig_src_canPeekWire.whas) ||
+	    (! core_m_dense_in_bNoSig_src_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_bNoSig_src_doDrop
+Predicate: (core_m_dense_in_bNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_bNoSig_buffer_enqw.whas) &&
+	   core_m_dense_in_bNoSig_src_dropWire.whas &&
+	   core_m_dense_in_bNoSig_src_canPeekWire.whas &&
+	   core_m_dense_in_bNoSig_src_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_bNoSig_src_warnInconsistent
+Predicate: core_m_dense_in_bNoSig_src_dropWire.whas &&
+	   (! core_m_dense_in_bNoSig_src_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_bNoSig_forwardFlit
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_bNoSig_dropFlit
+Predicate: core_m_dense_in_bNoSig_src_canPeekWire.whas &&
+	   core_m_dense_in_bNoSig_src_canPeekWire.wget &&
+	   core.dense_in_b_bready
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_arNoSig_buffer_enqueue
+Predicate: core_m_dense_in_arNoSig_buffer_enqw.whas &&
+	   ((! core_m_dense_in_arNoSig_buffer_dequeueing.whas) ||
+	    core_m_dense_in_arNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_arNoSig_buffer_dequeue
+Predicate: core_m_dense_in_arNoSig_buffer_dequeueing.whas &&
+	   core_m_dense_in_arNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_arNoSig_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_arNoSig_snk_warnDoPut
+Predicate: core_m_dense_in_arNoSig_snk_putWire.whas &&
+	   ((! core_m_dense_in_arNoSig_snk_canPutWire.whas) ||
+	    (! core_m_dense_in_arNoSig_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_arNoSig_snk_doPut
+Predicate: core_m_dense_in_arNoSig_buffer_ff.i_notFull &&
+	   core_m_dense_in_arNoSig_snk_putWire.whas &&
+	   core_m_dense_in_arNoSig_snk_canPutWire.whas &&
+	   core_m_dense_in_arNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_arNoSig_snk_warnInconsistent
+Predicate: core_m_dense_in_arNoSig_snk_putWire.whas &&
+	   (! core_m_dense_in_arNoSig_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_arNoSig_forwardFlit
+Predicate: core.dense_in_ar_arvalid &&
+	   core_m_dense_in_arNoSig_snk_canPutWire.whas &&
+	   core_m_dense_in_arNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_arNoSig_forwardReady
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_rNoSig_buffer_enqueue
+Predicate: core_m_dense_in_rNoSig_buffer_enqw.whas &&
+	   ((! core_m_dense_in_rNoSig_buffer_dequeueing.whas) ||
+	    core_m_dense_in_rNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_rNoSig_buffer_dequeue
+Predicate: core_m_dense_in_rNoSig_buffer_dequeueing.whas &&
+	   core_m_dense_in_rNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_rNoSig_src_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_rNoSig_src_setPeek
+Predicate: core_m_dense_in_rNoSig_buffer_beforeDeq.read &&
+	   (core_m_dense_in_rNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_rNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_rNoSig_src_warnDoDrop
+Predicate: core_m_dense_in_rNoSig_src_dropWire.whas &&
+	   ((! core_m_dense_in_rNoSig_src_canPeekWire.whas) ||
+	    (! core_m_dense_in_rNoSig_src_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_rNoSig_src_doDrop
+Predicate: (core_m_dense_in_rNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_rNoSig_buffer_enqw.whas) &&
+	   core_m_dense_in_rNoSig_src_dropWire.whas &&
+	   core_m_dense_in_rNoSig_src_canPeekWire.whas &&
+	   core_m_dense_in_rNoSig_src_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_rNoSig_src_warnInconsistent
+Predicate: core_m_dense_in_rNoSig_src_dropWire.whas &&
+	   (! core_m_dense_in_rNoSig_src_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_rNoSig_forwardFlit
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_dense_in_rNoSig_dropFlit
+Predicate: core_m_dense_in_rNoSig_src_canPeekWire.whas &&
+	   core_m_dense_in_rNoSig_src_canPeekWire.wget &&
+	   core.dense_in_r_rready
+Blocking rules: (none)
+ 
+Rule: core_m_out_awNoSig_buffer_enqueue
+Predicate: core_m_out_awNoSig_buffer_enqw.whas &&
+	   ((! core_m_out_awNoSig_buffer_dequeueing.whas) ||
+	    core_m_out_awNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_out_awNoSig_buffer_dequeue
+Predicate: core_m_out_awNoSig_buffer_dequeueing.whas &&
+	   core_m_out_awNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_out_awNoSig_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_awNoSig_snk_warnDoPut
+Predicate: core_m_out_awNoSig_snk_putWire.whas &&
+	   ((! core_m_out_awNoSig_snk_canPutWire.whas) ||
+	    (! core_m_out_awNoSig_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_out_awNoSig_snk_doPut
+Predicate: core_m_out_awNoSig_buffer_ff.i_notFull &&
+	   core_m_out_awNoSig_snk_putWire.whas &&
+	   core_m_out_awNoSig_snk_canPutWire.whas &&
+	   core_m_out_awNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_out_awNoSig_snk_warnInconsistent
+Predicate: core_m_out_awNoSig_snk_putWire.whas &&
+	   (! core_m_out_awNoSig_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_out_awNoSig_forwardFlit
+Predicate: core.mem_out_aw_awvalid &&
+	   core_m_out_awNoSig_snk_canPutWire.whas &&
+	   core_m_out_awNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_out_awNoSig_forwardReady
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_wNoSig_buffer_enqueue
+Predicate: core_m_out_wNoSig_buffer_enqw.whas &&
+	   ((! core_m_out_wNoSig_buffer_dequeueing.whas) ||
+	    core_m_out_wNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_out_wNoSig_buffer_dequeue
+Predicate: core_m_out_wNoSig_buffer_dequeueing.whas &&
+	   core_m_out_wNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_out_wNoSig_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_wNoSig_snk_warnDoPut
+Predicate: core_m_out_wNoSig_snk_putWire.whas &&
+	   ((! core_m_out_wNoSig_snk_canPutWire.whas) ||
+	    (! core_m_out_wNoSig_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_out_wNoSig_snk_doPut
+Predicate: core_m_out_wNoSig_buffer_ff.i_notFull &&
+	   core_m_out_wNoSig_snk_putWire.whas &&
+	   core_m_out_wNoSig_snk_canPutWire.whas &&
+	   core_m_out_wNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_out_wNoSig_snk_warnInconsistent
+Predicate: core_m_out_wNoSig_snk_putWire.whas &&
+	   (! core_m_out_wNoSig_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_out_wNoSig_forwardFlit
+Predicate: core.mem_out_w_wvalid &&
+	   core_m_out_wNoSig_snk_canPutWire.whas &&
+	   core_m_out_wNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_out_wNoSig_forwardReady
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_bNoSig_buffer_enqueue
+Predicate: core_m_out_bNoSig_buffer_enqw.whas &&
+	   ((! core_m_out_bNoSig_buffer_dequeueing.whas) ||
+	    core_m_out_bNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_out_bNoSig_buffer_dequeue
+Predicate: core_m_out_bNoSig_buffer_dequeueing.whas &&
+	   core_m_out_bNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_out_bNoSig_src_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_bNoSig_src_setPeek
+Predicate: core_m_out_bNoSig_buffer_beforeDeq.read &&
+	   (core_m_out_bNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_bNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_out_bNoSig_src_warnDoDrop
+Predicate: core_m_out_bNoSig_src_dropWire.whas &&
+	   ((! core_m_out_bNoSig_src_canPeekWire.whas) ||
+	    (! core_m_out_bNoSig_src_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_out_bNoSig_src_doDrop
+Predicate: (core_m_out_bNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_bNoSig_buffer_enqw.whas) &&
+	   core_m_out_bNoSig_src_dropWire.whas &&
+	   core_m_out_bNoSig_src_canPeekWire.whas &&
+	   core_m_out_bNoSig_src_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_out_bNoSig_src_warnInconsistent
+Predicate: core_m_out_bNoSig_src_dropWire.whas &&
+	   (! core_m_out_bNoSig_src_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_out_bNoSig_forwardFlit
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_bNoSig_dropFlit
+Predicate: core_m_out_bNoSig_src_canPeekWire.whas &&
+	   core_m_out_bNoSig_src_canPeekWire.wget &&
+	   core.mem_out_b_bready
+Blocking rules: (none)
+ 
+Rule: core_m_out_arNoSig_buffer_enqueue
+Predicate: core_m_out_arNoSig_buffer_enqw.whas &&
+	   ((! core_m_out_arNoSig_buffer_dequeueing.whas) ||
+	    core_m_out_arNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_out_arNoSig_buffer_dequeue
+Predicate: core_m_out_arNoSig_buffer_dequeueing.whas &&
+	   core_m_out_arNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_out_arNoSig_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_arNoSig_snk_warnDoPut
+Predicate: core_m_out_arNoSig_snk_putWire.whas &&
+	   ((! core_m_out_arNoSig_snk_canPutWire.whas) ||
+	    (! core_m_out_arNoSig_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_out_arNoSig_snk_doPut
+Predicate: core_m_out_arNoSig_buffer_ff.i_notFull &&
+	   core_m_out_arNoSig_snk_putWire.whas &&
+	   core_m_out_arNoSig_snk_canPutWire.whas &&
+	   core_m_out_arNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_out_arNoSig_snk_warnInconsistent
+Predicate: core_m_out_arNoSig_snk_putWire.whas &&
+	   (! core_m_out_arNoSig_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_out_arNoSig_forwardFlit
+Predicate: core.mem_out_ar_arvalid &&
+	   core_m_out_arNoSig_snk_canPutWire.whas &&
+	   core_m_out_arNoSig_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_out_arNoSig_forwardReady
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_rNoSig_buffer_enqueue
+Predicate: core_m_out_rNoSig_buffer_enqw.whas &&
+	   ((! core_m_out_rNoSig_buffer_dequeueing.whas) ||
+	    core_m_out_rNoSig_buffer_ff.i_notEmpty)
+Blocking rules: (none)
+ 
+Rule: core_m_out_rNoSig_buffer_dequeue
+Predicate: core_m_out_rNoSig_buffer_dequeueing.whas &&
+	   core_m_out_rNoSig_buffer_ff.i_notEmpty
+Blocking rules: (none)
+ 
+Rule: core_m_out_rNoSig_src_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_rNoSig_src_setPeek
+Predicate: core_m_out_rNoSig_buffer_beforeDeq.read &&
+	   (core_m_out_rNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_rNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_out_rNoSig_src_warnDoDrop
+Predicate: core_m_out_rNoSig_src_dropWire.whas &&
+	   ((! core_m_out_rNoSig_src_canPeekWire.whas) ||
+	    (! core_m_out_rNoSig_src_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: core_m_out_rNoSig_src_doDrop
+Predicate: (core_m_out_rNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_rNoSig_buffer_enqw.whas) &&
+	   core_m_out_rNoSig_src_dropWire.whas &&
+	   core_m_out_rNoSig_src_canPeekWire.whas &&
+	   core_m_out_rNoSig_src_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: core_m_out_rNoSig_src_warnInconsistent
+Predicate: core_m_out_rNoSig_src_dropWire.whas &&
+	   (! core_m_out_rNoSig_src_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: core_m_out_rNoSig_forwardFlit
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: core_m_out_rNoSig_dropFlit
+Predicate: core_m_out_rNoSig_src_canPeekWire.whas &&
+	   core_m_out_rNoSig_src_canPeekWire.wget &&
+	   core.mem_out_r_rready
+Blocking rules: (none)
+ 
+Rule: ug_src_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_setPeek
+Predicate: core_m_in_awNoSig_buffer_beforeDeq.read &&
+	   (core_m_in_awNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_awNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: ug_src_warnDoDrop
+Predicate: ug_src_dropWire.whas &&
+	   ((! ug_src_canPeekWire.whas) || (! ug_src_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_doDrop
+Predicate: (core_m_in_awNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_awNoSig_buffer_enqw.whas) &&
+	   ug_src_dropWire.whas &&
+	   ug_src_canPeekWire.whas && ug_src_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_warnInconsistent
+Predicate: ug_src_dropWire.whas && (! ug_src_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_warnDoPut
+Predicate: ug_snk_putWire.whas &&
+	   ((! ug_snk_canPutWire.whas) || (! ug_snk_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_doPut
+Predicate: (! hbm_mem_in_ifc_shim_shim_shim_awff_rv.port0__read[61]) &&
+	   ug_snk_putWire.whas &&
+	   ug_snk_canPutWire.whas && ug_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_warnInconsistent
+Predicate: ug_snk_putWire.whas && (! ug_snk_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect
+Predicate: ug_src_canPeekWire.whas && ug_src_canPeekWire.wget &&
+	   ug_snk_canPutWire.whas && ug_snk_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_1_setPeek
+Predicate: core_m_in_wNoSig_buffer_beforeDeq.read &&
+	   (core_m_in_wNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_wNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: ug_src_1_warnDoDrop
+Predicate: ug_src_1_dropWire.whas &&
+	   ((! ug_src_1_canPeekWire.whas) || (! ug_src_1_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_1_doDrop
+Predicate: (core_m_in_wNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_wNoSig_buffer_enqw.whas) &&
+	   ug_src_1_dropWire.whas &&
+	   ug_src_1_canPeekWire.whas && ug_src_1_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_warnInconsistent
+Predicate: ug_src_1_dropWire.whas && (! ug_src_1_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_warnDoPut
+Predicate: ug_snk_1_putWire.whas &&
+	   ((! ug_snk_1_canPutWire.whas) || (! ug_snk_1_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_doPut
+Predicate: (! hbm_mem_in_ifc_shim_shim_shim_wff_rv.port0__read[73]) &&
+	   ug_snk_1_putWire.whas &&
+	   ug_snk_1_canPutWire.whas && ug_snk_1_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_warnInconsistent
+Predicate: ug_snk_1_putWire.whas && (! ug_snk_1_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_1
+Predicate: ug_src_1_canPeekWire.whas && ug_src_1_canPeekWire.wget &&
+	   ug_snk_1_canPutWire.whas && ug_snk_1_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_2_setPeek
+Predicate: hbm_mem_in_ifc_shim_shim_shim_bff_rv.port1__read[2]
+Blocking rules: (none)
+ 
+Rule: ug_src_2_warnDoDrop
+Predicate: ug_src_2_dropWire.whas &&
+	   ((! ug_src_2_canPeekWire.whas) || (! ug_src_2_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_2_doDrop
+Predicate: hbm_mem_in_ifc_shim_shim_shim_bff_rv.port1__read[2] &&
+	   ug_src_2_dropWire.whas &&
+	   ug_src_2_canPeekWire.whas && ug_src_2_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_warnInconsistent
+Predicate: ug_src_2_dropWire.whas && (! ug_src_2_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_warnDoPut
+Predicate: ug_snk_2_putWire.whas &&
+	   ((! ug_snk_2_canPutWire.whas) || (! ug_snk_2_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_doPut
+Predicate: core_m_in_bNoSig_buffer_ff.i_notFull &&
+	   ug_snk_2_putWire.whas &&
+	   ug_snk_2_canPutWire.whas && ug_snk_2_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_warnInconsistent
+Predicate: ug_snk_2_putWire.whas && (! ug_snk_2_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_2
+Predicate: ug_src_2_canPeekWire.whas && ug_src_2_canPeekWire.wget &&
+	   ug_snk_2_canPutWire.whas && ug_snk_2_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_3_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_3_setPeek
+Predicate: core_m_in_arNoSig_buffer_beforeDeq.read &&
+	   (core_m_in_arNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_arNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: ug_src_3_warnDoDrop
+Predicate: ug_src_3_dropWire.whas &&
+	   ((! ug_src_3_canPeekWire.whas) || (! ug_src_3_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_3_doDrop
+Predicate: (core_m_in_arNoSig_buffer_ff.i_notEmpty ||
+	    core_m_in_arNoSig_buffer_enqw.whas) &&
+	   ug_src_3_dropWire.whas &&
+	   ug_src_3_canPeekWire.whas && ug_src_3_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_3_warnInconsistent
+Predicate: ug_src_3_dropWire.whas && (! ug_src_3_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_3_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_3_warnDoPut
+Predicate: ug_snk_3_putWire.whas &&
+	   ((! ug_snk_3_canPutWire.whas) || (! ug_snk_3_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_3_doPut
+Predicate: (! hbm_mem_in_ifc_shim_shim_shim_arff_rv.port0__read[61]) &&
+	   ug_snk_3_putWire.whas &&
+	   ug_snk_3_canPutWire.whas && ug_snk_3_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_3_warnInconsistent
+Predicate: ug_snk_3_putWire.whas && (! ug_snk_3_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_3
+Predicate: ug_src_3_canPeekWire.whas && ug_src_3_canPeekWire.wget &&
+	   ug_snk_3_canPutWire.whas && ug_snk_3_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_4_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_4_setPeek
+Predicate: hbm_mem_in_ifc_shim_shim_shim_rff_rv.port1__read[67]
+Blocking rules: (none)
+ 
+Rule: ug_src_4_warnDoDrop
+Predicate: ug_src_4_dropWire.whas &&
+	   ((! ug_src_4_canPeekWire.whas) || (! ug_src_4_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_4_doDrop
+Predicate: hbm_mem_in_ifc_shim_shim_shim_rff_rv.port1__read[67] &&
+	   ug_src_4_dropWire.whas &&
+	   ug_src_4_canPeekWire.whas && ug_src_4_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_4_warnInconsistent
+Predicate: ug_src_4_dropWire.whas && (! ug_src_4_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_4_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_4_warnDoPut
+Predicate: ug_snk_4_putWire.whas &&
+	   ((! ug_snk_4_canPutWire.whas) || (! ug_snk_4_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_4_doPut
+Predicate: core_m_in_rNoSig_buffer_ff.i_notFull &&
+	   ug_snk_4_putWire.whas &&
+	   ug_snk_4_canPutWire.whas && ug_snk_4_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_4_warnInconsistent
+Predicate: ug_snk_4_putWire.whas && (! ug_snk_4_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_4
+Predicate: ug_src_4_canPeekWire.whas && ug_src_4_canPeekWire.wget &&
+	   ug_snk_4_canPutWire.whas && ug_snk_4_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_setCanPeek_1
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_1_setPeek_1
+Predicate: core_m_dense_in_awNoSig_buffer_beforeDeq.read &&
+	   (core_m_dense_in_awNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_awNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: ug_src_1_warnDoDrop_1
+Predicate: ug_src_1_dropWire_1.whas &&
+	   ((! ug_src_1_canPeekWire_1.whas) ||
+	    (! ug_src_1_canPeekWire_1.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_1_doDrop_1
+Predicate: (core_m_dense_in_awNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_awNoSig_buffer_enqw.whas) &&
+	   ug_src_1_dropWire_1.whas &&
+	   ug_src_1_canPeekWire_1.whas && ug_src_1_canPeekWire_1.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_warnInconsistent_1
+Predicate: ug_src_1_dropWire_1.whas && (! ug_src_1_dropDoneWire_1.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_setCanPut_1
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_warnDoPut_1
+Predicate: ug_snk_1_putWire_1.whas &&
+	   ((! ug_snk_1_canPutWire_1.whas) || (! ug_snk_1_canPutWire_1.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_doPut_1
+Predicate: (! hbm_mem_in_dense_ifc_shim_shim_shim_awff_rv.port0__read[61]) &&
+	   ug_snk_1_putWire_1.whas &&
+	   ug_snk_1_canPutWire_1.whas && ug_snk_1_canPutWire_1.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_warnInconsistent_1
+Predicate: ug_snk_1_putWire_1.whas && (! ug_snk_1_putDoneWire_1.whas)
+Blocking rules: (none)
+ 
+Rule: connect_5
+Predicate: ug_src_1_canPeekWire_1.whas && ug_src_1_canPeekWire_1.wget &&
+	   ug_snk_1_canPutWire_1.whas && ug_snk_1_canPutWire_1.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_1_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_1_1_setPeek
+Predicate: core_m_dense_in_wNoSig_buffer_beforeDeq.read &&
+	   (core_m_dense_in_wNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_wNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: ug_src_1_1_warnDoDrop
+Predicate: ug_src_1_1_dropWire.whas &&
+	   ((! ug_src_1_1_canPeekWire.whas) ||
+	    (! ug_src_1_1_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_1_1_doDrop
+Predicate: (core_m_dense_in_wNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_wNoSig_buffer_enqw.whas) &&
+	   ug_src_1_1_dropWire.whas &&
+	   ug_src_1_1_canPeekWire.whas && ug_src_1_1_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_1_warnInconsistent
+Predicate: ug_src_1_1_dropWire.whas && (! ug_src_1_1_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_1_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_1_warnDoPut
+Predicate: ug_snk_1_1_putWire.whas &&
+	   ((! ug_snk_1_1_canPutWire.whas) || (! ug_snk_1_1_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_1_doPut
+Predicate: (! hbm_mem_in_dense_ifc_shim_shim_shim_wff_rv.port0__read[289]) &&
+	   ug_snk_1_1_putWire.whas &&
+	   ug_snk_1_1_canPutWire.whas && ug_snk_1_1_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_1_warnInconsistent
+Predicate: ug_snk_1_1_putWire.whas && (! ug_snk_1_1_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_6
+Predicate: ug_src_1_1_canPeekWire.whas && ug_src_1_1_canPeekWire.wget &&
+	   ug_snk_1_1_canPutWire.whas && ug_snk_1_1_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_2_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_1_2_setPeek
+Predicate: hbm_mem_in_dense_ifc_shim_shim_shim_bff_rv.port1__read[2]
+Blocking rules: (none)
+ 
+Rule: ug_src_1_2_warnDoDrop
+Predicate: ug_src_1_2_dropWire.whas &&
+	   ((! ug_src_1_2_canPeekWire.whas) ||
+	    (! ug_src_1_2_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_1_2_doDrop
+Predicate: hbm_mem_in_dense_ifc_shim_shim_shim_bff_rv.port1__read[2] &&
+	   ug_src_1_2_dropWire.whas &&
+	   ug_src_1_2_canPeekWire.whas && ug_src_1_2_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_2_warnInconsistent
+Predicate: ug_src_1_2_dropWire.whas && (! ug_src_1_2_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_2_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_2_warnDoPut
+Predicate: ug_snk_1_2_putWire.whas &&
+	   ((! ug_snk_1_2_canPutWire.whas) || (! ug_snk_1_2_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_2_doPut
+Predicate: core_m_dense_in_bNoSig_buffer_ff.i_notFull &&
+	   ug_snk_1_2_putWire.whas &&
+	   ug_snk_1_2_canPutWire.whas && ug_snk_1_2_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_2_warnInconsistent
+Predicate: ug_snk_1_2_putWire.whas && (! ug_snk_1_2_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_7
+Predicate: ug_src_1_2_canPeekWire.whas && ug_src_1_2_canPeekWire.wget &&
+	   ug_snk_1_2_canPutWire.whas && ug_snk_1_2_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_3_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_1_3_setPeek
+Predicate: core_m_dense_in_arNoSig_buffer_beforeDeq.read &&
+	   (core_m_dense_in_arNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_arNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: ug_src_1_3_warnDoDrop
+Predicate: ug_src_1_3_dropWire.whas &&
+	   ((! ug_src_1_3_canPeekWire.whas) ||
+	    (! ug_src_1_3_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_1_3_doDrop
+Predicate: (core_m_dense_in_arNoSig_buffer_ff.i_notEmpty ||
+	    core_m_dense_in_arNoSig_buffer_enqw.whas) &&
+	   ug_src_1_3_dropWire.whas &&
+	   ug_src_1_3_canPeekWire.whas && ug_src_1_3_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_3_warnInconsistent
+Predicate: ug_src_1_3_dropWire.whas && (! ug_src_1_3_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_3_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_3_warnDoPut
+Predicate: ug_snk_1_3_putWire.whas &&
+	   ((! ug_snk_1_3_canPutWire.whas) || (! ug_snk_1_3_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_3_doPut
+Predicate: (! hbm_mem_in_dense_ifc_shim_shim_shim_arff_rv.port0__read[61]) &&
+	   ug_snk_1_3_putWire.whas &&
+	   ug_snk_1_3_canPutWire.whas && ug_snk_1_3_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_3_warnInconsistent
+Predicate: ug_snk_1_3_putWire.whas && (! ug_snk_1_3_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_8
+Predicate: ug_src_1_3_canPeekWire.whas && ug_src_1_3_canPeekWire.wget &&
+	   ug_snk_1_3_canPutWire.whas && ug_snk_1_3_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_4_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_1_4_setPeek
+Predicate: hbm_mem_in_dense_ifc_shim_shim_shim_rff_rv.port1__read[259]
+Blocking rules: (none)
+ 
+Rule: ug_src_1_4_warnDoDrop
+Predicate: ug_src_1_4_dropWire.whas &&
+	   ((! ug_src_1_4_canPeekWire.whas) ||
+	    (! ug_src_1_4_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_1_4_doDrop
+Predicate: hbm_mem_in_dense_ifc_shim_shim_shim_rff_rv.port1__read[259] &&
+	   ug_src_1_4_dropWire.whas &&
+	   ug_src_1_4_canPeekWire.whas && ug_src_1_4_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_1_4_warnInconsistent
+Predicate: ug_src_1_4_dropWire.whas && (! ug_src_1_4_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_4_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_4_warnDoPut
+Predicate: ug_snk_1_4_putWire.whas &&
+	   ((! ug_snk_1_4_canPutWire.whas) || (! ug_snk_1_4_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_4_doPut
+Predicate: core_m_dense_in_rNoSig_buffer_ff.i_notFull &&
+	   ug_snk_1_4_putWire.whas &&
+	   ug_snk_1_4_canPutWire.whas && ug_snk_1_4_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_1_4_warnInconsistent
+Predicate: ug_snk_1_4_putWire.whas && (! ug_snk_1_4_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_9
+Predicate: ug_src_1_4_canPeekWire.whas && ug_src_1_4_canPeekWire.wget &&
+	   ug_snk_1_4_canPutWire.whas && ug_snk_1_4_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_setCanPeek_1
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_2_setPeek_1
+Predicate: core_m_out_awNoSig_buffer_beforeDeq.read &&
+	   (core_m_out_awNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_awNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: ug_src_2_warnDoDrop_1
+Predicate: ug_src_2_dropWire_1.whas &&
+	   ((! ug_src_2_canPeekWire_1.whas) ||
+	    (! ug_src_2_canPeekWire_1.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_2_doDrop_1
+Predicate: (core_m_out_awNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_awNoSig_buffer_enqw.whas) &&
+	   ug_src_2_dropWire_1.whas &&
+	   ug_src_2_canPeekWire_1.whas && ug_src_2_canPeekWire_1.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_warnInconsistent_1
+Predicate: ug_src_2_dropWire_1.whas && (! ug_src_2_dropDoneWire_1.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_setCanPut_1
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_warnDoPut_1
+Predicate: ug_snk_2_putWire_1.whas &&
+	   ((! ug_snk_2_canPutWire_1.whas) || (! ug_snk_2_canPutWire_1.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_doPut_1
+Predicate: (! hbm_mem_out_ifc_shim_shim_shim_awff_rv.port0__read[61]) &&
+	   ug_snk_2_putWire_1.whas &&
+	   ug_snk_2_canPutWire_1.whas && ug_snk_2_canPutWire_1.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_warnInconsistent_1
+Predicate: ug_snk_2_putWire_1.whas && (! ug_snk_2_putDoneWire_1.whas)
+Blocking rules: (none)
+ 
+Rule: connect_10
+Predicate: ug_src_2_canPeekWire_1.whas && ug_src_2_canPeekWire_1.wget &&
+	   ug_snk_2_canPutWire_1.whas && ug_snk_2_canPutWire_1.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_1_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_2_1_setPeek
+Predicate: core_m_out_wNoSig_buffer_beforeDeq.read &&
+	   (core_m_out_wNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_wNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: ug_src_2_1_warnDoDrop
+Predicate: ug_src_2_1_dropWire.whas &&
+	   ((! ug_src_2_1_canPeekWire.whas) ||
+	    (! ug_src_2_1_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_2_1_doDrop
+Predicate: (core_m_out_wNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_wNoSig_buffer_enqw.whas) &&
+	   ug_src_2_1_dropWire.whas &&
+	   ug_src_2_1_canPeekWire.whas && ug_src_2_1_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_1_warnInconsistent
+Predicate: ug_src_2_1_dropWire.whas && (! ug_src_2_1_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_1_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_1_warnDoPut
+Predicate: ug_snk_2_1_putWire.whas &&
+	   ((! ug_snk_2_1_canPutWire.whas) || (! ug_snk_2_1_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_1_doPut
+Predicate: (! hbm_mem_out_ifc_shim_shim_shim_wff_rv.port0__read[289]) &&
+	   ug_snk_2_1_putWire.whas &&
+	   ug_snk_2_1_canPutWire.whas && ug_snk_2_1_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_1_warnInconsistent
+Predicate: ug_snk_2_1_putWire.whas && (! ug_snk_2_1_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_11
+Predicate: ug_src_2_1_canPeekWire.whas && ug_src_2_1_canPeekWire.wget &&
+	   ug_snk_2_1_canPutWire.whas && ug_snk_2_1_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_2_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_2_2_setPeek
+Predicate: hbm_mem_out_ifc_shim_shim_shim_bff_rv.port1__read[6]
+Blocking rules: (none)
+ 
+Rule: ug_src_2_2_warnDoDrop
+Predicate: ug_src_2_2_dropWire.whas &&
+	   ((! ug_src_2_2_canPeekWire.whas) ||
+	    (! ug_src_2_2_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_2_2_doDrop
+Predicate: hbm_mem_out_ifc_shim_shim_shim_bff_rv.port1__read[6] &&
+	   ug_src_2_2_dropWire.whas &&
+	   ug_src_2_2_canPeekWire.whas && ug_src_2_2_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_2_warnInconsistent
+Predicate: ug_src_2_2_dropWire.whas && (! ug_src_2_2_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_2_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_2_warnDoPut
+Predicate: ug_snk_2_2_putWire.whas &&
+	   ((! ug_snk_2_2_canPutWire.whas) || (! ug_snk_2_2_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_2_doPut
+Predicate: core_m_out_bNoSig_buffer_ff.i_notFull &&
+	   ug_snk_2_2_putWire.whas &&
+	   ug_snk_2_2_canPutWire.whas && ug_snk_2_2_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_2_warnInconsistent
+Predicate: ug_snk_2_2_putWire.whas && (! ug_snk_2_2_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_12
+Predicate: ug_src_2_2_canPeekWire.whas && ug_src_2_2_canPeekWire.wget &&
+	   ug_snk_2_2_canPutWire.whas && ug_snk_2_2_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_3_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_2_3_setPeek
+Predicate: core_m_out_arNoSig_buffer_beforeDeq.read &&
+	   (core_m_out_arNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_arNoSig_buffer_enqw.whas)
+Blocking rules: (none)
+ 
+Rule: ug_src_2_3_warnDoDrop
+Predicate: ug_src_2_3_dropWire.whas &&
+	   ((! ug_src_2_3_canPeekWire.whas) ||
+	    (! ug_src_2_3_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_2_3_doDrop
+Predicate: (core_m_out_arNoSig_buffer_ff.i_notEmpty ||
+	    core_m_out_arNoSig_buffer_enqw.whas) &&
+	   ug_src_2_3_dropWire.whas &&
+	   ug_src_2_3_canPeekWire.whas && ug_src_2_3_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_3_warnInconsistent
+Predicate: ug_src_2_3_dropWire.whas && (! ug_src_2_3_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_3_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_3_warnDoPut
+Predicate: ug_snk_2_3_putWire.whas &&
+	   ((! ug_snk_2_3_canPutWire.whas) || (! ug_snk_2_3_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_3_doPut
+Predicate: (! hbm_mem_out_ifc_shim_shim_shim_arff_rv.port0__read[61]) &&
+	   ug_snk_2_3_putWire.whas &&
+	   ug_snk_2_3_canPutWire.whas && ug_snk_2_3_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_3_warnInconsistent
+Predicate: ug_snk_2_3_putWire.whas && (! ug_snk_2_3_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_13
+Predicate: ug_src_2_3_canPeekWire.whas && ug_src_2_3_canPeekWire.wget &&
+	   ug_snk_2_3_canPutWire.whas && ug_snk_2_3_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_4_setCanPeek
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_src_2_4_setPeek
+Predicate: hbm_mem_out_ifc_shim_shim_shim_rff_rv.port1__read[263]
+Blocking rules: (none)
+ 
+Rule: ug_src_2_4_warnDoDrop
+Predicate: ug_src_2_4_dropWire.whas &&
+	   ((! ug_src_2_4_canPeekWire.whas) ||
+	    (! ug_src_2_4_canPeekWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_src_2_4_doDrop
+Predicate: hbm_mem_out_ifc_shim_shim_shim_rff_rv.port1__read[263] &&
+	   ug_src_2_4_dropWire.whas &&
+	   ug_src_2_4_canPeekWire.whas && ug_src_2_4_canPeekWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_src_2_4_warnInconsistent
+Predicate: ug_src_2_4_dropWire.whas && (! ug_src_2_4_dropDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_4_setCanPut
+Predicate: True
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_4_warnDoPut
+Predicate: ug_snk_2_4_putWire.whas &&
+	   ((! ug_snk_2_4_canPutWire.whas) || (! ug_snk_2_4_canPutWire.wget))
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_4_doPut
+Predicate: core_m_out_rNoSig_buffer_ff.i_notFull &&
+	   ug_snk_2_4_putWire.whas &&
+	   ug_snk_2_4_canPutWire.whas && ug_snk_2_4_canPutWire.wget
+Blocking rules: (none)
+ 
+Rule: ug_snk_2_4_warnInconsistent
+Predicate: ug_snk_2_4_putWire.whas && (! ug_snk_2_4_putDoneWire.whas)
+Blocking rules: (none)
+ 
+Rule: connect_14
+Predicate: ug_src_2_4_canPeekWire.whas && ug_src_2_4_canPeekWire.wget &&
+	   ug_snk_2_4_canPutWire.whas && ug_snk_2_4_canPutWire.wget
+Blocking rules: (none)
+ 
+Logical execution order: hbm_mem_in_mem_mem_mem_do_init,
+			 hbm_mem_in_ifc_writeRsp,
+			 hbm_mem_in_ifc_drainInternalWriteRsp,
+			 hbm_mem_in_ifc_readRsp,
+			 hbm_mem_in_dense_mem_mem_mem_do_init,
+			 hbm_mem_in_dense_ifc_writeRsp,
+			 hbm_mem_in_dense_ifc_drainInternalWriteRsp,
+			 hbm_mem_in_dense_ifc_readRsp,
+			 hbm_mem_out_mem_mem_mem_do_init,
+			 hbm_mem_out_ifc_writeRsp,
+			 hbm_mem_out_ifc_drainInternalWriteRsp,
+			 hbm_mem_out_ifc_readRsp,
+			 core_m_in_awNoSig_snk_setCanPut,
+			 core_m_in_awNoSig_forwardFlit,
+			 core_m_in_awNoSig_forwardReady,
+			 core_m_in_awNoSig_snk_warnDoPut,
+			 core_m_in_awNoSig_snk_doPut,
+			 core_m_in_awNoSig_snk_warnInconsistent,
+			 core_m_in_wNoSig_snk_setCanPut,
+			 core_m_in_wNoSig_forwardFlit,
+			 core_m_in_wNoSig_forwardReady,
+			 core_m_in_wNoSig_snk_warnDoPut,
+			 core_m_in_wNoSig_snk_doPut,
+			 core_m_in_wNoSig_snk_warnInconsistent,
+			 core_m_in_arNoSig_snk_setCanPut,
+			 core_m_in_arNoSig_forwardFlit,
+			 core_m_in_arNoSig_forwardReady,
+			 core_m_in_arNoSig_snk_warnDoPut,
+			 core_m_in_arNoSig_snk_doPut,
+			 core_m_in_arNoSig_snk_warnInconsistent,
+			 core_m_dense_in_awNoSig_snk_setCanPut,
+			 core_m_dense_in_awNoSig_forwardFlit,
+			 core_m_dense_in_awNoSig_forwardReady,
+			 core_m_dense_in_awNoSig_snk_warnDoPut,
+			 core_m_dense_in_awNoSig_snk_doPut,
+			 core_m_dense_in_awNoSig_snk_warnInconsistent,
+			 core_m_dense_in_wNoSig_snk_setCanPut,
+			 core_m_dense_in_wNoSig_forwardFlit,
+			 core_m_dense_in_wNoSig_forwardReady,
+			 core_m_dense_in_wNoSig_snk_warnDoPut,
+			 core_m_dense_in_wNoSig_snk_doPut,
+			 core_m_dense_in_wNoSig_snk_warnInconsistent,
+			 core_m_dense_in_arNoSig_snk_setCanPut,
+			 core_m_dense_in_arNoSig_forwardFlit,
+			 core_m_dense_in_arNoSig_forwardReady,
+			 core_m_dense_in_arNoSig_snk_warnDoPut,
+			 core_m_dense_in_arNoSig_snk_doPut,
+			 core_m_dense_in_arNoSig_snk_warnInconsistent,
+			 core_m_out_awNoSig_snk_setCanPut,
+			 core_m_out_awNoSig_forwardFlit,
+			 core_m_out_awNoSig_forwardReady,
+			 core_m_out_awNoSig_snk_warnDoPut,
+			 core_m_out_awNoSig_snk_doPut,
+			 core_m_out_awNoSig_snk_warnInconsistent,
+			 core_m_out_wNoSig_snk_setCanPut,
+			 core_m_out_wNoSig_forwardFlit,
+			 core_m_out_wNoSig_forwardReady,
+			 core_m_out_wNoSig_snk_warnDoPut,
+			 core_m_out_wNoSig_snk_doPut,
+			 core_m_out_wNoSig_snk_warnInconsistent,
+			 core_m_out_arNoSig_snk_setCanPut,
+			 core_m_out_arNoSig_forwardFlit,
+			 core_m_out_arNoSig_forwardReady,
+			 core_m_out_arNoSig_snk_warnDoPut,
+			 core_m_out_arNoSig_snk_doPut,
+			 core_m_out_arNoSig_snk_warnInconsistent,
+			 ug_src_setCanPeek,
+			 ug_src_setPeek,
+			 ug_snk_setCanPut,
+			 connect,
+			 ug_src_warnDoDrop,
+			 ug_src_doDrop,
+			 core_m_in_awNoSig_buffer_enqueue,
+			 core_m_in_awNoSig_buffer_dequeue,
+			 ug_src_warnInconsistent,
+			 ug_snk_warnDoPut,
+			 ug_snk_doPut,
+			 ug_snk_warnInconsistent,
+			 ug_src_1_setCanPeek,
+			 ug_src_1_setPeek,
+			 ug_snk_1_setCanPut,
+			 connect_1,
+			 ug_src_1_warnDoDrop,
+			 ug_src_1_doDrop,
+			 core_m_in_wNoSig_buffer_enqueue,
+			 core_m_in_wNoSig_buffer_dequeue,
+			 ug_src_1_warnInconsistent,
+			 ug_snk_1_warnDoPut,
+			 ug_snk_1_doPut,
+			 hbm_mem_in_ifc_writeReq,
+			 ug_snk_1_warnInconsistent,
+			 ug_src_2_setCanPeek,
+			 ug_src_2_setPeek,
+			 ug_snk_2_setCanPut,
+			 connect_2,
+			 ug_src_2_warnDoDrop,
+			 ug_src_2_doDrop,
+			 ug_src_2_warnInconsistent,
+			 ug_snk_2_warnDoPut,
+			 ug_snk_2_doPut,
+			 core_m_in_bNoSig_src_setCanPeek,
+			 core_m_in_bNoSig_dropFlit,
+			 core_m_in_bNoSig_src_setPeek,
+			 core_m_in_bNoSig_forwardFlit,
+			 core_m_in_bNoSig_src_warnDoDrop,
+			 core_m_in_bNoSig_src_doDrop,
+			 core_m_in_bNoSig_buffer_enqueue,
+			 core_m_in_bNoSig_buffer_dequeue,
+			 core_m_in_bNoSig_src_warnInconsistent,
+			 ug_snk_2_warnInconsistent,
+			 ug_src_3_setCanPeek,
+			 ug_src_3_setPeek,
+			 ug_snk_3_setCanPut,
+			 connect_3,
+			 ug_src_3_warnDoDrop,
+			 ug_src_3_doDrop,
+			 core_m_in_arNoSig_buffer_enqueue,
+			 core_m_in_arNoSig_buffer_dequeue,
+			 ug_src_3_warnInconsistent,
+			 ug_snk_3_warnDoPut,
+			 ug_snk_3_doPut,
+			 hbm_mem_in_ifc_readReq,
+			 hbm_mem_in_mem_mem_mem_do_alloc,
+			 ug_snk_3_warnInconsistent,
+			 ug_src_4_setCanPeek,
+			 ug_src_4_setPeek,
+			 ug_snk_4_setCanPut,
+			 connect_4,
+			 ug_src_4_warnDoDrop,
+			 ug_src_4_doDrop,
+			 ug_src_4_warnInconsistent,
+			 ug_snk_4_warnDoPut,
+			 ug_snk_4_doPut,
+			 core_m_in_rNoSig_src_setCanPeek,
+			 core_m_in_rNoSig_dropFlit,
+			 core_m_in_rNoSig_src_setPeek,
+			 core_m_in_rNoSig_forwardFlit,
+			 core_m_in_rNoSig_src_warnDoDrop,
+			 core_m_in_rNoSig_src_doDrop,
+			 core_m_in_rNoSig_buffer_enqueue,
+			 core_m_in_rNoSig_buffer_dequeue,
+			 core_m_in_rNoSig_src_warnInconsistent,
+			 ug_snk_4_warnInconsistent,
+			 ug_src_1_setCanPeek_1,
+			 ug_src_1_setPeek_1,
+			 ug_snk_1_setCanPut_1,
+			 connect_5,
+			 ug_src_1_warnDoDrop_1,
+			 ug_src_1_doDrop_1,
+			 core_m_dense_in_awNoSig_buffer_enqueue,
+			 core_m_dense_in_awNoSig_buffer_dequeue,
+			 ug_src_1_warnInconsistent_1,
+			 ug_snk_1_warnDoPut_1,
+			 ug_snk_1_doPut_1,
+			 ug_snk_1_warnInconsistent_1,
+			 ug_src_1_1_setCanPeek,
+			 ug_src_1_1_setPeek,
+			 ug_snk_1_1_setCanPut,
+			 connect_6,
+			 ug_src_1_1_warnDoDrop,
+			 ug_src_1_1_doDrop,
+			 core_m_dense_in_wNoSig_buffer_enqueue,
+			 core_m_dense_in_wNoSig_buffer_dequeue,
+			 ug_src_1_1_warnInconsistent,
+			 ug_snk_1_1_warnDoPut,
+			 ug_snk_1_1_doPut,
+			 hbm_mem_in_dense_ifc_writeReq,
+			 ug_snk_1_1_warnInconsistent,
+			 ug_src_1_2_setCanPeek,
+			 ug_src_1_2_setPeek,
+			 ug_snk_1_2_setCanPut,
+			 connect_7,
+			 ug_src_1_2_warnDoDrop,
+			 ug_src_1_2_doDrop,
+			 ug_src_1_2_warnInconsistent,
+			 ug_snk_1_2_warnDoPut,
+			 ug_snk_1_2_doPut,
+			 core_m_dense_in_bNoSig_src_setCanPeek,
+			 core_m_dense_in_bNoSig_dropFlit,
+			 core_m_dense_in_bNoSig_src_setPeek,
+			 core_m_dense_in_bNoSig_forwardFlit,
+			 core_m_dense_in_bNoSig_src_warnDoDrop,
+			 core_m_dense_in_bNoSig_src_doDrop,
+			 core_m_dense_in_bNoSig_buffer_enqueue,
+			 core_m_dense_in_bNoSig_buffer_dequeue,
+			 core_m_dense_in_bNoSig_src_warnInconsistent,
+			 ug_snk_1_2_warnInconsistent,
+			 ug_src_1_3_setCanPeek,
+			 ug_src_1_3_setPeek,
+			 ug_snk_1_3_setCanPut,
+			 connect_8,
+			 ug_src_1_3_warnDoDrop,
+			 ug_src_1_3_doDrop,
+			 core_m_dense_in_arNoSig_buffer_enqueue,
+			 core_m_dense_in_arNoSig_buffer_dequeue,
+			 ug_src_1_3_warnInconsistent,
+			 ug_snk_1_3_warnDoPut,
+			 ug_snk_1_3_doPut,
+			 hbm_mem_in_dense_ifc_readReq,
+			 hbm_mem_in_dense_mem_mem_mem_do_alloc,
+			 ug_snk_1_3_warnInconsistent,
+			 ug_src_1_4_setCanPeek,
+			 ug_src_1_4_setPeek,
+			 ug_snk_1_4_setCanPut,
+			 connect_9,
+			 ug_src_1_4_warnDoDrop,
+			 ug_src_1_4_doDrop,
+			 ug_src_1_4_warnInconsistent,
+			 ug_snk_1_4_warnDoPut,
+			 ug_snk_1_4_doPut,
+			 core_m_dense_in_rNoSig_src_setCanPeek,
+			 core_m_dense_in_rNoSig_dropFlit,
+			 core_m_dense_in_rNoSig_src_setPeek,
+			 core_m_dense_in_rNoSig_forwardFlit,
+			 core_m_dense_in_rNoSig_src_warnDoDrop,
+			 core_m_dense_in_rNoSig_src_doDrop,
+			 core_m_dense_in_rNoSig_buffer_enqueue,
+			 core_m_dense_in_rNoSig_buffer_dequeue,
+			 core_m_dense_in_rNoSig_src_warnInconsistent,
+			 ug_snk_1_4_warnInconsistent,
+			 ug_src_2_setCanPeek_1,
+			 ug_src_2_setPeek_1,
+			 ug_snk_2_setCanPut_1,
+			 connect_10,
+			 ug_src_2_warnDoDrop_1,
+			 ug_src_2_doDrop_1,
+			 core_m_out_awNoSig_buffer_enqueue,
+			 core_m_out_awNoSig_buffer_dequeue,
+			 ug_src_2_warnInconsistent_1,
+			 ug_snk_2_warnDoPut_1,
+			 ug_snk_2_doPut_1,
+			 ug_snk_2_warnInconsistent_1,
+			 ug_src_2_1_setCanPeek,
+			 ug_src_2_1_setPeek,
+			 ug_snk_2_1_setCanPut,
+			 connect_11,
+			 ug_src_2_1_warnDoDrop,
+			 ug_src_2_1_doDrop,
+			 core_m_out_wNoSig_buffer_enqueue,
+			 core_m_out_wNoSig_buffer_dequeue,
+			 ug_src_2_1_warnInconsistent,
+			 ug_snk_2_1_warnDoPut,
+			 ug_snk_2_1_doPut,
+			 hbm_mem_out_ifc_writeReq,
+			 ug_snk_2_1_warnInconsistent,
+			 ug_src_2_2_setCanPeek,
+			 ug_src_2_2_setPeek,
+			 ug_snk_2_2_setCanPut,
+			 connect_12,
+			 ug_src_2_2_warnDoDrop,
+			 ug_src_2_2_doDrop,
+			 ug_src_2_2_warnInconsistent,
+			 ug_snk_2_2_warnDoPut,
+			 ug_snk_2_2_doPut,
+			 core_m_out_bNoSig_src_setCanPeek,
+			 core_m_out_bNoSig_dropFlit,
+			 core_m_out_bNoSig_src_setPeek,
+			 core_m_out_bNoSig_forwardFlit,
+			 core_m_out_bNoSig_src_warnDoDrop,
+			 core_m_out_bNoSig_src_doDrop,
+			 core_m_out_bNoSig_buffer_enqueue,
+			 core_m_out_bNoSig_buffer_dequeue,
+			 core_m_out_bNoSig_src_warnInconsistent,
+			 ug_snk_2_2_warnInconsistent,
+			 ug_src_2_3_setCanPeek,
+			 ug_src_2_3_setPeek,
+			 ug_snk_2_3_setCanPut,
+			 connect_13,
+			 ug_src_2_3_warnDoDrop,
+			 ug_src_2_3_doDrop,
+			 core_m_out_arNoSig_buffer_enqueue,
+			 core_m_out_arNoSig_buffer_dequeue,
+			 ug_src_2_3_warnInconsistent,
+			 ug_snk_2_3_warnDoPut,
+			 ug_snk_2_3_doPut,
+			 hbm_mem_out_ifc_readReq,
+			 hbm_mem_out_mem_mem_mem_do_alloc,
+			 ug_snk_2_3_warnInconsistent,
+			 ug_src_2_4_setCanPeek,
+			 ug_src_2_4_setPeek,
+			 ug_snk_2_4_setCanPut,
+			 connect_14,
+			 ug_src_2_4_warnDoDrop,
+			 ug_src_2_4_doDrop,
+			 ug_src_2_4_warnInconsistent,
+			 ug_snk_2_4_warnDoPut,
+			 ug_snk_2_4_doPut,
+			 core_m_out_rNoSig_src_setCanPeek,
+			 core_m_out_rNoSig_dropFlit,
+			 core_m_out_rNoSig_src_setPeek,
+			 core_m_out_rNoSig_forwardFlit,
+			 core_m_out_rNoSig_src_warnDoDrop,
+			 core_m_out_rNoSig_src_doDrop,
+			 core_m_out_rNoSig_buffer_enqueue,
+			 core_m_out_rNoSig_buffer_dequeue,
+			 core_m_out_rNoSig_src_warnInconsistent,
+			 ug_snk_2_4_warnInconsistent
+
+======================================================

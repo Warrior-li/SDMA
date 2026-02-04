@@ -35,16 +35,22 @@ endinterface
 (* synthesize *)
 module mkFp32MulCore(Fp32MulCoreIfc);
 
+  Reg#(int) test_counter <- mkReg(0);
+  rule tick(test_counter < 430);
+      test_counter <= test_counter + 1;
+      $display("-----------");
+  endrule 
+
   Vector#(TileLen, Reg#(Edge)) buf0 <- replicateM(mkRegU);
   Vector#(TileLen, Reg#(Edge)) buf1 <- replicateM(mkRegU);
   FIFO#(Tuple2#(BufSel, UInt#(4))) chD2B <- mkFIFO;
-  Vector#(BRAMLen, BRAM1Port#(UInt(10), Bit#(32))) ramBuf0 <- replicateM(mkBRAM1Server(defaultValue));
-  Vector#(BRAMLen, BRAM1Port#(UInt(10), Bit#(32))) ramBuf1 <- replicateM(mkBRAM1Server(defaultValue));
+  Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf0 <- replicateM(mkBRAM1Server(defaultValue));
+  Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf1 <- replicateM(mkBRAM1Server(defaultValue));
   Reg#(UInt#(32)) row_len <- mkReg(143);
-  Vector#(FMALen, FIFO#(Tuple3#(Bit#(32),Bit#(32),UInt#(32)))) vec_workflow <- replicateM(mkFIFO);
+  FIFO#(BufSel) runPU <- mkFIFO;
   DF df <- mkDF(buf0, buf1, chD2B);
-  BF bf <- mkBF(ramBuf0, ramBuf1, buf0, buf1, row_len, chD2B);
-  PU pu <- mkPU;
+  BF bf <- mkBF(ramBuf0, ramBuf1, buf0, buf1, row_len, chD2B, runPU);
+  PU pu <- mkPU(ramBuf0, ramBuf1, buf0, buf1, row_len, runPU);
 
   Reg#(UInt#(32)) test_df_start_idx <- mkReg(0);
 

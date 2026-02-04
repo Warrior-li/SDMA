@@ -84,7 +84,7 @@ module mkDF#( Vector#(TileLen, Reg#(Edge)) buf0
         // buf0/buf1 需要多长len-1
         match {.sign, .len} = task_pipeline.first;
         let d <- get(getTile.out);
-        $display("DF recv data: ", fshow(d), " offset: ", fshow(tile_offset), " len: ", fshow(len), " bufType: ", fshow(sign));
+        // $display("DF recv data: ", fshow(d), " offset: ", fshow(tile_offset), " len: ", fshow(len), " bufType: ", fshow(sign));
         Edge e = Edge {
             data: unpack(d),
             idx: tile_offset

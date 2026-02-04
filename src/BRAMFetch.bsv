@@ -32,7 +32,7 @@ module mkGetRow(GetRow);
         match {.row, .len} = req_pipeline.first;
         req_pipeline.deq;
         currAddr <= pack(row * len) << 2;
-        the_rest_len <= len >> 3; // 每次读256bit = 8个32bit
+        the_rest_len <= (len >> 3) + (((len & 7) != 0) ? 1 : 0); // 每次读256bit = 8个32bit
     endrule
 
     rule sendAR(the_rest_len != 0);
@@ -44,7 +44,7 @@ module mkGetRow(GetRow);
         ar.araddr  = currAddr;          // 当前起始地址
         ar.arid    = 0;
         ar.arlen   = truncate(the_burst);
-        ar.arsize  = toAXI4_Size(32).Valid; // 每 beat = 64 字节（512bit）
+        ar.arsize  = toAXI4_Size(32).Valid; // 每 beat = 32 字节（256bit）
         ar.arburst = INCR;
         ar.arlock  = ?;
         ar.arcache = 0;
@@ -76,47 +76,109 @@ interface BF;
     interface AXI4_Master_Sig#(0,32,256,0,0,0,0,0) axiMaster;
 endinterface
 
-module mkBF #(Vector#(BRAMLen, BRAM1Port#(UInt(10), Bit#(32))) ramBuf0
-            , Vector#(BRAMLen, BRAM1Port#(UInt(10), Bit#(32))) ramBuf1
+module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))) ramBuf0
+            , Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))) ramBuf1
             , Vector#(TileLen, Reg#(Edge)) buf0
             , Vector#(TileLen, Reg#(Edge)) buf1
             , Reg#(UInt#(32)) row_len
             , FIFO#(Tuple2#(BufSel, UInt#(4))) start_fifo
+            , FIFO#(BufSel) runPU
             )(BF);
             
     Reg#(Bool) workFlag <- mkReg(False);
     Reg#(UInt#(32)) the_rest_len <- mkReg(0);
-    Reg#(UInt#(4)) work_index <- mkReg(0);
     FIFO#(Tuple2#(BufSel, UInt#(4))) axi4_work_list <- mkFIFO;
+    Reg#(UInt#(5)) bram_offset <- mkReg(0);
 
     GetRow getRow <- mkGetRow;
+
+    FIFO#(Tuple2#(BufSel, UInt#(4))) decoupled <- mkFIFO;
+    Reg#(BufSel) read_bufType <- mkReg(BUF0);
+
 
     rule consume_start_data(the_rest_len == 0);
         match {.bufType, .index} = start_fifo.first;
         let tmp_buf = bufType == BUF0 ? buf0 : buf1;
         let data = tmp_buf[index];
-        the_rest_len <= row_len;
+        // $display("BF consume start signal for buf: ", fshow(bufType), " index: ", fshow(index), " data.idx: ", fshow(data));
         if (data.idx == index) begin
             getRow.req.put(tuple2(zeroExtend(data.data.col),row_len)); 
+            the_rest_len <= row_len;
+            bram_offset <= 0;
+            read_bufType <= bufType;
+        end else begin
+            start_fifo.deq;
+            decoupled.enq(tuple2(bufType, index));
         end
-        work_index <= index;
     endrule
 
 
-    rule read_axi4_data(the_rest_len > 0);
+    rule read_axi4_data_buf0(the_rest_len > 0 && read_bufType == BUF0);
         match {.bufType, .index} = start_fifo.first;
-        let tmp_buf = bufType == BUF0 ? buf0 : buf1;
-        let ram = bufType == BUF0 ? ramBuf0 : ramBuf1;
+        // $display("BF read data for buf: ", fshow(bufType), " index: ", fshow(index), " the_rest_len: ", fshow(the_rest_len), " bram_offset: ", fshow(bram_offset));
+        let tmp_buf = buf0;
+        let ram = ramBuf0;
         let data = tmp_buf[index];
         let dense <- getRow.out.get;
-        $display("BF recv data: ", fshow(dense), " index: ", fshow(work_index), " len: ", fshow(the_rest_len));
-        for(Integer i = 0; i < valueOf(TileLen); i = i + 1) begin
-            Bit#(32) val = dense >> (i * 32);
-            UInt#(4) bram_addr = row_len - the_rest_len + i;
-            ram[bram_addr].write(tuple2(zeroExtend(data.data.col), toUInt(i)), val);
+        // 写入 BRAM
+        for(Integer i = 0; i < 8; i = i + 1) begin
+            let split_data = dense >> (i * 32);
+            ram[i].portA.request.put(
+                BRAMRequest{              // 构造一个 BRAMRequest 类型的结构体
+                    write: True,           // True:写    False:读
+                    responseOnWrite: False,   // 不产生写响应
+                    address: tuple2(index, bram_offset),            // 读写地址
+                    datain: truncate(split_data)             // 写入数据，当 iswrite=False 时，无所谓是什么
+                }
+            );
         end
-        if(the_rest_len - 1 == 0) start_fifo.deq;
-        the_rest_len <= the_rest_len - 1;
+        bram_offset <= bram_offset + 1;
+        if(the_rest_len <= 8) begin
+            decoupled.enq(tuple2(bufType, index));
+            start_fifo.deq;
+            the_rest_len <= 0;
+        end else begin
+            the_rest_len <= the_rest_len - 8;
+        end
+    endrule 
+
+
+    rule read_axi4_data_buf1(the_rest_len > 0 && read_bufType == BUF1);
+        match {.bufType, .index} = start_fifo.first;
+        // $display("BF read data for buf: ", fshow(bufType), " index: ", fshow(index), " the_rest_len: ", fshow(the_rest_len), " bram_offset: ", fshow(bram_offset));
+        let tmp_buf = buf1;
+        let ram = ramBuf1;
+        let data = tmp_buf[index];
+        let dense <- getRow.out.get;
+        // 写入 BRAM
+        for(Integer i = 0; i < 8; i = i + 1) begin
+            let split_data = dense >> (i * 32);
+            ram[i].portA.request.put(
+                BRAMRequest{              // 构造一个 BRAMRequest 类型的结构体
+                    write: True,           // True:写    False:读
+                    responseOnWrite: False,   // 不产生写响应
+                    address: tuple2(index, bram_offset),            // 读写地址
+                    datain: truncate(split_data)             // 写入数据，当 iswrite=False 时，无所谓是什么
+                }
+            );
+        end
+        bram_offset <= bram_offset + 1;
+        if(the_rest_len <= 8) begin
+            decoupled.enq(tuple2(bufType, index));
+            start_fifo.deq;
+            the_rest_len <= 0;
+        end else begin
+            the_rest_len <= the_rest_len - 8;
+        end
+    endrule
+
+    rule decode;
+        match {.bufType, .index} = decoupled.first;
+        decoupled.deq;
+        if(index == fromInteger(valueOf(TileLen) - 1)) begin
+            $display("BF finished buf: ", fshow(bufType));
+            runPU.enq(bufType);
+        end
     endrule
 
 
