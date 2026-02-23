@@ -11992,10 +11992,6 @@ Conflict-free: sparse_in_aw_awid,
  
 Rule schedule
 -------------
-Rule: tick
-Predicate: test_counter .< 32'd430
-Blocking rules: (none)
- 
 Rule: ramBuf0_0_serverAdapter_outData_enqueue
 Predicate: ramBuf0_0_serverAdapter_outData_enqw.whas &&
 	   ((! ramBuf0_0_serverAdapter_outData_dequeueing.whas) ||
@@ -12925,6 +12921,14 @@ Predicate: bf_getRow_master_sig_out_rSig_snk_putWire.whas &&
 	   (! bf_getRow_master_sig_out_rSig_snk_putDoneWire.whas)
 Blocking rules: (none)
  
+Rule: bf_change_buf_state_0
+Predicate: chD2B.i_notEmpty && (buf0_state == 2'd0)
+Blocking rules: (none)
+ 
+Rule: bf_change_buf_state_1
+Predicate: chD2B.i_notEmpty && (buf1_state == 2'd0)
+Blocking rules: (none)
+ 
 Rule: bf_consume_start_data
 Predicate: chD2B.i_notEmpty &&
 	   bf_getRow_req_pipeline.i_notFull && bf_decoupled.i_notFull &&
@@ -12942,7 +12946,8 @@ Predicate: chD2B.i_notEmpty &&
 	   (ramBuf0_5_serverAdapter_cnt .< 3'd3) &&
 	   (ramBuf0_6_serverAdapter_cnt .< 3'd3) &&
 	   (ramBuf0_7_serverAdapter_cnt .< 3'd3) && bf_decoupled.i_notFull &&
-	   (! (bf_the_rest_len == 32'd0)) && (! bf_read_bufType)
+	   (! (bf_the_rest_len == 32'd0)) && (! bf_read_bufType) &&
+	   (buf0_state == 2'd1)
 Blocking rules: (none)
  
 Rule: bf_read_axi4_data_buf1
@@ -12956,11 +12961,20 @@ Predicate: chD2B.i_notEmpty &&
 	   (ramBuf1_5_serverAdapter_cnt .< 3'd3) &&
 	   (ramBuf1_6_serverAdapter_cnt .< 3'd3) &&
 	   (ramBuf1_7_serverAdapter_cnt .< 3'd3) && bf_decoupled.i_notFull &&
-	   (! (bf_the_rest_len == 32'd0)) && bf_read_bufType
+	   (! (bf_the_rest_len == 32'd0)) && bf_read_bufType &&
+	   (buf1_state == 2'd1)
 Blocking rules: (none)
  
 Rule: bf_decode
 Predicate: bf_decoupled.i_notEmpty && runPU.i_notFull
+Blocking rules: (none)
+ 
+Rule: pu_change_buf_state_0
+Predicate: runPU.i_notEmpty && (buf0_state == 2'd2)
+Blocking rules: (none)
+ 
+Rule: pu_change_buf_state_1
+Predicate: runPU.i_notEmpty && (buf1_state == 2'd2)
 Blocking rules: (none)
  
 Rule: pu_send_task
@@ -12981,8 +12995,10 @@ Predicate: pu_task_list.i_notEmpty &&
 	   (ramBuf0_5_serverAdapter_cnt .< 3'd3) &&
 	   (ramBuf0_6_serverAdapter_cnt .< 3'd3) &&
 	   (ramBuf0_7_serverAdapter_cnt .< 3'd3) &&
-	   (! (pu_rest_count == 32'd0)) && (pu_read_count < row_len)
-Blocking rules: bf_read_axi4_data_buf0
+	   (! (pu_rest_count == 32'd0)) && (pu_read_count < row_len) &&
+	   (buf0_state == 2'd3) &&
+	   (! pu_curr_buf)
+Blocking rules: (none)
  
 Rule: pu_read_req_buf1
 Predicate: pu_task_list.i_notEmpty &&
@@ -12994,8 +13010,10 @@ Predicate: pu_task_list.i_notEmpty &&
 	   (ramBuf1_5_serverAdapter_cnt .< 3'd3) &&
 	   (ramBuf1_6_serverAdapter_cnt .< 3'd3) &&
 	   (ramBuf1_7_serverAdapter_cnt .< 3'd3) &&
-	   (! (pu_rest_count == 32'd0)) && (pu_read_count < row_len)
-Blocking rules: pu_read_req_buf0, bf_read_axi4_data_buf1
+	   (! (pu_rest_count == 32'd0)) && (pu_read_count < row_len) &&
+	   (buf1_state == 2'd3) &&
+	   pu_curr_buf
+Blocking rules: (none)
  
 Rule: pu_vecFMA_0_s1_stage
 Predicate: pu_vecFMA_0_fOperand_S0.i_notEmpty &&
@@ -13358,8 +13376,18 @@ Predicate: ramBuf0_0_serverAdapter_outData_beforeDeq.read &&
 	   ramBuf0_7_serverAdapter_outData_beforeDeq.read &&
 	   (ramBuf0_7_serverAdapter_outData_ff.i_notEmpty ||
 	    ramBuf0_7_serverAdapter_outData_enqw.whas) &&
-	   (! (pu_rest_count == 32'd0)) && (pu_read_count < row_len)
-Blocking rules: (none)
+	   pu_task_list.i_notEmpty &&
+	   pu_vecFMA_0_fOperand_S0.i_notFull &&
+	   pu_vecFMA_1_fOperand_S0.i_notFull &&
+	   pu_vecFMA_2_fOperand_S0.i_notFull &&
+	   pu_vecFMA_3_fOperand_S0.i_notFull &&
+	   pu_vecFMA_4_fOperand_S0.i_notFull &&
+	   pu_vecFMA_5_fOperand_S0.i_notFull &&
+	   pu_vecFMA_6_fOperand_S0.i_notFull &&
+	   pu_vecFMA_7_fOperand_S0.i_notFull &&
+	   (! (pu_rest_count == 32'd0)) && (buf0_state == 2'd3) &&
+	   (! pu_curr_buf)
+Blocking rules: pu_vecFMA_0_s1_stage, pu_do_recv
  
 Rule: pu_read_data_buf1
 Predicate: ramBuf1_0_serverAdapter_outData_beforeDeq.read &&
@@ -13386,6 +13414,7 @@ Predicate: ramBuf1_0_serverAdapter_outData_beforeDeq.read &&
 	   ramBuf1_7_serverAdapter_outData_beforeDeq.read &&
 	   (ramBuf1_7_serverAdapter_outData_ff.i_notEmpty ||
 	    ramBuf1_7_serverAdapter_outData_enqw.whas) &&
+	   pu_task_list.i_notEmpty &&
 	   pu_vecFMA_0_fOperand_S0.i_notFull &&
 	   pu_vecFMA_1_fOperand_S0.i_notFull &&
 	   pu_vecFMA_2_fOperand_S0.i_notFull &&
@@ -13394,8 +13423,8 @@ Predicate: ramBuf1_0_serverAdapter_outData_beforeDeq.read &&
 	   pu_vecFMA_5_fOperand_S0.i_notFull &&
 	   pu_vecFMA_6_fOperand_S0.i_notFull &&
 	   pu_vecFMA_7_fOperand_S0.i_notFull &&
-	   (! (pu_rest_count == 32'd0))
-Blocking rules: (none)
+	   (! (pu_rest_count == 32'd0)) && (buf1_state == 2'd3) && pu_curr_buf
+Blocking rules: pu_vecFMA_0_s1_stage, pu_do_recv
  
 Rule: pu_do_recv
 Predicate: pu_vecFMA_0_fResult_S9.i_notEmpty &&
@@ -13405,7 +13434,12 @@ Predicate: pu_vecFMA_0_fResult_S9.i_notEmpty &&
 	   pu_vecFMA_4_fResult_S9.i_notEmpty &&
 	   pu_vecFMA_5_fResult_S9.i_notEmpty &&
 	   pu_vecFMA_6_fResult_S9.i_notEmpty &&
-	   pu_vecFMA_7_fResult_S9.i_notEmpty
+	   pu_vecFMA_7_fResult_S9.i_notEmpty &&
+	   pu_task_list.i_notEmpty && pu_solve_result_fifo.i_notFull
+Blocking rules: pu_init_process_unit
+ 
+Rule: pu_save_result
+Predicate: pu_solve_result_fifo.i_notEmpty
 Blocking rules: (none)
  
 Rule: start
@@ -13534,8 +13568,7 @@ Predicate: master_sig_out_rSig_snk_putWire.whas &&
 	   (! master_sig_out_rSig_snk_putDoneWire.whas)
 Blocking rules: (none)
  
-Logical execution order: tick,
-			 start,
+Logical execution order: start,
 			 ramBuf0_0_serverAdapter_overRun,
 			 ramBuf0_0_serverAdapter_moveToOutFIFO,
 			 ramBuf0_1_serverAdapter_overRun,
@@ -13630,10 +13663,11 @@ Logical execution order: tick,
 			 df_getTile_master_sig_out_rSig_snk_doPut,
 			 df_getTile_recvR,
 			 df_getTile_master_sig_out_rSig_snk_warnInconsistent,
+			 bf_change_buf_state_0,
+			 bf_change_buf_state_1,
 			 bf_consume_start_data,
 			 bf_read_axi4_data_buf0,
 			 bf_read_axi4_data_buf1,
-			 bf_decode,
 			 bf_getRow_init_axi4,
 			 bf_getRow_sendAR,
 			 bf_getRow_master_sig_out_awSig_src_setCanPeek,
@@ -13645,9 +13679,9 @@ Logical execution order: tick,
 			 dense_in_aw_awlen,
 			 dense_in_aw_awsize,
 			 dense_in_aw_awburst,
-			 dense_in_aw_awcache,
 			 dense_in_aw_awlock,
 			 dense_in_aw_awprot,
+			 dense_in_aw_awcache,
 			 dense_in_aw_awqos,
 			 dense_in_aw_awregion,
 			 dense_in_aw_awuser,
@@ -13696,49 +13730,23 @@ Logical execution order: tick,
 			 bf_getRow_master_sig_out_rSig_snk_doPut,
 			 bf_getRow_recvR,
 			 bf_getRow_master_sig_out_rSig_snk_warnInconsistent,
-			 pu_send_task,
 			 pu_init_process_unit,
-			 pu_read_data_buf0,
-			 ramBuf0_0_serverAdapter_outData_enqueue,
-			 ramBuf0_0_serverAdapter_outData_dequeue,
-			 ramBuf0_1_serverAdapter_outData_enqueue,
-			 ramBuf0_1_serverAdapter_outData_dequeue,
-			 ramBuf0_2_serverAdapter_outData_enqueue,
-			 ramBuf0_2_serverAdapter_outData_dequeue,
-			 ramBuf0_3_serverAdapter_outData_enqueue,
-			 ramBuf0_3_serverAdapter_outData_dequeue,
-			 ramBuf0_4_serverAdapter_outData_enqueue,
-			 ramBuf0_4_serverAdapter_outData_dequeue,
-			 ramBuf0_5_serverAdapter_outData_enqueue,
-			 ramBuf0_5_serverAdapter_outData_dequeue,
-			 ramBuf0_6_serverAdapter_outData_enqueue,
-			 ramBuf0_6_serverAdapter_outData_dequeue,
-			 ramBuf0_7_serverAdapter_outData_enqueue,
-			 ramBuf0_7_serverAdapter_outData_dequeue,
 			 pu_read_req_buf0,
 			 ramBuf0_0_serverAdapter_stageReadResponseAlways,
-			 ramBuf0_0_serverAdapter_cnt_finalAdd,
 			 ramBuf0_0_serverAdapter_s1__dreg_update,
 			 ramBuf0_1_serverAdapter_stageReadResponseAlways,
-			 ramBuf0_1_serverAdapter_cnt_finalAdd,
 			 ramBuf0_1_serverAdapter_s1__dreg_update,
 			 ramBuf0_2_serverAdapter_stageReadResponseAlways,
-			 ramBuf0_2_serverAdapter_cnt_finalAdd,
 			 ramBuf0_2_serverAdapter_s1__dreg_update,
 			 ramBuf0_3_serverAdapter_stageReadResponseAlways,
-			 ramBuf0_3_serverAdapter_cnt_finalAdd,
 			 ramBuf0_3_serverAdapter_s1__dreg_update,
 			 ramBuf0_4_serverAdapter_stageReadResponseAlways,
-			 ramBuf0_4_serverAdapter_cnt_finalAdd,
 			 ramBuf0_4_serverAdapter_s1__dreg_update,
 			 ramBuf0_5_serverAdapter_stageReadResponseAlways,
-			 ramBuf0_5_serverAdapter_cnt_finalAdd,
 			 ramBuf0_5_serverAdapter_s1__dreg_update,
 			 ramBuf0_6_serverAdapter_stageReadResponseAlways,
-			 ramBuf0_6_serverAdapter_cnt_finalAdd,
 			 ramBuf0_6_serverAdapter_s1__dreg_update,
 			 ramBuf0_7_serverAdapter_stageReadResponseAlways,
-			 ramBuf0_7_serverAdapter_cnt_finalAdd,
 			 ramBuf0_7_serverAdapter_s1__dreg_update,
 			 pu_read_req_buf1,
 			 ramBuf1_0_serverAdapter_stageReadResponseAlways,
@@ -13757,22 +13765,6 @@ Logical execution order: tick,
 			 ramBuf1_6_serverAdapter_s1__dreg_update,
 			 ramBuf1_7_serverAdapter_stageReadResponseAlways,
 			 ramBuf1_7_serverAdapter_s1__dreg_update,
-			 df_consume_data,
-			 df_com_pipeline_loop_14,
-			 df_com_pipeline_loop_13,
-			 df_com_pipeline_loop_12,
-			 df_com_pipeline_loop_11,
-			 df_com_pipeline_loop_10,
-			 df_com_pipeline_loop_9,
-			 df_com_pipeline_loop_8,
-			 df_com_pipeline_loop_7,
-			 df_com_pipeline_loop_6,
-			 df_com_pipeline_loop_5,
-			 df_com_pipeline_loop_4,
-			 df_com_pipeline_loop_3,
-			 df_com_pipeline_loop_2,
-			 df_com_pipeline_loop_1,
-			 df_com_pipeline_loop,
 			 pu_do_recv,
 			 pu_vecFMA_0_s9_stage,
 			 pu_vecFMA_0_s8_stage,
@@ -13846,6 +13838,32 @@ Logical execution order: tick,
 			 pu_vecFMA_7_s3_stage,
 			 pu_vecFMA_7_s2_stage,
 			 pu_vecFMA_7_s1_stage,
+			 pu_read_data_buf0,
+			 ramBuf0_0_serverAdapter_outData_enqueue,
+			 ramBuf0_0_serverAdapter_outData_dequeue,
+			 ramBuf0_0_serverAdapter_cnt_finalAdd,
+			 ramBuf0_1_serverAdapter_outData_enqueue,
+			 ramBuf0_1_serverAdapter_outData_dequeue,
+			 ramBuf0_1_serverAdapter_cnt_finalAdd,
+			 ramBuf0_2_serverAdapter_outData_enqueue,
+			 ramBuf0_2_serverAdapter_outData_dequeue,
+			 ramBuf0_2_serverAdapter_cnt_finalAdd,
+			 ramBuf0_3_serverAdapter_outData_enqueue,
+			 ramBuf0_3_serverAdapter_outData_dequeue,
+			 ramBuf0_3_serverAdapter_cnt_finalAdd,
+			 ramBuf0_4_serverAdapter_outData_enqueue,
+			 ramBuf0_4_serverAdapter_outData_dequeue,
+			 ramBuf0_4_serverAdapter_cnt_finalAdd,
+			 ramBuf0_5_serverAdapter_outData_enqueue,
+			 ramBuf0_5_serverAdapter_outData_dequeue,
+			 ramBuf0_5_serverAdapter_cnt_finalAdd,
+			 ramBuf0_6_serverAdapter_outData_enqueue,
+			 ramBuf0_6_serverAdapter_outData_dequeue,
+			 ramBuf0_6_serverAdapter_cnt_finalAdd,
+			 ramBuf0_7_serverAdapter_outData_enqueue,
+			 ramBuf0_7_serverAdapter_outData_dequeue,
+			 ramBuf0_7_serverAdapter_cnt_finalAdd,
+			 pu_change_buf_state_1,
 			 pu_read_data_buf1,
 			 ramBuf1_0_serverAdapter_outData_enqueue,
 			 ramBuf1_0_serverAdapter_outData_dequeue,
@@ -13871,6 +13889,26 @@ Logical execution order: tick,
 			 ramBuf1_7_serverAdapter_outData_enqueue,
 			 ramBuf1_7_serverAdapter_outData_dequeue,
 			 ramBuf1_7_serverAdapter_cnt_finalAdd,
+			 df_consume_data,
+			 df_com_pipeline_loop_14,
+			 df_com_pipeline_loop_13,
+			 df_com_pipeline_loop_12,
+			 df_com_pipeline_loop_11,
+			 df_com_pipeline_loop_10,
+			 df_com_pipeline_loop_9,
+			 df_com_pipeline_loop_8,
+			 df_com_pipeline_loop_7,
+			 df_com_pipeline_loop_6,
+			 df_com_pipeline_loop_5,
+			 df_com_pipeline_loop_4,
+			 df_com_pipeline_loop_3,
+			 df_com_pipeline_loop_2,
+			 df_com_pipeline_loop_1,
+			 df_com_pipeline_loop,
+			 pu_change_buf_state_0,
+			 bf_decode,
+			 pu_send_task,
+			 pu_save_result,
 			 master_sig_out_awSig_src_setCanPeek,
 			 mem_out_aw_awvalid,
 			 mem_out_aw_awready,
@@ -13882,8 +13920,8 @@ Logical execution order: tick,
 			 mem_out_aw_awburst,
 			 mem_out_aw_awlock,
 			 mem_out_aw_awcache,
-			 mem_out_aw_awqos,
 			 mem_out_aw_awprot,
+			 mem_out_aw_awqos,
 			 mem_out_aw_awregion,
 			 mem_out_aw_awuser,
 			 master_sig_out_awSig_src_warnDoDrop,

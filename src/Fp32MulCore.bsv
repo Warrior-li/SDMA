@@ -33,29 +33,33 @@ interface Fp32MulCoreIfc;
 endinterface
 
 (* synthesize *)
+// (* descending_urgency = "bf_read_axi4_data_buf1, pu_read_req_buf1" *)
+// (* descending_urgency = "bf_read_axi4_data_buf0, pu_read_req_buf0" *)
 module mkFp32MulCore(Fp32MulCoreIfc);
 
-  Reg#(int) test_counter <- mkReg(0);
-  rule tick(test_counter < 430);
-      test_counter <= test_counter + 1;
-      $display("-----------");
-  endrule 
+  // Reg#(int) test_counter <- mkReg(0);
+  // rule tick(test_counter < 430);
+  //     test_counter <= test_counter + 1;
+  //     $display("-----------");
+  // endrule 
 
   Vector#(TileLen, Reg#(Edge)) buf0 <- replicateM(mkRegU);
   Vector#(TileLen, Reg#(Edge)) buf1 <- replicateM(mkRegU);
   FIFO#(Tuple2#(BufSel, UInt#(4))) chD2B <- mkFIFO;
   Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf0 <- replicateM(mkBRAM1Server(defaultValue));
   Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4),UInt#(5)), Bit#(32))) ramBuf1 <- replicateM(mkBRAM1Server(defaultValue));
+  Reg#(BufState) buf0_state <- mkReg(BFree);
+  Reg#(BufState) buf1_state <- mkReg(BFree);
   Reg#(UInt#(32)) row_len <- mkReg(143);
-  FIFO#(BufSel) runPU <- mkFIFO;
+  FIFO#(BufSel) runPU <- mkFIFO1;
   DF df <- mkDF(buf0, buf1, chD2B);
-  BF bf <- mkBF(ramBuf0, ramBuf1, buf0, buf1, row_len, chD2B, runPU);
-  PU pu <- mkPU(ramBuf0, ramBuf1, buf0, buf1, row_len, runPU);
+  BF bf <- mkBF(ramBuf0, ramBuf1, buf0, buf1, row_len, chD2B, runPU, buf0_state, buf1_state);
+  PU pu <- mkPU(ramBuf0, ramBuf1, buf0, buf1, row_len, runPU, buf0_state, buf1_state);
 
   Reg#(UInt#(32)) test_df_start_idx <- mkReg(0);
 
   rule start(test_df_start_idx < 30);
-      df.start.put(tuple2(test_df_start_idx%2 == 1?BUF0:BUF1, fromInteger(valueOf(TileLen) - 1)));
+      df.start.put(tuple2(test_df_start_idx % 2 == 0?BUF0:BUF1, fromInteger(valueOf(TileLen) - 1)));
       test_df_start_idx <= test_df_start_idx + 1;
   endrule
 

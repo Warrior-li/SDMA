@@ -83,9 +83,10 @@ module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
             , Reg#(UInt#(32)) row_len
             , FIFO#(Tuple2#(BufSel, UInt#(4))) start_fifo
             , FIFO#(BufSel) runPU
+            , Reg#(BufState) buf0_state
+            , Reg#(BufState) buf1_state
             )(BF);
             
-    Reg#(Bool) workFlag <- mkReg(False);
     Reg#(UInt#(32)) the_rest_len <- mkReg(0);
     FIFO#(Tuple2#(BufSel, UInt#(4))) axi4_work_list <- mkFIFO;
     Reg#(UInt#(5)) bram_offset <- mkReg(0);
@@ -94,6 +95,23 @@ module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
 
     FIFO#(Tuple2#(BufSel, UInt#(4))) decoupled <- mkFIFO;
     Reg#(BufSel) read_bufType <- mkReg(BUF0);
+
+
+    rule change_buf_state_0(buf0_state == BFree);
+        match {.bufType, .index} = start_fifo.first;
+        if(bufType == BUF0) begin
+            $display("BF set buf0 to filling for index: ", fshow(index));
+            buf0_state <= BFilling;
+        end
+    endrule
+
+    rule change_buf_state_1(buf1_state == BFree);
+        match {.bufType, .index} = start_fifo.first;
+        if(bufType == BUF1) begin
+            $display("BF set buf1 to filling for index: ", fshow(index));
+            buf1_state <= BFilling;
+        end
+    endrule
 
 
     rule consume_start_data(the_rest_len == 0);
@@ -113,7 +131,7 @@ module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
     endrule
 
 
-    rule read_axi4_data_buf0(the_rest_len > 0 && read_bufType == BUF0);
+    rule read_axi4_data_buf0(the_rest_len > 0 && read_bufType == BUF0 && buf0_state == BFilling);
         match {.bufType, .index} = start_fifo.first;
         let tmp_buf = buf0;
         let ram = ramBuf0;
@@ -142,7 +160,7 @@ module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
     endrule 
 
 
-    rule read_axi4_data_buf1(the_rest_len > 0 && read_bufType == BUF1);
+    rule read_axi4_data_buf1(the_rest_len > 0 && read_bufType == BUF1 && buf1_state == BFilling);
         match {.bufType, .index} = start_fifo.first;
         let tmp_buf = buf1;
         let ram = ramBuf1;
@@ -176,9 +194,16 @@ module mkBF #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
         if(index == fromInteger(valueOf(TileLen) - 1)) begin
             $display("BF finished buf: ", fshow(bufType));
             runPU.enq(bufType);
+            if(bufType == BUF0) begin
+                $display("BF set buf0 to ready for index: ", fshow(index));
+                buf0_state <= BReady;
+            end
+            if(bufType == BUF1) begin
+                $display("BF set buf1 to ready for index: ", fshow(index));
+                buf1_state <= BReady;
+            end
         end
     endrule
-
 
     interface axiMaster = getRow.axiMaster;
 endmodule : mkBF 

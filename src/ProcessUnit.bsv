@@ -20,9 +20,29 @@ module mkPU #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
             , Vector#(TileLen, Reg#(Edge)) buf1
             , Reg#(UInt#(32)) row_len
             , FIFO#(BufSel) start_fifo
+            , Reg#(BufState) buf0_state
+            , Reg#(BufState) buf1_state
             )(PU);
 
+    Reg#(BufSel) curr_buf <- mkReg(BUF0);
+    
+    rule change_buf_state_0(buf0_state == BReady);
+        let buf_signal = start_fifo.first;
+        if(buf_signal == BUF0) begin
+            $display("BF set buf0 to filling for index: ", fshow(buf_signal));
+            buf0_state <= BComputing;
+            curr_buf <= buf_signal;
+        end
+    endrule
 
+    rule change_buf_state_1(buf1_state == BReady);
+        let buf_signal = start_fifo.first;
+        if(buf_signal == BUF1) begin
+            $display("BF set buf1 to filling for index: ", fshow(buf_signal));
+            buf1_state <= BComputing;
+            curr_buf <= buf_signal;
+        end
+    endrule
 
     FIFO#(Tuple2#(BufSel, UInt#(4))) task_list <- mkFIFO;
 
@@ -30,7 +50,7 @@ module mkPU #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
 
     rule send_task;
         let buf_signal = start_fifo.first;
-        $display("PU receive start signal for buf: ", fshow(buf_signal), " task_idx: ", fshow(task_idx));
+        // $display("PU receive start signal for buf: ", fshow(buf_signal), " task_idx: ", fshow(task_idx));
         task_list.enq(tuple2(buf_signal, task_idx));
         if(task_idx == fromInteger(valueOf(TileLen) - 1)) begin
             start_fifo.deq;
@@ -67,18 +87,21 @@ module mkPU #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
         endaction;
     endfunction
 
-    rule read_req_buf0(rest_count > 0 && read_count < row_len);
+    rule read_req_buf0(rest_count > 0 && read_count < row_len && buf0_state == BComputing && curr_buf == BUF0);
         match {.buf_signal, .task_idx} = task_list.first;
         if (buf_signal == BUF0) begin
+            // $display("PU send read req for buf0, task_idx: ", fshow(task_idx), " bram_offset: ", fshow(bram_offset));
             send_read_req(ramBuf0, buf0[task_idx].idx, bram_offset);
             read_count  <= read_count + 8;
             bram_offset <= bram_offset + 1;
         end
     endrule
 
-    rule read_req_buf1(rest_count > 0 && read_count < row_len);
+
+    rule read_req_buf1(rest_count > 0 && read_count < row_len && buf1_state == BComputing && curr_buf == BUF1);
         match {.buf_signal, .task_idx} = task_list.first;
         if (buf_signal == BUF1) begin
+            // $display("PU send read req for buf1, task_idx: ", fshow(task_idx), " bram_offset: ", fshow(bram_offset));
             send_read_req(ramBuf1, buf1[task_idx].idx, bram_offset);
             read_count  <= read_count + 8;
             bram_offset <= bram_offset + 1;
@@ -90,7 +113,6 @@ module mkPU #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
     Tuple2#(FP32, Exception)
     )) vecFMA <- replicateM(mkFloatingPointFusedMultiplyAccumulate);
 
-    // Vector#(FMALen, FIFO#()) dataA_vec <- mkRegU;
 
     function ActionValue#(Vector#(FMALen, Bit#(32)))
         read_data(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))) ram);
@@ -119,26 +141,53 @@ module mkPU #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
         endaction;
     endfunction
 
-    rule read_data_buf0(rest_count > 0 && read_count < row_len);
+    rule read_data_buf0(rest_count > 0 && buf0_state == BComputing && curr_buf == BUF0);
+        match {.buf_signal, .task_idx} = task_list.first;
         let data_vec <- read_data(ramBuf0);
-        $display("PU read data_vec: ", fshow(data_vec));
+        // $display("PU read buf0 data_vec: ", fshow(data_vec), " task_idx: ", fshow(task_idx));
+        FP32 b = unpack(buf0[task_idx].data.value);
+        send_fma_req(data_vec, b, 0.0);
+
     endrule
 
-    rule read_data_buf1(rest_count > 0);
+    rule read_data_buf1(rest_count > 0 && buf1_state == BComputing && curr_buf == BUF1);
         match {.buf_signal, .task_idx} = task_list.first;
         let data_vec <- read_data(ramBuf1);
-        $display("PU read data_vec: ", fshow(data_vec));
+        // $display("PU read buf1 data_vec: ", fshow(data_vec), " task_idx: ", fshow(task_idx));
         FP32 b = unpack(buf1[task_idx].data.value);
-        FP32 c = unp
         send_fma_req(data_vec, b, 0.0);
     endrule
+
+    FIFO#(Tuple2#(BufSel, UInt#(4))) solve_result_fifo <- mkFIFO;
+
 
     rule do_recv;
         for(Integer i = 0; i < valueOf(FMALen); i = i + 1) begin
             match {.result, .exc} <- vecFMA[i].response.get;
-            $display("PU FMA result: ", fshow(result), " exc: ", fshow(exc));
+            // $display("PU FMA result: ", fshow(result), " exc: ", fshow(exc));
+        end
+
+        if(rest_count <= fromInteger(valueOf(FMALen))) begin
+            match {.buf_signal, .task_idx} = task_list.first;
+            solve_result_fifo.enq(tuple2(buf_signal, task_idx));
+            task_list.deq;
+            rest_count <= 0;
+        end else begin
+            rest_count <= rest_count - fromInteger(valueOf(FMALen));
         end
     endrule
+
+    rule save_result;
+        match {.buf_signal, .task_idx} = solve_result_fifo.first;
+        if(task_idx == fromInteger(valueOf(TileLen) - 1)) begin
+            if(buf_signal == BUF0) begin
+                buf0_state <= BFree;
+            end else begin
+                buf1_state <= BFree;
+            end
+        end
+        solve_result_fifo.deq;
+    endrule 
     
 endmodule : mkPU
     
