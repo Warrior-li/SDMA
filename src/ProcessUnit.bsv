@@ -25,6 +25,8 @@ module mkPU #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
             )(PU);
 
     Reg#(BufSel) curr_buf <- mkReg(BUF0);
+
+    RegFile#(UInt#(8), Bit#(256)) result_buf <- mkRegFileFull;
     
     rule change_buf_state_0(buf0_state == BReady);
         let buf_signal = start_fifo.first;
@@ -160,20 +162,37 @@ module mkPU #(Vector#(BRAMLen, BRAM1Port#(Tuple2#(UInt#(4), UInt#(5)), Bit#(32))
 
     FIFO#(Tuple2#(BufSel, UInt#(4))) solve_result_fifo <- mkFIFO;
 
+    Reg#(UInt#(8)) result_write_idx <- mkReg(0);  // 追踪写入 RegFile 的位置
 
     rule do_recv;
+        match {.buf_signal, .task_idx} = task_list.first;
+        
+        // 接收 8 个 FMA 结果
+        Vector#(FMALen, FP32) results = newVector;
         for(Integer i = 0; i < valueOf(FMALen); i = i + 1) begin
             match {.result, .exc} <- vecFMA[i].response.get;
-            // $display("PU FMA result: ", fshow(result), " exc: ", fshow(exc));
+            results[i] = result;
         end
-
+        
+        // 将 8 个 FP32 打包成 256 位
+        Bit#(256) packed_results = 0;
+        for(Integer i = 0; i < valueOf(FMALen); i = i + 1) begin
+            Bit#(32) fp_bits = pack(results[i]);
+            packed_results = packed_results | (zeroExtend(fp_bits) << (i * 32));
+        end
+        
+        // 根据 buf_signal 写入对应的 RegFile（先只处理 buf0）
+        result_buf.upd(result_write_idx, packed_results);
+        $display("Store to result_buf[%d]: ", result_write_idx, fshow(results));
+        
         if(rest_count <= fromInteger(valueOf(FMALen))) begin
-            match {.buf_signal, .task_idx} = task_list.first;
             solve_result_fifo.enq(tuple2(buf_signal, task_idx));
             task_list.deq;
             rest_count <= 0;
+            result_write_idx <= 0;  // 任务完成，重置写入索引
         end else begin
             rest_count <= rest_count - fromInteger(valueOf(FMALen));
+            result_write_idx <= result_write_idx + 1;  // 下一个写入位置
         end
     endrule
 

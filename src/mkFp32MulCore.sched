@@ -13443,7 +13443,7 @@ Predicate: pu_solve_result_fifo.i_notEmpty
 Blocking rules: (none)
  
 Rule: start
-Predicate: df_task_pipeline.i_notFull && (test_df_start_idx < 32'd30)
+Predicate: df_task_pipeline.i_notFull && (test_df_start_idx < 32'd372)
 Blocking rules: (none)
  
 Rule: master_sig_out_awSig_src_setCanPeek
