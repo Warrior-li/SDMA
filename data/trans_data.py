@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import argparse
 import struct
 from collections import defaultdict
+from pathlib import Path
 from typing import List, Tuple, Dict, Optional
+
+NodeId = str
 
 # -----------------------------
 # 1) 读入 COO 边 (row, col, value)
 # -----------------------------
-def load_coo(path: str, default_val: float = 1.0) -> List[Tuple[int, int, float]]:
+def load_coo(path: str, default_val: float = 1.0) -> List[Tuple[NodeId, NodeId, float]]:
     """
-    支持两列(row col) 或三列(row col value)
+    支持两列(row col) 或三列(row col value)。
+    注意：row/col 不要求是数字，也可以是字符串ID，
+    例如 bradshaw97introduction 这种节点名。
     """
-    edges = []
+    edges: List[Tuple[NodeId, NodeId, float]] = []
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
             line = line.strip()
@@ -20,10 +26,10 @@ def load_coo(path: str, default_val: float = 1.0) -> List[Tuple[int, int, float]
                 continue
             parts = line.split()
             if len(parts) == 2:
-                r, c = int(parts[0]), int(parts[1])
+                r, c = parts[0], parts[1]
                 v = default_val
             elif len(parts) >= 3:
-                r, c = int(parts[0]), int(parts[1])
+                r, c = parts[0], parts[1]
                 v = float(parts[2])
             else:
                 continue
@@ -31,12 +37,47 @@ def load_coo(path: str, default_val: float = 1.0) -> List[Tuple[int, int, float]
     return edges
 
 
+def normalize_graph_direction(
+    edges: List[Tuple[NodeId, NodeId, float]],
+    directed: bool = True,
+) -> List[Tuple[NodeId, NodeId, float]]:
+    """
+    根据参数把输入边集解释成有向图或无向图。
+
+    - directed=True:
+        保持原始边不变。
+    - directed=False:
+        对每条边 (u, v, w) 补充 (v, u, w)，
+        但会自动去重，避免原文件本来就有双向边时重复；
+        对自环 (u == v) 不重复添加。
+    """
+    if directed:
+        return edges
+
+    normalized: List[Tuple[NodeId, NodeId, float]] = []
+    seen = set()
+    for r, c, v in edges:
+        key = (r, c, v)
+        if key not in seen:
+            normalized.append((r, c, v))
+            seen.add(key)
+
+        if r != c:
+            rev_key = (c, r, v)
+            if rev_key not in seen:
+                normalized.append((c, r, v))
+                seen.add(rev_key)
+
+    return normalized
+
+
 # -----------------------------
 # 2) 索引单一化：把原始ID映射到 0..N-1
 # -----------------------------
-def reindex_coo(edges: List[Tuple[int, int, float]]) -> Tuple[List[Tuple[int, int, float]], Dict[int, int]]:
+def reindex_coo(edges: List[Tuple[NodeId, NodeId, float]]) -> Tuple[List[Tuple[int, int, float]], Dict[NodeId, int]]:
     """
-    对 row 和 col 的“原始ID集合的并集”做统一映射（典型 cora.cites）。
+    对 row 和 col 的“原始ID集合的并集”做统一映射（典型 citeseer.cites）。
+    原始ID可以是字符串，也可以是数字字符串。
     返回：新edges + 映射表 old_id -> new_id
     """
     ids = set()
@@ -44,7 +85,8 @@ def reindex_coo(edges: List[Tuple[int, int, float]]) -> Tuple[List[Tuple[int, in
         ids.add(r)
         ids.add(c)
 
-    # 从头开始排序 -> 连续编号
+    # 统一按字符串字典序排序，再映射到连续编号。
+    # 这里不要求原始ID必须可转成整数。
     sorted_ids = sorted(ids)
     id_map = {old: new for new, old in enumerate(sorted_ids)}
 
@@ -120,6 +162,47 @@ def make_cpcoo(edges_sorted: List[Tuple[int, int, float]]) -> Tuple[List[int], i
 
 
 # -----------------------------
+# 4.5) CSR 打包：row_ptr / col_idx / values
+# -----------------------------
+def make_csr(edges_sorted: List[Tuple[int, int, float]]) -> Tuple[List[int], List[int], List[float], int]:
+    """
+    输入：已按 (row, col) 排序的 COO
+    输出：
+      row_ptr: 长度 nrows + 1
+      col_idx: 长度 nnz
+      values : 长度 nnz
+      nrows  : 行数
+    """
+    if not edges_sorted:
+        return [0], [], [], 0
+
+    max_row = max(r for r, _, _ in edges_sorted)
+    nrows = max_row + 1
+
+    row_ptr = [0] * (nrows + 1)
+    col_idx: List[int] = []
+    values: List[float] = []
+
+    cur_row = 0
+    nnz_count = 0
+
+    for r, c, v in edges_sorted:
+        while cur_row < r:
+            row_ptr[cur_row + 1] = nnz_count
+            cur_row += 1
+
+        col_idx.append(c)
+        values.append(v)
+        nnz_count += 1
+
+    while cur_row < nrows:
+        row_ptr[cur_row + 1] = nnz_count
+        cur_row += 1
+
+    return row_ptr, col_idx, values, nrows
+
+
+# -----------------------------
 # 5) 输出：hex文本 / 二进制
 # -----------------------------
 def save_cpcoo_hex(words: List[int], path: str) -> None:
@@ -132,6 +215,87 @@ def save_cpcoo_bin_le(words: List[int], path: str) -> None:
     with open(path, "wb") as f:
         for w in words:
             f.write(struct.pack("<Q", w & 0xFFFFFFFFFFFFFFFF))
+
+
+def save_u32_hex(words: List[int], path: str) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        for w in words:
+            f.write(f"{(w & 0xFFFFFFFF):08x}\n")
+
+
+def save_u32_bin_le(words: List[int], path: str) -> None:
+    with open(path, "wb") as f:
+        for w in words:
+            f.write(struct.pack("<I", w & 0xFFFFFFFF))
+
+
+def save_f32_hex(data: List[float], path: str) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        for x in data:
+            f.write(f"{float32_to_u32bits(x):08x}\n")
+
+
+def save_f32_bin_le(data: List[float], path: str) -> None:
+    with open(path, "wb") as f:
+        for x in data:
+            f.write(struct.pack("<f", float(x)))
+
+
+def save_int_list_txt(data: List[int], path: str) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        for x in data:
+            f.write(f"{x}\n")
+
+
+def save_float_list_txt(data: List[float], path: str) -> None:
+    with open(path, "w", encoding="utf-8") as f:
+        for x in data:
+            f.write(f"{x:.8g}\n")
+
+
+def ceil_div(a: int, b: int) -> int:
+    return (a + b - 1) // b
+
+
+def report_transfer_compare(cpcoo_words: List[int], row_ptr: List[int], col_idx: List[int], values: List[float]) -> None:
+    """
+    以“Host -> Device 传输”的视角比较：
+    - CPCOO: 每项 64-bit
+    - CSR  : row_ptr / col_idx / values 都按 32-bit 传输
+    额外给出按 256-bit AXI beat 估算的拍数。
+    """
+    cpcoo_word_count = len(cpcoo_words)
+    cpcoo_bytes = cpcoo_word_count * 8
+    cpcoo_beats_256 = ceil_div(cpcoo_bytes, 32)
+
+    csr_row_ptr_words = len(row_ptr)
+    csr_col_idx_words = len(col_idx)
+    csr_value_words = len(values)
+    csr_total_words_32 = csr_row_ptr_words + csr_col_idx_words + csr_value_words
+    csr_total_bytes = csr_total_words_32 * 4
+    csr_beats_256 = ceil_div(csr_total_bytes, 32)
+
+    print("[xfer] ===== Host -> Device payload compare =====")
+    print(f"[xfer] CPCOO : {cpcoo_word_count} x 64-bit words = {cpcoo_bytes} bytes, est. {cpcoo_beats_256} AXI-256 beats")
+    print(f"[xfer] CSR   : row_ptr={csr_row_ptr_words}, col_idx={csr_col_idx_words}, values={csr_value_words} (all 32-bit)")
+    print(f"[xfer] CSR   : {csr_total_words_32} x 32-bit words = {csr_total_bytes} bytes, est. {csr_beats_256} AXI-256 beats")
+    if cpcoo_bytes > 0:
+        print(f"[xfer] CSR/CPCOO payload ratio = {csr_total_bytes / cpcoo_bytes:.4f}")
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="将 cites/COO 数据转换为 CPCOO 与 CSR")
+    parser.add_argument("--input", default="citeseer/citeseer.cites", help="输入边文件路径")
+    parser.add_argument("--tile-size", type=int, default=16, help="行重排分析使用的 tile 大小")
+    parser.add_argument("--alpha", type=float, default=0.5, help="行重排评分参数 alpha")
+    parser.add_argument(
+        "--graph-type",
+        choices=["directed", "undirected"],
+        default="directed",
+        help="输入文件按有向图还是无向图解释；undirected 会自动补充反向边",
+    )
+    parser.add_argument("--default-val", type=float, default=1.0, help="两列输入时使用的默认边权")
+    return parser.parse_args()
 
 # -----------------------------
 # 3.5) 构建按行的结构
@@ -424,16 +588,22 @@ def analyze_tile_col_reuse(
 # main 示例
 # -----------------------------
 if __name__ == "__main__":
-    # 你的输入文件：两列或三列
-    in_path = "cora/cora.cites"
+    args = parse_args()
 
-    edges = load_coo(in_path, default_val=1.0)
+    in_path = args.input
+    tile_size = args.tile_size
+    directed = args.graph_type == "directed"
+    out_prefix = Path(in_path).stem
+
+    edges = load_coo(in_path, default_val=args.default_val)
+    edges = normalize_graph_direction(edges, directed=directed)
     edges, id_map = reindex_coo(edges)
-        # 先按行构建
+
+    # 先按行构建
     rows, nrows = build_rows(edges)
 
     # 行重排：tile=16
-    order = reorder_rows_greedy_tile_overlap(rows, nrows, tile_size=16, alpha=0.35)
+    order = reorder_rows_greedy_tile_overlap(rows, nrows, tile_size=tile_size, alpha=args.alpha)
 
     # 应用重排
     edges, old2new, new2old, row_lens = apply_row_permutation(rows, order)
@@ -442,21 +612,44 @@ if __name__ == "__main__":
     edges = sort_coo(edges)
 
     cpcoo_words, nrows = make_cpcoo(edges)
+    csr_row_ptr, csr_col_idx, csr_values, csr_nrows = make_csr(edges)
+
+    print(f"[graph] input={in_path}")
+    print(f"[graph] mode={'directed' if directed else 'undirected'}")
+    print(f"[graph] edges_after_normalize={len(edges)} nodes={len(id_map)}")
 
     # ✅ 加：检查 tile 内 col 重复情况
     analyze_tile_col_reuse(
         cpcoo_words,
-        tile_size=16,
+        tile_size=tile_size,
         report_tiles=10,     # 打印前 10 个 tile
         topk_cols=5,         # 每个 tile 打印 top-5 重复列
         by_eor_boundary=False # True=按行切再分块；False=纯流式固定16切
     )
 
 
-    print(f"edges={len(edges)}, nrows={nrows}, cpcoo_words={len(cpcoo_words)}")
-    print("first 10 cpcoo words (hex):")
-    for w in cpcoo_words[:10]:
-        print(f"  {w:016x}")
 
-    save_cpcoo_hex(cpcoo_words, "cora.hex")
-    save_cpcoo_bin_le(cpcoo_words, "cora.bin")
+    save_cpcoo_hex(cpcoo_words, f"{out_prefix}.hex")
+    save_cpcoo_bin_le(cpcoo_words, f"{out_prefix}.bin")
+
+    save_int_list_txt(csr_row_ptr, f"{out_prefix}_csr_row_ptr.txt")
+    save_int_list_txt(csr_col_idx, f"{out_prefix}_csr_col_idx.txt")
+    save_float_list_txt(csr_values, f"{out_prefix}_csr_values.txt")
+
+    # CSR 按 Host->Device 传输视角导出：三个数组都按 32-bit word 存储
+    save_u32_hex(csr_row_ptr, f"{out_prefix}_csr_row_ptr_u32.hex")
+    save_u32_bin_le(csr_row_ptr, f"{out_prefix}_csr_row_ptr_u32.bin")
+    save_u32_hex(csr_col_idx, f"{out_prefix}_csr_col_idx_u32.hex")
+    save_u32_bin_le(csr_col_idx, f"{out_prefix}_csr_col_idx_u32.bin")
+    save_f32_hex(csr_values, f"{out_prefix}_csr_values_f32.hex")
+    save_f32_bin_le(csr_values, f"{out_prefix}_csr_values_f32.bin")
+
+    print(f"[csr] nrows={csr_nrows}, nnz={len(csr_col_idx)}")
+    print(f"[csr] row_ptr -> {out_prefix}_csr_row_ptr.txt ({len(csr_row_ptr)} entries)")
+    print(f"[csr] col_idx -> {out_prefix}_csr_col_idx.txt ({len(csr_col_idx)} entries)")
+    print(f"[csr] values  -> {out_prefix}_csr_values.txt ({len(csr_values)} entries)")
+    print(f"[csr] row_ptr u32 -> {out_prefix}_csr_row_ptr_u32.hex / .bin")
+    print(f"[csr] col_idx u32 -> {out_prefix}_csr_col_idx_u32.hex / .bin")
+    print(f"[csr] values  f32 -> {out_prefix}_csr_values_f32.hex / .bin")
+
+    report_transfer_compare(cpcoo_words, csr_row_ptr, csr_col_idx, csr_values)
